@@ -10,11 +10,30 @@ import UIKit
 
 class ChangePasswordController: UIViewController {
 
+    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var confirmPassword: UITextField!
+    @IBOutlet weak var saveBtn: UIButton!
+    @IBOutlet weak var cancelBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setUpUI()
     }
     
-
+    func setUpUI() {
+        saveBtn.setBorderRadous(color: UIColor.white)
+        cancelBtn.setBorderRadous(color: UIColor.white)
+    }
+    
+    @IBAction func clickSave(_ sender: Any) {
+        dismissHandle()
+    }
+    
+    @IBAction func clickCancel(_ sender: Any) {
+        dismissHandle()
+    }
+    
+    func dismissHandle() {
+        dismiss(animated: true, completion: nil)
+    }
 }

@@ -389,7 +389,7 @@
                         <outlet property="phone" destination="Bin-7p-XlI" id="6uJ-P6-wje"/>
                         <outlet property="tableView" destination="Icg-bG-qHN" id="8yR-pW-n4O"/>
                         <outlet property="username" destination="Nla-k7-9Ow" id="5ia-RE-JqD"/>
-                        <segue destination="yeg-hz-sGy" kind="presentation" identifier="ChangePassSegue" modalPresentationStyle="currentContext" modalTransitionStyle="crossDissolve" id="flk-rV-HF8"/>
+                        <segue destination="yeg-hz-sGy" kind="presentation" identifier="ChangePassSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="flk-rV-HF8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QIW-79-sbb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -399,43 +399,53 @@
         <!--Change Password Controller-->
         <scene sceneID="j1k-dq-pRX">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="currentContext" id="yeg-hz-sGy" userLabel="Change Password Controller" customClass="ChangePasswordController" customModule="notritionVendorsAPP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="yeg-hz-sGy" userLabel="Change Password Controller" customClass="ChangePasswordController" customModule="notritionVendorsAPP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nTP-2Q-G7V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wcy-aG-Z7B">
+                            <view opaque="NO" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wcy-aG-Z7B">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFC-3o-RFS">
                                         <rect key="frame" x="10" y="547" width="355" height="40"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="Save"/>
+                                        <state key="normal" title="Save">
+                                            <color key="titleColor" red="0.33333333329999998" green="0.64313725489999995" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="clickSave:" destination="yeg-hz-sGy" eventType="touchUpInside" id="Qe0-LY-5yA"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="21Z-FO-M3g">
                                         <rect key="frame" x="10" y="597" width="355" height="40"/>
-                                        <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Rs8-nD-61a"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="Cancel"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="clickCancel:" destination="yeg-hz-sGy" eventType="touchUpInside" id="3MF-l8-MHL"/>
+                                        </connections>
                                     </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tf5-QG-TbT">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="tf5-QG-TbT">
                                         <rect key="frame" x="10" y="437" width="355" height="90"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D5y-dJ-wyB">
-                                                <rect key="frame" x="0.0" y="0.0" width="355" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="355" height="45"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="3cJ-h6-f0g"/>
+                                                    <constraint firstAttribute="height" constant="45" id="3cJ-h6-f0g"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vu0-RC-N55">
-                                                <rect key="frame" x="0.0" y="50" width="355" height="40"/>
+                                                <rect key="frame" x="0.0" y="45" width="355" height="45"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -448,7 +458,7 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.65500434027777776" alpha="0.8300246147260274" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.66821506076388881" alpha="0.8300246147260274" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="tf5-QG-TbT" secondAttribute="trailing" constant="10" id="9KW-Mr-vYk"/>
                                     <constraint firstItem="RFC-3o-RFS" firstAttribute="leading" secondItem="wcy-aG-Z7B" secondAttribute="leading" constant="10" id="Deq-sY-JNF"/>
@@ -472,6 +482,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dWW-WO-lPO"/>
                     </view>
+                    <connections>
+                        <outlet property="cancelBtn" destination="21Z-FO-M3g" id="hj9-Jd-uUo"/>
+                        <outlet property="confirmPassword" destination="Vu0-RC-N55" id="8ts-Pj-1cU"/>
+                        <outlet property="password" destination="D5y-dJ-wyB" id="AU3-gs-Uzd"/>
+                        <outlet property="saveBtn" destination="RFC-3o-RFS" id="T6f-0t-mmV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mXa-LM-a5g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -561,10 +577,10 @@
             </objects>
             <point key="canvasLocation" x="-1416.8" y="1793.2533733133434"/>
         </scene>
-        <!--View Controller-->
+        <!--Hight Rating Controller-->
         <scene sceneID="4hk-pc-KD4">
             <objects>
-                <viewController id="zTa-ho-izm" sceneMemberID="viewController">
+                <viewController id="zTa-ho-izm" customClass="HightRatingController" customModule="notritionVendorsAPP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gFT-7K-K98">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

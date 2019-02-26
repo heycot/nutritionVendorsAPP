@@ -13,12 +13,6 @@ class AccountController: UIViewController {
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var phone: UITextField!
     @IBOutlet weak var isActive: UITextField!
-    //    @IBOutlet weak var email: UITextField!
-//    @IBOutlet weak var address: UITextField!
-//    @IBOutlet weak var joinOn: UITextField!
-//    @IBOutlet weak var changeInfor: UITextField!
-//    @IBOutlet weak var changePass: UITextField!
-//    @IBOutlet weak var signOut: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
     let titleCell = ["Email:", "Birthday:", "Address:", "Join on:", "Edit information", "Change password", "Sign out"]
@@ -43,36 +37,13 @@ class AccountController: UIViewController {
         tableView.rowHeight = 50
     }
     
-    @IBAction func ChangePassClick(_ sender: Any) {
-        print("click change password")
-        self.performSegue(withIdentifier: "ChangePassSegue", sender: self)
-    }
-    
     func setUpUI() {
-//        email.setBottomBorder()
-//        address.setBottomBorder()
-//        joinOn.setBottomBorder()
-//        changeInfor.setBottomBorder()
-//        changePass.setBottomBorder()
-//        signOut.setBottomBorder()
-//
     }
     
-    @IBAction func toucDown(_ sender: Any) {
-        
-        print("touch change pass")
-    }
     func disableUIView() {
         username.isEnabled = false
         phone.isEnabled = false
         isActive.isEnabled = false
-//        email.isEnabled = false
-//        address.isEnabled = false
-//        joinOn.isEnabled = false
-//        changeInfor.isEnabled = false
-////        changePass.isEnabled = false
-//        signOut.isEnabled = false
-//
     }
 
 }
@@ -87,10 +58,8 @@ extension AccountController: UITableViewDelegate, UITableViewDataSource {
         
         cell.detailTextLabel?.text = detailCell[indexPath.row]
         cell.textLabel?.text = titleCell[indexPath.row]
-        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 18.0)
-//        cellTitle.text = "Name:"
-//        cellDetail.text = "Callie"
-//
+        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 17.0)
+
         return cell
     }
     
