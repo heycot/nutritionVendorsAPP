@@ -7,17 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		235A32B02224E9F200DE5B0E /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32AF2224E9F200DE5B0E /* SignupController.swift */; };
+		235A32B22224EA0C00DE5B0E /* HightRatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32B12224EA0C00DE5B0E /* HightRatingController.swift */; };
+		235A32B52224EAB400DE5B0E /* ExtensionTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32B42224EAB400DE5B0E /* ExtensionTextField.swift */; };
+		235A32B72224EB6400DE5B0E /* ExtensionStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32B62224EB6400DE5B0E /* ExtensionStackView.swift */; };
+		235A32B92224EC1100DE5B0E /* ExtensionUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32B82224EC1100DE5B0E /* ExtensionUIColor.swift */; };
+		235A32BB2224EDE400DE5B0E /* UIImageLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32BA2224EDE400DE5B0E /* UIImageLibrary.swift */; };
+		235A32BD2224F51500DE5B0E /* AccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32BC2224F51500DE5B0E /* AccountController.swift */; };
+		235A32BF2225301E00DE5B0E /* ChangePasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32BE2225301E00DE5B0E /* ChangePasswordController.swift */; };
 		23D02E612223799300882742 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D02E602223799300882742 /* AppDelegate.swift */; };
-		23D02E632223799300882742 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D02E622223799300882742 /* ViewController.swift */; };
+		23D02E632223799300882742 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D02E622223799300882742 /* LoginController.swift */; };
 		23D02E662223799300882742 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23D02E642223799300882742 /* Main.storyboard */; };
 		23D02E682223799400882742 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23D02E672223799400882742 /* Assets.xcassets */; };
 		23D02E6B2223799400882742 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23D02E692223799400882742 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		235A32AF2224E9F200DE5B0E /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
+		235A32B12224EA0C00DE5B0E /* HightRatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HightRatingController.swift; sourceTree = "<group>"; };
+		235A32B42224EAB400DE5B0E /* ExtensionTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTextField.swift; sourceTree = "<group>"; };
+		235A32B62224EB6400DE5B0E /* ExtensionStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionStackView.swift; sourceTree = "<group>"; };
+		235A32B82224EC1100DE5B0E /* ExtensionUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIColor.swift; sourceTree = "<group>"; };
+		235A32BA2224EDE400DE5B0E /* UIImageLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageLibrary.swift; sourceTree = "<group>"; };
+		235A32BC2224F51500DE5B0E /* AccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountController.swift; sourceTree = "<group>"; };
+		235A32BE2225301E00DE5B0E /* ChangePasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordController.swift; sourceTree = "<group>"; };
 		23D02E5D2223799300882742 /* notritionVendorsAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = notritionVendorsAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23D02E602223799300882742 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		23D02E622223799300882742 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		23D02E622223799300882742 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		23D02E652223799300882742 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		23D02E672223799400882742 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23D02E6A2223799400882742 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -35,6 +51,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		235A32B32224EA7800DE5B0E /* libraries */ = {
+			isa = PBXGroup;
+			children = (
+				235A32B42224EAB400DE5B0E /* ExtensionTextField.swift */,
+				235A32B62224EB6400DE5B0E /* ExtensionStackView.swift */,
+				235A32B82224EC1100DE5B0E /* ExtensionUIColor.swift */,
+				235A32BA2224EDE400DE5B0E /* UIImageLibrary.swift */,
+			);
+			path = libraries;
+			sourceTree = "<group>";
+		};
 		23D02E542223799300882742 = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +81,7 @@
 		23D02E5F2223799300882742 /* notritionVendorsAPP */ = {
 			isa = PBXGroup;
 			children = (
+				235A32B32224EA7800DE5B0E /* libraries */,
 				23D02E7622237AC100882742 /* resource */,
 				23D02E7522237AB600882742 /* model */,
 				23D02E7422237A7900882742 /* viewController */,
@@ -76,7 +104,11 @@
 			isa = PBXGroup;
 			children = (
 				23D02E602223799300882742 /* AppDelegate.swift */,
-				23D02E622223799300882742 /* ViewController.swift */,
+				23D02E622223799300882742 /* LoginController.swift */,
+				235A32AF2224E9F200DE5B0E /* SignupController.swift */,
+				235A32B12224EA0C00DE5B0E /* HightRatingController.swift */,
+				235A32BC2224F51500DE5B0E /* AccountController.swift */,
+				235A32BE2225301E00DE5B0E /* ChangePasswordController.swift */,
 			);
 			path = viewController;
 			sourceTree = "<group>";
@@ -167,8 +199,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23D02E632223799300882742 /* ViewController.swift in Sources */,
+				235A32BF2225301E00DE5B0E /* ChangePasswordController.swift in Sources */,
+				235A32B02224E9F200DE5B0E /* SignupController.swift in Sources */,
+				235A32B52224EAB400DE5B0E /* ExtensionTextField.swift in Sources */,
+				23D02E632223799300882742 /* LoginController.swift in Sources */,
+				235A32B72224EB6400DE5B0E /* ExtensionStackView.swift in Sources */,
 				23D02E612223799300882742 /* AppDelegate.swift in Sources */,
+				235A32BB2224EDE400DE5B0E /* UIImageLibrary.swift in Sources */,
+				235A32BD2224F51500DE5B0E /* AccountController.swift in Sources */,
+				235A32B92224EC1100DE5B0E /* ExtensionUIColor.swift in Sources */,
+				235A32B22224EA0C00DE5B0E /* HightRatingController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
