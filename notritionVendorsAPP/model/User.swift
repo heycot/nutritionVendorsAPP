@@ -9,7 +9,7 @@
 import Foundation
 
 public class User {
-    var id: Int64
+    var id: Int
     var username: String
     var email: String
     var phone: String
@@ -18,10 +18,10 @@ public class User {
     var avatar: String
     var address: String
     var create_date: Date
-    var status: Int64
+    var status: Int
     
     
-    init(id: Int64, username: String, email: String, phone: String, password: String, birthday: Date, avatar: String, address: String, create_date: Date, status: Int64) {
+    init(id: Int, username: String, email: String, phone: String, password: String, birthday: Date, avatar: String, address: String, create_date: Date, status: Int) {
         self.id = id
         self.username = username
         self.email = email
