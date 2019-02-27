@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		230E2DD22226431D00246392 /* LogInAndLogOut.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 230E2DD12226431D00246392 /* LogInAndLogOut.storyboard */; };
+		230E2DD6222647F100246392 /* ProductsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230E2DD5222647F100246392 /* ProductsCell.swift */; };
 		23351DC4222539BF003944E2 /* ExtensionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23351DC3222539BF003944E2 /* ExtensionButton.swift */; };
 		235A32B02224E9F200DE5B0E /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32AF2224E9F200DE5B0E /* SignupController.swift */; };
 		235A32B22224EA0C00DE5B0E /* HightRatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32B12224EA0C00DE5B0E /* HightRatingController.swift */; };
@@ -21,9 +23,12 @@
 		23D02E662223799300882742 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23D02E642223799300882742 /* Main.storyboard */; };
 		23D02E682223799400882742 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23D02E672223799400882742 /* Assets.xcassets */; };
 		23D02E6B2223799400882742 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23D02E692223799400882742 /* LaunchScreen.storyboard */; };
+		C1E9E7CB534923D4BFC15F1F /* Pods_notritionVendorsAPP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5B772CE597B45A98D426415 /* Pods_notritionVendorsAPP.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		230E2DD12226431D00246392 /* LogInAndLogOut.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogInAndLogOut.storyboard; sourceTree = "<group>"; };
+		230E2DD5222647F100246392 /* ProductsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCell.swift; sourceTree = "<group>"; };
 		23351DC3222539BF003944E2 /* ExtensionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionButton.swift; sourceTree = "<group>"; };
 		235A32AF2224E9F200DE5B0E /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
 		235A32B12224EA0C00DE5B0E /* HightRatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HightRatingController.swift; sourceTree = "<group>"; };
@@ -40,6 +45,9 @@
 		23D02E672223799400882742 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23D02E6A2223799400882742 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		23D02E6C2223799400882742 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2517CE55DA2DAF805F435575 /* Pods-notritionVendorsAPP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-notritionVendorsAPP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-notritionVendorsAPP/Pods-notritionVendorsAPP.debug.xcconfig"; sourceTree = "<group>"; };
+		A8D3C78C5C198D1296EA2D52 /* Pods-notritionVendorsAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-notritionVendorsAPP.release.xcconfig"; path = "Pods/Target Support Files/Pods-notritionVendorsAPP/Pods-notritionVendorsAPP.release.xcconfig"; sourceTree = "<group>"; };
+		C5B772CE597B45A98D426415 /* Pods_notritionVendorsAPP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_notritionVendorsAPP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1E9E7CB534923D4BFC15F1F /* Pods_notritionVendorsAPP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +79,8 @@
 			children = (
 				23D02E5F2223799300882742 /* notritionVendorsAPP */,
 				23D02E5E2223799300882742 /* Products */,
+				F9481C0B62C5D8AAFAF3E6A6 /* Pods */,
+				D6D88E404BF4B5919EE2F7E1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +110,7 @@
 			children = (
 				23D02E692223799400882742 /* LaunchScreen.storyboard */,
 				23D02E642223799300882742 /* Main.storyboard */,
+				230E2DD12226431D00246392 /* LogInAndLogOut.storyboard */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -112,6 +124,7 @@
 				235A32B12224EA0C00DE5B0E /* HightRatingController.swift */,
 				235A32BC2224F51500DE5B0E /* AccountController.swift */,
 				235A32BE2225301E00DE5B0E /* ChangePasswordController.swift */,
+				230E2DD5222647F100246392 /* ProductsCell.swift */,
 			);
 			path = viewController;
 			sourceTree = "<group>";
@@ -131,6 +144,23 @@
 			path = resource;
 			sourceTree = "<group>";
 		};
+		D6D88E404BF4B5919EE2F7E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C5B772CE597B45A98D426415 /* Pods_notritionVendorsAPP.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F9481C0B62C5D8AAFAF3E6A6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2517CE55DA2DAF805F435575 /* Pods-notritionVendorsAPP.debug.xcconfig */,
+				A8D3C78C5C198D1296EA2D52 /* Pods-notritionVendorsAPP.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,9 +168,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 23D02E6F2223799400882742 /* Build configuration list for PBXNativeTarget "notritionVendorsAPP" */;
 			buildPhases = (
+				A6036B480BE0CFA8F0890925 /* [CP] Check Pods Manifest.lock */,
 				23D02E592223799300882742 /* Sources */,
 				23D02E5A2223799300882742 /* Frameworks */,
 				23D02E5B2223799300882742 /* Resources */,
+				4DC17372A2F2DA2D517A4D86 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -191,11 +223,61 @@
 			files = (
 				23D02E6B2223799400882742 /* LaunchScreen.storyboard in Resources */,
 				23D02E682223799400882742 /* Assets.xcassets in Resources */,
+				230E2DD22226431D00246392 /* LogInAndLogOut.storyboard in Resources */,
 				23D02E662223799300882742 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4DC17372A2F2DA2D517A4D86 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-notritionVendorsAPP/Pods-notritionVendorsAPP-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
+				"${BUILT_PRODUCTS_DIR}/TinyConstraints/TinyConstraints.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TinyConstraints.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-notritionVendorsAPP/Pods-notritionVendorsAPP-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A6036B480BE0CFA8F0890925 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-notritionVendorsAPP-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		23D02E592223799300882742 /* Sources */ = {
@@ -207,6 +289,7 @@
 				23351DC4222539BF003944E2 /* ExtensionButton.swift in Sources */,
 				235A32B52224EAB400DE5B0E /* ExtensionTextField.swift in Sources */,
 				23D02E632223799300882742 /* LoginController.swift in Sources */,
+				230E2DD6222647F100246392 /* ProductsCell.swift in Sources */,
 				235A32B72224EB6400DE5B0E /* ExtensionStackView.swift in Sources */,
 				23D02E612223799300882742 /* AppDelegate.swift in Sources */,
 				235A32BB2224EDE400DE5B0E /* UIImageLibrary.swift in Sources */,
@@ -356,6 +439,7 @@
 		};
 		23D02E702223799400882742 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2517CE55DA2DAF805F435575 /* Pods-notritionVendorsAPP.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -366,6 +450,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Enclave.notritionVendorsAPP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_REFLECTION_METADATA_LEVEL = none;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -373,6 +458,7 @@
 		};
 		23D02E712223799400882742 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8D3C78C5C198D1296EA2D52 /* Pods-notritionVendorsAPP.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -383,6 +469,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Enclave.notritionVendorsAPP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_REFLECTION_METADATA_LEVEL = none;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

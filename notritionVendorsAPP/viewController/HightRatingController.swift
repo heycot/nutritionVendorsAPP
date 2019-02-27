@@ -7,9 +7,16 @@
 //
 
 import UIKit
+import Cosmos
+import TinyConstraints
 
 class HightRatingController: UIViewController, UISearchBarDelegate {
 
+    lazy var cosmosView: CosmosView = {
+        var view = CosmosView()
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
