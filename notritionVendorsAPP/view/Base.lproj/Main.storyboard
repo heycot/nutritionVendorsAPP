@@ -48,6 +48,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="firstBKImage" translatesAutoresizingMaskIntoConstraints="NO" id="k6e-hb-A9f">
+                                <rect key="frame" x="10" y="20" width="355" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="Bg5-8Q-Eeh"/>
+                                </constraints>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nutrition_icon" translatesAutoresizingMaskIntoConstraints="NO" id="4hF-7B-lBw">
                                 <rect key="frame" x="127.5" y="70" width="120" height="120"/>
                                 <constraints>
@@ -126,24 +132,18 @@
                                     <constraint firstItem="Nla-k7-9Ow" firstAttribute="centerX" secondItem="hJV-Bu-tqy" secondAttribute="centerX" id="xmu-uh-NkL"/>
                                 </constraints>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="firstBKImage" translatesAutoresizingMaskIntoConstraints="NO" id="k6e-hb-A9f">
-                                <rect key="frame" x="10" y="20" width="355" height="150"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="Bg5-8Q-Eeh"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="4hF-7B-lBw" firstAttribute="centerX" secondItem="rAh-u0-3RA" secondAttribute="centerX" id="DyN-Av-qug"/>
+                            <constraint firstItem="A3Z-GI-soh" firstAttribute="trailing" secondItem="k6e-hb-A9f" secondAttribute="trailing" constant="10" id="EKO-fi-jyJ"/>
                             <constraint firstItem="4hF-7B-lBw" firstAttribute="top" secondItem="A3Z-GI-soh" secondAttribute="top" constant="50" id="Gl6-Nl-rf6"/>
                             <constraint firstItem="A3Z-GI-soh" firstAttribute="bottom" secondItem="hJV-Bu-tqy" secondAttribute="bottom" constant="10" id="Wvr-El-a8t"/>
                             <constraint firstItem="hJV-Bu-tqy" firstAttribute="top" secondItem="4hF-7B-lBw" secondAttribute="bottom" id="f1o-as-86f"/>
-                            <constraint firstItem="k6e-hb-A9f" firstAttribute="leading" secondItem="A3Z-GI-soh" secondAttribute="leading" constant="10" id="hYW-ez-B4w"/>
-                            <constraint firstItem="k6e-hb-A9f" firstAttribute="top" secondItem="A3Z-GI-soh" secondAttribute="top" id="tIb-bP-qbu"/>
+                            <constraint firstItem="k6e-hb-A9f" firstAttribute="top" secondItem="A3Z-GI-soh" secondAttribute="top" id="l4N-aF-QRl"/>
                             <constraint firstItem="hJV-Bu-tqy" firstAttribute="leading" secondItem="A3Z-GI-soh" secondAttribute="leading" constant="10" id="tz9-yX-LLR"/>
+                            <constraint firstItem="k6e-hb-A9f" firstAttribute="leading" secondItem="A3Z-GI-soh" secondAttribute="leading" constant="10" id="wVi-Y7-OzJ"/>
                             <constraint firstItem="A3Z-GI-soh" firstAttribute="trailing" secondItem="hJV-Bu-tqy" secondAttribute="trailing" constant="10" id="wu8-Gw-vtw"/>
-                            <constraint firstItem="A3Z-GI-soh" firstAttribute="trailing" secondItem="k6e-hb-A9f" secondAttribute="trailing" constant="10" id="yDW-WH-Df1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="A3Z-GI-soh"/>
                     </view>
