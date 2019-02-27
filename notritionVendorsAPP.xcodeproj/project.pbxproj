@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		230E2DD22226431D00246392 /* LogInAndLogOut.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 230E2DD12226431D00246392 /* LogInAndLogOut.storyboard */; };
-		230E2DD6222647F100246392 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230E2DD5222647F100246392 /* ItemCell.swift */; };
 		230E2DD822265A4700246392 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230E2DD722265A4700246392 /* User.swift */; };
 		230E2DDA2226650700246392 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230E2DD92226650700246392 /* Comment.swift */; };
 		230E2DDC222666F300246392 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230E2DDB222666F300246392 /* City.swift */; };
@@ -19,6 +18,8 @@
 		230E2DE622266AEF00246392 /* ShopItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230E2DE522266AEF00246392 /* ShopItem.swift */; };
 		230E2DE822266BFE00246392 /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230E2DE722266BFE00246392 /* Shop.swift */; };
 		230E2DEA22266DDE00246392 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230E2DE922266DDE00246392 /* Favorites.swift */; };
+		230E2DED22267DCA00246392 /* CollectionItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230E2DEB22267DCA00246392 /* CollectionItemCell.swift */; };
+		230E2DEE22267DCA00246392 /* CollectionItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 230E2DEC22267DCA00246392 /* CollectionItemCell.xib */; };
 		23351DC4222539BF003944E2 /* ExtensionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23351DC3222539BF003944E2 /* ExtensionButton.swift */; };
 		235A32B02224E9F200DE5B0E /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32AF2224E9F200DE5B0E /* SignupController.swift */; };
 		235A32B22224EA0C00DE5B0E /* HightRatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32B12224EA0C00DE5B0E /* HightRatingController.swift */; };
@@ -38,7 +39,6 @@
 
 /* Begin PBXFileReference section */
 		230E2DD12226431D00246392 /* LogInAndLogOut.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogInAndLogOut.storyboard; sourceTree = "<group>"; };
-		230E2DD5222647F100246392 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		230E2DD722265A4700246392 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		230E2DD92226650700246392 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		230E2DDB222666F300246392 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
@@ -49,6 +49,8 @@
 		230E2DE522266AEF00246392 /* ShopItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItem.swift; sourceTree = "<group>"; };
 		230E2DE722266BFE00246392 /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
 		230E2DE922266DDE00246392 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
+		230E2DEB22267DCA00246392 /* CollectionItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionItemCell.swift; sourceTree = "<group>"; };
+		230E2DEC22267DCA00246392 /* CollectionItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionItemCell.xib; sourceTree = "<group>"; };
 		23351DC3222539BF003944E2 /* ExtensionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionButton.swift; sourceTree = "<group>"; };
 		235A32AF2224E9F200DE5B0E /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
 		235A32B12224EA0C00DE5B0E /* HightRatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HightRatingController.swift; sourceTree = "<group>"; };
@@ -144,7 +146,8 @@
 				235A32B12224EA0C00DE5B0E /* HightRatingController.swift */,
 				235A32BC2224F51500DE5B0E /* AccountController.swift */,
 				235A32BE2225301E00DE5B0E /* ChangePasswordController.swift */,
-				230E2DD5222647F100246392 /* ItemCell.swift */,
+				230E2DEB22267DCA00246392 /* CollectionItemCell.swift */,
+				230E2DEC22267DCA00246392 /* CollectionItemCell.xib */,
 			);
 			path = viewController;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				23D02E6B2223799400882742 /* LaunchScreen.storyboard in Resources */,
 				23D02E682223799400882742 /* Assets.xcassets in Resources */,
 				230E2DD22226431D00246392 /* LogInAndLogOut.storyboard in Resources */,
+				230E2DEE22267DCA00246392 /* CollectionItemCell.xib in Resources */,
 				23D02E662223799300882742 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,7 +328,6 @@
 				230E2DE0222667EE00246392 /* Location.swift in Sources */,
 				235A32B52224EAB400DE5B0E /* ExtensionTextField.swift in Sources */,
 				23D02E632223799300882742 /* LoginController.swift in Sources */,
-				230E2DD6222647F100246392 /* ItemCell.swift in Sources */,
 				235A32B72224EB6400DE5B0E /* ExtensionStackView.swift in Sources */,
 				230E2DE2222668C000246392 /* Item.swift in Sources */,
 				23D02E612223799300882742 /* AppDelegate.swift in Sources */,
@@ -334,6 +337,7 @@
 				235A32B92224EC1100DE5B0E /* ExtensionUIColor.swift in Sources */,
 				230E2DDE2226674200246392 /* Area.swift in Sources */,
 				230E2DE822266BFE00246392 /* Shop.swift in Sources */,
+				230E2DED22267DCA00246392 /* CollectionItemCell.swift in Sources */,
 				235A32B22224EA0C00DE5B0E /* HightRatingController.swift in Sources */,
 				230E2DE4222669F000246392 /* Document.swift in Sources */,
 			);

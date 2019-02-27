@@ -7,23 +7,37 @@
 //
 
 import UIKit
-import Cosmos
-import TinyConstraints
 
 class HightRatingController: UIViewController, UISearchBarDelegate {
 
     @IBOutlet weak var itemCollection: UICollectionView!
     
-    lazy var cosmosView: CosmosView = {
-        var view = CosmosView()
-        return view
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        createCollectionCell()
         createSearchBar()
         
+        itemCollection.delegate = self
+        itemCollection.dataSource = self
+//        let flow = collectioitemCollectionnView.collectionViewLayout as! UICollectionViewFlowLayout
+//        flow.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
+
+        
+    }
+    
+    func createCollectionCell() {
+        
+//        itemCollection.register(UINib.init(nibName: "CollectionItemCell", bundle: nil), forSupplementaryViewOfKind: "CollectionItemCell", withReuseIdentifier: "ItemCell")
+        itemCollection.register(UINib.init(nibName: "CollectionItemCell", bundle: nil), forCellWithReuseIdentifier: "ItemCell")
+        
+//           boardCollectionView.register(UINib(nibName: Constants.CellIdentifiers.cardCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: Constants.CellIdentifiers.cardCollectionViewCell)
+        
+        if let flowLayout = itemCollection.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayout.estimatedItemSize = CGSize(width: 250, height: 250)
+        }
+        
+    
     }
     
     func createSearchBar() {
@@ -43,9 +57,27 @@ extension HightRatingController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath) 
-        return cell
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath) as? CollectionItemCell {
+            cell.updateView()
+            
+            return cell
+        }
+        return CollectionItemCell()
     }
     
+}
+
+
+extension HightRatingController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 250, height: 240)
+    }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return CGFloat(10.0)
+    }
+    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//        <#code#>
+//    }
 }
