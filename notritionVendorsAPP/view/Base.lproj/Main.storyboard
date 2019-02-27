@@ -360,7 +360,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="P58-C7-IIT" customClass="ProductsCell" customModule="notritionVendorsAPP" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ItemCell" id="P58-C7-IIT" customClass="ItemCell" customModule="notritionVendorsAPP" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="179" height="256"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -432,6 +432,9 @@
                         <viewLayoutGuide key="safeArea" id="oKV-m5-Al9"/>
                     </view>
                     <navigationItem key="navigationItem" id="V3d-CZ-Zsq"/>
+                    <connections>
+                        <outlet property="itemCollection" destination="ZCj-kS-Tj0" id="nrH-uS-sUk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6aC-Bo-lwY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

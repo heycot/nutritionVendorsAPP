@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		230E2DD22226431D00246392 /* LogInAndLogOut.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 230E2DD12226431D00246392 /* LogInAndLogOut.storyboard */; };
-		230E2DD6222647F100246392 /* ProductsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230E2DD5222647F100246392 /* ProductsCell.swift */; };
+		230E2DD6222647F100246392 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230E2DD5222647F100246392 /* ItemCell.swift */; };
+		230E2DD822265A4700246392 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230E2DD722265A4700246392 /* User.swift */; };
 		23351DC4222539BF003944E2 /* ExtensionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23351DC3222539BF003944E2 /* ExtensionButton.swift */; };
 		235A32B02224E9F200DE5B0E /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32AF2224E9F200DE5B0E /* SignupController.swift */; };
 		235A32B22224EA0C00DE5B0E /* HightRatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32B12224EA0C00DE5B0E /* HightRatingController.swift */; };
@@ -28,7 +29,8 @@
 
 /* Begin PBXFileReference section */
 		230E2DD12226431D00246392 /* LogInAndLogOut.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogInAndLogOut.storyboard; sourceTree = "<group>"; };
-		230E2DD5222647F100246392 /* ProductsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCell.swift; sourceTree = "<group>"; };
+		230E2DD5222647F100246392 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		230E2DD722265A4700246392 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		23351DC3222539BF003944E2 /* ExtensionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionButton.swift; sourceTree = "<group>"; };
 		235A32AF2224E9F200DE5B0E /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
 		235A32B12224EA0C00DE5B0E /* HightRatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HightRatingController.swift; sourceTree = "<group>"; };
@@ -124,7 +126,7 @@
 				235A32B12224EA0C00DE5B0E /* HightRatingController.swift */,
 				235A32BC2224F51500DE5B0E /* AccountController.swift */,
 				235A32BE2225301E00DE5B0E /* ChangePasswordController.swift */,
-				230E2DD5222647F100246392 /* ProductsCell.swift */,
+				230E2DD5222647F100246392 /* ItemCell.swift */,
 			);
 			path = viewController;
 			sourceTree = "<group>";
@@ -132,6 +134,7 @@
 		23D02E7522237AB600882742 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				230E2DD722265A4700246392 /* User.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -284,12 +287,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				230E2DD822265A4700246392 /* User.swift in Sources */,
 				235A32BF2225301E00DE5B0E /* ChangePasswordController.swift in Sources */,
 				235A32B02224E9F200DE5B0E /* SignupController.swift in Sources */,
 				23351DC4222539BF003944E2 /* ExtensionButton.swift in Sources */,
 				235A32B52224EAB400DE5B0E /* ExtensionTextField.swift in Sources */,
 				23D02E632223799300882742 /* LoginController.swift in Sources */,
-				230E2DD6222647F100246392 /* ProductsCell.swift in Sources */,
+				230E2DD6222647F100246392 /* ItemCell.swift in Sources */,
 				235A32B72224EB6400DE5B0E /* ExtensionStackView.swift in Sources */,
 				23D02E612223799300882742 /* AppDelegate.swift in Sources */,
 				235A32BB2224EDE400DE5B0E /* UIImageLibrary.swift in Sources */,

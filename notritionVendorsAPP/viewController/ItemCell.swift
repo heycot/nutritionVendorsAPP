@@ -8,10 +8,14 @@
 
 import UIKit
 
-class ProductsCell: UICollectionViewCell {
+class ItemCell: UICollectionViewCell {
     
     @IBOutlet weak var imageItem: UIImageView!
     @IBOutlet weak var nameItem: UILabel!
     @IBOutlet weak var priceItem: UILabel!
     @IBOutlet weak var ratingView: UIView!
+
+    func updateView() {
+        
+    }
 }

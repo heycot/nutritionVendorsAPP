@@ -12,6 +12,8 @@ import TinyConstraints
 
 class HightRatingController: UIViewController, UISearchBarDelegate {
 
+    @IBOutlet weak var itemCollection: UICollectionView!
+    
     lazy var cosmosView: CosmosView = {
         var view = CosmosView()
         return view
@@ -21,6 +23,7 @@ class HightRatingController: UIViewController, UISearchBarDelegate {
         super.viewDidLoad()
         
         createSearchBar()
+        
     }
     
     func createSearchBar() {
@@ -32,4 +35,20 @@ class HightRatingController: UIViewController, UISearchBarDelegate {
         self.navigationItem.titleView = searchBar
     }
 
+}
+
+extension HightRatingController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath) as? ItemCell {
+            
+        }
+        
+        return cell
+    }
+    
+    
 }
