@@ -10,6 +10,7 @@ import UIKit
 
 class ViewItemController: UIViewController {
 
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var itemName: UITextField!
     @IBOutlet weak var itemComment: UITextField!
@@ -18,6 +19,7 @@ class ViewItemController: UIViewController {
     @IBOutlet weak var itemRating: UITextField!
     @IBOutlet weak var genaralStackView: UIStackView!
     @IBOutlet weak var generalTableView: UITableView!
+    @IBOutlet weak var commentTableView: UITableView!
     
     var item = Item()
     var generalViewIcon = ["price-tag", "alarm-clock", "call", "placeholder", "catalog"]
@@ -25,10 +27,16 @@ class ViewItemController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpScrollView()
         self.title = "Nho Den"
         setUpUI()
         viewDetailItem()
         setUPTableView()
+    }
+    
+    func setUpScrollView() {
+        scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 1500, right: 0)
+        scrollView.delegate = self
     }
     
     func setUpUI() {
@@ -41,11 +49,16 @@ class ViewItemController: UIViewController {
         generalTableView.delegate = self
         generalTableView.dataSource = self
         generalTableView.tableFooterView = UIView()
-        
-        
-        self.generalTableView.reloadData()
+//        self.generalTableView.reloadData()
         generalTableView.estimatedRowHeight = UITableView.automaticDimension
         generalTableView.rowHeight = 40
+        
+        commentTableView.delegate = self
+        commentTableView.dataSource = self
+        commentTableView.tableFooterView = UIView()
+        commentTableView.estimatedRowHeight = UITableView.automaticDimension
+        commentTableView.rowHeight = 200
+        
     }
     
     func viewDetailItem() {
@@ -78,8 +91,24 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
         
+        if  let cell = tableView.dequeueReusableCell(withIdentifier: "CommentItem" ) as? CommentTableCell{
+            cell.updateView(userimage: "firstBKImage", username: "Tao Xanh", cmtDate: "20/02/2019", cmtTitle: "So Good", rating: 4.5, cmtContent: "gooddddd")
+            return cell
+        }
+        
         return GeneralItemCell()
     }
     
     
+}
+
+extension ViewItemController: UIScrollViewDelegate {
+    
+    private func scrollViewDidScroll(scrollView: UIScrollView) {
+        
+        if scrollView.contentOffset.x>0 {
+            scrollView.contentOffset.x = 0
+        }
+        scrollView.isDirectionalLockEnabled = true
+    }
 }
