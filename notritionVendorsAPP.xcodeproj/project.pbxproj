@@ -30,6 +30,9 @@
 		235A32BF2225301E00DE5B0E /* ChangePasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32BE2225301E00DE5B0E /* ChangePasswordController.swift */; };
 		23695E9222277DC600AD7076 /* ExtensionUICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23695E9122277DC600AD7076 /* ExtensionUICollectionView.swift */; };
 		23695E9422277F7200AD7076 /* ExtensionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23695E9322277F7200AD7076 /* ExtensionUIView.swift */; };
+		23695E9822278F3B00AD7076 /* ViewItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23695E9722278F3B00AD7076 /* ViewItemController.swift */; };
+		23695E9C2227B7F500AD7076 /* GeneralItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23695E9B2227B7F500AD7076 /* GeneralItemCell.swift */; };
+		23695E9E2227DD0B00AD7076 /* CommentTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23695E9D2227DD0B00AD7076 /* CommentTableCell.swift */; };
 		23D02E612223799300882742 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D02E602223799300882742 /* AppDelegate.swift */; };
 		23D02E632223799300882742 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D02E622223799300882742 /* LoginController.swift */; };
 		23D02E662223799300882742 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23D02E642223799300882742 /* Main.storyboard */; };
@@ -62,6 +65,9 @@
 		235A32BE2225301E00DE5B0E /* ChangePasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordController.swift; sourceTree = "<group>"; };
 		23695E9122277DC600AD7076 /* ExtensionUICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUICollectionView.swift; sourceTree = "<group>"; };
 		23695E9322277F7200AD7076 /* ExtensionUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIView.swift; sourceTree = "<group>"; };
+		23695E9722278F3B00AD7076 /* ViewItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewItemController.swift; sourceTree = "<group>"; };
+		23695E9B2227B7F500AD7076 /* GeneralItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralItemCell.swift; sourceTree = "<group>"; };
+		23695E9D2227DD0B00AD7076 /* CommentTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableCell.swift; sourceTree = "<group>"; };
 		23D02E5D2223799300882742 /* notritionVendorsAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = notritionVendorsAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23D02E602223799300882742 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23D02E622223799300882742 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -151,6 +157,9 @@
 				235A32BC2224F51500DE5B0E /* AccountController.swift */,
 				235A32BE2225301E00DE5B0E /* ChangePasswordController.swift */,
 				230E2DEB22267DCA00246392 /* CollectionItemCell.swift */,
+				23695E9722278F3B00AD7076 /* ViewItemController.swift */,
+				23695E9B2227B7F500AD7076 /* GeneralItemCell.swift */,
+				23695E9D2227DD0B00AD7076 /* CommentTableCell.swift */,
 			);
 			path = viewController;
 			sourceTree = "<group>";
@@ -321,13 +330,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				230E2DD822265A4700246392 /* User.swift in Sources */,
+				23695E9E2227DD0B00AD7076 /* CommentTableCell.swift in Sources */,
 				235A32BF2225301E00DE5B0E /* ChangePasswordController.swift in Sources */,
 				230E2DE622266AEF00246392 /* ShopItem.swift in Sources */,
 				235A32B02224E9F200DE5B0E /* SignupController.swift in Sources */,
 				23695E9222277DC600AD7076 /* ExtensionUICollectionView.swift in Sources */,
+				23695E9C2227B7F500AD7076 /* GeneralItemCell.swift in Sources */,
 				230E2DDA2226650700246392 /* Comment.swift in Sources */,
 				23695E9422277F7200AD7076 /* ExtensionUIView.swift in Sources */,
 				230E2DEA22266DDE00246392 /* Favorites.swift in Sources */,
+				23695E9822278F3B00AD7076 /* ViewItemController.swift in Sources */,
 				23351DC4222539BF003944E2 /* ExtensionButton.swift in Sources */,
 				230E2DE0222667EE00246392 /* Location.swift in Sources */,
 				235A32B52224EAB400DE5B0E /* ExtensionTextField.swift in Sources */,

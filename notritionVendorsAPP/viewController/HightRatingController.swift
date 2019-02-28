@@ -12,14 +12,21 @@ class HightRatingController: UIViewController, UISearchBarDelegate {
 
     @IBOutlet weak var itemCollection: UICollectionView!
     
+    var itemList = [Item]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        prepareData()
         createSearchBar()
         
         itemCollection.delegate = self
         itemCollection.dataSource = self
        
+    }
+    
+    func prepareData() {
+        var item = Item(id: 0, name: "Nho den", catalog_id: 0)
+        itemList.append(item)
     }
     
     func createSearchBar() {
@@ -29,6 +36,13 @@ class HightRatingController: UIViewController, UISearchBarDelegate {
         searchBar.delegate = self
         
         self.navigationItem.titleView = searchBar
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.destination is ViewItemController {
+//            let vc = segue.destination as? ViewItemController
+//            vc?.item = sender as! Item
+//        }
     }
 
 }
@@ -52,8 +66,7 @@ extension HightRatingController: UICollectionViewDelegate, UICollectionViewDataS
 
 extension HightRatingController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let screenWidth = UIScreen.main.bounds.size.width
-        let cellWidth = (screenWidth - 30)/2
+        let cellWidth = (UIScreen.main.bounds.size.width - 30)/2
         return CGSize(width: cellWidth, height: 225)
     }
     

@@ -22,11 +22,11 @@ class SignupController: UIViewController {
     }
     
     func setUpUI() {
-        username.setBottomBorder()
-        phone.setBottomBorder()
-        address.setBottomBorder()
-        password.setBottomBorder()
-        confirmPassword.setBottomBorder()
+        username.setBottomBorder(color: UIColor.lightGray)
+        phone.setBottomBorder(color: UIColor.lightGray)
+        address.setBottomBorder(color: UIColor.lightGray)
+        password.setBottomBorder(color: UIColor.lightGray)
+        confirmPassword.setBottomBorder(color: UIColor.lightGray)
     }
     
 }

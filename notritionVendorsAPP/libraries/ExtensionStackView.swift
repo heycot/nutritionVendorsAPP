@@ -18,4 +18,11 @@ extension UIStackView {
         insertSubview(subview, at: 0)
     }
     
+    func addBottomBorder(color: UIColor) {
+        self.backgroundColor = .clear
+        self.layer.cornerRadius = 5
+        self.layer.borderWidth = 1
+        self.layer.borderColor = color.cgColor
+    }
+    
 }
