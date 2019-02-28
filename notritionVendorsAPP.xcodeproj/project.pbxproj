@@ -19,7 +19,6 @@
 		230E2DE822266BFE00246392 /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230E2DE722266BFE00246392 /* Shop.swift */; };
 		230E2DEA22266DDE00246392 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230E2DE922266DDE00246392 /* Favorites.swift */; };
 		230E2DED22267DCA00246392 /* CollectionItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230E2DEB22267DCA00246392 /* CollectionItemCell.swift */; };
-		230E2DEE22267DCA00246392 /* CollectionItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 230E2DEC22267DCA00246392 /* CollectionItemCell.xib */; };
 		23351DC4222539BF003944E2 /* ExtensionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23351DC3222539BF003944E2 /* ExtensionButton.swift */; };
 		235A32B02224E9F200DE5B0E /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32AF2224E9F200DE5B0E /* SignupController.swift */; };
 		235A32B22224EA0C00DE5B0E /* HightRatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32B12224EA0C00DE5B0E /* HightRatingController.swift */; };
@@ -29,6 +28,8 @@
 		235A32BB2224EDE400DE5B0E /* UIImageLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32BA2224EDE400DE5B0E /* UIImageLibrary.swift */; };
 		235A32BD2224F51500DE5B0E /* AccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32BC2224F51500DE5B0E /* AccountController.swift */; };
 		235A32BF2225301E00DE5B0E /* ChangePasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32BE2225301E00DE5B0E /* ChangePasswordController.swift */; };
+		23695E9222277DC600AD7076 /* ExtensionUICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23695E9122277DC600AD7076 /* ExtensionUICollectionView.swift */; };
+		23695E9422277F7200AD7076 /* ExtensionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23695E9322277F7200AD7076 /* ExtensionUIView.swift */; };
 		23D02E612223799300882742 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D02E602223799300882742 /* AppDelegate.swift */; };
 		23D02E632223799300882742 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D02E622223799300882742 /* LoginController.swift */; };
 		23D02E662223799300882742 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23D02E642223799300882742 /* Main.storyboard */; };
@@ -50,7 +51,6 @@
 		230E2DE722266BFE00246392 /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
 		230E2DE922266DDE00246392 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		230E2DEB22267DCA00246392 /* CollectionItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionItemCell.swift; sourceTree = "<group>"; };
-		230E2DEC22267DCA00246392 /* CollectionItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionItemCell.xib; sourceTree = "<group>"; };
 		23351DC3222539BF003944E2 /* ExtensionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionButton.swift; sourceTree = "<group>"; };
 		235A32AF2224E9F200DE5B0E /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
 		235A32B12224EA0C00DE5B0E /* HightRatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HightRatingController.swift; sourceTree = "<group>"; };
@@ -60,6 +60,8 @@
 		235A32BA2224EDE400DE5B0E /* UIImageLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageLibrary.swift; sourceTree = "<group>"; };
 		235A32BC2224F51500DE5B0E /* AccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountController.swift; sourceTree = "<group>"; };
 		235A32BE2225301E00DE5B0E /* ChangePasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordController.swift; sourceTree = "<group>"; };
+		23695E9122277DC600AD7076 /* ExtensionUICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUICollectionView.swift; sourceTree = "<group>"; };
+		23695E9322277F7200AD7076 /* ExtensionUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIView.swift; sourceTree = "<group>"; };
 		23D02E5D2223799300882742 /* notritionVendorsAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = notritionVendorsAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23D02E602223799300882742 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23D02E622223799300882742 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -92,6 +94,8 @@
 				235A32B82224EC1100DE5B0E /* ExtensionUIColor.swift */,
 				235A32BA2224EDE400DE5B0E /* UIImageLibrary.swift */,
 				23351DC3222539BF003944E2 /* ExtensionButton.swift */,
+				23695E9122277DC600AD7076 /* ExtensionUICollectionView.swift */,
+				23695E9322277F7200AD7076 /* ExtensionUIView.swift */,
 			);
 			path = libraries;
 			sourceTree = "<group>";
@@ -147,7 +151,6 @@
 				235A32BC2224F51500DE5B0E /* AccountController.swift */,
 				235A32BE2225301E00DE5B0E /* ChangePasswordController.swift */,
 				230E2DEB22267DCA00246392 /* CollectionItemCell.swift */,
-				230E2DEC22267DCA00246392 /* CollectionItemCell.xib */,
 			);
 			path = viewController;
 			sourceTree = "<group>";
@@ -257,7 +260,6 @@
 				23D02E6B2223799400882742 /* LaunchScreen.storyboard in Resources */,
 				23D02E682223799400882742 /* Assets.xcassets in Resources */,
 				230E2DD22226431D00246392 /* LogInAndLogOut.storyboard in Resources */,
-				230E2DEE22267DCA00246392 /* CollectionItemCell.xib in Resources */,
 				23D02E662223799300882742 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,7 +324,9 @@
 				235A32BF2225301E00DE5B0E /* ChangePasswordController.swift in Sources */,
 				230E2DE622266AEF00246392 /* ShopItem.swift in Sources */,
 				235A32B02224E9F200DE5B0E /* SignupController.swift in Sources */,
+				23695E9222277DC600AD7076 /* ExtensionUICollectionView.swift in Sources */,
 				230E2DDA2226650700246392 /* Comment.swift in Sources */,
+				23695E9422277F7200AD7076 /* ExtensionUIView.swift in Sources */,
 				230E2DEA22266DDE00246392 /* Favorites.swift in Sources */,
 				23351DC4222539BF003944E2 /* ExtensionButton.swift in Sources */,
 				230E2DE0222667EE00246392 /* Location.swift in Sources */,
