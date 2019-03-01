@@ -21,6 +21,20 @@ class CommentTableCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        setingForViewRating()
+        setUpForView()
+    }
+    
+    func setUpForView() {
+        
+        userImage.setRounded(color: .white)
+        userName.setboldSystemFontOfSize(size: 16)
+        commentTitle.setboldSystemFontOfSize(size: 14)
+    }
+    
+    func setingForViewRating() {
+        viewRating.settings.fillMode = .precise
+        viewRating.settings.updateOnTouch = false
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -32,9 +46,9 @@ class CommentTableCell: UITableViewCell {
     func updateView(userimage: String, username: String, cmtDate: String, cmtTitle: String, rating: Double, cmtContent: String) {
         userImage.image = UIImage(named: userimage)
         userName.text = username
-        commentDate.text = cmtDate
+        commentDate.text = "    " + cmtDate
         commentTitle.text = cmtTitle
-//        viewRating.rating = rating
+        viewRating.rating = rating
         commentContent.text = cmtContent
     }
 
