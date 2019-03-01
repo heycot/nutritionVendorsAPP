@@ -56,9 +56,11 @@ class ViewItemController: UIViewController {
         commentTableView.delegate = self
         commentTableView.dataSource = self
         commentTableView.tableFooterView = UIView()
-        commentTableView.estimatedRowHeight = UITableView.automaticDimension
-        commentTableView.rowHeight = 200
-        
+//        commentTableView.estimatedRowHeight = UITableView.automaticDimension
+//        commentTableView.rowHeight = 200
+//
+//        commentTableView.estimatedRowHeight = 200
+//        commentTableView.rowHeight = UITableView.automaticDimension
     }
     
     func viewDetailItem() {
@@ -92,11 +94,30 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
         }
         
         if  let cell = tableView.dequeueReusableCell(withIdentifier: "CommentItem" ) as? CommentTableCell{
-            cell.updateView(userimage: "firstBKImage", username: "Tao Xanh", cmtDate: "20/02/2019", cmtTitle: "So Good", rating: 4.5, cmtContent: "gooddddd")
+           
+            if indexPath.row % 2 == 0 {
+                cell.updateView(userimage: "firstBKImage", username: "Tao Xanh", cmtDate: "20/02/2019", cmtTitle: "So good", rating: 4.5, cmtContent: "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda")
+            }
+            else {
+                cell.updateView(userimage: "firstBKImage", username: "Tao Xanh", cmtDate: "20/02/2019", cmtTitle: "So good", rating: 4.5, cmtContent: "It's good")
+            }
+//
             return cell
         }
         
         return GeneralItemCell()
+    }
+    
+//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+//        // optionally, return an calculated estimate for the cell heights
+//
+////        return UITableView.automaticDimension
+//        return CGFloat(300)
+//    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        commentTableView.estimatedRowHeight = 100
+        commentTableView.rowHeight = UITableView.automaticDimension
     }
     
     

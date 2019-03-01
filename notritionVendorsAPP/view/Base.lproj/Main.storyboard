@@ -468,7 +468,6 @@
         <!--View Item Controller-->
         <scene sceneID="MWp-rO-hVy">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mhW-vz-xha" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="y3p-En-GyC" customClass="ViewItemController" customModule="notritionVendorsAPP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EVJ-hs-1vR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -732,10 +731,9 @@
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hBS-eB-qqw">
-                                                                    <rect key="frame" x="10" y="75" width="394" height="79.666666666666686"/>
+                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hBS-eB-qqw">
+                                                                    <rect key="frame" x="10" y="90" width="394" height="64.666666666666686"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                 </textView>
@@ -749,7 +747,6 @@
                                                                 <constraint firstAttribute="trailing" secondItem="JY3-dP-ItW" secondAttribute="trailing" id="GYx-mx-3bY"/>
                                                                 <constraint firstItem="W5O-Ev-WCN" firstAttribute="trailing" secondItem="JY3-dP-ItW" secondAttribute="leading" id="J0H-ha-IKk"/>
                                                                 <constraint firstItem="Aam-8Y-6gL" firstAttribute="top" secondItem="pR4-1R-wdu" secondAttribute="bottom" constant="10" id="Pzv-zO-DNe"/>
-                                                                <constraint firstItem="hBS-eB-qqw" firstAttribute="top" secondItem="Aam-8Y-6gL" secondAttribute="bottom" constant="5" id="SXN-Bm-cf9"/>
                                                                 <constraint firstItem="e36-Cm-kCD" firstAttribute="top" secondItem="W5O-Ev-WCN" secondAttribute="bottom" id="Wl0-Mt-PHy"/>
                                                                 <constraint firstItem="W5O-Ev-WCN" firstAttribute="top" secondItem="TR6-vi-88c" secondAttribute="top" constant="10" id="dae-OF-u1o"/>
                                                                 <constraint firstAttribute="trailing" secondItem="Aam-8Y-6gL" secondAttribute="trailing" constant="10" id="foy-Ik-C6i"/>
@@ -757,6 +754,7 @@
                                                                 <constraint firstItem="pR4-1R-wdu" firstAttribute="top" secondItem="TR6-vi-88c" secondAttribute="top" constant="5" id="km2-5B-HLq"/>
                                                                 <constraint firstAttribute="trailing" secondItem="hBS-eB-qqw" secondAttribute="trailing" constant="10" id="lBv-aB-ECv"/>
                                                                 <constraint firstItem="JY3-dP-ItW" firstAttribute="top" secondItem="TR6-vi-88c" secondAttribute="top" constant="8" id="rvd-3R-sKV"/>
+                                                                <constraint firstItem="hBS-eB-qqw" firstAttribute="firstBaseline" secondItem="Aam-8Y-6gL" secondAttribute="bottom" constant="20" symbolType="layoutAnchor" id="vFV-gk-tMV"/>
                                                                 <constraint firstAttribute="bottom" secondItem="hBS-eB-qqw" secondAttribute="bottom" constant="15" id="y47-sR-n01"/>
                                                             </constraints>
                                                         </tableViewCellContentView>
@@ -826,6 +824,7 @@
                         <outlet property="scrollView" destination="BRL-gj-9R1" id="bfe-wi-SNh"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mhW-vz-xha" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="618.84057971014499" y="690.40178571428567"/>
         </scene>

@@ -34,7 +34,7 @@ class CommentTableCell: UITableViewCell {
         userName.text = username
         commentDate.text = cmtDate
         commentTitle.text = cmtTitle
-        viewRating.rating = rating
+//        viewRating.rating = rating
         commentContent.text = cmtContent
     }
 
