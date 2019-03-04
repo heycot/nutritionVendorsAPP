@@ -473,11 +473,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+<<<<<<< HEAD
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BRL-gj-9R1">
                                 <rect key="frame" x="0.0" y="88" width="414" height="1285"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FE8-QY-c5N">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
+=======
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BRL-gj-9R1">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FE8-QY-c5N">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+>>>>>>> parent of 1a5d5b7... custom Viewitem
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W1R-da-eay">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
@@ -655,9 +663,17 @@
                                                 </prototypes>
                                                 <sections/>
                                             </tableView>
+<<<<<<< HEAD
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8S4-Rz-L8a">
                                                 <rect key="frame" x="0.0" y="520" width="414" height="0.0"/>
+=======
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8S4-Rz-L8a">
+                                                <rect key="frame" x="0.0" y="520" width="414" height="1000"/>
+>>>>>>> parent of 1a5d5b7... custom Viewitem
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1000" id="Xrf-mi-auw"/>
+                                                </constraints>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentItem" rowHeight="170" id="HUk-9a-2IR" customClass="CommentTableCell" customModule="notritionVendorsAPP" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="28" width="414" height="170"/>
@@ -683,7 +699,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e36-Cm-kCD" customClass="CosmosView" customModule="notritionVendorsAPP" customModuleProvider="target">
-                                                                    <rect key="frame" x="48" y="30" width="358" height="15"/>
+                                                                    <rect key="frame" x="48" y="30" width="346" height="15"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="15" id="XWJ-PW-KBO"/>
@@ -710,9 +726,9 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </view>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15/06/1996" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JY3-dP-ItW">
-                                                                    <rect key="frame" x="264" y="8" width="140" height="20"/>
+                                                                    <rect key="frame" x="264" y="8" width="150" height="20"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="140" id="QUV-IJ-kTl"/>
+                                                                        <constraint firstAttribute="width" constant="150" id="QUV-IJ-kTl"/>
                                                                         <constraint firstAttribute="height" constant="20" id="WRj-on-DDO"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -724,7 +740,7 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="UiG-E0-grs"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -741,7 +757,7 @@
                                                                 <constraint firstItem="hBS-eB-qqw" firstAttribute="leading" secondItem="TR6-vi-88c" secondAttribute="leading" constant="10" id="4BH-lt-PIC"/>
                                                                 <constraint firstItem="pR4-1R-wdu" firstAttribute="leading" secondItem="TR6-vi-88c" secondAttribute="leading" constant="5" id="4Cx-Sh-O6e"/>
                                                                 <constraint firstItem="Aam-8Y-6gL" firstAttribute="leading" secondItem="TR6-vi-88c" secondAttribute="leading" constant="10" id="9Ai-Si-c7O"/>
-                                                                <constraint firstAttribute="trailing" secondItem="JY3-dP-ItW" secondAttribute="trailing" constant="10" id="GYx-mx-3bY"/>
+                                                                <constraint firstAttribute="trailing" secondItem="JY3-dP-ItW" secondAttribute="trailing" id="GYx-mx-3bY"/>
                                                                 <constraint firstItem="W5O-Ev-WCN" firstAttribute="trailing" secondItem="JY3-dP-ItW" secondAttribute="leading" id="J0H-ha-IKk"/>
                                                                 <constraint firstItem="Aam-8Y-6gL" firstAttribute="top" secondItem="pR4-1R-wdu" secondAttribute="bottom" constant="10" id="Pzv-zO-DNe"/>
                                                                 <constraint firstItem="e36-Cm-kCD" firstAttribute="top" secondItem="W5O-Ev-WCN" secondAttribute="bottom" id="Wl0-Mt-PHy"/>
@@ -789,8 +805,14 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="FE8-QY-c5N" firstAttribute="top" secondItem="BRL-gj-9R1" secondAttribute="top" id="1RU-ZP-I6f"/>
+<<<<<<< HEAD
                                     <constraint firstItem="FE8-QY-c5N" firstAttribute="height" secondItem="BRL-gj-9R1" secondAttribute="height" priority="750" id="1sq-ig-YQF"/>
                                     <constraint firstAttribute="trailing" secondItem="FE8-QY-c5N" secondAttribute="trailing" id="hfF-ca-lWc"/>
+=======
+                                    <constraint firstItem="FE8-QY-c5N" firstAttribute="height" secondItem="BRL-gj-9R1" secondAttribute="height" id="1sq-ig-YQF"/>
+                                    <constraint firstAttribute="bottom" secondItem="FE8-QY-c5N" secondAttribute="bottom" id="H3a-6g-MWk"/>
+                                    <constraint firstAttribute="trailing" secondItem="FE8-QY-c5N" secondAttribute="trailing" constant="126" id="hfF-ca-lWc"/>
+>>>>>>> parent of 1a5d5b7... custom Viewitem
                                     <constraint firstItem="FE8-QY-c5N" firstAttribute="leading" secondItem="BRL-gj-9R1" secondAttribute="leading" id="mHO-fk-wkd"/>
                                     <constraint firstItem="FE8-QY-c5N" firstAttribute="width" secondItem="BRL-gj-9R1" secondAttribute="width" id="yLx-Mo-wXg"/>
                                 </constraints>
@@ -798,6 +820,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+<<<<<<< HEAD
+=======
+                            <constraint firstItem="fvc-eg-jsR" firstAttribute="bottom" secondItem="BRL-gj-9R1" secondAttribute="bottom" id="7PS-z4-ReC"/>
+>>>>>>> parent of 1a5d5b7... custom Viewitem
                             <constraint firstItem="BRL-gj-9R1" firstAttribute="width" secondItem="EVJ-hs-1vR" secondAttribute="width" id="FKN-8a-3Os"/>
                             <constraint firstItem="fvc-eg-jsR" firstAttribute="trailing" secondItem="BRL-gj-9R1" secondAttribute="trailing" id="amv-IC-ULX"/>
                             <constraint firstItem="BRL-gj-9R1" firstAttribute="top" secondItem="fvc-eg-jsR" secondAttribute="top" id="fjA-wT-Hhn"/>

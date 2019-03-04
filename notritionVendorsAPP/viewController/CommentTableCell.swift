@@ -36,14 +36,6 @@ class CommentTableCell: UITableViewCell {
         commentTitle.text = cmtTitle
 //        viewRating.rating = rating
         commentContent.text = cmtContent
-        
-        customUI()
-    }
-    
-    func customUI() {
-        userName.setboldSystemFontOfSize(size: 17)
-        commentTitle.setboldSystemFontOfSize(size: 14)
-        userImage.setRounded(color: .white)
     }
 
 }
