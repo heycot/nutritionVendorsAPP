@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d1024621-7e2a-4468-91be-cd75b43dd2c1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/project.pbxproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP.xcworkspace/xcuserdata/callie.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP.xcworkspace/xcuserdata/callie.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/viewController/HightRatingController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/viewController/HightRatingController.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/view/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/view/Base.lproj/Main.storyboard" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,16 +15,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project.pbxproj">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4375">
-              <caret line="303" column="8" lean-forward="true" selection-start-line="303" selection-start-column="8" selection-end-line="303" selection-end-column="8" />
+            <state relative-caret-position="154">
+              <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../notritionVendorsAPP/view/Base.lproj/Main.storyboard">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2824">
+              <caret line="1" column="65" selection-start-line="1" selection-start-column="55" selection-end-line="1" selection-end-column="65" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>storyboard</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -32,13 +47,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/project.pbxproj" />
+        <option value="$PROJECT_DIR$/../notritionVendorsAPP/view/Base.lproj/Main.storyboard" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="898" />
     <option name="y" value="63" />
-    <option name="width" value="968" />
+    <option name="width" value="1866" />
     <option name="height" value="937" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -47,7 +62,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -70,6 +84,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -99,10 +114,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="898" y="63" width="968" height="937" extended-state="0" />
+    <frame x="0" y="63" width="1866" height="937" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2548596" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1321272" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -132,8 +147,15 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/project.pbxproj">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4375">
-          <caret line="303" column="8" lean-forward="true" selection-start-line="303" selection-start-column="8" selection-end-line="303" selection-end-column="8" />
+        <state relative-caret-position="154">
+          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../notritionVendorsAPP/view/Base.lproj/Main.storyboard">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2824">
+          <caret line="1" column="65" selection-start-line="1" selection-start-column="55" selection-end-line="1" selection-end-column="65" />
         </state>
       </provider>
     </entry>

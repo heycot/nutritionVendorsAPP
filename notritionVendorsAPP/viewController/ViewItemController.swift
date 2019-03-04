@@ -102,11 +102,11 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
                 cell.updateView(userimage: "firstBKImage", username: "Tao Xanh", cmtDate: "20/02/2019", cmtTitle: "So good", rating: 4.5, cmtContent: "It's good")
             }
             
-            if indexPath.row == 4 {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "addNewCmt") as? AddNewCommentCell
-                
-                return cell!
-            }
+//            if indexPath.row == 4 {
+//                let cell = tableView.dequeueReusableCell(withIdentifier: "AddNewCMT") as! CommentTableCell
+//                
+//                return cell
+//            }
 //
             return cell
         }

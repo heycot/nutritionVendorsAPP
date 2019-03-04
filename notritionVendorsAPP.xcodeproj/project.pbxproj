@@ -33,12 +33,11 @@
 		23695E9822278F3B00AD7076 /* ViewItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23695E9722278F3B00AD7076 /* ViewItemController.swift */; };
 		23695E9C2227B7F500AD7076 /* GeneralItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23695E9B2227B7F500AD7076 /* GeneralItemCell.swift */; };
 		23695E9E2227DD0B00AD7076 /* CommentTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23695E9D2227DD0B00AD7076 /* CommentTableCell.swift */; };
-<<<<<<< HEAD
+
 		238792EB222CE2AB005E4E3E /* ExtensionUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238792EA222CE2AB005E4E3E /* ExtensionUILabel.swift */; };
 		238792EE222D041B005E4E3E /* AddNewCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238792EC222D041B005E4E3E /* AddNewCommentCell.swift */; };
 		238792EF222D041B005E4E3E /* AddNewCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 238792ED222D041B005E4E3E /* AddNewCommentCell.xib */; };
-=======
->>>>>>> parent of 1a5d5b7... custom Viewitem
+
 		23D02E612223799300882742 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D02E602223799300882742 /* AppDelegate.swift */; };
 		23D02E632223799300882742 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D02E622223799300882742 /* LoginController.swift */; };
 		23D02E662223799300882742 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23D02E642223799300882742 /* Main.storyboard */; };
@@ -74,12 +73,11 @@
 		23695E9722278F3B00AD7076 /* ViewItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewItemController.swift; sourceTree = "<group>"; };
 		23695E9B2227B7F500AD7076 /* GeneralItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralItemCell.swift; sourceTree = "<group>"; };
 		23695E9D2227DD0B00AD7076 /* CommentTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableCell.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
+
 		238792EA222CE2AB005E4E3E /* ExtensionUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUILabel.swift; sourceTree = "<group>"; };
 		238792EC222D041B005E4E3E /* AddNewCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCommentCell.swift; sourceTree = "<group>"; };
 		238792ED222D041B005E4E3E /* AddNewCommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewCommentCell.xib; sourceTree = "<group>"; };
-=======
->>>>>>> parent of 1a5d5b7... custom Viewitem
+
 		23D02E5D2223799300882742 /* notritionVendorsAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = notritionVendorsAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23D02E602223799300882742 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23D02E622223799300882742 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
