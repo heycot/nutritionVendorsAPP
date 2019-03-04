@@ -77,14 +77,6 @@ class ViewItemController: UIViewController {
 
 extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == generalTableView {
-            return 5
-        }
-        
-        if tableView == commentTableView {
-            return 6
-        }
-        
         return 5
     }
     
