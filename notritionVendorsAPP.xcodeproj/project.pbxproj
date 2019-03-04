@@ -33,6 +33,7 @@
 		23695E9822278F3B00AD7076 /* ViewItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23695E9722278F3B00AD7076 /* ViewItemController.swift */; };
 		23695E9C2227B7F500AD7076 /* GeneralItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23695E9B2227B7F500AD7076 /* GeneralItemCell.swift */; };
 		23695E9E2227DD0B00AD7076 /* CommentTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23695E9D2227DD0B00AD7076 /* CommentTableCell.swift */; };
+		238792EB222CE2AB005E4E3E /* ExtensionUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238792EA222CE2AB005E4E3E /* ExtensionUILabel.swift */; };
 		23D02E612223799300882742 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D02E602223799300882742 /* AppDelegate.swift */; };
 		23D02E632223799300882742 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D02E622223799300882742 /* LoginController.swift */; };
 		23D02E662223799300882742 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23D02E642223799300882742 /* Main.storyboard */; };
@@ -68,6 +69,7 @@
 		23695E9722278F3B00AD7076 /* ViewItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewItemController.swift; sourceTree = "<group>"; };
 		23695E9B2227B7F500AD7076 /* GeneralItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralItemCell.swift; sourceTree = "<group>"; };
 		23695E9D2227DD0B00AD7076 /* CommentTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableCell.swift; sourceTree = "<group>"; };
+		238792EA222CE2AB005E4E3E /* ExtensionUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUILabel.swift; sourceTree = "<group>"; };
 		23D02E5D2223799300882742 /* notritionVendorsAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = notritionVendorsAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23D02E602223799300882742 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23D02E622223799300882742 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				23351DC3222539BF003944E2 /* ExtensionButton.swift */,
 				23695E9122277DC600AD7076 /* ExtensionUICollectionView.swift */,
 				23695E9322277F7200AD7076 /* ExtensionUIView.swift */,
+				238792EA222CE2AB005E4E3E /* ExtensionUILabel.swift */,
 			);
 			path = libraries;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				230E2DEA22266DDE00246392 /* Favorites.swift in Sources */,
 				23695E9822278F3B00AD7076 /* ViewItemController.swift in Sources */,
 				23351DC4222539BF003944E2 /* ExtensionButton.swift in Sources */,
+				238792EB222CE2AB005E4E3E /* ExtensionUILabel.swift in Sources */,
 				230E2DE0222667EE00246392 /* Location.swift in Sources */,
 				235A32B52224EAB400DE5B0E /* ExtensionTextField.swift in Sources */,
 				23D02E632223799300882742 /* LoginController.swift in Sources */,

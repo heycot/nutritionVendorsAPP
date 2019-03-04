@@ -33,4 +33,12 @@ extension UIImageView {
             return myBackgroundImage.fourthImage
         }
     }
+    
+    func setRounded(color: UIColor) {
+        self.layer.cornerRadius = (self.frame.size.width / 2) //instead of let radius = CGRectGetWidth(self.frame) / 2
+        self.layer.masksToBounds = true
+        self.clipsToBounds = true
+        self.layer.borderWidth = 3.0
+        self.layer.borderColor = color.cgColor
+    }
 }
