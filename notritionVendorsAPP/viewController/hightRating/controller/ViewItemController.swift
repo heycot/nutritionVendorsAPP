@@ -8,200 +8,103 @@
 
 import UIKit
 
-class ViewItemController: UIViewController {
+enum CellClassName: String {
+    case GeneralInfor   = "GeneralInforItemCell"
+    case GeneralValue   = "GeneralValueCell"
+    case ListComment    = "ViewCommentCell"
+    case AddNewComment  = "AddNewCommentCell"
+}
 
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var itemImage: UIImageView!
-    @IBOutlet weak var itemName: UITextField!
-    @IBOutlet weak var itemComment: UITextField!
-    @IBOutlet weak var itemPhotos: UITextField!
-    @IBOutlet weak var itemFavorites: UITextField!
-    @IBOutlet weak var itemRating: UITextField!
-    @IBOutlet weak var genaralStackView: UIStackView!
-    @IBOutlet weak var generalTableView: UITableView!
-    @IBOutlet weak var commentTableView: UITableView!
+class ViewItemController: UIViewController {
     
-    var item = Item()
-    var generalViewIcon = ["price-tag", "alarm-clock", "call", "placeholder", "catalog"]
-    var generalViewValue = ["70.000 d", "7:00 - 21:00", "0969123456", "60 Ngo Sy Lien _ lien Chieu - Da Nang", "Fruits"]
-    var generals = [General(icon: "price-tag", value: "70.000 d")]
+    @IBOutlet weak var tabelView: UITableView!
     
-    struct General {
-        let icon: String!
-        let value: String!
-    }
+    var comments = [Comment] ()
+    var itemValues = [ItemValue] ()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpScrollView()
         self.title = "Nho Den"
-        setUpUI()
-        viewDetailItem()
+        prepareData()
         setUPTableView()
-    }
-    
-    func setUpScrollView() {
-        scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 1500, right: 0)
-        scrollView.delegate = self
-    }
-    
-    func setUpUI() {
-        itemName.setBottomBorder(color: UIColor.darkGray)
-        itemName.setboldSystemFontOfSize(size: 25)
-//        genaralStackView.addBottomBorder(color: UIColor.lightGray)
+        prepareData()
     }
     
     func setUPTableView() {
-        generalTableView.delegate = self
-        generalTableView.dataSource = self
-        generalTableView.tableFooterView = UIView()
-//        self.generalTableView.reloadData()
-        generalTableView.estimatedRowHeight = UITableView.automaticDimension
-        generalTableView.rowHeight = 40
-        
-        commentTableView.delegate = self
-        commentTableView.dataSource = self
-//        commentTableView.tableFooterView = UIView()
-//        commentTableView.estimatedRowHeight = UITableView.automaticDimension
-//        commentTableView.rowHeight = 200
-//
-//        commentTableView.estimatedRowHeight = 200
-//        commentTableView.rowHeight = UITableView.automaticDimension
+        tabelView.delegate = self
+        tabelView.dataSource = self
+        tabelView.tableFooterView = UIView()
     }
     
-    func viewDetailItem() {
-        itemName.text = "   " + "Nho Den"
-        itemImage.image = UIImage(named: "secondBKImage")
-        itemComment.text = "578"
-        itemPhotos.text = "130"
-        itemFavorites.text = "45"
-        itemRating.text = "7.6"
+    func prepareData() {
+        appendItemValue(icon: Icon.price_icon.rawValue, value: "VND 70.000")
+        appendItemValue(icon: Icon.time_icon.rawValue, value: "10:00 - 21:00")
+        appendItemValue(icon: Icon.phone_icon.rawValue, value: "0976514235")
+        appendItemValue(icon: Icon.shop_icon.rawValue, value: "Shop Rau Sach")
+        appendItemValue(icon: Icon.address_icon.rawValue, value: "60 Ngo Sy Lien")
+        appendItemValue(icon: Icon.category_icon.rawValue, value: "Rau cu")
     }
     
-    var items: [User] = []
-
+    func appendItemValue(icon: String, value: String) {
+        itemValues.append(ItemValue(icon: icon, value:  value))
+    }
 }
 
 extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        if tableView == generalTableView {
-            return items.count
-        } else {
-            return items.count
-        }
-        
         if section == 0 {
-            return generalViewValue.count
+            return 1
+        } else if section == 1{
+            return 6
         } else {
-            return items.count
+            return 6
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        if  let cell = tableView.dequeueReusableCell(withIdentifier: "GeneralItemCell" ) as? GeneralItemCell{
-////            cell.updateView(iconImage: generalViewIcon[indexPath.row], value: generalViewValue[indexPath.row])
-//
-//            cell.imageView?.image = UIImage(named: generalViewIcon[indexPath.row])
-//            cell.label.text = "           "  + generalViewValue[indexPath.row]
-////            cell.label.text =  generalViewValue[indexPath.row]
-//            cell.label.sizeToFit()
-//            cell.label.textAlignment = NSTextAlignment.center
-//
-//            return cell
-//        }
-//
-//        if  let cell = tableView.dequeueReusableCell(withIdentifier: "CommentItem" ) as? CommentTableCell{
-//
-//            if indexPath.row == 4 {
-//                let cellAdd = tableView.dequeueReusableCell(withIdentifier: "AddNewCMT") as? AddNewCommentCell
-//
-//                return cellAdd!
-//            } else {
-//
-//                if indexPath.row % 2 == 0 {
-//                    cell.updateView(userimage: "firstBKImage", username: "Tao Xanh", cmtDate: "20/02/2019", cmtTitle: "So good", rating: 4.5, cmtContent: "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda")
-//                }
-//                else {
-//                    cell.updateView(userimage: "firstBKImage", username: "Tao Xanh", cmtDate: "20/02/2019", cmtTitle: "So good", rating: 4.5, cmtContent: "It's good")
-//                }
-//
-//                //
-//                return cell
-//            }
-//
-//        }
-        
+        print("section \(indexPath.section)")
         if indexPath.section == 0 {
-            let info = generals[indexPath.row]
-            let value = info.value
-        } else {
-            
-        }
-        
-        
-        if tableView == generalTableView {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "GeneralItemCell") as! GeneralItemCell
-            //            cell.updateView(iconImage: generalViewIcon[indexPath.row], value: generalViewValue[indexPath.row])
-            
-            let user = items[indexPath.row]
-            cell.updateView(iconImage: <#T##String#>, value: <#T##String#>)
-            
-            cell.imageView?.image = UIImage(named: generalViewIcon[indexPath.row])
-            cell.label.text = "           "  + generalViewValue[indexPath.row]
-            //            cell.label.text =  generalViewValue[indexPath.row]
-            cell.label.sizeToFit()
-            cell.label.textAlignment = NSTextAlignment.center
-            
-            
+            let cell = Bundle.main.loadNibNamed(CellClassName.GeneralInfor.rawValue, owner: self, options: nil )?.first as! GeneralInforItemCell
+            cell.updateView(image_name: "firstBKImage", item_name: "Nho Den", item_comment: 42, item_photo: 15, item_favorites: 50, item_rating: 4.5)
             return cell
+        
+        } else if indexPath.section == 1{
+            let cell = Bundle.main.loadNibNamed(CellClassName.GeneralValue.rawValue, owner: self, options: nil )?.first as! GeneralValueCell
+            cell.updateView(icon_image: itemValues[indexPath.row].icon, value: itemValues[indexPath.row].value)
+            return cell
+
         } else {
-            if (indexPath.row == items.count - 1) {
-                let cellAdd = tableView.dequeueReusableCell(withIdentifier: "AddNewCMT") as! AddNewCommentCell
-                
-                return cellAdd
-            } else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "CommentItem" ) as! CommentTableCell
-                
-                cell.updateView(userimage: "firstBKImage", username: "Tao Xanh", cmtDate: "20/02/2019", cmtTitle: "So good", rating: 4.5, cmtContent: "It's good")
-                
+            if (indexPath.row == 5) {
+                let cell = Bundle.main.loadNibNamed(CellClassName.AddNewComment.rawValue, owner: self, options: nil )?.first as! AddNewCommentCell
                 return cell
+
+            } else {
+                let cell = Bundle.main.loadNibNamed(CellClassName.ListComment.rawValue, owner: self, options: nil )?.first as! ViewCommentCell
+                cell.updateView(user_image: "secondBKImage", user_name: "Callie", create_date: Date(), rating: 3.5, title: "Not good at all", content: "goscdsbcdcsdc")
+                return cell
+
             }
         }
     }
-    
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        
-        let addCmtCell = AddNewCommentCell()
-        
-        
-//        commentTableView.tableFooterView = addCmtCell
-        
-        return addCmtCell
-    }
+      
     
     override func viewWillAppear(_ animated: Bool) {
-        commentTableView.estimatedRowHeight = 100
-        commentTableView.rowHeight = UITableView.automaticDimension
+        tabelView.estimatedRowHeight = 100
+        tabelView.rowHeight = UITableView.automaticDimension
+    }
+    
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 15.0
     }
     
     
 }
 
-extension ViewItemController: UIScrollViewDelegate {
-    
-    private func scrollViewDidScroll(scrollView: UIScrollView) {
-        
-        if scrollView.contentOffset.x>0 {
-            scrollView.contentOffset.x = 0
-        }
-        scrollView.isDirectionalLockEnabled = true
-    }
-    
-}
+

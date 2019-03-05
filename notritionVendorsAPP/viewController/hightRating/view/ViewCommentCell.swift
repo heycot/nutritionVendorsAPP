@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Cosmos
+import TinyConstraints
 
 class ViewCommentCell: UITableViewCell {
     @IBOutlet weak var userImage: UIImageView!
@@ -28,4 +30,25 @@ class ViewCommentCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    
+    func updateView(user_image: String, user_name: String, create_date: Date, rating: Double, title: String, content: String) {
+        userImage.image = UIImage(named: user_image)
+        userName.text = user_name
+        cmtDate.text = NSObject().convertToString(date: create_date, dateformat: DateFormatType.date)
+        cmtRating = {
+            let view = CosmosView()
+            view.rating = rating
+            return view
+        }()
+        cmtTitle.text = title
+        cmtContent.text = content
+        
+        customUI()
+    }
+    
+    func customUI() {
+        userImage.setButtomBorderRadious()
+        userName.setboldSystemFontOfSize(size: 17)
+        cmtTitle.setboldSystemFontOfSize(size: 14)
+    }
 }

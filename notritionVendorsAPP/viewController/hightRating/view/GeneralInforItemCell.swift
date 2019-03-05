@@ -18,15 +18,29 @@ class GeneralInforItemCell: UITableViewCell {
     @IBOutlet weak var itemRating: UITextField!
     
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+//    override func awakeFromNib() {
+//        super.awakeFromNib()
+//        // Initialization code
+//    }
+//
+//    override func setSelected(_ selected: Bool, animated: Bool) {
+//        super.setSelected(selected, animated: animated)
+//    }
+//    
+    
+    func updateView(image_name: String, item_name: String, item_comment: Int, item_photo: Int, item_favorites: Int, item_rating: Double) {
+        itemImage.image    = UIImage(named: image_name)
+        itemName.text      = item_name
+        itemComments.text  = String(item_comment)
+        itemPhotos.text    = String(item_photo)
+        itemFavorites.text = String(item_favorites)
+        itemRating.text    = String(item_rating)
+        
+        customUI()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func customUI() {
+        itemName.setBottomBorder(color: .lightGray)
     }
     
 }

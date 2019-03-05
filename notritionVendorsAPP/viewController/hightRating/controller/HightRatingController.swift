@@ -25,8 +25,8 @@ class HightRatingController: UIViewController, UISearchBarDelegate {
     }
     
     func prepareData() {
-        var item = Item(id: 0, name: "Nho den", catalog_id: 0)
-        itemList.append(item)
+//        var item = Item(id: 0, name: "Nho den", catalog_id: 0)
+//        itemList.append(item)
     }
     
     func createSearchBar() {

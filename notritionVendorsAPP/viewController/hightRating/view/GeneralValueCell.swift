@@ -9,7 +9,9 @@
 import UIKit
 
 class GeneralValueCell: UITableViewCell {
-
+    @IBOutlet weak var icon: UIImageView!
+    @IBOutlet weak var iconValue: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +22,12 @@ class GeneralValueCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func updateView(icon_image: String, value: String) {
+        icon.image = UIImage(named: icon_image)
+        iconValue.text = value
+    }
+    
+    
     
 }

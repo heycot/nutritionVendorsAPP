@@ -14,4 +14,10 @@ extension UIView {
         self.layer.cornerRadius = 5.0
         self.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
     }
+    
+    func setBorder(with color: UIColor) {
+        self.layer.borderWidth = 1
+        
+        self.layer.borderColor = color.cgColor
+    }
 }
