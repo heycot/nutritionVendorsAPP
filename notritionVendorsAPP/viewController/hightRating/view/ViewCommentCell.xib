@@ -22,7 +22,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ElU-cp-m2s">
                         <rect key="frame" x="0.0" y="0.0" width="469" height="259.5"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZVC-Ej-YCO">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZVC-Ej-YCO">
                                 <rect key="frame" x="10" y="10" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="ib7-lx-9Qw"/>
@@ -67,6 +67,12 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="textColor">
                                         <color key="value" red="1" green="0.66666666669999997" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jpb-iw-yd4">
@@ -80,7 +86,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YGA-bI-2tE">
-                                <rect key="frame" x="10" y="100" width="459" height="159.5"/>
+                                <rect key="frame" x="10" y="100" width="459" height="149.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -88,7 +94,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="YGA-bI-2tE" secondAttribute="bottom" id="2PY-NM-Exq"/>
+                            <constraint firstAttribute="bottom" secondItem="YGA-bI-2tE" secondAttribute="bottom" constant="10" id="2PY-NM-Exq"/>
                             <constraint firstItem="YGA-bI-2tE" firstAttribute="leading" secondItem="ElU-cp-m2s" secondAttribute="leading" constant="10" id="2l4-Lm-kHW"/>
                             <constraint firstItem="jOY-vV-Wgw" firstAttribute="leading" secondItem="ZVC-Ej-YCO" secondAttribute="trailing" constant="15" id="2lh-9m-58i"/>
                             <constraint firstItem="ydf-g4-QPO" firstAttribute="leading" secondItem="jOY-vV-Wgw" secondAttribute="trailing" constant="10" id="7zF-kv-uw9"/>

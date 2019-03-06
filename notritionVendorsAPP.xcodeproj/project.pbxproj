@@ -36,7 +36,6 @@
 		235A32B52224EAB400DE5B0E /* ExtensionTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32B42224EAB400DE5B0E /* ExtensionTextField.swift */; };
 		235A32B72224EB6400DE5B0E /* ExtensionStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32B62224EB6400DE5B0E /* ExtensionStackView.swift */; };
 		235A32B92224EC1100DE5B0E /* ExtensionUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32B82224EC1100DE5B0E /* ExtensionUIColor.swift */; };
-		235A32BB2224EDE400DE5B0E /* UIImageLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32BA2224EDE400DE5B0E /* UIImageLibrary.swift */; };
 		235A32BD2224F51500DE5B0E /* AccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32BC2224F51500DE5B0E /* AccountController.swift */; };
 		235A32BF2225301E00DE5B0E /* ChangePasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32BE2225301E00DE5B0E /* ChangePasswordController.swift */; };
 		23695E9222277DC600AD7076 /* ExtensionUICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23695E9122277DC600AD7076 /* ExtensionUICollectionView.swift */; };
@@ -45,6 +44,7 @@
 		23695E9E2227DD0B00AD7076 /* CommentTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23695E9D2227DD0B00AD7076 /* CommentTableCell.swift */; };
 		238792EE222D041B005E4E3E /* AddNewCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238792EC222D041B005E4E3E /* AddNewCommentCell.swift */; };
 		238792EF222D041B005E4E3E /* AddNewCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 238792ED222D041B005E4E3E /* AddNewCommentCell.xib */; };
+		23B6023F222E767E00FBBD79 /* ExtensionUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B6023E222E767E00FBBD79 /* ExtensionUIImage.swift */; };
 		23D02E612223799300882742 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D02E602223799300882742 /* AppDelegate.swift */; };
 		23D02E632223799300882742 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D02E622223799300882742 /* LoginController.swift */; };
 		23D02E662223799300882742 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23D02E642223799300882742 /* Main.storyboard */; };
@@ -83,7 +83,6 @@
 		235A32B42224EAB400DE5B0E /* ExtensionTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTextField.swift; sourceTree = "<group>"; };
 		235A32B62224EB6400DE5B0E /* ExtensionStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionStackView.swift; sourceTree = "<group>"; };
 		235A32B82224EC1100DE5B0E /* ExtensionUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIColor.swift; sourceTree = "<group>"; };
-		235A32BA2224EDE400DE5B0E /* UIImageLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageLibrary.swift; sourceTree = "<group>"; };
 		235A32BC2224F51500DE5B0E /* AccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountController.swift; sourceTree = "<group>"; };
 		235A32BE2225301E00DE5B0E /* ChangePasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordController.swift; sourceTree = "<group>"; };
 		23695E9122277DC600AD7076 /* ExtensionUICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUICollectionView.swift; sourceTree = "<group>"; };
@@ -92,6 +91,7 @@
 		23695E9D2227DD0B00AD7076 /* CommentTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableCell.swift; sourceTree = "<group>"; };
 		238792EC222D041B005E4E3E /* AddNewCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCommentCell.swift; sourceTree = "<group>"; };
 		238792ED222D041B005E4E3E /* AddNewCommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewCommentCell.xib; sourceTree = "<group>"; };
+		23B6023E222E767E00FBBD79 /* ExtensionUIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUIImage.swift; sourceTree = "<group>"; };
 		23D02E5D2223799300882742 /* notritionVendorsAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = notritionVendorsAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23D02E602223799300882742 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23D02E622223799300882742 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -177,7 +177,7 @@
 		231AE463222E2A340082C06E /* extensionUI */ = {
 			isa = PBXGroup;
 			children = (
-				235A32BA2224EDE400DE5B0E /* UIImageLibrary.swift */,
+				23B6023E222E767E00FBBD79 /* ExtensionUIImage.swift */,
 				235A32B42224EAB400DE5B0E /* ExtensionTextField.swift */,
 				235A32B62224EB6400DE5B0E /* ExtensionStackView.swift */,
 				235A32B82224EC1100DE5B0E /* ExtensionUIColor.swift */,
@@ -434,6 +434,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				230E2DD822265A4700246392 /* User.swift in Sources */,
+				23B6023F222E767E00FBBD79 /* ExtensionUIImage.swift in Sources */,
 				2300BE6B222D30B7008E9101 /* GeneralInforItemCell.swift in Sources */,
 				23695E9E2227DD0B00AD7076 /* CommentTableCell.swift in Sources */,
 				231AE468222E2EDF0082C06E /* GeneralValueItem.swift in Sources */,
@@ -457,7 +458,6 @@
 				238792EE222D041B005E4E3E /* AddNewCommentCell.swift in Sources */,
 				23D02E612223799300882742 /* AppDelegate.swift in Sources */,
 				231AE46A222E589F0082C06E /* Icon.swift in Sources */,
-				235A32BB2224EDE400DE5B0E /* UIImageLibrary.swift in Sources */,
 				230E2DDC222666F300246392 /* City.swift in Sources */,
 				235A32BD2224F51500DE5B0E /* AccountController.swift in Sources */,
 				235A32B92224EC1100DE5B0E /* ExtensionUIColor.swift in Sources */,

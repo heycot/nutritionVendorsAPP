@@ -14,7 +14,7 @@ class ViewCommentCell: UITableViewCell {
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var cmtDate: UILabel!
-    @IBOutlet weak var cmtRating: UIView!
+    @IBOutlet weak var cmtRating: CosmosView!
     @IBOutlet weak var cmtTitle: UILabel!
     @IBOutlet weak var cmtContent: UITextView!
     
@@ -32,22 +32,22 @@ class ViewCommentCell: UITableViewCell {
     
     
     func updateView(user_image: String, user_name: String, create_date: Date, rating: Double, title: String, content: String) {
+        
+        customUI()
+        
         userImage.image = UIImage(named: user_image)
         userName.text = user_name
         cmtDate.text = NSObject().convertToString(date: create_date, dateformat: DateFormatType.date)
-        cmtRating = {
-            let view = CosmosView()
-            view.rating = rating
-            return view
-        }()
+        cmtRating.rating = rating
         cmtTitle.text = title
         cmtContent.text = content
-        
-        customUI()
     }
     
     func customUI() {
-        userImage.setButtomBorderRadious()
+        cmtRating.settings.updateOnTouch = false
+        cmtRating.settings.fillMode = .precise
+        
+        userImage.setBorder(with: .white)
         userName.setboldSystemFontOfSize(size: 17)
         cmtTitle.setboldSystemFontOfSize(size: 14)
     }
