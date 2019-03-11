@@ -1,20 +1,36 @@
 PODS:
+  - Alamofire (4.8.0)
   - Cosmos (18.0.1)
+  - Socket.IO-Client-Swift (13.4.0):
+    - Starscream (~> 3.0.2)
+  - Starscream (3.0.6)
+  - SwiftyJSON (4.2.0)
   - TinyConstraints (3.3.1)
 
 DEPENDENCIES:
+  - Alamofire
   - Cosmos
+  - Socket.IO-Client-Swift
+  - SwiftyJSON
   - TinyConstraints
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - Cosmos
+    - Socket.IO-Client-Swift
+    - Starscream
+    - SwiftyJSON
     - TinyConstraints
 
 SPEC CHECKSUMS:
+  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   Cosmos: 7dfaa3f52584ca5f94ab74b5c2e264019cc9f7f5
+  Socket.IO-Client-Swift: 2b2720f14c92ff1237ced09bc2f2da2022624fee
+  Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   TinyConstraints: dbf7519aefc01ea59d62244300c7718aec68e280
 
-PODFILE CHECKSUM: 8a9b02092c91ab7e7a43736ce8eb2d6224765af2
+PODFILE CHECKSUM: f5d46bfc19f2ef1b383a0dc294ee0487f3cb4f8e
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.5.2

@@ -8,5 +8,8 @@ target 'notritionVendorsAPP' do
   # Pods for notritionVendorsAPP
     pod 'Cosmos'
     pod 'TinyConstraints'
+    pod 'Alamofire'
+    pod 'SwiftyJSON'
+    pod 'Socket.IO-Client-Swift'
 
 end
