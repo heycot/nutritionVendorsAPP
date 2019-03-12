@@ -8,6 +8,12 @@
 
 import UIKit
 
+enum CellClassName: String {
+    case GeneralInfor   = "GeneralInforItemCell"
+    case GeneralValue   = "GeneralValueCell"
+    case ListComment    = "ViewCommentCell"
+    case AddNewComment  = "AddNewCommentCell"
+}
 
 class ViewItemController: UIViewController {
     
