@@ -16,6 +16,7 @@ class HightRatingController: UIViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.barTintColor = appColor
         prepareData()
         createSearchBar()
         

@@ -23,7 +23,7 @@ class CollectionItemCell: UICollectionViewCell {
 //    }()
     
     func updateView() {
-        itemImage.image = UIImage(named: "firstBKImage")
+        itemImage.image = UIImage(named: "thirdBKImage")
         itemName.text = "Táo"
         itemPrice.text = "50.000 VND"
         itemRating.setButtomBorderRadious()

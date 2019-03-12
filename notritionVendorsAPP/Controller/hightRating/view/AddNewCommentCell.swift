@@ -19,7 +19,9 @@ class AddNewCommentCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        content.delegate = self
+        setUpUI()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -30,7 +32,7 @@ class AddNewCommentCell: UITableViewCell {
     func setUpUI() {
         rating.settings.fillMode = .precise
         title.setBottomBorder(color: .lightGray)
-        content.setBorder(with: .lightGray)
+//        content.setBorder(with: .lightGray)
         content.text = "Comment here"
         
     }
@@ -44,6 +46,7 @@ extension AddNewCommentCell: UITextViewDelegate {
         if textView.text.isEmpty {
             textView.text = "Enter description"
             textView.textColor = UIColor.lightGray
+            textView.layer.backgroundColor = UIColor.lightGray.cgColor
             textView.layer.borderColor = UIColor(red: CGFloat(237.0/255.0), green: CGFloat(237.0/255.0), blue: CGFloat(237.0/255.0), alpha: CGFloat(1.0)).cgColor
             textView.layer.borderWidth = 1.0
         }

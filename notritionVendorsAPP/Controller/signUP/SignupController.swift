@@ -30,11 +30,11 @@ class SignupController: UIViewController {
     
     func setUpUI() {
         avatarImage.setRounded(color: .white)
-        userNameTxt.setBottomBorder(color: UIColor.lightGray)
-        phoneTxt.setBottomBorder(color: UIColor.lightGray)
-        emailTxt.setBottomBorder(color: UIColor.lightGray)
-        passTxt.setBottomBorder(color: UIColor.lightGray)
-        confirmPassTxt.setBottomBorder(color: UIColor.lightGray)
+        userNameTxt.setBottomBorder(color: appColor)
+        phoneTxt.setBottomBorder(color: appColor)
+        emailTxt.setBottomBorder(color: appColor)
+        passTxt.setBottomBorder(color: appColor)
+        confirmPassTxt.setBottomBorder(color: appColor)
     }
     
     @IBAction func donePressed(_ sender: Any) {

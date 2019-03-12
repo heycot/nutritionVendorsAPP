@@ -40,7 +40,7 @@ class GeneralInforItemCell: UITableViewCell {
     }
     
     func customUI() {
-        itemName.setBottomBorder(color: .lightGray)
+        itemName.setBottomBorder(color: appColor)
     }
     
 }

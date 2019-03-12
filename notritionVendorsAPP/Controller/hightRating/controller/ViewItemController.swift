@@ -53,7 +53,7 @@ class ViewItemController: UIViewController {
 extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -62,8 +62,10 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
             return 1
         } else if section == 1{
             return 6
-        } else {
+        } else if section == 2{
             return 6
+        } else {
+            return 1
         }
     }
     
@@ -79,17 +81,13 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
             cell.updateView(icon_image: itemValues[indexPath.row].icon, value: itemValues[indexPath.row].value)
             return cell
 
+        } else if indexPath.section == 2{
+            let cell = Bundle.main.loadNibNamed(CellClassName.ListComment.rawValue, owner: self, options: nil )?.first as! ViewCommentCell
+            cell.updateView(user_image: "secondBKImage", user_name: "Callie", create_date: Date(), rating: 3.5, title: "Not good at all", content: "goscdsbcdcsdc")
+            return cell
         } else {
-            if (indexPath.row == 5) {
-                let cell = Bundle.main.loadNibNamed(CellClassName.AddNewComment.rawValue, owner: self, options: nil )?.first as! AddNewCommentCell
-                return cell
-
-            } else {
-                let cell = Bundle.main.loadNibNamed(CellClassName.ListComment.rawValue, owner: self, options: nil )?.first as! ViewCommentCell
-                cell.updateView(user_image: "secondBKImage", user_name: "Callie", create_date: Date(), rating: 3.5, title: "Not good at all", content: "goscdsbcdcsdc")
-                return cell
-
-            }
+            let cell = Bundle.main.loadNibNamed(CellClassName.AddNewComment.rawValue, owner: self, options: nil )?.first as! AddNewCommentCell
+            return cell
         }
     }
       

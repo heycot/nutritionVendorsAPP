@@ -38,3 +38,10 @@ let HEADER_AUTH = [
     "Authorization": "Bearer \(AuthServices.instance.authToken)",
     "Content-Type" : "application/json, charset=utf-8"
 ]
+
+
+
+// Constant color
+
+let appColor = UIColor(red: CGFloat(29/255.0), green: CGFloat(122/255.0), blue: CGFloat(139/255.0), alpha: CGFloat(1.0))
+

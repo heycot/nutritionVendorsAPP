@@ -12,6 +12,7 @@ import UIKit
 
 extension UITextField {
     func setBottomBorder(color: UIColor) {
+        
         self.borderStyle = .none
         self.layer.backgroundColor = UIColor.white.cgColor
         

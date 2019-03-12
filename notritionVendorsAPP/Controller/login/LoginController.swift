@@ -20,8 +20,8 @@ class LoginController: UIViewController {
     }
     
     func setUpUI() {
-        username.setBottomBorder(color: UIColor.lightGray)
-        password.setBottomBorder(color: UIColor.lightGray)
+        username.setBottomBorder(color: appColor)
+        password.setBottomBorder(color: appColor)
     }
 
 }
