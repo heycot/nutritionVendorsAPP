@@ -30,7 +30,7 @@ extension String {
     //check phone number is valid or not
     //only number and must 10 digital
     func isValidPhone() -> Bool {
-        let PHONE_REGEX = "^[0][1-9]\d{8}$|^[+84][1-9]\d{8}$"
+        let PHONE_REGEX = "^[0][1-9]\\d{8}$|^[+84][1-9]\\d{8}$"
         let regex = try! NSRegularExpression(pattern: PHONE_REGEX, options: .caseInsensitive)
         return regex.firstMatch(in: self, options: [], range: NSRange(location: 0, length: count)) != nil
     }

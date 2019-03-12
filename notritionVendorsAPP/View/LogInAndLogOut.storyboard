@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Dxd-g7-H09">
-                                <rect key="frame" x="10" y="113" width="355" height="315"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Dxd-g7-H09">
+                                <rect key="frame" x="10" y="120" width="355" height="315"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Zkp-by-EE2">
                                         <rect key="frame" x="0.0" y="0.0" width="355" height="100"/>
@@ -216,8 +216,8 @@
                         <viewLayoutGuide key="safeArea" id="Oep-yf-lM3"/>
                     </view>
                     <navigationItem key="navigationItem" id="hP2-oq-UTH">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="zCn-NW-obz"/>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="0ba-Fg-TTF">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="zCn-NW-obz"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="0ba-Fg-TTF">
                             <connections>
                                 <action selector="donePressed:" destination="OuZ-m9-mNt" id="9Dx-45-11C"/>
                             </connections>

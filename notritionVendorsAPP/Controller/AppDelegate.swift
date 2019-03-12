@@ -15,8 +15,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        self.splahScreen()
         // Override point for customization after application launch.
         return true
+    }
+    
+    private func splahScreen() {
+        let lanuchScreenVC = UIStoryboard.init(name: "LaunchScreen", bundle: nil)
+        
+        let rootVC = lanuchScreenVC.instantiateInitialViewController() //(withIdentifier: "splashContrller")
+        self.window?.rootViewController = rootVC
+        self.window?.makeKeyAndVisible()
+        Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(dismissSplashController), userInfo: nil, repeats: false)
+    }
+    
+    @objc func dismissSplashController() {
+        let mainVC = UIStoryboard.init(name: "Main", bundle: nil)
+        let rootVC = mainVC.instantiateViewController(withIdentifier: "initController")
+        
+        self.window?.rootViewController = rootVC
+        self.window?.makeKeyAndVisible()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
