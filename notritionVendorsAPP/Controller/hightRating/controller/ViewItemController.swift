@@ -25,6 +25,7 @@ class ViewItemController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Nho Den"
+        navigationController?.navigationBar.barTintColor = appColor
         prepareData()
         setUPTableView()
         prepareData()

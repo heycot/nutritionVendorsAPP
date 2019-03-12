@@ -43,5 +43,5 @@ let HEADER_AUTH = [
 
 // Constant color
 
-let appColor = UIColor(red: CGFloat(29/255.0), green: CGFloat(122/255.0), blue: CGFloat(139/255.0), alpha: CGFloat(1.0))
+let appColor = UIColor(red: CGFloat(29/255.0), green: CGFloat(122/255.0), blue: CGFloat(139/255.0), alpha: CGFloat(0.5))
 

@@ -135,6 +135,7 @@
                                                     <color key="titleColor" red="0.30196078431372547" green="0.68235294117647061" blue="0.85490196078431369" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
+                                                    <action selector="avatarPickerPressed:" destination="Whv-8G-R6B" eventType="touchUpInside" id="j5W-Jh-USd"/>
                                                     <action selector="chooseAvatarpressed:" destination="OuZ-m9-mNt" eventType="touchUpInside" id="lw8-Uw-rVs"/>
                                                 </connections>
                                             </button>
@@ -216,7 +217,11 @@
                         <viewLayoutGuide key="safeArea" id="Oep-yf-lM3"/>
                     </view>
                     <navigationItem key="navigationItem" id="hP2-oq-UTH">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="zCn-NW-obz"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="zCn-NW-obz">
+                            <connections>
+                                <action selector="cacelPressed:" destination="OuZ-m9-mNt" id="RIl-Pg-UiE"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="0ba-Fg-TTF">
                             <connections>
                                 <action selector="donePressed:" destination="OuZ-m9-mNt" id="9Dx-45-11C"/>
@@ -233,8 +238,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tA6-a8-wWg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Whv-8G-R6B" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1453" y="-72"/>
+            <point key="canvasLocation" x="-1412" y="-21"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WHt-Vx-2Ub">
