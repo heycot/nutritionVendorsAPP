@@ -31,6 +31,9 @@
 		231AE468222E2EDF0082C06E /* GeneralValueItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231AE467222E2EDF0082C06E /* GeneralValueItem.swift */; };
 		231AE46A222E589F0082C06E /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231AE469222E589F0082C06E /* Icon.swift */; };
 		23351DC4222539BF003944E2 /* ExtensionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23351DC3222539BF003944E2 /* ExtensionButton.swift */; };
+		233B390822375463003EB253 /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233B390722375463003EB253 /* AuthServices.swift */; };
+		233B390B223755FD003EB253 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233B390A223755FD003EB253 /* Constant.swift */; };
+		233B390D22376476003EB253 /* StringLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233B390C22376476003EB253 /* StringLibrary.swift */; };
 		235A32B02224E9F200DE5B0E /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32AF2224E9F200DE5B0E /* SignupController.swift */; };
 		235A32B22224EA0C00DE5B0E /* HightRatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32B12224EA0C00DE5B0E /* HightRatingController.swift */; };
 		235A32B52224EAB400DE5B0E /* ExtensionTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32B42224EAB400DE5B0E /* ExtensionTextField.swift */; };
@@ -78,6 +81,9 @@
 		231AE467222E2EDF0082C06E /* GeneralValueItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralValueItem.swift; sourceTree = "<group>"; };
 		231AE469222E589F0082C06E /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 		23351DC3222539BF003944E2 /* ExtensionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionButton.swift; sourceTree = "<group>"; };
+		233B390722375463003EB253 /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
+		233B390A223755FD003EB253 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		233B390C22376476003EB253 /* StringLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringLibrary.swift; sourceTree = "<group>"; };
 		235A32AF2224E9F200DE5B0E /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
 		235A32B12224EA0C00DE5B0E /* HightRatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HightRatingController.swift; sourceTree = "<group>"; };
 		235A32B42224EAB400DE5B0E /* ExtensionTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTextField.swift; sourceTree = "<group>"; };
@@ -196,13 +202,31 @@
 				231AE45F222E28860082C06E /* DateTimeLibrary.swift */,
 				231AE467222E2EDF0082C06E /* GeneralValueItem.swift */,
 				231AE469222E589F0082C06E /* Icon.swift */,
+				233B390C22376476003EB253 /* StringLibrary.swift */,
 			);
 			path = DataLibrary;
+			sourceTree = "<group>";
+		};
+		233B39062237544E003EB253 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				233B390722375463003EB253 /* AuthServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		233B3909223755EA003EB253 /* Uitilities */ = {
+			isa = PBXGroup;
+			children = (
+				233B390A223755FD003EB253 /* Constant.swift */,
+			);
+			path = Uitilities;
 			sourceTree = "<group>";
 		};
 		235A32B32224EA7800DE5B0E /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				233B3909223755EA003EB253 /* Uitilities */,
 				231AE464222E2A570082C06E /* DataLibrary */,
 				231AE463222E2A340082C06E /* ExtensionUI */,
 			);
@@ -230,6 +254,7 @@
 		23D02E5F2223799300882742 /* notritionVendorsAPP */ = {
 			isa = PBXGroup;
 			children = (
+				233B39062237544E003EB253 /* Services */,
 				235A32B32224EA7800DE5B0E /* Libraries */,
 				23D02E7622237AC100882742 /* Resource */,
 				23D02E7522237AB600882742 /* Model */,
@@ -439,6 +464,7 @@
 				2300BE6B222D30B7008E9101 /* GeneralInforItemCell.swift in Sources */,
 				23695E9E2227DD0B00AD7076 /* CommentTableCell.swift in Sources */,
 				231AE468222E2EDF0082C06E /* GeneralValueItem.swift in Sources */,
+				233B390B223755FD003EB253 /* Constant.swift in Sources */,
 				235A32BF2225301E00DE5B0E /* ChangePasswordController.swift in Sources */,
 				230E2DE622266AEF00246392 /* ShopItem.swift in Sources */,
 				235A32B02224E9F200DE5B0E /* SignupController.swift in Sources */,
@@ -449,6 +475,7 @@
 				2300BE7C222D3658008E9101 /* ViewCommentCell.swift in Sources */,
 				230E2DEA22266DDE00246392 /* Favorites.swift in Sources */,
 				231AE462222E2A030082C06E /* ExtensionUIlabel.swift in Sources */,
+				233B390822375463003EB253 /* AuthServices.swift in Sources */,
 				23695E9822278F3B00AD7076 /* ViewItemController.swift in Sources */,
 				23351DC4222539BF003944E2 /* ExtensionButton.swift in Sources */,
 				230E2DE0222667EE00246392 /* Location.swift in Sources */,
@@ -464,6 +491,7 @@
 				235A32B92224EC1100DE5B0E /* ExtensionUIColor.swift in Sources */,
 				230E2DDE2226674200246392 /* Area.swift in Sources */,
 				230E2DE822266BFE00246392 /* Shop.swift in Sources */,
+				233B390D22376476003EB253 /* StringLibrary.swift in Sources */,
 				230E2DED22267DCA00246392 /* CollectionItemCell.swift in Sources */,
 				235A32B22224EA0C00DE5B0E /* HightRatingController.swift in Sources */,
 				2300BE78222D34B2008E9101 /* GeneralValueCell.swift in Sources */,

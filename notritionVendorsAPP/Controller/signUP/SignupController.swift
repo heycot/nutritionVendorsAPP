@@ -10,11 +10,14 @@ import UIKit
 
 class SignupController: UIViewController {
 
-    @IBOutlet weak var username: UITextField!
-    @IBOutlet weak var phone: UITextField!
-    @IBOutlet weak var address: UITextField!
-    @IBOutlet weak var password: UITextField!
-    @IBOutlet weak var confirmPassword: UITextField!
+    // Outlets
+    @IBOutlet weak var avatarImage: UIImageView!
+    @IBOutlet weak var userNameTxt: UITextField!
+    @IBOutlet weak var phoneTxt: UITextField!
+    @IBOutlet weak var emailTxt: UITextField!
+    @IBOutlet weak var passTxt: UITextField!
+    @IBOutlet weak var confirmPassTxt: UITextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,4 +32,42 @@ class SignupController: UIViewController {
         confirmPassword.setBottomBorder(color: UIColor.lightGray)
     }
     
+    @IBAction func donePressed(_ sender: Any) {
+        var user = User()
+        
+        guard user.username = userNameTxt.text, userNameTxt.text != "", userNameTxt.text.isValidUserName() else {
+            return
+        }
+        
+        guard user.phone = phoneTxt.text, phoneTxt.text != "", phoneTxt.text?.isValidPhone() else {
+            return
+        }
+        
+        guard user.email = emailTxt.text , emailTxt.text != "", emailTxt.text?.isValidEmail() else {
+            return
+        }
+        
+        guard user.password = passTxt.text, passTxt.text != "" , passTxt.text?.isValidPassword() else {
+            return
+        }
+        
+        guard user.password = confirmPassTxt.text, confirmPassTxt.text != "", confirmPassTxt.text?.isValidPassword(), confirmPassTxt.text == password else {
+            return
+        }
+        
+        
+        AuthServices.instance().registerUser(user: user) { (success) in
+            if success {
+                AuthServices.instance.loginUser(email: user.email, password: user.password, completion: { (success) in
+                    
+                    if success {
+                        print("logined user " )
+                    }
+                })
+            }
+        }
+    }
+    
+    @IBAction func chooseAvatarpressed(_ sender: Any) {
+    }
 }
