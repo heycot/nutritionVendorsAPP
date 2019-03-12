@@ -116,6 +116,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="1d7-Ub-CJ1">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" red="0.1137254902" green="0.47843137250000001" blue="0.5450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aN4-10-5qd">
                                 <rect key="frame" x="10" y="74" width="355" height="410"/>
                                 <subviews>
@@ -135,7 +139,6 @@
                                                     <color key="titleColor" red="0.30196078431372547" green="0.68235294117647061" blue="0.85490196078431369" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="avatarPickerPressed:" destination="Whv-8G-R6B" eventType="touchUpInside" id="j5W-Jh-USd"/>
                                                     <action selector="chooseAvatarpressed:" destination="OuZ-m9-mNt" eventType="touchUpInside" id="lw8-Uw-rVs"/>
                                                 </connections>
                                             </button>
@@ -212,6 +215,8 @@
                         <constraints>
                             <constraint firstItem="Oep-yf-lM3" firstAttribute="trailing" secondItem="aN4-10-5qd" secondAttribute="trailing" constant="10" id="P3a-UR-GMZ"/>
                             <constraint firstItem="aN4-10-5qd" firstAttribute="leading" secondItem="Oep-yf-lM3" secondAttribute="leading" constant="10" id="c2u-5l-PWH"/>
+                            <constraint firstItem="1d7-Ub-CJ1" firstAttribute="centerX" secondItem="htv-QZ-Vg5" secondAttribute="centerX" id="fNi-vk-RyE"/>
+                            <constraint firstItem="1d7-Ub-CJ1" firstAttribute="centerY" secondItem="htv-QZ-Vg5" secondAttribute="centerY" id="hLg-hC-KqQ"/>
                             <constraint firstItem="aN4-10-5qd" firstAttribute="top" secondItem="Oep-yf-lM3" secondAttribute="top" constant="10" id="pkd-m8-7HU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Oep-yf-lM3"/>
@@ -234,11 +239,11 @@
                         <outlet property="emailTxt" destination="JWk-rj-eoQ" id="ilZ-oQ-UYg"/>
                         <outlet property="passTxt" destination="uRT-jI-rhM" id="WSW-kq-LIh"/>
                         <outlet property="phoneTxt" destination="eGQ-RH-Raq" id="BBs-bU-sOK"/>
+                        <outlet property="spinner" destination="1d7-Ub-CJ1" id="ylm-m9-yGF"/>
                         <outlet property="userNameTxt" destination="NOP-YD-57G" id="mg9-Sc-iQL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tA6-a8-wWg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="Whv-8G-R6B" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-1412" y="-21"/>
         </scene>

@@ -18,6 +18,7 @@ class SignupController: UIViewController {
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var passTxt: UITextField!
     @IBOutlet weak var confirmPassTxt: UITextField!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     
     // variables
@@ -30,6 +31,7 @@ class SignupController: UIViewController {
     }
     
     func setUpUI() {
+        spinner.isHidden = true
         avatarImage.setRounded(color: .white)
         userNameTxt.setBottomBorder(color: appColor)
         phoneTxt.setBottomBorder(color: appColor)
@@ -42,6 +44,9 @@ class SignupController: UIViewController {
     }
     
     @IBAction func donePressed(_ sender: Any) {
+        spinner.isHidden = false
+        spinner.startAnimating()
+        
         if checkInputData() {
             AuthServices.instance.registerUser(user: self.user!) { (success) in
                 if success {
