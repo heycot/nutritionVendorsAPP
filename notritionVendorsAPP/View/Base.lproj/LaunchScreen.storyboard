@@ -19,17 +19,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="GbM-xw-Ghy">
-                                <rect key="frame" x="62.5" y="193.5" width="250" height="280"/>
+                                <rect key="frame" x="62.5" y="218.5" width="250" height="230"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="h3V-zJ-Gdn">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_full" translatesAutoresizingMaskIntoConstraints="NO" id="h3V-zJ-Gdn">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="200"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="250" id="1Mg-c8-3ZN"/>
+                                            <constraint firstAttribute="height" constant="200" id="1Mg-c8-3ZN"/>
                                             <constraint firstAttribute="width" constant="250" id="2Xv-uO-89b"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Easy way to buy food!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEE-G2-A6c">
-                                        <rect key="frame" x="0.0" y="250" width="250" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make Your Life is Easier" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEE-G2-A6c">
+                                        <rect key="frame" x="0.0" y="200" width="250" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="i0C-Nh-JOg"/>
                                         </constraints>
@@ -55,10 +55,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gdE-xb-G9B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="74" y="242"/>
+            <point key="canvasLocation" x="6" y="113"/>
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="320" height="320"/>
+        <image name="logo_full" width="320" height="320"/>
     </resources>
 </document>
