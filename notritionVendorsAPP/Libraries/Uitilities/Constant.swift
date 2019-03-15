@@ -45,3 +45,13 @@ let HEADER_AUTH = [
 
 let appColor = UIColor(red: CGFloat(44/255.0), green: CGFloat(166/255.0), blue: CGFloat(172/255.0), alpha: CGFloat(0.75))
 
+
+enum CellClassName: String {
+    case GeneralInfor   = "GeneralInforItemCell"
+    case GeneralValue   = "GeneralValueCell"
+    case ListComment    = "ViewCommentCell"
+    case AddNewComment  = "AddNewCommentCell"
+}
+
+
+

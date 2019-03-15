@@ -37,7 +37,6 @@ class AddNewCommentCell: UITableViewCell {
         rating.settings.fillMode = .precise
         title.setBottomBorder(color: .lightGray)
 //        content.setBorder(with: .lightGray)
-        content.text = "Comment here"
         
     }
     
@@ -78,6 +77,7 @@ class AddNewCommentCell: UITableViewCell {
     func addNewComment() {
         
     }
+    
     
 }
 

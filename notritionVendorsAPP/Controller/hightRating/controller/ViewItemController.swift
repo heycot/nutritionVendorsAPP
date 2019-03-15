@@ -8,12 +8,6 @@
 
 import UIKit
 
-enum CellClassName: String {
-    case GeneralInfor   = "GeneralInforItemCell"
-    case GeneralValue   = "GeneralValueCell"
-    case ListComment    = "ViewCommentCell"
-    case AddNewComment  = "AddNewCommentCell"
-}
 
 class ViewItemController: UIViewController {
     
@@ -41,15 +35,17 @@ class ViewItemController: UIViewController {
     func prepareData() {
         appendItemValue(icon: Icon.price_icon.rawValue, value: "VND 70.000")
         appendItemValue(icon: Icon.time_icon.rawValue, value: "10:00 - 21:00")
-        appendItemValue(icon: Icon.phone_icon.rawValue, value: "0976514235")
+        appendItemValue(icon: Icon.category_icon.rawValue, value: "Rau cu")
         appendItemValue(icon: Icon.shop_icon.rawValue, value: "Shop Rau Sach")
         appendItemValue(icon: Icon.address_icon.rawValue, value: "60 Ngo Sy Lien")
-        appendItemValue(icon: Icon.category_icon.rawValue, value: "Rau cu")
+        appendItemValue(icon: Icon.phone_icon.rawValue, value: "0976514235")
     }
     
     func appendItemValue(icon: String, value: String) {
         itemValues.append(ItemValue(icon: icon, value:  value))
     }
+    
+    
 }
 
 
@@ -80,16 +76,22 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
             let cell = Bundle.main.loadNibNamed(CellClassName.GeneralInfor.rawValue, owner: self, options: nil )?.first as! GeneralInforItemCell
             cell.updateView(image_name: "firstBKImage", item_name: "Nho Den", item_comment: 42, item_photo: 15, item_favorites: 50, item_rating: 4.5)
+            cell.selectionStyle = UITableViewCell.SelectionStyle.none;
             return cell
         
         } else if indexPath.section == 1{
             let cell = Bundle.main.loadNibNamed(CellClassName.GeneralValue.rawValue, owner: self, options: nil )?.first as! GeneralValueCell
             cell.updateView(icon_image: itemValues[indexPath.row].icon, value: itemValues[indexPath.row].value)
+            
+            if indexPath.row <= 3 {
+                cell.selectionStyle = UITableViewCell.SelectionStyle.none;
+            }
             return cell
 
         } else if indexPath.section == 2{
             let cell = Bundle.main.loadNibNamed(CellClassName.ListComment.rawValue, owner: self, options: nil )?.first as! ViewCommentCell
             cell.updateView(user_image: "secondBKImage", user_name: "Callie", create_date: Date(), rating: 3.5, title: "Not good at all", content: "goscdsbcdcsdc")
+            cell.selectionStyle = UITableViewCell.SelectionStyle.none;
             return cell
         } else {
             let cell = Bundle.main.loadNibNamed(CellClassName.AddNewComment.rawValue, owner: self, options: nil )?.first as! AddNewCommentCell
@@ -106,6 +108,25 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 15.0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            if indexPath.row == 4  {
+                
+                if true {
+                    let phoneNumber = "033602512"
+                    guard let url = URL(string: "telprompt://\(phoneNumber)")  else {
+                        return
+                    }
+                    
+                    UIApplication.shared.canOpenURL(url)
+                } 
+                
+            } else {
+                
+            }
+        }
     }
     
     
