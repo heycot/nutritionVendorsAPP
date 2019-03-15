@@ -51,7 +51,7 @@
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Enter content" translatesAutoresizingMaskIntoConstraints="NO" id="1Wc-La-k9e">
-                        <rect key="frame" x="10" y="85" width="301" height="118.5"/>
+                        <rect key="frame" x="10" y="85" width="301" height="98.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="zEL-v0-Bua"/>
@@ -74,7 +74,7 @@
                     <constraint firstItem="Fbx-QL-Gx0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="s40-ea-2iU"/>
                     <constraint firstItem="1Wc-La-k9e" firstAttribute="top" secondItem="RZl-71-hLP" secondAttribute="bottom" constant="10" id="s7U-0F-Dxm"/>
                     <constraint firstItem="1Wc-La-k9e" firstAttribute="width" secondItem="Fbx-QL-Gx0" secondAttribute="width" id="uaq-Ok-zkH"/>
-                    <constraint firstItem="1Wc-La-k9e" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottom" constant="10" id="xD3-21-pqJ"/>
+                    <constraint firstItem="1Wc-La-k9e" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottom" constant="-10" id="xD3-21-pqJ"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

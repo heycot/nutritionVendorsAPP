@@ -8,11 +8,16 @@
 
 import UIKit
 
-class HightRatingController: UIViewController, UISearchBarDelegate {
+class HightRatingController: UIViewController {
 
+    // outlets
     @IBOutlet weak var itemCollection: UICollectionView!
     
-    var itemList = [Item]()
+    
+    // variables
+    var listShop = [Shop]()
+    var listItem = [ShopItem] ()
+    let searchBar = UISearchBar()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,14 +31,14 @@ class HightRatingController: UIViewController, UISearchBarDelegate {
     }
     
     func prepareData() {
-//        var item = Item(id: 0, name: "Nho den", catalog_id: 0)
-//        itemList.append(item)
+        listShop = [Shop]()
+        listItem = [ShopItem]()
     }
     
+    
     func createSearchBar() {
-        let searchBar = UISearchBar()
         searchBar.showsCancelButton = false
-        searchBar.placeholder = "Search here"
+        searchBar.placeholder = " Search here"
         searchBar.delegate = self
         
         self.navigationItem.titleView = searchBar
@@ -49,14 +54,27 @@ class HightRatingController: UIViewController, UISearchBarDelegate {
 }
 
 extension HightRatingController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+//        return 2
+        return 1
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return section == 0 ? listShop.count : listItem.count
         return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        if indexPath.section == 0 {
+//
+//        } else {
+//
+//        }
+        
+        
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath) as? CollectionItemCell {
             cell.updateView()
-//            cell.setBorderRadious()
+            //            cell.setBorderRadious()
             return cell
         }
         return CollectionItemCell()
@@ -72,10 +90,22 @@ extension HightRatingController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return CGFloat(15.0)
+        return CGFloat(20.0)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return CGFloat(10.0)
+    }
+}
+
+
+// auto hide keyboard when click search bar
+extension HightRatingController: UISearchBarDelegate {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        searchBar.endEditing(true)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
     }
 }

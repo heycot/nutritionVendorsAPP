@@ -31,6 +31,7 @@ class ViewItemController: UIViewController {
         prepareData()
     }
     
+    
     func setUPTableView() {
         tabelView.delegate = self
         tabelView.dataSource = self
@@ -49,10 +50,7 @@ class ViewItemController: UIViewController {
     func appendItemValue(icon: String, value: String) {
         itemValues.append(ItemValue(icon: icon, value:  value))
     }
-    
 }
-
-
 
 
 
@@ -110,23 +108,6 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
         return 15.0
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        NotificationCenter.default.addObserver( self, selector: "keyboardWillShow:", name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-    }
-    
-    
-    // Handle keyboard frame changes here.
-    // Use the CGRect stored in the notification to determine what part of the screen the keyboard will cover.
-    // Adjust our table view's contentInset and scrollIndicatorInsets properties so that the table view content avoids the part of the screen covered by the keyboard
-    @objc func keyboardWillShow(_ tableView: UITableView, note:NSNotification )
-    {
-        // read the CGRect from the notification (if any)
-        if let newFrame = (note.userInfo?[ UIResponder.keyboardFrameEndUserInfoKey ] as? NSValue)?.cgRectValue {
-            let insets = UIEdgeInsets( top: 0, left: 0, bottom: newFrame.height, right: 0 )
-            tableView.contentInset = insets
-            tableView.scrollIndicatorInsets = insets
-        }
-    }
     
 }
 

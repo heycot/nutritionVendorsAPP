@@ -15,7 +15,8 @@ class CollectionItemCell: UICollectionViewCell {
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var itemName: UILabel!
     @IBOutlet weak var itemPrice: UILabel!
-    @IBOutlet weak var itemRating: UIView!
+    @IBOutlet weak var itemRating: CosmosView!
+    @IBOutlet weak var numberOfReview: UILabel!
     
 //    lazy var cosmosView: CosmosView = {
 //        var view = CosmosView()
@@ -23,10 +24,19 @@ class CollectionItemCell: UICollectionViewCell {
 //    }()
     
     func updateView() {
-        itemImage.image = UIImage(named: "thirdBKImage")
+        setUpUI()
+        
+        itemImage.image = UIImage(named: "secondBKImage")
         itemName.text = "Táo"
         itemPrice.text = "50.000 VND"
-        itemRating.setButtomBorderRadious()
+        numberOfReview.text = "( \(100))"
+        itemRating.rating = 2.49
+        
+    }
+    
+    func setUpUI() {
+        itemRating.settings.fillMode = .precise
+        itemRating.settings.updateOnTouch = false
     }
 
 }

@@ -9,6 +9,7 @@
 import UIKit
 import Cosmos
 import TinyConstraints
+import IQKeyboardManagerSwift
 
 class AddNewCommentCell: UITableViewCell {
 
@@ -20,8 +21,8 @@ class AddNewCommentCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        content.delegate = self
         setUpUI()
+        handlerkeyboard()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -30,10 +31,51 @@ class AddNewCommentCell: UITableViewCell {
     }
     
     func setUpUI() {
+        title.delegate = self
+        content.delegate = self
+        
         rating.settings.fillMode = .precise
         title.setBottomBorder(color: .lightGray)
 //        content.setBorder(with: .lightGray)
         content.text = "Comment here"
+        
+    }
+    
+    
+    // handle keyboard when add new comment
+    func handlerkeyboard() {
+        IQKeyboardManager.shared.toolbarDoneBarButtonItemText = "Send"
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = false
+        IQKeyboardManager.shared.shouldPlayInputClicks = false // set to true by default
+        
+    }
+    
+    func validateInput() -> Bool {
+        
+        if title.text == "" || content.text == "" {
+            showAlertError(title: "Error", message: "All the information are required!")
+            return false
+        } else if !title.text!.isValidString() {
+            showAlertError(title: "Error", message: "The title has only letters, underscores and numbers allowed!")
+            return false
+            
+        } else if !content.text!.isValidString() {
+            showAlertError(title: "Error", message: "The content has only letters, underscores and numbers allowed!")
+            return false
+            
+        } else {
+            return true
+        }
+    }
+    
+    func showAlertError(title: String, message: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        alert.present(alert, animated: true, completion: nil)
+    }
+    
+    func addNewComment() {
         
     }
     
@@ -59,4 +101,19 @@ extension AddNewCommentCell: UITextViewDelegate {
         }
     }
     
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if validateInput() {
+            addNewComment()
+        }
+    }
+    
+}
+
+extension AddNewCommentCell: UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if validateInput() {
+            addNewComment()
+        }
+    }
 }

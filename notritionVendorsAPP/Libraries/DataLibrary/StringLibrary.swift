@@ -52,5 +52,14 @@ extension String {
         
     }
     
+    // check username is valid or not
+    //    No special characters (e.g. @,#,$,%,&,*,(,),^,<,>,!,±)
+    //    Only letters, underscores and numbers allowed
+    func isValidString() -> Bool {
+        let RegEx = "\\w"
+        let regex = try! NSRegularExpression(pattern: RegEx, options: .caseInsensitive)
+        return regex.firstMatch(in: self, options: [], range: NSRange(location: 0, length: count)) != nil
+    }
+    
     
 }
