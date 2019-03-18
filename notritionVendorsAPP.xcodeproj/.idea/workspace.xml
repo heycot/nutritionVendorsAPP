@@ -2,90 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d1024621-7e2a-4468-91be-cd75b43dd2c1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Supporting Files/SWRevealViewController.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Supporting Files/SWRevealViewController.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Supporting Files/SWRevealViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/../Supporting Files/SWRevealViewController.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Supporting Files/notritionVendorsAPP-Bridging-Header.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Supporting Files/notritionVendorsAPP-Bridging-Header.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../notritionVendorsAPP/Controller/hightRating/controller/ViewLocationShopController.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/map-direction.imageset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/map-direction.imageset/navigation.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pods/Pods.xcodeproj/xcuserdata/callie.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../Pods/Pods.xcodeproj/xcuserdata/callie.xcuserdatad/xcschemes/xcschememanagement.plist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xcuserdata/callie.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" afterPath="$PROJECT_DIR$/xcuserdata/callie.xcuserdatad/xcschemes/xcschememanagement.plist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP.xcworkspace/xcuserdata/callie.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP.xcworkspace/xcuserdata/callie.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Controller/Account/AccountController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/viewController/account/AccountController.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Controller/Account/ChangePasswordController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/viewController/account/ChangePasswordController.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Controller/AppDelegate.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/viewController/AppDelegate.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Controller/HightRating/controller/HightRatingController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/viewController/hightRating/controller/HightRatingController.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Controller/HightRating/controller/ViewItemController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/viewController/hightRating/controller/ViewItemController.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Controller/HightRating/view/AddNewCommentCell.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/viewController/hightRating/view/AddNewCommentCell.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Controller/HightRating/view/AddNewCommentCell.xib" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/viewController/hightRating/view/AddNewCommentCell.xib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Controller/HightRating/view/GeneralInforItemCell.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/viewController/hightRating/view/GeneralInforItemCell.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Controller/HightRating/view/GeneralInforItemCell.xib" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/viewController/hightRating/view/GeneralInforItemCell.xib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Controller/HightRating/view/GeneralValueCell.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/viewController/hightRating/view/GeneralValueCell.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Controller/HightRating/view/GeneralValueCell.xib" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/viewController/hightRating/view/GeneralValueCell.xib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Controller/HightRating/view/ViewCommentCell.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/viewController/hightRating/view/ViewCommentCell.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Controller/HightRating/view/ViewCommentCell.xib" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/viewController/hightRating/view/ViewCommentCell.xib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Controller/Login/LoginController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/viewController/login/LoginController.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Controller/SignUP/SignupController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/viewController/signUP/SignupController.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Libraries/DataLibrary/DateTimeLibrary.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/libraries/dataLibrary/DateTimeLibrary.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Libraries/DataLibrary/GeneralValueItem.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/libraries/dataLibrary/GeneralValueItem.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Libraries/DataLibrary/Icon.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/libraries/dataLibrary/Icon.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Libraries/ExtensionUI/ExtensionButton.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/libraries/extensionUI/ExtensionButton.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Libraries/ExtensionUI/ExtensionStackView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/libraries/extensionUI/ExtensionStackView.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Libraries/ExtensionUI/ExtensionTextField.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/libraries/extensionUI/ExtensionTextField.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Libraries/ExtensionUI/ExtensionUICollectionView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/libraries/extensionUI/ExtensionUICollectionView.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Libraries/ExtensionUI/ExtensionUIColor.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/libraries/extensionUI/ExtensionUIColor.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Libraries/ExtensionUI/ExtensionUIImage.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/libraries/extensionUI/ExtensionUIImage.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Libraries/ExtensionUI/ExtensionUITextView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/libraries/extensionUI/ExtensionUITextView.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Libraries/ExtensionUI/ExtensionUIView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/libraries/extensionUI/ExtensionUIView.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Libraries/ExtensionUI/ExtensionUIlabel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/libraries/extensionUI/ExtensionUIlabel.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Libraries/Utilities/Constants.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Model/Area.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/model/Area.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Model/City.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/model/City.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Model/Comment.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/model/Comment.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Model/Document.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/model/Document.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Model/Favorites.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/model/Favorites.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Model/Item.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/model/Item.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Model/Location.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/model/Location.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Model/Shop.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/model/Shop.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Model/ShopItem.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/model/ShopItem.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Model/User.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/model/User.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/AppIcon.appiconset/Contents.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/Contents.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/alarm-clock.imageset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/alarm-clock.imageset/Contents.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/alarm-clock.imageset/alarm-clock.png" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/alarm-clock.imageset/alarm-clock.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/call.imageset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/call.imageset/Contents.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/call.imageset/call(1).png" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/call.imageset/call(1).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/catalog.imageset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/catalog.imageset/Contents.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/catalog.imageset/catalog.png" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/catalog.imageset/catalog.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/firstBKImage.imageset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/firstBKImage.imageset/Contents.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/firstBKImage.imageset/firstBKImage.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/firstBKImage.imageset/firstBKImage.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/fourthBKImage.imageset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/fourthBKImage.imageset/Contents.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/fourthBKImage.imageset/fourBKImage.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/fourthBKImage.imageset/fourBKImage.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/grid.imageset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/grid.imageset/Contents.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/grid.imageset/grid.png" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/grid.imageset/grid.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/list(2).imageset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/list(2).imageset/Contents.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/list(2).imageset/list(2).png" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/list(2).imageset/list(2).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/magnifying-glass.imageset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/magnifying-glass.imageset/Contents.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/magnifying-glass.imageset/magnifying-glass.png" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/magnifying-glass.imageset/magnifying-glass.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/man-user.imageset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/man-user.imageset/Contents.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/man-user.imageset/man-user.png" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/man-user.imageset/man-user.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/nutrition_icon.imageset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/nutrition_icon.imageset/Contents.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/nutrition_icon.imageset/nutrition_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/nutrition_icon.imageset/nutrition_icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/placeholder.imageset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/placeholder.imageset/Contents.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/placeholder.imageset/placeholder(1).png" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/placeholder.imageset/placeholder(1).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/price-tag.imageset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/price-tag.imageset/Contents.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/price-tag.imageset/price-tag(2).png" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/price-tag.imageset/price-tag(2).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/secondBKImage.imageset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/secondBKImage.imageset/Contents.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/secondBKImage.imageset/secondBKImage.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/secondBKImage.imageset/secondBKImage.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/shop.imageset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/shop.imageset/Contents.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/shop.imageset/merchant.png" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/shop.imageset/merchant.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/store(1).imageset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/store(1).imageset/Contents.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/store(1).imageset/store(1).png" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/store(1).imageset/store(1).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/thirdBKImage.imageset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/thirdBKImage.imageset/Contents.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/thirdBKImage.imageset/thirdBKImage.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/thirdBKImage.imageset/thirdBKImage.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/user-silhouette.imageset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/user-silhouette.imageset/Contents.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Resource/Assets.xcassets/user-silhouette.imageset/user-silhouette.png" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/resource/Assets.xcassets/user-silhouette.imageset/user-silhouette.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/View/Base.lproj/LaunchScreen.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/view/Base.lproj/LaunchScreen.storyboard" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/View/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/view/Base.lproj/Main.storyboard" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/View/CollectionItemCell.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/view/CollectionItemCell.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/View/CommentTableCell.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/view/CommentTableCell.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/View/LogInAndLogOut.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/view/LogInAndLogOut.storyboard" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/Controller/hightRating/controller/ViewItemController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/Controller/hightRating/controller/ViewItemController.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../notritionVendorsAPP/View/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/../notritionVendorsAPP/View/Base.lproj/Main.storyboard" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -98,8 +23,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project.pbxproj">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3480">
-              <caret line="232" column="24" selection-start-line="232" selection-start-column="24" selection-end-line="232" selection-end-column="24" />
+            <state relative-caret-position="776">
+              <caret line="257" column="24" selection-start-line="257" selection-start-column="24" selection-end-line="257" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -135,6 +60,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -157,7 +83,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="RunDashboard">
@@ -187,9 +112,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="46" y="63" width="1866" height="937" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13322368" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13432017" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -229,8 +153,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/project.pbxproj">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3480">
-          <caret line="232" column="24" selection-start-line="232" selection-start-column="24" selection-end-line="232" selection-end-column="24" />
+        <state relative-caret-position="776">
+          <caret line="257" column="24" selection-start-line="257" selection-start-column="24" selection-end-line="257" selection-end-column="24" />
         </state>
       </provider>
     </entry>

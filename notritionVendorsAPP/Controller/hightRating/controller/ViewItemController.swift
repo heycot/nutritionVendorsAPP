@@ -45,6 +45,13 @@ class ViewItemController: UIViewController {
         itemValues.append(ItemValue(icon: icon, value:  value))
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is ViewLocationShopController
+        {
+            let vc = segue.destination as? ViewLocationShopController
+            vc?.address = "60 Ngo Sy Lien, Lien Chieu, Da nang, Viet Nam"
+        }
+    }
     
 }
 
@@ -112,7 +119,7 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
-            if indexPath.row == 4  {
+            if indexPath.row == 5  {
                 
                 if true {
                     let phoneNumber = "033602512"
@@ -123,8 +130,9 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
                     UIApplication.shared.canOpenURL(url)
                 } 
                 
-            } else {
+            } else if indexPath.row == 6{
                 
+                self.performSegue(withIdentifier: "ShopLocationID", sender: self)
             }
         }
     }
