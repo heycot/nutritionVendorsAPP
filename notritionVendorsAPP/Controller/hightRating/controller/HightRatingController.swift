@@ -25,6 +25,8 @@ class HightRatingController: UIViewController {
         prepareData()
         createSearchBar()
         
+        ShopItemService.shared.getHighRatingItem(offset: 0)
+        
         itemCollection.delegate = self
         itemCollection.dataSource = self
        

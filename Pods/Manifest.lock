@@ -12,7 +12,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
-  - AlamofireImage (~> 3.1)
+  - AlamofireImage
   - Cosmos
   - IQKeyboardManagerSwift
   - Socket.IO-Client-Swift
@@ -40,6 +40,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   TinyConstraints: dbf7519aefc01ea59d62244300c7718aec68e280
 
-PODFILE CHECKSUM: 9a323de999b452af5dd943cca01eb6dd8189a06d
+PODFILE CHECKSUM: e9d70c9adbad8527e72833a8c6faa6e48868a821
 
 COCOAPODS: 1.5.2

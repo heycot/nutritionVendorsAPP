@@ -11,15 +11,19 @@ import Foundation
 typealias CompletionHander = (_ Success: Bool) -> ()
 
 // Base url
-let BASE_URL        = "https://nutrition-vendors.herokuapp.com/api/"
+//let BASE_URL        = "https://nutrition-vendors.herokuapp.com/api/"
+let BASE_URL        = "http://192.168.21.59:3000/api/"
 
-// User URL Constants
-let URL_REGISTER    = "\(BASE_URL)user/register"
-let URL_LOGIN       = "\(BASE_URL)user/login"
+// User URL enum
+enum UserAPI: String {
+    case register    = "user/register"
+    case login       = "user/login"
+}
 
-
-//Item URL Constant
-let URL_HIGH_RATING = "\(BASE_URL)shop-item/high-rating"
+enum ShopItemAPI: String {
+    case getHighRating = "shop-item/high-rating-item"
+    case getOneById = "shop-item"
+}
 
 
 //user defaults
@@ -32,8 +36,6 @@ let USER_EMAIL = "userEmail"
 let HEADER = [
     "Content-Type" : "application/json, charset=utf-8"
 ]
-
-
 let HEADER_AUTH = [
     "Authorization": "Bearer \(AuthServices.instance.authToken)",
     "Content-Type" : "application/json, charset=utf-8"

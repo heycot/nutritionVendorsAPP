@@ -54,17 +54,17 @@ class AuthServices {
             "user": user
         ]
         
-        Alamofire.request(URL_REGISTER, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER) .responseString {
-            (response) in
-            
-            if response.result.error == nil {
-                completion(true)
-            } else {
-                completion(false)
-                
-                debugPrint(response.result.error as Any)
-            }
-        }
+//        Alamofire.request(URL_REGISTER, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER) .responseString {
+//            (response) in
+//
+//            if response.result.error == nil {
+//                completion(true)
+//            } else {
+//                completion(false)
+//
+//                debugPrint(response.result.error as Any)
+//            }
+//        }
     }
     
     func loginUser(email: String, password: String, completion: @escaping CompletionHander) {
@@ -76,28 +76,28 @@ class AuthServices {
             "password": password
         ]
         
-      
-        Alamofire.request(URL_LOGIN, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseJSON {
-            (response) in
-            
-//            do {
-                if response.result.error == nil {
-                    guard let data = response.data else { return }
-                    let json = try? JSON(data: data)
-                    self.userEmail = json!["username"].stringValue
-                    self.authToken = json!["token"].stringValue
-                    
-                    
-                    self.isLoggedIn = true
-                    completion(true)
-                } else {
-                    completion(false)
-                    debugPrint(response.result.error as Any)
-                }
-//            } catch let error as NSError{
-//                print("exception error swiftJson log-in: \(error)")
-//            }
-        }
+//
+//        Alamofire.request(URL_LOGIN, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseJSON {
+//            (response) in
+//
+////            do {
+//                if response.result.error == nil {
+//                    guard let data = response.data else { return }
+//                    let json = try? JSON(data: data)
+//                    self.userEmail = json!["username"].stringValue
+//                    self.authToken = json!["token"].stringValue
+//
+//
+//                    self.isLoggedIn = true
+//                    completion(true)
+//                } else {
+//                    completion(false)
+//                    debugPrint(response.result.error as Any)
+//                }
+////            } catch let error as NSError{
+////                print("exception error swiftJson log-in: \(error)")
+////            }
+//        }
     }
     
     func createUser(email: String, password: String, completion: @escaping CompletionHander) {
@@ -106,16 +106,16 @@ class AuthServices {
             "password": password
         ]
         
-        Alamofire.request(URL_LOGIN, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER_AUTH).responseJSON {
-            (response) in
-            
-            if response.result.error == nil {
-                completion(true)
-            } else{
-                completion(false)
-                debugPrint(response.result.error as Any)
-            }
-        }
+//        Alamofire.request(URL_LOGIN, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER_AUTH).responseJSON {
+//            (response) in
+//
+//            if response.result.error == nil {
+//                completion(true)
+//            } else{
+//                completion(false)
+//                debugPrint(response.result.error as Any)
+//            }
+//        }
     }
 
     

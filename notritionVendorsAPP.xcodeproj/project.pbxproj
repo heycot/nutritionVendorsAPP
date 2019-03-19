@@ -47,6 +47,9 @@
 		23695E9822278F3B00AD7076 /* ViewItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23695E9722278F3B00AD7076 /* ViewItemController.swift */; };
 		238792EE222D041B005E4E3E /* AddNewCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238792EC222D041B005E4E3E /* AddNewCommentCell.swift */; };
 		238792EF222D041B005E4E3E /* AddNewCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 238792ED222D041B005E4E3E /* AddNewCommentCell.xib */; };
+		23A31BB5224088FD00FE2D69 /* ShopResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A31BB4224088FD00FE2D69 /* ShopResponse.swift */; };
+		23A31BB7224093F800FE2D69 /* ShopItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A31BB6224093F700FE2D69 /* ShopItemService.swift */; };
+		23A31BBA2240948F00FE2D69 /* NetworkingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A31BB92240948F00FE2D69 /* NetworkingClient.swift */; };
 		23B6023F222E767E00FBBD79 /* ExtensionUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B6023E222E767E00FBBD79 /* ExtensionUIImage.swift */; };
 		23D02E612223799300882742 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D02E602223799300882742 /* AppDelegate.swift */; };
 		23D02E632223799300882742 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D02E622223799300882742 /* LoginController.swift */; };
@@ -97,6 +100,9 @@
 		23695E9722278F3B00AD7076 /* ViewItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewItemController.swift; sourceTree = "<group>"; };
 		238792EC222D041B005E4E3E /* AddNewCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCommentCell.swift; sourceTree = "<group>"; };
 		238792ED222D041B005E4E3E /* AddNewCommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewCommentCell.xib; sourceTree = "<group>"; };
+		23A31BB4224088FD00FE2D69 /* ShopResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopResponse.swift; sourceTree = "<group>"; };
+		23A31BB6224093F700FE2D69 /* ShopItemService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemService.swift; sourceTree = "<group>"; };
+		23A31BB92240948F00FE2D69 /* NetworkingClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingClient.swift; sourceTree = "<group>"; };
 		23B6023E222E767E00FBBD79 /* ExtensionUIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUIImage.swift; sourceTree = "<group>"; };
 		23D02E5D2223799300882742 /* notritionVendorsAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = notritionVendorsAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23D02E602223799300882742 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -212,7 +218,8 @@
 		233B39062237544E003EB253 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				233B390722375463003EB253 /* AuthServices.swift */,
+				23D8DF232240A93B004E9FAF /* ClientService */,
+				23A31BB82240941E00FE2D69 /* CommonRequest */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -233,6 +240,39 @@
 				231AE463222E2A340082C06E /* ExtensionUI */,
 			);
 			path = Libraries;
+			sourceTree = "<group>";
+		};
+		23A31BB2224088BD00FE2D69 /* BeanEntity */ = {
+			isa = PBXGroup;
+			children = (
+				230E2DE922266DDE00246392 /* Favorites.swift */,
+				230E2DD722265A4700246392 /* User.swift */,
+				230E2DD92226650700246392 /* Comment.swift */,
+				230E2DDB222666F300246392 /* City.swift */,
+				230E2DDD2226674200246392 /* Area.swift */,
+				230E2DDF222667EE00246392 /* Location.swift */,
+				230E2DE1222668C000246392 /* Item.swift */,
+				230E2DE3222669F000246392 /* Document.swift */,
+				230E2DE522266AEF00246392 /* ShopItem.swift */,
+				230E2DE722266BFE00246392 /* Shop.swift */,
+			);
+			path = BeanEntity;
+			sourceTree = "<group>";
+		};
+		23A31BB3224088DA00FE2D69 /* ResponseEntity */ = {
+			isa = PBXGroup;
+			children = (
+				23A31BB4224088FD00FE2D69 /* ShopResponse.swift */,
+			);
+			path = ResponseEntity;
+			sourceTree = "<group>";
+		};
+		23A31BB82240941E00FE2D69 /* CommonRequest */ = {
+			isa = PBXGroup;
+			children = (
+				23A31BB92240948F00FE2D69 /* NetworkingClient.swift */,
+			);
+			path = CommonRequest;
 			sourceTree = "<group>";
 		};
 		23D02E542223799300882742 = {
@@ -292,16 +332,8 @@
 		23D02E7522237AB600882742 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				230E2DD722265A4700246392 /* User.swift */,
-				230E2DD92226650700246392 /* Comment.swift */,
-				230E2DDB222666F300246392 /* City.swift */,
-				230E2DDD2226674200246392 /* Area.swift */,
-				230E2DDF222667EE00246392 /* Location.swift */,
-				230E2DE1222668C000246392 /* Item.swift */,
-				230E2DE3222669F000246392 /* Document.swift */,
-				230E2DE522266AEF00246392 /* ShopItem.swift */,
-				230E2DE722266BFE00246392 /* Shop.swift */,
-				230E2DE922266DDE00246392 /* Favorites.swift */,
+				23A31BB3224088DA00FE2D69 /* ResponseEntity */,
+				23A31BB2224088BD00FE2D69 /* BeanEntity */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -312,6 +344,15 @@
 				23D02E672223799400882742 /* Assets.xcassets */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		23D8DF232240A93B004E9FAF /* ClientService */ = {
+			isa = PBXGroup;
+			children = (
+				233B390722375463003EB253 /* AuthServices.swift */,
+				23A31BB6224093F700FE2D69 /* ShopItemService.swift */,
+			);
+			path = ClientService;
 			sourceTree = "<group>";
 		};
 		D6D88E404BF4B5919EE2F7E1 /* Frameworks */ = {
@@ -468,16 +509,19 @@
 				23B6023F222E767E00FBBD79 /* ExtensionUIImage.swift in Sources */,
 				2300BE6B222D30B7008E9101 /* GeneralInforItemCell.swift in Sources */,
 				231AE468222E2EDF0082C06E /* GeneralValueItem.swift in Sources */,
+				23A31BBA2240948F00FE2D69 /* NetworkingClient.swift in Sources */,
 				233B390B223755FD003EB253 /* Constant.swift in Sources */,
 				235A32BF2225301E00DE5B0E /* ChangePasswordController.swift in Sources */,
 				230E2DE622266AEF00246392 /* ShopItem.swift in Sources */,
 				235A32B02224E9F200DE5B0E /* SignupController.swift in Sources */,
 				23695E9222277DC600AD7076 /* ExtensionUICollectionView.swift in Sources */,
+				23A31BB7224093F800FE2D69 /* ShopItemService.swift in Sources */,
 				231AE460222E28860082C06E /* DateTimeLibrary.swift in Sources */,
 				230E2DDA2226650700246392 /* Comment.swift in Sources */,
 				23695E9422277F7200AD7076 /* ExtensionUIView.swift in Sources */,
 				2300BE7C222D3658008E9101 /* ViewCommentCell.swift in Sources */,
 				230E2DEA22266DDE00246392 /* Favorites.swift in Sources */,
+				23A31BB5224088FD00FE2D69 /* ShopResponse.swift in Sources */,
 				231AE462222E2A030082C06E /* ExtensionUIlabel.swift in Sources */,
 				233B390822375463003EB253 /* AuthServices.swift in Sources */,
 				23695E9822278F3B00AD7076 /* ViewItemController.swift in Sources */,
