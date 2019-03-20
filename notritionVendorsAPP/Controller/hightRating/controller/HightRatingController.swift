@@ -16,25 +16,29 @@ class HightRatingController: UIViewController {
     
     // variables
     var listShop = [Shop]()
-    var listItem = [ShopItem] ()
+    var listItem = [ShopItemResponse] ()
     let searchBar = UISearchBar()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.barTintColor = appColor
-        prepareData()
         createSearchBar()
         
-        ShopItemService.shared.getHighRatingItem(offset: 0)
+        ShopItemService.shared.getHighRatingItem(offset: 0) { data in
+            guard let data = data else {return }
+            
+            self.listItem = data
+            self.itemCollection.reloadData()
+        }
         
         itemCollection.delegate = self
         itemCollection.dataSource = self
        
     }
     
-    func prepareData() {
-        listShop = [Shop]()
-        listItem = [ShopItem]()
+    public func prepareData(shopItems: [ShopItemResponse]) {
+        listItem = shopItems
+        self.itemCollection.reloadData()
     }
     
     
@@ -63,7 +67,7 @@ extension HightRatingController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 //        return section == 0 ? listShop.count : listItem.count
-        return 10
+        return listItem.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -75,7 +79,7 @@ extension HightRatingController: UICollectionViewDelegate, UICollectionViewDataS
         
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath) as? CollectionItemCell {
-            cell.updateView()
+            cell.updateView(shopItemRe: listItem[indexPath.row])
             //            cell.setBorderRadious()
             return cell
         }

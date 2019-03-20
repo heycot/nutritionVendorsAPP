@@ -12,37 +12,25 @@ class ShopItemService {
     
     public static let shared = ShopItemService()
     
-    func getHighRatingItem(offset: Int) {
-//        let bodyPara: [String : Any]    = [ "content": ""]
+    func getHighRatingItem(offset: Int, completion: @escaping ([ShopItemResponse]?) -> Void) {
         let urlStr = BASE_URL + ShopItemAPI.getHighRating.rawValue
         
-        NetworkingClient.shared.request(urlStr: urlStr, parameters: nil) { (data ) in
-//            print("total data : \(data?.count)")
+        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", authToken: nil, jsonBody: nil, parameters: nil) { (data ) in
             
-//            guard let myData = data else {return}
-//            print(data)
-//
+            guard let data = data else {return}
             do {
-                print(data)
-//                let string = data["Optiona"]
-//                print(string)
-                let jsonData = try JSONSerialization.data(withJSONObject: data)
-                let jsonString = String(data: jsonData, encoding: .utf8)
                 
-//                print(jsonString["Optional"])
-                
-//                let shopitems = try! JSONDecoder().decode(ShopItemResponse.self, from: myData)
-                let shopItems = try! JSONDecoder().decode(ShopItemResponse.self, from: jsonData)
-                print(shopItems)
-                
-//                let json = try! JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! [String: Any]?
+                let shopitems = try JSONDecoder().decode([ShopItemResponse].self, from: data)
+                for item in shopitems {
+                    print(item.name!)
+                }
+
+                DispatchQueue.main.async {
+                    completion(shopitems)
+                }
             } catch let jsonError {
-                print(jsonError)
+                print("Error serializing json:", jsonError)
             }
-//
-//            if let myData = data {
-//                let shopitems = try JSONDecoder().decode(ShopItemResponse.self, from: data)
-//            }
         }
     
     }

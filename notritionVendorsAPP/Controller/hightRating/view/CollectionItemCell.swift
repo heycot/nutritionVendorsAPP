@@ -23,14 +23,17 @@ class CollectionItemCell: UICollectionViewCell {
 //        return view
 //    }()
     
-    func updateView() {
+    func updateView(shopItemRe: ShopItemResponse) {
         setUpUI()
-        
-        itemImage.image = UIImage(named: "secondBKImage")
-        itemName.text = "Táo"
-        itemPrice.text = "50.000 VND"
-        numberOfReview.text = "( \(100))"
-        itemRating.rating = 2.49
+        var avatar = "secondBKImage"
+        if shopItemRe.avatar == nil {
+            avatar = shopItemRe.avatar ?? "secondBKImage"
+        }
+        itemImage.image = UIImage(named: avatar)
+        itemName.text = shopItemRe.name
+        itemPrice.text = "VND " + String(shopItemRe.price!)
+        numberOfReview.text = "(" + String(shopItemRe.comment_number!)  + ")"
+        itemRating.rating = shopItemRe.rating ?? 1.0
         
     }
     
