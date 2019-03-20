@@ -13,7 +13,7 @@ class ShopItemService {
     public static let shared = ShopItemService()
     
     func getHighRatingItem(offset: Int, completion: @escaping ([ShopItemResponse]?) -> Void) {
-        let urlStr = BASE_URL + ShopItemAPI.getHighRating.rawValue
+        let urlStr = BASE_URL + ShopItemAPI.getHighRating.rawValue + "/\(offset)"
         
         NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", authToken: nil, jsonBody: nil, parameters: nil) { (data ) in
             

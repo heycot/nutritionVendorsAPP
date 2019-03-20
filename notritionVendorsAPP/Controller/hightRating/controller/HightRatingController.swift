@@ -18,23 +18,44 @@ class HightRatingController: UIViewController {
     var listShop = [Shop]()
     var listItem = [ShopItemResponse] ()
     let searchBar = UISearchBar()
+    lazy var refresher: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = appColor
+        refreshControl.addTarget(self, action: #selector(loadMoreData), for: .valueChanged)
+        
+        return refreshControl
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.barTintColor = appColor
         createSearchBar()
-        
-        ShopItemService.shared.getHighRatingItem(offset: 0) { data in
-            guard let data = data else {return }
-            
-            self.listItem = data
-            self.itemCollection.reloadData()
-        }
+        loadDataFromAPI(offset: 0)
         
         itemCollection.delegate = self
         itemCollection.dataSource = self
+        itemCollection.refreshControl = refresher
        
     }
+    
+    func loadDataFromAPI(offset: Int) {
+        
+        ShopItemService.shared.getHighRatingItem(offset: offset) { data in
+            guard let data = data else {return }
+            
+            for item in data {
+                self.listItem.append(item)
+            }
+            self.itemCollection.reloadData()
+        }
+    }
+    
+    @objc
+    func loadMoreData() {
+        loadDataFromAPI(offset: listItem.count)
+        refresher.endRefreshing()
+    }
+
     
     public func prepareData(shopItems: [ShopItemResponse]) {
         listItem = shopItems
@@ -79,7 +100,7 @@ extension HightRatingController: UICollectionViewDelegate, UICollectionViewDataS
         
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath) as? CollectionItemCell {
-            cell.updateView(shopItemRe: listItem[indexPath.row])
+            cell.updateView(shopItemRe: listItem[ listItem.count - 1 - indexPath.row])
             //            cell.setBorderRadious()
             return cell
         }

@@ -33,7 +33,7 @@ class CollectionItemCell: UICollectionViewCell {
         itemName.text = shopItemRe.name
         itemPrice.text = "VND " + String(shopItemRe.price!)
         numberOfReview.text = "(" + String(shopItemRe.comment_number!)  + ")"
-        itemRating.rating = shopItemRe.rating ?? 1.0
+        itemRating.rating = shopItemRe.rating! ?? 1.0
         
     }
     
