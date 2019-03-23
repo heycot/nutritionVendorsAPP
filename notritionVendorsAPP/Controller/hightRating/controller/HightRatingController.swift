@@ -20,7 +20,7 @@ class HightRatingController: UIViewController {
     let searchBar = UISearchBar()
     lazy var refresher: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
-        refreshControl.tintColor = appColor
+        refreshControl.tintColor = APP_COLOR
         refreshControl.addTarget(self, action: #selector(loadMoreData), for: .valueChanged)
         
         return refreshControl
@@ -28,14 +28,18 @@ class HightRatingController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.barTintColor = appColor
+        navigationController?.navigationBar.barTintColor = APP_COLOR
         createSearchBar()
         loadDataFromAPI(offset: 0)
+        
+        setUpCollectionView() 
+    }
+    
+    func setUpCollectionView() {
         
         itemCollection.delegate = self
         itemCollection.dataSource = self
         itemCollection.refreshControl = refresher
-       
     }
     
     func loadDataFromAPI(offset: Int) {
@@ -72,10 +76,11 @@ class HightRatingController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.destination is ViewItemController {
-//            let vc = segue.destination as? ViewItemController
-//            vc?.item = sender as! Item
-//        }
+        if segue.destination is ViewItemController {
+            let vc = segue.destination as? ViewItemController
+            let index = sender as! Int
+            vc?.item = listItem[index]
+        }
     }
 
 }
@@ -92,19 +97,18 @@ extension HightRatingController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        if indexPath.section == 0 {
-//
-//        } else {
-//
-//        }
-        
-        
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath) as? CollectionItemCell {
-            cell.updateView(shopItemRe: listItem[ listItem.count - 1 - indexPath.row])
+//            cell.updateView(shopItemRe: listItem[ listItem.count - 1 - indexPath.row])
+            cell.updateView(shopItemRe: listItem[indexPath.row])
             //            cell.setBorderRadious()
             return cell
         }
         return CollectionItemCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        performSegue(withIdentifier: "ViewDetalFoodID", sender: indexPath.row)
     }
     
 }

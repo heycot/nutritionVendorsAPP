@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Comment {
+public class Comment : Decodable{
     var id: Int
     var user_id: Int
     var shopItem_id: Int

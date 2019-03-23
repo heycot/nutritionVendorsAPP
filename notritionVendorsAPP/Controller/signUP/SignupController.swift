@@ -33,11 +33,11 @@ class SignupController: UIViewController {
     func setUpUI() {
         spinner.isHidden = true
         avatarImage.setRounded(color: .white)
-        userNameTxt.setBottomBorder(color: appColor)
-        phoneTxt.setBottomBorder(color: appColor)
-        emailTxt.setBottomBorder(color: appColor)
-        passTxt.setBottomBorder(color: appColor)
-        confirmPassTxt.setBottomBorder(color: appColor)
+        userNameTxt.setBottomBorder(color: APP_COLOR)
+        phoneTxt.setBottomBorder(color: APP_COLOR)
+        emailTxt.setBottomBorder(color: APP_COLOR)
+        passTxt.setBottomBorder(color: APP_COLOR)
+        confirmPassTxt.setBottomBorder(color: APP_COLOR)
     }
     
     @IBAction func cacelPressed(_ sender: Any) {

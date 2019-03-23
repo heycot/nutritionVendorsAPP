@@ -20,19 +20,33 @@ class ShopItemService {
             guard let data = data else {return}
             do {
                 
-                let shopitems = try JSONDecoder().decode([ShopItemResponse].self, from: data)
-                for item in shopitems {
-                    print(item.name!)
-                }
-
+                let shopItems = try JSONDecoder().decode([ShopItemResponse].self, from: data)
                 DispatchQueue.main.async {
-                    completion(shopitems)
+                    completion(shopItems)
                 }
             } catch let jsonError {
                 print("Error serializing json:", jsonError)
             }
         }
     
+    }
+    
+    func getOneItem(id: Int, completion: @escaping (ShopItemResponse?) -> Void) {
+        let urlStr = BASE_URL + ShopItemAPI.getOneById.rawValue + "/\(id)"
+        
+        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", authToken: nil, jsonBody: nil, parameters: nil) { (data ) in
+            
+            guard let data = data else {return}
+            do {
+                
+                let shopItem = try JSONDecoder().decode(ShopItemResponse.self, from: data)
+                DispatchQueue.main.async {
+                    completion(shopItem)
+                }
+            } catch let jsonError {
+                print("Error serializing json:", jsonError)
+            }
+        }
     }
     
 }

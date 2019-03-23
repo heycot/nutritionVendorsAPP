@@ -16,7 +16,8 @@ class ViewLocationShopController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     
     // variables
-    var address: String?
+    var location = LocationResponse()
+    var shopName = ""
     var locationManager = CLLocationManager()
     let authorizationStatus = CLLocationManager.authorizationStatus()
     
@@ -37,7 +38,7 @@ class ViewLocationShopController: UIViewController {
 extension ViewLocationShopController : MKMapViewDelegate {
     func centerMap() {
         guard let coordinate = locationManager.location?.coordinate else { return}
-        let coordinateRegion = MKCoordinateRegion(center: coordinate, latitudinalMeters: 16.073747, longitudinalMeters: 108.152608)
+        let coordinateRegion = MKCoordinateRegion(center: coordinate, latitudinalMeters: location.latitude!, longitudinalMeters: location.longitude!)
         
         mapView.setRegion(coordinateRegion, animated: true)
     }

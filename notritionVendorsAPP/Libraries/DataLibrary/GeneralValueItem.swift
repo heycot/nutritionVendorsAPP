@@ -11,8 +11,8 @@ import Foundation
 
 
 class ItemValue {
-    var icon :String
-    var value:String
+    var icon :String?
+    var value:String?
     
     init(icon: String, value: String) {
         self.icon = icon

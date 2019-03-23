@@ -28,19 +28,19 @@ class GeneralInforItemCell: UITableViewCell {
 //    }
 //    
     
-    func updateView(image_name: String, item_name: String, item_comment: Int, item_photo: Int, item_favorites: Int, item_rating: Double) {
-        itemImage.image    = UIImage(named: image_name)
-        itemName.text      = item_name
-        itemComments.text  = String(item_comment)
-        itemPhotos.text    = String(item_photo)
-        itemFavorites.text = String(item_favorites)
-        itemRating.text    = String(item_rating)
+    func updateView(item: ShopItemResponse) {
+        itemImage.image    = UIImage(named: item.avatar ?? "thirdBKImage")
+        itemName.text      = item.name ?? ""
+        itemComments.text  = String((item.comments?.count) ?? 0)
+        itemPhotos.text    = String((item.documents?.count) ?? 0)
+        itemFavorites.text = String(item.favorites_number ?? 0)
+        itemRating.text    = String(item.rating ?? 0)
         
         customUI()
     }
     
     func customUI() {
-        itemName.setBottomBorder(color: appColor)
+        itemName.setBottomBorder(color: APP_COLOR)
     }
     
 }

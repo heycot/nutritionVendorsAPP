@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Document {
+public class Document: Decodable {
     var id: Int
     var shopItem_id: Int
     var link: String

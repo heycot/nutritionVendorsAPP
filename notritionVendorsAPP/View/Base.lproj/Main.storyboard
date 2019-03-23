@@ -413,7 +413,6 @@
                                             <outlet property="itemPrice" destination="Ym5-0L-AXZ" id="jep-5h-85q"/>
                                             <outlet property="itemRating" destination="xH8-W7-kKO" id="RQl-vr-6F5"/>
                                             <outlet property="numberOfReview" destination="zP6-xK-pCb" id="lgX-kR-yoC"/>
-                                            <segue destination="6Wj-Z5-hwc" kind="push" id="qLf-bu-Nha"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -431,6 +430,7 @@
                     <navigationItem key="navigationItem" id="V3d-CZ-Zsq"/>
                     <connections>
                         <outlet property="itemCollection" destination="ZCj-kS-Tj0" id="nrH-uS-sUk"/>
+                        <segue destination="6Wj-Z5-hwc" kind="push" identifier="ViewDetalFoodID" id="er7-x8-644"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6aC-Bo-lwY" userLabel="First Responder" sceneMemberID="firstResponder"/>

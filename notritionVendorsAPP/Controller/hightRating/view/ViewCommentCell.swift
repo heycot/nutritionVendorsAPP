@@ -31,16 +31,16 @@ class ViewCommentCell: UITableViewCell {
     }
     
     
-    func updateView(user_image: String, user_name: String, create_date: Date, rating: Double, title: String, content: String) {
+    func updateView(comment: CommentResponse) {
         
         customUI()
         
-        userImage.image = UIImage(named: user_image)
-        userName.text = user_name
-        cmtDate.text = NSObject().convertToString(date: create_date, dateformat: DateFormatType.date)
-        cmtRating.rating = rating
-        cmtTitle.text = title
-        cmtContent.text = content
+        userImage.image = UIImage(named: comment.user?.avatar ?? "logo")
+        userName.text = comment.user?.username
+        cmtDate.text = NSObject().convertToString(date: comment.create_date!, dateformat: DateFormatType.date)
+        cmtRating.rating = comment.rating!
+        cmtTitle.text = comment.title
+        cmtContent.text = comment.content
     }
     
     func customUI() {
