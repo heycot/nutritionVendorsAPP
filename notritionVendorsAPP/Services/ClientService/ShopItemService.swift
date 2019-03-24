@@ -49,4 +49,29 @@ class ShopItemService {
         }
     }
     
+    func searchItem(searchText: String, completion: @escaping ([ShopItemResponse]?) -> Void) {
+        let urlStr = BASE_URL + ShopItemAPI.searchOne.rawValue
+        let body = ["text" : searchText]
+        do {
+            let jsonBody = try JSONEncoder().encode(body)
+            
+            NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", authToken: nil, jsonBody: jsonBody, parameters: nil) { (data ) in
+                
+                guard let data = data else {return}
+                do {
+                    
+                    let shopItems = try JSONDecoder().decode([ShopItemResponse].self, from: data)
+                    DispatchQueue.main.async {
+                        completion(shopItems)
+                    }
+                } catch let jsonError {
+                    print("Error serializing json:", jsonError)
+                }
+            }
+            
+        } catch let jsonErr {
+            print("exception json: \(jsonErr)")
+        }
+    }
+    
 }

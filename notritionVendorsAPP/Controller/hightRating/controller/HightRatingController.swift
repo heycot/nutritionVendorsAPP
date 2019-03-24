@@ -71,13 +71,6 @@ class HightRatingController: UIViewController {
         refresher.endRefreshing()
     }
 
-    
-//    public func prepareData(shopItems: [ShopItemResponse]) {
-//        listItem = shopItems
-//        self.itemCollection.reloadData()
-//    }
-//
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is ViewItemController {
             let vc = segue.destination as? ViewItemController
@@ -140,6 +133,15 @@ extension HightRatingController: UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        ShopItemService.shared.searchItem(searchText: searchBar.text!.lowercased()) { data in
+            guard let data = data else {return }
+            
+            for item in data {
+                self.currentListItem.append(item)
+            }
+//            self.currentListItem = self.listItem
+            self.itemCollection.reloadData()
+        }
         searchBar.endEditing(true)
     }
     

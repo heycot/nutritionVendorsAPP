@@ -23,6 +23,7 @@ enum UserAPI: String {
 enum ShopItemAPI: String {
     case getHighRating = "shop-item/high-rating/offset"
     case getOneById = "shop-item"
+    case searchOne = "shop-item/search"
 }
 
 
