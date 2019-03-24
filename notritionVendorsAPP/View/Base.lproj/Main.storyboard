@@ -450,18 +450,29 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="iI7-y8-x0P">
+                                <rect key="frame" x="182" y="423" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Qmk-Ph-p4O"/>
+                                    <constraint firstAttribute="width" constant="50" id="k4s-mz-Qvl"/>
+                                </constraints>
+                                <color key="color" red="0.17254901959999999" green="0.65098039220000004" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="iI7-y8-x0P" firstAttribute="centerX" secondItem="PTO-Xw-3cQ" secondAttribute="centerX" id="6kY-kh-hMi"/>
                             <constraint firstItem="hgE-eJ-0vf" firstAttribute="trailing" secondItem="ef6-4y-pw0" secondAttribute="trailing" id="E7c-0U-8d8"/>
                             <constraint firstItem="hgE-eJ-0vf" firstAttribute="bottom" secondItem="ef6-4y-pw0" secondAttribute="bottom" id="N0I-nj-zQY"/>
                             <constraint firstItem="ef6-4y-pw0" firstAttribute="top" secondItem="hgE-eJ-0vf" secondAttribute="top" id="cWf-W3-HkW"/>
+                            <constraint firstItem="iI7-y8-x0P" firstAttribute="centerY" secondItem="PTO-Xw-3cQ" secondAttribute="centerY" id="hZR-h3-HdH"/>
                             <constraint firstItem="ef6-4y-pw0" firstAttribute="leading" secondItem="hgE-eJ-0vf" secondAttribute="leading" id="jdI-Pf-6dm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hgE-eJ-0vf"/>
                     </view>
                     <navigationItem key="navigationItem" id="MxW-tI-7Br"/>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="iI7-y8-x0P" id="Q7w-Zo-AUM"/>
                         <outlet property="tabelView" destination="ef6-4y-pw0" id="PLk-2V-4mE"/>
                         <segue destination="JmU-iJ-OBn" kind="push" identifier="ShopLocationID" id="s84-S6-qYd"/>
                     </connections>

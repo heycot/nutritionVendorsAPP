@@ -17,6 +17,8 @@ class HightRatingController: UIViewController {
     // variables
     var listShop = [Shop]()
     var listItem = [ShopItemResponse] ()
+    var currentListItem = [ShopItemResponse]()
+    
     let searchBar = UISearchBar()
     lazy var refresher: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -31,8 +33,7 @@ class HightRatingController: UIViewController {
         navigationController?.navigationBar.barTintColor = APP_COLOR
         createSearchBar()
         loadDataFromAPI(offset: 0)
-        
-        setUpCollectionView() 
+        setUpCollectionView()
     }
     
     func setUpCollectionView() {
@@ -40,30 +41,6 @@ class HightRatingController: UIViewController {
         itemCollection.delegate = self
         itemCollection.dataSource = self
         itemCollection.refreshControl = refresher
-    }
-    
-    func loadDataFromAPI(offset: Int) {
-        
-        ShopItemService.shared.getHighRatingItem(offset: offset) { data in
-            guard let data = data else {return }
-            
-            for item in data {
-                self.listItem.append(item)
-            }
-            self.itemCollection.reloadData()
-        }
-    }
-    
-    @objc
-    func loadMoreData() {
-        loadDataFromAPI(offset: listItem.count)
-        refresher.endRefreshing()
-    }
-
-    
-    public func prepareData(shopItems: [ShopItemResponse]) {
-        listItem = shopItems
-        self.itemCollection.reloadData()
     }
     
     
@@ -75,11 +52,37 @@ class HightRatingController: UIViewController {
         self.navigationItem.titleView = searchBar
     }
     
+    func loadDataFromAPI(offset: Int) {
+        
+        ShopItemService.shared.getHighRatingItem(offset: offset) { data in
+            guard let data = data else {return }
+            
+            for item in data {
+                self.listItem.append(item)
+            }
+            self.currentListItem = self.listItem
+            self.itemCollection.reloadData()
+        }
+    }
+    
+    @objc
+    func loadMoreData() {
+        loadDataFromAPI(offset: listItem.count)
+        refresher.endRefreshing()
+    }
+
+    
+//    public func prepareData(shopItems: [ShopItemResponse]) {
+//        listItem = shopItems
+//        self.itemCollection.reloadData()
+//    }
+//
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is ViewItemController {
             let vc = segue.destination as? ViewItemController
             let index = sender as! Int
-            vc?.item = listItem[index]
+            vc?.item = currentListItem[index]
         }
     }
 
@@ -93,13 +96,13 @@ extension HightRatingController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 //        return section == 0 ? listShop.count : listItem.count
-        return listItem.count
+        return currentListItem.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath) as? CollectionItemCell {
 //            cell.updateView(shopItemRe: listItem[ listItem.count - 1 - indexPath.row])
-            cell.updateView(shopItemRe: listItem[indexPath.row])
+            cell.updateView(shopItemRe: currentListItem[indexPath.row])
             //            cell.setBorderRadious()
             return cell
         }
@@ -138,5 +141,23 @@ extension HightRatingController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.endEditing(true)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !(searchBar.text!.isEmpty) else {
+            currentListItem = listItem
+            itemCollection.reloadData()
+            return
+        }
+        
+        
+        currentListItem = listItem.filter({ (item) -> Bool in
+            item.name!.folding(options: .diacriticInsensitive, locale: .current).lowercased().contains(searchText.folding(options: .diacriticInsensitive, locale: .current).lowercased())
+        })
+        itemCollection.reloadData()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        
     }
 }

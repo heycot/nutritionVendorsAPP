@@ -12,6 +12,7 @@ import UIKit
 class ViewItemController: UIViewController {
     
     @IBOutlet weak var tabelView: UITableView!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     // variables
     var comments = [Comment] ()
@@ -23,13 +24,8 @@ class ViewItemController: UIViewController {
         self.title = item.name!
         navigationController?.navigationBar.barTintColor = APP_COLOR
         updateData()
-        setUPTableView()
-    }
-    
-    func setUPTableView() {
-        tabelView.delegate = self
-        tabelView.dataSource = self
         tabelView.tableFooterView = UIView()
+        activityIndicatorView.startAnimating()
     }
     
     func updateData() {
@@ -46,7 +42,6 @@ class ViewItemController: UIViewController {
         }
     }
     
-    
     func prepareData() {
         appendItemValue(icon: Icon.price_icon.rawValue, value: "VND \(item.price!)")
         appendItemValue(icon: Icon.time_icon.rawValue, value: (item.shop!.time_open!  ) + " - " + (item.shop!.time_close!))
@@ -55,8 +50,18 @@ class ViewItemController: UIViewController {
         appendItemValue(icon: Icon.address_icon.rawValue, value: (item.shop!.location!.address!  ))
         appendItemValue(icon: Icon.phone_icon.rawValue, value: (item.shop!.phone! ))
         
+        setUPTableView()
+        activityIndicatorView.stopAnimating()
         self.tabelView.reloadData()
     }
+    
+    
+    func setUPTableView() {
+        tabelView.delegate = self
+        tabelView.dataSource = self
+        tabelView.tableFooterView = UIView()
+    }
+    
     
     func appendItemValue(icon: String, value: String) {
         itemValues.append(ItemValue(icon: icon, value:  value))
@@ -96,7 +101,6 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("section \(indexPath.section)")
         if indexPath.section == 0 {
             let cell = Bundle.main.loadNibNamed(CellClassName.GeneralInfor.rawValue, owner: self, options: nil )?.first as! GeneralInforItemCell
             
@@ -115,7 +119,7 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
 
         } else if indexPath.section == 2{
             let cell = Bundle.main.loadNibNamed(CellClassName.ListComment.rawValue, owner: self, options: nil )?.first as! ViewCommentCell
-            cell.updateView(comment: item.comments[indexPath.row])
+            cell.updateView(comment: item.comments![indexPath.row])
             cell.selectionStyle = UITableViewCell.SelectionStyle.none;
             return cell
         } else {

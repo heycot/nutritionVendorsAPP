@@ -34,7 +34,7 @@ class GeneralInforItemCell: UITableViewCell {
         itemComments.text  = String((item.comments?.count) ?? 0)
         itemPhotos.text    = String((item.documents?.count) ?? 0)
         itemFavorites.text = String(item.favorites_number ?? 0)
-        itemRating.text    = String(item.rating ?? 0)
+        itemRating.text    = String(format: "%.2f", item.rating ?? 0)
         
         customUI()
     }

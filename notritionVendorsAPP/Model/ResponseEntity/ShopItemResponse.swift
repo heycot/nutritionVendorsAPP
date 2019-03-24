@@ -18,11 +18,11 @@ struct ShopItemResponse: Decodable{
     var name: String?
     var avatar: String?
     var shop: ShopResponse?
-    var documents: [Document]?
-    var comments: [Comment]?
+    var documents: [DocumentResponse]?
+    var comments: [CommentResponse]?
     
     // Constructor.
-    init(id: Int, price: Double, status: Int, rating: Double, comment_number: Int, favorites_number: Int, name: String, avatar: String, shop: ShopResponse, documents: [Document], comments: [Comment]) {
+    init(id: Int, price: Double, status: Int, rating: Double, comment_number: Int, favorites_number: Int, name: String, avatar: String, shop: ShopResponse, documents: [DocumentResponse], comments: [CommentResponse]) {
         self.id = id
         self.price = price
         self.status = status

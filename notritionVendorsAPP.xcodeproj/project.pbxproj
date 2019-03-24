@@ -45,6 +45,7 @@
 		23695E9222277DC600AD7076 /* ExtensionUICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23695E9122277DC600AD7076 /* ExtensionUICollectionView.swift */; };
 		23695E9422277F7200AD7076 /* ExtensionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23695E9322277F7200AD7076 /* ExtensionUIView.swift */; };
 		23695E9822278F3B00AD7076 /* ViewItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23695E9722278F3B00AD7076 /* ViewItemController.swift */; };
+		2378E12D2247385700837883 /* DocumentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2378E12C2247385700837883 /* DocumentResponse.swift */; };
 		238792EE222D041B005E4E3E /* AddNewCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238792EC222D041B005E4E3E /* AddNewCommentCell.swift */; };
 		238792EF222D041B005E4E3E /* AddNewCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 238792ED222D041B005E4E3E /* AddNewCommentCell.xib */; };
 		23A31BB5224088FD00FE2D69 /* ShopItemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A31BB4224088FD00FE2D69 /* ShopItemResponse.swift */; };
@@ -102,6 +103,7 @@
 		23695E9122277DC600AD7076 /* ExtensionUICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUICollectionView.swift; sourceTree = "<group>"; };
 		23695E9322277F7200AD7076 /* ExtensionUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIView.swift; sourceTree = "<group>"; };
 		23695E9722278F3B00AD7076 /* ViewItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewItemController.swift; sourceTree = "<group>"; };
+		2378E12C2247385700837883 /* DocumentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentResponse.swift; sourceTree = "<group>"; };
 		238792EC222D041B005E4E3E /* AddNewCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCommentCell.swift; sourceTree = "<group>"; };
 		238792ED222D041B005E4E3E /* AddNewCommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewCommentCell.xib; sourceTree = "<group>"; };
 		23A31BB4224088FD00FE2D69 /* ShopItemResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemResponse.swift; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 				23D5080A224236D4005FB1AC /* ShopResponse.swift */,
 				23EAA4442246621100A30E98 /* CommentResponse.swift */,
 				23EAA4462246638300A30E98 /* UserResponse.swift */,
+				2378E12C2247385700837883 /* DocumentResponse.swift */,
 			);
 			path = ResponseEntity;
 			sourceTree = "<group>";
@@ -537,6 +540,7 @@
 				2300BE7C222D3658008E9101 /* ViewCommentCell.swift in Sources */,
 				23D5080B224236D4005FB1AC /* ShopResponse.swift in Sources */,
 				230E2DEA22266DDE00246392 /* Favorites.swift in Sources */,
+				2378E12D2247385700837883 /* DocumentResponse.swift in Sources */,
 				23A31BB5224088FD00FE2D69 /* ShopItemResponse.swift in Sources */,
 				231AE462222E2A030082C06E /* ExtensionUIlabel.swift in Sources */,
 				233B390822375463003EB253 /* AuthServices.swift in Sources */,
