@@ -13,6 +13,9 @@ typealias CompletionHander = (_ Success: Bool) -> ()
 // Base url
 //let BASE_URL        = "https://nutrition-vendors.herokuapp.com/api/"
 let BASE_URL        = "http://192.168.21.59:3001/api/"
+let BASE_URL_IMAGE  = "http://192.168.21.59:3001/images/"
+//let BASE_URL        = "http://192.168.137.1:3001/api/"
+//let BASE_URL_IMAGE  = "http://192.168.137.1:3001/images/"
 
 // User URL enum
 enum UserAPI: String {

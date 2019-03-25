@@ -22,7 +22,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ElU-cp-m2s">
                         <rect key="frame" x="0.0" y="0.0" width="469" height="259.5"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZVC-Ej-YCO">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="ZVC-Ej-YCO">
                                 <rect key="frame" x="10" y="10" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="ib7-lx-9Qw"/>
@@ -139,4 +139,7 @@
             <point key="canvasLocation" x="39.200000000000003" y="160.11994002998503"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="logo" width="119" height="119"/>
+    </resources>
 </document>

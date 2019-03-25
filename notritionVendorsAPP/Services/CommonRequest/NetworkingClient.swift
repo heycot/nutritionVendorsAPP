@@ -13,6 +13,17 @@ class NetworkingClient {
 
     public static let shared = NetworkingClient()
     
+    func getDataImage(from url: URL, completion: @escaping (Data?) -> ()) {
+        URLSession.shared.dataTask(with: url){ data, urlResponse, error in
+            guard let data = data, error == nil, urlResponse != nil else {
+                print("something is wrong with url")
+                return
+            }
+            
+            completion(data)
+        }.resume()
+    }
+    
     func requestJson(urlStr: String, method: String, authToken: String?, jsonBody: Data?, parameters: Parameters?, completion: @escaping (Data?) -> Void) {
         
         let url = URL(string: urlStr)

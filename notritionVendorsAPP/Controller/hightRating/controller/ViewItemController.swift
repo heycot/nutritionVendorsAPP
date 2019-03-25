@@ -94,7 +94,7 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
         } else if section == 1{
             return itemValues.count
         } else if section == 2{
-            return comments.count
+            return item.comments!.count
         } else {
             return 1
         }

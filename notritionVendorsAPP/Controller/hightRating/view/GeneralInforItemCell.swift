@@ -10,7 +10,7 @@ import UIKit
 
 class GeneralInforItemCell: UITableViewCell {
 
-    @IBOutlet weak var itemImage: UIImageView!
+    @IBOutlet weak var itemImage: CustomImageView!
     @IBOutlet weak var itemName: UITextField!
     @IBOutlet weak var itemComments: UITextField!
     @IBOutlet weak var itemPhotos: UITextField!
@@ -18,18 +18,13 @@ class GeneralInforItemCell: UITableViewCell {
     @IBOutlet weak var itemRating: UITextField!
     
     
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        // Initialization code
-//    }
-//
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//    }
-//    
     
     func updateView(item: ShopItemResponse) {
-        itemImage.image    = UIImage(named: item.avatar ?? "thirdBKImage")
+        let urlStr = BASE_URL_IMAGE + item.avatar! + ".jpg"
+        
+        itemImage.loadImageUsingUrlString(urlString: urlStr)
+//        setupItemImage(urlStr: urlStr)
+        
         itemName.text      = item.name ?? ""
         itemComments.text  = String((item.comments?.count) ?? 0)
         itemPhotos.text    = String((item.documents?.count) ?? 0)
@@ -43,4 +38,8 @@ class GeneralInforItemCell: UITableViewCell {
         itemName.setBottomBorder(color: APP_COLOR)
     }
     
+    
+    func setupItemImage(urlStr: String) {
+        itemImage.loadImageUsingUrlString(urlString: urlStr)
+    }
 }

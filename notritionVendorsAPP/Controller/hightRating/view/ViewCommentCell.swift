@@ -35,9 +35,9 @@ class ViewCommentCell: UITableViewCell {
         
         customUI()
         
-        userImage.image = UIImage(named: comment.user?.avatar ?? "logo")
+//        userImage = UIImageView.shared.showUserProfileImage(name: (comment.user?.avatar)!)
         userName.text = comment.user?.username
-        cmtDate.text = NSObject().convertToString(date: comment.create_date!, dateformat: DateFormatType.date)
+        cmtDate.text = NSObject().convertToString(date: comment.create_date ?? Date() , dateformat: DateFormatType.date)
         cmtRating.rating = comment.rating!
         cmtTitle.text = comment.title
         cmtContent.text = comment.content
@@ -51,4 +51,6 @@ class ViewCommentCell: UITableViewCell {
         userName.setboldSystemFontOfSize(size: 17)
         cmtTitle.setboldSystemFontOfSize(size: 14)
     }
+   
+    
 }

@@ -12,7 +12,7 @@ import TinyConstraints
 
 class CollectionItemCell: UICollectionViewCell {
 
-    @IBOutlet weak var itemImage: UIImageView!
+    @IBOutlet weak var itemImage: CustomImageView!
     @IBOutlet weak var itemName: UILabel!
     @IBOutlet weak var itemPrice: UILabel!
     @IBOutlet weak var itemRating: CosmosView!
@@ -25,11 +25,9 @@ class CollectionItemCell: UICollectionViewCell {
     
     func updateView(shopItemRe: ShopItemResponse) {
         setUpUI()
-        var avatar = "secondBKImage"
-        if shopItemRe.avatar == nil {
-            avatar = shopItemRe.avatar ?? "secondBKImage"
-        }
-        itemImage.image = UIImage(named: avatar)
+        
+        let urlStr = BASE_URL_IMAGE + shopItemRe.avatar! + ".jpg"
+        setupItemImage(urlStr: urlStr)
         itemName.text = shopItemRe.name
         itemPrice.text = "VND " + String(shopItemRe.price!)
         numberOfReview.text = "(" + String(shopItemRe.comment_number!)  + ")"
@@ -37,9 +35,17 @@ class CollectionItemCell: UICollectionViewCell {
         
     }
     
+    
     func setUpUI() {
         itemRating.settings.fillMode = .precise
         itemRating.settings.updateOnTouch = false
+        
+//        itemImage.image = UIImage(named: "secondBKImage")
+//        itemImage.contentMode = .scaleAspectFill
+//        itemImage.clipsToBounds = true
     }
-
+    
+    func setupItemImage(urlStr: String) {
+        itemImage.loadImageUsingUrlString(urlString: urlStr)
+    }
 }
