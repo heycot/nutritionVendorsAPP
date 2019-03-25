@@ -78,9 +78,6 @@ class ViewItemController: UIViewController {
 }
 
 
-
-
-
 extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
