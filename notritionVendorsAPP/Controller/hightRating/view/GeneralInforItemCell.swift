@@ -12,7 +12,7 @@ import UIKit
 
 class GeneralInforItemCell: UITableViewCell {
 
-    @IBOutlet weak var imageICarousel: iCarousel!
+    @IBOutlet weak var imageICarousel: UIView!
     @IBOutlet weak var itemName: UITextField!
     @IBOutlet weak var itemComments: UITextField!
     @IBOutlet weak var itemPhotos: UITextField!
@@ -23,6 +23,7 @@ class GeneralInforItemCell: UITableViewCell {
     var imgArr = [CustomImageView]()
     
     func updateView(item: ShopItemResponse) {
+        customUI()
         setupData(item: item)
         
         itemName.text      = item.name ?? ""
@@ -31,7 +32,12 @@ class GeneralInforItemCell: UITableViewCell {
         itemFavorites.text = String(item.favorites_number ?? 0)
         itemRating.text    = String(format: "%.2f", item.rating ?? 0)
         
-        customUI()
+    }
+    
+    
+    func customUI() {
+        setupImageICarousel()
+        itemName.setBottomBorder(color: APP_COLOR)
     }
     
     func setupData(item: ShopItemResponse) {
@@ -44,17 +50,15 @@ class GeneralInforItemCell: UITableViewCell {
         }
     }
     
-    func customUI() {
-        setupImageICarousel()
-        itemName.setBottomBorder(color: APP_COLOR)
-    }
     
     func setupImageICarousel() {
-        self.imageICarousel.type = .coverFlow
-        self.imageICarousel.contentMode = .scaleAspectFill
-        self.imageICarousel.isPagingEnabled = true
-        self.imageICarousel.delegate = self
-        self.imageICarousel.dataSource = self
+        let carousel = iCarousel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 40, height: 200))
+        carousel.dataSource = self
+        carousel.delegate = self
+        carousel.type = .coverFlow
+        carousel.isPagingEnabled = true
+        imageICarousel.addSubview(carousel)
+        
     }
 }
 
@@ -74,7 +78,7 @@ extension GeneralInforItemCell : iCarouselDelegate, iCarouselDataSource {
         }
 
         imageView = imgArr[index]
-        return imageView as UIImageView
+        return imageView 
     }
 }
 

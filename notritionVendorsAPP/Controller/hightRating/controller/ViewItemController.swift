@@ -26,6 +26,8 @@ class ViewItemController: UIViewController {
         updateData()
         tabelView.tableFooterView = UIView()
         activityIndicatorView.startAnimating()
+        
+        tabelView.register(UINib(nibName: CellClassName.GeneralInfor.rawValue, bundle: nil), forCellReuseIdentifier: CellClassName.GeneralInfor.rawValue)
     }
     
     func updateData() {
@@ -99,7 +101,7 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = Bundle.main.loadNibNamed(CellClassName.GeneralInfor.rawValue, owner: self, options: nil )?.first as! GeneralInforItemCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: CellClassName.GeneralInfor.rawValue, for: indexPath) as! GeneralInforItemCell
             
             cell.updateView(item: item)
             cell.selectionStyle = UITableViewCell.SelectionStyle.none;
