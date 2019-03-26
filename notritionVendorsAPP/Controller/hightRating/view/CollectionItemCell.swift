@@ -35,14 +35,9 @@ class CollectionItemCell: UICollectionViewCell {
         
     }
     
-    
     func setUpUI() {
         itemRating.settings.fillMode = .precise
         itemRating.settings.updateOnTouch = false
-        
-//        itemImage.image = UIImage(named: "secondBKImage")
-//        itemImage.contentMode = .scaleAspectFill
-//        itemImage.clipsToBounds = true
     }
     
     func setupItemImage(urlStr: String) {

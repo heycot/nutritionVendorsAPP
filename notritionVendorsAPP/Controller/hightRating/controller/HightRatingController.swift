@@ -126,7 +126,8 @@ extension HightRatingController: UICollectionViewDelegateFlowLayout {
 }
 
 
-// auto hide keyboard when click search bar
+
+// handle UISearchBar
 extension HightRatingController: UISearchBarDelegate {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         searchBar.endEditing(true)
@@ -163,3 +164,5 @@ extension HightRatingController: UISearchBarDelegate {
         
     }
 }
+
+

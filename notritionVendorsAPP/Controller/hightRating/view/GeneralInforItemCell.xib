@@ -19,13 +19,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="389" height="316.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8aD-pV-gvp" customClass="iCarousel" customModule="notritionVendorsAPP" customModuleProvider="target">
+                    <view clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="8aD-pV-gvp" customClass="iCarousel" customModule="notritionVendorsAPP" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="389" height="216.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <connections>
-                            <outlet property="dataSource" destination="-1" id="xYL-64-efM"/>
-                            <outlet property="delegate" destination="-1" id="bef-JU-XhJ"/>
-                        </connections>
                     </view>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qsb-mH-nth">
                         <rect key="frame" x="10" y="206.5" width="369" height="40"/>
@@ -164,12 +160,12 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="imageICarousel" destination="8aD-pV-gvp" id="qIx-dC-1ZP"/>
                 <outlet property="itemComments" destination="frw-O6-wgT" id="uZT-PM-Del"/>
                 <outlet property="itemFavorites" destination="6qi-yg-RNP" id="P9e-m5-PGd"/>
                 <outlet property="itemName" destination="qsb-mH-nth" id="u9l-07-xzn"/>
                 <outlet property="itemPhotos" destination="28k-de-D0A" id="fDP-Hp-dym"/>
                 <outlet property="itemRating" destination="TkN-tt-3Vs" id="y6b-kU-yim"/>
-                <outlet property="viewImage" destination="8aD-pV-gvp" id="xQZ-f1-kTw"/>
             </connections>
             <point key="canvasLocation" x="36" y="110.19490254872565"/>
         </tableViewCell>

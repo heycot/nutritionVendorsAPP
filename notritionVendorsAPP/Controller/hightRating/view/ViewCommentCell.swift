@@ -11,7 +11,7 @@ import Cosmos
 import TinyConstraints
 
 class ViewCommentCell: UITableViewCell {
-    @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var userImage: CustomImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var cmtDate: UILabel!
     @IBOutlet weak var cmtRating: CosmosView!
@@ -36,6 +36,7 @@ class ViewCommentCell: UITableViewCell {
         customUI()
         
 //        userImage = UIImageView.shared.showUserProfileImage(name: (comment.user?.avatar)!)
+        userImage.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + comment.user!.avatar!)
         userName.text = comment.user?.username
         cmtDate.text = NSObject().convertToString(date: comment.create_date ?? Date() , dateformat: DateFormatType.date)
         cmtRating.rating = comment.rating!
