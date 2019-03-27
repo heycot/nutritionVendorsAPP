@@ -14,5 +14,5 @@ target 'notritionVendorsAPP' do
     pod 'Socket.IO-Client-Swift'
     pod 'IQKeyboardManagerSwift'
     pod "ESPullToRefresh"
-
+    pod 'CCBottomRefreshControl'
 end

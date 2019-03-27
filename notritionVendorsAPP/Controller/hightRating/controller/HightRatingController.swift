@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CCBottomRefreshControl
 
 class HightRatingController: UIViewController {
 
@@ -40,7 +41,7 @@ class HightRatingController: UIViewController {
         
         itemCollection.delegate = self
         itemCollection.dataSource = self
-        itemCollection.refreshControl = refresher
+        itemCollection.bottomRefreshControl = refresher
     }
     
     
