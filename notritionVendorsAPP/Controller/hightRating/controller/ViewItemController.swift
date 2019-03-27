@@ -21,13 +21,29 @@ class ViewItemController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        registerNibCell()
         self.title = item.name!
         navigationController?.navigationBar.barTintColor = APP_COLOR
         updateData()
         tabelView.tableFooterView = UIView()
         activityIndicatorView.startAnimating()
         
-        tabelView.register(UINib(nibName: CellClassName.GeneralInfor.rawValue, bundle: nil), forCellReuseIdentifier: CellClassName.GeneralInfor.rawValue)
+    }
+    
+    func registerNibCell() {
+        
+        //register nib cell file with className and identifier
+        //register for generalInfor cell
+        tabelView.register(UINib(nibName: CellClassName.generalInfor.rawValue, bundle: nil), forCellReuseIdentifier: CellIdentifier.generalInfor.rawValue)
+        
+        // register for generalValue cell
+        tabelView.register(UINib(nibName: CellClassName.generalValue.rawValue, bundle: nil), forCellReuseIdentifier: CellIdentifier.generalvalue.rawValue)
+        
+        // register for listComment cell
+        tabelView.register(UINib(nibName: CellClassName.listComment.rawValue, bundle: nil), forCellReuseIdentifier: CellIdentifier.listComment.rawValue)
+        
+        //register for add new comment cell
+        tabelView.register(UINib(nibName: CellClassName.addNewComment.rawValue, bundle: nil), forCellReuseIdentifier: CellIdentifier.newComment.rawValue)
     }
     
     func updateData() {
@@ -82,112 +98,51 @@ class ViewItemController: UIViewController {
 
 extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
     
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return 4
-//    }
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//
-//        if section == 0 {
-//            return 1
-//        } else if section == 1{
-//            return itemValues.count
-//        } else if section == 2{
-//            return item.comments!.count
-//        } else {
-//            return 1
-//        }
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        if indexPath.section == 0 {
-//            let cell = tableView.dequeueReusableCell(withIdentifier: CellClassName.GeneralInfor.rawValue, for: indexPath) as! GeneralInforItemCell
-//
-//            cell.updateView(item: item)
-//            cell.selectionStyle = UITableViewCell.SelectionStyle.none;
-//            return cell
-//
-//        } else if indexPath.section == 1{
-//            let cell = Bundle.main.loadNibNamed(CellClassName.GeneralValue.rawValue, owner: self, options: nil )?.first as! GeneralValueCell
-//            cell.updateView(icon_image: itemValues[indexPath.row].icon!, value: itemValues[indexPath.row].value!)
-//
-//            if indexPath.row < 3 {
-//                cell.selectionStyle = UITableViewCell.SelectionStyle.none;
-//            }
-//            return cell
-//
-//        } else if indexPath.section == 2{
-//            let cell = Bundle.main.loadNibNamed(CellClassName.ListComment.rawValue, owner: self, options: nil )?.first as! ViewCommentCell
-//            cell.updateView(comment: item.comments![indexPath.row])
-//            cell.selectionStyle = UITableViewCell.SelectionStyle.none;
-//            return cell
-//        } else {
-//            let cell = Bundle.main.loadNibNamed(CellClassName.AddNewComment.rawValue, owner: self, options: nil )?.first as! AddNewCommentCell
-//            return cell
-//        }
-//    }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return 4
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if section == 0 {
-            return 1
-        }  else if section == 1{
-            return 1
-        }else if section == 2{
-            return itemValues.count
-        } else if section == 3{
-            return item.comments!.count
-        } else {
-            return 1
+
+        switch section {
+            case 0: return 1
+            case 1: return itemValues.count
+            case 2: return item.comments!.count
+            default: return 1
         }
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch indexPath.section {
-        case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.imageCollectionCell.rawValue, for: indexPath) as! ImageCollectionViewCell
-            
-            cell.showImage(urlStr: BASE_URL_IMAGE + item.documents![indexPath.row].link!)
-//            cell.selectionStyle = UITableViewCell.SelectionStyle.none;
-            return cell
-            break
-            
-            
-        default:
-            <#code#>
-        }
-        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: CellClassName.GeneralInfor.rawValue, for: indexPath) as! GeneralInforItemCell
-            
-            cell.updateView(item: item)
-            cell.selectionStyle = UITableViewCell.SelectionStyle.none;
-            return cell
-            
-        } else if indexPath.section == 1{
-            let cell = Bundle.main.loadNibNamed(CellClassName.GeneralValue.rawValue, owner: self, options: nil )?.first as! GeneralValueCell
-            cell.updateView(icon_image: itemValues[indexPath.row].icon!, value: itemValues[indexPath.row].value!)
-            
-            if indexPath.row < 3 {
+            case 0:
+                let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.generalInfor.rawValue, for: indexPath) as! GeneralInforItemCell
+                
+                cell.updateView(item: item)
                 cell.selectionStyle = UITableViewCell.SelectionStyle.none;
-            }
-            return cell
+                return cell
             
-        } else if indexPath.section == 2{
-            let cell = Bundle.main.loadNibNamed(CellClassName.ListComment.rawValue, owner: self, options: nil )?.first as! ViewCommentCell
-            cell.updateView(comment: item.comments![indexPath.row])
-            cell.selectionStyle = UITableViewCell.SelectionStyle.none;
-            return cell
-        } else {
-            let cell = Bundle.main.loadNibNamed(CellClassName.AddNewComment.rawValue, owner: self, options: nil )?.first as! AddNewCommentCell
-            return cell
+            case 1:
+                let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.generalvalue.rawValue, for: indexPath) as! GeneralValueCell
+                cell.updateView(icon_image: itemValues[indexPath.row].icon!, value: itemValues[indexPath.row].value!)
+                
+                if indexPath.row < 3 {
+                    cell.selectionStyle = UITableViewCell.SelectionStyle.none;
+                }
+                return cell
+            
+            case 2:
+                let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.listComment.rawValue, for: indexPath) as! ViewCommentCell
+                cell.updateView(comment: item.comments![indexPath.row])
+                cell.selectionStyle = UITableViewCell.SelectionStyle.none;
+                return cell
+            
+            default:
+                let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.newComment.rawValue, for: indexPath) as! AddNewCommentCell
+                return cell
         }
     }
-      
+    
     
     override func viewWillAppear(_ animated: Bool) {
         tabelView.estimatedRowHeight = 100
@@ -196,10 +151,13 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if section == 0 {
-            return 100.0
+        switch section {
+        case 4:
+            return 0
+        default:
+            return 15.0
         }
-        return 15.0
+//        return 15.0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

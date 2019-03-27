@@ -150,6 +150,7 @@ extension HightRatingController: UISearchBarDelegate {
         guard !(searchBar.text!.isEmpty) else {
             currentListItem = listItem
             itemCollection.reloadData()
+            searchBar.endEditing(true)
             return
         }
         

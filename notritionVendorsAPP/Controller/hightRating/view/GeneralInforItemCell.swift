@@ -12,6 +12,7 @@ import UIKit
 
 class GeneralInforItemCell: UITableViewCell {
 
+    @IBOutlet weak var itemImage: CustomImageView!
     @IBOutlet weak var itemName: UITextField!
     @IBOutlet weak var itemComments: UITextField!
     @IBOutlet weak var itemPhotos: UITextField!
@@ -23,7 +24,7 @@ class GeneralInforItemCell: UITableViewCell {
     
     func updateView(item: ShopItemResponse) {
         customUI()
-//        setupData(item: item)
+        showImage(name: item.avatar!)
         
         itemName.text      = item.name ?? ""
         itemComments.text  = String((item.comments?.count) ?? 0)
@@ -38,15 +39,9 @@ class GeneralInforItemCell: UITableViewCell {
         itemName.setBottomBorder(color: APP_COLOR)
     }
     
-//    func setupData(item: ShopItemResponse) {
-//
-//        self.item = item
-//        for doc in item.documents! {
-//            let image = CustomImageView()
-//            image.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + doc.link! + ".jpg")
-//            imgArr.append(image)
-//        }
-//    }
+    func showImage(name: String) {
+        itemImage.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + name  + ".jpg")
+    }
     
     
 }
