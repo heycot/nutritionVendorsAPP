@@ -488,37 +488,10 @@
                     <view key="view" contentMode="scaleToFill" id="dGt-1P-lCP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" showsCompass="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nwd-cl-CMd">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                            </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngb-Sn-gNO">
-                                <rect key="frame" x="354" y="753" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="32b-sy-3kU"/>
-                                    <constraint firstAttribute="height" constant="50" id="hf8-8m-FEh"/>
-                                </constraints>
-                                <state key="normal" image="map-direction"/>
-                                <connections>
-                                    <action selector="mapDirectionPressed:" destination="JmU-iJ-OBn" eventType="touchUpInside" id="peG-3T-D8k"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="Nwd-cl-CMd" firstAttribute="trailing" secondItem="e9k-hV-v9E" secondAttribute="trailing" id="3wm-rs-XqG"/>
-                            <constraint firstItem="Nwd-cl-CMd" firstAttribute="bottom" secondItem="e9k-hV-v9E" secondAttribute="bottom" id="9sk-lJ-bDt"/>
-                            <constraint firstItem="e9k-hV-v9E" firstAttribute="bottom" secondItem="ngb-Sn-gNO" secondAttribute="bottom" constant="10" id="ESK-S0-yiM"/>
-                            <constraint firstItem="Nwd-cl-CMd" firstAttribute="top" secondItem="e9k-hV-v9E" secondAttribute="top" id="OXp-XB-sci"/>
-                            <constraint firstItem="e9k-hV-v9E" firstAttribute="trailing" secondItem="ngb-Sn-gNO" secondAttribute="trailing" constant="10" id="aDP-fw-Xd9"/>
-                            <constraint firstItem="Nwd-cl-CMd" firstAttribute="leading" secondItem="e9k-hV-v9E" secondAttribute="leading" id="wdt-Bg-qit"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="e9k-hV-v9E"/>
                     </view>
                     <navigationItem key="navigationItem" id="5gg-BS-XVg"/>
-                    <connections>
-                        <outlet property="mapView" destination="Nwd-cl-CMd" id="GZq-CW-nHB"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q2q-f7-VbS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -559,7 +532,6 @@
         <image name="firstBKImage" width="284" height="177"/>
         <image name="list(2)" width="24" height="24"/>
         <image name="man-user" width="24" height="24"/>
-        <image name="map-direction" width="64" height="64"/>
         <image name="nutrition_icon" width="460" height="460"/>
         <image name="price-tag" width="24" height="24"/>
         <image name="store(1)" width="23" height="23"/>

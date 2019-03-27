@@ -7,14 +7,12 @@
 //
 
 import UIKit
-import MapKit
-import CoreLocation
+import GoogleMaps
 
 class ViewLocationShopController: UIViewController {
     
     // Outlets
-    @IBOutlet weak var mapView: MKMapView!
-    
+     
     // variables
     var location = LocationResponse()
     var shopName = ""
@@ -23,25 +21,25 @@ class ViewLocationShopController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapView.delegate = self
-        locationManager.delegate = self
-        configureLocationServices()
-    }
-
-    @IBAction func mapDirectionPressed(_ sender: Any) {
-        if authorizationStatus == .authorizedAlways || authorizationStatus == .authorizedWhenInUse {
-            centerMap()
-        }
-    }
-}
-
-extension ViewLocationShopController : MKMapViewDelegate {
-    func centerMap() {
-        guard let coordinate = locationManager.location?.coordinate else { return}
-        let coordinateRegion = MKCoordinateRegion(center: coordinate, latitudinalMeters: location.latitude!, longitudinalMeters: location.longitude!)
+        GMSServices.provideAPIKey(GOOGLE_API_KEY)
+        let latitude =  Double(location.latitude!).roundTo(places: 6)
+        let logitude =  Double(location.longitude!).roundTo(places: 6)
         
-        mapView.setRegion(coordinateRegion, animated: true)
+//        let camera = GMSCameraPosition.camera(withLatitude: location.latitude!, longitude: location.longitude!, zoom: 12)
+        
+        let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: logitude, zoom: 12)
+        
+        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        view = mapView
+        
+//        let currentLocation = CLLocationCoordinate2D(latitude: location.latitude!, longitude: location.longitude!)
+        let currentLocation = CLLocationCoordinate2D(latitude: latitude, longitude: logitude)
+        
+        let marker = GMSMarker(position: currentLocation)
+        marker.map = mapView
+        marker.title = shopName
     }
+
 }
 
 
@@ -55,6 +53,5 @@ extension ViewLocationShopController : CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        centerMap()
     }
 }

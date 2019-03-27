@@ -74,6 +74,7 @@ class ViewItemController: UIViewController {
         {
             let vc = segue.destination as? ViewLocationShopController
             vc?.location = (item.shop?.location)!
+            vc?.shopName = (item.shop?.name!)!
         }
     }
     

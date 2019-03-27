@@ -60,4 +60,8 @@ enum CellClassName: String {
 }
 
 
+// google map API key
+let GOOGLE_API_KEY = "AIzaSyAgIJ_N3H3LVx_afClZancU_0Ec6gjpUVA"
+
+
 
