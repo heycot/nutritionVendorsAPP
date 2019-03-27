@@ -57,6 +57,11 @@ enum CellClassName: String {
     case GeneralValue   = "GeneralValueCell"
     case ListComment    = "ViewCommentCell"
     case AddNewComment  = "AddNewCommentCell"
+    
+}
+
+enum CellIdentifier: String {
+    case imageCollectionCell = "ImageCollectionCell"
 }
 
 

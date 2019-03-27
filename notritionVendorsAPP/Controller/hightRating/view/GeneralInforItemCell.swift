@@ -12,7 +12,6 @@ import UIKit
 
 class GeneralInforItemCell: UITableViewCell {
 
-    @IBOutlet weak var imageICarousel: UIView!
     @IBOutlet weak var itemName: UITextField!
     @IBOutlet weak var itemComments: UITextField!
     @IBOutlet weak var itemPhotos: UITextField!
@@ -24,7 +23,7 @@ class GeneralInforItemCell: UITableViewCell {
     
     func updateView(item: ShopItemResponse) {
         customUI()
-        setupData(item: item)
+//        setupData(item: item)
         
         itemName.text      = item.name ?? ""
         itemComments.text  = String((item.comments?.count) ?? 0)
@@ -36,49 +35,20 @@ class GeneralInforItemCell: UITableViewCell {
     
     
     func customUI() {
-        setupImageICarousel()
         itemName.setBottomBorder(color: APP_COLOR)
     }
     
-    func setupData(item: ShopItemResponse) {
-        
-        self.item = item
-        for doc in item.documents! {
-            let image = CustomImageView()
-            image.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + doc.link! + ".jpg")
-            imgArr.append(image)
-        }
-    }
+//    func setupData(item: ShopItemResponse) {
+//
+//        self.item = item
+//        for doc in item.documents! {
+//            let image = CustomImageView()
+//            image.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + doc.link! + ".jpg")
+//            imgArr.append(image)
+//        }
+//    }
     
     
-    func setupImageICarousel() {
-        let carousel = iCarousel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 40, height: 200))
-        carousel.dataSource = self
-        carousel.delegate = self
-        carousel.type = .coverFlow
-        carousel.isPagingEnabled = true
-        imageICarousel.addSubview(carousel)
-        
-    }
 }
 
-extension GeneralInforItemCell : iCarouselDelegate, iCarouselDataSource {
-    func numberOfItems(in carousel: iCarousel) -> Int {
-        return imgArr.count
-    }
-
-    func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
-
-        var imageView: CustomImageView!
-        if view == nil {
-            imageView = CustomImageView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 40, height: 200))
-            imageView.contentMode = .scaleAspectFit
-        } else {
-            imageView = view as? CustomImageView
-        }
-
-        imageView = imgArr[index]
-        return imageView 
-    }
-}
 

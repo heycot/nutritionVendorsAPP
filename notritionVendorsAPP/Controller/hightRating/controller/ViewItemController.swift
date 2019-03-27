@@ -82,17 +82,64 @@ class ViewItemController: UIViewController {
 
 extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
     
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        return 4
+//    }
+//
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//
+//        if section == 0 {
+//            return 1
+//        } else if section == 1{
+//            return itemValues.count
+//        } else if section == 2{
+//            return item.comments!.count
+//        } else {
+//            return 1
+//        }
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        if indexPath.section == 0 {
+//            let cell = tableView.dequeueReusableCell(withIdentifier: CellClassName.GeneralInfor.rawValue, for: indexPath) as! GeneralInforItemCell
+//
+//            cell.updateView(item: item)
+//            cell.selectionStyle = UITableViewCell.SelectionStyle.none;
+//            return cell
+//
+//        } else if indexPath.section == 1{
+//            let cell = Bundle.main.loadNibNamed(CellClassName.GeneralValue.rawValue, owner: self, options: nil )?.first as! GeneralValueCell
+//            cell.updateView(icon_image: itemValues[indexPath.row].icon!, value: itemValues[indexPath.row].value!)
+//
+//            if indexPath.row < 3 {
+//                cell.selectionStyle = UITableViewCell.SelectionStyle.none;
+//            }
+//            return cell
+//
+//        } else if indexPath.section == 2{
+//            let cell = Bundle.main.loadNibNamed(CellClassName.ListComment.rawValue, owner: self, options: nil )?.first as! ViewCommentCell
+//            cell.updateView(comment: item.comments![indexPath.row])
+//            cell.selectionStyle = UITableViewCell.SelectionStyle.none;
+//            return cell
+//        } else {
+//            let cell = Bundle.main.loadNibNamed(CellClassName.AddNewComment.rawValue, owner: self, options: nil )?.first as! AddNewCommentCell
+//            return cell
+//        }
+//    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 5
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
+        
         if section == 0 {
             return 1
-        } else if section == 1{
+        }  else if section == 1{
+            return 1
+        }else if section == 2{
             return itemValues.count
-        } else if section == 2{
+        } else if section == 3{
             return item.comments!.count
         } else {
             return 1
@@ -100,13 +147,27 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        switch indexPath.section {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.imageCollectionCell.rawValue, for: indexPath) as! ImageCollectionViewCell
+            
+            cell.showImage(urlStr: BASE_URL_IMAGE + item.documents![indexPath.row].link!)
+//            cell.selectionStyle = UITableViewCell.SelectionStyle.none;
+            return cell
+            break
+            
+            
+        default:
+            <#code#>
+        }
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: CellClassName.GeneralInfor.rawValue, for: indexPath) as! GeneralInforItemCell
             
             cell.updateView(item: item)
             cell.selectionStyle = UITableViewCell.SelectionStyle.none;
             return cell
-        
+            
         } else if indexPath.section == 1{
             let cell = Bundle.main.loadNibNamed(CellClassName.GeneralValue.rawValue, owner: self, options: nil )?.first as! GeneralValueCell
             cell.updateView(icon_image: itemValues[indexPath.row].icon!, value: itemValues[indexPath.row].value!)
@@ -115,7 +176,7 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
                 cell.selectionStyle = UITableViewCell.SelectionStyle.none;
             }
             return cell
-
+            
         } else if indexPath.section == 2{
             let cell = Bundle.main.loadNibNamed(CellClassName.ListComment.rawValue, owner: self, options: nil )?.first as! ViewCommentCell
             cell.updateView(comment: item.comments![indexPath.row])
@@ -135,6 +196,9 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 100.0
+        }
         return 15.0
     }
     
