@@ -15,6 +15,7 @@ enum Icon : String{
     case shop_icon = "shop"
     case address_icon = "placeholder"
     case category_icon = "grid"
+    case picture = "picture"
 }
 
 
