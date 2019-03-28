@@ -453,11 +453,85 @@
                         <outlet property="activityIndicatorView" destination="iI7-y8-x0P" id="Q7w-Zo-AUM"/>
                         <outlet property="tabelView" destination="ef6-4y-pw0" id="PLk-2V-4mE"/>
                         <segue destination="JmU-iJ-OBn" kind="push" identifier="ShopLocationID" id="s84-S6-qYd"/>
+                        <segue destination="0ak-hg-nPK" kind="push" identifier="ViewPhotosItemID" id="zRg-Of-D4K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WMo-J7-Thz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="199" y="690"/>
+        </scene>
+        <!--Photo Item Collection Controller-->
+        <scene sceneID="soa-YK-g1H">
+            <objects>
+                <viewController id="0ak-hg-nPK" customClass="PhotoItemCollectionController" customModule="notritionVendorsAPP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kwE-xJ-uZ8" customClass="PhotoItemCollectionController" customModule="notritionVendorsAPP" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="yfb-2h-TRO">
+                                <rect key="frame" x="188.66666666666666" y="429.66666666666669" width="37" height="37"/>
+                                <color key="color" red="0.20784313725490197" green="0.50588235294117645" blue="0.56470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Bog-Od-eZn">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="scrollIndicatorInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Mee-6o-GjS">
+                                    <size key="itemSize" width="293" height="291"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="Hkq-h6-J87" customClass="PhotoItemCell" customModule="notritionVendorsAPP" customModuleProvider="target">
+                                        <rect key="frame" x="60.666666666666664" y="0.0" width="293" height="291"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="293" height="291"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bB8-GV-pws" customClass="CustomImageView" customModule="notritionVendorsAPP" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="293" height="291"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="bB8-GV-pws" secondAttribute="bottom" id="5nj-cb-vja"/>
+                                            <constraint firstAttribute="trailing" secondItem="bB8-GV-pws" secondAttribute="trailing" id="YEl-V7-GEM"/>
+                                            <constraint firstItem="bB8-GV-pws" firstAttribute="leading" secondItem="Hkq-h6-J87" secondAttribute="leading" id="yxx-nG-Cbl"/>
+                                            <constraint firstItem="bB8-GV-pws" firstAttribute="top" secondItem="Hkq-h6-J87" secondAttribute="top" id="zXI-xc-Vnn"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="bB8-GV-pws" id="MeE-RJ-io7"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="0ak-hg-nPK" id="c98-h6-dY6"/>
+                                    <outlet property="delegate" destination="0ak-hg-nPK" id="qRb-zI-E1U"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="yfb-2h-TRO" firstAttribute="centerX" secondItem="kwE-xJ-uZ8" secondAttribute="centerX" id="MHy-fz-XP0"/>
+                            <constraint firstItem="m1q-cm-iHL" firstAttribute="bottom" secondItem="Bog-Od-eZn" secondAttribute="bottom" id="PAf-rz-g6b"/>
+                            <constraint firstItem="Bog-Od-eZn" firstAttribute="trailing" secondItem="m1q-cm-iHL" secondAttribute="trailing" id="Pyo-Yt-f0X"/>
+                            <constraint firstItem="Bog-Od-eZn" firstAttribute="top" secondItem="m1q-cm-iHL" secondAttribute="top" id="WS3-E9-TaC"/>
+                            <constraint firstItem="Bog-Od-eZn" firstAttribute="leading" secondItem="m1q-cm-iHL" secondAttribute="leading" id="oQF-5H-5kD"/>
+                            <constraint firstItem="yfb-2h-TRO" firstAttribute="centerY" secondItem="kwE-xJ-uZ8" secondAttribute="centerY" id="uK5-Y9-SAt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="m1q-cm-iHL"/>
+                        <connections>
+                            <outlet property="activityIndicator" destination="yfb-2h-TRO" id="gbV-fd-QrF"/>
+                            <outlet property="collectionView" destination="Bog-Od-eZn" id="D5a-Be-mpP"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" id="Gi6-bK-3NY"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3rE-Qk-T7Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1140.5797101449277" y="401.78571428571428"/>
         </scene>
         <!--View Location Shop Controller-->
         <scene sceneID="qvJ-Bs-Lsn">
@@ -473,7 +547,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q2q-f7-VbS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1089.8550724637682" y="689.73214285714278"/>
+            <point key="canvasLocation" x="1107" y="1081"/>
         </scene>
         <!--Hight Rating-->
         <scene sceneID="W7y-GX-8kg">

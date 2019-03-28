@@ -21,13 +21,29 @@ class ViewItemController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        registerNibCell()
+        
         self.title = item.name!
         navigationController?.navigationBar.barTintColor = APP_COLOR
         updateData()
         tabelView.tableFooterView = UIView()
         activityIndicatorView.startAnimating()
+    }
+    
+    func registerNibCell() {
         
-        tabelView.register(UINib(nibName: CellClassName.GeneralInfor.rawValue, bundle: nil), forCellReuseIdentifier: CellClassName.GeneralInfor.rawValue)
+        //register nib cell file with className and identifier
+        //register for generalInfor cell
+        tabelView.register(UINib(nibName: CellClassName.generalInfor.rawValue, bundle: nil), forCellReuseIdentifier: CellIdentifier.generalInfor.rawValue)
+        
+        // register for generalValue cell
+        tabelView.register(UINib(nibName: CellClassName.generalValue.rawValue, bundle: nil), forCellReuseIdentifier: CellIdentifier.generalvalue.rawValue)
+        
+        // register for listComment cell
+        tabelView.register(UINib(nibName: CellClassName.listComment.rawValue, bundle: nil), forCellReuseIdentifier: CellIdentifier.listComment.rawValue)
+        
+        //register for add new comment cell
+        tabelView.register(UINib(nibName: CellClassName.addNewComment.rawValue, bundle: nil), forCellReuseIdentifier: CellIdentifier.newComment.rawValue)
     }
     
     func updateData() {
@@ -71,11 +87,14 @@ class ViewItemController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.destination is ViewLocationShopController
-        {
+        if segue.destination is ViewLocationShopController  {
             let vc = segue.destination as? ViewLocationShopController
             vc?.location = (item.shop?.location)!
             vc?.shopName = (item.shop?.name!)!
+            
+        } else if segue.destination is PhotoItemCollectionController {
+            let vc = segue.destination as? PhotoItemCollectionController
+            vc?.documents = item.documents!
         }
     }
     
@@ -106,14 +125,15 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
         
         switch indexPath.section {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: CellClassName.GeneralInfor.rawValue, for: indexPath) as! GeneralInforItemCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.generalInfor.rawValue, for: indexPath) as! GeneralInforItemCell
+
             
             cell.updateView(item: item)
             cell.selectionStyle = UITableViewCell.SelectionStyle.none;
             return cell
             
         case 1:
-            let cell = Bundle.main.loadNibNamed(CellClassName.GeneralValue.rawValue, owner: self, options: nil )?.first as! GeneralValueCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.generalvalue.rawValue, for: indexPath) as! GeneralValueCell
             cell.updateView(icon_image: itemValues[indexPath.row].icon!, value: itemValues[indexPath.row].value!)
             
             if indexPath.row < 3 {
@@ -123,13 +143,13 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
             return cell
             
         case 2:
-            let cell = Bundle.main.loadNibNamed(CellClassName.ListComment.rawValue, owner: self, options: nil )?.first as! ViewCommentCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.listComment.rawValue, for: indexPath) as! ViewCommentCell
             cell.updateView(comment: item.comments![indexPath.row])
             cell.selectionStyle = UITableViewCell.SelectionStyle.none;
             return cell
             
         default:
-            let cell = Bundle.main.loadNibNamed(CellClassName.AddNewComment.rawValue, owner: self, options: nil )?.first as! AddNewCommentCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.newComment.rawValue, for: indexPath) as! AddNewCommentCell
             return cell
         }
         
@@ -151,9 +171,9 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
             
             switch indexPath.row {
             case 3:
-                break
+                self.performSegue(withIdentifier: SegueIdentifier.photosItem.rawValue, sender: self)
             case 4:
-                self.performSegue(withIdentifier: "ShopLocationID", sender: self)
+                self.performSegue(withIdentifier: SegueIdentifier.shopLocation.rawValue, sender: self)
             default:
                 if true {
                     let phoneNumber = "033602512"
