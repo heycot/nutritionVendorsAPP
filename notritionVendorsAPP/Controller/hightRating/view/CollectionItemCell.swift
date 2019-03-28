@@ -28,7 +28,7 @@ class CollectionItemCell: UICollectionViewCell {
         
         let urlStr = BASE_URL_IMAGE + shopItemRe.avatar! + ".jpg"
         setupItemImage(urlStr: urlStr)
-        itemName.text = shopItemRe.name
+        itemName.text = shopItemRe.name! + " - " + shopItemRe.shop_name!
         itemPrice.text = "VND " + String(shopItemRe.price!)
         numberOfReview.text = "(" + String(shopItemRe.comment_number!)  + ")"
         itemRating.rating = shopItemRe.rating! 

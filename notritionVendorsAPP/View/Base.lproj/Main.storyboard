@@ -300,34 +300,33 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fWT-nt-2cG" customClass="CustomImageView" customModule="notritionVendorsAPP" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="214" height="150"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="214" height="130"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="150" id="Hyy-hq-vA8"/>
+                                                        <constraint firstAttribute="height" constant="130" id="Hyy-hq-vA8"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8T-uW-Usv">
-                                                    <rect key="frame" x="0.0" y="155" width="214" height="30"/>
+                                                    <rect key="frame" x="0.0" y="135" width="214" height="20"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="S7b-Bh-3X9"/>
+                                                        <constraint firstAttribute="height" constant="20" id="S7b-Bh-3X9"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                                    <color key="textColor" red="0.0" green="0.43529411764705883" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="S5S-YQ-OWE">
-                                                    <rect key="frame" x="0.0" y="190" width="214" height="32"/>
+                                                    <rect key="frame" x="0.0" y="160" width="214" height="62"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="price-tag" translatesAutoresizingMaskIntoConstraints="NO" id="j5g-P0-KLt">
-                                                            <rect key="frame" x="0.0" y="8.6666666666666572" width="15" height="15"/>
+                                                            <rect key="frame" x="0.0" y="23.666666666666657" width="15" height="15"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="15" id="JBw-F6-ELv"/>
                                                                 <constraint firstAttribute="width" constant="15" id="dah-n4-01Q"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ym5-0L-AXZ">
-                                                            <rect key="frame" x="25" y="0.0" width="189" height="32"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <rect key="frame" x="25" y="0.0" width="189" height="62"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -375,7 +374,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="50" id="ilo-tn-fmg"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
