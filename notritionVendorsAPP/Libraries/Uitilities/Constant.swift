@@ -53,11 +53,30 @@ let APP_COLOR = UIColor(red: CGFloat(44/255.0), green: CGFloat(166/255.0), blue:
 
 
 enum CellClassName: String {
-    case GeneralInfor   = "GeneralInforItemCell"
-    case GeneralValue   = "GeneralValueCell"
-    case ListComment    = "ViewCommentCell"
-    case AddNewComment  = "AddNewCommentCell"
+    case generalInfor   = "GeneralInforItemCell"
+    case generalValue   = "GeneralValueCell"
+    case listComment    = "ViewCommentCell"
+    case addNewComment  = "AddNewCommentCell"
+    
 }
+
+enum CellIdentifier: String {
+    case generalInfor = "GeneralInforItemCell"
+    case generalvalue = "GeneralValueCell"
+    case listComment = "ListCommentCell"
+    case newComment = "NewCommentCell"
+    case imageCollectionCell = "ImageCollectionCell"
+    case photoItem = "PhotoCell"
+}
+
+enum SegueIdentifier: String {
+    case detailItem = "ViewDetalFoodID"
+    case photosItem = "ViewPhotosItemID"
+    case shopLocation = "ShopLocationID"
+}
+
+// google map API key
+let GOOGLE_API_KEY = "AIzaSyAgIJ_N3H3LVx_afClZancU_0Ec6gjpUVA"
 
 
 
