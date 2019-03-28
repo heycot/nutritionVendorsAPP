@@ -14,7 +14,7 @@ class CollectionItemCell: UICollectionViewCell {
 
     @IBOutlet weak var itemImage: CustomImageView!
     @IBOutlet weak var itemName: UILabel!
-    @IBOutlet weak var itemPrice: UILabel!
+//    @IBOutlet weak var itemPrice: UILabel!
     @IBOutlet weak var itemRating: CosmosView!
     @IBOutlet weak var numberOfReview: UILabel!
     
@@ -29,7 +29,7 @@ class CollectionItemCell: UICollectionViewCell {
         let urlStr = BASE_URL_IMAGE + shopItemRe.avatar! + ".jpg"
         setupItemImage(urlStr: urlStr)
         itemName.text = shopItemRe.name! + " - " + shopItemRe.shop_name!
-        itemPrice.text = "VND " + String(shopItemRe.price!)
+//        itemPrice.text = "VND " + String(shopItemRe.price!)
         numberOfReview.text = "(" + String(shopItemRe.comment_number!)  + ")"
         itemRating.rating = shopItemRe.rating! 
         

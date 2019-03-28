@@ -113,7 +113,7 @@ extension HightRatingController: UICollectionViewDelegate, UICollectionViewDataS
 extension HightRatingController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellWidth = (UIScreen.main.bounds.size.width - 30)/2
-        return CGSize(width: cellWidth, height: 190)
+        return CGSize(width: cellWidth, height: 175)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
