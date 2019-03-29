@@ -16,5 +16,6 @@ target 'notritionVendorsAPP' do
     pod "ESPullToRefresh"
     pod 'GoogleMaps' 
     pod 'GooglePlaces'
-
+    pod 'PinterestLayout'
+    
 end

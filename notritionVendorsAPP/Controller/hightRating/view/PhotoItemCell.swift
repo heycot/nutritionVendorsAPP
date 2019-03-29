@@ -11,8 +11,8 @@ import UIKit
 class PhotoItemCell: UICollectionViewCell {
     @IBOutlet weak var imageView: CustomImageView!
     
-    
-    func updateView(name: String) {
-        imageView.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + name + ".jpg")
+    func updateView(image: String) {
+        imageView.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + image + ".jpg")
     }
+    
 }

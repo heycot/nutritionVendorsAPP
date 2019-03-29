@@ -49,7 +49,7 @@
                 <outlet property="icon" destination="idE-B8-d1I" id="gwk-c1-8eb"/>
                 <outlet property="iconValue" destination="psm-uq-KZh" id="ekF-tn-Rdn"/>
             </connections>
-            <point key="canvasLocation" x="53.600000000000001" y="46.326836581709152"/>
+            <point key="canvasLocation" x="-633" y="143"/>
         </tableViewCell>
     </objects>
 </document>
