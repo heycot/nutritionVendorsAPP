@@ -92,8 +92,8 @@ class ViewItemController: UIViewController {
             vc?.location = (item.shop?.location)!
             vc?.shopName = (item.shop?.name!)!
             
-        } else if segue.destination is PhotoItemCollectionController {
-            let vc = segue.destination as? PhotoItemCollectionController
+        } else if segue.destination is PhotoItemController {
+            let vc = segue.destination as? PhotoItemController
             vc?.documents = item.documents!
         }
     }

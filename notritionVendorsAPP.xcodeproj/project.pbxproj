@@ -30,6 +30,7 @@
 		231AE466222E2D4E0082C06E /* ExtensionUITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231AE465222E2D4E0082C06E /* ExtensionUITextView.swift */; };
 		231AE468222E2EDF0082C06E /* GeneralValueItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231AE467222E2EDF0082C06E /* GeneralValueItem.swift */; };
 		231AE46A222E589F0082C06E /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231AE469222E589F0082C06E /* Icon.swift */; };
+		231C5B6F224DCE5A00161534 /* PhotoItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C5B6E224DCE5A00161534 /* PhotoItemController.swift */; };
 		2323C8B2223F5B8B00DA68CA /* ViewLocationShopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2323C8B1223F5B8B00DA68CA /* ViewLocationShopController.swift */; };
 		23351DC4222539BF003944E2 /* ExtensionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23351DC3222539BF003944E2 /* ExtensionButton.swift */; };
 		233B390822375463003EB253 /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233B390722375463003EB253 /* AuthServices.swift */; };
@@ -95,6 +96,7 @@
 		231AE465222E2D4E0082C06E /* ExtensionUITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUITextView.swift; sourceTree = "<group>"; };
 		231AE467222E2EDF0082C06E /* GeneralValueItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralValueItem.swift; sourceTree = "<group>"; };
 		231AE469222E589F0082C06E /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
+		231C5B6E224DCE5A00161534 /* PhotoItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoItemController.swift; sourceTree = "<group>"; };
 		2323C8B1223F5B8B00DA68CA /* ViewLocationShopController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLocationShopController.swift; sourceTree = "<group>"; };
 		23351DC3222539BF003944E2 /* ExtensionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionButton.swift; sourceTree = "<group>"; };
 		233B390722375463003EB253 /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				235A32B12224EA0C00DE5B0E /* HightRatingController.swift */,
 				23695E9722278F3B00AD7076 /* ViewItemController.swift */,
 				2323C8B1223F5B8B00DA68CA /* ViewLocationShopController.swift */,
+				231C5B6E224DCE5A00161534 /* PhotoItemController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -593,6 +596,7 @@
 				233B390822375463003EB253 /* AuthServices.swift in Sources */,
 				23695E9822278F3B00AD7076 /* ViewItemController.swift in Sources */,
 				23351DC4222539BF003944E2 /* ExtensionButton.swift in Sources */,
+				231C5B6F224DCE5A00161534 /* PhotoItemController.swift in Sources */,
 				230E2DE0222667EE00246392 /* Location.swift in Sources */,
 				235A32B52224EAB400DE5B0E /* ExtensionTextField.swift in Sources */,
 				23D02E632223799300882742 /* LoginController.swift in Sources */,

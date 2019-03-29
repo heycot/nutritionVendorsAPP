@@ -14,7 +14,7 @@ target 'notritionVendorsAPP' do
     pod 'Socket.IO-Client-Swift'
     pod 'IQKeyboardManagerSwift'
     pod "ESPullToRefresh"
-    pod 'GoogleMaps'
+    pod 'GoogleMaps' 
     pod 'GooglePlaces'
 
 end
