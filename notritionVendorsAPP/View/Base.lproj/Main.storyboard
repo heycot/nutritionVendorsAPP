@@ -534,13 +534,26 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </collectionView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRF-AS-sLN">
+                                <rect key="frame" x="0.0" y="423" width="414" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="5ez-T4-9sU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="D6k-rm-GS0" firstAttribute="centerX" secondItem="QkH-2o-aiv" secondAttribute="centerX" id="OjD-hr-fb5"/>
                             <constraint firstItem="QkH-2o-aiv" firstAttribute="bottom" secondItem="D6k-rm-GS0" secondAttribute="bottom" id="Sdb-Hj-gfe"/>
+                            <constraint firstItem="MRF-AS-sLN" firstAttribute="leading" secondItem="QkH-2o-aiv" secondAttribute="leading" id="XRe-br-QmU"/>
                             <constraint firstItem="D6k-rm-GS0" firstAttribute="leading" secondItem="QkH-2o-aiv" secondAttribute="leading" id="fus-T0-trL"/>
                             <constraint firstItem="QkH-2o-aiv" firstAttribute="trailing" secondItem="D6k-rm-GS0" secondAttribute="trailing" id="fyJ-2A-meN"/>
+                            <constraint firstItem="MRF-AS-sLN" firstAttribute="trailing" secondItem="QkH-2o-aiv" secondAttribute="trailing" id="oLq-c0-fhD"/>
+                            <constraint firstItem="MRF-AS-sLN" firstAttribute="centerX" secondItem="sYJ-hX-Ltc" secondAttribute="centerX" id="wA8-ar-bwq"/>
+                            <constraint firstItem="MRF-AS-sLN" firstAttribute="centerY" secondItem="sYJ-hX-Ltc" secondAttribute="centerY" id="wLQ-7E-4cA"/>
                             <constraint firstItem="QkH-2o-aiv" firstAttribute="top" secondItem="D6k-rm-GS0" secondAttribute="top" constant="88" id="xTI-Uz-akY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QkH-2o-aiv"/>
@@ -548,6 +561,7 @@
                     <navigationItem key="navigationItem" id="nno-bI-5bG"/>
                     <connections>
                         <outlet property="collectionView" destination="D6k-rm-GS0" id="0Wc-mg-Zio"/>
+                        <outlet property="photoNotification" destination="MRF-AS-sLN" id="szN-NE-qBC"/>
                         <segue destination="cHJ-zs-bb7" kind="push" identifier="ViewDetailPhoto" id="DJh-fr-eVY"/>
                     </connections>
                 </viewController>

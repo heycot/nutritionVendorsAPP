@@ -11,6 +11,7 @@ import UIKit
 class PhotoItemController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var photoNotification: UILabel!
     
     var documents = [DocumentResponse]()
     var imgArr: [CustomImageView] = [CustomImageView]()
@@ -18,6 +19,7 @@ class PhotoItemController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNotification()
         self.title = "Photos (" + String(documents.count) + ")"
         self.navigationItem.backBarButtonItem?.title = "Back"
         setupData()
@@ -27,6 +29,14 @@ class PhotoItemController: UIViewController {
         
         collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         
+    }
+    
+    func setupNotification() {
+        if documents.count == 0 {
+            photoNotification.textColor = APP_COLOR
+            photoNotification.text = "No photo!"
+            photoNotification.isHidden = false
+        }
     }
     
     func setupData() {

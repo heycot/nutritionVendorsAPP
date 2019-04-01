@@ -149,6 +149,7 @@ extension HightRatingController: UISearchBarDelegate {
             guard let data = data else {return }
             
             if data.count == 0 {
+                self.resultSearchNotification.textColor = APP_COLOR
                 self.resultSearchNotification.text = "There is no suitable food"
                 self.resultSearchNotification.isHidden = false
                 self.activityIndicator.stopAnimating()
