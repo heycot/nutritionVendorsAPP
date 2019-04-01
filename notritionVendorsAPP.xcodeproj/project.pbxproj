@@ -31,6 +31,8 @@
 		231AE468222E2EDF0082C06E /* GeneralValueItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231AE467222E2EDF0082C06E /* GeneralValueItem.swift */; };
 		231AE46A222E589F0082C06E /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231AE469222E589F0082C06E /* Icon.swift */; };
 		231C5B6F224DCE5A00161534 /* PhotoItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C5B6E224DCE5A00161534 /* PhotoItemController.swift */; };
+		2320C6F22251C7C700A2C328 /* DetailPhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2320C6F12251C7C700A2C328 /* DetailPhotoController.swift */; };
+		2320C6F42251C8AD00A2C328 /* DetailPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2320C6F32251C8AD00A2C328 /* DetailPhotoCell.swift */; };
 		2323C8B2223F5B8B00DA68CA /* ViewLocationShopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2323C8B1223F5B8B00DA68CA /* ViewLocationShopController.swift */; };
 		23351DC4222539BF003944E2 /* ExtensionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23351DC3222539BF003944E2 /* ExtensionButton.swift */; };
 		233B390822375463003EB253 /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233B390722375463003EB253 /* AuthServices.swift */; };
@@ -95,6 +97,8 @@
 		231AE467222E2EDF0082C06E /* GeneralValueItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralValueItem.swift; sourceTree = "<group>"; };
 		231AE469222E589F0082C06E /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 		231C5B6E224DCE5A00161534 /* PhotoItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoItemController.swift; sourceTree = "<group>"; };
+		2320C6F12251C7C700A2C328 /* DetailPhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPhotoController.swift; sourceTree = "<group>"; };
+		2320C6F32251C8AD00A2C328 /* DetailPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPhotoCell.swift; sourceTree = "<group>"; };
 		2323C8B1223F5B8B00DA68CA /* ViewLocationShopController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLocationShopController.swift; sourceTree = "<group>"; };
 		23351DC3222539BF003944E2 /* ExtensionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionButton.swift; sourceTree = "<group>"; };
 		233B390722375463003EB253 /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
@@ -193,6 +197,7 @@
 				23695E9722278F3B00AD7076 /* ViewItemController.swift */,
 				2323C8B1223F5B8B00DA68CA /* ViewLocationShopController.swift */,
 				231C5B6E224DCE5A00161534 /* PhotoItemController.swift */,
+				2320C6F12251C7C700A2C328 /* DetailPhotoController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -211,6 +216,7 @@
 				230E2DEB22267DCA00246392 /* CollectionItemCell.swift */,
 				235A49EC2248BEF70034A944 /* CustomImageView.swift */,
 				2376D98E224CDC4200DDFB19 /* PhotoItemCell.swift */,
+				2320C6F32251C8AD00A2C328 /* DetailPhotoCell.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -568,6 +574,7 @@
 				2323C8B2223F5B8B00DA68CA /* ViewLocationShopController.swift in Sources */,
 				230E2DD822265A4700246392 /* User.swift in Sources */,
 				23B6023F222E767E00FBBD79 /* ExtensionUIImage.swift in Sources */,
+				2320C6F42251C8AD00A2C328 /* DetailPhotoCell.swift in Sources */,
 				2300BE6B222D30B7008E9101 /* GeneralInforItemCell.swift in Sources */,
 				231AE468222E2EDF0082C06E /* GeneralValueItem.swift in Sources */,
 				23A31BBA2240948F00FE2D69 /* NetworkingClient.swift in Sources */,
@@ -608,6 +615,7 @@
 				235A32B92224EC1100DE5B0E /* ExtensionUIColor.swift in Sources */,
 				230E2DDE2226674200246392 /* Area.swift in Sources */,
 				230E2DE822266BFE00246392 /* Shop.swift in Sources */,
+				2320C6F22251C7C700A2C328 /* DetailPhotoController.swift in Sources */,
 				2376D98F224CDC4200DDFB19 /* PhotoItemCell.swift in Sources */,
 				235A49ED2248BEF70034A944 /* CustomImageView.swift in Sources */,
 				233B390D22376476003EB253 /* StringLibrary.swift in Sources */,

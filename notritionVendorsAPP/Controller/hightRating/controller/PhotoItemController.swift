@@ -14,9 +14,13 @@ class PhotoItemController: UIViewController {
     
     var documents = [DocumentResponse]()
     var imgArr: [CustomImageView] = [CustomImageView]()
+    var indexForShow = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Photos (" + String(documents.count) + ")"
+        self.navigationItem.backBarButtonItem?.title = "Back"
+        setupData()
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -33,25 +37,33 @@ class PhotoItemController: UIViewController {
         }
     }
     
-    
-    
-    func showImage(index: Int) {
-        let newImageView = imgArr[index]
-//        let newImageView = CustomImageView(image: imageView)
-        newImageView.frame = UIScreen.main.bounds
-        newImageView.backgroundColor = .black
-        newImageView.contentMode = .scaleAspectFit
-        newImageView.isUserInteractionEnabled = true
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dismisHandle))
-        newImageView.addGestureRecognizer(tap)
-        self.view.addSubview(newImageView)
-        self.navigationController?.isNavigationBarHidden = true
-        self.tabBarController?.tabBar.isHidden = true
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is DetailPhotoController {
+            let vc = segue.destination as? DetailPhotoController
+//            let arr = showImage()
+            let backItem = UIBarButtonItem()
+            backItem.title = "Back"
+            navigationItem.backBarButtonItem = backItem
+            vc?.imgArr = imgArr
+            vc?.indexWillShow = indexForShow
+        }
+        
     }
     
-    @objc func dismisHandle() {
-        dismiss(animated: true, completion: nil)
+    func showImage() -> [CustomImageView] {
+        
+        var arr = [CustomImageView]()
+        arr.append(imgArr[indexForShow])
+        
+        for i in 0 ..< imgArr.count {
+            if indexForShow != i {
+                arr.append(imgArr[i])
+            }
+        }
+        
+        return arr
     }
+    
 }
 
 extension PhotoItemController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -71,13 +83,15 @@ extension PhotoItemController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        showImage(index: indexPath.row)
+        collectionView.deselectItem(at: indexPath, animated: true)
+        indexForShow = indexPath.row
+       performSegue(withIdentifier: SegueIdentifier.viewDetailPhoto.rawValue, sender: nil)
     }
 }
 
 extension PhotoItemController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellWidth = (UIScreen.main.bounds.size.width - 30)/2
+        let cellWidth = (UIScreen.main.bounds.size.width - 50)/3
         return CGSize(width: cellWidth, height: cellWidth)
     }
     
@@ -89,8 +103,5 @@ extension PhotoItemController: UICollectionViewDelegateFlowLayout {
         return CGFloat(10.0)
     }
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3
-    }
 }
 

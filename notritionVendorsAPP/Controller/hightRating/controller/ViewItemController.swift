@@ -95,6 +95,10 @@ class ViewItemController: UIViewController {
         } else if segue.destination is PhotoItemController {
             let vc = segue.destination as? PhotoItemController
             vc?.documents = item.documents!
+            
+            let backItem = UIBarButtonItem()
+            backItem.title = "Back"
+            navigationItem.backBarButtonItem = backItem
         }
     }
     

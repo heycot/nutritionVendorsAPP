@@ -104,7 +104,7 @@ extension HightRatingController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        performSegue(withIdentifier: "ViewDetalFoodID", sender: indexPath.row)
+        performSegue(withIdentifier: SegueIdentifier.detailItem.rawValue, sender: indexPath.row)
     }
     
 }

@@ -523,11 +523,76 @@
                     <navigationItem key="navigationItem" id="nno-bI-5bG"/>
                     <connections>
                         <outlet property="collectionView" destination="D6k-rm-GS0" id="0Wc-mg-Zio"/>
+                        <segue destination="cHJ-zs-bb7" kind="push" identifier="ViewDetailPhoto" id="DJh-fr-eVY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hoK-Po-FHc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1257.9710144927537" y="369.64285714285711"/>
+        </scene>
+        <!--Detail Photo Controller-->
+        <scene sceneID="V20-w8-Bzz">
+            <objects>
+                <viewController id="cHJ-zs-bb7" customClass="DetailPhotoController" customModule="notritionVendorsAPP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rXo-3r-yGF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Uog-of-tX7">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="snt-Jn-thF">
+                                    <size key="itemSize" width="395" height="528"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DetailPhotoCell" id="oPr-tC-oAz" customClass="DetailPhotoCell" customModule="notritionVendorsAPP" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="98.666666666666671" width="395" height="528"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="395" height="528"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LC8-b4-cAy" customClass="CustomImageView" customModule="notritionVendorsAPP" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="395" height="528"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="LC8-b4-cAy" secondAttribute="bottom" id="Hpa-o3-cKe"/>
+                                            <constraint firstItem="LC8-b4-cAy" firstAttribute="centerY" secondItem="oPr-tC-oAz" secondAttribute="centerY" id="I93-O1-1T6"/>
+                                            <constraint firstAttribute="trailing" secondItem="LC8-b4-cAy" secondAttribute="trailing" id="i97-vB-h3g"/>
+                                            <constraint firstItem="LC8-b4-cAy" firstAttribute="centerX" secondItem="oPr-tC-oAz" secondAttribute="centerX" id="mAq-EK-1aU"/>
+                                            <constraint firstItem="LC8-b4-cAy" firstAttribute="leading" secondItem="oPr-tC-oAz" secondAttribute="leading" id="q4u-Y4-Vzq"/>
+                                            <constraint firstItem="LC8-b4-cAy" firstAttribute="top" secondItem="oPr-tC-oAz" secondAttribute="top" id="x6n-ed-LOj"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="image" destination="LC8-b4-cAy" id="RpV-f7-wLd"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Uog-of-tX7" firstAttribute="trailing" secondItem="imz-gI-Hv4" secondAttribute="trailing" id="1O1-y2-TEb"/>
+                            <constraint firstItem="Uog-of-tX7" firstAttribute="centerX" secondItem="rXo-3r-yGF" secondAttribute="centerX" id="6Cp-qI-Hyp"/>
+                            <constraint firstItem="Uog-of-tX7" firstAttribute="leading" secondItem="imz-gI-Hv4" secondAttribute="leading" id="b3J-KC-mgo"/>
+                            <constraint firstItem="Uog-of-tX7" firstAttribute="top" secondItem="imz-gI-Hv4" secondAttribute="top" id="uAQ-jU-jWX"/>
+                            <constraint firstItem="Uog-of-tX7" firstAttribute="bottom" secondItem="imz-gI-Hv4" secondAttribute="bottom" id="zB3-At-hEK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="imz-gI-Hv4"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="brl-dH-n8a"/>
+                    <connections>
+                        <outlet property="collectionView" destination="Uog-of-tX7" id="X2T-o3-lKa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="coz-lR-K0D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2198.5507246376815" y="358.92857142857139"/>
         </scene>
         <!--View Location Shop Controller-->
         <scene sceneID="qvJ-Bs-Lsn">
