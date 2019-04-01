@@ -50,12 +50,12 @@ class ShopItemService {
     }
     
     func searchItem(searchText: String, completion: @escaping ([ShopItemResponse]?) -> Void) {
-        let urlStr = BASE_URL + ShopItemAPI.searchOne.rawValue
-        let body = ["text" : searchText]
+        let urlStr = BASE_URL + ShopItemAPI.searchOne.rawValue + "/" + searchText 
+//        let body = ["text" : searchText]
         do {
-            let jsonBody = try JSONEncoder().encode(body)
+//            let jsonBody = try JSONEncoder().encode(body)
             
-            NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", authToken: nil, jsonBody: jsonBody, parameters: nil) { (data ) in
+            NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", authToken: nil, jsonBody: nil, parameters: nil) { (data ) in
                 
                 guard let data = data else {return}
                 do {

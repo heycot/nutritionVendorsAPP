@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import CCBottomRefreshControl
 
 class HightRatingController: UIViewController {
 
     // outlets
     @IBOutlet weak var itemCollection: UICollectionView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var resultSearchNotification: UILabel!
     
     
     // variables
@@ -30,17 +33,22 @@ class HightRatingController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        resultSearchNotification.isHidden = true
+        activityIndicator.color = APP_COLOR
+        activityIndicator.startAnimating()
+        
         navigationController?.navigationBar.barTintColor = APP_COLOR
         createSearchBar()
         loadDataFromAPI(offset: 0)
         setUpCollectionView()
     }
     
+    
     func setUpCollectionView() {
         
         itemCollection.delegate = self
         itemCollection.dataSource = self
-        itemCollection.refreshControl = refresher
+        itemCollection.bottomRefreshControl = refresher
     }
     
     
@@ -61,6 +69,7 @@ class HightRatingController: UIViewController {
                 self.listItem.append(item)
             }
             self.currentListItem = self.listItem
+            self.activityIndicator.stopAnimating()
             self.itemCollection.reloadData()
         }
     }
@@ -134,19 +143,27 @@ extension HightRatingController: UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        activityIndicator.startAnimating()
         ShopItemService.shared.searchItem(searchText: searchBar.text!.lowercased()) { data in
             guard let data = data else {return }
             
-            for item in data {
-                self.currentListItem.append(item)
+            if data.count == 0 {
+                self.resultSearchNotification.text = "There is no suitable food"
+                self.resultSearchNotification.isHidden = false
+                self.activityIndicator.stopAnimating()
+            } else {
+                self.currentListItem = data
+                self.activityIndicator.stopAnimating()
+                self.itemCollection.reloadData()
             }
-//            self.currentListItem = self.listItem
-            self.itemCollection.reloadData()
+            
         }
         searchBar.endEditing(true)
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        resultSearchNotification.isHidden = true
         guard !(searchBar.text!.isEmpty) else {
             currentListItem = listItem
             itemCollection.reloadData()

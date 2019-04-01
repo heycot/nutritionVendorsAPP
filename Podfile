@@ -17,5 +17,6 @@ target 'notritionVendorsAPP' do
     pod 'GoogleMaps' 
     pod 'GooglePlaces'
     pod 'PinterestLayout'
+    pod 'CCBottomRefreshControl'
     
 end
