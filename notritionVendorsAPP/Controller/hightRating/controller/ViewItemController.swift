@@ -102,6 +102,27 @@ class ViewItemController: UIViewController {
         }
     }
     
+    public func performSegueFunc(identifier: String ) {
+        self.performSegue(withIdentifier: identifier, sender: self)
+    }
+    
+    
+    @objc func photoPressedFunction(textField: UITextField) {
+        print("show photo")
+        dismissKeyboard()
+        performSegueFunc(identifier: SegueIdentifier.photosItem.rawValue)
+    }
+    
+    @objc func lovePressedFunction(btn: UIButton) {
+        print("love")
+    }
+    
+    
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
 }
 
 
@@ -131,6 +152,9 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.generalInfor.rawValue, for: indexPath) as! GeneralInforItemCell
 
+            
+            cell.itemPhotos.addTarget(self, action: #selector(photoPressedFunction), for: UIControl.Event.touchDown)
+            cell.loveBtn.addTarget(self, action: #selector(lovePressedFunction), for: UIControl.Event.touchDown)
             
             cell.updateView(item: item)
             cell.selectionStyle = UITableViewCell.SelectionStyle.none;
@@ -175,9 +199,9 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
             
             switch indexPath.row {
             case 3:
-                self.performSegue(withIdentifier: SegueIdentifier.photosItem.rawValue, sender: self)
+                performSegueFunc(identifier: SegueIdentifier.photosItem.rawValue)
             case 4:
-                self.performSegue(withIdentifier: SegueIdentifier.shopLocation.rawValue, sender: self)
+                performSegueFunc(identifier: SegueIdentifier.shopLocation.rawValue)
             default:
                 if true {
                     let phoneNumber = "033602512"
@@ -194,6 +218,4 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
     
     
 }
-
-
 

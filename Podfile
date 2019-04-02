@@ -18,5 +18,6 @@ target 'notritionVendorsAPP' do
     pod 'GooglePlaces'
     pod 'PinterestLayout'
     pod 'CCBottomRefreshControl'
+    pod 'Socket.IO-Client-Swift'
     
 end
