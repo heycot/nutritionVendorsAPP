@@ -173,12 +173,12 @@
 			path = login;
 			sourceTree = "<group>";
 		};
-		2300BE6F222D30E3008E9101 /* signUP */ = {
+		2300BE6F222D30E3008E9101 /* signup */ = {
 			isa = PBXGroup;
 			children = (
 				235A32AF2224E9F200DE5B0E /* SignupController.swift */,
 			);
-			path = signUP;
+			path = signup;
 			sourceTree = "<group>";
 		};
 		2300BE70222D30F1008E9101 /* account */ = {
@@ -361,7 +361,7 @@
 			isa = PBXGroup;
 			children = (
 				2300BE70222D30F1008E9101 /* account */,
-				2300BE6F222D30E3008E9101 /* signUP */,
+				2300BE6F222D30E3008E9101 /* signup */,
 				2300BE6E222D30DB008E9101 /* login */,
 				2300BE6D222D30CD008E9101 /* hightRating */,
 				23D02E602223799300882742 /* AppDelegate.swift */,

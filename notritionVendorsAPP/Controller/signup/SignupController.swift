@@ -40,9 +40,6 @@ class SignupController: UIViewController {
         confirmPassTxt.setBottomBorder(color: APP_COLOR)
     }
     
-    @IBAction func cacelPressed(_ sender: Any) {
-    }
-    
     @IBAction func donePressed(_ sender: Any) {
         spinner.isHidden = false
         spinner.startAnimating()
@@ -63,23 +60,23 @@ class SignupController: UIViewController {
     }
     
     func checkInputData() -> Bool {
-        guard let username = userNameTxt.text, userNameTxt.text != "", userNameTxt.text!.isValidUserName() else{
+        guard let username = userNameTxt.text, userNameTxt.text!.isValidUserName() else{
             return false
         }
         
-        guard let phone = phoneTxt.text, phoneTxt.text != "", phoneTxt.text!.isValidPhone() else {
+        guard let phone = phoneTxt.text, phoneTxt.text!.isValidPhone() else {
             return false
         }
         
-        guard let email = emailTxt.text , emailTxt.text != "", emailTxt.text!.isValidEmail() else {
+        guard let email = emailTxt.text , emailTxt.text!.isValidEmail() else {
             return false
         }
         
-        guard let password = passTxt.text, passTxt.text != "" , passTxt.text!.isValidPassword() else {
+        guard let password = passTxt.text, passTxt.text!.isValidPassword() else {
             return false
         }
         
-        guard let _ = confirmPassTxt.text, confirmPassTxt.text != "", confirmPassTxt.text!.isValidPassword(), confirmPassTxt.text == password else {
+        guard let _ = confirmPassTxt.text, confirmPassTxt.text!.isValidPassword(), confirmPassTxt.text == password else {
             return false
         }
         
