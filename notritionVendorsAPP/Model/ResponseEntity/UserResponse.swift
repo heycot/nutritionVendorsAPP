@@ -18,10 +18,11 @@ class UserResponse:Decodable {
     var address: String?
     var create_date: Date?
     var status: Int?
+    var token: String?
     var shops: [ShopResponse]?
     
     
-    init(id: Int, username: String, email: String, phone: String, password: String, birthday: Date, avatar: String, address: String, create_date: Date, status: Int, shops: [ShopResponse]) {
+    init(id: Int, username: String, email: String, phone: String, password: String, birthday: Date, avatar: String, address: String, create_date: Date, status: Int, token: String, shops: [ShopResponse]) {
         self.id = id
         self.username = username
         self.email = email
@@ -32,10 +33,11 @@ class UserResponse:Decodable {
         self.address = address
         self.create_date = create_date
         self.status = status
+        self.token = token
         self.shops = shops
     }
     
     convenience init() {
-        self.init(id: 0, username: "", email: "", phone: "", password: "", birthday: Date(), avatar: "", address: "", create_date: Date(), status: 0, shops: [])
+        self.init(id: 0, username: "", email: "", phone: "", password: "", birthday: Date(), avatar: "", address: "", create_date: Date(), status: 0, token: "", shops: [])
     }
 }

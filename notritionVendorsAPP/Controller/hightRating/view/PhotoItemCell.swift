@@ -12,7 +12,7 @@ class PhotoItemCell: UICollectionViewCell {
     @IBOutlet weak var imageView: CustomImageView!
     
     func updateView(image: String) {
-        imageView.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + image + ".jpg")
+        imageView.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + image )
     }
     
 }

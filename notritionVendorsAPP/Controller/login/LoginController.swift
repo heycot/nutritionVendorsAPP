@@ -10,9 +10,8 @@ import UIKit
 
 class LoginController: UIViewController {
 
-    
-    @IBOutlet weak var username: UITextField!
-    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var emailTF: UITextField!
+    @IBOutlet weak var passwordTF: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,9 +19,51 @@ class LoginController: UIViewController {
     }
     
     func setUpUI() {
-        username.setBottomBorder(color: APP_COLOR)
-        password.setBottomBorder(color: APP_COLOR)
+        emailTF.setBottomBorder(color: APP_COLOR)
+        passwordTF.setBottomBorder(color: APP_COLOR)
     }
 
+    // handle click login button
+    @IBAction func loginPressed(_ sender: Any) {
+        
+        
+        if !(emailTF.text?.isValidEmail())! {
+            let alert = UIAlertController(title: "Invalid email syntax!", message: "Please enter a valid email address.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+            self.present(alert, animated: true)
+            
+//        } else if !(passwordTF.text?.isValidPassword())! {
+//            let alert = UIAlertController(title: "Invalid password syntax!", message: "Password should have at least 8 letters, 1 number and 1 special letter", preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
+//            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+//            self.present(alert, animated: true)
+//
+//
+        } else {
+            
+            AuthServices.instance.loginUser(email: emailTF.text!, password: passwordTF.text!) { (user) in
+                guard let user = user else {
+                    return
+                    
+                }
+                
+                if user.id == nil {
+                    let alert = UIAlertController(title: "Can not log in!", message: "Your email and password do not match any account.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
+                    alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+                    self.present(alert, animated: true)
+                } else {
+                    AuthServices.instance.isLoggedIn = true
+                    AuthServices.instance.authToken = user.token!
+                    AuthServices.instance.userEmail = user.email!
+                    
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }
+            
+        }
+        
+    }
 }
 

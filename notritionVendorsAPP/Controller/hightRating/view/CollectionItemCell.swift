@@ -26,7 +26,7 @@ class CollectionItemCell: UICollectionViewCell {
     func updateView(shopItemRe: ShopItemResponse) {
         setUpUI()
         
-        let urlStr = BASE_URL_IMAGE + shopItemRe.avatar! + ".jpg"
+        let urlStr = BASE_URL_IMAGE + shopItemRe.avatar! 
         setupItemImage(urlStr: urlStr)
         itemName.text = shopItemRe.name! + " - " + shopItemRe.shop_name!
 //        itemPrice.text = "VND " + String(shopItemRe.price!)

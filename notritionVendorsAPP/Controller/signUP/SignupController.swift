@@ -50,9 +50,9 @@ class SignupController: UIViewController {
         if checkInputData() {
             AuthServices.instance.registerUser(user: self.user!) { (success) in
                 if success {
-                    AuthServices.instance.loginUser(email: self.user!.email, password: self.user!.password, completion: { (success) in
+                    AuthServices.instance.loginUser(email: self.user!.email, password: self.user!.password, completion: { (user) in
                         
-                        if success {
+                        if user != nil {
                             print("logined user " )
                         }
                     })

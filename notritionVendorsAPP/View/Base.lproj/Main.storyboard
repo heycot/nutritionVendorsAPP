@@ -83,10 +83,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Active" placeholder="Phone" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dAx-nR-RmH" userLabel="active">
-                                        <rect key="frame" x="162" y="70" width="70" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="70" id="1ou-XN-LNG"/>
-                                        </constraints>
+                                        <rect key="frame" x="10" y="70" width="374" height="20"/>
                                         <color key="textColor" red="0.23696334869999999" green="0.66666668650000005" blue="0.22900883960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -126,6 +123,7 @@
                                     <constraint firstItem="Icg-bG-qHN" firstAttribute="width" secondItem="hJV-Bu-tqy" secondAttribute="width" id="2bQ-Tq-UB1"/>
                                     <constraint firstItem="Icg-bG-qHN" firstAttribute="centerX" secondItem="hJV-Bu-tqy" secondAttribute="centerX" id="6hr-9M-M3k"/>
                                     <constraint firstItem="dAx-nR-RmH" firstAttribute="height" secondItem="Bin-7p-XlI" secondAttribute="height" id="EpS-kZ-jqn"/>
+                                    <constraint firstItem="dAx-nR-RmH" firstAttribute="width" secondItem="Nla-k7-9Ow" secondAttribute="width" id="HJG-LY-ro0"/>
                                     <constraint firstItem="Bin-7p-XlI" firstAttribute="width" secondItem="Nla-k7-9Ow" secondAttribute="width" id="Tu6-Xv-xfe"/>
                                     <constraint firstAttribute="bottom" secondItem="Icg-bG-qHN" secondAttribute="bottom" id="Z2N-bj-mFo"/>
                                     <constraint firstItem="Nla-k7-9Ow" firstAttribute="width" secondItem="hJV-Bu-tqy" secondAttribute="width" constant="-20" id="sOA-d4-ToT"/>
@@ -422,7 +420,6 @@
                             <constraint firstItem="oKV-m5-Al9" firstAttribute="trailing" secondItem="3Vd-4X-EhU" secondAttribute="trailing" constant="10" id="cra-fF-lE9"/>
                             <constraint firstItem="oKV-m5-Al9" firstAttribute="bottom" secondItem="ZCj-kS-Tj0" secondAttribute="bottom" constant="10" id="ozM-Qo-F1a"/>
                             <constraint firstItem="Gqf-hE-fIq" firstAttribute="centerY" secondItem="gFT-7K-K98" secondAttribute="centerY" id="pMk-sf-Mdt"/>
-                            <constraint firstItem="3Vd-4X-EhU" firstAttribute="leading" secondItem="oKV-m5-Al9" secondAttribute="leading" constant="10" id="uBT-lW-lce"/>
                             <constraint firstItem="3Vd-4X-EhU" firstAttribute="centerX" secondItem="gFT-7K-K98" secondAttribute="centerX" id="vMk-Mv-Krk"/>
                             <constraint firstItem="ZCj-kS-Tj0" firstAttribute="leading" secondItem="oKV-m5-Al9" secondAttribute="leading" constant="10" id="zzf-WN-Oov"/>
                         </constraints>
@@ -433,7 +430,7 @@
                         <outlet property="activityIndicator" destination="Gqf-hE-fIq" id="Xm2-ls-aqp"/>
                         <outlet property="itemCollection" destination="ZCj-kS-Tj0" id="nrH-uS-sUk"/>
                         <outlet property="resultSearchNotification" destination="3Vd-4X-EhU" id="noy-WT-eZ9"/>
-                        <segue destination="6Wj-Z5-hwc" kind="push" identifier="ViewDetalFoodID" id="er7-x8-644"/>
+                        <segue destination="6Wj-Z5-hwc" kind="show" identifier="ViewDetalFoodID" id="er7-x8-644"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6aC-Bo-lwY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -477,13 +474,22 @@
                     <connections>
                         <outlet property="activityIndicatorView" destination="iI7-y8-x0P" id="Q7w-Zo-AUM"/>
                         <outlet property="tabelView" destination="ef6-4y-pw0" id="PLk-2V-4mE"/>
-                        <segue destination="JmU-iJ-OBn" kind="push" identifier="ShopLocationID" id="s84-S6-qYd"/>
-                        <segue destination="okQ-t2-26P" kind="push" identifier="ViewPhotosItemID" id="CsS-ZG-5be"/>
+                        <segue destination="JmU-iJ-OBn" kind="show" identifier="ShopLocationID" id="s84-S6-qYd"/>
+                        <segue destination="okQ-t2-26P" kind="show" identifier="ViewPhotosItemID" id="CsS-ZG-5be"/>
+                        <segue destination="cQE-Yg-UM2" kind="show" identifier="LoginLogoutSegueID" id="jXt-v2-7SP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WMo-J7-Thz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="288" y="681"/>
+        </scene>
+        <!--LoginLogoutStoryboardID-->
+        <scene sceneID="GEY-Oq-1hg">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="LoginLogoutStoryboardID" storyboardName="LogInAndLogOut" referencedIdentifier="LoginLogoutStoryboardID" id="cQE-Yg-UM2" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ug8-De-wOc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1076" y="143"/>
         </scene>
         <!--Photo Item Controller-->
         <scene sceneID="s8x-sg-bSP">
@@ -535,7 +541,7 @@
                                 </userDefinedRuntimeAttributes>
                             </collectionView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRF-AS-sLN">
-                                <rect key="frame" x="0.0" y="423" width="414" height="50"/>
+                                <rect key="frame" x="186.33333333333334" y="423" width="41.666666666666657" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="5ez-T4-9sU"/>
                                 </constraints>
@@ -548,10 +554,8 @@
                         <constraints>
                             <constraint firstItem="D6k-rm-GS0" firstAttribute="centerX" secondItem="QkH-2o-aiv" secondAttribute="centerX" id="OjD-hr-fb5"/>
                             <constraint firstItem="QkH-2o-aiv" firstAttribute="bottom" secondItem="D6k-rm-GS0" secondAttribute="bottom" id="Sdb-Hj-gfe"/>
-                            <constraint firstItem="MRF-AS-sLN" firstAttribute="leading" secondItem="QkH-2o-aiv" secondAttribute="leading" id="XRe-br-QmU"/>
                             <constraint firstItem="D6k-rm-GS0" firstAttribute="leading" secondItem="QkH-2o-aiv" secondAttribute="leading" id="fus-T0-trL"/>
                             <constraint firstItem="QkH-2o-aiv" firstAttribute="trailing" secondItem="D6k-rm-GS0" secondAttribute="trailing" id="fyJ-2A-meN"/>
-                            <constraint firstItem="MRF-AS-sLN" firstAttribute="trailing" secondItem="QkH-2o-aiv" secondAttribute="trailing" id="oLq-c0-fhD"/>
                             <constraint firstItem="MRF-AS-sLN" firstAttribute="centerX" secondItem="sYJ-hX-Ltc" secondAttribute="centerX" id="wA8-ar-bwq"/>
                             <constraint firstItem="MRF-AS-sLN" firstAttribute="centerY" secondItem="sYJ-hX-Ltc" secondAttribute="centerY" id="wLQ-7E-4cA"/>
                             <constraint firstItem="QkH-2o-aiv" firstAttribute="top" secondItem="D6k-rm-GS0" secondAttribute="top" constant="88" id="xTI-Uz-akY"/>
@@ -562,12 +566,12 @@
                     <connections>
                         <outlet property="collectionView" destination="D6k-rm-GS0" id="0Wc-mg-Zio"/>
                         <outlet property="photoNotification" destination="MRF-AS-sLN" id="szN-NE-qBC"/>
-                        <segue destination="cHJ-zs-bb7" kind="push" identifier="ViewDetailPhoto" id="DJh-fr-eVY"/>
+                        <segue destination="cHJ-zs-bb7" kind="show" identifier="ViewDetailPhoto" id="DJh-fr-eVY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hoK-Po-FHc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1257.9710144927537" y="369.64285714285711"/>
+            <point key="canvasLocation" x="1258" y="617"/>
         </scene>
         <!--Detail Photo Controller-->
         <scene sceneID="V20-w8-Bzz">
@@ -631,7 +635,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="coz-lR-K0D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2198.5507246376815" y="358.92857142857139"/>
+            <point key="canvasLocation" x="2174" y="617"/>
         </scene>
         <!--View Location Shop Controller-->
         <scene sceneID="qvJ-Bs-Lsn">
@@ -647,7 +651,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q2q-f7-VbS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1107" y="1081"/>
+            <point key="canvasLocation" x="1258" y="1280"/>
         </scene>
         <!--Hight Rating-->
         <scene sceneID="W7y-GX-8kg">

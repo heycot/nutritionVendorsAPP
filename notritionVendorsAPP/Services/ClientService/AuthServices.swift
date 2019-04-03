@@ -12,8 +12,8 @@ import SwiftyJSON
 
 class AuthServices {
     static let instance = AuthServices()
-    
-    let defaults = UserDefaults.standard
+        
+    let defaults = Foundation.UserDefaults.standard
     
     
     var isLoggedIn : Bool {
@@ -48,75 +48,64 @@ class AuthServices {
     
     func registerUser(user: User, completion: @escaping CompletionHander) {
         
-//        let lowerCaseEmail = user.email
-        
-        let body: [String: Any] = [
-            "user": user
-        ]
-        
-//        Alamofire.request(URL_REGISTER, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER) .responseString {
-//            (response) in
-//
-//            if response.result.error == nil {
-//                completion(true)
-//            } else {
-//                completion(false)
-//
-//                debugPrint(response.result.error as Any)
-//            }
-//        }
     }
     
-    func loginUser(email: String, password: String, completion: @escaping CompletionHander) {
+    func loginUser(email: String, password: String, completion: @escaping (UserResponse?) -> Void) {
         
         let lowerCaseEmail = email.lowercased()
+        let urlStr = BASE_URL + UserAPI.login.rawValue
         
-        let body: [String: Any] = [
-            "email" : lowerCaseEmail,
-            "password": password
-        ]
-        
-//
-//        Alamofire.request(URL_LOGIN, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseJSON {
-//            (response) in
-//
-////            do {
-//                if response.result.error == nil {
-//                    guard let data = response.data else { return }
-//                    let json = try? JSON(data: data)
-//                    self.userEmail = json!["username"].stringValue
-//                    self.authToken = json!["token"].stringValue
-//
-//
-//                    self.isLoggedIn = true
-//                    completion(true)
-//                } else {
-//                    completion(false)
-//                    debugPrint(response.result.error as Any)
-//                }
-////            } catch let error as NSError{
-////                print("exception error swiftJson log-in: \(error)")
-////            }
+//        do {
+            let user = User()
+            user.email = lowerCaseEmail
+            user.password = password
+            let jsonBody = NSKeyedArchiver.archivedData(withRootObject: user)
+            
+            NetworkingClient.shared.requestJson(urlStr: urlStr, method: "POST", authToken: nil, jsonBody: jsonBody, parameters: nil) { (data ) in
+                
+                guard let data = data else {return}
+                do {
+                    
+                    let userResponse = try JSONDecoder().decode(UserResponse.self, from: data)
+                    DispatchQueue.main.async {
+                        completion(userResponse)
+                    }
+                } catch let jsonError {
+                    print("Error serializing json:", jsonError)
+                }
+            }
+//        } catch let encoderError {
+//            print(encoderError)
 //        }
+        
     }
     
     func createUser(email: String, password: String, completion: @escaping CompletionHander) {
-        let body: [String: Any] = [
-            "email": email,
-            "password": password
-        ]
         
-//        Alamofire.request(URL_LOGIN, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER_AUTH).responseJSON {
-//            (response) in
-//
-//            if response.result.error == nil {
-//                completion(true)
-//            } else{
-//                completion(false)
-//                debugPrint(response.result.error as Any)
-//            }
-//        }
     }
+    
+//    func getUserJsonBody(user: User) -> Data? {
+//        let body = [
+//            "id" : user.id,
+//            "username" : user.username,
+//            "email" : user.email,
+//            "phone" : user.phone,
+//            "password" : user.password,
+//            "birthday" : user.birthday,
+//            "avatar" : user.avatar,
+//            "address": user.address,
+//            "create_date": user.create_date,
+//            "status": user.status
+//            ] as [String : Any]
+//
+//        do {
+//            let jsonBody = try JSONEncoder().encode(body)
+//            return jsonBody
+//        } catch  let jsonError {
+//            print(jsonError)
+//        }
+//
+//    }
 
     
 }

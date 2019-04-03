@@ -30,13 +30,14 @@ enum ShopItemAPI: String {
     case getHighRating = "shop-item/high-rating/offset"
     case getOneById = "shop-item"
     case searchOne = "shop-item/search"
+    case loveOne = "love"
 }
 
 
 //user defaults
-let TOKEN_KEY = "token"
+let TOKEN_KEY = "token1"
 let LOGGED_IN_KEY = "loggedIn"
-let USER_EMAIL = "userEmail"
+let USER_EMAIL = "callie@enclave.vn"
 
 
 // Header
@@ -78,6 +79,11 @@ enum SegueIdentifier: String {
     case photosItem = "ViewPhotosItemID"
     case shopLocation = "ShopLocationID"
     case viewDetailPhoto = "ViewDetailPhoto"
+    case loginLogout = "LoginLogoutSegueID"
+}
+
+enum StoryboardID : String {
+    case loginLogout = "LoginLogoutStoryboardID"
 }
 
 // google map API key

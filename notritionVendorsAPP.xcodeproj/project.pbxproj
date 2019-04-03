@@ -214,7 +214,6 @@
 				2300BE7A222D3658008E9101 /* ViewCommentCell.swift */,
 				2300BE7B222D3658008E9101 /* ViewCommentCell.xib */,
 				230E2DEB22267DCA00246392 /* CollectionItemCell.swift */,
-				235A49EC2248BEF70034A944 /* CustomImageView.swift */,
 				2376D98E224CDC4200DDFB19 /* PhotoItemCell.swift */,
 				2320C6F32251C8AD00A2C328 /* DetailPhotoCell.swift */,
 			);
@@ -232,6 +231,7 @@
 				23695E9122277DC600AD7076 /* ExtensionUICollectionView.swift */,
 				23695E9322277F7200AD7076 /* ExtensionUIView.swift */,
 				231AE461222E2A030082C06E /* ExtensionUIlabel.swift */,
+				235A49EC2248BEF70034A944 /* CustomImageView.swift */,
 				231AE465222E2D4E0082C06E /* ExtensionUITextView.swift */,
 			);
 			path = ExtensionUI;

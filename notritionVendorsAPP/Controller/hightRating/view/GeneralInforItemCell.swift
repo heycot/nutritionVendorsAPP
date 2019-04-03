@@ -24,13 +24,15 @@ class GeneralInforItemCell: UITableViewCell {
     func updateView(item: ShopItemResponse) {
         customUI()
         
-        itemImage.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + item.avatar! + ".jpg")
+        itemImage.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + item.avatar! )
         itemName.text      = item.name ?? ""
         itemComments.text  = String((item.comments?.count) ?? 0)
         itemPhotos.titleLabel?.text    = String((item.documents?.count) ?? 0)
         itemFavorites.text = String(item.favorites_number ?? 0)
         itemRating.text    = String(format: "%.2f", item.rating ?? 0)
         
+        let loveIconName = item.love_status == 0 ? "unlove" : "loved"
+        loveBtn.setImage(UIImage(named: loveIconName), for: .normal)
     }
     
     func customUI() {

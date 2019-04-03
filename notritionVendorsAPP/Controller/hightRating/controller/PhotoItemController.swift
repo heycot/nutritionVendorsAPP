@@ -42,7 +42,7 @@ class PhotoItemController: UIViewController {
     func setupData() {
         for item in documents {
             let image = CustomImageView()
-            image.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + item.link! + ".jpg")
+            image.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + item.link! )
             imgArr.append(image)
         }
     }

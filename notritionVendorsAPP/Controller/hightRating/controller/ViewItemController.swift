@@ -18,6 +18,7 @@ class ViewItemController: UIViewController {
     var comments = [Comment] ()
     var itemValues = [ItemValue] ()
     var item = ShopItemResponse()
+    var loveBtn = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,6 +88,7 @@ class ViewItemController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.destination is ViewLocationShopController  {
             let vc = segue.destination as? ViewLocationShopController
             vc?.location = (item.shop?.location)!
@@ -99,6 +101,9 @@ class ViewItemController: UIViewController {
             let backItem = UIBarButtonItem()
             backItem.title = "Back"
             navigationItem.backBarButtonItem = backItem
+        } else if segue.destination is LoginController {
+            _ = segue.destination as? LoginController
+            
         }
     }
     
@@ -115,6 +120,25 @@ class ViewItemController: UIViewController {
     
     @objc func lovePressedFunction(btn: UIButton) {
         print("love")
+        
+        if !AuthServices.instance.isLoggedIn {
+            
+            let alert = UIAlertController(title: "Can not love", message: "Please sign in!", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+                self.performSegueFunc(identifier: SegueIdentifier.loginLogout.rawValue)
+            }))
+            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+            
+            self.present(alert, animated: true)
+        } else {
+            ShopItemService.shared.loveOne(shopItemId: item.id!, status: item.love_status! ) { data in
+                guard let data = data else {return }
+                
+                let loveIconName = data == 0 ? "unlove" : "loved"
+                self.loveBtn.setImage(UIImage(named: loveIconName), for: .normal)
+            }
+        }
     }
     
     
@@ -149,36 +173,37 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch indexPath.section {
-        case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.generalInfor.rawValue, for: indexPath) as! GeneralInforItemCell
+            case 0:
+                let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.generalInfor.rawValue, for: indexPath) as! GeneralInforItemCell
 
-            
-            cell.itemPhotos.addTarget(self, action: #selector(photoPressedFunction), for: UIControl.Event.touchDown)
-            cell.loveBtn.addTarget(self, action: #selector(lovePressedFunction), for: UIControl.Event.touchDown)
-            
-            cell.updateView(item: item)
-            cell.selectionStyle = UITableViewCell.SelectionStyle.none;
-            return cell
-            
-        case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.generalvalue.rawValue, for: indexPath) as! GeneralValueCell
-            cell.updateView(icon_image: itemValues[indexPath.row].icon!, value: itemValues[indexPath.row].value!)
-            
-            if indexPath.row < 3 {
+                
+                cell.itemPhotos.addTarget(self, action: #selector(photoPressedFunction), for: UIControl.Event.touchDown)
+                cell.loveBtn.addTarget(self, action: #selector(lovePressedFunction), for: UIControl.Event.touchDown)
+                loveBtn = cell.loveBtn
+                
+                cell.updateView(item: item)
                 cell.selectionStyle = UITableViewCell.SelectionStyle.none;
-                cell.accessoryView = UIView()
-            }
-            return cell
+                return cell
             
-        case 2:
-            let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.listComment.rawValue, for: indexPath) as! ViewCommentCell
-            cell.updateView(comment: item.comments![indexPath.row])
-            cell.selectionStyle = UITableViewCell.SelectionStyle.none;
-            return cell
+            case 1:
+                let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.generalvalue.rawValue, for: indexPath) as! GeneralValueCell
+                cell.updateView(icon_image: itemValues[indexPath.row].icon!, value: itemValues[indexPath.row].value!)
+                
+                if indexPath.row < 3 {
+                    cell.selectionStyle = UITableViewCell.SelectionStyle.none;
+                    cell.accessoryView = UIView()
+                }
+                return cell
             
-        default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.newComment.rawValue, for: indexPath) as! AddNewCommentCell
-            return cell
+            case 2:
+                let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.listComment.rawValue, for: indexPath) as! ViewCommentCell
+                cell.updateView(comment: item.comments![indexPath.row])
+                cell.selectionStyle = UITableViewCell.SelectionStyle.none;
+                return cell
+            
+            default:
+                let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.newComment.rawValue, for: indexPath) as! AddNewCommentCell
+                return cell
         }
         
     }
@@ -191,7 +216,7 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 15.0
+        return section == 3 ? 0.0 : 15.0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
