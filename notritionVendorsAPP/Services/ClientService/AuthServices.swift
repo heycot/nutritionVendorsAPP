@@ -46,6 +46,7 @@ class AuthServices {
         }
     }
     
+    
     func registerUser(user: User, completion: @escaping (UserResponse?) -> Void) {
         let urlStr = BASE_URL + UserAPI.register.rawValue
         

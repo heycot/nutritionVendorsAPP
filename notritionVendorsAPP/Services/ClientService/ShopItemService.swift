@@ -50,7 +50,7 @@ class ShopItemService {
     }
     
     func searchItem(searchText: String, completion: @escaping ([ShopItemResponse]?) -> Void) {
-        let urlStr = BASE_URL + ShopItemAPI.searchOne.rawValue + "/" + searchText 
+        let urlStr = BASE_URL + ShopItemAPI.searchOne.rawValue + "/" + searchText
             
         NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
             
@@ -67,18 +67,18 @@ class ShopItemService {
         }
     }
     
-    func loveOne(shopItemId: Int, status: Int, completion: @escaping (Int?) -> Void) {
-        let urlStr = BASE_URL + ShopItemAPI.loveOne.rawValue + "/" + AuthServices.instance.authToken + "/" + String(shopItemId) + "/" + String(status)
+    func loveOne(shopItemId: Int, status: Int, completion: @escaping (FavoritesResponse?) -> Void) {
+        let urlStr = BASE_URL + ShopItemAPI.loveOne.rawValue + "/" + String(shopItemId) + "/" + String(status)
             
         NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
             
             guard let data = data else {return}
             do {
-                
-                let status = try JSONDecoder().decode(Int.self, from: data)
-                
+            
+                let favorite = try JSONDecoder().decode(FavoritesResponse.self, from: data)
+            
                 DispatchQueue.main.async {
-                    completion(status)
+                    completion(favorite)
                 }
             } catch let jsonError {
                 print("Error serializing json:", jsonError)

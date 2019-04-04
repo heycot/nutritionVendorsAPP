@@ -30,7 +30,11 @@ enum ShopItemAPI: String {
     case getHighRating = "shop-item/high-rating/offset"
     case getOneById = "shop-item"
     case searchOne = "shop-item/search"
-    case loveOne = "love"
+    case loveOne = "shop-item/love"
+}
+
+enum FavoritesAPI: String {
+    case getAllByUser = "favorites/user"
 }
 
 
@@ -88,6 +92,5 @@ enum StoryboardID : String {
 
 // google map API key
 let GOOGLE_API_KEY = "AIzaSyAgIJ_N3H3LVx_afClZancU_0Ec6gjpUVA"
-
 
 

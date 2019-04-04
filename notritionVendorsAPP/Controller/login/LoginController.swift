@@ -54,6 +54,15 @@ class LoginController: UIViewController {
                     alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
                     self.present(alert, animated: true)
                 } else {
+                    
+                    FavoritesService.shared.getAllByUser() { (data) in
+                        guard let data = data else {
+                            return
+                            
+                        }
+                        FavoritesService.shared.favorites = data
+                    }
+                    
                     AuthServices.instance.isLoggedIn = true
                     AuthServices.instance.authToken = user.token!
                     AuthServices.instance.userEmail = user.email!

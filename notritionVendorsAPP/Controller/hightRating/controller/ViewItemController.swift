@@ -113,13 +113,11 @@ class ViewItemController: UIViewController {
     
     
     @objc func photoPressedFunction(textField: UITextField) {
-        print("show photo")
         dismissKeyboard()
         performSegueFunc(identifier: SegueIdentifier.photosItem.rawValue)
     }
     
     @objc func lovePressedFunction(btn: UIButton) {
-        print("love")
         
         if !AuthServices.instance.isLoggedIn {
             
@@ -129,19 +127,24 @@ class ViewItemController: UIViewController {
                 self.performSegueFunc(identifier: SegueIdentifier.loginLogout.rawValue)
             }))
             alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
-            
             self.present(alert, animated: true)
+            
         } else {
-            ShopItemService.shared.loveOne(shopItemId: item.id!, status: item.love_status! ) { data in
+            
+            let status = FavoritesService.shared.isFavoriteShopItem(shopitem_id: item.id!) == 0 ? 1 : 0
+            ShopItemService.shared.loveOne(shopItemId: item.id!, status: status) { data in
                 guard let data = data else {return }
                 
-                let loveIconName = data == 0 ? "unlove" : "loved"
+                // if favorite item not already to save in array favorites
+                if !FavoritesService.shared.updateFavoriteItem(shopitem_id: data.shopitem_id!, status: data.status!) {
+                    FavoritesService.shared.addNewFavorite(fa: data)
+                }
+                
+                let loveIconName = data.status == 0 ? "unlove" : "loved"
                 self.loveBtn.setImage(UIImage(named: loveIconName), for: .normal)
             }
         }
     }
-    
-    
     
     func dismissKeyboard() {
         view.endEditing(true)
