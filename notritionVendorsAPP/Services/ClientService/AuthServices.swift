@@ -46,8 +46,35 @@ class AuthServices {
         }
     }
     
-    func registerUser(user: User, completion: @escaping CompletionHander) {
+    func registerUser(user: User, completion: @escaping (UserResponse?) -> Void) {
+        let urlStr = BASE_URL + UserAPI.register.rawValue
         
+        let body = ["id": 0,
+                    "user_name": user.user_name,
+                    "email": user.email,
+                    "phone": user.phone,
+                    "password": user.password,
+                    "birthday": nil,
+                    "address": "",
+                    "avatar": user.avatar,
+                    "create_date": nil,
+                    "status": 1] as [String : Any?]
+        
+        let jsonData = try? JSONSerialization.data(withJSONObject: body)
+        
+        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "POST", jsonBody: jsonData, parameters: nil) { (data ) in
+            
+            guard let data = data else {return}
+            do {
+                
+                let userResponse = try JSONDecoder().decode(UserResponse.self, from: data)
+                DispatchQueue.main.async {
+                    completion(userResponse)
+                }
+            } catch let jsonError {
+                print("Error serializing json:", jsonError)
+            }
+        }
     }
     
     func loginUser(email: String, password: String, completion: @escaping (UserResponse?) -> Void) {
@@ -68,45 +95,37 @@ class AuthServices {
         
         let jsonData = try? JSONSerialization.data(withJSONObject: body)
         
-            NetworkingClient.shared.requestJson(urlStr: urlStr, method: "POST", authToken: nil, jsonBody: jsonData, parameters: nil) { (data ) in
+        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "POST", jsonBody: jsonData, parameters: nil) { (data ) in
+            
+            guard let data = data else {return}
+            do {
                 
-                guard let data = data else {return}
-                do {
-                    
-                    let userResponse = try JSONDecoder().decode(UserResponse.self, from: data)
-                    DispatchQueue.main.async {
-                        completion(userResponse)
-                    }
-                } catch let jsonError {
-                    print("Error serializing json:", jsonError)
+                let userResponse = try JSONDecoder().decode(UserResponse.self, from: data)
+                DispatchQueue.main.async {
+                    completion(userResponse)
                 }
+            } catch let jsonError {
+                print("Error serializing json:", jsonError)
             }
-//        } catch let encoderError {
-//            print(encoderError)
-//        }
-        
+        }
     }
     
-    func createUser(email: String, password: String, completion: @escaping CompletionHander) {
-        
-    }
-    
-    func getUserJsonBody(user: User) -> [String: Any?] {
-        let body = [
-            "id" : user.id,
-            "username" : user.user_name,
-            "email" : user.email,
-            "phone" : user.phone,
-            "password" : user.password,
-            "birthday" : user.birthday,
-            "avatar" : user.avatar,
-            "address": user.address,
-            "create_date": user.create_date,
-            "status": user.status
-            ] as [String : Any]
-        return body
-
-    }
+//    func getUserJsonBody(user: User) -> [String: Any?] {
+//        let body = [
+//            "id" : user.id,
+//            "username" : user.user_name,
+//            "email" : user.email,
+//            "phone" : user.phone,
+//            "password" : user.password,
+//            "birthday" : user.birthday,
+//            "avatar" : user.avatar,
+//            "address": user.address,
+//            "create_date": user.create_date,
+//            "status": user.status
+//            ] as [String : Any]
+//        return body
+//
+//    }
 
     
 }

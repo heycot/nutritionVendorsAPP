@@ -45,15 +45,15 @@ class SignupController: UIViewController {
         spinner.startAnimating()
         
         if checkInputData() {
-            AuthServices.instance.registerUser(user: self.user!) { (success) in
-                if success {
-                    AuthServices.instance.loginUser(email: self.user!.email, password: self.user!.password, completion: { (user) in
-                        
-                        if user != nil {
-                            print("logined user " )
-                        }
-                    })
-                }
+            AuthServices.instance.registerUser(user: self.user!) { (data) in
+//                if data {
+//                    AuthServices.instance.loginUser(email: self.user!.email, password: self.user!.password, completion: { (user) in
+//                        
+//                        if user != nil {
+//                            print("logined user " )
+//                        }
+//                    })
+//                }
             }
         }
         

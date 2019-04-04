@@ -24,7 +24,7 @@ class NetworkingClient {
         }.resume()
     }
     
-    func requestJson(urlStr: String, method: String, authToken: String?, jsonBody: Data?, parameters: Parameters?, completion: @escaping (Data?) -> Void) {
+    func requestJson(urlStr: String, method: String, jsonBody: Data?, parameters: Parameters?, completion: @escaping (Data?) -> Void) {
         
         let url = URL(string: urlStr)
         guard let urlRequest = url else { return }
@@ -32,8 +32,11 @@ class NetworkingClient {
         var request = URLRequest(url: urlRequest)
         request.httpMethod = method
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        if authToken != nil {
-            request.addValue(authToken!, forHTTPHeaderField: "Authorization")
+        
+        if AuthServices.instance.isLoggedIn {
+            request.addValue(AuthServices.instance.authToken, forHTTPHeaderField: "Authorization")
+        } else {
+            request.addValue("", forHTTPHeaderField: "Authorization")
         }
         
         if jsonBody != nil {

@@ -15,7 +15,7 @@ class ShopItemService {
     func getHighRatingItem(offset: Int, completion: @escaping ([ShopItemResponse]?) -> Void) {
         let urlStr = BASE_URL + ShopItemAPI.getHighRating.rawValue + "/\(offset)"
         
-        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", authToken: nil, jsonBody: nil, parameters: nil) { (data ) in
+        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
             
             guard let data = data else {return}
             do {
@@ -34,7 +34,7 @@ class ShopItemService {
     func getOneItem(id: Int, completion: @escaping (ShopItemResponse?) -> Void) {
         let urlStr = BASE_URL + ShopItemAPI.getOneById.rawValue + "/\(id)"
         
-        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", authToken: nil, jsonBody: nil, parameters: nil) { (data ) in
+        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET",  jsonBody: nil, parameters: nil) { (data ) in
             
             guard let data = data else {return}
             do {
@@ -51,10 +51,8 @@ class ShopItemService {
     
     func searchItem(searchText: String, completion: @escaping ([ShopItemResponse]?) -> Void) {
         let urlStr = BASE_URL + ShopItemAPI.searchOne.rawValue + "/" + searchText 
-//        let body = ["text" : searchText]
-//            let jsonBody = try JSONEncoder().encode(body)
             
-        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", authToken: nil, jsonBody: nil, parameters: nil) { (data ) in
+        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
             
             guard let data = data else {return}
             do {
@@ -72,7 +70,7 @@ class ShopItemService {
     func loveOne(shopItemId: Int, status: Int, completion: @escaping (Int?) -> Void) {
         let urlStr = BASE_URL + ShopItemAPI.loveOne.rawValue + "/" + AuthServices.instance.authToken + "/" + String(shopItemId) + "/" + String(status)
             
-        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", authToken: nil, jsonBody: nil, parameters: nil) { (data ) in
+        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
             
             guard let data = data else {return}
             do {

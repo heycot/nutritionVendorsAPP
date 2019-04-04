@@ -35,9 +35,9 @@ enum ShopItemAPI: String {
 
 
 //user defaults
-let TOKEN_KEY = "token1"
+let TOKEN_KEY = "token"
 let LOGGED_IN_KEY = "loggedIn"
-let USER_EMAIL = "callie@enclave.vn"
+let USER_EMAIL = "email"
 
 
 // Header
