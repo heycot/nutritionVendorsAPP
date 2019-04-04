@@ -37,16 +37,7 @@ class NetworkingClient {
         }
         
         if jsonBody != nil {
-            
             request.httpBody = jsonBody!
-                        
-//            do {
-////                 let jsonBody = try JSONEncoder().encode(newpost)
-//                request.httpBody = jsonBody!
-////               print(jsonBody)
-//            } catch let error{
-//                print("some error with josn body: \(error)")
-//            }
         }
         
         URLSession.shared.dataTask(with: request) { data, urlResponse, error in
