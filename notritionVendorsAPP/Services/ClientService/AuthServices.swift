@@ -55,13 +55,20 @@ class AuthServices {
         let lowerCaseEmail = email.lowercased()
         let urlStr = BASE_URL + UserAPI.login.rawValue
         
-//        do {
-            let user = User()
-            user.email = lowerCaseEmail
-            user.password = password
-            let jsonBody = NSKeyedArchiver.archivedData(withRootObject: user)
-            
-            NetworkingClient.shared.requestJson(urlStr: urlStr, method: "POST", authToken: nil, jsonBody: jsonBody, parameters: nil) { (data ) in
+        let body = ["id": 0,
+                    "user_name": "",
+                    "email": lowerCaseEmail,
+                    "phone": "",
+                    "password": password,
+                    "birthday": nil,
+                    "address": "",
+                    "avatar": "",
+                    "create_date": nil,
+                    "status": 1] as [String : Any?]
+        
+        let jsonData = try? JSONSerialization.data(withJSONObject: body)
+        
+            NetworkingClient.shared.requestJson(urlStr: urlStr, method: "POST", authToken: nil, jsonBody: jsonData, parameters: nil) { (data ) in
                 
                 guard let data = data else {return}
                 do {
@@ -84,28 +91,22 @@ class AuthServices {
         
     }
     
-//    func getUserJsonBody(user: User) -> Data? {
-//        let body = [
-//            "id" : user.id,
-//            "username" : user.username,
-//            "email" : user.email,
-//            "phone" : user.phone,
-//            "password" : user.password,
-//            "birthday" : user.birthday,
-//            "avatar" : user.avatar,
-//            "address": user.address,
-//            "create_date": user.create_date,
-//            "status": user.status
-//            ] as [String : Any]
-//
-//        do {
-//            let jsonBody = try JSONEncoder().encode(body)
-//            return jsonBody
-//        } catch  let jsonError {
-//            print(jsonError)
-//        }
-//
-//    }
+    func getUserJsonBody(user: User) -> [String: Any?] {
+        let body = [
+            "id" : user.id,
+            "username" : user.user_name,
+            "email" : user.email,
+            "phone" : user.phone,
+            "password" : user.password,
+            "birthday" : user.birthday,
+            "avatar" : user.avatar,
+            "address": user.address,
+            "create_date": user.create_date,
+            "status": user.status
+            ] as [String : Any]
+        return body
+
+    }
 
     
 }

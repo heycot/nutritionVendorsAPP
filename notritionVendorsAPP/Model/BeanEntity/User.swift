@@ -12,7 +12,7 @@ public class User: NSObject, NSCoding{
     
     
     var id: Int!
-    var username: String!
+    var user_name: String!
     var email: String!
     var phone: String!
     var password: String!
@@ -23,9 +23,9 @@ public class User: NSObject, NSCoding{
     var status: Int!
     
     
-    init(id: Int, username: String, email: String, phone: String, password: String, birthday: Date, avatar: String, address: String, create_date: Date, status: Int) {
+    init(id: Int, user_name: String, email: String, phone: String, password: String, birthday: Date, avatar: String, address: String, create_date: Date, status: Int) {
         self.id = id
-        self.username = username
+        self.user_name = user_name
         self.email = email
         self.phone = phone
         self.password = password
@@ -37,13 +37,13 @@ public class User: NSObject, NSCoding{
     }
     
     convenience override init() {
-        self.init(id: 0, username: "", email: "", phone: "", password: "", birthday: Date(), avatar: "", address: "", create_date: Date(), status: 0)
+        self.init(id: 0, user_name: "", email: "", phone: "", password: "", birthday: Date(), avatar: "", address: "", create_date: Date(), status: 0)
     }
 
     required convenience public init(coder decoder: NSCoder) {
         self.init()
         self.id = decoder.decodeObject(forKey: "id") as? Int
-        self.username = decoder.decodeObject(forKey: "username") as? String
+        self.user_name = decoder.decodeObject(forKey: "user_name") as? String
         self.email = decoder.decodeObject(forKey: "email") as? String
         self.phone = decoder.decodeObject(forKey: "phone") as? String
         self.password = decoder.decodeObject(forKey: "password") as? String
@@ -56,7 +56,7 @@ public class User: NSObject, NSCoding{
     
     public func encode(with coder: NSCoder) {
         if let id = id { coder.encode(id, forKey: "id") }
-        if let username = username { coder.encode(username, forKey: "username") }
+        if let user_name = user_name { coder.encode(user_name, forKey: "user_name") }
         if let email = email { coder.encode(email, forKey: "email") }
         if let phone = phone { coder.encode(phone, forKey: "phone") }
         if let password = password { coder.encode(password, forKey: "password") }

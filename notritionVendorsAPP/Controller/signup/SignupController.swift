@@ -80,7 +80,7 @@ class SignupController: UIViewController {
             return false
         }
         
-        self.user = User(id: 0, username: username, email: email, phone: phone, password: password, birthday: Date(), avatar: "", address: "", create_date: Date(), status: 1)
+        self.user = User(id: 0, user_name: username, email: email, phone: phone, password: password, birthday: Date(), avatar: "", address: "", create_date: Date(), status: 1)
         return true
     }
     
