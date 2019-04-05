@@ -21,9 +21,10 @@ public class User: NSObject, NSCoding{
     var address: String!
     var create_date: Date!
     var status: Int!
+    var token: String!
     
     
-    init(id: Int, user_name: String, email: String, phone: String, password: String, birthday: Date, avatar: String, address: String, create_date: Date, status: Int) {
+    init(id: Int, user_name: String, email: String, phone: String, password: String, birthday: Date, avatar: String, address: String, create_date: Date, status: Int, token: String) {
         self.id = id
         self.user_name = user_name
         self.email = email
@@ -34,10 +35,11 @@ public class User: NSObject, NSCoding{
         self.address = address
         self.create_date = create_date
         self.status = status
+        self.token = token
     }
     
     convenience override init() {
-        self.init(id: 0, user_name: "", email: "", phone: "", password: "", birthday: Date(), avatar: "", address: "", create_date: Date(), status: 0)
+        self.init(id: 0, user_name: "", email: "", phone: "", password: "", birthday: Date(), avatar: "", address: "", create_date: Date(), status: 0, token: "")
     }
 
     required convenience public init(coder decoder: NSCoder) {
@@ -52,6 +54,7 @@ public class User: NSObject, NSCoding{
         self.address = decoder.decodeObject(forKey: "address") as? String
         self.create_date = decoder.decodeObject(forKey: "create_date") as? Date
         self.status = decoder.decodeObject(forKey: "status") as? Int
+        self.token = decoder.decodeObject(forKey: "token") as? String
     }
     
     public func encode(with coder: NSCoder) {
@@ -65,6 +68,7 @@ public class User: NSObject, NSCoding{
         if let address = address { coder.encode(address, forKey: "address") }
         if let create_date = create_date { coder.encode(create_date, forKey: "create_date") }
         if let status = status { coder.encode(status, forKey: "status") }
+        if let token = token { coder.encode(token, forKey: "token") }
         
     }
     

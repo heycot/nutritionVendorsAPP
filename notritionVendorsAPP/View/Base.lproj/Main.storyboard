@@ -10,11 +10,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Shop-->
+        <!--View Controller-->
         <scene sceneID="y3T-WL-NDX">
             <objects>
                 <viewController id="fkv-BK-elS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Shop" image="store(1)" id="5ht-dM-JmW"/>
+                    <tabBarItem key="tabBarItem" title="" image="store(1)" id="5ht-dM-JmW"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aMM-gi-Zev" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -27,7 +27,9 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1zu-5P-5Tx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.17254901959999999" green="0.65098039220000004" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.17254901959999999" green="0.65098039220000004" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="QZb-0J-Nu3" kind="relationship" relationship="viewControllers" id="d7A-Ep-MnC"/>
@@ -40,7 +42,7 @@
             </objects>
             <point key="canvasLocation" x="-2693" y="1396"/>
         </scene>
-        <!--Account-->
+        <!--Account Controller-->
         <scene sceneID="JHG-yE-KfX">
             <objects>
                 <viewController id="CGv-8S-RyO" customClass="AccountController" customModule="notritionVendorsAPP" customModuleProvider="target" sceneMemberID="viewController">
@@ -145,7 +147,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="A3Z-GI-soh"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Account" image="man-user" id="9Ub-Tx-1OA"/>
+                    <tabBarItem key="tabBarItem" title="" image="man-user" id="9Ub-Tx-1OA"/>
                     <navigationItem key="navigationItem" id="mrS-k7-RbC"/>
                     <connections>
                         <outlet property="isActive" destination="dAx-nR-RmH" id="7eF-Gf-LZo"/>
@@ -266,7 +268,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="qGc-2v-0mo"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="2gI-AF-dTs"/>
+                    <tabBarItem key="tabBarItem" title="" image="loved" id="2gI-AF-dTs"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2CJ-ST-Wkd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -653,12 +655,13 @@
             </objects>
             <point key="canvasLocation" x="1258" y="1280"/>
         </scene>
-        <!--Hight Rating-->
+        <!--Navigation Controller-->
         <scene sceneID="W7y-GX-8kg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QZb-0J-Nu3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Hight Rating" image="list(2)" id="llS-EI-XeO">
+                    <tabBarItem key="tabBarItem" title="" image="full_star" id="llS-EI-XeO">
                         <color key="badgeColor" red="0.1137254902" green="0.47843137250000001" blue="0.5450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="aKd-ea-nWe">
@@ -686,7 +689,8 @@
     </scenes>
     <resources>
         <image name="firstBKImage" width="284" height="177"/>
-        <image name="list(2)" width="24" height="24"/>
+        <image name="full_star" width="24" height="24"/>
+        <image name="loved" width="24" height="24"/>
         <image name="man-user" width="24" height="24"/>
         <image name="nutrition_icon" width="460" height="460"/>
         <image name="store(1)" width="23" height="23"/>

@@ -59,7 +59,8 @@ class AuthServices {
                     "address": "",
                     "avatar": user.avatar,
                     "create_date": nil,
-                    "status": 1] as [String : Any?]
+                    "status": 1
+            ] as [String : Any?]
         
         let jsonData = try? JSONSerialization.data(withJSONObject: body)
         
@@ -109,6 +110,12 @@ class AuthServices {
                 print("Error serializing json:", jsonError)
             }
         }
+    }
+    
+    func saveUserLogedIn(user : UserResponse?) {
+        isLoggedIn = true
+        authToken = user!.token!
+        authToken = user!.email!
     }
     
 //    func getUserJsonBody(user: User) -> [String: Any?] {

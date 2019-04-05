@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Photos
 
 extension UIImageView {
     func load(url: URL) {
@@ -68,5 +69,11 @@ extension UIImageView {
         self.layer.shadowRadius = 10
         self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.frame.size.width / 2).cgPath
         
+    }
+}
+
+extension PHAsset {
+    var originalFilename: String? {
+        return PHAssetResource.assetResources(for: self).first?.originalFilename
     }
 }

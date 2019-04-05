@@ -19,7 +19,8 @@ class SignupController: UIViewController {
     @IBOutlet weak var passTxt: UITextField!
     @IBOutlet weak var confirmPassTxt: UITextField!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
-    
+    @IBOutlet weak var notification : UILabel!
+    @IBOutlet weak var detailNotifi : UILabel!
     
     // variables
     var user: User?
@@ -27,6 +28,7 @@ class SignupController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         user = User()
+        user?.avatar = "logo"
         setUpUI()
     }
     
@@ -41,46 +43,71 @@ class SignupController: UIViewController {
     }
     
     @IBAction func donePressed(_ sender: Any) {
-        spinner.isHidden = false
-        spinner.startAnimating()
-        
         if checkInputData() {
+            
+            notification.text = ""
+            detailNotifi.text = ""
+            
+            spinner.isHidden = false
+            spinner.startAnimating()
+            
             AuthServices.instance.registerUser(user: self.user!) { (data) in
-//                if data {
-//                    AuthServices.instance.loginUser(email: self.user!.email, password: self.user!.password, completion: { (user) in
-//                        
-//                        if user != nil {
-//                            print("logined user " )
-//                        }
-//                    })
-//                }
+                guard let user = data else { return }
+                
+                if user.id != nil {
+                    AuthServices.instance.loginUser(email: self.emailTxt.text!, password: self.passTxt.text!, completion: { (data) in
+                        guard let data = data else { return }
+                        
+                        AuthServices.instance.saveUserLogedIn(user: data)
+                        self.spinner.stopAnimating()
+                        self.backTwoViewController()
+                    })
+                }
             }
         }
         
     }
     
+    func backTwoViewController() {
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+        self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
+    }
+    
     func checkInputData() -> Bool {
         guard let username = userNameTxt.text, userNameTxt.text!.isValidUserName() else{
+            notification.text = Notification.username.title.rawValue
+            detailNotifi.text = Notification.username.detail.rawValue
             return false
         }
         
         guard let phone = phoneTxt.text, phoneTxt.text!.isValidPhone() else {
+            notification.text = Notification.phoneNumber.title.rawValue
+            detailNotifi.text = Notification.phoneNumber.detail.rawValue
             return false
         }
         
         guard let email = emailTxt.text , emailTxt.text!.isValidEmail() else {
+            notification.text = Notification.email.title.rawValue
+            detailNotifi.text = Notification.email.detail.rawValue
             return false
         }
         
         guard let password = passTxt.text, passTxt.text!.isValidPassword() else {
+            notification.text = Notification.password.title.rawValue
+            detailNotifi.text = Notification.password.detail.rawValue
             return false
         }
         
         guard let _ = confirmPassTxt.text, confirmPassTxt.text!.isValidPassword(), confirmPassTxt.text == password else {
+            notification.text = Notification.confirmPass.title.rawValue
+            detailNotifi.text = Notification.confirmPass.detail.rawValue
             return false
         }
         
-        self.user = User(id: 0, user_name: username, email: email, phone: phone, password: password, birthday: Date(), avatar: "", address: "", create_date: Date(), status: 1)
+        self.user?.user_name = username
+        self.user?.email = email
+        self.user?.phone = phone
+        self.user?.password = password
         return true
     }
     
@@ -94,12 +121,39 @@ class SignupController: UIViewController {
     func generateNameForImage() -> String {
         let date = Date()
         let formatter = DateFormatter()
-        formatter.dateFormat = "IMG_hh.mm.ss.dd.MM.yyyy"
+        formatter.dateFormat = "AVATAR_hh.mm.ss.dd.MM.yyyy"
         return formatter.string(from: date)
     }
     
     @objc func dismisHandle() {
         dismiss(animated: true, completion: nil)
+    }
+    
+    func getImageFormatFromUrl(url : URL) -> String {
+        
+        if url.absoluteString.hasSuffix("JPG") {
+            return"JPG"
+        }
+        else if url.absoluteString.hasSuffix("PNG") {
+            return "PNG"
+        }
+        else if url.absoluteString.hasSuffix("GIF") {
+            return "GIF"
+        }
+        else {
+            return "jpg"
+        }
+    }
+}
+
+extension SignupController : UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("begin edit text")
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        print("edit text")
+        return true
     }
 }
 
@@ -113,18 +167,22 @@ extension SignupController : UIImagePickerControllerDelegate, UINavigationContro
         guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
+        
         var fileName = ""
         
         if let url = info[UIImagePickerController.InfoKey.referenceURL] as? URL {
             let assets = PHAsset.fetchAssets(withALAssetURLs: [url], options: nil)
+            // get for mat of image
+            let imageFormat = getImageFormatFromUrl(url: url)
+            
             if let firstAsset = assets.firstObject,
                 let firstResource = PHAssetResource.assetResources(for: firstAsset).first {
                 fileName = firstResource.originalFilename
             } else {
-                fileName = generateNameForImage()
+                fileName = generateNameForImage() + "." + imageFormat
             }
         } else {
-            fileName = generateNameForImage()
+            fileName = generateNameForImage() + ".jpg"
         }
         
         if (fileName != "") {
@@ -136,7 +194,7 @@ extension SignupController : UIImagePickerControllerDelegate, UINavigationContro
             
             user?.avatar = fileName
             self.dismisHandle()
-            self.avatarImage.image = UIImage(named: fileName)
+            self.avatarImage.image = selectedImage
         }
         self.dismisHandle()
     }

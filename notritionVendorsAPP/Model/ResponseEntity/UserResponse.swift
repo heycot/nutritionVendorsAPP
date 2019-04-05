@@ -20,9 +20,11 @@ class UserResponse:Decodable {
     var status: Int?
     var token: String?
     var shops: [ShopResponse]?
+    var comments: [CommentResponse]?
+    var favorites: [FavoritesResponse]?
     
     
-    init(id: Int, user_name: String, email: String, phone: String, password: String, birthday: Date, avatar: String, address: String, create_date: Date, status: Int, token: String, shops: [ShopResponse]) {
+    init(id: Int, user_name: String, email: String, phone: String, password: String, birthday: Date, avatar: String, address: String, create_date: Date, status: Int, token: String, shops: [ShopResponse], comments: [CommentResponse], favorites: [FavoritesResponse]) {
         self.id = id
         self.user_name = user_name
         self.email = email
@@ -35,9 +37,11 @@ class UserResponse:Decodable {
         self.status = status
         self.token = token
         self.shops = shops
+        self.comments = comments
+        self.favorites = favorites
     }
     
     convenience init() {
-        self.init(id: 0, user_name: "", email: "", phone: "", password: "", birthday: Date(), avatar: "", address: "", create_date: Date(), status: 0, token: "", shops: [])
+        self.init(id: 0, user_name: "", email: "", phone: "", password: "", birthday: Date(), avatar: "", address: "", create_date: Date(), status: 0, token: "", shops: [], comments: [], favorites: [])
     }
 }
