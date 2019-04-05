@@ -215,6 +215,9 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
     override func viewWillAppear(_ animated: Bool) {
         tabelView.estimatedRowHeight = 100
         tabelView.rowHeight = UITableView.automaticDimension
+        
+        super.viewWillAppear(true)
+        tabelView.reloadData()
     }
     
     
@@ -226,20 +229,17 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 1 {
             
             switch indexPath.row {
-            case 3:
-                performSegueFunc(identifier: SegueIdentifier.photosItem.rawValue)
-            case 4:
-                performSegueFunc(identifier: SegueIdentifier.shopLocation.rawValue)
-            default:
-                if true {
-                    let phoneNumber = "033602512"
-                    guard let url = URL(string: "telprompt://\(phoneNumber)")  else {
-                        return
+                case 3:
+                    performSegueFunc(identifier: SegueIdentifier.photosItem.rawValue)
+                case 4:
+                    performSegueFunc(identifier: SegueIdentifier.shopLocation.rawValue)
+                default:
+                    if true {
+                        let phoneNumber = "033602512"
+                        guard let url = URL(string: "telprompt://\(phoneNumber)")  else {  return }
+                        
+                        UIApplication.shared.canOpenURL(url)
                     }
-                    
-                    UIApplication.shared.canOpenURL(url)
-                }
-                
             }
         }
     }

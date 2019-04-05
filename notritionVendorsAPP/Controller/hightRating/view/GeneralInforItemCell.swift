@@ -31,7 +31,7 @@ class GeneralInforItemCell: UITableViewCell {
         itemFavorites.text = String(item.favorites_number ?? 0)
         itemRating.text    = String(format: "%.2f", item.rating ?? 0)
         
-        let loveIconName = item.love_status == 0 ? "unlove" : "loved"
+        let loveIconName = FavoritesService.shared.isFavoriteShopItem(shopitem_id: item.id!) == 0 ? "unlove" : "loved"
         loveBtn.setImage(UIImage(named: loveIconName), for: .normal)
     }
     

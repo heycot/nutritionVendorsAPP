@@ -55,19 +55,19 @@ class LoginController: UIViewController {
                     self.present(alert, animated: true)
                 } else {
                     
-                    FavoritesService.shared.getAllByUser() { (data) in
-                        guard let data = data else {
-                            return
-                            
-                        }
-                        FavoritesService.shared.favorites = data
-                    }
-                    
+                    //set up is logined
                     AuthServices.instance.isLoggedIn = true
                     AuthServices.instance.authToken = user.token!
                     AuthServices.instance.userEmail = user.email!
                     
-                    self.navigationController?.popViewController(animated: true)
+                    //to save list favorites of user
+                    FavoritesService.shared.getAllByUser() { (data) in
+                        guard let data = data else { return   }
+                        
+                        FavoritesService.shared.favorites = data
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                    
                 }
             }
             
