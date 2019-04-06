@@ -22,7 +22,7 @@ let BASE_URL_IMAGE    = "http://192.168.21.59:3000/images/"
 
 // User URL enum
 enum UserAPI: String {
-    case register    = "user/register"
+    case register    = "user/signup"
     case login       = "user/login"
 }
 
@@ -31,6 +31,7 @@ enum ShopItemAPI: String {
     case getOneById = "shop-item"
     case searchOne = "shop-item/search"
     case loveOne = "shop-item/love"
+    case getAllLoved = "shop-item/love/offset"
 }
 
 enum FavoritesAPI: String {
@@ -76,6 +77,7 @@ enum CellIdentifier: String {
     case imageCollectionCell = "ImageCollectionCell"
     case photoItem = "PhotoCell"
     case DetailPhoto = "DetailPhotoCell"
+    case favoritesItem = "FavoritesCellID"
 }
 
 enum SegueIdentifier: String {
@@ -84,6 +86,8 @@ enum SegueIdentifier: String {
     case shopLocation = "ShopLocationID"
     case viewDetailPhoto = "ViewDetailPhoto"
     case loginLogout = "LoginLogoutSegueID"
+    case favoriteToDetail = "FavoritesToDetailSegue"
+    case favoritesToLogIn = "FavoritesToLogInID"
 }
 
 enum StoryboardID : String {

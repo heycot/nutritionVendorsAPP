@@ -47,7 +47,7 @@ class AuthServices {
     }
     
     
-    func registerUser(user: User, completion: @escaping (UserResponse?) -> Void) {
+    func registerUser(user: User, image: UIImage, completion: @escaping (UserResponse?) -> Void) {
         let urlStr = BASE_URL + UserAPI.register.rawValue
         
         let body = ["id": 0,
@@ -59,13 +59,17 @@ class AuthServices {
                     "address": "",
                     "avatar": user.avatar,
                     "create_date": nil,
-                    "status": 1
+                    "status": 1,
+                    "token": ""
             ] as [String : Any?]
         
         let jsonData = try? JSONSerialization.data(withJSONObject: body)
         
-        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "POST", jsonBody: jsonData, parameters: nil) { (data ) in
-            
+        let imgData = image.jpegData(compressionQuality: 0.2)!
+        let imgDataEncode = imgData.base64EncodedData()
+        
+        
+        NetworkingClient.shared.requestJsonWithFile(urlStr: urlStr, method: "POST", jsonBody: jsonData, fileData: imgDataEncode, parameters: nil) { (data) in
             guard let data = data else {return}
             do {
                 
@@ -77,6 +81,20 @@ class AuthServices {
                 print("Error serializing json:", jsonError)
             }
         }
+        
+//        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "POST", jsonBody: jsonData, parameters: nil) { (data ) in
+//
+//            guard let data = data else {return}
+//            do {
+//
+//                let userResponse = try JSONDecoder().decode(UserResponse.self, from: data)
+//                DispatchQueue.main.async {
+//                    completion(userResponse)
+//                }
+//            } catch let jsonError {
+//                print("Error serializing json:", jsonError)
+//            }
+//        }
     }
     
     func loginUser(email: String, password: String, completion: @escaping (UserResponse?) -> Void) {
@@ -93,7 +111,8 @@ class AuthServices {
                     "address": "",
                     "avatar": "",
                     "create_date": nil,
-                    "status": 1] as [String : Any?]
+                    "status": 1,
+                    "token": ""] as [String : Any?]
         
         let jsonData = try? JSONSerialization.data(withJSONObject: body)
         

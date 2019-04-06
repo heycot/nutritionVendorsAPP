@@ -54,6 +54,10 @@
 		23695E9222277DC600AD7076 /* ExtensionUICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23695E9122277DC600AD7076 /* ExtensionUICollectionView.swift */; };
 		23695E9422277F7200AD7076 /* ExtensionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23695E9322277F7200AD7076 /* ExtensionUIView.swift */; };
 		23695E9822278F3B00AD7076 /* ViewItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23695E9722278F3B00AD7076 /* ViewItemController.swift */; };
+		236A32B72258944500AA2410 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236A32B62258944500AA2410 /* FavoritesViewController.swift */; };
+		236A32B92258945F00AA2410 /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236A32B82258945F00AA2410 /* FavoritesCell.swift */; };
+		236A32BC22589D6100AA2410 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 236A32BA22589D6100AA2410 /* MBProgressHUD.m */; };
+		236A32BE2258A10C00AA2410 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236A32BD2258A10C00AA2410 /* AlertController.swift */; };
 		2376D98F224CDC4200DDFB19 /* PhotoItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2376D98E224CDC4200DDFB19 /* PhotoItemCell.swift */; };
 		2378E12D2247385700837883 /* DocumentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2378E12C2247385700837883 /* DocumentResponse.swift */; };
 		238792EE222D041B005E4E3E /* AddNewCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238792EC222D041B005E4E3E /* AddNewCommentCell.swift */; };
@@ -124,6 +128,11 @@
 		23695E9122277DC600AD7076 /* ExtensionUICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUICollectionView.swift; sourceTree = "<group>"; };
 		23695E9322277F7200AD7076 /* ExtensionUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIView.swift; sourceTree = "<group>"; };
 		23695E9722278F3B00AD7076 /* ViewItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewItemController.swift; sourceTree = "<group>"; };
+		236A32B62258944500AA2410 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		236A32B82258945F00AA2410 /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
+		236A32BA22589D6100AA2410 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		236A32BB22589D6100AA2410 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		236A32BD2258A10C00AA2410 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		2376D98E224CDC4200DDFB19 /* PhotoItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoItemCell.swift; sourceTree = "<group>"; };
 		2378E12C2247385700837883 /* DocumentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentResponse.swift; sourceTree = "<group>"; };
 		238792EC222D041B005E4E3E /* AddNewCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCommentCell.swift; sourceTree = "<group>"; };
@@ -239,6 +248,7 @@
 				231AE461222E2A030082C06E /* ExtensionUIlabel.swift */,
 				235A49EC2248BEF70034A944 /* CustomImageView.swift */,
 				231AE465222E2D4E0082C06E /* ExtensionUITextView.swift */,
+				236A32BD2258A10C00AA2410 /* AlertController.swift */,
 			);
 			path = ExtensionUI;
 			sourceTree = "<group>";
@@ -281,6 +291,15 @@
 				231AE463222E2A340082C06E /* ExtensionUI */,
 			);
 			path = Libraries;
+			sourceTree = "<group>";
+		};
+		236A32B52258942500AA2410 /* favorites */ = {
+			isa = PBXGroup;
+			children = (
+				236A32B62258944500AA2410 /* FavoritesViewController.swift */,
+				236A32B82258945F00AA2410 /* FavoritesCell.swift */,
+			);
+			path = favorites;
 			sourceTree = "<group>";
 		};
 		23A31BB2224088BD00FE2D69 /* BeanEntity */ = {
@@ -350,6 +369,8 @@
 				23D02E7422237A7900882742 /* Controller */,
 				23D02E7322237A7300882742 /* View */,
 				23D02E6C2223799400882742 /* Info.plist */,
+				236A32BB22589D6100AA2410 /* MBProgressHUD.h */,
+				236A32BA22589D6100AA2410 /* MBProgressHUD.m */,
 				2347EEBA224E160400EC3A24 /* notritionVendorsAPP-Bridging-Header.h */,
 			);
 			path = notritionVendorsAPP;
@@ -368,6 +389,7 @@
 		23D02E7422237A7900882742 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				236A32B52258942500AA2410 /* favorites */,
 				2300BE70222D30F1008E9101 /* account */,
 				2300BE6F222D30E3008E9101 /* signup */,
 				2300BE6E222D30DB008E9101 /* login */,
@@ -592,11 +614,13 @@
 				233B390B223755FD003EB253 /* Constant.swift in Sources */,
 				235A32BF2225301E00DE5B0E /* ChangePasswordController.swift in Sources */,
 				230E2DE622266AEF00246392 /* ShopItem.swift in Sources */,
+				236A32B72258944500AA2410 /* FavoritesViewController.swift in Sources */,
 				235A32B02224E9F200DE5B0E /* SignupController.swift in Sources */,
 				23695E9222277DC600AD7076 /* ExtensionUICollectionView.swift in Sources */,
 				23A31BB7224093F800FE2D69 /* ShopItemService.swift in Sources */,
 				231AE460222E28860082C06E /* DateTimeLibrary.swift in Sources */,
 				230E2DDA2226650700246392 /* Comment.swift in Sources */,
+				236A32BE2258A10C00AA2410 /* AlertController.swift in Sources */,
 				23614F1122560F7E00B5DD81 /* FavoritesService.swift in Sources */,
 				23EAA4452246621100A30E98 /* CommentResponse.swift in Sources */,
 				23614F0F2256020E00B5DD81 /* FavoritesResponse.swift in Sources */,
@@ -616,6 +640,7 @@
 				235A32B52224EAB400DE5B0E /* ExtensionTextField.swift in Sources */,
 				23D02E632223799300882742 /* LoginController.swift in Sources */,
 				235A32B72224EB6400DE5B0E /* ExtensionStackView.swift in Sources */,
+				236A32B92258945F00AA2410 /* FavoritesCell.swift in Sources */,
 				230E2DE2222668C000246392 /* Item.swift in Sources */,
 				238792EE222D041B005E4E3E /* AddNewCommentCell.swift in Sources */,
 				23E6FD75224B5479001C72B2 /* ExtentionDouble.swift in Sources */,
@@ -635,6 +660,7 @@
 				233B390D22376476003EB253 /* StringLibrary.swift in Sources */,
 				230E2DED22267DCA00246392 /* CollectionItemCell.swift in Sources */,
 				235A32B22224EA0C00DE5B0E /* HightRatingController.swift in Sources */,
+				236A32BC22589D6100AA2410 /* MBProgressHUD.m in Sources */,
 				2300BE78222D34B2008E9101 /* GeneralValueCell.swift in Sources */,
 				230E2DE4222669F000246392 /* Document.swift in Sources */,
 				231AE466222E2D4E0082C06E /* ExtensionUITextView.swift in Sources */,

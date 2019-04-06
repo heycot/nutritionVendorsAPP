@@ -12,6 +12,8 @@ import Foundation
 enum Notification : String {
     case noSearchResult = ""
     
+    case notLogedIn = "Please login to use this task."
+    
     enum username : String {
         case title = "Invalid username!"
         case detail = "Only letters, underscores, numbers, and Length should 6-20."
@@ -24,7 +26,7 @@ enum Notification : String {
     
     enum email : String {
         case title = "Invalid email address!"
-        case detail = ""
+        case detail = "Please enter a valid email address."
     }
     
     enum password : String {
@@ -36,4 +38,6 @@ enum Notification : String {
         case title = "Invalid password!"
         case detail = "Does not match with password."
     }
+    
+    
 }

@@ -14,16 +14,16 @@ class SignupController: UIViewController {
     // Outlets
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var userNameTxt: UITextField!
-    @IBOutlet weak var phoneTxt: UITextField!
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var passTxt: UITextField!
-    @IBOutlet weak var confirmPassTxt: UITextField!
+    
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var notification : UILabel!
     @IBOutlet weak var detailNotifi : UILabel!
     
     // variables
     var user: User?
+    var image : UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,10 +36,8 @@ class SignupController: UIViewController {
         spinner.isHidden = true
         avatarImage.setRounded(color: .white)
         userNameTxt.setBottomBorder(color: APP_COLOR)
-        phoneTxt.setBottomBorder(color: APP_COLOR)
         emailTxt.setBottomBorder(color: APP_COLOR)
         passTxt.setBottomBorder(color: APP_COLOR)
-        confirmPassTxt.setBottomBorder(color: APP_COLOR)
     }
     
     @IBAction func donePressed(_ sender: Any) {
@@ -51,7 +49,11 @@ class SignupController: UIViewController {
             spinner.isHidden = false
             spinner.startAnimating()
             
-            AuthServices.instance.registerUser(user: self.user!) { (data) in
+            if image == nil {
+                image = UIImage(named: (user?.avatar!)!)
+            }
+            
+            AuthServices.instance.registerUser(user: self.user!, image: image!) { (data) in
                 guard let user = data else { return }
                 
                 if user.id != nil {
@@ -80,12 +82,6 @@ class SignupController: UIViewController {
             return false
         }
         
-        guard let phone = phoneTxt.text, phoneTxt.text!.isValidPhone() else {
-            notification.text = Notification.phoneNumber.title.rawValue
-            detailNotifi.text = Notification.phoneNumber.detail.rawValue
-            return false
-        }
-        
         guard let email = emailTxt.text , emailTxt.text!.isValidEmail() else {
             notification.text = Notification.email.title.rawValue
             detailNotifi.text = Notification.email.detail.rawValue
@@ -98,15 +94,8 @@ class SignupController: UIViewController {
             return false
         }
         
-        guard let _ = confirmPassTxt.text, confirmPassTxt.text!.isValidPassword(), confirmPassTxt.text == password else {
-            notification.text = Notification.confirmPass.title.rawValue
-            detailNotifi.text = Notification.confirmPass.detail.rawValue
-            return false
-        }
-        
         self.user?.user_name = username
         self.user?.email = email
-        self.user?.phone = phone
         self.user?.password = password
         return true
     }
@@ -170,7 +159,7 @@ extension SignupController : UIImagePickerControllerDelegate, UINavigationContro
         
         var fileName = ""
         
-        if let url = info[UIImagePickerController.InfoKey.referenceURL] as? URL {
+        if let url = info[UIImagePickerController.InfoKey.phAsset] as? URL {
             let assets = PHAsset.fetchAssets(withALAssetURLs: [url], options: nil)
             // get for mat of image
             let imageFormat = getImageFormatFromUrl(url: url)
@@ -186,13 +175,14 @@ extension SignupController : UIImagePickerControllerDelegate, UINavigationContro
         }
         
         if (fileName != "") {
-            let fileManager = FileManager.default
-            let paths = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(fileName)
-            print(paths)
-            let imageData = selectedImage.jpegData(compressionQuality: 0.75)
-            fileManager.createFile(atPath: paths as String, contents: imageData, attributes: nil)
+//            let fileManager = FileManager.default
+//            let paths = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(fileName)
+//            print(paths)
+//            let imageData = selectedImage.jpegData(compressionQuality: 0.75)
+//            fileManager.createFile(atPath: paths as String, contents: imageData, attributes: nil)
             
             user?.avatar = fileName
+            self.image = selectedImage
             self.dismisHandle()
             self.avatarImage.image = selectedImage
         }

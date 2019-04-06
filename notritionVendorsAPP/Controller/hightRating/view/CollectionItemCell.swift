@@ -16,7 +16,6 @@ class CollectionItemCell: UICollectionViewCell {
     @IBOutlet weak var itemName: UILabel!
 //    @IBOutlet weak var itemPrice: UILabel!
     @IBOutlet weak var itemRating: CosmosView!
-    @IBOutlet weak var numberOfReview: UILabel!
     
 //    lazy var cosmosView: CosmosView = {
 //        var view = CosmosView()
@@ -30,13 +29,13 @@ class CollectionItemCell: UICollectionViewCell {
         setupItemImage(urlStr: urlStr)
         itemName.text = shopItemRe.name! + " - " + shopItemRe.shop_name!
 //        itemPrice.text = "VND " + String(shopItemRe.price!)
-        numberOfReview.text = "(" + String(shopItemRe.comment_number!)  + ")"
         
         if shopItemRe.comment_number! == 0 {
             itemRating.rating = 0.0
         } else {
             itemRating.rating = shopItemRe.rating! 
         }
+        itemRating.text = "(" + String(shopItemRe.comment_number!)  + ")"
         
     }
     

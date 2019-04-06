@@ -53,6 +53,37 @@ class NetworkingClient {
             }.resume()
     }
     
+    
+    func requestJsonWithFile(urlStr: String, method: String, jsonBody: Data?, fileData: Data?, parameters: Parameters?, completion: @escaping (Data?) -> Void){
+        let url = URL(string: urlStr)
+        guard let urlRequest = url else { return }
+        
+        var request = URLRequest(url: urlRequest)
+        request.httpMethod = HTTPMethod.post.rawValue
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        if AuthServices.instance.isLoggedIn {
+            request.addValue(AuthServices.instance.authToken, forHTTPHeaderField: "Authorization")
+        } else {
+            request.addValue("", forHTTPHeaderField: "Authorization")
+        }
+        
+        if jsonBody != nil {
+            request.httpBody = jsonBody!
+        }
+        
+        URLSession.shared.uploadTask(with: request, from: fileData) { data, urlResponse, error in
+            guard let data = data, error == nil, urlResponse != nil else {
+                print("something is wrong with url")
+                return
+            }
+            
+            completion(data)
+            }.resume()
+    }
+    
+    
 //    func request(urlStr: String, parameters: Parameters?, completion: @escaping ([Data]?) -> Void) {
 //        print("url : \(urlStr)")
 //        guard let url = URL(string: urlStr) else {

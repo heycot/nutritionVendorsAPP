@@ -28,18 +28,18 @@ class LoginController: UIViewController {
         
         
         if !(emailTF.text?.isValidEmail())! {
-            let alert = UIAlertController(title: "Invalid email syntax!", message: "Please enter a valid email address.", preferredStyle: .alert)
+            let alert = UIAlertController(title: Notification.email.title.rawValue, message: Notification.email.detail.rawValue, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
             alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
             self.present(alert, animated: true)
             
 //        } else if !(passwordTF.text?.isValidPassword())! {
-//            let alert = UIAlertController(title: "Invalid password syntax!", message: "Password should have at least 8 letters, 1 number and 1 special letter", preferredStyle: .alert)
+//            let alert = UIAlertController(title: Notification.password.title.rawValue, message: Notification.password.detail.rawValue, preferredStyle: .alert)
 //            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
 //            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
 //            self.present(alert, animated: true)
-//
-//
+
+
         } else {
             
             AuthServices.instance.loginUser(email: emailTF.text!, password: passwordTF.text!) { (user) in
