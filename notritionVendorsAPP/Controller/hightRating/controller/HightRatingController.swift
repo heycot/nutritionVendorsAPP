@@ -18,9 +18,11 @@ class HightRatingController: UIViewController {
     
     
     // variables
-    var listShop = [Shop]()
     var listItem = [ShopItemResponse] ()
     var currentListItem = [ShopItemResponse]()
+    var listCategory = [CategoryResponse]()
+    
+    let headerId = "HeaderID"
     
     let searchBar = UISearchBar()
     lazy var refresher: UIRefreshControl = {
@@ -33,16 +35,23 @@ class HightRatingController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpCollectionView()
+        registerHeader()
+        
         resultSearchNotification.isHidden = true
         activityIndicator.color = APP_COLOR
         activityIndicator.startAnimating()
         
         navigationController?.navigationBar.barTintColor = APP_COLOR
         createSearchBar()
+        findAllCategory()
         loadDataFromAPI(offset: 0)
-        setUpCollectionView()
     }
     
+    func registerHeader() {
+        itemCollection.register(UINib(nibName: CellClassName.category.rawValue, bundle: nil), forCellWithReuseIdentifier: CellIdentifier.category.rawValue)
+
+    }
     
     func setUpCollectionView() {
         
@@ -60,8 +69,15 @@ class HightRatingController: UIViewController {
         self.navigationItem.titleView = searchBar
     }
     
+    func findAllCategory() {
+        CategoryService.shared.findAll() { data in
+            guard let data = data else {return }
+            
+            self.listCategory = data
+        }
+    }
+    
     func loadDataFromAPI(offset: Int) {
-        
         ShopItemService.shared.getHighRatingItem(offset: offset) { data in
             guard let data = data else {return }
             
@@ -79,6 +95,17 @@ class HightRatingController: UIViewController {
         loadDataFromAPI(offset: listItem.count)
         refresher.endRefreshing()
     }
+    
+    func findAllByCategory(index: Int) {
+        ShopItemService.shared.findAllByCategory(categoryId: listCategory[index].id!, offset: 0) { data in
+            guard let data = data else {return }
+    
+            self.currentListItem = data
+//            self.currentListItem = self.listItem
+            self.activityIndicator.stopAnimating()
+            self.itemCollection.reloadData()
+        }
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is ViewItemController {
@@ -87,42 +114,57 @@ class HightRatingController: UIViewController {
             vc?.item = currentListItem[index]
         }
     }
+    
 
 }
 
 extension HightRatingController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-//        return 2
-        return 1
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return section == 0 ? listShop.count : listItem.count
-        return currentListItem.count
+        return section == 0 ? listCategory.count : currentListItem.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath) as? CollectionItemCell {
-//            cell.updateView(shopItemRe: listItem[ listItem.count - 1 - indexPath.row])
+        
+        if indexPath.section == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.category.rawValue, for: indexPath) as! CategoryCell
+                cell.updateView(Category: listCategory[indexPath.row])
+                return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.highRatingItem.rawValue, for: indexPath) as! CollectionItemCell
             cell.updateView(shopItemRe: currentListItem[indexPath.row])
-            //            cell.setBorderRadious()
             return cell
         }
-        return CollectionItemCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
-        performSegue(withIdentifier: SegueIdentifier.detailItem.rawValue, sender: indexPath.row)
+        
+        if indexPath.section == 0 {
+            findAllByCategory(index: indexPath.row)
+        } else {
+            collectionView.deselectItem(at: indexPath, animated: true)
+            performSegue(withIdentifier: SegueIdentifier.detailItem.rawValue, sender: indexPath.row)
+        }
     }
+    
     
 }
 
 
 extension HightRatingController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellWidth = (UIScreen.main.bounds.size.width - 30)/2
-        return CGSize(width: cellWidth, height: 175)
+        if indexPath.section == 0 {
+            let cellWidth = (UIScreen.main.bounds.size.width - 50)/3
+            return CGSize(width: cellWidth, height: 60)
+        } else {
+            let cellWidth = (UIScreen.main.bounds.size.width - 30)/2
+            return CGSize(width: cellWidth, height: 175)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -132,6 +174,30 @@ extension HightRatingController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return CGFloat(10.0)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, heightForFooterInSection section: Int) -> CGFloat {
+        return section == 0 ? 100.0 : 0.0
+    }
+    
+
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+       let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! HeaderCollectionCell
+//        headerView.backgroundColor = .yellow
+        
+        if indexPath.section == 0 {
+            headerView.updateView(titleStr: "Categories")
+        } else {
+            
+            headerView.updateView(titleStr: "Foods")
+        }
+        
+       return headerView
+  }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: view.frame.width, height: 50)
+    }
+    
 }
 
 

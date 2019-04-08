@@ -26,7 +26,9 @@ class NetworkingClient {
     
     func requestJson(urlStr: String, method: String, jsonBody: Data?, parameters: Parameters?, completion: @escaping (Data?) -> Void) {
         
-        let url = URL(string: urlStr)
+        let escapedString = urlStr.addingPercentEncoding(withAllowedCharacters:NSCharacterSet.urlQueryAllowed) ?? ""
+        let url = URL(string: escapedString)
+        
         guard let urlRequest = url else { return }
         
         var request = URLRequest(url: urlRequest)

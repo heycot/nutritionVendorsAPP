@@ -19,10 +19,10 @@ class FavoritesService {
         let urlStr = BASE_URL + FavoritesAPI.getAllByUser.rawValue
         
         NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
-            
+
             guard let data = data else {return}
             do {
-                
+
                 let favorites = try JSONDecoder().decode([FavoritesResponse].self, from: data)
                 DispatchQueue.main.async {
                     completion(favorites)

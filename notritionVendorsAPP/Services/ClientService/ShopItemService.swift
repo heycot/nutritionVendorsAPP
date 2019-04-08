@@ -50,8 +50,8 @@ class ShopItemService {
     }
     
     func searchItem(searchText: String, completion: @escaping ([ShopItemResponse]?) -> Void) {
-        let urlStr = BASE_URL + ShopItemAPI.searchOne.rawValue + "/" + searchText
-            
+        let urlStr = BASE_URL + ShopItemAPI.searchOne.rawValue  + "/" + searchText
+        
         NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
             
             guard let data = data else {return}
@@ -69,14 +69,14 @@ class ShopItemService {
     
     func loveOne(shopItemId: Int, status: Int, completion: @escaping (FavoritesResponse?) -> Void) {
         let urlStr = BASE_URL + ShopItemAPI.loveOne.rawValue + "/" + String(shopItemId) + "/" + String(status)
-            
+
         NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
-            
+
             guard let data = data else {return}
             do {
-            
+
                 let favorite = try JSONDecoder().decode(FavoritesResponse.self, from: data)
-            
+
                 DispatchQueue.main.async {
                     completion(favorite)
                 }
@@ -85,10 +85,10 @@ class ShopItemService {
             }
         }
     }
-    
+
     func findAllLoved(completion: @escaping ([ShopItemResponse]?) -> Void) {
         let urlStr = BASE_URL + ShopItemAPI.getAllLoved.rawValue
-        
+
         NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
             guard let data = data else {return}
             do {
@@ -102,7 +102,21 @@ class ShopItemService {
         }
     }
     
-    
+    func findAllByCategory(categoryId: Int, offset: Int, completion: @escaping ([ShopItemResponse]?) -> Void) {
+        let urlStr = BASE_URL + ShopItemAPI.findByCategory.rawValue + "/" + String(categoryId) + "/" + String(offset)
+        
+        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
+            guard let data = data else {return}
+            do {
+                let shopItems = try JSONDecoder().decode([ShopItemResponse].self, from: data)
+                DispatchQueue.main.async {
+                    completion(shopItems)
+                }
+            } catch let jsonError {
+                print("Error serializing json:", jsonError)
+            }
+        }
+    }
     
     
 }

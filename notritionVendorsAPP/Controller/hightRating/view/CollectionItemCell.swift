@@ -14,13 +14,8 @@ class CollectionItemCell: UICollectionViewCell {
 
     @IBOutlet weak var itemImage: CustomImageView!
     @IBOutlet weak var itemName: UILabel!
-//    @IBOutlet weak var itemPrice: UILabel!
     @IBOutlet weak var itemRating: CosmosView!
     
-//    lazy var cosmosView: CosmosView = {
-//        var view = CosmosView()
-//        return view
-//    }()
     
     func updateView(shopItemRe: ShopItemResponse) {
         setUpUI()
@@ -28,13 +23,8 @@ class CollectionItemCell: UICollectionViewCell {
         let urlStr = BASE_URL_IMAGE + shopItemRe.avatar! 
         setupItemImage(urlStr: urlStr)
         itemName.text = shopItemRe.name! + " - " + shopItemRe.shop_name!
-//        itemPrice.text = "VND " + String(shopItemRe.price!)
         
-        if shopItemRe.comment_number! == 0 {
-            itemRating.rating = 0.0
-        } else {
-            itemRating.rating = shopItemRe.rating! 
-        }
+        itemRating.rating = shopItemRe.rating! 
         itemRating.text = "(" + String(shopItemRe.comment_number!)  + ")"
         
     }

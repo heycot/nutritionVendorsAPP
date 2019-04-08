@@ -68,14 +68,14 @@ class FavoritesViewController: UIViewController {
     
     func loadDataFromAPI(offset: Int) {
         
-        ShopItemService.shared.findAllLoved() { data in
-            guard let data = data else {return }
-            
-            self.listItem = data
-            self.currentListItem = self.listItem
-            self.resultSearchNotification.isHidden = true
-            self.tableView.reloadData()
-        }
+//        ShopItemService.shared.findAllLoved() { data in
+//            guard let data = data else {return }
+//            
+//            self.listItem = data
+//            self.currentListItem = self.listItem
+//            self.resultSearchNotification.isHidden = true
+//            self.tableView.reloadData()
+//        }
     }
     
     @objc

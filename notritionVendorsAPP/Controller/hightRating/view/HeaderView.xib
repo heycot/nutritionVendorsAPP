@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HeaderCellID" id="gTV-IL-0wX" customClass="HeaderView" customModule="notritionVendorsAPP" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="413" height="71"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="413" height="71"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kej-XM-vxi">
+                        <rect key="frame" x="0.0" y="0.0" width="413" height="61"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Kej-XM-vxi" secondAttribute="bottom" constant="10" id="4eh-90-D1t"/>
+                <constraint firstItem="Kej-XM-vxi" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="7Pd-nv-uHy"/>
+                <constraint firstItem="Kej-XM-vxi" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="9IP-ec-Z3x"/>
+                <constraint firstAttribute="trailing" secondItem="Kej-XM-vxi" secondAttribute="trailing" id="JLD-hz-CpT"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="413" height="71"/>
+            <connections>
+                <outlet property="title" destination="Kej-XM-vxi" id="KSh-gh-mwq"/>
+            </connections>
+            <point key="canvasLocation" x="208.80000000000001" y="24.7376311844078"/>
+        </collectionViewCell>
+    </objects>
+</document>

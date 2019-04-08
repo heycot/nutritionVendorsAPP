@@ -32,10 +32,15 @@ enum ShopItemAPI: String {
     case searchOne = "shop-item/search"
     case loveOne = "shop-item/love"
     case getAllLoved = "shop-item/love/offset"
+    case findByCategory = "shop-item/category"
 }
 
 enum FavoritesAPI: String {
     case getAllByUser = "favorites/user"
+}
+
+enum CategoryAPI: String {
+    case findAll = "category"
 }
 
 
@@ -60,13 +65,16 @@ let HEADER_AUTH = [
 
 let APP_COLOR = UIColor(red: CGFloat(44/255.0), green: CGFloat(166/255.0), blue: CGFloat(172/255.0), alpha: CGFloat(0.75))
 
+let APP_COLOR_35 = UIColor(red: CGFloat(44/255.0), green: CGFloat(166/255.0), blue: CGFloat(172/255.0), alpha: CGFloat(0.15))
+
 
 enum CellClassName: String {
     case generalInfor   = "GeneralInforItemCell"
     case generalValue   = "GeneralValueCell"
     case listComment    = "ViewCommentCell"
     case addNewComment  = "AddNewCommentCell"
-    
+    case category       = "CategoryCell"
+    case headerCollection = "HeaderView"
 }
 
 enum CellIdentifier: String {
@@ -78,6 +86,9 @@ enum CellIdentifier: String {
     case photoItem = "PhotoCell"
     case DetailPhoto = "DetailPhotoCell"
     case favoritesItem = "FavoritesCellID"
+    case category = "CategoryCellID"
+    case highRatingItem = "ItemCell"
+    case headerCollection = "HeaderCellID"
 }
 
 enum SegueIdentifier: String {

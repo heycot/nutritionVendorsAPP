@@ -10,11 +10,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Shop-->
         <scene sceneID="y3T-WL-NDX">
             <objects>
                 <viewController id="fkv-BK-elS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="store(1)" id="5ht-dM-JmW"/>
+                    <tabBarItem key="tabBarItem" title="Shop" image="store(1)" id="5ht-dM-JmW"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aMM-gi-Zev" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -42,7 +42,7 @@
             </objects>
             <point key="canvasLocation" x="-2693" y="1396"/>
         </scene>
-        <!--Account Controller-->
+        <!--Account-->
         <scene sceneID="JHG-yE-KfX">
             <objects>
                 <viewController id="CGv-8S-RyO" customClass="AccountController" customModule="notritionVendorsAPP" customModuleProvider="target" sceneMemberID="viewController">
@@ -147,7 +147,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="A3Z-GI-soh"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="man-user" id="9Ub-Tx-1OA"/>
+                    <tabBarItem key="tabBarItem" title="Account" image="man-user" id="9Ub-Tx-1OA"/>
                     <navigationItem key="navigationItem" id="mrS-k7-RbC"/>
                     <connections>
                         <outlet property="isActive" destination="dAx-nR-RmH" id="7eF-Gf-LZo"/>
@@ -394,13 +394,13 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dUI-nI-RBF">
                                     <size key="itemSize" width="214" height="175"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="ItemCell" id="mUC-Of-eam" customClass="CollectionItemCell" customModule="notritionVendorsAPP" customModuleProvider="target">
-                                        <rect key="frame" x="90" y="0.0" width="214" height="175"/>
+                                        <rect key="frame" x="90" y="50" width="214" height="175"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="214" height="175"/>
@@ -478,11 +478,9 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="ur0-PN-SSv" secondAttribute="trailing" id="7OI-Bz-KPp"/>
-                                            <constraint firstItem="ur0-PN-SSv" firstAttribute="width" secondItem="mUC-Of-eam" secondAttribute="width" id="Nq0-Jx-sRi"/>
-                                            <constraint firstItem="ur0-PN-SSv" firstAttribute="top" secondItem="mUC-Of-eam" secondAttribute="top" id="Nyv-KN-CpV"/>
-                                            <constraint firstItem="ur0-PN-SSv" firstAttribute="leading" secondItem="mUC-Of-eam" secondAttribute="leading" id="UrD-fY-V4x"/>
-                                            <constraint firstItem="ur0-PN-SSv" firstAttribute="height" secondItem="mUC-Of-eam" secondAttribute="height" id="aK5-kv-4op"/>
-                                            <constraint firstAttribute="bottom" secondItem="ur0-PN-SSv" secondAttribute="bottom" id="shD-Fm-epV"/>
+                                            <constraint firstAttribute="bottom" secondItem="ur0-PN-SSv" secondAttribute="bottom" id="Enz-Bg-NnF"/>
+                                            <constraint firstItem="ur0-PN-SSv" firstAttribute="leading" secondItem="mUC-Of-eam" secondAttribute="leading" id="jnZ-rW-mnT"/>
+                                            <constraint firstItem="ur0-PN-SSv" firstAttribute="top" secondItem="mUC-Of-eam" secondAttribute="top" id="pq1-Od-rNa"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="itemImage" destination="fWT-nt-2cG" id="H8E-qB-TAF"/>
@@ -491,6 +489,27 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="HeaderID" id="k2Y-SM-6eL" customClass="HeaderCollectionCell" customModule="notritionVendorsAPP" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="394" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6BJ-aJ-bCq">
+                                            <rect key="frame" x="0.0" y="10" width="394" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="6BJ-aJ-bCq" firstAttribute="top" secondItem="k2Y-SM-6eL" secondAttribute="top" constant="10" id="7IJ-hm-cuq"/>
+                                        <constraint firstItem="6BJ-aJ-bCq" firstAttribute="leading" secondItem="k2Y-SM-6eL" secondAttribute="leading" id="FYh-q6-tIY"/>
+                                        <constraint firstAttribute="bottom" secondItem="6BJ-aJ-bCq" secondAttribute="bottom" constant="10" id="bwl-AA-bd0"/>
+                                        <constraint firstAttribute="trailing" secondItem="6BJ-aJ-bCq" secondAttribute="trailing" id="jym-rq-Bs5"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="title" destination="6BJ-aJ-bCq" id="Pwr-fI-GtH"/>
+                                    </connections>
+                                </collectionReusableView>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Vd-4X-EhU">
                                 <rect key="frame" x="10" y="423" width="394" height="50"/>
@@ -534,7 +553,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6aC-Bo-lwY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-633.33333333333337" y="689.73214285714278"/>
+            <point key="canvasLocation" x="-542.02898550724638" y="716.51785714285711"/>
         </scene>
         <!--View Item Controller-->
         <scene sceneID="5mv-hP-zQf">
@@ -752,11 +771,11 @@
             </objects>
             <point key="canvasLocation" x="1258" y="1280"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--High Rating-->
         <scene sceneID="W7y-GX-8kg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QZb-0J-Nu3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="full_star" id="llS-EI-XeO">
+                    <tabBarItem key="tabBarItem" title="High Rating" image="full_star" id="llS-EI-XeO">
                         <color key="badgeColor" red="0.1137254902" green="0.47843137250000001" blue="0.5450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
@@ -783,11 +802,11 @@
             </objects>
             <point key="canvasLocation" x="-1439.2" y="709.29535232383819"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Loved-->
         <scene sceneID="Z4V-Ef-bG8">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0LH-PA-krd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="loved" id="2gI-AF-dTs"/>
+                    <tabBarItem key="tabBarItem" title="Loved" image="loved" id="2gI-AF-dTs"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bwA-FK-SAo">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -819,7 +838,7 @@
         <image name="store(1)" width="23" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="OHp-cf-VHK"/>
+        <segue reference="er7-x8-644"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
