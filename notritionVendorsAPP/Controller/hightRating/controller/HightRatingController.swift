@@ -101,7 +101,6 @@ class HightRatingController: UIViewController {
             guard let data = data else {return }
     
             self.currentListItem = data
-//            self.currentListItem = self.listItem
             self.activityIndicator.stopAnimating()
             self.itemCollection.reloadData()
         }
@@ -114,8 +113,6 @@ class HightRatingController: UIViewController {
             vc?.item = currentListItem[index]
         }
     }
-    
-
 }
 
 extension HightRatingController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -151,8 +148,6 @@ extension HightRatingController: UICollectionViewDelegate, UICollectionViewDataS
             performSegue(withIdentifier: SegueIdentifier.detailItem.rawValue, sender: indexPath.row)
         }
     }
-    
-    
 }
 
 
@@ -175,15 +170,9 @@ extension HightRatingController: UICollectionViewDelegateFlowLayout {
         return CGFloat(10.0)
     }
     
-    func collectionView(_ collectionView: UICollectionView, heightForFooterInSection section: Int) -> CGFloat {
-        return section == 0 ? 100.0 : 0.0
-    }
-    
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! HeaderCollectionCell
-//        headerView.backgroundColor = .yellow
-        
         if indexPath.section == 0 {
             headerView.updateView(titleStr: "Categories")
         } else {

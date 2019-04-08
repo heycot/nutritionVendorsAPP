@@ -65,8 +65,6 @@
 		2381B646225B0185004DAA64 /* CategoryServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2381B645225B0185004DAA64 /* CategoryServices.swift */; };
 		2381B649225B064F004DAA64 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2381B647225B064F004DAA64 /* CategoryCell.swift */; };
 		2381B64A225B064F004DAA64 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2381B648225B064F004DAA64 /* CategoryCell.xib */; };
-		2381B652225B33A4004DAA64 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2381B650225B33A4004DAA64 /* HeaderView.swift */; };
-		2381B653225B33A4004DAA64 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2381B651225B33A4004DAA64 /* HeaderView.xib */; };
 		238792EE222D041B005E4E3E /* AddNewCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238792EC222D041B005E4E3E /* AddNewCommentCell.swift */; };
 		238792EF222D041B005E4E3E /* AddNewCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 238792ED222D041B005E4E3E /* AddNewCommentCell.xib */; };
 		23A31BB5224088FD00FE2D69 /* ShopItemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A31BB4224088FD00FE2D69 /* ShopItemResponse.swift */; };
@@ -147,8 +145,6 @@
 		2381B645225B0185004DAA64 /* CategoryServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryServices.swift; sourceTree = "<group>"; };
 		2381B647225B064F004DAA64 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		2381B648225B064F004DAA64 /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
-		2381B650225B33A4004DAA64 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
-		2381B651225B33A4004DAA64 /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		238792EC222D041B005E4E3E /* AddNewCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCommentCell.swift; sourceTree = "<group>"; };
 		238792ED222D041B005E4E3E /* AddNewCommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewCommentCell.xib; sourceTree = "<group>"; };
 		23A31BB4224088FD00FE2D69 /* ShopItemResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemResponse.swift; sourceTree = "<group>"; };
@@ -247,8 +243,6 @@
 				2320C6F32251C8AD00A2C328 /* DetailPhotoCell.swift */,
 				2381B647225B064F004DAA64 /* CategoryCell.swift */,
 				2381B648225B064F004DAA64 /* CategoryCell.xib */,
-				2381B650225B33A4004DAA64 /* HeaderView.swift */,
-				2381B651225B33A4004DAA64 /* HeaderView.xib */,
 				236A5A82225B455F005C27E8 /* HeaderCollectionCell.swift */,
 			);
 			path = view;
@@ -529,7 +523,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				238792EF222D041B005E4E3E /* AddNewCommentCell.xib in Resources */,
-				2381B653225B33A4004DAA64 /* HeaderView.xib in Resources */,
 				23D02E6B2223799400882742 /* LaunchScreen.storyboard in Resources */,
 				2300BE7D222D3658008E9101 /* ViewCommentCell.xib in Resources */,
 				23D02E682223799400882742 /* Assets.xcassets in Resources */,
@@ -642,7 +635,6 @@
 				23695E9222277DC600AD7076 /* ExtensionUICollectionView.swift in Sources */,
 				23A31BB7224093F800FE2D69 /* ShopItemService.swift in Sources */,
 				231AE460222E28860082C06E /* DateTimeLibrary.swift in Sources */,
-				2381B652225B33A4004DAA64 /* HeaderView.swift in Sources */,
 				230E2DDA2226650700246392 /* Comment.swift in Sources */,
 				236A32BE2258A10C00AA2410 /* AlertController.swift in Sources */,
 				23614F1122560F7E00B5DD81 /* FavoritesService.swift in Sources */,
