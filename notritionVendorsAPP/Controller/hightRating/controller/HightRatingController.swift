@@ -23,6 +23,7 @@ class HightRatingController: UIViewController {
     var listCategory = [CategoryResponse]()
     
     let headerId = "HeaderID"
+    var categoryId = 0
     
     let searchBar = UISearchBar()
     lazy var refresher: UIRefreshControl = {
@@ -92,15 +93,31 @@ class HightRatingController: UIViewController {
     
     @objc
     func loadMoreData() {
-        loadDataFromAPI(offset: listItem.count)
+        if categoryId == 0 {
+            loadDataFromAPI(offset: listItem.count)
+        } else {
+            findAllByCategory(categoryId: categoryId, offset: currentListItem.count)
+        }
         refresher.endRefreshing()
     }
     
-    func findAllByCategory(index: Int) {
-        ShopItemService.shared.findAllByCategory(categoryId: listCategory[index].id!, offset: 0) { data in
+    func findAllByCategory(categoryId: Int, offset: Int) {
+        
+        
+        ShopItemService.shared.findAllByCategory(categoryId: categoryId, offset: offset) { data in
             guard let data = data else {return }
     
-            self.currentListItem = data
+            // if current list is the same category => add more alse replace
+            if self.categoryId == categoryId {
+                for item in data {
+                    self.currentListItem.append(item)
+                }
+                
+            } else {
+                self.currentListItem = data
+                self.categoryId = categoryId
+            }
+            
             self.activityIndicator.stopAnimating()
             self.itemCollection.reloadData()
         }
@@ -142,7 +159,7 @@ extension HightRatingController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if indexPath.section == 0 {
-            findAllByCategory(index: indexPath.row)
+            findAllByCategory(categoryId: listCategory[indexPath.row].id!, offset: 0)
         } else {
             collectionView.deselectItem(at: indexPath, animated: true)
             performSegue(withIdentifier: SegueIdentifier.detailItem.rawValue, sender: indexPath.row)
