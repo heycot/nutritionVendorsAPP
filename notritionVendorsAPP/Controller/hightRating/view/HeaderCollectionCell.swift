@@ -13,7 +13,7 @@ class HeaderCollectionCell: UICollectionReusableView {
     @IBOutlet weak var title: UILabel!
     
     func updateView(titleStr: String) {
-        title.text =  titleStr
+        title.text =  " " + titleStr
         title.backgroundColor = APP_COLOR_35
         title.setBottomBorder(color: APP_COLOR_35)
     }
