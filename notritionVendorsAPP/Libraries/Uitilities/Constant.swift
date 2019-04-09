@@ -30,13 +30,14 @@ enum ShopItemAPI: String {
     case getHighRating = "shop-item/high-rating/offset"
     case getOneById = "shop-item"
     case searchOne = "shop-item/search"
-    case loveOne = "shop-item/love"
     case getAllLoved = "shop-item/love/offset"
     case findByCategory = "shop-item/category"
 }
 
 enum FavoritesAPI: String {
+    case loveOne = "favorites/love"
     case getAllByUser = "favorites/user"
+    case checkStatus = "favorites/check"
 }
 
 enum CategoryAPI: String {

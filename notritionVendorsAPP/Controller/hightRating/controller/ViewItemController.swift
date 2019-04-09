@@ -15,10 +15,10 @@ class ViewItemController: UIViewController {
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     // variables
-    var comments = [Comment] ()
     var itemValues = [ItemValue] ()
     var item = ShopItemResponse()
     var loveBtn = UIButton()
+    var numberFavorites = UITextField()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +52,6 @@ class ViewItemController: UIViewController {
             guard let data = data else {return }
             
             self.item.comments = data.comments
-//            self.comments = data.comments!
             self.item.documents = data.documents
             self.item.shop = data.shop
             self.item.shop?.location = data.shop?.location
@@ -89,21 +88,25 @@ class ViewItemController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back"
+        
         if segue.destination is ViewLocationShopController  {
             let vc = segue.destination as? ViewLocationShopController
             vc?.location = (item.shop?.location)!
             vc?.shopName = (item.shop?.name!)!
             
+            navigationItem.backBarButtonItem = backItem
+            
         } else if segue.destination is PhotoItemController {
             let vc = segue.destination as? PhotoItemController
             vc?.documents = item.documents!
             
-            let backItem = UIBarButtonItem()
-            backItem.title = "Back"
             navigationItem.backBarButtonItem = backItem
         } else if segue.destination is LoginController {
             _ = segue.destination as? LoginController
             
+            navigationItem.backBarButtonItem = backItem
         }
     }
     
@@ -130,17 +133,17 @@ class ViewItemController: UIViewController {
             self.present(alert, animated: true)
             
         } else {
-            
-            let status = FavoritesService.shared.isFavoriteShopItem(shopitem_id: item.id!) == 0 ? 1 : 0
-            ShopItemService.shared.loveOne(shopItemId: item.id!, status: status) { data in
+            FavoritesService.shared.loveOne(shopItemId: item.id!) { data in
                 guard let data = data else {return }
+                var loveIconName = ""
                 
-                // if favorite item not already to save in array favorites
-                if !FavoritesService.shared.updateFavoriteItem(shopitem_id: data.shopitem_id!, status: data.status!) {
-                    FavoritesService.shared.addNewFavorite(fa: data)
+                if data.status! == 0 {
+                    self.numberFavorites.text = String(Int(self.numberFavorites.text!)! - 1)
+                    loveIconName = "unlove"
+                } else {
+                    self.numberFavorites.text = String(Int(self.numberFavorites.text!)! + 1)
+                    loveIconName = "loved"
                 }
-                
-                let loveIconName = data.status == 0 ? "unlove" : "loved"
                 self.loveBtn.setImage(UIImage(named: loveIconName), for: .normal)
             }
         }
@@ -183,6 +186,7 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
                 cell.itemPhotos.addTarget(self, action: #selector(photoPressedFunction), for: UIControl.Event.touchDown)
                 cell.loveBtn.addTarget(self, action: #selector(lovePressedFunction), for: UIControl.Event.touchDown)
                 loveBtn = cell.loveBtn
+                numberFavorites = cell.itemFavorites
                 
                 cell.updateView(item: item)
                 cell.selectionStyle = UITableViewCell.SelectionStyle.none;

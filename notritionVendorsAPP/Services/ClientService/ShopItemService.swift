@@ -67,24 +67,6 @@ class ShopItemService {
         }
     }
     
-    func loveOne(shopItemId: Int, status: Int, completion: @escaping (FavoritesResponse?) -> Void) {
-        let urlStr = BASE_URL + ShopItemAPI.loveOne.rawValue + "/" + String(shopItemId) + "/" + String(status)
-
-        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
-
-            guard let data = data else {return}
-            do {
-
-                let favorite = try JSONDecoder().decode(FavoritesResponse.self, from: data)
-
-                DispatchQueue.main.async {
-                    completion(favorite)
-                }
-            } catch let jsonError {
-                print("Error serializing json:", jsonError)
-            }
-        }
-    }
 
     func findAllLoved(completion: @escaping ([ShopItemResponse]?) -> Void) {
         let urlStr = BASE_URL + ShopItemAPI.getAllLoved.rawValue

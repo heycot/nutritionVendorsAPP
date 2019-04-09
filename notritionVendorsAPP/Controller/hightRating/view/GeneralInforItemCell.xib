@@ -155,9 +155,9 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vFG-dw-pvR">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vFG-dw-pvR" customClass="CustomButton" customModule="notritionVendorsAPP" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="10" width="50.5" height="24"/>
-                                        <state key="normal" title="Button" image="loved"/>
+                                        <state key="normal" title="Button" image="unlove"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQ4-Ny-ae0">
                                         <rect key="frame" x="0.0" y="34" width="50" height="10"/>
@@ -206,6 +206,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="loved" width="24" height="24"/>
+        <image name="unlove" width="24" height="24"/>
     </resources>
 </document>
