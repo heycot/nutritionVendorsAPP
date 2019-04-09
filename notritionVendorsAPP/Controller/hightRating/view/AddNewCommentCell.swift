@@ -27,6 +27,10 @@ class AddNewCommentCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        
+        if validateInput() {
+            addNewComment()
+        }
 
     }
     
@@ -75,6 +79,18 @@ class AddNewCommentCell: UITableViewCell {
     }
     
     func addNewComment() {
+        var comment = Comment()
+        
+        comment.id = 0
+        comment.content = content.text
+        comment.title = title.text!
+        comment.rating = rating.rating
+        comment.user_id = 0
+        comment.shopItem_id = 0
+        comment.status = 1
+        comment.create_date = Date()
+        
+        
         
     }
     

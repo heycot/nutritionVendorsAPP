@@ -34,6 +34,7 @@
 		2320C6F22251C7C700A2C328 /* DetailPhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2320C6F12251C7C700A2C328 /* DetailPhotoController.swift */; };
 		2320C6F42251C8AD00A2C328 /* DetailPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2320C6F32251C8AD00A2C328 /* DetailPhotoCell.swift */; };
 		2323C8B2223F5B8B00DA68CA /* ViewLocationShopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2323C8B1223F5B8B00DA68CA /* ViewLocationShopController.swift */; };
+		232900D2225C7124009D7DD1 /* CommentServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232900D1225C7124009D7DD1 /* CommentServices.swift */; };
 		23351DC4222539BF003944E2 /* ExtensionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23351DC3222539BF003944E2 /* ExtensionButton.swift */; };
 		233B390822375463003EB253 /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233B390722375463003EB253 /* AuthServices.swift */; };
 		233B390B223755FD003EB253 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233B390A223755FD003EB253 /* Constant.swift */; };
@@ -112,6 +113,7 @@
 		2320C6F12251C7C700A2C328 /* DetailPhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPhotoController.swift; sourceTree = "<group>"; };
 		2320C6F32251C8AD00A2C328 /* DetailPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPhotoCell.swift; sourceTree = "<group>"; };
 		2323C8B1223F5B8B00DA68CA /* ViewLocationShopController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLocationShopController.swift; sourceTree = "<group>"; };
+		232900D1225C7124009D7DD1 /* CommentServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentServices.swift; sourceTree = "<group>"; };
 		23351DC3222539BF003944E2 /* ExtensionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionButton.swift; sourceTree = "<group>"; };
 		233B390722375463003EB253 /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
 		233B390A223755FD003EB253 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -438,6 +440,7 @@
 				235A49EA2248B1DA0034A944 /* ImageService.swift */,
 				23614F1022560F7E00B5DD81 /* FavoritesService.swift */,
 				2381B645225B0185004DAA64 /* CategoryServices.swift */,
+				232900D1225C7124009D7DD1 /* CommentServices.swift */,
 			);
 			path = ClientService;
 			sourceTree = "<group>";
@@ -628,6 +631,7 @@
 				231AE468222E2EDF0082C06E /* GeneralValueItem.swift in Sources */,
 				23A31BBA2240948F00FE2D69 /* NetworkingClient.swift in Sources */,
 				233B390B223755FD003EB253 /* Constant.swift in Sources */,
+				232900D2225C7124009D7DD1 /* CommentServices.swift in Sources */,
 				235A32BF2225301E00DE5B0E /* ChangePasswordController.swift in Sources */,
 				230E2DE622266AEF00246392 /* ShopItem.swift in Sources */,
 				236A32B72258944500AA2410 /* FavoritesViewController.swift in Sources */,
