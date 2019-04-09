@@ -9,19 +9,6 @@
 import UIKit
 import Photos
 
-extension UIImageView {
-    func load(url: URL) {
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self?.image = image
-                    }
-                }
-            }
-        }
-    }
-}
 
 extension UIImageView {
     
@@ -55,7 +42,7 @@ extension UIImageView {
         self.layer.cornerRadius = (self.frame.size.width / 2) //instead of let radius = CGRectGetWidth(self.frame) / 2
         self.layer.masksToBounds = true
         self.clipsToBounds = true
-        self.layer.borderWidth = 3.0
+        self.layer.borderWidth = 1.0
         self.layer.borderColor = color.cgColor
     }
     

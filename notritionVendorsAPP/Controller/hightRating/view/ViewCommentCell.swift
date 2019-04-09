@@ -31,21 +31,21 @@ class ViewCommentCell: UITableViewCell {
     
     func updateView(comment: CommentResponse) {
         
-        customUI()
-        
         userImage.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + comment.user!.avatar!)
         userName.text = comment.user?.user_name
         cmtDate.text = NSObject().convertToString(date: comment.create_date ?? Date() , dateformat: DateFormatType.date)
         cmtRating.rating = comment.rating!
         cmtTitle.text = comment.title
         cmtContent.text = comment.content
+        
+        customUI()
     }
     
     func customUI() {
         cmtRating.settings.updateOnTouch = false
         cmtRating.settings.fillMode = .precise
         
-        userImage.setBorder(with: .white)
+        userImage.setRounded(color: APP_COLOR)
         userName.setboldSystemFontOfSize(size: 17)
         cmtTitle.setboldSystemFontOfSize(size: 14)
     }
