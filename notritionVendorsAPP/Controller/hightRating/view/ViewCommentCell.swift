@@ -45,7 +45,7 @@ class ViewCommentCell: UITableViewCell {
         cmtRating.settings.updateOnTouch = false
         cmtRating.settings.fillMode = .precise
         
-        userImage.setRounded(color: APP_COLOR)
+        userImage.setRounded(color: .white)
         userName.setboldSystemFontOfSize(size: 17)
         cmtTitle.setboldSystemFontOfSize(size: 14)
     }

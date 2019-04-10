@@ -40,6 +40,10 @@ enum FavoritesAPI: String {
     case checkStatus = "favorites/check"
 }
 
+enum CommentAPI: String {
+    case addNew = "comment/add"
+}
+
 enum CategoryAPI: String {
     case findAll = "category"
 }

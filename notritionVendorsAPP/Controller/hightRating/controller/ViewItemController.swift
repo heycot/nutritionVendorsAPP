@@ -210,6 +210,8 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
             
             default:
                 let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.newComment.rawValue, for: indexPath) as! AddNewCommentCell
+                cell.selectionStyle = UITableViewCell.SelectionStyle.blue
+                cell.shopitemId = item.id!
                 return cell
         }
         

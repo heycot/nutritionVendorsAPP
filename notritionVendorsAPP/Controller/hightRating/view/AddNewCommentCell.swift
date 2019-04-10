@@ -17,6 +17,7 @@ class AddNewCommentCell: UITableViewCell {
     @IBOutlet weak var title: UITextField!
     @IBOutlet weak var content: UITextView!
     
+    var shopitemId = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,10 +29,10 @@ class AddNewCommentCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
-        if validateInput() {
-            addNewComment()
-        }
-
+    }
+    
+    func saveItemId(id: Int ) {
+        shopitemId = id
     }
     
     func setUpUI() {
@@ -50,7 +51,32 @@ class AddNewCommentCell: UITableViewCell {
         IQKeyboardManager.shared.toolbarDoneBarButtonItemText = "Send"
         IQKeyboardManager.shared.shouldResignOnTouchOutside = false
         IQKeyboardManager.shared.shouldPlayInputClicks = false // set to true by default
-        
+    }
+    
+    
+    @objc func didPressOnDoneButton() {
+        if validateInput() {
+            let comment = Comment()
+            
+            comment.id = 0
+            comment.content = content.text
+            comment.title = title.text!
+            comment.rating = rating.rating
+            comment.user_id = 0
+            comment.shopItem_id = shopitemId
+            comment.status = 1
+            comment.create_date = Date()
+            
+            CommentServices.shared.addNewComment(comment: comment) { (data) in
+                guard let data = data else { return }
+                
+                if data.id != nil {
+                    
+                } else {
+                    
+                }
+            }
+        }
     }
     
     func validateInput() -> Bool {
@@ -78,36 +104,33 @@ class AddNewCommentCell: UITableViewCell {
         alert.present(alert, animated: true, completion: nil)
     }
     
-    func addNewComment() {
-        var comment = Comment()
-        
-        comment.id = 0
-        comment.content = content.text
-        comment.title = title.text!
-        comment.rating = rating.rating
-        comment.user_id = 0
-        comment.shopItem_id = 0
-        comment.status = 1
-        comment.create_date = Date()
-        
-        
-        
+}
+
+extension AddNewCommentCell: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        let invocation = IQInvocation(self, #selector(didPressOnDoneButton))
+        textField.keyboardToolbar.doneBarButton.invocation = invocation
     }
-    
-    
 }
 
 
-
 extension AddNewCommentCell: UITextViewDelegate {
-    func textViewDidBeginEditing(_ textView: UITextView) {
+    
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         if textView.text.isEmpty {
-            textView.text = "Enter description"
-            textView.textColor = UIColor.lightGray
-            textView.layer.backgroundColor = UIColor.lightGray.cgColor
-            textView.layer.borderColor = UIColor(red: CGFloat(237.0/255.0), green: CGFloat(237.0/255.0), blue: CGFloat(237.0/255.0), alpha: CGFloat(1.0)).cgColor
-            textView.layer.borderWidth = 1.0
+            textView.text = "Enter content"
+            textView.textColor = .lightGray
+        } else {
+            textView.text = ""
+            textView.textColor = .black
         }
+        
+        return true
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        let invocation = IQInvocation(self, #selector(didPressOnDoneButton))
+        textView.keyboardToolbar.doneBarButton.invocation = invocation
     }
     
     func textViewDidChange(_ textView: UITextView) {
@@ -117,19 +140,6 @@ extension AddNewCommentCell: UITextViewDelegate {
         }
     }
     
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if validateInput() {
-            addNewComment()
-        }
-    }
     
 }
 
-extension AddNewCommentCell: UITextFieldDelegate {
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if validateInput() {
-            addNewComment()
-        }
-    }
-}
