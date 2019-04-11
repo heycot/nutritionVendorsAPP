@@ -130,6 +130,15 @@ class HightRatingController: UIViewController {
             vc?.item = currentListItem[index]
         }
     }
+    
+    func checkItemInArray(array: [ShopItemResponse], item: ShopItemResponse) -> Bool {
+        for arr in array {
+            if item.id! == arr.id! {
+                return true
+            }
+        }
+        return false
+    }
 }
 
 extension HightRatingController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -243,10 +252,20 @@ extension HightRatingController: UISearchBarDelegate {
             return
         }
         
-        
         currentListItem = listItem.filter({ (item) -> Bool in
             item.name!.folding(options: .diacriticInsensitive, locale: .current).lowercased().contains(searchText.folding(options: .diacriticInsensitive, locale: .current).lowercased())
         })
+        
+        let filterShopName = listItem.filter({ (item) -> Bool in
+            item.shop_name!.folding(options: .diacriticInsensitive, locale: .current).lowercased().contains(searchText.folding(options: .diacriticInsensitive, locale: .current).lowercased())
+        })
+        
+        for item in filterShopName {
+            if !self.checkItemInArray(array: currentListItem, item: item) {
+                currentListItem.append(item)
+            }
+        }
+        
         itemCollection.reloadData()
     }
     
