@@ -107,7 +107,7 @@ class FavoritesViewController: UIViewController {
         if segue.destination is ViewItemController {
             let vc = segue.destination as? ViewItemController
             let index = sender as! Int
-            vc?.item = listItem[index]
+            vc?.item = currentListItem[index]
             
         }  else if segue.destination is LoginController {
             _ = segue.destination as? LoginController
@@ -131,6 +131,15 @@ class FavoritesViewController: UIViewController {
         MBProgressHUD.hide(for: self.view, animated: true);
     }
 
+    
+    func checkItemInArray(array: [ShopItemResponse], item: ShopItemResponse) -> Bool {
+        for arr in array {
+            if item.id! == arr.id! {
+                return true
+            }
+        }
+        return false
+    }
 }
 
 // handle UISearchBar
@@ -154,6 +163,17 @@ extension FavoritesViewController: UISearchBarDelegate {
         currentListItem = listItem.filter({ (item) -> Bool in
             item.name!.folding(options: .diacriticInsensitive, locale: .current).lowercased().contains(searchText.folding(options: .diacriticInsensitive, locale: .current).lowercased())
         })
+        
+        let filterShopName = listItem.filter({ (item) -> Bool in
+            item.shop_name!.folding(options: .diacriticInsensitive, locale: .current).lowercased().contains(searchText.folding(options: .diacriticInsensitive, locale: .current).lowercased())
+        })
+        
+        for item in filterShopName {
+            if !self.checkItemInArray(array: currentListItem, item: item) {
+                currentListItem.append(item)
+            }
+        }
+        
         tableView.reloadData()
     }
     
@@ -166,20 +186,20 @@ extension FavoritesViewController: UISearchBarDelegate {
 
 extension FavoritesViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listItem.count
+        return currentListItem.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.favoritesItem.rawValue) as! FavoritesCell
         
-        cell.updateView(item: listItem[indexPath.row])
+        cell.updateView(item: currentListItem[indexPath.row])
         
         return cell
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.viewDidLoad()
-        loadDataFromAPI(offset: listItem.count, isLoadMore: false)
+        loadDataFromAPI(offset: currentListItem.count, isLoadMore: false)
         super.viewWillAppear(true)
         tableView.reloadData()
     }
