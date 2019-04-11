@@ -13,7 +13,7 @@ target 'notritionVendorsAPP' do
     pod 'SwiftyJSON'
     pod 'Socket.IO-Client-Swift'
     pod 'IQKeyboardManagerSwift'
-    pod "ESPullToRefresh"
+    pod 'ESPullToRefresh'
     pod 'GoogleMaps' 
     pod 'GooglePlaces'
     pod 'PinterestLayout'

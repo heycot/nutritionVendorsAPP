@@ -10,9 +10,8 @@ import Foundation
 
 public class User: NSObject, NSCoding{
     
-    
     var id: Int!
-    var user_name: String!
+    var name: String!
     var email: String!
     var phone: String!
     var password: String!
@@ -24,9 +23,9 @@ public class User: NSObject, NSCoding{
     var token: String!
     
     
-    init(id: Int, user_name: String, email: String, phone: String, password: String, birthday: Date, avatar: String, address: String, create_date: Date, status: Int, token: String) {
+    init(id: Int, name: String, email: String, phone: String, password: String, birthday: Date, avatar: String, address: String, create_date: Date, status: Int, token: String) {
         self.id = id
-        self.user_name = user_name
+        self.name = name
         self.email = email
         self.phone = phone
         self.password = password
@@ -39,13 +38,13 @@ public class User: NSObject, NSCoding{
     }
     
     convenience override init() {
-        self.init(id: 0, user_name: "", email: "", phone: "", password: "", birthday: Date(), avatar: "", address: "", create_date: Date(), status: 0, token: "")
+        self.init(id: 0, name: "", email: "", phone: "", password: "", birthday: Date(), avatar: "", address: "", create_date: Date(), status: 0, token: "")
     }
 
     required convenience public init(coder decoder: NSCoder) {
         self.init()
         self.id = decoder.decodeObject(forKey: "id") as? Int
-        self.user_name = decoder.decodeObject(forKey: "user_name") as? String
+        self.name = decoder.decodeObject(forKey: "name") as? String
         self.email = decoder.decodeObject(forKey: "email") as? String
         self.phone = decoder.decodeObject(forKey: "phone") as? String
         self.password = decoder.decodeObject(forKey: "password") as? String
@@ -59,7 +58,7 @@ public class User: NSObject, NSCoding{
     
     public func encode(with coder: NSCoder) {
         if let id = id { coder.encode(id, forKey: "id") }
-        if let user_name = user_name { coder.encode(user_name, forKey: "user_name") }
+        if let name = name { coder.encode(name, forKey: "name") }
         if let email = email { coder.encode(email, forKey: "email") }
         if let phone = phone { coder.encode(phone, forKey: "phone") }
         if let password = password { coder.encode(password, forKey: "password") }
@@ -69,7 +68,6 @@ public class User: NSObject, NSCoding{
         if let create_date = create_date { coder.encode(create_date, forKey: "create_date") }
         if let status = status { coder.encode(status, forKey: "status") }
         if let token = token { coder.encode(token, forKey: "token") }
-        
     }
     
 }

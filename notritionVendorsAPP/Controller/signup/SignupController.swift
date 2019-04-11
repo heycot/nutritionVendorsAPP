@@ -13,9 +13,10 @@ class SignupController: UIViewController {
 
     // Outlets
     @IBOutlet weak var avatarImage: UIImageView!
-    @IBOutlet weak var userNameTxt: UITextField!
+    @IBOutlet weak var nameTxt: UITextField!
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var passTxt: UITextField!
+    @IBOutlet weak var confirmPassTXT: UITextField!
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var notification : UILabel!
@@ -35,7 +36,7 @@ class SignupController: UIViewController {
     func setUpUI() {
         spinner.isHidden = true
         avatarImage.setRounded(color: .white)
-        userNameTxt.setBottomBorder(color: APP_COLOR)
+        nameTxt.setBottomBorder(color: APP_COLOR)
         emailTxt.setBottomBorder(color: APP_COLOR)
         passTxt.setBottomBorder(color: APP_COLOR)
     }
@@ -76,7 +77,7 @@ class SignupController: UIViewController {
     }
     
     func checkInputData() -> Bool {
-        guard let username = userNameTxt.text, userNameTxt.text!.isValidUserName() else{
+        guard let name = nameTxt.text, nameTxt.text!.isValidUserName() else{
             notification.text = Notification.username.title.rawValue
             detailNotifi.text = Notification.username.detail.rawValue
             return false
@@ -94,7 +95,7 @@ class SignupController: UIViewController {
             return false
         }
         
-        self.user?.user_name = username
+        self.user?.name = name
         self.user?.email = email
         self.user?.password = password
         return true

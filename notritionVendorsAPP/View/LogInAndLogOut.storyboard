@@ -126,7 +126,7 @@
                                 <color key="color" red="0.1137254902" green="0.47843137250000001" blue="0.5450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aN4-10-5qd">
-                                <rect key="frame" x="10" y="74" width="355" height="385"/>
+                                <rect key="frame" x="10" y="74" width="355" height="440"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="za5-KO-f4m">
                                         <rect key="frame" x="0.0" y="0.0" width="355" height="180"/>
@@ -176,9 +176,9 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="NoM-lx-tXw">
-                                        <rect key="frame" x="0.0" y="235" width="355" height="150"/>
+                                        <rect key="frame" x="0.0" y="235" width="355" height="205"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NOP-YD-57G">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NOP-YD-57G">
                                                 <rect key="frame" x="25" y="0.0" width="305" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="I6n-3C-ha1"/>
@@ -202,8 +202,16 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uVv-Lk-JbS">
+                                                <rect key="frame" x="25" y="165" width="305" height="40"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="uVv-Lk-JbS" firstAttribute="width" secondItem="uRT-jI-rhM" secondAttribute="width" id="1Ez-IM-H0h"/>
+                                            <constraint firstItem="uVv-Lk-JbS" firstAttribute="height" secondItem="uRT-jI-rhM" secondAttribute="height" id="74q-Ol-QaJ"/>
                                             <constraint firstItem="uRT-jI-rhM" firstAttribute="width" secondItem="NOP-YD-57G" secondAttribute="width" id="Aqx-cY-DN1"/>
                                             <constraint firstItem="JWk-rj-eoQ" firstAttribute="width" secondItem="NOP-YD-57G" secondAttribute="width" id="Bgd-3L-JBh"/>
                                             <constraint firstItem="NOP-YD-57G" firstAttribute="width" secondItem="NoM-lx-tXw" secondAttribute="width" constant="-50" id="GuI-jA-BOO"/>
@@ -239,12 +247,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="avatarImage" destination="PXg-Hz-uLj" id="q8u-sM-UhK"/>
+                        <outlet property="confirmPassTXT" destination="uVv-Lk-JbS" id="1fu-7n-pqk"/>
                         <outlet property="detailNotifi" destination="Z84-V8-ncW" id="UXJ-Th-6eY"/>
                         <outlet property="emailTxt" destination="JWk-rj-eoQ" id="ilZ-oQ-UYg"/>
+                        <outlet property="nameTxt" destination="NOP-YD-57G" id="yxL-ki-vEt"/>
                         <outlet property="notification" destination="0gE-09-5nf" id="r2O-Ge-yEa"/>
                         <outlet property="passTxt" destination="uRT-jI-rhM" id="WSW-kq-LIh"/>
                         <outlet property="spinner" destination="1d7-Ub-CJ1" id="ylm-m9-yGF"/>
-                        <outlet property="userNameTxt" destination="NOP-YD-57G" id="mg9-Sc-iQL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tA6-a8-wWg" userLabel="First Responder" sceneMemberID="firstResponder"/>

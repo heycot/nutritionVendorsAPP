@@ -51,7 +51,7 @@ class AuthServices {
         let urlStr = BASE_URL + UserAPI.register.rawValue
         
         let body = ["id": 0,
-                    "user_name": user.user_name,
+                    "user_name": user.name,
                     "email": user.email,
                     "phone": user.phone,
                     "password": user.password,

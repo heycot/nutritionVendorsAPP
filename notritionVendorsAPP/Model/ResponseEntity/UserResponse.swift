@@ -9,7 +9,7 @@
 import Foundation
 class UserResponse:Decodable {
     var id: Int?
-    var user_name: String?
+    var name: String?
     var email: String?
     var phone: String?
     var password: String?
@@ -24,9 +24,9 @@ class UserResponse:Decodable {
     var favorites: [FavoritesResponse]?
     
     
-    init(id: Int, user_name: String, email: String, phone: String, password: String, birthday: Date, avatar: String, address: String, create_date: Date, status: Int, token: String, shops: [ShopResponse], comments: [CommentResponse], favorites: [FavoritesResponse]) {
+    init(id: Int, name: String, email: String, phone: String, password: String, birthday: Date, avatar: String, address: String, create_date: Date, status: Int, token: String, shops: [ShopResponse], comments: [CommentResponse], favorites: [FavoritesResponse]) {
         self.id = id
-        self.user_name = user_name
+        self.name = name
         self.email = email
         self.phone = phone
         self.password = password
@@ -42,6 +42,6 @@ class UserResponse:Decodable {
     }
     
     convenience init() {
-        self.init(id: 0, user_name: "", email: "", phone: "", password: "", birthday: Date(), avatar: "", address: "", create_date: Date(), status: 0, token: "", shops: [], comments: [], favorites: [])
+        self.init(id: 0, name: "", email: "", phone: "", password: "", birthday: Date(), avatar: "", address: "", create_date: Date(), status: 0, token: "", shops: [], comments: [], favorites: [])
     }
 }
