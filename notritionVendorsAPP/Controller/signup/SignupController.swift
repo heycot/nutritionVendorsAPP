@@ -39,6 +39,7 @@ class SignupController: UIViewController {
         nameTxt.setBottomBorder(color: APP_COLOR)
         emailTxt.setBottomBorder(color: APP_COLOR)
         passTxt.setBottomBorder(color: APP_COLOR)
+        confirmPassTXT.setBottomBorder(color: APP_COLOR)
     }
     
     @IBAction func donePressed(_ sender: Any) {
@@ -92,6 +93,12 @@ class SignupController: UIViewController {
         guard let password = passTxt.text, passTxt.text!.isValidPassword() else {
             notification.text = Notification.password.title.rawValue
             detailNotifi.text = Notification.password.detail.rawValue
+            return false
+        }
+        
+        guard  let _ = confirmPassTXT.text, confirmPassTXT.text!.isValidPassword(), confirmPassTXT.text! == password else {
+            notification.text = Notification.confirmPass.title.rawValue
+            detailNotifi.text = Notification.confirmPass.detail.rawValue
             return false
         }
         
