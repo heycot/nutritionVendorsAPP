@@ -40,6 +40,10 @@ class SignupController: UIViewController {
         emailTxt.setBottomBorder(color: APP_COLOR)
         passTxt.setBottomBorder(color: APP_COLOR)
         confirmPassTXT.setBottomBorder(color: APP_COLOR)
+        
+        passTxt.delegate = self
+        confirmPassTXT.delegate = self
+        
     }
     
     @IBAction func donePressed(_ sender: Any) {
@@ -152,6 +156,7 @@ extension SignupController : UITextFieldDelegate {
         print("edit text")
         return true
     }
+    
 }
 
 extension SignupController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
