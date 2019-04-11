@@ -29,7 +29,7 @@ class SignupController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         user = User()
-        user?.avatar = "logo"
+        user?.avatar = "logo.jpg"
         setUpUI()
     }
     
