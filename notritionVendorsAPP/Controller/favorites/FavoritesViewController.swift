@@ -27,6 +27,8 @@ class FavoritesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
+        createSearchBar()
         
         if !AuthServices.instance.isLoggedIn {
             let alert = UIAlertController(title: Notification.notLogedIn.rawValue, message: "", preferredStyle: .alert)
@@ -34,15 +36,14 @@ class FavoritesViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
                 self.performSegueFunc(identifier: SegueIdentifier.favoritesToLogIn.rawValue, sender: nil)
             }))
-            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { action in
+                self.resultSearchNotification.text = Notification.notLogedIn.rawValue
+            }))
             self.present(alert, animated: true)
             
-            resultSearchNotification.text = Notification.notLogedIn.rawValue
             tableView.tableFooterView = UIView()
         } else {
-            setupView()
-            createSearchBar()
-            loadDataFromAPI(offset: 0)
+            loadDataFromAPI(offset: 0, isLoadMore: false)
         }
     }
     
@@ -66,21 +67,35 @@ class FavoritesViewController: UIViewController {
         self.navigationItem.titleView = searchBar
     }
     
-    func loadDataFromAPI(offset: Int) {
+    func loadDataFromAPI(offset: Int, isLoadMore: Bool) {
         
-//        ShopItemService.shared.findAllLoved() { data in
-//            guard let data = data else {return }
-//            
-//            self.listItem = data
-//            self.currentListItem = self.listItem
-//            self.resultSearchNotification.isHidden = true
-//            self.tableView.reloadData()
-//        }
+        ShopItemService.shared.findAllLoved(offset: offset) { data in
+            guard let data = data else {return }
+            
+            // check listitem is already have
+            if data.count == 0, self.listItem.count == 0{
+                self.resultSearchNotification.isHidden = false
+                self.resultSearchNotification.text = Notification.notHaveAnyFavorite.rawValue
+            } else {
+                //if load more data => add to listItem else replace listItem
+                if isLoadMore {
+                    for i in 0 ..< data.count {
+                        self.listItem.append(data[i])
+                    }
+                } else {
+                    self.listItem = data
+                }
+                
+                self.resultSearchNotification.isHidden = true
+            }
+            self.currentListItem = self.listItem
+            self.tableView.reloadData()
+        }
     }
     
     @objc
     func loadMoreData() {
-//        loadDataFromAPI(offset: listItem.count)
+        loadDataFromAPI(offset: listItem.count, isLoadMore: true)
         refresher.endRefreshing()
     }
     
@@ -163,7 +178,10 @@ extension FavoritesViewController : UITableViewDataSource {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        loadDataFromAPI(offset: 0)
+        self.viewDidLoad()
+        loadDataFromAPI(offset: listItem.count, isLoadMore: false)
+        super.viewWillAppear(true)
+        tableView.reloadData()
     }
 }
 

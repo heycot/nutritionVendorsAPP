@@ -30,7 +30,7 @@ enum ShopItemAPI: String {
     case getHighRating = "shop-item/high-rating/offset"
     case getOneById = "shop-item"
     case searchOne = "shop-item/search"
-    case getAllLoved = "shop-item/love/offset"
+    case getAllLoved = "shop-item/love"
     case findByCategory = "shop-item/category"
 }
 

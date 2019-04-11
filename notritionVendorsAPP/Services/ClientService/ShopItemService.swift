@@ -68,8 +68,8 @@ class ShopItemService {
     }
     
 
-    func findAllLoved(completion: @escaping ([ShopItemResponse]?) -> Void) {
-        let urlStr = BASE_URL + ShopItemAPI.getAllLoved.rawValue
+    func findAllLoved(offset: Int, completion: @escaping ([ShopItemResponse]?) -> Void) {
+        let urlStr = BASE_URL + ShopItemAPI.getAllLoved.rawValue + "/" + String(offset)
 
         NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
             guard let data = data else {return}

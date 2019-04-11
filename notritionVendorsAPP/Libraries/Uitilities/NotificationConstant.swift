@@ -10,6 +10,9 @@ import Foundation
 
 
 enum Notification : String {
+    
+    case notHaveAnyFavorite = "No favorite food"
+    
     case noSearchResult = ""
     
     case notLogedIn = "Please login to use this task."
