@@ -30,7 +30,7 @@
 		231AE466222E2D4E0082C06E /* ExtensionUITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231AE465222E2D4E0082C06E /* ExtensionUITextView.swift */; };
 		231AE468222E2EDF0082C06E /* GeneralValueItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231AE467222E2EDF0082C06E /* GeneralValueItem.swift */; };
 		231AE46A222E589F0082C06E /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231AE469222E589F0082C06E /* Icon.swift */; };
-		231AF5CC225F2BE50057DD11 /* NewestShopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231AF5CB225F2BE50057DD11 /* NewestShopController.swift */; };
+		231AF5CC225F2BE50057DD11 /* ShopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231AF5CB225F2BE50057DD11 /* ShopController.swift */; };
 		231AF5CE225F45850057DD11 /* ShopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231AF5CD225F45850057DD11 /* ShopCell.swift */; };
 		231AF5D0225F4EA10057DD11 /* ShopServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231AF5CF225F4EA10057DD11 /* ShopServices.swift */; };
 		231C5B6F224DCE5A00161534 /* PhotoItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231C5B6E224DCE5A00161534 /* PhotoItemController.swift */; };
@@ -112,7 +112,7 @@
 		231AE465222E2D4E0082C06E /* ExtensionUITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUITextView.swift; sourceTree = "<group>"; };
 		231AE467222E2EDF0082C06E /* GeneralValueItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralValueItem.swift; sourceTree = "<group>"; };
 		231AE469222E589F0082C06E /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
-		231AF5CB225F2BE50057DD11 /* NewestShopController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewestShopController.swift; sourceTree = "<group>"; };
+		231AF5CB225F2BE50057DD11 /* ShopController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopController.swift; sourceTree = "<group>"; };
 		231AF5CD225F45850057DD11 /* ShopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCell.swift; sourceTree = "<group>"; };
 		231AF5CF225F4EA10057DD11 /* ShopServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopServices.swift; sourceTree = "<group>"; };
 		231C5B6E224DCE5A00161534 /* PhotoItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoItemController.swift; sourceTree = "<group>"; };
@@ -289,7 +289,7 @@
 		231AF5CA225F2B8C0057DD11 /* shop */ = {
 			isa = PBXGroup;
 			children = (
-				231AF5CB225F2BE50057DD11 /* NewestShopController.swift */,
+				231AF5CB225F2BE50057DD11 /* ShopController.swift */,
 				231AF5CD225F45850057DD11 /* ShopCell.swift */,
 			);
 			path = shop;
@@ -657,7 +657,7 @@
 				23A31BB7224093F800FE2D69 /* ShopItemService.swift in Sources */,
 				231AE460222E28860082C06E /* DateTimeLibrary.swift in Sources */,
 				230E2DDA2226650700246392 /* Comment.swift in Sources */,
-				231AF5CC225F2BE50057DD11 /* NewestShopController.swift in Sources */,
+				231AF5CC225F2BE50057DD11 /* ShopController.swift in Sources */,
 				236A32BE2258A10C00AA2410 /* AlertController.swift in Sources */,
 				23614F1122560F7E00B5DD81 /* FavoritesService.swift in Sources */,
 				23EAA4452246621100A30E98 /* CommentResponse.swift in Sources */,

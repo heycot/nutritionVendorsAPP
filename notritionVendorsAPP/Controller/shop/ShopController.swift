@@ -31,6 +31,7 @@ class ShopController: UIViewController {
         
         setupView()
         createSearchBar()
+        loadDataFromAPI(offset: listItem.count, isLoadMore: true, isNewest: isNewest)
     }
     
     
@@ -54,16 +55,45 @@ class ShopController: UIViewController {
     
     @objc
     func loadMoreData() {
-        loadDataFromAPI(offset: listItem.count, isLoadMore: true)
+        loadDataFromAPI(offset: listItem.count, isLoadMore: true, isNewest: isNewest)
         refresher.endRefreshing()
     }
     
-    func loadDataFromAPI(offset: Int, isLoadMore: Bool) {
+    func loadDataFromAPI(offset: Int, isLoadMore: Bool, isNewest: Bool) {
         
-        ShopItemService.shared.findAllLoved(offset: offset) { data in
-            guard let data = data else {return }
+        if isNewest {
+            ShopServices.shared.getNewestShop(offset: offset) { data in
+                guard let data = data else {return }
+                
+                if isLoadMore {
+                    for shop in data {
+                        self.listItem.append(shop)
+                    }
+                } else {
+                    self.listItem = data
+                }
+                
+                self.currentList = self.listItem
+                self.tableView.reloadData()
+            }
+        } else {
+            let latitude = 0.0
+            let longitude = 0.0
             
-            self.tableView.reloadData()
+            ShopServices.shared.getNearestShop(latitude: latitude, longitude: longitude, offset: offset) { data in
+                guard let data = data else {return }
+                
+                if isLoadMore {
+                    for shop in data {
+                        self.listItem.append(shop)
+                    }
+                } else {
+                    self.listItem = data
+                }
+                
+                self.currentList = self.listItem
+                self.tableView.reloadData()
+            }
         }
     }
     
@@ -106,7 +136,7 @@ extension ShopController: UITableViewDataSource {
     
     override func viewWillAppear(_ animated: Bool) {
         self.viewDidLoad()
-        loadDataFromAPI(offset: currentList.count, isLoadMore: false)
+        loadDataFromAPI(offset: currentList.count, isLoadMore: false, isNewest: isNewest)
         super.viewWillAppear(true)
         tableView.reloadData()
     }
