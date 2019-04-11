@@ -48,6 +48,11 @@ enum CategoryAPI: String {
     case findAll = "category"
 }
 
+enum ShopAPI: String {
+    case newest = "/newest"
+    case nearest = "/nearest"
+}
+
 
 //user defaults
 let TOKEN_KEY = "token"
@@ -94,6 +99,7 @@ enum CellIdentifier: String {
     case category = "CategoryCellID"
     case highRatingItem = "ItemCell"
     case headerCollection = "HeaderCellID"
+    case shop = "ShopCell"
 }
 
 enum SegueIdentifier: String {
