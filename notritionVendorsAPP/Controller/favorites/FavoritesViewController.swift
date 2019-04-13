@@ -56,7 +56,7 @@ class FavoritesViewController: UIViewController {
         
         self.tableView.reloadData()
         tableView.estimatedRowHeight = UITableView.automaticDimension
-        tableView.rowHeight = 80
+        tableView.rowHeight = 100
     }
     
     func createSearchBar() {

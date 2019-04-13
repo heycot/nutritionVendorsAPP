@@ -128,6 +128,9 @@ class HightRatingController: UIViewController {
             let vc = segue.destination as? ViewItemController
             let index = sender as! Int
             vc?.item = currentListItem[index]
+        } else if segue.destination is SearchController {
+            let vc = segue.destination as? SearchController
+            vc?.listItem = currentListItem
         }
     }
     
@@ -219,59 +222,11 @@ extension HightRatingController: UICollectionViewDelegateFlowLayout {
 
 // handle UISearchBar
 extension HightRatingController: UISearchBarDelegate {
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        searchBar.endEditing(true)
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
+        performSegue(withIdentifier: SegueIdentifier.highRatingToSearch.rawValue, sender: nil)
     }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
-        activityIndicator.startAnimating()
-        ShopItemService.shared.searchItem(searchText: searchBar.text!.lowercased()) { data in
-            guard let data = data else {return }
-            
-            if data.count == 0 {
-                self.resultSearchNotification.textColor = APP_COLOR
-                self.resultSearchNotification.text = "There is no suitable food"
-                self.resultSearchNotification.isHidden = false
-                self.activityIndicator.stopAnimating()
-            } else {
-                self.currentListItem = data
-                self.activityIndicator.stopAnimating()
-                self.itemCollection.reloadData()
-            }
-            
-        }
-        searchBar.endEditing(true)
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        resultSearchNotification.isHidden = true
-        guard !(searchBar.text!.isEmpty) else {
-            currentListItem = listItem
-            itemCollection.reloadData()
-            return
-        }
-        
-        currentListItem = listItem.filter({ (item) -> Bool in
-            item.name!.folding(options: .diacriticInsensitive, locale: .current).lowercased().contains(searchText.folding(options: .diacriticInsensitive, locale: .current).lowercased())
-        })
-        
-        let filterShopName = listItem.filter({ (item) -> Bool in
-            item.shop_name!.folding(options: .diacriticInsensitive, locale: .current).lowercased().contains(searchText.folding(options: .diacriticInsensitive, locale: .current).lowercased())
-        })
-        
-        for item in filterShopName {
-            if !self.checkItemInArray(array: currentListItem, item: item) {
-                currentListItem.append(item)
-            }
-        }
-        
-        itemCollection.reloadData()
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        
-    }
 }
 
 

@@ -28,6 +28,7 @@ class NetworkingClient {
         
         let escapedString = urlStr.addingPercentEncoding(withAllowedCharacters:NSCharacterSet.urlQueryAllowed) ?? ""
         let url = URL(string: escapedString)
+        print(url)
         
         guard let urlRequest = url else { return }
         

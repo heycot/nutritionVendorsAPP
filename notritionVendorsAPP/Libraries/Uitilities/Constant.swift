@@ -13,10 +13,10 @@ typealias CompletionHander = (_ Success: Bool) -> ()
 
 // Base url
 //let BASE_URL        = "https://nutrition-vendors.herokuapp.com/api/"
-//let BASE_URL        = "http://192.168.21.59:3001/api/"
-//let BASE_URL_IMAGE  = "http://192.168.21.59:3001/images/"
-let BASE_URL          = "http://192.168.21.59:3000/api/"
-let BASE_URL_IMAGE    = "http://192.168.21.59:3000/images/"
+let BASE_URL        = "http://192.168.21.59:3001/api/"
+let BASE_URL_IMAGE  = "http://192.168.21.59:3001/images/"
+//let BASE_URL          = "http://192.168.21.59:3000/api/"
+//let BASE_URL_IMAGE    = "http://192.168.21.59:3000/images/"
 //let BASE_URL        = "http://192.168.137.1:3001/api/"
 //let BASE_URL_IMAGE  = "http://192.168.137.1:3001/images/"
 
@@ -100,6 +100,7 @@ enum CellIdentifier: String {
     case highRatingItem = "ItemCell"
     case headerCollection = "HeaderCellID"
     case shop = "ShopCell"
+    case searchCell = "SearchCell"
 }
 
 enum SegueIdentifier: String {
@@ -110,6 +111,7 @@ enum SegueIdentifier: String {
     case loginLogout = "LoginLogoutSegueID"
     case favoriteToDetail = "FavoritesToDetailSegue"
     case favoritesToLogIn = "FavoritesToLogInID"
+    case highRatingToSearch = "HighRatingSearch"
 }
 
 enum StoryboardID : String {
