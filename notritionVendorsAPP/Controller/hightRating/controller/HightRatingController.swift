@@ -45,7 +45,7 @@ class HightRatingController: UIViewController {
         activityIndicator.startAnimating()
         
         navigationController?.navigationBar.barTintColor = APP_COLOR
-        createSearchBar()
+//        createSearchBar()
         findAllCategory()
         loadDataFromAPI(offset: 0)
     }

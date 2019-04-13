@@ -510,6 +510,30 @@
             </objects>
             <point key="canvasLocation" x="538" y="1890"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="8I9-Vg-tx7">
+            <objects>
+                <viewController id="QtR-ru-mlt" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Uf4-1j-izM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search here" translatesAutoresizingMaskIntoConstraints="NO" id="RH4-uA-8aq">
+                                <rect key="frame" x="0.0" y="310" width="414" height="56"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="barTintColor" red="0.17254901959999999" green="0.65098039220000004" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" red="0.17254901959999999" green="0.65098039220000004" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="xhR-tM-TeL"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tu7-rG-yp7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1289" y="-17"/>
+        </scene>
         <!--Hight Rating Controller-->
         <scene sceneID="4hk-pc-KD4">
             <objects>
@@ -672,7 +696,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oKV-m5-Al9"/>
                     </view>
-                    <navigationItem key="navigationItem" id="V3d-CZ-Zsq"/>
+                    <navigationItem key="navigationItem" id="V3d-CZ-Zsq">
+                        <nil key="title"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" id="fMT-vC-Woh">
+                            <rect key="frame" x="12" y="0.0" width="390" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="20"/>
+                            <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="10"/>
+                            <inset key="imageEdgeInsets" minX="2" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" image="searchbar">
+                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                        </button>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="Gqf-hE-fIq" id="Xm2-ls-aqp"/>
                         <outlet property="itemCollection" destination="ZCj-kS-Tj0" id="nrH-uS-sUk"/>
@@ -1041,7 +1078,7 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.0" green="0.43529411764705883" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="0.11372549019607843" green="0.47843137254901957" blue="0.54509803921568623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.17254901959999999" green="0.65098039220000004" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="textShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1122,11 +1159,12 @@
         <image name="loved" width="24" height="24"/>
         <image name="man-user" width="24" height="24"/>
         <image name="nutrition_icon" width="460" height="460"/>
+        <image name="searchbar" width="379" height="41"/>
         <image name="store(1)" width="23" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Kqp-az-Zl9"/>
-        <segue reference="OHp-cf-VHK"/>
+        <segue reference="WYP-LC-rZ2"/>
+        <segue reference="er7-x8-644"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
