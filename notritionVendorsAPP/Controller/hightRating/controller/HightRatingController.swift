@@ -24,6 +24,7 @@ class HightRatingController: UIViewController {
     
     let headerId = "HeaderID"
     var categoryId = 0
+    private var lastContentOffset: CGFloat = 0
     
     let searchBar = UISearchBar()
     lazy var refresher: UIRefreshControl = {
@@ -120,6 +121,20 @@ class HightRatingController: UIViewController {
             
             self.activityIndicator.stopAnimating()
             self.itemCollection.reloadData()
+        }
+        
+        func scrollViewDidScroll(scrollView: UIScrollView!) {
+            if (self.lastContentOffset > scrollView.contentOffset.y) {
+                // move up
+            }
+            else if (self.lastContentOffset < scrollView.contentOffset.y) {
+                // move down
+                print("move down")
+                loadMoreData()
+            }
+            
+            // update the new position acquired
+            self.lastContentOffset = scrollView.contentOffset.y
         }
     }
 
@@ -222,8 +237,12 @@ extension HightRatingController: UICollectionViewDelegateFlowLayout {
 
 // handle UISearchBar
 extension HightRatingController: UISearchBarDelegate {
+    
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.endEditing(true)
+        return true
+    }
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        
         performSegue(withIdentifier: SegueIdentifier.highRatingToSearch.rawValue, sender: nil)
     }
     
