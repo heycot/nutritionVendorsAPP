@@ -121,10 +121,10 @@ extension SearchController: UISearchBarDelegate {
         searchBar.endEditing(true)
     }
     
-    // seach after 1.0s delay
+    // seach after 0.5s delay
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.search), object: nil)
-        self.perform(#selector(self.search), with: nil, afterDelay: 1.0)
+        self.perform(#selector(self.search), with: nil, afterDelay: 0.5)
     }
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         

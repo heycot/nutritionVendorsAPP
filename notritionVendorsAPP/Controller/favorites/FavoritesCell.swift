@@ -13,7 +13,8 @@ class FavoritesCell: UITableViewCell {
 
     @IBOutlet weak var itemImage: CustomImageView!
     @IBOutlet weak var itemName: UILabel!
-    @IBOutlet weak var shopName: UILabel!
+    @IBOutlet weak var address: UILabel!
+    @IBOutlet weak var distance: UILabel!
     @IBOutlet weak var rating: CosmosView!
     
     override func awakeFromNib() {
@@ -27,13 +28,9 @@ class FavoritesCell: UITableViewCell {
     
     func updateView(item: ShopItemResponse) {
         itemImage.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + item.avatar!)
-        itemName.text = item.name!
-        shopName.text = item.shop_name!
-        if item.comment_number! == 0 {
-            rating.rating = 0.0
-        } else {
-            rating.rating = item.rating!
-        }
+        itemName.text = item.name! + " - " + item.shop_name!
+        address.text = item.address!
+        rating.rating = item.rating!
         rating.text = "(" + String(item.comment_number!) + ")"
         
         setupView() 
