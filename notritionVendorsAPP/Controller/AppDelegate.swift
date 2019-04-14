@@ -21,6 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    private func setupNavigationBar() {
+        UINavigationBar.appearance().barTintColor = APP_COLOR
+        UINavigationBar.appearance().tintColor = .white
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        
+//        UIApplication.shared.statusBarStyle = .lightContent
+    }
+    
     private func splahScreen() {
         let lanuchScreenVC = UIStoryboard.init(name: "LaunchScreen", bundle: nil)
         

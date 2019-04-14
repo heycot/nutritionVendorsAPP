@@ -26,6 +26,9 @@ class ShopController: UIViewController {
         return refreshControl
     }()
     
+    @IBAction func searchBarPressed(_ sender: Any) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

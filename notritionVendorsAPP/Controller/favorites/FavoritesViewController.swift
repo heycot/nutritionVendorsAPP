@@ -47,6 +47,10 @@ class FavoritesViewController: UIViewController {
         }
     }
     
+    @IBAction func searchBarPressed(_ sender: Any) {
+        performSegueFunc(identifier: SegueIdentifier.favoritesToSearch.rawValue, sender: nil)
+    }
+    
     func setupView() {
         navigationController?.navigationBar.barTintColor = APP_COLOR
         
@@ -112,6 +116,9 @@ class FavoritesViewController: UIViewController {
         }  else if segue.destination is LoginController {
             _ = segue.destination as? LoginController
             
+        } else if segue.destination is SearchController {
+            let vc = segue.destination as? SearchController
+            vc?.listItem = currentListItem
         }
     }
     

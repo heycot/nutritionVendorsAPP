@@ -117,7 +117,7 @@ class ViewItemController: UIViewController {
     
     @objc func photoPressedFunction(textField: UITextField) {
         dismissKeyboard()
-        performSegueFunc(identifier: SegueIdentifier.photosItem.rawValue)
+        performSegueFunc(identifier: SegueIdentifier.detailFoodToPhoto.rawValue)
     }
     
     @objc func lovePressedFunction(btn: UIButton) {
@@ -127,7 +127,7 @@ class ViewItemController: UIViewController {
             let alert = UIAlertController(title: "Can not love", message: "Please sign in!", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
-                self.performSegueFunc(identifier: SegueIdentifier.loginLogout.rawValue)
+                self.performSegueFunc(identifier: SegueIdentifier.detailFoodToLogin.rawValue)
             }))
             alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
             self.present(alert, animated: true)
@@ -236,9 +236,9 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
             
             switch indexPath.row {
                 case 3:
-                    performSegueFunc(identifier: SegueIdentifier.photosItem.rawValue)
+                    performSegueFunc(identifier: SegueIdentifier.detailFoodToPhoto.rawValue)
                 case 4:
-                    performSegueFunc(identifier: SegueIdentifier.shopLocation.rawValue)
+                    performSegueFunc(identifier: SegueIdentifier.detailToLocation.rawValue)
                 default:
                     if true {
                         let phoneNumber = "033602512"

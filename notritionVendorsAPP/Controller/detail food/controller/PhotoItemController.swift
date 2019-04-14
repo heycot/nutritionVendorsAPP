@@ -95,7 +95,7 @@ extension PhotoItemController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         indexForShow = indexPath.row
-       performSegue(withIdentifier: SegueIdentifier.viewDetailPhoto.rawValue, sender: nil)
+       performSegue(withIdentifier: SegueIdentifier.photosToDetailPhoto.rawValue, sender: nil)
     }
 }
 

@@ -104,15 +104,28 @@ enum CellIdentifier: String {
 }
 
 enum SegueIdentifier: String {
+    //detail storyboard
     case detailItem = "ViewDetalFoodID"
-    case photosItem = "ViewPhotosItemID"
-    case shopLocation = "ShopLocationID"
-    case viewDetailPhoto = "ViewDetailPhoto"
-    case loginLogout = "LoginLogoutSegueID"
+    case detailFoodToPhoto = "DetailFoodToPhoto"
+    case photosToDetailPhoto = "PhotosToDetailPhoto"
+    case detailFoodToLogin = "DetailFoodToLogin"
+    case detailToLocation = "DetailToLocation"
+    case detailToComment = "DetailToComment"
+    
+    // hight rating
+    case haighRatingToCategory = "HaighRatingToCategory"
+    case categoryToDetail = "CategoryToDetail"
+    case highRatingToSearch = "HighRatingSearch"
+    
+    //search
+    case searchToDetaild = "SearchToDetaild"
+    
+    
+    // notification
+    case shopToSearch = "ShopSeachVC"
+    
     case favoriteToDetail = "FavoritesToDetailSegue"
     case favoritesToLogIn = "FavoritesToLogInID"
-    case highRatingToSearch = "HighRatingSearch"
-    case shopToSearch = "ShopSeachVC"
     case favoritesToSearch = "FavoritesSearchVC"
 }
 

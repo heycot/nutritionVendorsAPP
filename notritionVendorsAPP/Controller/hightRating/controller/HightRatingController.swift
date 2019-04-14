@@ -15,6 +15,7 @@ class HightRatingController: UIViewController {
     @IBOutlet weak var itemCollection: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var resultSearchNotification: UILabel!
+    @IBOutlet weak var searchBar: UIButton!
     
     
     // variables
@@ -26,7 +27,6 @@ class HightRatingController: UIViewController {
     var categoryId = 0
     private var lastContentOffset: CGFloat = 0
     
-    let searchBar = UISearchBar()
     lazy var refresher: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.tintColor = APP_COLOR
@@ -45,7 +45,6 @@ class HightRatingController: UIViewController {
         activityIndicator.startAnimating()
         
         navigationController?.navigationBar.barTintColor = APP_COLOR
-//        createSearchBar()
         findAllCategory()
         loadDataFromAPI(offset: 0)
     }
@@ -60,15 +59,6 @@ class HightRatingController: UIViewController {
         itemCollection.delegate = self
         itemCollection.dataSource = self
         itemCollection.bottomRefreshControl = refresher
-    }
-    
-    
-    func createSearchBar() {
-        searchBar.showsCancelButton = false
-        searchBar.placeholder = " Search here"
-        searchBar.delegate = self
-        
-        self.navigationItem.titleView = searchBar
     }
     
     func findAllCategory() {
@@ -157,6 +147,10 @@ class HightRatingController: UIViewController {
         }
         return false
     }
+    
+    @IBAction func searchBtnPressed(_ sender: Any) {
+        performSegue(withIdentifier: SegueIdentifier.highRatingToSearch.rawValue, sender: nil)
+    }
 }
 
 extension HightRatingController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -229,21 +223,6 @@ extension HightRatingController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: view.frame.width, height: 50)
-    }
-    
-}
-
-
-
-// handle UISearchBar
-extension HightRatingController: UISearchBarDelegate {
-    
-    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        searchBar.endEditing(true)
-        return true
-    }
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        performSegue(withIdentifier: SegueIdentifier.highRatingToSearch.rawValue, sender: nil)
     }
     
 }
