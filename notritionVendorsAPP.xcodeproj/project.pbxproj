@@ -44,6 +44,8 @@
 		233B390D22376476003EB253 /* StringLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233B390C22376476003EB253 /* StringLibrary.swift */; };
 		2352404922632E7F004B11CF /* CategoryUITableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2352404822632E7F004B11CF /* CategoryUITableCell.swift */; };
 		2352404B22632E99004B11CF /* CategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2352404A22632E99004B11CF /* CategoryController.swift */; };
+		2352404E22634E33004B11CF /* ActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2352404C22634E33004B11CF /* ActionCell.swift */; };
+		2352404F22634E33004B11CF /* ActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2352404D22634E33004B11CF /* ActionCell.xib */; };
 		2359CD6A225750A200C5D892 /* NotificationConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359CD69225750A200C5D892 /* NotificationConstant.swift */; };
 		235A32B02224E9F200DE5B0E /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32AF2224E9F200DE5B0E /* SignupController.swift */; };
 		235A32B22224EA0C00DE5B0E /* HightRatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32B12224EA0C00DE5B0E /* HightRatingController.swift */; };
@@ -134,6 +136,8 @@
 		2347EEBA224E160400EC3A24 /* notritionVendorsAPP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "notritionVendorsAPP-Bridging-Header.h"; sourceTree = "<group>"; };
 		2352404822632E7F004B11CF /* CategoryUITableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryUITableCell.swift; sourceTree = "<group>"; };
 		2352404A22632E99004B11CF /* CategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryController.swift; sourceTree = "<group>"; };
+		2352404C22634E33004B11CF /* ActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCell.swift; sourceTree = "<group>"; };
+		2352404D22634E33004B11CF /* ActionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionCell.xib; sourceTree = "<group>"; };
 		2359CD69225750A200C5D892 /* NotificationConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationConstant.swift; sourceTree = "<group>"; };
 		235A32AF2224E9F200DE5B0E /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
 		235A32B12224EA0C00DE5B0E /* HightRatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HightRatingController.swift; sourceTree = "<group>"; };
@@ -365,6 +369,8 @@
 				2300BE77222D34B2008E9101 /* GeneralValueCell.xib */,
 				2300BE7A222D3658008E9101 /* ViewCommentCell.swift */,
 				2300BE7B222D3658008E9101 /* ViewCommentCell.xib */,
+				2352404C22634E33004B11CF /* ActionCell.swift */,
+				2352404D22634E33004B11CF /* ActionCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -610,6 +616,7 @@
 				237DABF72262049C00FE57FB /* Search.storyboard in Resources */,
 				230E2DD22226431D00246392 /* LogInAndLogOut.storyboard in Resources */,
 				2300BE6C222D30B7008E9101 /* GeneralInforItemCell.xib in Resources */,
+				2352404F22634E33004B11CF /* ActionCell.xib in Resources */,
 				23D02E662223799300882742 /* Main.storyboard in Resources */,
 				2381B64A225B064F004DAA64 /* CategoryCell.xib in Resources */,
 				235B6685226308D900BBFAFC /* DetailFood.storyboard in Resources */,
@@ -746,6 +753,7 @@
 				23D02E632223799300882742 /* LoginController.swift in Sources */,
 				235A32B72224EB6400DE5B0E /* ExtensionStackView.swift in Sources */,
 				236A32B92258945F00AA2410 /* FavoritesCell.swift in Sources */,
+				2352404E22634E33004B11CF /* ActionCell.swift in Sources */,
 				230E2DE2222668C000246392 /* Item.swift in Sources */,
 				238792EE222D041B005E4E3E /* AddNewCommentCell.swift in Sources */,
 				23E6FD75224B5479001C72B2 /* ExtentionDouble.swift in Sources */,
