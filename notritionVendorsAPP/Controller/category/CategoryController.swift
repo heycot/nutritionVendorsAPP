@@ -45,14 +45,6 @@ class CategoryController: UIViewController {
         tableView.rowHeight = 100
     }
     
-    func createSearchBar() {
-        searchBar.showsCancelButton = false
-        searchBar.placeholder = " Search here"
-        searchBar.delegate = self
-        
-        self.navigationItem.titleView = searchBar
-    }
-    
     func loadDataFromAPI(offset: Int, isLoadMore: Bool) {
         
         ShopItemService.shared.findAllLoved(offset: offset) { data in
@@ -60,8 +52,8 @@ class CategoryController: UIViewController {
             
             // check listitem is already have
             if data.count == 0, self.listItem.count == 0{
-                self.resultSearchNotification.isHidden = false
-                self.resultSearchNotification.text = Notification.notHaveAnyFavorite.rawValue
+                self.notification.isHidden = false
+                self.notification.text = Notification.notHaveAnyFavorite.rawValue
             } else {
                 //if load more data => add to listItem else replace listItem
                 if isLoadMore {
@@ -72,7 +64,7 @@ class CategoryController: UIViewController {
                     self.listItem = data
                 }
                 
-                self.resultSearchNotification.isHidden = true
+                self.notification.isHidden = true
             }
             self.currentListItem = self.listItem
             self.tableView.reloadData()

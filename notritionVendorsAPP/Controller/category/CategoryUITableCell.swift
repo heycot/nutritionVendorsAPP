@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Cosmos
 
-class CategoryCell: UITableViewCell {
+class CategoryUITableCell: UITableViewCell {
 
     @IBOutlet weak var itemImage: CustomImageView!
     @IBOutlet weak var name: UILabel!
