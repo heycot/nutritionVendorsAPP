@@ -24,8 +24,6 @@ class HightRatingController: UIViewController {
     var listCategory = [CategoryResponse]()
     
     let headerId = "HeaderID"
-    var categoryId = 0
-    private var lastContentOffset: CGFloat = 0
     
     lazy var refresher: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -136,6 +134,10 @@ class HightRatingController: UIViewController {
         } else if segue.destination is SearchController {
             let vc = segue.destination as? SearchController
             vc?.listItem = currentListItem
+        } else if segue.destination is CategoryController {
+            let vc = segue.destination as? CategoryController
+            let index = sender as! Int
+            vc.categoryId = listCategory[index].id!
         }
     }
     
@@ -178,11 +180,11 @@ extension HightRatingController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
         
         if indexPath.section == 0 {
-            findAllByCategory(categoryId: listCategory[indexPath.row].id!, offset: 0)
+            performSegue(withIdentifier: SegueIdentifier.highRatingToCategory.rawValue, sender: indexPath.row)
         } else {
-            collectionView.deselectItem(at: indexPath, animated: true)
             performSegue(withIdentifier: SegueIdentifier.highRatingToDetail.rawValue, sender: indexPath.row)
         }
     }
