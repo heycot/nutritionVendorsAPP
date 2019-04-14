@@ -14,6 +14,8 @@ class CategoryController: UIViewController {
     
     var listItem = [ShopItemResponse]()
     var currentListItem = [ShopItemResponse]()
+    var categoryId = 0
+    var categoryName = ""
     
     lazy var refresher: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -25,9 +27,11 @@ class CategoryController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = categoryName
+        self.notification.isHidden = true
         setupView()
-
     }
+    
     
     @IBAction func searchBarPressed(_ sender: Any) {
         performSegueFunc(identifier: SegueIdentifier.favoritesToSearch.rawValue, sender: nil)
@@ -39,41 +43,30 @@ class CategoryController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
+        tableView.bottomRefreshControl = refresher
         
-        self.tableView.reloadData()
         tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.rowHeight = 100
     }
     
-    func loadDataFromAPI(offset: Int, isLoadMore: Bool) {
+    func loadDataFromAPI(offset: Int) {
+        startSpinnerActivity()
         
-        ShopItemService.shared.findAllLoved(offset: offset) { data in
+        ShopItemService.shared.findAllByCategory(categoryId: categoryId, offset: offset) { data in
             guard let data = data else {return }
             
-            // check listitem is already have
-            if data.count == 0, self.listItem.count == 0{
-                self.notification.isHidden = false
-                self.notification.text = Notification.notHaveAnyFavorite.rawValue
-            } else {
-                //if load more data => add to listItem else replace listItem
-                if isLoadMore {
-                    for i in 0 ..< data.count {
-                        self.listItem.append(data[i])
-                    }
-                } else {
-                    self.listItem = data
-                }
-                
-                self.notification.isHidden = true
+            for item in data {
+                self.currentListItem.append(item)
             }
-            self.currentListItem = self.listItem
+            
+            self.stopSpinnerActivity()
             self.tableView.reloadData()
         }
     }
     
     @objc
     func loadMoreData() {
-        loadDataFromAPI(offset: listItem.count, isLoadMore: true)
+        loadDataFromAPI(offset: currentListItem.count)
         refresher.endRefreshing()
     }
     
@@ -121,7 +114,7 @@ extension CategoryController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.favoritesItem.rawValue) as! FavoritesCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.categoryShopItemCell.rawValue) as! CategoryUITableCell
         
         cell.updateView(item: currentListItem[indexPath.row])
         
@@ -130,7 +123,7 @@ extension CategoryController : UITableViewDataSource {
     
     override func viewWillAppear(_ animated: Bool) {
         self.viewDidLoad()
-        loadDataFromAPI(offset: currentListItem.count, isLoadMore: false)
+        loadDataFromAPI(offset: 0)
         super.viewWillAppear(true)
         tableView.reloadData()
     }

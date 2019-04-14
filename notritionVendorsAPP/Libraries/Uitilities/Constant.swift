@@ -101,6 +101,7 @@ enum CellIdentifier: String {
     case headerCollection = "HeaderCellID"
     case shop = "ShopCell"
     case searchCell = "SearchCell"
+    case categoryShopItemCell = "CategoryShopItemCell"
 }
 
 enum SegueIdentifier: String {
@@ -113,7 +114,7 @@ enum SegueIdentifier: String {
     case detailToComment = "DetailToComment"
     
     // hight rating
-    case haighRatingToCategory = "HaighRatingToCategory"
+    case highRatingToCategory = "HaighRatingToCategory"
     case categoryToDetail = "CategoryToDetail"
     case highRatingToSearch = "HighRatingSearch"
     case highRatingToDetail = "HighRatingToDetail"

@@ -55,7 +55,6 @@ class HightRatingController: UIViewController {
     }
     
     func setUpCollectionView() {
-        
         itemCollection.delegate = self
         itemCollection.dataSource = self
         itemCollection.bottomRefreshControl = refresher
@@ -84,69 +83,52 @@ class HightRatingController: UIViewController {
     
     @objc
     func loadMoreData() {
-        if categoryId == 0 {
-            loadDataFromAPI(offset: listItem.count)
-        } else {
-            findAllByCategory(categoryId: categoryId, offset: currentListItem.count)
-        }
+        loadDataFromAPI(offset: listItem.count)
         refresher.endRefreshing()
     }
     
-    func findAllByCategory(categoryId: Int, offset: Int) {
-        
-        
-        ShopItemService.shared.findAllByCategory(categoryId: categoryId, offset: offset) { data in
-            guard let data = data else {return }
     
-            // if current list is the same category => add more alse replace
-            if self.categoryId == categoryId {
-                for item in data {
-                    self.currentListItem.append(item)
-                }
-                
-            } else {
-                self.currentListItem = data
-                self.categoryId = categoryId
-            }
-            
-            self.activityIndicator.stopAnimating()
-            self.itemCollection.reloadData()
-        }
-        
-        func scrollViewDidScroll(scrollView: UIScrollView!) {
-            if (self.lastContentOffset > scrollView.contentOffset.y) {
-                // move up
-            }
-            else if (self.lastContentOffset < scrollView.contentOffset.y) {
-                // move down
-                print("move down")
-                loadMoreData()
-            }
-            
-            // update the new position acquired
-            self.lastContentOffset = scrollView.contentOffset.y
-        }
-    }
+//
+//    func scrollViewDidScroll(scrollView: UIScrollView!) {
+//        if (self.lastContentOffset > scrollView.contentOffset.y) {
+//            // move up
+//        }
+//        else if (self.lastContentOffset < scrollView.contentOffset.y) {
+//            // move down
+//            print("move down")
+//            loadMoreData()
+//        }
+//
+//        // update the new position acquired
+//        self.lastContentOffset = scrollView.contentOffset.y
+//    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is ViewItemController {
             let vc = segue.destination as? ViewItemController
             let index = sender as! Int
             vc?.item = currentListItem[index]
+            
         } else if segue.destination is SearchController {
             let vc = segue.destination as? SearchController
             vc?.listItem = currentListItem
+            
+        } else if segue.destination is CategoryController {
+            let vc = segue.destination as? CategoryController
+            let index = sender as! Int
+            vc?.categoryId = listCategory[index].id!
+            vc?.categoryName = listCategory[index].name!
         }
     }
     
-    func checkItemInArray(array: [ShopItemResponse], item: ShopItemResponse) -> Bool {
-        for arr in array {
-            if item.id! == arr.id! {
-                return true
-            }
-        }
-        return false
-    }
+//    func checkItemInArray(array: [ShopItemResponse], item: ShopItemResponse) -> Bool {
+//        for arr in array {
+//            if item.id! == arr.id! {
+//                return true
+//            }
+//        }
+//        return false
+//    }
     
     @IBAction func searchBtnPressed(_ sender: Any) {
         performSegue(withIdentifier: SegueIdentifier.highRatingToSearch.rawValue, sender: nil)
@@ -179,10 +161,11 @@ extension HightRatingController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        collectionView.deselectItem(at: indexPath, animated: true)
+        
         if indexPath.section == 0 {
-            findAllByCategory(categoryId: listCategory[indexPath.row].id!, offset: 0)
+            performSegue(withIdentifier: SegueIdentifier.highRatingToCategory.rawValue, sender: indexPath.row)
         } else {
-            collectionView.deselectItem(at: indexPath, animated: true)
             performSegue(withIdentifier: SegueIdentifier.highRatingToDetail.rawValue, sender: indexPath.row)
         }
     }
