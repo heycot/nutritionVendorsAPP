@@ -42,6 +42,8 @@
 		233B390822375463003EB253 /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233B390722375463003EB253 /* AuthServices.swift */; };
 		233B390B223755FD003EB253 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233B390A223755FD003EB253 /* Constant.swift */; };
 		233B390D22376476003EB253 /* StringLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233B390C22376476003EB253 /* StringLibrary.swift */; };
+		2352404922632E7F004B11CF /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2352404822632E7F004B11CF /* CategoryCell.swift */; };
+		2352404B22632E99004B11CF /* CategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2352404A22632E99004B11CF /* CategoryController.swift */; };
 		2359CD6A225750A200C5D892 /* NotificationConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359CD69225750A200C5D892 /* NotificationConstant.swift */; };
 		235A32B02224E9F200DE5B0E /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32AF2224E9F200DE5B0E /* SignupController.swift */; };
 		235A32B22224EA0C00DE5B0E /* HightRatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32B12224EA0C00DE5B0E /* HightRatingController.swift */; };
@@ -130,6 +132,8 @@
 		233B390A223755FD003EB253 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		233B390C22376476003EB253 /* StringLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringLibrary.swift; sourceTree = "<group>"; };
 		2347EEBA224E160400EC3A24 /* notritionVendorsAPP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "notritionVendorsAPP-Bridging-Header.h"; sourceTree = "<group>"; };
+		2352404822632E7F004B11CF /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		2352404A22632E99004B11CF /* CategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryController.swift; sourceTree = "<group>"; };
 		2359CD69225750A200C5D892 /* NotificationConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationConstant.swift; sourceTree = "<group>"; };
 		235A32AF2224E9F200DE5B0E /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
 		235A32B12224EA0C00DE5B0E /* HightRatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HightRatingController.swift; sourceTree = "<group>"; };
@@ -312,6 +316,8 @@
 		2352404722632E08004B11CF /* category */ = {
 			isa = PBXGroup;
 			children = (
+				2352404822632E7F004B11CF /* CategoryCell.swift */,
+				2352404A22632E99004B11CF /* CategoryController.swift */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -716,6 +722,7 @@
 				231AE460222E28860082C06E /* DateTimeLibrary.swift in Sources */,
 				237DABF32261E37F00FE57FB /* SearchController.swift in Sources */,
 				230E2DDA2226650700246392 /* Comment.swift in Sources */,
+				2352404922632E7F004B11CF /* CategoryCell.swift in Sources */,
 				231AF5CC225F2BE50057DD11 /* ShopController.swift in Sources */,
 				236A32BE2258A10C00AA2410 /* AlertController.swift in Sources */,
 				23614F1122560F7E00B5DD81 /* FavoritesService.swift in Sources */,
@@ -750,6 +757,7 @@
 				236A5A83225B455F005C27E8 /* HeaderCollectionCell.swift in Sources */,
 				235A32BD2224F51500DE5B0E /* AccountController.swift in Sources */,
 				235A49EB2248B1DA0034A944 /* ImageService.swift in Sources */,
+				2352404B22632E99004B11CF /* CategoryController.swift in Sources */,
 				23EAA4472246638300A30E98 /* UserResponse.swift in Sources */,
 				2381B644225AFDE0004DAA64 /* CategoryResponse.swift in Sources */,
 				235A32B92224EC1100DE5B0E /* ExtensionUIColor.swift in Sources */,
