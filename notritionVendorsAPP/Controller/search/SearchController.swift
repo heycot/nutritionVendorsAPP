@@ -85,7 +85,13 @@ class SearchController: UIViewController {
         }
     }
 
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is ViewItemController {
+            let vc = segue.destination as? ViewItemController
+            let index = sender as! Int
+            vc?.item = listItem[index]
+        }
+    }
 }
 
 extension SearchController: UITableViewDelegate, UITableViewDataSource {
@@ -99,6 +105,11 @@ extension SearchController: UITableViewDelegate, UITableViewDataSource {
         cell.updateView(item: listItem[indexPath.row])
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: SegueIdentifier.searchToDetaild.rawValue, sender: indexPath.row)
     }
     
     override func viewWillAppear(_ animated: Bool) {
