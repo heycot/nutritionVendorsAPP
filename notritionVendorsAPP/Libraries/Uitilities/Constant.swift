@@ -116,6 +116,7 @@ enum SegueIdentifier: String {
     case haighRatingToCategory = "HaighRatingToCategory"
     case categoryToDetail = "CategoryToDetail"
     case highRatingToSearch = "HighRatingSearch"
+    case highRatingToDetail = "HighRatingToDetail"
     
     //search
     case searchToDetaild = "SearchToDetaild"

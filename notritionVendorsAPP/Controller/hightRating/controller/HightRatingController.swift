@@ -183,7 +183,7 @@ extension HightRatingController: UICollectionViewDelegate, UICollectionViewDataS
             findAllByCategory(categoryId: listCategory[indexPath.row].id!, offset: 0)
         } else {
             collectionView.deselectItem(at: indexPath, animated: true)
-            performSegue(withIdentifier: SegueIdentifier.detailItem.rawValue, sender: indexPath.row)
+            performSegue(withIdentifier: SegueIdentifier.highRatingToDetail.rawValue, sender: indexPath.row)
         }
     }
 }

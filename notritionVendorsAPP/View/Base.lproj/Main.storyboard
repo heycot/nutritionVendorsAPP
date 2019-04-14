@@ -537,6 +537,7 @@
                         <outlet property="searchBar" destination="IDw-Zc-xGf" id="4pj-nC-yxR"/>
                         <segue destination="O60-7L-RIi" kind="show" identifier="HighRatingSearch" id="WYP-LC-rZ2"/>
                         <segue destination="QtR-ru-mlt" kind="show" identifier="HaighRatingToCategory" id="dVm-vS-K0I"/>
+                        <segue destination="rEQ-Ch-SJA" kind="show" identifier="HighRatingToDetail" id="DWF-TS-9V8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6aC-Bo-lwY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -671,18 +672,26 @@
             </objects>
             <point key="canvasLocation" x="796" y="1657"/>
         </scene>
-        <!--DetaildFoodStoryboardID-->
+        <!--DetailFoodStoryboardID-->
         <scene sceneID="VcS-8w-ntk">
             <objects>
-                <viewControllerPlaceholder storyboardName="DetaildFood" referencedIdentifier="DetaildFoodStoryboardID" id="pAv-CV-Swc" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="DetailFood" referencedIdentifier="DetailFoodStoryboardID" id="pAv-CV-Swc" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lb1-Rn-Rwv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1555" y="1337"/>
         </scene>
-        <!--DetaildFoodStoryboardID-->
+        <!--DetailFoodStoryboardID-->
+        <scene sceneID="QHP-1T-i6W">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DetailFood" referencedIdentifier="DetailFoodStoryboardID" id="rEQ-Ch-SJA" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fQu-Gb-h8w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="456" y="186"/>
+        </scene>
+        <!--DetailFoodStoryboardID-->
         <scene sceneID="obX-sn-C6q">
             <objects>
-                <viewControllerPlaceholder storyboardName="DetaildFood" referencedIdentifier="DetaildFoodStoryboardID" id="8Rb-Zj-4kI" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="DetailFood" referencedIdentifier="DetailFoodStoryboardID" id="8Rb-Zj-4kI" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BgK-2M-ljk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1410" y="398"/>
@@ -821,7 +830,7 @@
         <image name="searchbar" width="400" height="38"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Kqp-az-Zl9"/>
+        <segue reference="WYP-LC-rZ2"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

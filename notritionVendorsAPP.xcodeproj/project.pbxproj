@@ -52,7 +52,7 @@
 		235A32BF2225301E00DE5B0E /* ChangePasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32BE2225301E00DE5B0E /* ChangePasswordController.swift */; };
 		235A49EB2248B1DA0034A944 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A49EA2248B1DA0034A944 /* ImageService.swift */; };
 		235A49ED2248BEF70034A944 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A49EC2248BEF70034A944 /* CustomImageView.swift */; };
-		235B6685226308D900BBFAFC /* DetaildFood.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 235B6684226308D900BBFAFC /* DetaildFood.storyboard */; };
+		235B6685226308D900BBFAFC /* DetailFood.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 235B6684226308D900BBFAFC /* DetailFood.storyboard */; };
 		235B668722630BCA00BBFAFC /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 235B668622630BCA00BBFAFC /* Account.storyboard */; };
 		235C9A2D2249E0A600E01484 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 235C9A2C2249E0A600E01484 /* QuartzCore.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		23614F0F2256020E00B5DD81 /* FavoritesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23614F0E2256020E00B5DD81 /* FavoritesResponse.swift */; };
@@ -140,7 +140,7 @@
 		235A32BE2225301E00DE5B0E /* ChangePasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordController.swift; sourceTree = "<group>"; };
 		235A49EA2248B1DA0034A944 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		235A49EC2248BEF70034A944 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
-		235B6684226308D900BBFAFC /* DetaildFood.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetaildFood.storyboard; sourceTree = "<group>"; };
+		235B6684226308D900BBFAFC /* DetailFood.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailFood.storyboard; sourceTree = "<group>"; };
 		235B668622630BCA00BBFAFC /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
 		235C9A2C2249E0A600E01484 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		23614F0E2256020E00B5DD81 /* FavoritesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesResponse.swift; sourceTree = "<group>"; };
@@ -456,7 +456,7 @@
 				23D02E642223799300882742 /* Main.storyboard */,
 				230E2DD12226431D00246392 /* LogInAndLogOut.storyboard */,
 				237DABF62262049C00FE57FB /* Search.storyboard */,
-				235B6684226308D900BBFAFC /* DetaildFood.storyboard */,
+				235B6684226308D900BBFAFC /* DetailFood.storyboard */,
 				235B668622630BCA00BBFAFC /* Account.storyboard */,
 			);
 			path = View;
@@ -598,7 +598,7 @@
 				2300BE6C222D30B7008E9101 /* GeneralInforItemCell.xib in Resources */,
 				23D02E662223799300882742 /* Main.storyboard in Resources */,
 				2381B64A225B064F004DAA64 /* CategoryCell.xib in Resources */,
-				235B6685226308D900BBFAFC /* DetaildFood.storyboard in Resources */,
+				235B6685226308D900BBFAFC /* DetailFood.storyboard in Resources */,
 				235B668722630BCA00BBFAFC /* Account.storyboard in Resources */,
 				2300BE79222D34B2008E9101 /* GeneralValueCell.xib in Resources */,
 			);
