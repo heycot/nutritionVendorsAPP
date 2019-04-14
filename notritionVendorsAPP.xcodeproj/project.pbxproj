@@ -54,8 +54,6 @@
 		235A49ED2248BEF70034A944 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A49EC2248BEF70034A944 /* CustomImageView.swift */; };
 		235B6685226308D900BBFAFC /* DetailFood.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 235B6684226308D900BBFAFC /* DetailFood.storyboard */; };
 		235B668722630BCA00BBFAFC /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 235B668622630BCA00BBFAFC /* Account.storyboard */; };
-		235B668D2263175600BBFAFC /* CategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235B668C2263175600BBFAFC /* CategoryController.swift */; };
-		235B668F2263179500BBFAFC /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235B668E2263179500BBFAFC /* CategoryCell.swift */; };
 		235C9A2D2249E0A600E01484 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 235C9A2C2249E0A600E01484 /* QuartzCore.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		23614F0F2256020E00B5DD81 /* FavoritesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23614F0E2256020E00B5DD81 /* FavoritesResponse.swift */; };
 		23614F1122560F7E00B5DD81 /* FavoritesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23614F1022560F7E00B5DD81 /* FavoritesService.swift */; };
@@ -144,8 +142,6 @@
 		235A49EC2248BEF70034A944 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		235B6684226308D900BBFAFC /* DetailFood.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailFood.storyboard; sourceTree = "<group>"; };
 		235B668622630BCA00BBFAFC /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
-		235B668C2263175600BBFAFC /* CategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryController.swift; sourceTree = "<group>"; };
-		235B668E2263179500BBFAFC /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		235C9A2C2249E0A600E01484 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		23614F0E2256020E00B5DD81 /* FavoritesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesResponse.swift; sourceTree = "<group>"; };
 		23614F1022560F7E00B5DD81 /* FavoritesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesService.swift; sourceTree = "<group>"; };
@@ -313,6 +309,13 @@
 			path = Uitilities;
 			sourceTree = "<group>";
 		};
+		2352404722632E08004B11CF /* category */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = category;
+			sourceTree = "<group>";
+		};
 		235A32B32224EA7800DE5B0E /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -358,15 +361,6 @@
 				2300BE7B222D3658008E9101 /* ViewCommentCell.xib */,
 			);
 			path = view;
-			sourceTree = "<group>";
-		};
-		235B668B2263173900BBFAFC /* category */ = {
-			isa = PBXGroup;
-			children = (
-				235B668C2263175600BBFAFC /* CategoryController.swift */,
-				235B668E2263179500BBFAFC /* CategoryCell.swift */,
-			);
-			path = category;
 			sourceTree = "<group>";
 		};
 		236A32B52258942500AA2410 /* favorites */ = {
@@ -478,7 +472,7 @@
 		23D02E7422237A7900882742 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				235B668B2263173900BBFAFC /* category */,
+				2352404722632E08004B11CF /* category */,
 				235B6688226312B800BBFAFC /* detail food */,
 				237DABF12261E35C00FE57FB /* search */,
 				231AF5CA225F2B8C0057DD11 /* shop */,
@@ -552,8 +546,8 @@
 				23D02E592223799300882742 /* Sources */,
 				23D02E5A2223799300882742 /* Frameworks */,
 				23D02E5B2223799300882742 /* Resources */,
-				4DC17372A2F2DA2D517A4D86 /* [CP] Embed Pods Frameworks */,
-				A1672CF5D4DC018EF6C3A5CA /* [CP] Copy Pods Resources */,
+				99EEED543E13671020EFF769 /* [CP] Embed Pods Frameworks */,
+				A7B6DDD7C4C778536BBFE8D0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -621,7 +615,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4DC17372A2F2DA2D517A4D86 /* [CP] Embed Pods Frameworks */ = {
+		99EEED543E13671020EFF769 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -659,7 +653,25 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-notritionVendorsAPP/Pods-notritionVendorsAPP-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A1672CF5D4DC018EF6C3A5CA /* [CP] Copy Pods Resources */ = {
+		A6036B480BE0CFA8F0890925 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-notritionVendorsAPP-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7B6DDD7C4C778536BBFE8D0 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -677,24 +689,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-notritionVendorsAPP/Pods-notritionVendorsAPP-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A6036B480BE0CFA8F0890925 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-notritionVendorsAPP-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -729,7 +723,6 @@
 				23614F0F2256020E00B5DD81 /* FavoritesResponse.swift in Sources */,
 				23695E9422277F7200AD7076 /* ExtensionUIView.swift in Sources */,
 				2300BE7C222D3658008E9101 /* ViewCommentCell.swift in Sources */,
-				235B668D2263175600BBFAFC /* CategoryController.swift in Sources */,
 				23D5080B224236D4005FB1AC /* ShopResponse.swift in Sources */,
 				230E2DEA22266DDE00246392 /* Favorites.swift in Sources */,
 				2378E12D2247385700837883 /* DocumentResponse.swift in Sources */,
@@ -763,7 +756,6 @@
 				230E2DDE2226674200246392 /* Area.swift in Sources */,
 				230E2DE822266BFE00246392 /* Shop.swift in Sources */,
 				2320C6F22251C7C700A2C328 /* DetailPhotoController.swift in Sources */,
-				235B668F2263179500BBFAFC /* CategoryCell.swift in Sources */,
 				2376D98F224CDC4200DDFB19 /* PhotoItemCell.swift in Sources */,
 				235A49ED2248BEF70034A944 /* CustomImageView.swift in Sources */,
 				233B390D22376476003EB253 /* StringLibrary.swift in Sources */,

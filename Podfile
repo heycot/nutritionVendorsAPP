@@ -6,6 +6,7 @@ target 'notritionVendorsAPP' do
   use_frameworks!
 
   # Pods for notritionVendorsAPP
+    
     pod 'Cosmos'
     pod 'TinyConstraints'
     pod 'Alamofire'
@@ -19,5 +20,4 @@ target 'notritionVendorsAPP' do
     pod 'PinterestLayout'
     pod 'CCBottomRefreshControl'
     pod 'Socket.IO-Client-Swift'
-    
 end
