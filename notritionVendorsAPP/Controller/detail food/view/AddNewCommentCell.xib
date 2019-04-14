@@ -84,7 +84,7 @@
                 <outlet property="rating" destination="Fbx-QL-Gx0" id="SJp-ee-zFZ"/>
                 <outlet property="title" destination="RZl-71-hLP" id="OHC-GP-7Lg"/>
             </connections>
-            <point key="canvasLocation" x="295" y="213"/>
+            <point key="canvasLocation" x="204" y="210"/>
         </tableViewCell>
     </objects>
 </document>

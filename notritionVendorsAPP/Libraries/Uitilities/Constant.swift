@@ -85,6 +85,8 @@ enum CellClassName: String {
     case addNewComment  = "AddNewCommentCell"
     case category       = "CategoryCell"
     case headerCollection = "HeaderView"
+    case addCommentBtn = "AddCommentBtnCell"
+    case actionCell = "ActionCell"
 }
 
 enum CellIdentifier: String {
@@ -102,6 +104,8 @@ enum CellIdentifier: String {
     case shop = "ShopCell"
     case searchCell = "SearchCell"
     case categoryShopItemCell = "CategoryShopItemCell"
+    case addCommentBtn = "AddCommentBtn"
+    case actionCell = "ActionCell"
 }
 
 enum SegueIdentifier: String {

@@ -37,6 +37,9 @@ class ViewItemController: UIViewController {
         //register for generalInfor cell
         tabelView.register(UINib(nibName: CellClassName.generalInfor.rawValue, bundle: nil), forCellReuseIdentifier: CellIdentifier.generalInfor.rawValue)
         
+        //register for action celll
+        tabelView.register(UINib(nibName: CellClassName.actionCell.rawValue, bundle: nil), forCellReuseIdentifier: CellIdentifier.actionCell.rawValue)
+        
         // register for generalValue cell
         tabelView.register(UINib(nibName: CellClassName.generalValue.rawValue, bundle: nil), forCellReuseIdentifier: CellIdentifier.generalvalue.rawValue)
         
@@ -44,7 +47,7 @@ class ViewItemController: UIViewController {
         tabelView.register(UINib(nibName: CellClassName.listComment.rawValue, bundle: nil), forCellReuseIdentifier: CellIdentifier.listComment.rawValue)
         
         //register for add new comment cell
-        tabelView.register(UINib(nibName: CellClassName.addNewComment.rawValue, bundle: nil), forCellReuseIdentifier: CellIdentifier.newComment.rawValue)
+        tabelView.register(UINib(nibName: CellClassName.addCommentBtn.rawValue, bundle: nil), forCellReuseIdentifier: CellIdentifier.addCommentBtn.rawValue)
     }
     
     func updateData() {
@@ -149,6 +152,15 @@ class ViewItemController: UIViewController {
         }
     }
     
+    @objc func viewMorePressed(btn: UIButton) {
+        performSegueFunc(identifier: SegueIdentifier.detailFoodToPhoto.rawValue)
+    }
+    
+    
+    @objc func deliveryPressed(btn: UIButton) {
+        performSegueFunc(identifier: SegueIdentifier.detailFoodToPhoto.rawValue)
+    }
+    
     func dismissKeyboard() {
         view.endEditing(true)
     }
@@ -159,7 +171,7 @@ class ViewItemController: UIViewController {
 extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 5
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -168,8 +180,10 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             return 1
         case 1:
-            return itemValues.count
+            return 1
         case 2:
+            return itemValues.count
+        case 3:
             return (item.comments?.count)!
         default:
             return 1
@@ -193,6 +207,16 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
                 return cell
             
             case 1:
+                let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.actionCell.rawValue, for: indexPath) as! ActionCell
+                
+                
+                cell.viewMore.addTarget(self, action: #selector(viewMorePressed), for: UIControl.Event.touchDown)
+                cell.delivery.addTarget(self, action: #selector(deliveryPressed), for: UIControl.Event.touchDown)
+                
+                cell.selectionStyle = UITableViewCell.SelectionStyle.none;
+                return cell
+            
+            case 2:
                 let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.generalvalue.rawValue, for: indexPath) as! GeneralValueCell
                 cell.updateView(icon_image: itemValues[indexPath.row].icon!, value: itemValues[indexPath.row].value!)
                 
@@ -202,16 +226,14 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
                 }
                 return cell
             
-            case 2:
+            case 3:
                 let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.listComment.rawValue, for: indexPath) as! ViewCommentCell
                 cell.updateView(comment: item.comments![indexPath.row])
                 cell.selectionStyle = UITableViewCell.SelectionStyle.none;
                 return cell
             
             default:
-                let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.newComment.rawValue, for: indexPath) as! AddNewCommentCell
-                cell.selectionStyle = UITableViewCell.SelectionStyle.blue
-                cell.shopitemId = item.id!
+                let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.addCommentBtn.rawValue, for: indexPath) as! AddCommentBtnCell
                 return cell
         }
         

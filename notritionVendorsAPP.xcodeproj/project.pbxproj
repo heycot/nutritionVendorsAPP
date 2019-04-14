@@ -46,6 +46,8 @@
 		2352404B22632E99004B11CF /* CategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2352404A22632E99004B11CF /* CategoryController.swift */; };
 		2352404E22634E33004B11CF /* ActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2352404C22634E33004B11CF /* ActionCell.swift */; };
 		2352404F22634E33004B11CF /* ActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2352404D22634E33004B11CF /* ActionCell.xib */; };
+		2352405222635191004B11CF /* AddCommentBtnCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2352405022635191004B11CF /* AddCommentBtnCell.swift */; };
+		2352405322635191004B11CF /* AddCommentBtnCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2352405122635191004B11CF /* AddCommentBtnCell.xib */; };
 		2359CD6A225750A200C5D892 /* NotificationConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359CD69225750A200C5D892 /* NotificationConstant.swift */; };
 		235A32B02224E9F200DE5B0E /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32AF2224E9F200DE5B0E /* SignupController.swift */; };
 		235A32B22224EA0C00DE5B0E /* HightRatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32B12224EA0C00DE5B0E /* HightRatingController.swift */; };
@@ -138,6 +140,8 @@
 		2352404A22632E99004B11CF /* CategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryController.swift; sourceTree = "<group>"; };
 		2352404C22634E33004B11CF /* ActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCell.swift; sourceTree = "<group>"; };
 		2352404D22634E33004B11CF /* ActionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionCell.xib; sourceTree = "<group>"; };
+		2352405022635191004B11CF /* AddCommentBtnCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentBtnCell.swift; sourceTree = "<group>"; };
+		2352405122635191004B11CF /* AddCommentBtnCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCommentBtnCell.xib; sourceTree = "<group>"; };
 		2359CD69225750A200C5D892 /* NotificationConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationConstant.swift; sourceTree = "<group>"; };
 		235A32AF2224E9F200DE5B0E /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
 		235A32B12224EA0C00DE5B0E /* HightRatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HightRatingController.swift; sourceTree = "<group>"; };
@@ -371,6 +375,8 @@
 				2300BE7B222D3658008E9101 /* ViewCommentCell.xib */,
 				2352404C22634E33004B11CF /* ActionCell.swift */,
 				2352404D22634E33004B11CF /* ActionCell.xib */,
+				2352405022635191004B11CF /* AddCommentBtnCell.swift */,
+				2352405122635191004B11CF /* AddCommentBtnCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -609,6 +615,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2352405322635191004B11CF /* AddCommentBtnCell.xib in Resources */,
 				238792EF222D041B005E4E3E /* AddNewCommentCell.xib in Resources */,
 				23D02E6B2223799400882742 /* LaunchScreen.storyboard in Resources */,
 				2300BE7D222D3658008E9101 /* ViewCommentCell.xib in Resources */,
@@ -721,6 +728,7 @@
 				233B390B223755FD003EB253 /* Constant.swift in Sources */,
 				232900D2225C7124009D7DD1 /* CommentServices.swift in Sources */,
 				235A32BF2225301E00DE5B0E /* ChangePasswordController.swift in Sources */,
+				2352405222635191004B11CF /* AddCommentBtnCell.swift in Sources */,
 				230E2DE622266AEF00246392 /* ShopItem.swift in Sources */,
 				236A32B72258944500AA2410 /* FavoritesViewController.swift in Sources */,
 				235A32B02224E9F200DE5B0E /* SignupController.swift in Sources */,
