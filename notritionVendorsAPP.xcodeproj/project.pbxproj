@@ -48,6 +48,10 @@
 		2352404F22634E33004B11CF /* ActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2352404D22634E33004B11CF /* ActionCell.xib */; };
 		2352405222635191004B11CF /* AddCommentBtnCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2352405022635191004B11CF /* AddCommentBtnCell.swift */; };
 		2352405322635191004B11CF /* AddCommentBtnCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2352405122635191004B11CF /* AddCommentBtnCell.xib */; };
+		2352405522635585004B11CF /* Shop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2352405422635585004B11CF /* Shop.storyboard */; };
+		2352405722635661004B11CF /* Delivery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2352405622635661004B11CF /* Delivery.storyboard */; };
+		2352405A2263577A004B11CF /* DeliveryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235240592263577A004B11CF /* DeliveryController.swift */; };
+		2352405C226358A6004B11CF /* ItemInShopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2352405B226358A6004B11CF /* ItemInShopController.swift */; };
 		2359CD6A225750A200C5D892 /* NotificationConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359CD69225750A200C5D892 /* NotificationConstant.swift */; };
 		235A32B02224E9F200DE5B0E /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32AF2224E9F200DE5B0E /* SignupController.swift */; };
 		235A32B22224EA0C00DE5B0E /* HightRatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32B12224EA0C00DE5B0E /* HightRatingController.swift */; };
@@ -142,6 +146,10 @@
 		2352404D22634E33004B11CF /* ActionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionCell.xib; sourceTree = "<group>"; };
 		2352405022635191004B11CF /* AddCommentBtnCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentBtnCell.swift; sourceTree = "<group>"; };
 		2352405122635191004B11CF /* AddCommentBtnCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCommentBtnCell.xib; sourceTree = "<group>"; };
+		2352405422635585004B11CF /* Shop.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Shop.storyboard; sourceTree = "<group>"; };
+		2352405622635661004B11CF /* Delivery.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Delivery.storyboard; sourceTree = "<group>"; };
+		235240592263577A004B11CF /* DeliveryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryController.swift; sourceTree = "<group>"; };
+		2352405B226358A6004B11CF /* ItemInShopController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInShopController.swift; sourceTree = "<group>"; };
 		2359CD69225750A200C5D892 /* NotificationConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationConstant.swift; sourceTree = "<group>"; };
 		235A32AF2224E9F200DE5B0E /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
 		235A32B12224EA0C00DE5B0E /* HightRatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HightRatingController.swift; sourceTree = "<group>"; };
@@ -299,6 +307,7 @@
 			children = (
 				231AF5CB225F2BE50057DD11 /* ShopController.swift */,
 				231AF5CD225F45850057DD11 /* ShopCell.swift */,
+				2352405B226358A6004B11CF /* ItemInShopController.swift */,
 			);
 			path = shop;
 			sourceTree = "<group>";
@@ -328,6 +337,14 @@
 				2352404A22632E99004B11CF /* CategoryController.swift */,
 			);
 			path = category;
+			sourceTree = "<group>";
+		};
+		2352405822635749004B11CF /* delivery */ = {
+			isa = PBXGroup;
+			children = (
+				235240592263577A004B11CF /* DeliveryController.swift */,
+			);
+			path = delivery;
 			sourceTree = "<group>";
 		};
 		235A32B32224EA7800DE5B0E /* Libraries */ = {
@@ -483,6 +500,8 @@
 				237DABF62262049C00FE57FB /* Search.storyboard */,
 				235B6684226308D900BBFAFC /* DetailFood.storyboard */,
 				235B668622630BCA00BBFAFC /* Account.storyboard */,
+				2352405422635585004B11CF /* Shop.storyboard */,
+				2352405622635661004B11CF /* Delivery.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -490,6 +509,7 @@
 		23D02E7422237A7900882742 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2352405822635749004B11CF /* delivery */,
 				2352404722632E08004B11CF /* category */,
 				235B6688226312B800BBFAFC /* detail food */,
 				237DABF12261E35C00FE57FB /* search */,
@@ -624,10 +644,12 @@
 				230E2DD22226431D00246392 /* LogInAndLogOut.storyboard in Resources */,
 				2300BE6C222D30B7008E9101 /* GeneralInforItemCell.xib in Resources */,
 				2352404F22634E33004B11CF /* ActionCell.xib in Resources */,
+				2352405522635585004B11CF /* Shop.storyboard in Resources */,
 				23D02E662223799300882742 /* Main.storyboard in Resources */,
 				2381B64A225B064F004DAA64 /* CategoryCell.xib in Resources */,
 				235B6685226308D900BBFAFC /* DetailFood.storyboard in Resources */,
 				235B668722630BCA00BBFAFC /* Account.storyboard in Resources */,
+				2352405722635661004B11CF /* Delivery.storyboard in Resources */,
 				2300BE79222D34B2008E9101 /* GeneralValueCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -723,6 +745,7 @@
 				23B6023F222E767E00FBBD79 /* ExtensionUIImage.swift in Sources */,
 				2320C6F42251C8AD00A2C328 /* DetailPhotoCell.swift in Sources */,
 				2300BE6B222D30B7008E9101 /* GeneralInforItemCell.swift in Sources */,
+				2352405C226358A6004B11CF /* ItemInShopController.swift in Sources */,
 				231AE468222E2EDF0082C06E /* GeneralValueItem.swift in Sources */,
 				23A31BBA2240948F00FE2D69 /* NetworkingClient.swift in Sources */,
 				233B390B223755FD003EB253 /* Constant.swift in Sources */,
@@ -732,6 +755,7 @@
 				230E2DE622266AEF00246392 /* ShopItem.swift in Sources */,
 				236A32B72258944500AA2410 /* FavoritesViewController.swift in Sources */,
 				235A32B02224E9F200DE5B0E /* SignupController.swift in Sources */,
+				2352405A2263577A004B11CF /* DeliveryController.swift in Sources */,
 				23695E9222277DC600AD7076 /* ExtensionUICollectionView.swift in Sources */,
 				23A31BB7224093F800FE2D69 /* ShopItemService.swift in Sources */,
 				231AE460222E28860082C06E /* DateTimeLibrary.swift in Sources */,

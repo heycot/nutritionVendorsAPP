@@ -52,11 +52,29 @@
                         <segue destination="vrL-wc-1BG" kind="show" identifier="DetailFoodToLogin" id="ZXq-q1-a0w"/>
                         <segue destination="gCj-2e-Pez" kind="show" identifier="DetailToLocation" id="lD4-0W-JjW"/>
                         <segue destination="SWK-ag-FaR" kind="show" identifier="DetailToComment" id="0fq-HM-obs"/>
+                        <segue destination="Vt4-RN-Ige" kind="show" identifier="DetailToShop" id="XBA-1a-DdQ"/>
+                        <segue destination="Uan-Lt-bny" kind="show" identifier="DetailToDelivery" id="FWO-zQ-ze5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k87-dP-sEp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="975.20000000000005" y="243.32833583208398"/>
+            <point key="canvasLocation" x="881" y="241"/>
+        </scene>
+        <!--DeliveryStoryboardID-->
+        <scene sceneID="2zY-Gz-FS0">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Delivery" referencedIdentifier="DeliveryStoryboardID" id="Uan-Lt-bny" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E2C-RE-GV9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1481" y="-538"/>
+        </scene>
+        <!--ShopStoryboardID-->
+        <scene sceneID="97G-IA-W1T">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Shop" referencedIdentifier="ShopStoryboardID" id="Vt4-RN-Ige" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fkM-4B-PtY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1674" y="-426"/>
         </scene>
         <!--LoginLogoutStoryboardID-->
         <scene sceneID="Z4k-sB-lWT">

@@ -116,6 +116,8 @@ enum SegueIdentifier: String {
     case detailFoodToLogin = "DetailFoodToLogin"
     case detailToLocation = "DetailToLocation"
     case detailToComment = "DetailToComment"
+    case detailToShop = "DetailToShop"
+    case detailToDelivery = "DetailToDelivery"
     
     // hight rating
     case highRatingToCategory = "HaighRatingToCategory"

@@ -110,6 +110,12 @@ class ViewItemController: UIViewController {
             _ = segue.destination as? LoginController
             
             navigationItem.backBarButtonItem = backItem
+        } else if segue.destination is ItemInShopController {
+            
+            navigationItem.backBarButtonItem = backItem
+        } else if  segue.destination is DeliveryController {
+            navigationItem.backBarButtonItem = backItem
+            
         }
     }
     
@@ -153,12 +159,12 @@ class ViewItemController: UIViewController {
     }
     
     @objc func viewMorePressed(btn: UIButton) {
-        performSegueFunc(identifier: SegueIdentifier.detailFoodToPhoto.rawValue)
+        performSegueFunc(identifier: SegueIdentifier.detailToShop.rawValue)
     }
     
     
     @objc func deliveryPressed(btn: UIButton) {
-        performSegueFunc(identifier: SegueIdentifier.detailFoodToPhoto.rawValue)
+        performSegueFunc(identifier: SegueIdentifier.detailToDelivery.rawValue)
     }
     
     func dismissKeyboard() {
@@ -254,7 +260,7 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 1 {
+        if indexPath.section == 2 {
             
             switch indexPath.row {
                 case 3:
