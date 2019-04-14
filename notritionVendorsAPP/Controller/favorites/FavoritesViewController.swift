@@ -16,7 +16,6 @@ class FavoritesViewController: UIViewController {
     var listItem = [ShopItemResponse]()
     var currentListItem = [ShopItemResponse]()
     
-    let searchBar = UISearchBar()
     lazy var refresher: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.tintColor = APP_COLOR
@@ -28,7 +27,10 @@ class FavoritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        createSearchBar()
+        checkLogIn()
+    }
+    
+    func checkLogIn() {
         
         if !AuthServices.instance.isLoggedIn {
             let alert = UIAlertController(title: Notification.notLogedIn.rawValue, message: "", preferredStyle: .alert)
@@ -63,13 +65,6 @@ class FavoritesViewController: UIViewController {
         tableView.rowHeight = 100
     }
     
-    func createSearchBar() {
-        searchBar.showsCancelButton = false
-        searchBar.placeholder = " Search here"
-        searchBar.delegate = self
-        
-        self.navigationItem.titleView = searchBar
-    }
     
     func loadDataFromAPI(offset: Int, isLoadMore: Bool) {
         
@@ -148,48 +143,6 @@ class FavoritesViewController: UIViewController {
         return false
     }
 }
-
-// handle UISearchBar
-extension FavoritesViewController: UISearchBarDelegate {
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        searchBar.endEditing(true)
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.endEditing(true)
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        resultSearchNotification.isHidden = true
-        guard !(searchBar.text!.isEmpty) else {
-            currentListItem = listItem
-            tableView.reloadData()
-            return
-        }
-        
-        currentListItem = listItem.filter({ (item) -> Bool in
-            item.name!.folding(options: .diacriticInsensitive, locale: .current).lowercased().contains(searchText.folding(options: .diacriticInsensitive, locale: .current).lowercased())
-        })
-        
-        let filterShopName = listItem.filter({ (item) -> Bool in
-            item.shop_name!.folding(options: .diacriticInsensitive, locale: .current).lowercased().contains(searchText.folding(options: .diacriticInsensitive, locale: .current).lowercased())
-        })
-        
-        for item in filterShopName {
-            if !self.checkItemInArray(array: currentListItem, item: item) {
-                currentListItem.append(item)
-            }
-        }
-        
-        tableView.reloadData()
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        
-    }
-}
-
-
 
 extension FavoritesViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
