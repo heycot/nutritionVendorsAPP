@@ -134,6 +134,7 @@ class ViewItemController: UIViewController {
             vc?.nameShop = item.name! + " - " + (item.shop?.name!)!
             vc?.addressShop = item.address!
             vc?.shopitemId = item.id!
+            navigationItem.backBarButtonItem = backItem
         }
     }
     
