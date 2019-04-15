@@ -148,4 +148,12 @@ enum StoryboardID : String {
 // google map API key
 let GOOGLE_API_KEY = "AIzaSyAgIJ_N3H3LVx_afClZancU_0Ec6gjpUVA"
 
-
+enum Icon : String{
+    case price_icon = "price-tag"
+    case time_icon = "alarm-clock"
+    case phone_icon = "call"
+    case shop_icon = "shop"
+    case address_icon = "placeholder"
+    case category_icon = "grid"
+    case picture = "picture"
+}
