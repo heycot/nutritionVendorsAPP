@@ -72,16 +72,6 @@ class ViewItemController: UIViewController {
             guard let data = data else {return }
             
             self.comments = data
-            if self.comments.count > 0 {
-                if self.item.comment_number! > 0 {
-                    
-                    let ratingNew: Double =  (Double(self.item.comment_number!) * data[0].rating!) / Double(self.item.comment_number! + 1)
-                    self.rating.text = String(ratingNew)
-                } else if data.count == 1 {
-                    self.rating.text = String(data[0].rating!)
-                }
-                self.numberComment.text = String(self.item.comment_number! + 1)
-            }
             self.tabelView.reloadData()
         }
     }

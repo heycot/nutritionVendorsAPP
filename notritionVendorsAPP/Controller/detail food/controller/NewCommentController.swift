@@ -49,8 +49,8 @@ class NewCommentController: UIViewController {
         content.delegate = self
         
         address.setBottomBorder(color: APP_COLOR)
-        ratingview.setBottomBorder(color: .darkGray)
-        titleCmt.setBottomBorder(color: .darkGray)
+//        ratingview.setBottomBorder(color: .darkGray)
+//        titleCmt.setBottomBorder(color: .darkGray)
         
     }
     
