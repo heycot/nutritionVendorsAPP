@@ -134,7 +134,7 @@ extension CategoryController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegueFunc(identifier: SegueIdentifier.favoriteToDetail.rawValue, sender: indexPath.row)
+        performSegueFunc(identifier: SegueIdentifier.categoryToDetail.rawValue, sender: indexPath.row)
     }
     
     
