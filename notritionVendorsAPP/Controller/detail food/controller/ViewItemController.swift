@@ -119,13 +119,18 @@ class ViewItemController: UIViewController {
             vc?.documents = item.documents!
             
             navigationItem.backBarButtonItem = backItem
+            
         } else if segue.destination is LoginController {
             _ = segue.destination as? LoginController
             
             navigationItem.backBarButtonItem = backItem
+            
         } else if segue.destination is ItemInShopController {
+            let vc = segue.destination as? ItemInShopController
+            vc?.shop = item.shop!
             
             navigationItem.backBarButtonItem = backItem
+            
         } else if  segue.destination is DeliveryController {
             navigationItem.backBarButtonItem = backItem
             

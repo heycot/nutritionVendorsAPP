@@ -84,6 +84,7 @@
 		23A31BBA2240948F00FE2D69 /* NetworkingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A31BB92240948F00FE2D69 /* NetworkingClient.swift */; };
 		23B6023F222E767E00FBBD79 /* ExtensionUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B6023E222E767E00FBBD79 /* ExtensionUIImage.swift */; };
 		23B7653E22642F4300DC76F7 /* NewCommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B7653D22642F4300DC76F7 /* NewCommentController.swift */; };
+		23B765422264A27400DC76F7 /* ItemInShopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B765412264A27400DC76F7 /* ItemInShopCell.swift */; };
 		23D02E612223799300882742 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D02E602223799300882742 /* AppDelegate.swift */; };
 		23D02E632223799300882742 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D02E622223799300882742 /* LoginController.swift */; };
 		23D02E662223799300882742 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23D02E642223799300882742 /* Main.storyboard */; };
@@ -177,6 +178,7 @@
 		23A31BB92240948F00FE2D69 /* NetworkingClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingClient.swift; sourceTree = "<group>"; };
 		23B6023E222E767E00FBBD79 /* ExtensionUIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUIImage.swift; sourceTree = "<group>"; };
 		23B7653D22642F4300DC76F7 /* NewCommentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCommentController.swift; sourceTree = "<group>"; };
+		23B765412264A27400DC76F7 /* ItemInShopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInShopCell.swift; sourceTree = "<group>"; };
 		23D02E5D2223799300882742 /* notritionVendorsAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = notritionVendorsAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23D02E602223799300882742 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23D02E622223799300882742 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 				231AF5CB225F2BE50057DD11 /* ShopController.swift */,
 				231AF5CD225F45850057DD11 /* ShopCell.swift */,
 				2352405B226358A6004B11CF /* ItemInShopController.swift */,
+				23B765412264A27400DC76F7 /* ItemInShopCell.swift */,
 			);
 			path = shop;
 			sourceTree = "<group>";
@@ -752,6 +755,7 @@
 				23D5080B224236D4005FB1AC /* ShopResponse.swift in Sources */,
 				230E2DEA22266DDE00246392 /* Favorites.swift in Sources */,
 				2378E12D2247385700837883 /* DocumentResponse.swift in Sources */,
+				23B765422264A27400DC76F7 /* ItemInShopCell.swift in Sources */,
 				23A31BB5224088FD00FE2D69 /* ShopItemResponse.swift in Sources */,
 				231AE462222E2A030082C06E /* ExtensionUIlabel.swift in Sources */,
 				233B390822375463003EB253 /* AuthServices.swift in Sources */,

@@ -33,6 +33,7 @@ enum ShopItemAPI: String {
     case getAllLoved = "shop-item/love"
     case findByCategory = "shop-item/category"
     case getRating = "shop-item/rating"
+    case findByShop = "shop-item/shop"
 }
 
 enum FavoritesAPI: String {
@@ -110,6 +111,7 @@ enum CellIdentifier: String {
     case categoryShopItemCell = "CategoryShopItemCell"
     case addCommentBtn = "AddCommentBtn"
     case actionCell = "ActionCell"
+    case itemInShop = "ItemInShopCell"
 }
 
 enum SegueIdentifier: String {
