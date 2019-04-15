@@ -26,6 +26,8 @@ class SearchCell: UITableViewCell {
     }
     
     func updateView(item: ShopItemResponse) {
+        setupView()
+        
         itemImage.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + item.avatar!)
         name.text = item.name! + " - " + item.shop_name!
         address.text = item.address!
