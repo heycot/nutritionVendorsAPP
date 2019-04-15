@@ -9,7 +9,8 @@
 import UIKit
 
 class AddCommentBtnCell: UITableViewCell {
-
+    @IBOutlet weak var addCmtBtn: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

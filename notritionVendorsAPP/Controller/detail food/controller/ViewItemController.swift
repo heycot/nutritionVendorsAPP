@@ -15,10 +15,14 @@ class ViewItemController: UIViewController {
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     // variables
+    var comments = [CommentResponse]()
     var itemValues = [ItemValue] ()
     var item = ShopItemResponse()
     var loveBtn = UIButton()
+    var rating = UITextField()
+    var numberComment = UITextField()
     var numberFavorites = UITextField()
+    var isRefersh = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,12 +58,31 @@ class ViewItemController: UIViewController {
         ShopItemService.shared.getOneItem(id: item.id!) { data in
             guard let data = data else {return }
             
-            self.item.comments = data.comments
+//            self.comments = data.comments!
             self.item.documents = data.documents
             self.item.shop = data.shop
             self.item.shop?.location = data.shop?.location
             
             self.prepareData()
+        }
+    }
+    
+    func updateComment(offset: Int) {
+        CommentServices.shared.getComments(shopitemId: item.id!, offset: offset) { data in
+            guard let data = data else {return }
+            
+            self.comments = data
+            if self.comments.count > 0 {
+                if self.item.comment_number! > 0 {
+                    
+                    let ratingNew: Double =  (Double(self.item.comment_number!) * data[0].rating!) / Double(self.item.comment_number! + 1)
+                    self.rating.text = String(ratingNew)
+                } else if data.count == 1 {
+                    self.rating.text = String(data[0].rating!)
+                }
+                self.numberComment.text = String(self.item.comment_number! + 1)
+            }
+            self.tabelView.reloadData()
         }
     }
     
@@ -116,6 +139,11 @@ class ViewItemController: UIViewController {
         } else if  segue.destination is DeliveryController {
             navigationItem.backBarButtonItem = backItem
             
+        } else if segue.destination is NewCommentController {
+            let vc = segue.destination as? NewCommentController
+            vc?.nameShop = item.name! + " - " + (item.shop?.name!)!
+            vc?.addressShop = item.address!
+            vc?.shopitemId = item.id!
         }
     }
     
@@ -167,6 +195,21 @@ class ViewItemController: UIViewController {
         performSegueFunc(identifier: SegueIdentifier.detailToDelivery.rawValue)
     }
     
+    @objc func addCmtBtnPressed(btn: UIButton) {
+        if !AuthServices.instance.isLoggedIn {
+            let alert = UIAlertController(title: "Can not Comment", message: "Please sign in!", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+                self.performSegueFunc(identifier: SegueIdentifier.detailFoodToLogin.rawValue)
+            }))
+            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+            self.present(alert, animated: true)
+        } else {
+            performSegueFunc(identifier: SegueIdentifier.detailToComment.rawValue)
+        }
+    }
+    
+    
     func dismissKeyboard() {
         view.endEditing(true)
     }
@@ -190,7 +233,7 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
         case 2:
             return itemValues.count
         case 3:
-            return (item.comments?.count)!
+            return comments.count
         default:
             return 1
         }
@@ -207,6 +250,8 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
                 cell.loveBtn.addTarget(self, action: #selector(lovePressedFunction), for: UIControl.Event.touchDown)
                 loveBtn = cell.loveBtn
                 numberFavorites = cell.itemFavorites
+                rating = cell.itemRating
+                numberComment = cell.itemComments
                 
                 cell.updateView(item: item)
                 cell.selectionStyle = UITableViewCell.SelectionStyle.none;
@@ -234,12 +279,14 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
             
             case 3:
                 let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.listComment.rawValue, for: indexPath) as! ViewCommentCell
-                cell.updateView(comment: item.comments![indexPath.row])
+                cell.updateView(comment: comments[indexPath.row])
                 cell.selectionStyle = UITableViewCell.SelectionStyle.none;
                 return cell
             
             default:
                 let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.addCommentBtn.rawValue, for: indexPath) as! AddCommentBtnCell
+                
+                cell.addCmtBtn.addTarget(self, action: #selector(addCmtBtnPressed), for: UIControl.Event.touchDown)
                 return cell
         }
         
@@ -250,6 +297,7 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
         tabelView.estimatedRowHeight = 100
         tabelView.rowHeight = UITableView.automaticDimension
         
+        updateComment(offset: 0)
         super.viewWillAppear(true)
         tabelView.reloadData()
     }
@@ -275,6 +323,8 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
                         UIApplication.shared.canOpenURL(url)
                     }
             }
+        } else if indexPath.section == 4 {
+            performSegueFunc(identifier: SegueIdentifier.detailToComment.rawValue)
         }
     }
     

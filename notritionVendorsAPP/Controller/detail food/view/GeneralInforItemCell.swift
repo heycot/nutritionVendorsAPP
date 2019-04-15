@@ -14,10 +14,10 @@ class GeneralInforItemCell: UITableViewCell {
 
     @IBOutlet weak var itemImage: CustomImageView!
     @IBOutlet weak var itemName: UITextField!
-    @IBOutlet weak var itemComments: UITextField!
+    @IBOutlet weak var itemComments: CustomTextFeild!
     @IBOutlet weak var itemPhotos: UIButton!
-    @IBOutlet weak var itemFavorites: UITextField!
-    @IBOutlet weak var itemRating: UITextField!
+    @IBOutlet weak var itemFavorites: CustomTextFeild!
+    @IBOutlet weak var itemRating: CustomTextFeildRating!
     @IBOutlet weak var loveBtn: CustomButton!
     
     
@@ -25,13 +25,21 @@ class GeneralInforItemCell: UITableViewCell {
         customUI()
         
         let urlStr = BASE_URL + FavoritesAPI.checkStatus.rawValue + "/" + String(item.id!)
+        let urlComment = BASE_URL + CommentAPI.countByShopItem.rawValue + "/" + String(item.id!)
+        let urlRating = BASE_URL + ShopItemAPI.getRating.rawValue + "/" + String(item.id!)
+        let urlFavorites = BASE_URL + FavoritesAPI.countByShopItem.rawValue + "/" + String(item.id!)
+        
         loveBtn.viewImageUsingUrlString(urlString: urlStr)
         itemImage.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + item.avatar! )
+        itemComments.count(urlString: urlComment)
+        itemFavorites.count(urlString: urlFavorites)
+        itemRating.getRating(urlString: urlRating)
+        
         itemName.text      = item.name ?? ""
-        itemComments.text  = String((item.comments?.count) ?? 0)
+//        itemComments.text  = String(item.comment_number ?? 0)
         itemPhotos.setTitle(String(item.documents?.count ?? 0),for: .normal)
-        itemFavorites.text = String(item.favorites_number ?? 0)
-        itemRating.text    = String(format: "%.2f", item.rating ?? 0)
+//        itemFavorites.text = String(item.favorites_number ?? 0)
+//        itemRating.text    = String(format: "%.2f", item.rating ?? 0)
     }
     
     

@@ -1,47 +1,56 @@
 //
-//  AddNewCommentCell.swift
+//  NewCommentController.swift
 //  notritionVendorsAPP
 //
-//  Created by Tu (Callie) T. NGUYEN on 3/4/19.
+//  Created by Tu (Callie) T. NGUYEN on 4/15/19.
 //  Copyright © 2019 Tu (Callie) T. NGUYEN. All rights reserved.
 //
 
 import UIKit
 import Cosmos
-import TinyConstraints
 import IQKeyboardManagerSwift
 
-class AddNewCommentCell: UITableViewCell {
-
-    @IBOutlet weak var rating: CosmosView!
-    @IBOutlet weak var title: UITextField!
+class NewCommentController: UIViewController {
+    @IBOutlet weak var shopItemName: UILabel!
+    @IBOutlet weak var address: UILabel!
+    
+    @IBOutlet weak var ratingview: CosmosView!
+    @IBOutlet weak var titleCmt: UITextField!
     @IBOutlet weak var content: UITextView!
     
     var shopitemId = 0
+    var nameShop = ""
+    var addressShop = ""
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(donePressed))
         
+        self.title = "Write review"
+        shopItemName.text = nameShop
+        address.text = addressShop
+
         setUpUI()
         handlerkeyboard()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-    }
     
-    func saveItemId(id: Int ) {
-        shopitemId = id
+    @objc func donePressed() {
+        didPressOnDoneButton()
     }
     
     func setUpUI() {
-        title.delegate = self
+        
+        ratingview.rating = 0.0
+        ratingview.settings.updateOnTouch = true
+        ratingview.settings.fillMode = .precise
+        ratingview.text = "Rate me"
+        
+        titleCmt.delegate = self
         content.delegate = self
         
-        rating.settings.fillMode = .precise
-        title.setBottomBorder(color: .lightGray)
-//        content.setBorder(with: .lightGray)
+        address.setBottomBorder(color: APP_COLOR)
+        ratingview.setBottomBorder(color: .darkGray)
+        titleCmt.setBottomBorder(color: .darkGray)
         
     }
     
@@ -60,8 +69,8 @@ class AddNewCommentCell: UITableViewCell {
             
             comment.id = 0
             comment.content = content.text
-            comment.title = title.text!
-            comment.rating = rating.rating
+            comment.title = titleCmt.text!
+            comment.rating = ratingview.rating
             comment.user_id = 0
             comment.shopItem_id = shopitemId
             comment.status = 1
@@ -71,9 +80,12 @@ class AddNewCommentCell: UITableViewCell {
                 guard let data = data else { return }
                 
                 if data.id != nil {
-                    
+                    self.navigationController?.popViewController(animated: true)
                 } else {
-                    
+                    let alert = UIAlertController(title: Notification.comment.addCmtFailedTitle.rawValue, message: Notification.comment.addCmtFailedMessgae.rawValue, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
+                    alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+                    self.present(alert, animated: true)
                 }
             }
         }
@@ -81,15 +93,15 @@ class AddNewCommentCell: UITableViewCell {
     
     func validateInput() -> Bool {
         
-        if title.text == "" || content.text == "" {
-            showAlertError(title: "Error", message: "All the information are required!")
+        if titleCmt.text == "" || content.text == "" {
+            showAlertError(title: "Error", message: Notification.comment.nilWithInfor.rawValue)
             return false
-        } else if !title.text!.isValidString() {
-            showAlertError(title: "Error", message: "The title has only letters, underscores and numbers allowed!")
+        } else if !titleCmt.text!.isValidString() {
+            showAlertError(title: "Error", message: Notification.comment.titleNotValid.rawValue)
             return false
             
         } else if !content.text!.isValidString() {
-            showAlertError(title: "Error", message: "The content has only letters, underscores and numbers allowed!")
+            showAlertError(title: "Error", message: Notification.comment.contentNotValid.rawValue)
             return false
             
         } else {
@@ -106,7 +118,7 @@ class AddNewCommentCell: UITableViewCell {
     
 }
 
-extension AddNewCommentCell: UITextFieldDelegate {
+extension NewCommentController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         let invocation = IQInvocation(self, #selector(didPressOnDoneButton))
         textField.keyboardToolbar.doneBarButton.invocation = invocation
@@ -114,7 +126,7 @@ extension AddNewCommentCell: UITextFieldDelegate {
 }
 
 
-extension AddNewCommentCell: UITextViewDelegate {
+extension NewCommentController: UITextViewDelegate {
     
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         if textView.text.isEmpty {
@@ -142,4 +154,3 @@ extension AddNewCommentCell: UITextViewDelegate {
     
     
 }
-

@@ -43,6 +43,25 @@ class CommentServices {
             }
         }
     }
+    
+    func getComments(shopitemId: Int, offset: Int, completion: @escaping ([CommentResponse]?) -> Void) {
+        let urlStr = BASE_URL + CommentAPI.getByShopItem.rawValue + "/" + String(shopitemId) + "/" + String(offset)
+        
+        
+        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
+            
+            guard let data = data else {return}
+            do {
+                
+                let comment = try JSONDecoder().decode([CommentResponse].self, from: data)
+                DispatchQueue.main.async {
+                    completion(comment)
+                }
+            } catch let jsonError {
+                print("Error serializing json:", jsonError)
+            }
+        }
+    }
         
 }
 

@@ -13,10 +13,10 @@ typealias CompletionHander = (_ Success: Bool) -> ()
 
 // Base url
 //let BASE_URL        = "https://nutrition-vendors.herokuapp.com/api/"
-let BASE_URL        = "http://192.168.21.59:3001/api/"
-let BASE_URL_IMAGE  = "http://192.168.21.59:3001/images/"
-//let BASE_URL          = "http://192.168.21.59:3000/api/"
-//let BASE_URL_IMAGE    = "http://192.168.21.59:3000/images/"
+//let BASE_URL        = "http://192.168.21.59:3001/api/"
+//let BASE_URL_IMAGE  = "http://192.168.21.59:3001/images/"
+let BASE_URL          = "http://192.168.21.59:3000/api/"
+let BASE_URL_IMAGE    = "http://192.168.21.59:3000/images/"
 //let BASE_URL        = "http://192.168.137.1:3001/api/"
 //let BASE_URL_IMAGE  = "http://192.168.137.1:3001/images/"
 
@@ -32,16 +32,20 @@ enum ShopItemAPI: String {
     case searchOne = "shop-item/search"
     case getAllLoved = "shop-item/love"
     case findByCategory = "shop-item/category"
+    case getRating = "shop-item/rating"
 }
 
 enum FavoritesAPI: String {
     case loveOne = "favorites/love"
     case getAllByUser = "favorites/user"
     case checkStatus = "favorites/check"
+    case countByShopItem = "favorites/count"
 }
 
 enum CommentAPI: String {
     case addNew = "comment/add"
+    case getByShopItem = "comment/shopitem"
+    case countByShopItem = "comment/count"
 }
 
 enum CategoryAPI: String {

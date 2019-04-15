@@ -917,7 +917,7 @@
         <image name="searchbar" width="400" height="38"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9zj-Eq-LIz"/>
+        <segue reference="WYP-LC-rZ2"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

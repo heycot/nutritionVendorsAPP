@@ -84,12 +84,12 @@
 		2381B646225B0185004DAA64 /* CategoryServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2381B645225B0185004DAA64 /* CategoryServices.swift */; };
 		2381B649225B064F004DAA64 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2381B647225B064F004DAA64 /* CategoryCell.swift */; };
 		2381B64A225B064F004DAA64 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2381B648225B064F004DAA64 /* CategoryCell.xib */; };
-		238792EE222D041B005E4E3E /* AddNewCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238792EC222D041B005E4E3E /* AddNewCommentCell.swift */; };
-		238792EF222D041B005E4E3E /* AddNewCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 238792ED222D041B005E4E3E /* AddNewCommentCell.xib */; };
 		23A31BB5224088FD00FE2D69 /* ShopItemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A31BB4224088FD00FE2D69 /* ShopItemResponse.swift */; };
 		23A31BB7224093F800FE2D69 /* ShopItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A31BB6224093F700FE2D69 /* ShopItemService.swift */; };
 		23A31BBA2240948F00FE2D69 /* NetworkingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A31BB92240948F00FE2D69 /* NetworkingClient.swift */; };
 		23B6023F222E767E00FBBD79 /* ExtensionUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B6023E222E767E00FBBD79 /* ExtensionUIImage.swift */; };
+		23B7653E22642F4300DC76F7 /* NewCommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B7653D22642F4300DC76F7 /* NewCommentController.swift */; };
+		23B7654022648E9500DC76F7 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B7653F22648E9500DC76F7 /* CustomTextField.swift */; };
 		23D02E612223799300882742 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D02E602223799300882742 /* AppDelegate.swift */; };
 		23D02E632223799300882742 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D02E622223799300882742 /* LoginController.swift */; };
 		23D02E662223799300882742 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23D02E642223799300882742 /* Main.storyboard */; };
@@ -183,12 +183,12 @@
 		2381B645225B0185004DAA64 /* CategoryServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryServices.swift; sourceTree = "<group>"; };
 		2381B647225B064F004DAA64 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		2381B648225B064F004DAA64 /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
-		238792EC222D041B005E4E3E /* AddNewCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCommentCell.swift; sourceTree = "<group>"; };
-		238792ED222D041B005E4E3E /* AddNewCommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewCommentCell.xib; sourceTree = "<group>"; };
 		23A31BB4224088FD00FE2D69 /* ShopItemResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemResponse.swift; sourceTree = "<group>"; };
 		23A31BB6224093F700FE2D69 /* ShopItemService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemService.swift; sourceTree = "<group>"; };
 		23A31BB92240948F00FE2D69 /* NetworkingClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingClient.swift; sourceTree = "<group>"; };
 		23B6023E222E767E00FBBD79 /* ExtensionUIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUIImage.swift; sourceTree = "<group>"; };
+		23B7653D22642F4300DC76F7 /* NewCommentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCommentController.swift; sourceTree = "<group>"; };
+		23B7653F22648E9500DC76F7 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		23D02E5D2223799300882742 /* notritionVendorsAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = notritionVendorsAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23D02E602223799300882742 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23D02E622223799300882742 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -286,6 +286,7 @@
 				235A49EC2248BEF70034A944 /* CustomImageView.swift */,
 				231AE465222E2D4E0082C06E /* ExtensionUITextView.swift */,
 				236A32BD2258A10C00AA2410 /* AlertController.swift */,
+				23B7653F22648E9500DC76F7 /* CustomTextField.swift */,
 			);
 			path = ExtensionUI;
 			sourceTree = "<group>";
@@ -373,6 +374,7 @@
 				2323C8B1223F5B8B00DA68CA /* ViewLocationShopController.swift */,
 				231C5B6E224DCE5A00161534 /* PhotoItemController.swift */,
 				2320C6F12251C7C700A2C328 /* DetailPhotoController.swift */,
+				23B7653D22642F4300DC76F7 /* NewCommentController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -380,8 +382,6 @@
 		235B668A226312E200BBFAFC /* view */ = {
 			isa = PBXGroup;
 			children = (
-				238792ED222D041B005E4E3E /* AddNewCommentCell.xib */,
-				238792EC222D041B005E4E3E /* AddNewCommentCell.swift */,
 				2376D98E224CDC4200DDFB19 /* PhotoItemCell.swift */,
 				2320C6F32251C8AD00A2C328 /* DetailPhotoCell.swift */,
 				2300BE6A222D30B7008E9101 /* GeneralInforItemCell.xib */,
@@ -636,7 +636,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2352405322635191004B11CF /* AddCommentBtnCell.xib in Resources */,
-				238792EF222D041B005E4E3E /* AddNewCommentCell.xib in Resources */,
 				23D02E6B2223799400882742 /* LaunchScreen.storyboard in Resources */,
 				2300BE7D222D3658008E9101 /* ViewCommentCell.xib in Resources */,
 				23D02E682223799400882742 /* Assets.xcassets in Resources */,
@@ -787,15 +786,16 @@
 				236A32B92258945F00AA2410 /* FavoritesCell.swift in Sources */,
 				2352404E22634E33004B11CF /* ActionCell.swift in Sources */,
 				230E2DE2222668C000246392 /* Item.swift in Sources */,
-				238792EE222D041B005E4E3E /* AddNewCommentCell.swift in Sources */,
 				23E6FD75224B5479001C72B2 /* ExtentionDouble.swift in Sources */,
 				23D02E612223799300882742 /* AppDelegate.swift in Sources */,
 				2381B646225B0185004DAA64 /* CategoryServices.swift in Sources */,
 				23D5080922423637005FB1AC /* LocationResponse.swift in Sources */,
 				231AE46A222E589F0082C06E /* Icon.swift in Sources */,
+				23B7653E22642F4300DC76F7 /* NewCommentController.swift in Sources */,
 				230E2DDC222666F300246392 /* City.swift in Sources */,
 				236A5A83225B455F005C27E8 /* HeaderCollectionCell.swift in Sources */,
 				235A32BD2224F51500DE5B0E /* AccountController.swift in Sources */,
+				23B7654022648E9500DC76F7 /* CustomTextField.swift in Sources */,
 				235A49EB2248B1DA0034A944 /* ImageService.swift in Sources */,
 				2352404B22632E99004B11CF /* CategoryController.swift in Sources */,
 				23EAA4472246638300A30E98 /* UserResponse.swift in Sources */,

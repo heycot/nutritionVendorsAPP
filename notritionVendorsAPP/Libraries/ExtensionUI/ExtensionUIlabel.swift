@@ -14,14 +14,14 @@ extension UILabel {
         self.font = UIFont.boldSystemFont(ofSize: CGFloat(size))
     }
     
-    func setBottomBorder(color: UIColor) {
-        
-        self.layer.backgroundColor = color.cgColor
-        
-        self.layer.masksToBounds = false
-        self.layer.shadowColor = color.cgColor
-        self.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
-        self.layer.shadowOpacity = 1.0
-        self.layer.shadowRadius = 0.0
-    }
+//    @objc func setBottomBorder(color: UIColor) {
+//        
+//        self.layer.backgroundColor = UIColor.white.cgColor
+//        
+//        self.layer.masksToBounds = false
+//        self.layer.shadowColor = color.cgColor
+//        self.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+//        self.layer.shadowOpacity = 1.0
+//        self.layer.shadowRadius = 0.0
+//    }
 }
