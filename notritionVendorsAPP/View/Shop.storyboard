@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="xtN-Wd-zBa">
-                                <rect key="frame" x="0.0" y="64" width="375" height="75.5"/>
+                                <rect key="frame" x="10" y="64" width="355" height="75.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45Z-6E-Nop">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="pVo-aN-BmC"/>
                                         </constraints>
@@ -31,7 +31,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mXf-6C-uK1">
-                                        <rect key="frame" x="0.0" y="35" width="375" height="20"/>
+                                        <rect key="frame" x="0.0" y="35" width="355" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="qXt-pz-vJX"/>
                                         </constraints>
@@ -40,7 +40,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="El8-40-DuP">
-                                        <rect key="frame" x="0.0" y="55" width="375" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="55" width="355" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -139,7 +139,7 @@
                             <constraint firstItem="gtc-JA-WnO" firstAttribute="trailing" secondItem="QDZ-LX-m0l" secondAttribute="trailing" id="6bn-jY-kTO"/>
                             <constraint firstItem="gtc-JA-WnO" firstAttribute="top" secondItem="xtN-Wd-zBa" secondAttribute="bottom" constant="10" id="OHU-eQ-jhI"/>
                             <constraint firstItem="QDZ-LX-m0l" firstAttribute="bottom" secondItem="gtc-JA-WnO" secondAttribute="bottom" id="dwO-Ia-xSj"/>
-                            <constraint firstItem="xtN-Wd-zBa" firstAttribute="width" secondItem="vYi-xr-gPB" secondAttribute="width" id="tRe-yM-kdp"/>
+                            <constraint firstItem="xtN-Wd-zBa" firstAttribute="width" secondItem="vYi-xr-gPB" secondAttribute="width" constant="-20" id="tRe-yM-kdp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QDZ-LX-m0l"/>
                     </view>

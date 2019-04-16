@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class ItemInShopController: UIViewController {
     @IBOutlet weak var shopName: UILabel!

@@ -15,21 +15,21 @@ struct SearchResponse: Decodable{
     var rating: Double?
     var comment_number: Int?
     var address: String?
-    var isShop: Int?
+    var is_shop: Int?
     var avatar: String?
     
-    init(id: Int, entity_id: Int, entity_name: String, rating: Double, comment_number: Int, address: String, isShop: Int, avatar: String) {
+    init(id: Int, entity_id: Int, entity_name: String, rating: Double, comment_number: Int, address: String, is_shop: Int, avatar: String) {
         self.id = id
         self.entity_id = entity_id
         self.entity_name = entity_name
         self.rating = rating
         self.comment_number = comment_number
         self.address = address
-        self.isShop = isShop
+        self.is_shop = is_shop
         self.avatar = avatar
     }
     
     init() {
-        self.init(id: 0, entity_id: 0, entity_name: "", rating: 0.0, comment_number: 0, address: "", isShop: 0, avatar: "")
+        self.init(id: 0, entity_id: 0, entity_name: "", rating: 0.0, comment_number: 0, address: "", is_shop: 0, avatar: "")
     }
 }

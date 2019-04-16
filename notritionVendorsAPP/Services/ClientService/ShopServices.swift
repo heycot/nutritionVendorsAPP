@@ -49,5 +49,23 @@ class ShopServices {
             }
         }
     }
+    
+    func getOne(id: Int, completion: @escaping (ShopResponse?) -> Void) {
+        let urlStr = BASE_URL + ShopAPI.getOne.rawValue + "/" + String(id)
+        
+        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
+            
+            guard let data = data else {return}
+            do {
+                
+                let shop = try JSONDecoder().decode(ShopResponse.self, from: data)
+                DispatchQueue.main.async {
+                    completion(shop)
+                }
+            } catch let jsonError {
+                print("Error serializing json:", jsonError)
+            }
+        }
+    }
         
 }

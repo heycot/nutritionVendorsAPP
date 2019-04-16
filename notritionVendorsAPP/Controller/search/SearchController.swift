@@ -96,6 +96,13 @@ class SearchController: UIViewController {
             self.performSegue(withIdentifier: SegueIdentifier.searchToDetaild.rawValue, sender: nil)
         }
     }
+    
+    func getShopResponse(id: Int) {
+        ShopServices.shared.getOne(id: id) { (data) in
+            self.shop = data!
+            self.performSegue(withIdentifier: SegueIdentifier.searchToShop.rawValue, sender: nil)
+        }
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -106,8 +113,11 @@ class SearchController: UIViewController {
             let vc = segue.destination as? ViewItemController
             vc?.item = shopitem
             navigationItem.backBarButtonItem = backItem
-        } else {
             
+        } else if segue.destination is ItemInShopController{
+            let vc = segue.destination as? ItemInShopController
+            vc?.shop = shop
+            navigationItem.backBarButtonItem = backItem
         }
     }
 }
@@ -127,11 +137,10 @@ extension SearchController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if listItem[indexPath.row].isShop == 1 {
-            self.performSegue(withIdentifier: SegueIdentifier.searchToShop.rawValue, sender: indexPath.row)
-
+        if listItem[indexPath.row].is_shop! == 1 {
+            getShopResponse(id: listItem[indexPath.row].entity_id!)
         } else {
-            getShopItemResponse(id: listItem[indexPath.row].id!)
+            getShopItemResponse(id: listItem[indexPath.row].entity_id!)
         }
     }
     

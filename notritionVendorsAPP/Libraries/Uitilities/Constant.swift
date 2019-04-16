@@ -55,8 +55,9 @@ enum CategoryAPI: String {
 }
 
 enum ShopAPI: String {
-    case newest = "/newest"
-    case nearest = "/nearest"
+    case newest = "shop/newest"
+    case nearest = "shop/nearest"
+    case getOne = "shop"
 }
 
 
