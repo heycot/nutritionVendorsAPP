@@ -49,7 +49,7 @@ class ShopItemService {
         }
     }
     
-    func searchItem(searchText: String, completion: @escaping ([ShopItemResponse]?) -> Void) {
+    func searchItem(searchText: String, completion: @escaping ([SearchResponse]?) -> Void) {
         let urlStr = BASE_URL + ShopItemAPI.searchOne.rawValue  + "/" + searchText
         
         NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
@@ -57,7 +57,7 @@ class ShopItemService {
             guard let data = data else {return}
             do {
                 
-                let shopItems = try JSONDecoder().decode([ShopItemResponse].self, from: data)
+                let shopItems = try JSONDecoder().decode([SearchResponse].self, from: data)
                 DispatchQueue.main.async {
                     completion(shopItems)
                 }

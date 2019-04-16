@@ -84,8 +84,6 @@ class CategoryController: UIViewController {
             _ = segue.destination as? LoginController
             
         } else if segue.destination is SearchController {
-            let vc = segue.destination as? SearchController
-            vc?.listItem = currentListItem
         }
     }
     

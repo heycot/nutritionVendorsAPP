@@ -133,6 +133,7 @@ enum SegueIdentifier: String {
     
     //search
     case searchToDetaild = "SearchToDetaild"
+    case searchToShop = "SearchToShop"
     
     
     // notification

@@ -683,14 +683,8 @@
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcr-VE-ykj">
-                                                                    <rect key="frame" x="0.0" y="36" width="309" height="17"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                    <color key="textColor" red="0.10620272016194104" green="0.64605805837563457" blue="0.011073882892517022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mhs-Gb-YBD" customClass="CosmosView" customModule="Cosmos">
-                                                                    <rect key="frame" x="0.0" y="52.999999999999993" width="120" height="26.666666666666664"/>
+                                                                    <rect key="frame" x="0.0" y="36" width="120" height="43.666666666666657"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
@@ -708,7 +702,6 @@
                                                             <constraints>
                                                                 <constraint firstItem="mmc-dN-ULd" firstAttribute="width" secondItem="w0E-oa-az9" secondAttribute="width" id="8YW-tf-hFO"/>
                                                                 <constraint firstItem="yfh-mu-5DP" firstAttribute="width" secondItem="w0E-oa-az9" secondAttribute="width" id="Mwa-BG-gQQ"/>
-                                                                <constraint firstItem="zcr-VE-ykj" firstAttribute="width" secondItem="w0E-oa-az9" secondAttribute="width" id="mMe-yW-QqX"/>
                                                             </constraints>
                                                         </stackView>
                                                     </subviews>
@@ -726,7 +719,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="address" destination="mmc-dN-ULd" id="4AX-Ov-tsz"/>
-                                            <outlet property="distance" destination="zcr-VE-ykj" id="D1h-11-QF6"/>
                                             <outlet property="itemImage" destination="RRt-Jl-ASr" id="Huc-WS-bOt"/>
                                             <outlet property="name" destination="yfh-mu-5DP" id="tCh-oX-cQ4"/>
                                             <outlet property="rating" destination="Mhs-Gb-YBD" id="Kg9-xz-gvY"/>
@@ -753,6 +745,7 @@
                         <outlet property="notification" destination="GSE-jy-aC8" id="ieA-Lf-YPK"/>
                         <outlet property="tableView" destination="TI1-aD-d0s" id="wTh-E7-zL2"/>
                         <segue destination="pAv-CV-Swc" kind="show" identifier="SearchToDetaild" id="Li0-6H-FeM"/>
+                        <segue destination="fGi-UI-Gzq" kind="show" identifier="SearchToShop" id="LvM-We-fbG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HWn-Ny-m9a" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -766,6 +759,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lb1-Rn-Rwv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1555" y="1337"/>
+        </scene>
+        <!--ShopStoryboardID-->
+        <scene sceneID="NDu-tS-Mfm">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Shop" referencedIdentifier="ShopStoryboardID" id="fGi-UI-Gzq" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zJ0-yV-URT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1604" y="1491"/>
         </scene>
         <!--DetailFoodStoryboardID-->
         <scene sceneID="QHP-1T-i6W">

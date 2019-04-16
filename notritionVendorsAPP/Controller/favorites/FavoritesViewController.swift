@@ -113,7 +113,7 @@ class FavoritesViewController: UIViewController {
             
         } else if segue.destination is SearchController {
             let vc = segue.destination as? SearchController
-            vc?.listItem = currentListItem
+//            vc?.listItem = currentListItem
         }
     }
     

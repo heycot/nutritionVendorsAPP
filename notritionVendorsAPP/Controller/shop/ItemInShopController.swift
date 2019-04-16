@@ -83,7 +83,7 @@ class ItemInShopController: UIViewController {
             
         } else if segue.destination is SearchController {
             let vc = segue.destination as? SearchController
-            vc?.listItem = listItem
+//            vc?.listItem = listItem
         }
     }
     

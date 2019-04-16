@@ -25,11 +25,11 @@ class SearchCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func updateView(item: ShopItemResponse) {
+    func updateView(item: SearchResponse) {
         setupView()
         
         itemImage.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + item.avatar!)
-        name.text = item.name! + " - " + item.shop_name!
+        name.text = item.entity_name!
         address.text = item.address!
         rating.rating = item.rating!
         rating.text = " (" + String(item.comment_number!) + ")"

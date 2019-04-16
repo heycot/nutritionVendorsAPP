@@ -14,7 +14,7 @@ class SearchController: UIViewController {
     @IBOutlet weak var notification: UILabel!
     
     let searchBar = UISearchBar()
-    var listItem = [ShopItemResponse] ()
+    var listItem = [SearchResponse] ()
     var searchDelayer: Timer!
     var priorSearchText = ""
     
@@ -89,7 +89,9 @@ class SearchController: UIViewController {
         if segue.destination is ViewItemController {
             let vc = segue.destination as? ViewItemController
             let index = sender as! Int
-            vc?.item = listItem[index]
+//            vc?.item = listItem[index]
+        } else {
+            
         }
     }
 }
@@ -109,7 +111,11 @@ extension SearchController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: SegueIdentifier.searchToDetaild.rawValue, sender: indexPath.row)
+        if listItem[indexPath.row].isShop == 0 {
+            performSegue(withIdentifier: SegueIdentifier.searchToDetaild.rawValue, sender: indexPath.row)
+        } else {
+            performSegue(withIdentifier: SegueIdentifier.searchToShop.rawValue, sender: indexPath.row)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
