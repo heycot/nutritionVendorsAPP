@@ -117,5 +117,22 @@ class ShopItemService {
         }
     }
     
+    func getOneDTOItem(id: Int, completion: @escaping (ShopItemResponse?) -> Void) {
+        let urlStr = BASE_URL + ShopItemAPI.getOneDTO.rawValue + "/" + String(id)
+        
+        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
+            guard let data = data else {return}
+            
+            do {
+                let shopItem = try JSONDecoder().decode(ShopItemResponse.self, from: data)
+                DispatchQueue.main.async {
+                    completion(shopItem)
+                }
+            } catch let jsonError {
+                print("Error serializing json:", jsonError)
+            }
+        }
+    }
+    
     
 }

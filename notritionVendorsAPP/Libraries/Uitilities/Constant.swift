@@ -34,6 +34,7 @@ enum ShopItemAPI: String {
     case findByCategory = "shop-item/category"
     case getRating = "shop-item/rating"
     case findByShop = "shop-item/shop"
+    case getOneDTO = "shop-item/dto"
 }
 
 enum FavoritesAPI: String {

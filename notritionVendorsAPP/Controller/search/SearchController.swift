@@ -18,6 +18,9 @@ class SearchController: UIViewController {
     var searchDelayer: Timer!
     var priorSearchText = ""
     
+    var shopitem = ShopItemResponse()
+    var shop = ShopResponse()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +60,7 @@ class SearchController: UIViewController {
         }
     }
     
+    
     func stopSpinnerActivity() {
         MBProgressHUD.hide(for: self.view, animated: true);
     }
@@ -84,12 +88,24 @@ class SearchController: UIViewController {
             
         }
     }
+    
+    
+    func getShopItemResponse(id: Int) {
+        ShopItemService.shared.getOneDTOItem(id: id) { (data) in
+            self.shopitem = data!
+            self.performSegue(withIdentifier: SegueIdentifier.searchToDetaild.rawValue, sender: nil)
+        }
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back"
+        
         if segue.destination is ViewItemController {
             let vc = segue.destination as? ViewItemController
-            let index = sender as! Int
-//            vc?.item = listItem[index]
+            vc?.item = shopitem
+            navigationItem.backBarButtonItem = backItem
         } else {
             
         }
@@ -111,10 +127,11 @@ extension SearchController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if listItem[indexPath.row].isShop == 0 {
-            performSegue(withIdentifier: SegueIdentifier.searchToDetaild.rawValue, sender: indexPath.row)
+        if listItem[indexPath.row].isShop == 1 {
+            self.performSegue(withIdentifier: SegueIdentifier.searchToShop.rawValue, sender: indexPath.row)
+
         } else {
-            performSegue(withIdentifier: SegueIdentifier.searchToShop.rawValue, sender: indexPath.row)
+            getShopItemResponse(id: listItem[indexPath.row].id!)
         }
     }
     
