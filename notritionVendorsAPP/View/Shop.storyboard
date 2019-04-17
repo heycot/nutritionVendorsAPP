@@ -18,20 +18,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="xtN-Wd-zBa">
-                                <rect key="frame" x="10" y="64" width="355" height="75.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xtN-Wd-zBa">
+                                <rect key="frame" x="0.0" y="64" width="375" height="255.5"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RFH-h6-IyM" customClass="CustomImageView" customModule="notritionVendorsAPP" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="CLd-s9-ZPs"/>
+                                        </constraints>
+                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45Z-6E-Nop">
-                                        <rect key="frame" x="0.0" y="0.0" width="355" height="35"/>
+                                        <rect key="frame" x="10" y="160" width="355" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="pVo-aN-BmC"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mXf-6C-uK1">
-                                        <rect key="frame" x="0.0" y="35" width="355" height="20"/>
+                                        <rect key="frame" x="10" y="205" width="355" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="qXt-pz-vJX"/>
                                         </constraints>
@@ -40,20 +46,24 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="El8-40-DuP">
-                                        <rect key="frame" x="0.0" y="55" width="355" height="20.5"/>
+                                        <rect key="frame" x="10" y="235" width="355" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="El8-40-DuP" firstAttribute="width" secondItem="xtN-Wd-zBa" secondAttribute="width" id="deq-LO-M1L"/>
-                                    <constraint firstItem="45Z-6E-Nop" firstAttribute="width" secondItem="xtN-Wd-zBa" secondAttribute="width" id="jT1-jh-rMm"/>
-                                    <constraint firstItem="mXf-6C-uK1" firstAttribute="width" secondItem="xtN-Wd-zBa" secondAttribute="width" id="xnA-4s-Dgw"/>
+                                    <constraint firstItem="RFH-h6-IyM" firstAttribute="leading" secondItem="xtN-Wd-zBa" secondAttribute="leading" id="Ban-hP-hpY"/>
+                                    <constraint firstItem="RFH-h6-IyM" firstAttribute="top" secondItem="xtN-Wd-zBa" secondAttribute="top" id="Kv7-9Q-med"/>
+                                    <constraint firstItem="RFH-h6-IyM" firstAttribute="width" secondItem="xtN-Wd-zBa" secondAttribute="width" id="ZNQ-Z5-ag5"/>
+                                    <constraint firstItem="El8-40-DuP" firstAttribute="width" secondItem="xtN-Wd-zBa" secondAttribute="width" constant="-20" id="deq-LO-M1L"/>
+                                    <constraint firstItem="45Z-6E-Nop" firstAttribute="width" secondItem="xtN-Wd-zBa" secondAttribute="width" constant="-20" id="jT1-jh-rMm"/>
+                                    <constraint firstAttribute="trailing" secondItem="RFH-h6-IyM" secondAttribute="trailing" id="ttv-1L-sPX"/>
+                                    <constraint firstItem="mXf-6C-uK1" firstAttribute="width" secondItem="xtN-Wd-zBa" secondAttribute="width" constant="-20" id="xnA-4s-Dgw"/>
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gtc-JA-WnO">
-                                <rect key="frame" x="0.0" y="149.5" width="375" height="517.5"/>
+                                <rect key="frame" x="0.0" y="329.5" width="375" height="337.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="ItemInShopCell" rowHeight="102" id="ewI-ai-xFA" customClass="ItemInShopCell" customModule="notritionVendorsAPP" customModuleProvider="target">
@@ -139,13 +149,14 @@
                             <constraint firstItem="gtc-JA-WnO" firstAttribute="trailing" secondItem="QDZ-LX-m0l" secondAttribute="trailing" id="6bn-jY-kTO"/>
                             <constraint firstItem="gtc-JA-WnO" firstAttribute="top" secondItem="xtN-Wd-zBa" secondAttribute="bottom" constant="10" id="OHU-eQ-jhI"/>
                             <constraint firstItem="QDZ-LX-m0l" firstAttribute="bottom" secondItem="gtc-JA-WnO" secondAttribute="bottom" id="dwO-Ia-xSj"/>
-                            <constraint firstItem="xtN-Wd-zBa" firstAttribute="width" secondItem="vYi-xr-gPB" secondAttribute="width" constant="-20" id="tRe-yM-kdp"/>
+                            <constraint firstItem="xtN-Wd-zBa" firstAttribute="width" secondItem="vYi-xr-gPB" secondAttribute="width" id="tRe-yM-kdp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QDZ-LX-m0l"/>
                     </view>
                     <navigationItem key="navigationItem" id="W3i-eF-j3p"/>
                     <connections>
                         <outlet property="shopAddress" destination="mXf-6C-uK1" id="wpK-UM-hco"/>
+                        <outlet property="shopAvatar" destination="RFH-h6-IyM" id="iiU-iY-Q9r"/>
                         <outlet property="shopName" destination="45Z-6E-Nop" id="lX5-AP-x3x"/>
                         <outlet property="shopTimeOpen" destination="El8-40-DuP" id="dVO-dy-SGd"/>
                         <outlet property="tableView" destination="gtc-JA-WnO" id="bQH-Di-dj9"/>

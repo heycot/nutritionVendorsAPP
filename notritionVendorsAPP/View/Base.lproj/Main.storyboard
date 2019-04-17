@@ -425,7 +425,6 @@
                             <constraint firstItem="OPZ-SF-MUz" firstAttribute="leading" secondItem="xhR-tM-TeL" secondAttribute="leading" id="F0b-mn-45D"/>
                             <constraint firstItem="OPZ-SF-MUz" firstAttribute="trailing" secondItem="xhR-tM-TeL" secondAttribute="trailing" id="GpS-no-4qs"/>
                             <constraint firstItem="lfn-7K-c6V" firstAttribute="centerY" secondItem="Uf4-1j-izM" secondAttribute="centerY" id="OlA-Er-4Rj"/>
-                            <constraint firstItem="lfn-7K-c6V" firstAttribute="leading" secondItem="xhR-tM-TeL" secondAttribute="leading" id="hf8-2z-hrb"/>
                             <constraint firstItem="OPZ-SF-MUz" firstAttribute="centerX" secondItem="Uf4-1j-izM" secondAttribute="centerX" id="rlP-fc-SCe"/>
                             <constraint firstItem="xhR-tM-TeL" firstAttribute="trailing" secondItem="lfn-7K-c6V" secondAttribute="trailing" id="zvc-Ah-aqi"/>
                         </constraints>
@@ -731,10 +730,9 @@
                         <constraints>
                             <constraint firstItem="GSE-jy-aC8" firstAttribute="leading" secondItem="NOg-Vi-689" secondAttribute="leading" id="20O-on-y1S"/>
                             <constraint firstItem="GSE-jy-aC8" firstAttribute="centerY" secondItem="EEm-Xk-iXR" secondAttribute="centerY" id="3MB-GB-dYJ"/>
-                            <constraint firstItem="GSE-jy-aC8" firstAttribute="trailing" secondItem="NOg-Vi-689" secondAttribute="trailing" id="8Zj-3r-c51"/>
                             <constraint firstAttribute="bottom" secondItem="TI1-aD-d0s" secondAttribute="bottom" id="Blh-6z-WjV"/>
-                            <constraint firstItem="GSE-jy-aC8" firstAttribute="centerX" secondItem="EEm-Xk-iXR" secondAttribute="centerX" id="Hcj-ys-Ki8"/>
                             <constraint firstItem="TI1-aD-d0s" firstAttribute="trailing" secondItem="NOg-Vi-689" secondAttribute="trailing" id="Zbu-et-cXc"/>
+                            <constraint firstItem="GSE-jy-aC8" firstAttribute="centerX" secondItem="EEm-Xk-iXR" secondAttribute="centerX" id="baM-ej-o86"/>
                             <constraint firstItem="TI1-aD-d0s" firstAttribute="top" secondItem="NOg-Vi-689" secondAttribute="top" id="hp9-rA-ZJB"/>
                             <constraint firstItem="TI1-aD-d0s" firstAttribute="leading" secondItem="NOg-Vi-689" secondAttribute="leading" id="sbw-vC-gzb"/>
                         </constraints>

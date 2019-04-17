@@ -39,4 +39,10 @@ struct ShopResponse: Decodable {
     init(){
         self.init(id: 0, name: "", rating: 0.0, time_open: "", time_close: "", create_date: Date(), status: 1, phone: "", avatar: "", sell: "", distance: "", location: LocationResponse())
     }
+    
+    init(name: String, longitude: Double, latitude: Double) {
+        self.init()
+        self.location = LocationResponse(longitude: longitude, latitude: latitude)
+        self.name = name
+    }
 }

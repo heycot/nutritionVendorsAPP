@@ -13,6 +13,7 @@ PODS:
   - GooglePlaces (2.7.0):
     - GoogleMaps/Base (= 2.7.0)
   - IQKeyboardManagerSwift (6.2.0)
+  - ObjectMapper (3.4.2)
   - PinterestLayout (1.0.3)
   - Socket.IO-Client-Swift (13.4.0):
     - Starscream (~> 3.0.2)
@@ -29,6 +30,7 @@ DEPENDENCIES:
   - GoogleMaps
   - GooglePlaces
   - IQKeyboardManagerSwift
+  - ObjectMapper
   - PinterestLayout
   - Socket.IO-Client-Swift
   - SwiftyJSON
@@ -44,6 +46,7 @@ SPEC REPOS:
     - GoogleMaps
     - GooglePlaces
     - IQKeyboardManagerSwift
+    - ObjectMapper
     - PinterestLayout
     - Socket.IO-Client-Swift
     - Starscream
@@ -59,12 +62,13 @@ SPEC CHECKSUMS:
   GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
   GooglePlaces: 3d06e6c99654545b4738ce49648745779c25f2ef
   IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
+  ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
   PinterestLayout: f1c7ec0254ffa842d69f1b43e4436c8ded4359b9
   Socket.IO-Client-Swift: 2b2720f14c92ff1237ced09bc2f2da2022624fee
   Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   TinyConstraints: dbf7519aefc01ea59d62244300c7718aec68e280
 
-PODFILE CHECKSUM: 41fb58f6938359071d171006aea181949dc44e69
+PODFILE CHECKSUM: 36bdcc4e6775a047185689ce5ab01b63fce32152
 
 COCOAPODS: 1.5.2

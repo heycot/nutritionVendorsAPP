@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 
 class ItemInShopController: UIViewController {
+    @IBOutlet weak var shopAvatar: CustomImageView!
     @IBOutlet weak var shopName: UILabel!
     @IBOutlet weak var shopAddress: UILabel!
     @IBOutlet weak var shopTimeOpen: UILabel!
@@ -34,9 +35,11 @@ class ItemInShopController: UIViewController {
     }
     
     func viewShopInfor() {
+        shopAvatar.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + shop.avatar!)
         shopName.text = shop.name!
         shopAddress.text = shop.location?.address!
         shopTimeOpen.text = shop.time_open! + " - " + shop.time_close!
+        shopTimeOpen.setBottomBorder(color: APP_COLOR)
     }
     
     func setupView() {
@@ -83,7 +86,7 @@ class ItemInShopController: UIViewController {
             _ = segue.destination as? LoginController
             
         } else if segue.destination is SearchController {
-            let vc = segue.destination as? SearchController
+            _ = segue.destination as? SearchController
 //            vc?.listItem = listItem
         }
     }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct LocationResponse: Decodable {
     var id : Int?
@@ -25,5 +26,15 @@ struct LocationResponse: Decodable {
     
     init() {
         self.init(id: 0, name: "", address: "", longitude: 0.0, latitude: 0.0)
+    }
+    
+    init(longitude: Double, latitude: Double) {
+        self.init()
+        self.longitude = longitude
+        self.latitude = latitude
+    }
+    
+    func locationCoordinate2D() -> CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: latitude ?? 0, longitude: longitude ?? 0)
     }
 }

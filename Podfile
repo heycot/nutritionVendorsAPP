@@ -20,4 +20,5 @@ target 'notritionVendorsAPP' do
     pod 'PinterestLayout'
     pod 'CCBottomRefreshControl'
     pod 'Socket.IO-Client-Swift'
+    pod 'ObjectMapper'
 end
