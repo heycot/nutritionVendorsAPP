@@ -12,19 +12,19 @@ import ObjectMapper
 class MapRequestBodyDirections: Mappable {
     var origin:String!
     var destination: String!
-    //    var key: String!
+    var key: String!
     
     required init?(map: Map) {}
     
     init(origin: String, destination: String) {
         self.origin = origin
         self.destination = destination
-        //        self.key = Constants.googleMapAPIKey
+        self.key = GOOGLE_API_KEY
     }
     
     func mapping(map: Map) {
         origin <- map["origin"]
         destination <- map["destination"]
-        //        key <- map["key"]
+        key <- map["key"]
     }
 }

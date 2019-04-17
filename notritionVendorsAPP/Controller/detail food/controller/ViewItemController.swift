@@ -109,8 +109,7 @@ class ViewItemController: UIViewController {
         
         if segue.destination is ViewLocationShopController  {
             let vc = segue.destination as? ViewLocationShopController
-            vc?.location = (item.shop?.location)!
-            vc?.shopName = (item.shop?.name!)!
+            vc?.currentShop = item.shop!
             
             navigationItem.backBarButtonItem = backItem
             
