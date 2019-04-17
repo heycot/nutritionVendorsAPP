@@ -143,7 +143,9 @@ class ViewItemController: UIViewController {
     }
     
     public func performSegueFunc(identifier: String ) {
-        self.performSegue(withIdentifier: identifier, sender: self)
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: identifier, sender: self)
+        }
     }
     
     
