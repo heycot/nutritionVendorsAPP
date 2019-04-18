@@ -317,10 +317,12 @@ extension ViewLocationShopController: CLLocationManagerDelegate {
 
         stopUpdateLocation()
         self.currentLocation = location
+        
+        print( "latitude \(location.coordinate.latitude) , \(location.coordinate.longitude)")
 
-        if isFromShop {
+//        if isFromShop {
             configCamera(location: location)
-        }
+//        }
     }
 
     // Handle incoming location events.

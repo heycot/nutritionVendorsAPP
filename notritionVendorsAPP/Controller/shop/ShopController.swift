@@ -136,6 +136,10 @@ class ShopController: UIViewController {
             vc?.isFromShop = true
             navigationItem.backBarButtonItem = backItem
             
+        } else if segue.destination is ItemInShopController {
+            let vc = segue.destination as? ItemInShopController
+            let index = sender as! Int
+            vc?.shop = listItem[index]
         }
     }
     
@@ -191,6 +195,11 @@ extension ShopController: UITableViewDataSource {
         loadDataFromAPI(offset: 0, isLoadMore: false, isNewest: isNewest)
         super.viewWillAppear(true)
         tableView.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: SegueIdentifier.shopToItemInShop.rawValue, sender: indexPath.row)
     }
     
 }
