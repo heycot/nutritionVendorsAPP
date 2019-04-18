@@ -47,7 +47,6 @@ class ShopController: UIViewController {
         }
         
         setupView()
-//        loadDataFromAPI(offset: listItem.count, isLoadMore: false, isNewest: isNewest)
     }
     
     
@@ -59,6 +58,8 @@ class ShopController: UIViewController {
         self.tableView.reloadData()
         tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.rowHeight = 90
+        
+        tableView.bottomRefreshControl = refresher
     }
     
     
