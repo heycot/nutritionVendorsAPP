@@ -50,10 +50,10 @@
                         <outlet property="tabelView" destination="yrC-Jj-oxm" id="Ppz-zn-5cj"/>
                         <segue destination="ZsY-0P-eMa" kind="show" identifier="DetailFoodToPhoto" id="w4n-Kf-6jr"/>
                         <segue destination="vrL-wc-1BG" kind="show" identifier="DetailFoodToLogin" id="ZXq-q1-a0w"/>
-                        <segue destination="gCj-2e-Pez" kind="show" identifier="DetailToLocation" id="lD4-0W-JjW"/>
                         <segue destination="Vt4-RN-Ige" kind="show" identifier="DetailToShop" id="XBA-1a-DdQ"/>
                         <segue destination="Uan-Lt-bny" kind="show" identifier="DetailToDelivery" id="FWO-zQ-ze5"/>
                         <segue destination="saf-4b-o4W" kind="show" identifier="DetailToComment" id="qZ5-OW-aOw"/>
+                        <segue destination="8zH-lq-QpG" kind="show" identifier="DetailToLocation" id="rGj-c0-01f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k87-dP-sEp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -166,6 +166,14 @@
             </objects>
             <point key="canvasLocation" x="1903.2" y="242.42878560719643"/>
         </scene>
+        <!--GoogleMapStoryboardID-->
+        <scene sceneID="7WG-ba-Hkv">
+            <objects>
+                <viewControllerPlaceholder storyboardName="GoogleMap" referencedIdentifier="GoogleMapStoryboardID" id="8zH-lq-QpG" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rrW-VO-uuY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1556" y="742"/>
+        </scene>
         <!--New Comment Controller-->
         <scene sceneID="Fq0-kE-dgC">
             <objects>
@@ -269,73 +277,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sFT-2b-oi8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="340" y="1038.9162561576354"/>
-        </scene>
-        <!--View Location Shop Controller-->
-        <scene sceneID="3kv-Wv-tMy">
-            <objects>
-                <viewController id="gCj-2e-Pez" customClass="ViewLocationShopController" customModule="notritionVendorsAPP" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="MsX-gn-kiQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AH1-fr-XuM" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G3t-gA-d9D">
-                                <rect key="frame" x="0.0" y="778" width="375" height="0.0"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shop Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5jo-KZ-rmm">
-                                        <rect key="frame" x="20" y="20" width="335" height="21"/>
-                                        <color key="backgroundColor" red="0.16438572169999999" green="1" blue="0.017140693080000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qjm-hq-8yu">
-                                        <rect key="frame" x="144.66666666666666" y="61" width="86" height="36"/>
-                                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <state key="normal" title="Direction">
-                                            <color key="titleColor" red="0.30196078430000001" green="0.68235294120000001" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="getDirectionPressed:" destination="gCj-2e-Pez" eventType="touchUpInside" id="fKc-v9-FU2"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.1062027202" green="0.64605805839999997" blue="0.011073882889999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="qjm-hq-8yu" firstAttribute="top" secondItem="5jo-KZ-rmm" secondAttribute="bottom" constant="20" id="1dS-iA-lRy"/>
-                                    <constraint firstAttribute="height" id="29D-QF-ocU"/>
-                                    <constraint firstAttribute="trailing" secondItem="5jo-KZ-rmm" secondAttribute="trailing" constant="20" id="4kx-H4-Lqe"/>
-                                    <constraint firstItem="qjm-hq-8yu" firstAttribute="centerX" secondItem="G3t-gA-d9D" secondAttribute="centerX" id="K8i-XS-nzO"/>
-                                    <constraint firstItem="5jo-KZ-rmm" firstAttribute="top" secondItem="G3t-gA-d9D" secondAttribute="top" constant="20" id="RgJ-YT-J9G"/>
-                                    <constraint firstItem="5jo-KZ-rmm" firstAttribute="leading" secondItem="G3t-gA-d9D" secondAttribute="leading" constant="20" id="qcc-nO-6KS"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="G3t-gA-d9D" firstAttribute="trailing" secondItem="VTg-mc-kUB" secondAttribute="trailing" id="EGo-PC-VOg"/>
-                            <constraint firstItem="AH1-fr-XuM" firstAttribute="top" secondItem="VTg-mc-kUB" secondAttribute="top" id="KMx-MN-kqs"/>
-                            <constraint firstItem="G3t-gA-d9D" firstAttribute="leading" secondItem="VTg-mc-kUB" secondAttribute="leading" id="QY8-Lr-ESj"/>
-                            <constraint firstItem="VTg-mc-kUB" firstAttribute="bottom" secondItem="G3t-gA-d9D" secondAttribute="bottom" id="UnD-xG-C7W"/>
-                            <constraint firstItem="VTg-mc-kUB" firstAttribute="trailing" secondItem="AH1-fr-XuM" secondAttribute="trailing" id="dbE-ME-WfS"/>
-                            <constraint firstItem="VTg-mc-kUB" firstAttribute="bottom" secondItem="AH1-fr-XuM" secondAttribute="bottom" id="etm-mv-Csw"/>
-                            <constraint firstItem="AH1-fr-XuM" firstAttribute="leading" secondItem="VTg-mc-kUB" secondAttribute="leading" id="vzT-bF-Sfj"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="VTg-mc-kUB"/>
-                    </view>
-                    <connections>
-                        <outlet property="mapView" destination="AH1-fr-XuM" id="wFw-PG-K4A"/>
-                        <outlet property="shopInforHeightConstraint" destination="29D-QF-ocU" id="5TX-Im-LLV"/>
-                        <outlet property="shopName" destination="5jo-KZ-rmm" id="GcL-he-ohv"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="akV-dY-dbj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1882" y="975"/>
         </scene>
         <!--Detail Photo Controller-->
         <scene sceneID="RI5-Q2-LRt">

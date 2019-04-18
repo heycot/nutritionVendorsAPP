@@ -49,6 +49,7 @@
 		233B390D22376476003EB253 /* StringLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233B390C22376476003EB253 /* StringLibrary.swift */; };
 		234B5CC622682AA900E7E61F /* ShopMarkerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 234B5CC522682AA900E7E61F /* ShopMarkerView.xib */; };
 		234B5CC822682B0B00E7E61F /* ShopMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234B5CC722682B0B00E7E61F /* ShopMarkerView.swift */; };
+		234B5CCA226834B100E7E61F /* GoogleMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 234B5CC9226834B100E7E61F /* GoogleMap.storyboard */; };
 		2352404922632E7F004B11CF /* CategoryUITableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2352404822632E7F004B11CF /* CategoryUITableCell.swift */; };
 		2352404B22632E99004B11CF /* CategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2352404A22632E99004B11CF /* CategoryController.swift */; };
 		2352404E22634E33004B11CF /* ActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2352404C22634E33004B11CF /* ActionCell.swift */; };
@@ -152,6 +153,7 @@
 		2347EEBA224E160400EC3A24 /* notritionVendorsAPP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "notritionVendorsAPP-Bridging-Header.h"; sourceTree = "<group>"; };
 		234B5CC522682AA900E7E61F /* ShopMarkerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopMarkerView.xib; sourceTree = "<group>"; };
 		234B5CC722682B0B00E7E61F /* ShopMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopMarkerView.swift; sourceTree = "<group>"; };
+		234B5CC9226834B100E7E61F /* GoogleMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GoogleMap.storyboard; sourceTree = "<group>"; };
 		2352404822632E7F004B11CF /* CategoryUITableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryUITableCell.swift; sourceTree = "<group>"; };
 		2352404A22632E99004B11CF /* CategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryController.swift; sourceTree = "<group>"; };
 		2352404C22634E33004B11CF /* ActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCell.swift; sourceTree = "<group>"; };
@@ -573,6 +575,7 @@
 				235B668622630BCA00BBFAFC /* Account.storyboard */,
 				2352405422635585004B11CF /* Shop.storyboard */,
 				2352405622635661004B11CF /* Delivery.storyboard */,
+				234B5CC9226834B100E7E61F /* GoogleMap.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -719,6 +722,7 @@
 				234B5CC622682AA900E7E61F /* ShopMarkerView.xib in Resources */,
 				2381B64A225B064F004DAA64 /* CategoryCell.xib in Resources */,
 				235B6685226308D900BBFAFC /* DetailFood.storyboard in Resources */,
+				234B5CCA226834B100E7E61F /* GoogleMap.storyboard in Resources */,
 				235B668722630BCA00BBFAFC /* Account.storyboard in Resources */,
 				2352405722635661004B11CF /* Delivery.storyboard in Resources */,
 				2300BE79222D34B2008E9101 /* GeneralValueCell.xib in Resources */,
