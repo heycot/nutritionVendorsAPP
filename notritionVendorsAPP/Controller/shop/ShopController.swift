@@ -18,7 +18,6 @@ class ShopController: UIViewController {
     var currentList = [ShopResponse]()
     var isNewest = false
     
-    let searchBar = UISearchBar()
     lazy var refresher: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.tintColor = APP_COLOR
@@ -32,13 +31,11 @@ class ShopController: UIViewController {
     var didUpdateLocation: Bool = false
     var currentLocation: CLLocation?
     
-    @IBAction func searchBarPressed(_ sender: Any) {
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var locManager = CLLocationManager()
+        let locManager = CLLocationManager()
         locManager.requestWhenInUseAuthorization()
         
         if( CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
@@ -49,7 +46,6 @@ class ShopController: UIViewController {
         }
         
         setupView()
-        createSearchBar()
         loadDataFromAPI(offset: listItem.count, isLoadMore: false, isNewest: isNewest)
     }
     
@@ -64,13 +60,6 @@ class ShopController: UIViewController {
         tableView.rowHeight = 90
     }
     
-    func createSearchBar() {
-        searchBar.showsCancelButton = false
-        searchBar.placeholder = " Search here"
-        searchBar.delegate = self
-        
-        self.navigationItem.titleView = searchBar
-    }
     
     @objc
     func loadMoreData() {
@@ -117,8 +106,14 @@ class ShopController: UIViewController {
         }
     }
     
+    @IBAction func searchBarPressed(_ sender: Any) {
+        performSegue(withIdentifier: SegueIdentifier.shopToSearch.rawValue, sender: nil)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.destination is SearchController {
+            
+        }
     }
     
     func stopSpinnerActivity() {
@@ -170,45 +165,6 @@ extension ShopController: UITableViewDataSource {
     
 }
 
-// handle UISearchBar
-extension ShopController: UISearchBarDelegate {
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        searchBar.endEditing(true)
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.endEditing(true)
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        resultSearchNotification.isHidden = true
-        guard !(searchBar.text!.isEmpty) else {
-            currentList = listItem
-            tableView.reloadData()
-            return
-        }
-        
-        currentList = listItem.filter({ (item) -> Bool in
-            item.name!.folding(options: .diacriticInsensitive, locale: .current).lowercased().contains(searchText.folding(options: .diacriticInsensitive, locale: .current).lowercased())
-        })
-        
-        let filterShopAddress = listItem.filter({ (item) -> Bool in
-            (item.location?.address!.folding(options: .diacriticInsensitive, locale: .current).lowercased().contains(searchText.folding(options: .diacriticInsensitive, locale: .current).lowercased()))!
-        })
-        
-        for item in filterShopAddress {
-            if !self.checkItemInArray(array: currentList, item: item) {
-                currentList.append(item)
-            }
-        }
-        
-        tableView.reloadData()
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        
-    }
-}
 
 extension ShopController : CLLocationManagerDelegate {
     func handleDidUpdateLocation(location: CLLocation) {
