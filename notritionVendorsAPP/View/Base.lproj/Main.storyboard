@@ -135,11 +135,20 @@
                         <outlet property="tableView" destination="bi8-3g-dWM" id="Eut-Gh-79b"/>
                         <segue destination="O60-7L-RIi" kind="show" identifier="ShopSeachVC" id="9zj-Eq-LIz"/>
                         <segue destination="8fN-v2-VYx" kind="show" identifier="ShopToGoogleMap" id="QdL-Uh-9tM"/>
+                        <segue destination="Kn8-K8-28H" kind="show" identifier="ShopToItemInShop" id="NwU-Ud-69z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aMM-gi-Zev" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-460.86956521739131" y="1471.875"/>
+        </scene>
+        <!--ItemInShopStoryboardID-->
+        <scene sceneID="SDr-5J-puE">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ItemInShop" referencedIdentifier="ItemInShopStoryboardID" id="Kn8-K8-28H" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gBA-VB-5hR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="253" y="1145"/>
         </scene>
         <!--GoogleMapStoryboardID-->
         <scene sceneID="KAC-ah-GVv">
@@ -741,12 +750,12 @@
                         <outlet property="notification" destination="GSE-jy-aC8" id="ieA-Lf-YPK"/>
                         <outlet property="tableView" destination="TI1-aD-d0s" id="wTh-E7-zL2"/>
                         <segue destination="pAv-CV-Swc" kind="show" identifier="SearchToDetaild" id="Li0-6H-FeM"/>
-                        <segue destination="fGi-UI-Gzq" kind="show" identifier="SearchToShop" id="LvM-We-fbG"/>
+                        <segue destination="fGi-UI-Gzq" kind="show" identifier="SearchToItemInShop" id="LvM-We-fbG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HWn-Ny-m9a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="796" y="1657"/>
+            <point key="canvasLocation" x="628" y="1947"/>
         </scene>
         <!--DetailFoodStoryboardID-->
         <scene sceneID="VcS-8w-ntk">
@@ -756,10 +765,10 @@
             </objects>
             <point key="canvasLocation" x="1555" y="1337"/>
         </scene>
-        <!--ShopStoryboardID-->
+        <!--ItemInShopStoryboardID-->
         <scene sceneID="NDu-tS-Mfm">
             <objects>
-                <viewControllerPlaceholder storyboardName="Shop" referencedIdentifier="ShopStoryboardID" id="fGi-UI-Gzq" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="ItemInShop" referencedIdentifier="ItemInShopStoryboardID" id="fGi-UI-Gzq" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zJ0-yV-URT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1604" y="1491"/>
