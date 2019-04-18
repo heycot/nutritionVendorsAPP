@@ -18,18 +18,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lT1-6C-XWj">
-                                <rect key="frame" x="0.0" y="88" width="414" height="51"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f9f-Ve-zDT">
+                                <rect key="frame" x="0.0" y="88" width="414" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="b3d-Ve-Cfe"/>
+                                    <constraint firstAttribute="height" constant="40" id="8c1-b0-5xZ"/>
                                 </constraints>
-                                <segments>
-                                    <segment title="Newest"/>
-                                    <segment title="Nearest"/>
-                                </segments>
-                            </segmentedControl>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="View in map">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bi8-3g-dWM">
-                                <rect key="frame" x="0.0" y="138" width="414" height="758"/>
+                                <rect key="frame" x="0.0" y="128" width="414" height="768"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShopCell" rowHeight="101" id="lqA-kv-XZ3" customClass="ShopCell" customModule="notritionVendorsAPP" customModuleProvider="target">
@@ -98,6 +100,7 @@
                                             <outlet property="shopAddress" destination="ERw-KX-mNu" id="Gc0-e9-7Je"/>
                                             <outlet property="shopImage" destination="Pje-gF-ReK" id="8TR-5p-SB5"/>
                                             <outlet property="shopName" destination="SxT-qT-1Ja" id="LCz-3l-JQ1"/>
+                                            <outlet property="viewInMapBtn" destination="f9f-Ve-zDT" id="uw8-pL-rC1"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -105,13 +108,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="lT1-6C-XWj" firstAttribute="leading" secondItem="bi8-3g-dWM" secondAttribute="leading" id="10X-34-why"/>
-                            <constraint firstItem="lT1-6C-XWj" firstAttribute="trailing" secondItem="bi8-3g-dWM" secondAttribute="trailing" id="AZa-rj-bb7"/>
-                            <constraint firstItem="lT1-6C-XWj" firstAttribute="leading" secondItem="JK5-cg-Z16" secondAttribute="leading" id="GhE-mw-Osz"/>
-                            <constraint firstAttribute="trailing" secondItem="lT1-6C-XWj" secondAttribute="trailing" id="M3a-kj-DuD"/>
-                            <constraint firstItem="lT1-6C-XWj" firstAttribute="top" secondItem="lLJ-6y-uIX" secondAttribute="top" id="W14-Le-FZO"/>
+                            <constraint firstAttribute="bottom" secondItem="bi8-3g-dWM" secondAttribute="bottom" id="CDv-Xh-x8s"/>
+                            <constraint firstItem="bi8-3g-dWM" firstAttribute="leading" secondItem="lLJ-6y-uIX" secondAttribute="leading" id="TfU-Bh-Xhj"/>
+                            <constraint firstItem="bi8-3g-dWM" firstAttribute="top" secondItem="f9f-Ve-zDT" secondAttribute="bottom" id="acR-bB-o9e"/>
                             <constraint firstAttribute="bottom" secondItem="bi8-3g-dWM" secondAttribute="bottom" id="cUj-I9-9Hi"/>
-                            <constraint firstItem="bi8-3g-dWM" firstAttribute="top" secondItem="lT1-6C-XWj" secondAttribute="bottom" id="chI-pj-OO0"/>
+                            <constraint firstItem="f9f-Ve-zDT" firstAttribute="top" secondItem="lLJ-6y-uIX" secondAttribute="top" id="dmG-NA-4pE"/>
+                            <constraint firstItem="bi8-3g-dWM" firstAttribute="trailing" secondItem="lLJ-6y-uIX" secondAttribute="trailing" id="eBl-kR-mVv"/>
+                            <constraint firstItem="f9f-Ve-zDT" firstAttribute="leading" secondItem="lLJ-6y-uIX" secondAttribute="leading" id="jaD-Js-99q"/>
+                            <constraint firstItem="bi8-3g-dWM" firstAttribute="centerX" secondItem="JK5-cg-Z16" secondAttribute="centerX" id="ntw-Ys-EZK"/>
+                            <constraint firstItem="f9f-Ve-zDT" firstAttribute="trailing" secondItem="lLJ-6y-uIX" secondAttribute="trailing" id="w7X-31-XCX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lLJ-6y-uIX"/>
                     </view>
@@ -127,14 +132,22 @@
                         </button>
                     </navigationItem>
                     <connections>
-                        <outlet property="segmentedControl" destination="lT1-6C-XWj" id="scJ-LV-ZOT"/>
                         <outlet property="tableView" destination="bi8-3g-dWM" id="Eut-Gh-79b"/>
                         <segue destination="O60-7L-RIi" kind="show" identifier="ShopSeachVC" id="9zj-Eq-LIz"/>
+                        <segue destination="8fN-v2-VYx" kind="show" identifier="ShopToGoogleMap" id="QdL-Uh-9tM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aMM-gi-Zev" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-460.86956521739131" y="1471.875"/>
+        </scene>
+        <!--GoogleMapStoryboardID-->
+        <scene sceneID="KAC-ah-GVv">
+            <objects>
+                <viewControllerPlaceholder storyboardName="GoogleMap" referencedIdentifier="GoogleMapStoryboardID" id="8fN-v2-VYx" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RxO-KP-5Xh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="317" y="1262"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="rSq-mM-00m">

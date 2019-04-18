@@ -16,6 +16,7 @@ class ShopCell: UITableViewCell {
     @IBOutlet weak var shopName: UILabel!
     @IBOutlet weak var shopAddress: UILabel!
     @IBOutlet weak var infor: UILabel!
+    @IBOutlet weak var viewInMapBtn: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,6 +30,8 @@ class ShopCell: UITableViewCell {
     }
     
     func updateView(shop: ShopResponse, isNewest: Bool, location: CLLocation) {
+        
+        viewInMapBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: CGFloat(19.0))
         
         shopImage.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + shop.avatar!)
         shopName.text = shop.name!

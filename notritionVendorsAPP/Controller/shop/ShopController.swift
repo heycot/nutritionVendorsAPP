@@ -10,7 +10,8 @@ import UIKit
 import GoogleMaps
 
 class ShopController: UIViewController {
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+    // oulets
     @IBOutlet weak var tableView: UITableView!
     
     // variables
@@ -111,9 +112,23 @@ class ShopController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back"
+        
         if segue.destination is SearchController {
+             navigationItem.backBarButtonItem = backItem
+            
+        } else if segue.destination is ViewLocationShopController {
+            let vc = segue.destination as? ViewLocationShopController
+            vc?.listShop = listItem
+            navigationItem.backBarButtonItem = backItem
             
         }
+    }
+    
+    @objc func viewInMapPressed() {
+        performSegue(withIdentifier: SegueIdentifier.shopToGoogleMap.rawValue, sender: nil)
     }
     
     func stopSpinnerActivity() {
@@ -134,6 +149,7 @@ class ShopController: UIViewController {
         didUpdateLocation = true
         locationManager.stopUpdatingLocation()
     }
+    
 
 }
 
@@ -151,8 +167,11 @@ extension ShopController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.shop.rawValue, for: indexPath) as! ShopCell
         
-        guard let location = currentLocation else { return UITableViewCell() }
+        guard let location = currentLocation else { return ShopCell() }
+        
         cell.updateView(shop: currentList[indexPath.row], isNewest: isNewest, location: location)
+        cell.viewInMapBtn.addTarget(self, action: #selector(viewInMapPressed), for: UIControl.Event.touchDown)
+        
         return cell
     }
     

@@ -138,8 +138,9 @@ enum SegueIdentifier: String {
     case searchToShop = "SearchToShop"
     
     
-    // notification
+    // shop
     case shopToSearch = "ShopSeachVC"
+    case shopToGoogleMap = "ShopToGoogleMap"
     
     case favoriteToDetail = "FavoritesToDetailSegue"
     case favoritesToLogIn = "FavoritesToLogInID"
