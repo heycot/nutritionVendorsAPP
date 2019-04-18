@@ -353,15 +353,3 @@ extension String {
         return String("\(latitude), \(longitude)")
     }
 }
-//extension ViewLocationShopController : CLLocationManagerDelegate {
-//    func configureLocationServices() {
-//        if authorizationStatus == .notDetermined {
-//            locationManager.requestAlwaysAuthorization()
-//        } else {
-//            return
-//        }
-//    }
-//
-//    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-//    }
-//}

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMaps
 
 class ShopController: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
@@ -15,7 +16,7 @@ class ShopController: UIViewController {
     // variables
     var listItem = [ShopResponse]()
     var currentList = [ShopResponse]()
-    var isNewest = true
+    var isNewest = false
     
     let searchBar = UISearchBar()
     lazy var refresher: UIRefreshControl = {
@@ -26,15 +27,30 @@ class ShopController: UIViewController {
         return refreshControl
     }()
     
+    
+    var locationManager = CLLocationManager()
+    var didUpdateLocation: Bool = false
+    var currentLocation: CLLocation?
+    
     @IBAction func searchBarPressed(_ sender: Any) {
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var locManager = CLLocationManager()
+        locManager.requestWhenInUseAuthorization()
+        
+        if( CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
+            CLLocationManager.authorizationStatus() ==  .authorizedAlways){
+            
+            currentLocation = locManager.location
+            
+        }
+        
         setupView()
         createSearchBar()
-        loadDataFromAPI(offset: listItem.count, isLoadMore: true, isNewest: isNewest)
+        loadDataFromAPI(offset: listItem.count, isLoadMore: false, isNewest: isNewest)
     }
     
     
@@ -67,7 +83,7 @@ class ShopController: UIViewController {
         if isNewest {
             ShopServices.shared.getNewestShop(offset: offset) { data in
                 guard let data = data else {return }
-                
+
                 if isLoadMore {
                     for shop in data {
                         self.listItem.append(shop)
@@ -75,13 +91,14 @@ class ShopController: UIViewController {
                 } else {
                     self.listItem = data
                 }
-                
+
                 self.currentList = self.listItem
                 self.tableView.reloadData()
             }
         } else {
-            let latitude = 0.0
-            let longitude = 0.0
+            guard let location = currentLocation else { return }
+            let latitude = location.coordinate.latitude
+            let longitude = location.coordinate.longitude
             
             ShopServices.shared.getNearestShop(latitude: latitude, longitude: longitude, offset: offset) { data in
                 guard let data = data else {return }
@@ -116,6 +133,11 @@ class ShopController: UIViewController {
             }
         }
         return false
+    }
+    
+    func stopUpdateLocation() {
+        didUpdateLocation = true
+        locationManager.stopUpdatingLocation()
     }
 
 }
@@ -184,5 +206,33 @@ extension ShopController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         
     }
+}
+
+extension ShopController : CLLocationManagerDelegate {
+    func handleDidUpdateLocation(location: CLLocation) {
+        guard !didUpdateLocation else {
+            stopUpdateLocation()
+            return
+        }
+        
+        stopUpdateLocation()
+        self.currentLocation = location
+        
+        //        configCamera(location: location)
+    }
+    
+    // Handle incoming location events.
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location: CLLocation = locations.last!
+        print("Location: \(location)")
+        handleDidUpdateLocation(location: location)
+    }
+    
+    // Handle location manager errors.
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        locationManager.stopUpdatingLocation()
+        print("Error: \(error)")
+    }
+
 }
 

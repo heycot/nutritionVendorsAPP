@@ -32,11 +32,11 @@ class ShopCell: UITableViewCell {
         
         shopImage.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + shop.avatar!)
         shopName.text = shop.name!
-        shopRating.rating = shop.rating!
+        shopRating.rating = shop.rating ?? 0
         if isNewest {
             infor.text = shop.create_date?.timeAgoDisplay()
         } else {
-            infor.text = shop.distance!
+            infor.text = shop.distance ?? ""
         }
     }
     
