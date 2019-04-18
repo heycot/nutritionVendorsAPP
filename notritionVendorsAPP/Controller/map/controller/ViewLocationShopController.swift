@@ -58,6 +58,9 @@ class ViewLocationShopController: UIViewController {
     var currentShop: ShopResponse?
     let authorizationStatus = CLLocationManager.authorizationStatus()
     
+    var isFromShop = false
+    var zoomLevelListShop: Float = 20.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        var location = (currentShop?.location!)!
@@ -90,8 +93,16 @@ class ViewLocationShopController: UIViewController {
         guard let location = currentShop?.location else { return }
         
         mapView.delegate = self
-        let camera = GMSCameraPosition.camera(withLatitude: location.latitude!, longitude: location.longitude!, zoom: zoomLevel)
-        mapView.camera = camera
+        
+        
+        //check show controller from shopController
+        if isFromShop {
+            let camera = GMSCameraPosition.camera(withLatitude: location.latitude!, longitude: location.longitude!, zoom: zoomLevelListShop)
+            mapView.camera = camera
+        } else {
+            let camera = GMSCameraPosition.camera(withLatitude: location.latitude!, longitude: location.longitude!, zoom: zoomLevel)
+            mapView.camera = camera
+        }
         mapView.isMyLocationEnabled = true
     }
 
@@ -307,7 +318,9 @@ extension ViewLocationShopController: CLLocationManagerDelegate {
         stopUpdateLocation()
         self.currentLocation = location
 
-//        configCamera(location: location)
+        if isFromShop {
+            configCamera(location: location)
+        }
     }
 
     // Handle incoming location events.

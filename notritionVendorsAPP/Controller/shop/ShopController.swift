@@ -47,7 +47,7 @@ class ShopController: UIViewController {
         }
         
         setupView()
-        loadDataFromAPI(offset: listItem.count, isLoadMore: false, isNewest: isNewest)
+//        loadDataFromAPI(offset: listItem.count, isLoadMore: false, isNewest: isNewest)
     }
     
     
@@ -122,6 +122,7 @@ class ShopController: UIViewController {
         } else if segue.destination is ViewLocationShopController {
             let vc = segue.destination as? ViewLocationShopController
             vc?.listShop = listItem
+            vc?.isFromShop = true
             navigationItem.backBarButtonItem = backItem
             
         }
@@ -176,8 +177,7 @@ extension ShopController: UITableViewDataSource {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.viewDidLoad()
-        loadDataFromAPI(offset: currentList.count, isLoadMore: false, isNewest: isNewest)
+        loadDataFromAPI(offset: 0, isLoadMore: false, isNewest: isNewest)
         super.viewWillAppear(true)
         tableView.reloadData()
     }
