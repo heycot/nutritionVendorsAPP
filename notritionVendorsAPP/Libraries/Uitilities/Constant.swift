@@ -124,7 +124,7 @@ enum SegueIdentifier: String {
     case detailFoodToLogin = "DetailFoodToLogin"
     case detailToLocation = "DetailToLocation"
     case detailToComment = "DetailToComment"
-    case detailToShop = "DetailToItemInShop"
+    case detailToShop = "DetailToShop"
     case detailToDelivery = "DetailToDelivery"
     
     // hight rating
@@ -135,13 +135,12 @@ enum SegueIdentifier: String {
     
     //search
     case searchToDetaild = "SearchToDetaild"
-    case searchToShop = "SearchToItemInShop"
+    case searchToShop = "SearchToShop"
     
     
     // shop
     case shopToSearch = "ShopSeachVC"
     case shopToGoogleMap = "ShopToGoogleMap"
-    case shopToItemInShop = "ShopToItemInShop"
     
     case favoriteToDetail = "FavoritesToDetailSegue"
     case favoritesToLogIn = "FavoritesToLogInID"

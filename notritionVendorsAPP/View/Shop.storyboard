@@ -13,7 +13,7 @@
         <!--Item In Shop Controller-->
         <scene sceneID="RZO-wS-qYf">
             <objects>
-                <viewController storyboardIdentifier="ItemInShopStoryboardID" id="1O3-gS-u7S" customClass="ItemInShopController" customModule="notritionVendorsAPP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShopStoryboardID" id="1O3-gS-u7S" customClass="ItemInShopController" customModule="notritionVendorsAPP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vYi-xr-gPB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

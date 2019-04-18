@@ -56,7 +56,7 @@
 		2352404F22634E33004B11CF /* ActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2352404D22634E33004B11CF /* ActionCell.xib */; };
 		2352405222635191004B11CF /* AddCommentBtnCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2352405022635191004B11CF /* AddCommentBtnCell.swift */; };
 		2352405322635191004B11CF /* AddCommentBtnCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2352405122635191004B11CF /* AddCommentBtnCell.xib */; };
-		2352405522635585004B11CF /* ItemInShop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2352405422635585004B11CF /* ItemInShop.storyboard */; };
+		2352405522635585004B11CF /* Shop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2352405422635585004B11CF /* Shop.storyboard */; };
 		2352405722635661004B11CF /* Delivery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2352405622635661004B11CF /* Delivery.storyboard */; };
 		2352405A2263577A004B11CF /* DeliveryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235240592263577A004B11CF /* DeliveryController.swift */; };
 		2352405C226358A6004B11CF /* ItemInShopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2352405B226358A6004B11CF /* ItemInShopController.swift */; };
@@ -160,7 +160,7 @@
 		2352404D22634E33004B11CF /* ActionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionCell.xib; sourceTree = "<group>"; };
 		2352405022635191004B11CF /* AddCommentBtnCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentBtnCell.swift; sourceTree = "<group>"; };
 		2352405122635191004B11CF /* AddCommentBtnCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCommentBtnCell.xib; sourceTree = "<group>"; };
-		2352405422635585004B11CF /* ItemInShop.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ItemInShop.storyboard; sourceTree = "<group>"; };
+		2352405422635585004B11CF /* Shop.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Shop.storyboard; sourceTree = "<group>"; };
 		2352405622635661004B11CF /* Delivery.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Delivery.storyboard; sourceTree = "<group>"; };
 		235240592263577A004B11CF /* DeliveryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryController.swift; sourceTree = "<group>"; };
 		2352405B226358A6004B11CF /* ItemInShopController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInShopController.swift; sourceTree = "<group>"; };
@@ -573,7 +573,7 @@
 				237DABF62262049C00FE57FB /* Search.storyboard */,
 				235B6684226308D900BBFAFC /* DetailFood.storyboard */,
 				235B668622630BCA00BBFAFC /* Account.storyboard */,
-				2352405422635585004B11CF /* ItemInShop.storyboard */,
+				2352405422635585004B11CF /* Shop.storyboard */,
 				2352405622635661004B11CF /* Delivery.storyboard */,
 				234B5CC9226834B100E7E61F /* GoogleMap.storyboard */,
 			);
@@ -717,7 +717,7 @@
 				230E2DD22226431D00246392 /* LogInAndLogOut.storyboard in Resources */,
 				2300BE6C222D30B7008E9101 /* GeneralInforItemCell.xib in Resources */,
 				2352404F22634E33004B11CF /* ActionCell.xib in Resources */,
-				2352405522635585004B11CF /* ItemInShop.storyboard in Resources */,
+				2352405522635585004B11CF /* Shop.storyboard in Resources */,
 				23D02E662223799300882742 /* Main.storyboard in Resources */,
 				234B5CC622682AA900E7E61F /* ShopMarkerView.xib in Resources */,
 				2381B64A225B064F004DAA64 /* CategoryCell.xib in Resources */,
