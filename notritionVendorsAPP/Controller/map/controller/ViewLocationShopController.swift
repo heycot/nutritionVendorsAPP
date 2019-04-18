@@ -31,7 +31,7 @@ class ViewLocationShopController: UIViewController {
     // Outlets
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var shopName: UILabel!
-    @IBOutlet weak var direction: UIButton!
+//    @IBOutlet weak var direction: UIButton!
     @IBOutlet weak var shopInforHeightConstraint: NSLayoutConstraint!
 
     var locationManager = CLLocationManager()
@@ -307,7 +307,7 @@ extension ViewLocationShopController: CLLocationManagerDelegate {
         stopUpdateLocation()
         self.currentLocation = location
 
-//        configCamera(location: location)
+        configCamera(location: location)
     }
 
     // Handle incoming location events.

@@ -857,11 +857,11 @@
             </objects>
             <point key="canvasLocation" x="-460.86956521739131" y="2950.4464285714284"/>
         </scene>
-        <!--Notification-->
+        <!--Shop-->
         <scene sceneID="Y4g-FC-RLh">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sHg-wU-7nF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Notification" image="bell" id="5ht-dM-JmW"/>
+                    <tabBarItem key="tabBarItem" title="Shop" image="store(1)" id="5ht-dM-JmW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LEi-Xu-zrM">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -909,11 +909,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bell" width="32" height="32"/>
         <image name="full_star" width="24" height="24"/>
         <image name="loved" width="24" height="24"/>
         <image name="man-user" width="24" height="24"/>
         <image name="searchbar" width="400" height="38"/>
+        <image name="store(1)" width="23" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="WYP-LC-rZ2"/>
