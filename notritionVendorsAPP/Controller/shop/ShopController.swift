@@ -155,7 +155,9 @@ extension ShopController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.shop.rawValue, for: indexPath) as! ShopCell
-        cell.updateView(shop: currentList[indexPath.row], isNewest: isNewest)
+        
+        guard let location = currentLocation else { return UITableViewCell() }
+        cell.updateView(shop: currentList[indexPath.row], isNewest: isNewest, location: location)
         return cell
     }
     

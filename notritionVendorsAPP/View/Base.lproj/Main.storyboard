@@ -49,23 +49,38 @@
                                                                 <constraint firstAttribute="height" priority="999" constant="70" id="Vom-T1-BmL"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="09w-Dn-kha">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="09w-Dn-kha">
                                                             <rect key="frame" x="85" y="0.0" width="319" height="80.666666666666671"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SxT-qT-1Ja">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="319" height="20.333333333333332"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="319" height="25"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="25" id="6uU-bj-ug4"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                                     <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ERw-KX-mNu">
+                                                                    <rect key="frame" x="0.0" y="30" width="319" height="15"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="15" id="bFR-Dk-z7h"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z5j-7k-Egp">
-                                                                    <rect key="frame" x="0.0" y="28.333333333333336" width="319" height="20.333333333333336"/>
+                                                                    <rect key="frame" x="0.0" y="50" width="319" height="15"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="15" id="tuE-Nh-Hr9"/>
+                                                                    </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
+                                                                    <color key="textColor" red="0.1062027202" green="0.64605805839999997" blue="0.011073882889999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sys-ab-KfO" customClass="CosmosView" customModule="Cosmos">
-                                                                    <rect key="frame" x="0.0" y="56.666666666666671" width="319" height="24"/>
+                                                                    <rect key="frame" x="0.0" y="70" width="319" height="10.666666666666671"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
@@ -93,6 +108,7 @@
                                                                 </view>
                                                             </subviews>
                                                             <constraints>
+                                                                <constraint firstItem="ERw-KX-mNu" firstAttribute="width" secondItem="09w-Dn-kha" secondAttribute="width" id="0ll-Y4-CmM"/>
                                                                 <constraint firstItem="SxT-qT-1Ja" firstAttribute="width" secondItem="09w-Dn-kha" secondAttribute="width" id="2dZ-y2-iiu"/>
                                                                 <constraint firstItem="Z5j-7k-Egp" firstAttribute="width" secondItem="09w-Dn-kha" secondAttribute="width" id="idz-ai-BjM"/>
                                                                 <constraint firstItem="sys-ab-KfO" firstAttribute="width" secondItem="09w-Dn-kha" secondAttribute="width" id="vQF-DS-r9I"/>
@@ -110,6 +126,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="infor" destination="Z5j-7k-Egp" id="qHY-i9-3hf"/>
+                                            <outlet property="shopAddress" destination="ERw-KX-mNu" id="Gc0-e9-7Je"/>
                                             <outlet property="shopImage" destination="Pje-gF-ReK" id="8TR-5p-SB5"/>
                                             <outlet property="shopName" destination="SxT-qT-1Ja" id="LCz-3l-JQ1"/>
                                             <outlet property="shopRating" destination="sys-ab-KfO" id="Twb-ZB-Ubm"/>
@@ -916,7 +933,7 @@
         <image name="store(1)" width="23" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WYP-LC-rZ2"/>
+        <segue reference="9zj-Eq-LIz"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
