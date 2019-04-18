@@ -16,7 +16,6 @@ class ShopCell: UITableViewCell {
     @IBOutlet weak var shopName: UILabel!
     @IBOutlet weak var shopAddress: UILabel!
     @IBOutlet weak var infor: UILabel!
-    @IBOutlet weak var shopRating: CosmosView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,12 +29,10 @@ class ShopCell: UITableViewCell {
     }
     
     func updateView(shop: ShopResponse, isNewest: Bool, location: CLLocation) {
-        setupView()
         
         shopImage.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + shop.avatar!)
         shopName.text = shop.name!
         shopAddress.text = shop.location?.address!
-        shopRating.rating = shop.rating ?? 0
         if isNewest {
             infor.text = shop.create_date?.timeAgoDisplay()
         } else {
@@ -61,10 +58,6 @@ class ShopCell: UITableViewCell {
         }
     }
     
-    func setupView() {
-        shopRating.settings.updateOnTouch = false
-        shopRating.settings.fillMode = .precise
-    }
 
 }
 
