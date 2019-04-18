@@ -26,8 +26,6 @@
 		230E2DEA22266DDE00246392 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230E2DE922266DDE00246392 /* Favorites.swift */; };
 		230E2DED22267DCA00246392 /* CollectionItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230E2DEB22267DCA00246392 /* CollectionItemCell.swift */; };
 		231ABDAA2266DAE0006D6B01 /* NibDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ABDA92266DAE0006D6B01 /* NibDesignable.swift */; };
-		231ABDB12266DCA7006D6B01 /* ShopMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ABDAF2266DCA7006D6B01 /* ShopMarkerView.swift */; };
-		231ABDB42266DCDA006D6B01 /* ShopMarkerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 231ABDB32266DCDA006D6B01 /* ShopMarkerView.xib */; };
 		231ABDB72266DE0C006D6B01 /* LocationServicesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ABDB62266DE0C006D6B01 /* LocationServicesProtocol.swift */; };
 		231ABDBA2266DF4D006D6B01 /* MapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ABDB92266DF4D006D6B01 /* MapManager.swift */; };
 		231ABDBC2266E13B006D6B01 /* MapRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ABDBB2266E13B006D6B01 /* MapRouter.swift */; };
@@ -49,6 +47,8 @@
 		233B390822375463003EB253 /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233B390722375463003EB253 /* AuthServices.swift */; };
 		233B390B223755FD003EB253 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233B390A223755FD003EB253 /* Constant.swift */; };
 		233B390D22376476003EB253 /* StringLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233B390C22376476003EB253 /* StringLibrary.swift */; };
+		234B5CC622682AA900E7E61F /* ShopMarkerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 234B5CC522682AA900E7E61F /* ShopMarkerView.xib */; };
+		234B5CC822682B0B00E7E61F /* ShopMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234B5CC722682B0B00E7E61F /* ShopMarkerView.swift */; };
 		2352404922632E7F004B11CF /* CategoryUITableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2352404822632E7F004B11CF /* CategoryUITableCell.swift */; };
 		2352404B22632E99004B11CF /* CategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2352404A22632E99004B11CF /* CategoryController.swift */; };
 		2352404E22634E33004B11CF /* ActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2352404C22634E33004B11CF /* ActionCell.swift */; };
@@ -128,8 +128,6 @@
 		230E2DE922266DDE00246392 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		230E2DEB22267DCA00246392 /* CollectionItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionItemCell.swift; sourceTree = "<group>"; };
 		231ABDA92266DAE0006D6B01 /* NibDesignable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibDesignable.swift; sourceTree = "<group>"; };
-		231ABDAF2266DCA7006D6B01 /* ShopMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopMarkerView.swift; sourceTree = "<group>"; };
-		231ABDB32266DCDA006D6B01 /* ShopMarkerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopMarkerView.xib; sourceTree = "<group>"; };
 		231ABDB62266DE0C006D6B01 /* LocationServicesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServicesProtocol.swift; sourceTree = "<group>"; };
 		231ABDB92266DF4D006D6B01 /* MapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapManager.swift; sourceTree = "<group>"; };
 		231ABDBB2266E13B006D6B01 /* MapRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRouter.swift; sourceTree = "<group>"; };
@@ -152,6 +150,8 @@
 		233B390A223755FD003EB253 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		233B390C22376476003EB253 /* StringLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringLibrary.swift; sourceTree = "<group>"; };
 		2347EEBA224E160400EC3A24 /* notritionVendorsAPP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "notritionVendorsAPP-Bridging-Header.h"; sourceTree = "<group>"; };
+		234B5CC522682AA900E7E61F /* ShopMarkerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopMarkerView.xib; sourceTree = "<group>"; };
+		234B5CC722682B0B00E7E61F /* ShopMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopMarkerView.swift; sourceTree = "<group>"; };
 		2352404822632E7F004B11CF /* CategoryUITableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryUITableCell.swift; sourceTree = "<group>"; };
 		2352404A22632E99004B11CF /* CategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryController.swift; sourceTree = "<group>"; };
 		2352404C22634E33004B11CF /* ActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCell.swift; sourceTree = "<group>"; };
@@ -295,8 +295,8 @@
 			isa = PBXGroup;
 			children = (
 				231ABDA92266DAE0006D6B01 /* NibDesignable.swift */,
-				231ABDAF2266DCA7006D6B01 /* ShopMarkerView.swift */,
-				231ABDB32266DCDA006D6B01 /* ShopMarkerView.xib */,
+				234B5CC522682AA900E7E61F /* ShopMarkerView.xib */,
+				234B5CC722682B0B00E7E61F /* ShopMarkerView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -716,7 +716,7 @@
 				2352404F22634E33004B11CF /* ActionCell.xib in Resources */,
 				2352405522635585004B11CF /* Shop.storyboard in Resources */,
 				23D02E662223799300882742 /* Main.storyboard in Resources */,
-				231ABDB42266DCDA006D6B01 /* ShopMarkerView.xib in Resources */,
+				234B5CC622682AA900E7E61F /* ShopMarkerView.xib in Resources */,
 				2381B64A225B064F004DAA64 /* CategoryCell.xib in Resources */,
 				235B6685226308D900BBFAFC /* DetailFood.storyboard in Resources */,
 				235B668722630BCA00BBFAFC /* Account.storyboard in Resources */,
@@ -828,6 +828,7 @@
 				233B390B223755FD003EB253 /* Constant.swift in Sources */,
 				232900D2225C7124009D7DD1 /* CommentServices.swift in Sources */,
 				235A32BF2225301E00DE5B0E /* ChangePasswordController.swift in Sources */,
+				234B5CC822682B0B00E7E61F /* ShopMarkerView.swift in Sources */,
 				2352405222635191004B11CF /* AddCommentBtnCell.swift in Sources */,
 				230E2DE622266AEF00246392 /* ShopItem.swift in Sources */,
 				236A32B72258944500AA2410 /* FavoritesViewController.swift in Sources */,
@@ -891,7 +892,6 @@
 				236A32BC22589D6100AA2410 /* MBProgressHUD.m in Sources */,
 				2381B649225B064F004DAA64 /* CategoryCell.swift in Sources */,
 				2300BE78222D34B2008E9101 /* GeneralValueCell.swift in Sources */,
-				231ABDB12266DCA7006D6B01 /* ShopMarkerView.swift in Sources */,
 				230E2DE4222669F000246392 /* Document.swift in Sources */,
 				231AF5D0225F4EA10057DD11 /* ShopServices.swift in Sources */,
 			);
