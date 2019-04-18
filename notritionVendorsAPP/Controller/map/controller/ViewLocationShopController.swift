@@ -307,7 +307,7 @@ extension ViewLocationShopController: CLLocationManagerDelegate {
         stopUpdateLocation()
         self.currentLocation = location
 
-        configCamera(location: location)
+//        configCamera(location: location)
     }
 
     // Handle incoming location events.
