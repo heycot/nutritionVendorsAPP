@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 
 
@@ -66,6 +67,22 @@ class ShopServices {
                 print("Error serializing json:", jsonError)
             }
         }
+    }
+    
+    func getDistance(shop: ShopResponse, currlocation: CLLocation) -> String {
+        var distance =  ""
+        guard let location = shop.location else { return "" }
+        
+        let coordinate₀ = CLLocation(latitude: location.latitude!, longitude: location.longitude!)
+        
+        let distanceInMeters = coordinate₀.distance(from: currlocation)
+        if distanceInMeters < 1000 {
+            distance = String(format: " Distance : %.2f ", distanceInMeters.inMiles()) + " M"
+        } else {
+            distance = String(format: " Distance : %.2f ", distanceInMeters.inKilometers()) + " KM"
+        }
+        
+        return distance
     }
         
 }

@@ -95,15 +95,25 @@ class ShopController: UIViewController {
                 
                 if isLoadMore {
                     for shop in data {
+                        
                         self.listItem.append(shop)
                     }
                 } else {
                     self.listItem = data
                 }
                 
+                self.updateDistance(shops: self.listItem)
                 self.currentList = self.listItem
                 self.tableView.reloadData()
             }
+        }
+    }
+    
+    func updateDistance(shops: [ShopResponse]) {
+        guard let location = currentLocation else { return }
+        
+        for i in 0 ..< listItem.count {
+            listItem[i].distance = ShopServices.shared.getDistance(shop: listItem[i], currlocation: location)
         }
     }
     

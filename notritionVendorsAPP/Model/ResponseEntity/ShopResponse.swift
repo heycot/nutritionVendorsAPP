@@ -48,17 +48,5 @@ struct ShopResponse: Decodable {
         self.name = name
     }
     
-    mutating func updateDistance(currlocation: CLLocation) {
-        guard let location = self.location else { return }
-        
-        let coordinate₀ = CLLocation(latitude: location.latitude!, longitude: location.longitude!)
-        //        let coordinate₁ = CLLocation(latitude: 5.0, longitude: 3.0)
-        
-        let distanceInMeters = coordinate₀.distance(from: currlocation)
-        if distanceInMeters < 1000 {
-            self.distance = String(format: " Distance : %.2f ", distanceInMeters.inMiles()) + " M"
-        } else {
-            self.distance = String(format: " Distance : %.2f ", distanceInMeters.inKilometers()) + " KM"
-        }
-    }
+    
 }
