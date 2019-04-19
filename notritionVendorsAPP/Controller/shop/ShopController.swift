@@ -43,8 +43,9 @@ class ShopController: UIViewController {
             CLLocationManager.authorizationStatus() ==  .authorizedAlways){
             
             currentLocation = locManager.location
-            
         }
+        
+        
         
         setupView()
     }

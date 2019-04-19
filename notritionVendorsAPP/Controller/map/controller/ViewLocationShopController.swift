@@ -122,7 +122,7 @@ class ViewLocationShopController: UIViewController {
     
     func displayCurrentShop() {
         guard let shop = currentShop else { return }
-        let currentShopMarker = self.getMarker(shop)
+        _ = self.getMarker(shop)
     }
     
     func getMarker(_ shop: ShopResponse) -> GMSMarker {
@@ -320,9 +320,9 @@ extension ViewLocationShopController: CLLocationManagerDelegate {
         
         print( "latitude \(location.coordinate.latitude) , \(location.coordinate.longitude)")
 
-//        if isFromShop {
+        if isFromShop {
             configCamera(location: location)
-//        }
+        }
     }
 
     // Handle incoming location events.
