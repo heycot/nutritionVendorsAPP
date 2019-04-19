@@ -13,9 +13,13 @@ class ItemInShopController: UIViewController {
     @IBOutlet weak var shopAvatar: CustomImageView!
     @IBOutlet weak var shopName: UILabel!
     @IBOutlet weak var shopAddress: UILabel!
+    @IBOutlet weak var distance: UILabel!
     @IBOutlet weak var shopTimeOpen: UILabel!
+    @IBOutlet weak var openStatus: UILabel!
+    @IBOutlet weak var notification: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
+    
     lazy var refresher: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.tintColor = APP_COLOR
@@ -29,6 +33,7 @@ class ItemInShopController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         viewShopInfor()
         setupView()
         loadDataFromAPI(offset: 0)
@@ -39,7 +44,40 @@ class ItemInShopController: UIViewController {
         shopName.text = shop.name!
         shopAddress.text = shop.location?.address!
         shopTimeOpen.text = shop.time_open! + " - " + shop.time_close!
-        shopTimeOpen.setBottomBorder(color: APP_COLOR)
+        distance.text = shop.distance! + " (From current location)"
+        openStatus.text = getOpenStatus(start: shop.time_open!, end: shop.time_close!)
+        
+        setupViewInfor()
+    }
+    
+    func setupViewInfor() {
+        notification.isHidden = true
+        shopName.setboldSystemFontOfSize(size: 20)
+        shopName.setBottomBorder(color: .lightGray)
+        distance.setBottomBorder(color: .lightGray)
+    }
+    
+    func getOpenStatus(start: String, end: String ) -> String {
+        let date = Date()// Aug 25, 2017, 11:55 AM
+        let calendar = Calendar.current
+        
+        let hour = calendar.component(.hour, from: date) //11
+//        let minute = calendar.component(.minute, from: date) //55
+//        let sec = calendar.component(.second, from: date) //33
+//        let weekDay = calendar.component(.weekday, from: date) //6 (Friday)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH':'mm"
+        let startHour = calendar.component(.hour, from: dateFormatter.date(from: start)!)
+        let endHour = calendar.component(.hour, from: dateFormatter.date(from: end)!)
+      
+        
+        if hour < endHour, hour > startHour {
+            return "Opening"
+        } else {
+            return "Closed"
+        }
+        
     }
     
     func setupView() {
@@ -59,8 +97,14 @@ class ItemInShopController: UIViewController {
         ShopItemService.shared.findAllByShop(shopId: shop.id!, offset: offset) { data in
             guard let data = data else {return }
             
-            for item in data {
-                self.listItem.append(item)
+            if data.count == 0 {
+                self.notification.text = "There are no foods."
+                self.notification.isHidden = false
+            } else {
+                
+                for item in data {
+                    self.listItem.append(item)
+                }
             }
             self.tableView.reloadData()
         }

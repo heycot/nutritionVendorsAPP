@@ -19,6 +19,25 @@ enum DateFormatType: String {
     case date = "dd-MMM-yyyy"
 }
 
+public enum Component {
+    case era
+    case year
+    case month
+    case day
+    case hour
+    case minute
+    case second
+    case weekday
+    case weekdayOrdinal
+    case quarter
+    case weekOfMonth
+    case weekOfYear
+    case yearForWeekOfYear
+    case nanosecond
+    case calendar
+    case timeZone
+}
+
 extension NSObject {
     
     /// Convert String to Date
@@ -103,4 +122,6 @@ extension Date {
         return "\(diff) weeks ago"
     }
 }
+
+
 

@@ -33,7 +33,7 @@ class ItemInShopCell: UITableViewCell {
         
         itemImage.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + item.avatar!)
         itemname.text = String(item.name!)
-        itemPrice.text = String(item.price!)
+        itemPrice.text = "price: VND" + String(item.price!)
         itemRating.rating = item.rating!
     }
     
