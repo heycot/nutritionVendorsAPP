@@ -173,6 +173,7 @@ class ShopController: UIViewController {
 extension ShopController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: SegueIdentifier.shopToItemInShop.rawValue, sender: indexPath.row)
     }
 }
 
@@ -198,10 +199,6 @@ extension ShopController: UITableViewDataSource {
         tableView.reloadData()
     }
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-//        performSegue(withIdentifier: SegueIdentifier.shopToItemInShop.rawValue, sender: indexPath.row)
-    }
     
 }
 

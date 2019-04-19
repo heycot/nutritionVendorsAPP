@@ -50,7 +50,7 @@
                         <outlet property="tabelView" destination="yrC-Jj-oxm" id="Ppz-zn-5cj"/>
                         <segue destination="ZsY-0P-eMa" kind="show" identifier="DetailFoodToPhoto" id="w4n-Kf-6jr"/>
                         <segue destination="vrL-wc-1BG" kind="show" identifier="DetailFoodToLogin" id="ZXq-q1-a0w"/>
-                        <segue destination="Vt4-RN-Ige" kind="show" identifier="DetailToShop" id="XBA-1a-DdQ"/>
+                        <segue destination="Vt4-RN-Ige" kind="show" identifier="DetailToItemInShop" id="XBA-1a-DdQ"/>
                         <segue destination="Uan-Lt-bny" kind="show" identifier="DetailToDelivery" id="FWO-zQ-ze5"/>
                         <segue destination="saf-4b-o4W" kind="show" identifier="DetailToComment" id="qZ5-OW-aOw"/>
                         <segue destination="8zH-lq-QpG" kind="show" identifier="DetailToLocation" id="rGj-c0-01f"/>
@@ -68,10 +68,10 @@
             </objects>
             <point key="canvasLocation" x="1481" y="-538"/>
         </scene>
-        <!--ShopStoryboardID-->
+        <!--ItemInShopStoryboardID-->
         <scene sceneID="97G-IA-W1T">
             <objects>
-                <viewControllerPlaceholder storyboardName="Shop" referencedIdentifier="ShopStoryboardID" id="Vt4-RN-Ige" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="ItemInShop" referencedIdentifier="ItemInShopStoryboardID" id="Vt4-RN-Ige" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fkM-4B-PtY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1674" y="-426"/>
