@@ -41,6 +41,9 @@ class ViewItemController: UIViewController {
         //register for generalInfor cell
         tabelView.register(UINib(nibName: CellClassName.generalInfor.rawValue, bundle: nil), forCellReuseIdentifier: CellIdentifier.generalInfor.rawValue)
         
+        // register for map cell
+        tabelView.register(UINib(nibName: CellClassName.mapCell.rawValue, bundle: nil), forCellReuseIdentifier: CellIdentifier.mapCell.rawValue)
+        
         //register for action celll
         tabelView.register(UINib(nibName: CellClassName.actionCell.rawValue, bundle: nil), forCellReuseIdentifier: CellIdentifier.actionCell.rawValue)
         
@@ -255,12 +258,16 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
                 return cell
             
             case 1:
+            
+//                let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.mapCell.rawValue, for: indexPath) as! MapCell
+//                cell.updateView(shop: item.shop!)
+//            return cell
                 let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.actionCell.rawValue, for: indexPath) as! ActionCell
-                
-                
+
+
                 cell.viewMore.addTarget(self, action: #selector(viewMorePressed), for: UIControl.Event.touchDown)
                 cell.delivery.addTarget(self, action: #selector(deliveryPressed), for: UIControl.Event.touchDown)
-                
+
                 cell.selectionStyle = UITableViewCell.SelectionStyle.none;
                 return cell
             
