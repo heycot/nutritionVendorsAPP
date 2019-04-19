@@ -220,7 +220,7 @@ class ViewItemController: UIViewController {
 extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return 6
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -231,8 +231,10 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
         case 1:
             return 1
         case 2:
-            return itemValues.count
+            return 1
         case 3:
+            return itemValues.count
+        case 4:
             return comments.count
         default:
             return 1
@@ -256,22 +258,23 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
                 cell.updateView(item: item)
                 cell.selectionStyle = UITableViewCell.SelectionStyle.none;
                 return cell
-            
             case 1:
-            
-//                let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.mapCell.rawValue, for: indexPath) as! MapCell
-//                cell.updateView(shop: item.shop!)
-//            return cell
-                let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.actionCell.rawValue, for: indexPath) as! ActionCell
-
-
-                cell.viewMore.addTarget(self, action: #selector(viewMorePressed), for: UIControl.Event.touchDown)
-                cell.delivery.addTarget(self, action: #selector(deliveryPressed), for: UIControl.Event.touchDown)
-
-                cell.selectionStyle = UITableViewCell.SelectionStyle.none;
+                
+                 let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.mapCell.rawValue, for: indexPath) as! MapCell
+                cell.updateView(shop: item.shop!)
                 return cell
             
             case 2:
+                    let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.actionCell.rawValue, for: indexPath) as! ActionCell
+
+
+                    cell.viewMore.addTarget(self, action: #selector(viewMorePressed), for: UIControl.Event.touchDown)
+                    cell.delivery.addTarget(self, action: #selector(deliveryPressed), for: UIControl.Event.touchDown)
+
+                    cell.selectionStyle = UITableViewCell.SelectionStyle.none;
+                    return cell
+            
+            case 3:
                 let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.generalvalue.rawValue, for: indexPath) as! GeneralValueCell
                 cell.updateView(icon_image: itemValues[indexPath.row].icon!, value: itemValues[indexPath.row].value!)
                 
@@ -281,7 +284,7 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
                 }
                 return cell
             
-            case 3:
+            case 4:
                 let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.listComment.rawValue, for: indexPath) as! ViewCommentCell
                 cell.updateView(comment: comments[indexPath.row])
                 cell.selectionStyle = UITableViewCell.SelectionStyle.none;
@@ -308,11 +311,14 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return section == 3 ? 0.0 : 15.0
+        return section == 4 ? 0.0 : 15.0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 2 {
+        if indexPath.section == 1 {
+            performSegueFunc(identifier: SegueIdentifier.detailToLocation.rawValue)
+            
+        } else if indexPath.section == 3 {
             
             switch indexPath.row {
                 case 3:
@@ -327,7 +333,7 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
                         UIApplication.shared.canOpenURL(url)
                     }
             }
-        } else if indexPath.section == 4 {
+        } else if indexPath.section == 5 {
             performSegueFunc(identifier: SegueIdentifier.detailToComment.rawValue)
         }
     }
