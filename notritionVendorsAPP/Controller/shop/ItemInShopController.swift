@@ -55,6 +55,7 @@ class ItemInShopController: UIViewController {
         shopName.setboldSystemFontOfSize(size: 20)
         shopName.setBottomBorder(color: .lightGray)
         distance.setBottomBorder(color: .lightGray)
+        openStatus.setboldSystemFontOfSize(size: 17)
     }
     
     func getOpenStatus(start: String, end: String ) -> String {
