@@ -39,27 +39,9 @@ class ShopCell: UITableViewCell {
         if isNewest {
             infor.text = shop.create_date?.timeAgoDisplay()
         } else {
-            infor.text = shop.distance ?? "500 m"
-//            countDistance(shop: shop, currlocation: location)
+            infor.text =  "Distance : " + (shop.distance ?? "500 m")
         }
     }
-    
-//    func countDistance(shop: ShopResponse, currlocation: CLLocation) {
-//        
-//        guard let location = shop.location else {
-//            return
-//        }
-//        
-//        let coordinate₀ = CLLocation(latitude: location.latitude!, longitude: location.longitude!)
-////        let coordinate₁ = CLLocation(latitude: 5.0, longitude: 3.0)
-//        
-//        let distanceInMeters = coordinate₀.distance(from: currlocation)
-//        if distanceInMeters < 1000 {
-//            infor.text = String(format: " Distance : %.2f ", distanceInMeters.inMiles()) + " M"
-//        } else {
-//            infor.text = String(format: " Distance : %.2f ", distanceInMeters.inKilometers()) + " KM"
-//        }
-//    }
     
 
 }

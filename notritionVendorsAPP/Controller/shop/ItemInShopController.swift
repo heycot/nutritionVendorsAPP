@@ -44,7 +44,7 @@ class ItemInShopController: UIViewController {
         shopName.text = shop.name!
         shopAddress.text = shop.location?.address!
         shopTimeOpen.text = shop.time_open! + " - " + shop.time_close!
-        distance.text = shop.distance ?? " Unknow "
+        distance.text = (shop.distance ?? " Unknow ") + " (From current location)"
         openStatus.text = getOpenStatus(start: shop.time_open!, end: shop.time_close!)
         
         setupViewInfor()
