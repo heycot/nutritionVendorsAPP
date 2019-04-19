@@ -159,6 +159,7 @@ enum StoryboardID : String {
 // google map API key
 //let GOOGLE_API_KEY = "AIzaSyAgIJ_N3H3LVx_afClZancU_0Ec6gjpUVA"
 let GOOGLE_API_KEY = "AIzaSyDgqjGBtos0e_O0vVwlJ8jI8Fa-9eYAJz8"
+let DIRECTION_API_KEY = "AIzaSyC1rU8F0fBtYFA3Vsj28v3w_025sLGHX0I"
 
 
 

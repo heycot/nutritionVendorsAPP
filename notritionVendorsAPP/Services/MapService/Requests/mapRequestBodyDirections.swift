@@ -13,7 +13,6 @@ class MapRequestBodyDirections: Mappable {
     var origin:String!
     var destination: String!
     var key: String!
-    var direction_key = "AIzaSyC1rU8F0fBtYFA3Vsj28v3w_025sLGHX0I"
     
     required init?(map: Map) {}
     
@@ -21,7 +20,7 @@ class MapRequestBodyDirections: Mappable {
         self.origin = origin
         self.destination = destination
 //        self.key = GOOGLE_API_KEY
-        self.key = direction_key
+        self.key = DIRECTION_API_KEY
     }
     
     func mapping(map: Map) {
