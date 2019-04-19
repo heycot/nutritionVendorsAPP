@@ -29,15 +29,15 @@
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="50"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="cGo-a6-lhU">
-                                                <rect key="frame" x="0.0" y="10" width="30" height="25"/>
+                                                <rect key="frame" x="0.0" y="10" width="30" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="dju-0V-llQ"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XM1-Wh-NcR">
-                                                <rect key="frame" x="40" y="0.0" width="248" height="50"/>
+                                                <rect key="frame" x="40" y="5" width="248" height="45"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="COL-DT-RSx"/>
+                                                    <constraint firstAttribute="height" constant="45" id="azh-KY-2rV"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <nil key="textColor"/>
@@ -45,12 +45,11 @@
                                             </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="5Ni-mi-3cv"/>
+                                            <constraint firstAttribute="height" constant="50" id="5Ni-mi-3cv"/>
                                             <constraint firstItem="cGo-a6-lhU" firstAttribute="leading" secondItem="liu-G9-WlG" secondAttribute="leading" id="LX5-jh-6Au"/>
-                                            <constraint firstAttribute="bottom" secondItem="cGo-a6-lhU" secondAttribute="bottom" constant="15" id="Uea-M8-usL"/>
-                                            <constraint firstItem="XM1-Wh-NcR" firstAttribute="height" secondItem="liu-G9-WlG" secondAttribute="height" id="WFx-oR-71O"/>
+                                            <constraint firstAttribute="bottom" secondItem="cGo-a6-lhU" secondAttribute="bottom" constant="25" id="Uea-M8-usL"/>
                                             <constraint firstItem="cGo-a6-lhU" firstAttribute="top" secondItem="liu-G9-WlG" secondAttribute="top" constant="10" id="WXi-HY-H0n"/>
-                                            <constraint firstItem="XM1-Wh-NcR" firstAttribute="top" secondItem="liu-G9-WlG" secondAttribute="top" id="jpg-Xp-XFx"/>
+                                            <constraint firstItem="XM1-Wh-NcR" firstAttribute="top" secondItem="liu-G9-WlG" secondAttribute="top" constant="5" id="jpg-Xp-XFx"/>
                                             <constraint firstAttribute="trailing" secondItem="XM1-Wh-NcR" secondAttribute="trailing" id="s4i-4j-MBv"/>
                                             <constraint firstAttribute="bottom" secondItem="XM1-Wh-NcR" secondAttribute="bottom" id="toy-kA-pGX"/>
                                             <constraint firstItem="XM1-Wh-NcR" firstAttribute="width" secondItem="liu-G9-WlG" secondAttribute="width" constant="-40" id="wuc-7X-Af1"/>
