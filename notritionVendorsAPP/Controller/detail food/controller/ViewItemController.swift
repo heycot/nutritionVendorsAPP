@@ -113,6 +113,7 @@ class ViewItemController: UIViewController {
         if segue.destination is ViewLocationShopController  {
             let vc = segue.destination as? ViewLocationShopController
             vc?.currentShop = item.shop!
+            vc?.isFromShop = false
             
             navigationItem.backBarButtonItem = backItem
             

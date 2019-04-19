@@ -46,8 +46,10 @@ enum FavoritesAPI: String {
 
 enum CommentAPI: String {
     case addNew = "comment/add"
+    case edit = "comment/edit"
     case getByShopItem = "comment/shopitem"
     case countByShopItem = "comment/count"
+    case getUserComment = "comment/check/shopitem"
 }
 
 enum CategoryAPI: String {

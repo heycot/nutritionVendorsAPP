@@ -21,21 +21,42 @@ class NewCommentController: UIViewController {
     var shopitemId = 0
     var nameShop = ""
     var addressShop = ""
+    var isNew = true
+    var lastComment = CommentResponse()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(donePressed))
         
-        self.title = "Write review"
         shopItemName.text = nameShop
         address.text = addressShop
 
         setUpUI()
         handlerkeyboard()
+        getReviewOfUser()
     }
     
     @objc func donePressed() {
         didPressOnDoneButton()
+    }
+    
+    func getReviewOfUser() {
+        CommentServices.shared.getReviewOfUser(shopitemId: shopitemId) { data in
+            if data != nil || data!.id != nil {
+                self.isNew = false
+                self.title = "Edit review"
+                self.lastComment = data!
+                self.viewLastComment(comment: data!)
+            } else {
+                self.title = "Write review"
+            }
+        }
+    }
+
+    func viewLastComment(comment: CommentResponse) {
+        ratingview.rating = comment.rating!
+        titleCmt.text = comment.title!
+        content.text = comment.content!
     }
     
     func setUpUI() {
@@ -67,7 +88,6 @@ class NewCommentController: UIViewController {
         if validateInput() {
             let comment = Comment()
             
-            comment.id = 0
             comment.content = content.text
             comment.title = titleCmt.text!
             comment.rating = ratingview.rating
@@ -76,16 +96,33 @@ class NewCommentController: UIViewController {
             comment.status = 1
             comment.create_date = Date()
             
-            CommentServices.shared.addNewComment(comment: comment) { (data) in
-                guard let data = data else { return }
-                
-                if data.id != nil {
-                    self.navigationController?.popViewController(animated: true)
-                } else {
-                    let alert = UIAlertController(title: Notification.comment.addCmtFailedTitle.rawValue, message: Notification.comment.addCmtFailedMessgae.rawValue, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
-                    alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
-                    self.present(alert, animated: true)
+            if isNew {
+                comment.id = 0
+                CommentServices.shared.addNewComment(comment: comment) { (data) in
+                    guard let data = data else { return }
+                    
+                    if data.id != nil {
+                        self.navigationController?.popViewController(animated: true)
+                    } else {
+                        let alert = UIAlertController(title: Notification.comment.addCmtFailedTitle.rawValue, message: Notification.comment.addCmtFailedMessgae.rawValue, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
+                        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+                        self.present(alert, animated: true)
+                    }
+                }
+            } else {
+                comment.id = self.lastComment.id!
+                CommentServices.shared.editComment(comment: comment) { (data) in
+                    guard let data = data else { return }
+                    
+                    if data.id != nil {
+                        self.navigationController?.popViewController(animated: true)
+                    } else {
+                        let alert = UIAlertController(title: Notification.comment.addCmtFailedTitle.rawValue, message: Notification.comment.addCmtFailedMessgae.rawValue, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
+                        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+                        self.present(alert, animated: true)
+                    }
                 }
             }
         }
