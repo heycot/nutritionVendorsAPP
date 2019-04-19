@@ -56,6 +56,7 @@ class ViewLocationShopController: UIViewController {
     // variables
     var listShop = [ShopResponse]()
     var currentShop: ShopResponse?
+    var selectedShop : ShopResponse?
     let authorizationStatus = CLLocationManager.authorizationStatus()
     
     var isFromShop = false
@@ -86,27 +87,29 @@ class ViewLocationShopController: UIViewController {
     func configs() {
         addMap()
         configLocationManager()
-        displayCurrentShop()
+        if isFromShop {
+            displayListShopMarkers()
+        } else {
+            displayCurrentShop()
+        }
     }
 
     func addMap() {
-        guard let location = currentShop?.location else { return }
-        
         mapView.delegate = self
         
-        
         //check show controller from shopController
-        if isFromShop {
-            let camera = GMSCameraPosition.camera(withLatitude: location.latitude!, longitude: location.longitude!, zoom: zoomLevelListShop)
-            mapView.camera = camera
-        } else {
-            let camera = GMSCameraPosition.camera(withLatitude: location.latitude!, longitude: location.longitude!, zoom: zoomLevel)
-            mapView.camera = camera
+        // check show list shop or one shop
+        if !isFromShop {
+            
+            guard let location = currentShop?.location else { return }
+            let cl_location = CLLocation(latitude: location.latitude!, longitude: location.longitude!)
+            
+            configCamera(location: cl_location, zoomLevel: zoomLevel)
         }
         mapView.isMyLocationEnabled = true
     }
 
-    func configCamera(location: CLLocation) {
+    func configCamera(location: CLLocation, zoomLevel: Float) {
         let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
                                               longitude: location.coordinate.longitude,
                                               zoom: zoomLevel)
@@ -254,12 +257,14 @@ class ViewLocationShopController: UIViewController {
             self.clearRoute()
         }
 
+        //from Google api
         let route = self.selectedRoute?.overviewPolyline?.points ?? ""
 
+        // Draw route
         let path: GMSPath = GMSPath(fromEncodedPath: route)!
         routePolyline = GMSPolyline(path: path)
         routePolyline.strokeWidth = 5
-        routePolyline.strokeColor = UIColor.green
+        routePolyline.strokeColor = UIColor.blue
         routePolyline.map = mapView
     }
 
@@ -295,9 +300,14 @@ extension ViewLocationShopController: GMSMapViewDelegate {
         print("idleAt position \(position)")
     }
 
+    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
+        print("tap")
+    }
+    
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         print("didTap marker")
         if let shop = marker.userData as? ShopResponse {
+            print(shop.name)
             self.currentShop = shop
             configShopInfo(shop)
             showShopInfo(true)
@@ -318,10 +328,10 @@ extension ViewLocationShopController: CLLocationManagerDelegate {
         stopUpdateLocation()
         self.currentLocation = location
         
-        print( "latitude \(location.coordinate.latitude) , \(location.coordinate.longitude)")
+//        print( "latitude \(location.coordinate.latitude) , \(location.coordinate.longitude)")
 
         if isFromShop {
-            configCamera(location: location)
+            configCamera(location: location, zoomLevel: zoomLevel)
         }
     }
 
