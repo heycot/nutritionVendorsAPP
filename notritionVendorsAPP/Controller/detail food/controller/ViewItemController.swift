@@ -85,7 +85,7 @@ class ViewItemController: UIViewController {
 //        appendItemValue(icon: Icon.category_icon.rawValue, value: "Rau cu")
         appendItemValue(icon: Icon.shop_icon.rawValue, value: (item.shop!.name!  ))
         appendItemValue(icon: Icon.picture.rawValue, value: String(item.documents!.count) + " photos")
-        appendItemValue(icon: Icon.address_icon.rawValue, value: (item.shop!.location!.address!  ))
+//        appendItemValue(icon: Icon.address_icon.rawValue, value: (item.shop!.location!.address!  ))
         appendItemValue(icon: Icon.phone_icon.rawValue, value: (item.shop!.phone! ))
         
         setUPTableView()
@@ -321,8 +321,8 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
         } else if indexPath.section == 3 {
             
             switch indexPath.row {
-                case 3:
-                    performSegueFunc(identifier: SegueIdentifier.detailFoodToPhoto.rawValue)
+//                case 3:
+//                    performSegueFunc(identifier: SegueIdentifier.detailFoodToPhoto.rawValue)
                 case 4:
                     performSegueFunc(identifier: SegueIdentifier.detailToLocation.rawValue)
                 default:
