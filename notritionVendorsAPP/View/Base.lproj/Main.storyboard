@@ -208,7 +208,7 @@
                                                                 <constraint firstAttribute="width" constant="70" id="bsS-IQ-ZkN"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="hfv-df-et4">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="hfv-df-et4">
                                                             <rect key="frame" x="85" y="0.0" width="319" height="79.666666666666671"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7t-TQ-jWn">
@@ -218,19 +218,13 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7o0-TC-3Ld">
-                                                                    <rect key="frame" x="0.0" y="21.333333333333332" width="35.333333333333336" height="16.999999999999996"/>
+                                                                    <rect key="frame" x="0.0" y="25.333333333333336" width="35.333333333333336" height="17"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BL-is-rU0">
-                                                                    <rect key="frame" x="0.0" y="39.333333333333336" width="35.333333333333336" height="17"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                    <color key="textColor" red="0.1062027202" green="0.64605805839999997" blue="0.011073882889999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPL-ca-oqL" customClass="CosmosView" customModule="Cosmos">
-                                                                    <rect key="frame" x="0.0" y="57.333333333333336" width="120" height="22.333333333333336"/>
+                                                                    <rect key="frame" x="0.0" y="47.333333333333329" width="319" height="32.333333333333329"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
@@ -242,6 +236,9 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </view>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="mPL-ca-oqL" firstAttribute="width" secondItem="hfv-df-et4" secondAttribute="width" id="leW-Ni-5s6"/>
+                                                            </constraints>
                                                         </stackView>
                                                     </subviews>
                                                     <constraints>
@@ -259,7 +256,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="address" destination="7o0-TC-3Ld" id="WeH-Eq-HaR"/>
-                                            <outlet property="distance" destination="8BL-is-rU0" id="KdS-Xi-0g0"/>
                                             <outlet property="itemImage" destination="1eV-zD-OJn" id="B34-Y6-NPb"/>
                                             <outlet property="itemName" destination="E7t-TQ-jWn" id="9hA-to-o5U"/>
                                             <outlet property="rating" destination="mPL-ca-oqL" id="eFx-mF-bvC"/>
@@ -923,7 +919,7 @@
         <image name="store(1)" width="23" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9zj-Eq-LIz"/>
+        <segue reference="Kqp-az-Zl9"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

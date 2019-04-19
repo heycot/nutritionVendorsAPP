@@ -14,7 +14,6 @@ class FavoritesCell: UITableViewCell {
     @IBOutlet weak var itemImage: CustomImageView!
     @IBOutlet weak var itemName: UILabel!
     @IBOutlet weak var address: UILabel!
-    @IBOutlet weak var distance: UILabel!
     @IBOutlet weak var rating: CosmosView!
     
     override func awakeFromNib() {
