@@ -101,7 +101,7 @@ class ShopItemService {
     }
     
     func findAllByShop(shopId: Int, offset: Int, completion: @escaping ([ShopItemResponse]?) -> Void) {
-        let urlStr = BASE_URL + ShopItemAPI.findByShop.rawValue + "/" + String(shopId) + "/" + String(offset)
+        let urlStr = BASE_URL + ShopItemAPI.findByShop.rawValue + "/" + String(shopId) + "/" + String(offset) + "/1"
         
         NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
             guard let data = data else {return}
@@ -118,7 +118,7 @@ class ShopItemService {
     }
     
     func getOneDTOItem(id: Int, completion: @escaping (ShopItemResponse?) -> Void) {
-        let urlStr = BASE_URL + ShopItemAPI.getOneDTO.rawValue + "/" + String(id)
+        let urlStr = BASE_URL + ShopItemAPI.getOneDTO.rawValue + "/" + String(id)  + "/1" 
         
         NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
             guard let data = data else {return}

@@ -45,7 +45,7 @@ class SearchController: UIViewController {
         
         self.tableView.reloadData()
         tableView.estimatedRowHeight = UITableView.automaticDimension
-        tableView.rowHeight = 100
+        tableView.rowHeight = 80
     }
     
     func startSpinnerActivity() {

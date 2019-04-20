@@ -52,7 +52,7 @@ class ShopServices {
     }
     
     func getOne(id: Int, completion: @escaping (ShopResponse?) -> Void) {
-        let urlStr = BASE_URL + ShopAPI.getOne.rawValue + "/" + String(id)
+        let urlStr = BASE_URL + ShopAPI.getOne.rawValue + "/" + String(id) + "/1"
         
         NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
             
