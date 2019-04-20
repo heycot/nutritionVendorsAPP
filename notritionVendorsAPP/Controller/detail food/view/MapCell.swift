@@ -26,20 +26,10 @@ class MapCell: UITableViewCell {
     }
     
     func updateView(shop: ShopResponse) {
-        let locManager = CLLocationManager()
-        locManager.requestWhenInUseAuthorization()
-        var currentLocation : CLLocation = CLLocation(latitude: 0.0, longitude: 0.0)
-        
-        if( CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
-            CLLocationManager.authorizationStatus() ==  .authorizedAlways){
-            
-            currentLocation = locManager.location!
-        }
         
         guard let location = shop.location else { return }
         address.text = location.address!
-        distance.text = ShopServices.shared.getDistance(shop: shop, currlocation: currentLocation) + " (From current location)"
-        
+        distance.text = ShopServices.shared.getDistance(shop: shop, currlocation: AuthServices.instance.currentLocation) + " (From current location)"
         
         
         viewMapFunc(lc: shop.location!)

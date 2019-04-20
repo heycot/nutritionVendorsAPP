@@ -29,7 +29,7 @@ class ShopCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func updateView(shop: ShopResponse, isNewest: Bool, location: CLLocation) {
+    func updateView(shop: ShopResponse, isNewest: Bool) {
         
         viewInMapBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: CGFloat(19.0))
         
@@ -46,12 +46,3 @@ class ShopCell: UITableViewCell {
 
 }
 
-extension CLLocationDistance {
-    func inMiles() -> CLLocationDistance {
-        return self*0.00062137
-    }
-    
-    func inKilometers() -> CLLocationDistance {
-        return self/1000
-    }
-}

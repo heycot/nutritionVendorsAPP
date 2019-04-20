@@ -8,6 +8,7 @@
 
 import UIKit
 import CCBottomRefreshControl
+import GoogleMaps
 
 class HightRatingController: UIViewController {
 
@@ -17,6 +18,9 @@ class HightRatingController: UIViewController {
     @IBOutlet weak var resultSearchNotification: UILabel!
     @IBOutlet weak var searchBar: UIButton!
     
+    // location manager
+    var locationManager = CLLocationManager()
+    var didUpdateLocation: Bool = false
     
     // variables
     var listItem = [ShopItemResponse] ()
@@ -37,6 +41,7 @@ class HightRatingController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupCurrentLocation()
         setUpCollectionView()
         registerHeader()
         
@@ -47,6 +52,15 @@ class HightRatingController: UIViewController {
         navigationController?.navigationBar.barTintColor = APP_COLOR
         findAllCategory()
         loadDataFromAPI(offset: 0)
+    }
+    
+    func setupCurrentLocation() {
+        
+        // User Location
+        locationManager.delegate = self
+        
+        // Start Location
+        accessLocationServices()
     }
     
     func registerHeader() {
@@ -87,21 +101,6 @@ class HightRatingController: UIViewController {
         refresher.endRefreshing()
     }
     
-    
-//
-//    func scrollViewDidScroll(scrollView: UIScrollView!) {
-//        if (self.lastContentOffset > scrollView.contentOffset.y) {
-//            // move up
-//        }
-//        else if (self.lastContentOffset < scrollView.contentOffset.y) {
-//            // move down
-//            print("move down")
-//            loadMoreData()
-//        }
-//
-//        // update the new position acquired
-//        self.lastContentOffset = scrollView.contentOffset.y
-//    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is ViewItemController {
@@ -121,14 +120,17 @@ class HightRatingController: UIViewController {
         }
     }
     
-//    func checkItemInArray(array: [ShopItemResponse], item: ShopItemResponse) -> Bool {
-//        for arr in array {
-//            if item.id! == arr.id! {
-//                return true
-//            }
-//        }
-//        return false
-//    }
+    // MARK - Map, Location
+    
+    func startUpdateLocation() {
+        didUpdateLocation = false
+        locationManager.startUpdatingLocation()
+    }
+    
+    func stopUpdateLocation() {
+        didUpdateLocation = true
+        locationManager.stopUpdatingLocation()
+    }
     
     @IBAction func searchBtnPressed(_ sender: Any) {
         performSegue(withIdentifier: SegueIdentifier.highRatingToSearch.rawValue, sender: nil)
@@ -210,4 +212,50 @@ extension HightRatingController: UICollectionViewDelegateFlowLayout {
     
 }
 
+extension HightRatingController: CLLocationManagerDelegate {
+    
+    func handleDidUpdateLocation(location: CLLocation) {
+        guard !didUpdateLocation else {
+            stopUpdateLocation()
+            return
+        }
+        
+        stopUpdateLocation()
+        AuthServices.instance.currentLocation = location
+    }
+    
+    // Handle incoming location events.
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location: CLLocation = locations.last!
+        print("Location: \(location)")
+        handleDidUpdateLocation(location: location)
+    }
+    
+    // Handle authorization for the location manager.
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .restricted:
+            print("Location access was restricted.")
+        case .denied:
+            print("User denied access to location.")
+        case .notDetermined:
+            print("Location status not determined.")
+        case .authorizedAlways: fallthrough
+        case .authorizedWhenInUse:
+            print("Location status is OK.")
+        }
+    }
+    
+    // Handle location manager errors.
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        locationManager.stopUpdatingLocation()
+        print("Error: \(error)")
+    }
+    
+}
 
+extension HightRatingController : LocationServicesProtocol {
+    func authorizedLocationServices() {
+        startUpdateLocation()
+    }
+}

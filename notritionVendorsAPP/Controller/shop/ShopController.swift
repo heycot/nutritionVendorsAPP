@@ -28,25 +28,8 @@ class ShopController: UIViewController {
     }()
     
     
-    var locationManager = CLLocationManager()
-    var didUpdateLocation: Bool = false
-    var currentLocation: CLLocation?
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let locManager = CLLocationManager()
-        locManager.requestWhenInUseAuthorization()
-        
-        if( CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
-            CLLocationManager.authorizationStatus() ==  .authorizedAlways){
-            
-            currentLocation = locManager.location
-        }
-        
-        
-        
         setupView()
     }
     
@@ -88,7 +71,7 @@ class ShopController: UIViewController {
                 self.tableView.reloadData()
             }
         } else {
-            guard let location = currentLocation else { return }
+            guard let location = AuthServices.instance.currentLocation else { return }
             let latitude = location.coordinate.latitude
             let longitude = location.coordinate.longitude
             
@@ -112,7 +95,7 @@ class ShopController: UIViewController {
     }
     
     func updateDistance(shops: [ShopResponse]) {
-        guard let location = currentLocation else { return }
+        guard let location = AuthServices.instance.currentLocation else { return }
         
         for i in 0 ..< listItem.count {
             listItem[i].distance = ShopServices.shared.getDistance(shop: listItem[i], currlocation: location)
@@ -162,12 +145,6 @@ class ShopController: UIViewController {
         return false
     }
     
-    func stopUpdateLocation() {
-        didUpdateLocation = true
-        locationManager.stopUpdatingLocation()
-    }
-    
-
 }
 
 extension ShopController: UITableViewDelegate {
@@ -185,9 +162,8 @@ extension ShopController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.shop.rawValue, for: indexPath) as! ShopCell
         
-        guard let location = currentLocation else { return ShopCell() }
         
-        cell.updateView(shop: currentList[indexPath.row], isNewest: isNewest, location: location)
+        cell.updateView(shop: currentList[indexPath.row], isNewest: isNewest)
         cell.viewInMapBtn.addTarget(self, action: #selector(viewInMapPressed), for: UIControl.Event.touchDown)
         
         return cell
@@ -202,32 +178,4 @@ extension ShopController: UITableViewDataSource {
     
 }
 
-
-extension ShopController : CLLocationManagerDelegate {
-    func handleDidUpdateLocation(location: CLLocation) {
-        guard !didUpdateLocation else {
-            stopUpdateLocation()
-            return
-        }
-        
-        stopUpdateLocation()
-        self.currentLocation = location
-        
-        //        configCamera(location: location)
-    }
-    
-    // Handle incoming location events.
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location: CLLocation = locations.last!
-        print("Location: \(location)")
-        handleDidUpdateLocation(location: location)
-    }
-    
-    // Handle location manager errors.
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        locationManager.stopUpdatingLocation()
-        print("Error: \(error)")
-    }
-
-}
 

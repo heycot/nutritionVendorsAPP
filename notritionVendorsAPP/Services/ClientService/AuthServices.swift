@@ -9,11 +9,13 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import CoreLocation
 
 class AuthServices {
     static let instance = AuthServices()
         
     let defaults = Foundation.UserDefaults.standard
+    var currentLocation : CLLocation? // = CLLocation(latitude: 16.056214, longitude:  108.217154)
     
     
     var isLoggedIn : Bool {
