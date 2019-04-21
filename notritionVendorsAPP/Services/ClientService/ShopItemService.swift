@@ -32,7 +32,7 @@ class ShopItemService {
     }
     
     func getOneItem(id: Int, completion: @escaping (ShopItemResponse?) -> Void) {
-        let urlStr = BASE_URL + ShopItemAPI.getOneById.rawValue + "/\(id)"
+        let urlStr = BASE_URL + ShopItemAPI.getOneById.rawValue + "/\(id)"  + "/1" 
         
         NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET",  jsonBody: nil, parameters: nil) { (data ) in
             
@@ -118,7 +118,7 @@ class ShopItemService {
     }
     
     func getOneDTOItem(id: Int, completion: @escaping (ShopItemResponse?) -> Void) {
-        let urlStr = BASE_URL + ShopItemAPI.getOneDTO.rawValue + "/" + String(id)  + "/1" 
+        let urlStr = BASE_URL + ShopItemAPI.getOneDTO.rawValue + "/" + String(id)
         
         NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
             guard let data = data else {return}
