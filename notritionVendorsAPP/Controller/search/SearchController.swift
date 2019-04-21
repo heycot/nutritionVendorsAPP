@@ -28,6 +28,16 @@ class SearchController: UIViewController {
         navigationController?.navigationBar.barTintColor = APP_COLOR
         createSearchBar()
         setupTableView()
+        getRecentSearch(offset: 0)
+    }
+    
+    func getRecentSearch(offset: Int) {
+        SearchServices.shared.getRecentSearch(offset: offset) { (data) in
+            guard let data = data else { return }
+            
+            self.listItem = data
+            self.tableView.reloadData()
+        }
     }
     
     func createSearchBar() {

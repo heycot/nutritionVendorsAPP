@@ -32,7 +32,7 @@ class SearchServices {
     }
     
     func getRecentSearch(offset: Int, completion: @escaping ([SearchResponse]?) -> Void) {
-        let urlStr = BASE_URL + SearchAPI.recentSearch.rawValue + "\(offset)"
+        let urlStr = BASE_URL + SearchAPI.recentSearch.rawValue + "/\(offset)"
         
         NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
             

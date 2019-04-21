@@ -58,12 +58,10 @@ class ViewItemController: UIViewController {
     }
     
     func updateData() {
-        
-        
         ShopItemService.shared.getOneItem(id: item.id!) { data in
             guard let data = data else {return }
             
-//            self.comments = data.comments!
+            
             self.item.documents = data.documents
             self.item.shop = data.shop
             self.item.shop?.location = data.shop?.location
@@ -326,10 +324,10 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
         } else if indexPath.section == 3 {
             
             switch indexPath.row {
-//                case 3:
-//                    performSegueFunc(identifier: SegueIdentifier.detailFoodToPhoto.rawValue)
-                case 4:
-                    performSegueFunc(identifier: SegueIdentifier.detailToLocation.rawValue)
+                case 3:
+                    performSegueFunc(identifier: SegueIdentifier.detailFoodToPhoto.rawValue)
+//                case 4:
+//                    performSegueFunc(identifier: SegueIdentifier.detailToLocation.rawValue)
                 default:
                     if true {
                         let phoneNumber = "033602512"
