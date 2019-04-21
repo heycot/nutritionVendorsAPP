@@ -122,6 +122,7 @@ enum CellIdentifier: String {
     case actionCell = "ActionCell"
     case itemInShop = "ItemInShopCell"
     case mapCell = "MapCell"
+    case accountCell = "AccountCell"
 }
 
 enum SegueIdentifier: String {

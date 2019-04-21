@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Account Controller-->
+        <!--View Controller-->
         <scene sceneID="TvI-sC-zHv">
             <objects>
-                <viewController id="eZ6-kb-Z5i" customClass="AccountController" customModule="notritionVendorsAPP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="eZ6-kb-Z5i" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="54D-oJ-Wgk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -119,7 +119,6 @@
                     <connections>
                         <outlet property="isActive" destination="htm-F3-nHr" id="uSe-ny-KxI"/>
                         <outlet property="phone" destination="oJV-A2-v9E" id="2Rk-7C-Yna"/>
-                        <outlet property="tableView" destination="XPY-8o-nTA" id="xzD-B8-fyK"/>
                         <outlet property="username" destination="V60-Bw-FiI" id="Dea-7R-GDc"/>
                     </connections>
                 </viewController>
