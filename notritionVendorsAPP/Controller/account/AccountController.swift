@@ -19,25 +19,35 @@ class AccountController: UIViewController {
     // oulets
     @IBOutlet weak var tableView: UITableView!
     
-    var listProperty = [AccountProperty]()
+    var listAccountProperty = [AccountProperty]()
+    var listIcon = ["login", "payment", "history", "promo_code", "website", "invite_friends", "email", "policy", "settings", "logout"]
+    
+    var listProperty = ["Login", "Payment", "History", "My Promo Code", "For Shop Owner", "Invite Friends", "Feedback", "User Policy", "App Settings", "Log Out"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        setupProperty()
 
     }
     
     func setupProperty() {
         
+        for i in 0 ..< listIcon.count {
+            listAccountProperty.append(AccountProperty(icon: listIcon[i], property: listProperty[i], action: ""))
+        }
     }
     
 
 }
 
 extension AccountController : UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        <#code#>
+    }
 }
 
 extension AccountController : UITableViewDataSource {
@@ -48,7 +58,7 @@ extension AccountController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.accountCell.rawValue, for: indexPath) as! AccountCell
         
-        cell.updateView(iconName: listProperty[indexPath.row].icon, property_name: listProperty[indexPath.row].property, property_action: listProperty[indexPath.row].action)
+        cell.updateView(iconName: listAccountProperty[indexPath.row].icon, property_name: listAccountProperty[indexPath.row].property, property_action: listAccountProperty[indexPath.row].action)
         return cell
     }
     
