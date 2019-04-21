@@ -38,7 +38,7 @@ enum ShopItemAPI: String {
 }
 
 enum SearchAPI: String {
-    case recentSearch = "recent/offset"
+    case recentSearch = "recent-search/offset"
 }
 
 enum FavoritesAPI: String {
@@ -151,8 +151,8 @@ enum SegueIdentifier: String {
     case shopToGoogleMap = "ShopToGoogleMap"
     case shopToItemInShop = "ShopToItemInShop"
     
-    case favoriteToDetail = "FavoritesToDetailSegue"
-    case favoritesToLogIn = "FavoritesToLogInID"
+    case favoriteToDetail = "FavoritesToDetail"
+    case favoritesToLogIn = "FavoritesToLogIn"
     case favoritesToSearch = "FavoritesSearchVC"
 }
 

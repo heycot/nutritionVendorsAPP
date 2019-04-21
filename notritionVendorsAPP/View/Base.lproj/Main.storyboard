@@ -300,13 +300,22 @@
                     <connections>
                         <outlet property="resultSearchNotification" destination="Pds-34-TvN" id="Xbs-Z5-JFl"/>
                         <outlet property="tableView" destination="mgZ-dQ-RhZ" id="9Li-bP-k1K"/>
-                        <segue destination="zxw-JI-5Xv" kind="show" identifier="FavoritesToLogInID" id="J0c-hk-BSe"/>
+                        <segue destination="zxw-JI-5Xv" kind="show" identifier="FavoritesToLogIn" id="J0c-hk-BSe"/>
                         <segue destination="O60-7L-RIi" kind="show" identifier="FavoritesSearchVC" id="Kqp-az-Zl9"/>
+                        <segue destination="7q1-Xn-wef" kind="show" identifier="FavoritesToDetail" id="Euz-PD-g8y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2CJ-ST-Wkd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-460.86956521739131" y="2195.7589285714284"/>
+        </scene>
+        <!--DetailFoodStoryboardID-->
+        <scene sceneID="vgc-FG-C4U">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DetailFood" referencedIdentifier="DetailFoodStoryboardID" id="7q1-Xn-wef" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MNA-ce-vHZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="375" y="2208"/>
         </scene>
         <!--LoginLogoutStoryboardID-->
         <scene sceneID="1SL-bZ-tAl">

@@ -13,8 +13,8 @@ class FavoritesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var resultSearchNotification: UILabel!
     
-    var listItem = [ShopItemResponse]()
     var currentListItem = [ShopItemResponse]()
+    var currentShopItem = ShopItemResponse()
     
     lazy var refresher: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -45,7 +45,7 @@ class FavoritesViewController: UIViewController {
             
             tableView.tableFooterView = UIView()
         } else {
-            loadDataFromAPI(offset: 0, isLoadMore: false)
+//            loadDataFromAPI(offset: 0, isLoadMore: false)
         }
     }
     
@@ -72,32 +72,39 @@ class FavoritesViewController: UIViewController {
             guard let data = data else {return }
             
             // check listitem is already have
-            if data.count == 0, self.listItem.count == 0{
+            if data.count == 0, self.currentListItem.count == 0{
                 self.resultSearchNotification.isHidden = false
                 self.resultSearchNotification.text = Notification.notHaveAnyFavorite.rawValue
             } else {
                 //if load more data => add to listItem else replace listItem
                 if isLoadMore {
                     for i in 0 ..< data.count {
-                        self.listItem.append(data[i])
+                        self.currentListItem.append(data[i])
                     }
                 } else {
-                    self.listItem = data
+                    self.currentListItem = data
                 }
                 
                 self.resultSearchNotification.isHidden = true
             }
-            self.currentListItem = self.listItem
             self.tableView.reloadData()
         }
     }
     
     @objc
     func loadMoreData() {
-        loadDataFromAPI(offset: listItem.count, isLoadMore: true)
+        loadDataFromAPI(offset: currentListItem.count, isLoadMore: true)
         refresher.endRefreshing()
     }
-    
+//
+//    func getShopItem(id: Int) {
+//        ShopItemService.shared.getOneDTOItem(id: id) { (data) in
+//            guard let data = data else { return }
+//            self.currentShopItem = data
+//
+//        }
+//    }
+//
     func performSegueFunc(identifier: String, sender: Any?) {
         performSegue(withIdentifier: identifier, sender: sender)
     }
@@ -159,7 +166,7 @@ extension FavoritesViewController : UITableViewDataSource {
     
     override func viewWillAppear(_ animated: Bool) {
         self.viewDidLoad()
-        loadDataFromAPI(offset: currentListItem.count, isLoadMore: false)
+        loadDataFromAPI(offset: 0, isLoadMore: false)
         super.viewWillAppear(true)
         tableView.reloadData()
     }
@@ -170,7 +177,7 @@ extension FavoritesViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegueFunc(identifier: SegueIdentifier.favoriteToDetail.rawValue, sender: indexPath.row)
+        self.performSegueFunc(identifier: SegueIdentifier.favoriteToDetail.rawValue, sender: indexPath.row)
     }
     
     
