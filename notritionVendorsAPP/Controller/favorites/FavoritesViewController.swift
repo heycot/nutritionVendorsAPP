@@ -30,6 +30,10 @@ class FavoritesViewController: UIViewController {
         checkLogIn()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     func checkLogIn() {
         
         if !AuthServices.instance.isLoggedIn {
