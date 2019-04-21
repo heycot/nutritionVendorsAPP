@@ -11,7 +11,7 @@ import Foundation
 
 enum Notification : String {
     
-    case notHaveAnyFavorite = "No favorite food"
+    case noData = "No data to show"
     
     case noSearchResult = ""
     

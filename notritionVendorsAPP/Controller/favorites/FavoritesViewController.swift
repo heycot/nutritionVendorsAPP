@@ -74,7 +74,7 @@ class FavoritesViewController: UIViewController {
             // check listitem is already have
             if data.count == 0, self.currentListItem.count == 0{
                 self.resultSearchNotification.isHidden = false
-                self.resultSearchNotification.text = Notification.notHaveAnyFavorite.rawValue
+                self.resultSearchNotification.text = Notification.noData.rawValue
             } else {
                 //if load more data => add to listItem else replace listItem
                 if isLoadMore {

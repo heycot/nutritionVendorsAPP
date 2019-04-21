@@ -100,7 +100,7 @@ class ItemInShopController: UIViewController {
             guard let data = data else {return }
             
             if data.count == 0 {
-                self.notification.text = "There are no foods."
+                self.notification.text = Notification.noData.rawValue
                 self.notification.isHidden = false
             } else {
                 

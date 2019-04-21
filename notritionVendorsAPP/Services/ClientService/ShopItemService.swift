@@ -83,7 +83,7 @@ class ShopItemService {
     }
     
     func findAllByShop(shopId: Int, offset: Int, completion: @escaping ([ShopItemResponse]?) -> Void) {
-        let urlStr = BASE_URL + ShopItemAPI.findByShop.rawValue + "/" + String(shopId) + "/" + String(offset) + "/1"
+        let urlStr = BASE_URL + ShopItemAPI.findByShop.rawValue + "/" + String(shopId) + "/" + String(offset) 
         
         NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
             guard let data = data else {return}
