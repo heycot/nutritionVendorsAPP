@@ -41,12 +41,19 @@ class AccountController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is AccountDetailController {
+            let vc = segue.destination as? AccountDetailController
+            
+        }
+    }
 
 }
 
 extension AccountController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        <#code#>
+        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: , sender: nil)
     }
 }
 
@@ -62,5 +69,9 @@ extension AccountController : UITableViewDataSource {
         return cell
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        tableView.reloadData()
+    }
     
 }

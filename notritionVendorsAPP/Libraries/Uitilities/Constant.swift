@@ -155,6 +155,10 @@ enum SegueIdentifier: String {
     case favoriteToDetail = "FavoritesToDetail"
     case favoritesToLogIn = "FavoritesToLogIn"
     case favoritesToSearch = "FavoritesSearchVC"
+    
+    // Acount
+    case accountToDetail = "AccountToDetail"
+    case accountToLogin = "AccountToLogin"
 }
 
 enum StoryboardID : String {

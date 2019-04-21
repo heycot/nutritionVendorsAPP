@@ -75,7 +75,7 @@
 		235B169F226C71F6001A6BB6 /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235B169E226C71F6001A6BB6 /* AccountCell.swift */; };
 		235B16A3226C72AC001A6BB6 /* AccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235B16A2226C72AC001A6BB6 /* AccountController.swift */; };
 		235B6685226308D900BBFAFC /* DetailFood.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 235B6684226308D900BBFAFC /* DetailFood.storyboard */; };
-		235B668722630BCA00BBFAFC /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 235B668622630BCA00BBFAFC /* Account.storyboard */; };
+		235B668722630BCA00BBFAFC /* AccountDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 235B668622630BCA00BBFAFC /* AccountDetail.storyboard */; };
 		235C9A2D2249E0A600E01484 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 235C9A2C2249E0A600E01484 /* QuartzCore.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		23614F0F2256020E00B5DD81 /* FavoritesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23614F0E2256020E00B5DD81 /* FavoritesResponse.swift */; };
 		23614F1122560F7E00B5DD81 /* FavoritesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23614F1022560F7E00B5DD81 /* FavoritesService.swift */; };
@@ -184,7 +184,7 @@
 		235B169E226C71F6001A6BB6 /* AccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
 		235B16A2226C72AC001A6BB6 /* AccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountController.swift; sourceTree = "<group>"; };
 		235B6684226308D900BBFAFC /* DetailFood.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailFood.storyboard; sourceTree = "<group>"; };
-		235B668622630BCA00BBFAFC /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
+		235B668622630BCA00BBFAFC /* AccountDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountDetail.storyboard; sourceTree = "<group>"; };
 		235C9A2C2249E0A600E01484 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		23614F0E2256020E00B5DD81 /* FavoritesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesResponse.swift; sourceTree = "<group>"; };
 		23614F1022560F7E00B5DD81 /* FavoritesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesService.swift; sourceTree = "<group>"; };
@@ -586,7 +586,7 @@
 				230E2DD12226431D00246392 /* LogInAndLogOut.storyboard */,
 				237DABF62262049C00FE57FB /* Search.storyboard */,
 				235B6684226308D900BBFAFC /* DetailFood.storyboard */,
-				235B668622630BCA00BBFAFC /* Account.storyboard */,
+				235B668622630BCA00BBFAFC /* AccountDetail.storyboard */,
 				2352405422635585004B11CF /* ItemInShop.storyboard */,
 				2352405622635661004B11CF /* Delivery.storyboard */,
 				234B5CC9226834B100E7E61F /* GoogleMap.storyboard */,
@@ -739,7 +739,7 @@
 				2381B64A225B064F004DAA64 /* CategoryCell.xib in Resources */,
 				235B6685226308D900BBFAFC /* DetailFood.storyboard in Resources */,
 				234B5CCA226834B100E7E61F /* GoogleMap.storyboard in Resources */,
-				235B668722630BCA00BBFAFC /* Account.storyboard in Resources */,
+				235B668722630BCA00BBFAFC /* AccountDetail.storyboard in Resources */,
 				2352405722635661004B11CF /* Delivery.storyboard in Resources */,
 				2300BE79222D34B2008E9101 /* GeneralValueCell.xib in Resources */,
 			);

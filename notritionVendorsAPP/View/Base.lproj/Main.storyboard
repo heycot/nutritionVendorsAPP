@@ -325,6 +325,22 @@
             </objects>
             <point key="canvasLocation" x="301" y="2421"/>
         </scene>
+        <!--AccountDetailStoryboardID-->
+        <scene sceneID="kZW-uL-rBr">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AccountDetail" referencedIdentifier="AccountDetailStoryboardID" id="8ap-Zq-13Y" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7kK-fE-kxM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="258" y="2710"/>
+        </scene>
+        <!--LoginLogoutStoryboardID-->
+        <scene sceneID="Uqc-JC-CBG">
+            <objects>
+                <viewControllerPlaceholder storyboardName="LogInAndLogOut" referencedIdentifier="LoginLogoutStoryboardID" id="kNg-Ir-EQw" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1zT-0o-lCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="262" y="3024"/>
+        </scene>
         <!--Category Controller-->
         <scene sceneID="8I9-Vg-tx7">
             <objects>
@@ -925,6 +941,8 @@
                     <navigationItem key="navigationItem" id="nbs-qC-T3Z"/>
                     <connections>
                         <outlet property="tableView" destination="uwE-vq-2hk" id="Ba5-qM-sub"/>
+                        <segue destination="8ap-Zq-13Y" kind="show" identifier="AccountToDetail" id="Cet-ep-kkc"/>
+                        <segue destination="kNg-Ir-EQw" kind="show" identifier="AccountToLogin" id="VVi-v8-sfC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oXM-62-nyg" userLabel="First Responder" sceneMemberID="firstResponder"/>
