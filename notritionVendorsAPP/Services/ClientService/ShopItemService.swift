@@ -49,24 +49,6 @@ class ShopItemService {
         }
     }
     
-    func searchItem(searchText: String, completion: @escaping ([SearchResponse]?) -> Void) {
-        let urlStr = BASE_URL + ShopItemAPI.searchOne.rawValue  + "/" + searchText
-        
-        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
-            
-            guard let data = data else {return}
-            do {
-                
-                let shopItems = try JSONDecoder().decode([SearchResponse].self, from: data)
-                DispatchQueue.main.async {
-                    completion(shopItems)
-                }
-            } catch let jsonError {
-                print("Error serializing json:", jsonError)
-            }
-        }
-    }
-    
 
     func findAllLoved(offset: Int, completion: @escaping ([ShopItemResponse]?) -> Void) {
         let urlStr = BASE_URL + ShopItemAPI.getAllLoved.rawValue + "/" + String(offset)

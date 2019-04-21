@@ -37,6 +37,10 @@ enum ShopItemAPI: String {
     case getOneDTO = "shop-item/dto"
 }
 
+enum SearchAPI: String {
+    case recentSearch = "recent/offset"
+}
+
 enum FavoritesAPI: String {
     case loveOne = "favorites/love"
     case getAllByUser = "favorites/user"

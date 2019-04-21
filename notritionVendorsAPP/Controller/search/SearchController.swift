@@ -73,7 +73,7 @@ class SearchController: UIViewController {
     
     @objc func search() {
         print("call api search")
-        ShopItemService.shared.searchItem(searchText: searchBar.text!.lowercased()) { data in
+        SearchServices.shared.searchItem(searchText: searchBar.text!.lowercased()) { data in
             guard let data = data else {return }
             
             if data.count == 0 {
