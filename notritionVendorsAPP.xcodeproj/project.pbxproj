@@ -273,12 +273,8 @@
 		2300BE70222D30F1008E9101 /* account */ = {
 			isa = PBXGroup;
 			children = (
-				235A32BE2225301E00DE5B0E /* ChangePasswordController.swift */,
-				235A32BC2224F51500DE5B0E /* AccountDetailController.swift */,
-				235B169E226C71F6001A6BB6 /* AccountCell.swift */,
-				235B16A2226C72AC001A6BB6 /* AccountController.swift */,
-				2373EB8E226D5E0B00D779F2 /* AccountLogedInCell.swift */,
-				2373EB8F226D5E0B00D779F2 /* AccountLogedInCell.xib */,
+				2373EB93226D805E00D779F2 /* view */,
+				2373EB92226D805200D779F2 /* controller */,
 			);
 			path = account;
 			sourceTree = "<group>";
@@ -496,6 +492,26 @@
 				236A32B82258945F00AA2410 /* FavoritesCell.swift */,
 			);
 			path = favorites;
+			sourceTree = "<group>";
+		};
+		2373EB92226D805200D779F2 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				235A32BC2224F51500DE5B0E /* AccountDetailController.swift */,
+				235A32BE2225301E00DE5B0E /* ChangePasswordController.swift */,
+				235B16A2226C72AC001A6BB6 /* AccountController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		2373EB93226D805E00D779F2 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				235B169E226C71F6001A6BB6 /* AccountCell.swift */,
+				2373EB8E226D5E0B00D779F2 /* AccountLogedInCell.swift */,
+				2373EB8F226D5E0B00D779F2 /* AccountLogedInCell.xib */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		237DABF12261E35C00FE57FB /* search */ = {
