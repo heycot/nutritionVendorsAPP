@@ -11,12 +11,22 @@ import UIKit
 class AccountDetailController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var userAvatar: CustomImageView!
     @IBOutlet weak var username: UITextField!
-    @IBOutlet weak var phone: UITextField!
-    @IBOutlet weak var isActive: UITextField!
+    @IBOutlet weak var inforUser: UITextField!
+    @IBOutlet weak var activitiesBtn: UIButton!
+    @IBOutlet weak var accountBtn: UIButton!
     
     let titleCell = ["Email:", "Birthday:", "Address:", "Join on:", "Edit information", "Change password", "Sign out"]
     let detailCell = ["nguyentu15061996@gmail.com", "15/06/1996", "60 Ngo Sy Lien", "24/02/2019", "", "", ""]
+    
+    var user = UserResponse()
+    
+    @IBAction func activitiesBtnPressed(_ sender: Any) {
+    }
+    
+    @IBAction func accountBtnPressed(_ sender: Any) {
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +34,18 @@ class AccountDetailController: UIViewController {
         disableUIView()
         
         setUpForTableView()
+        
+        viewInfor()
+    }
+    
+    func viewInfor() {
+        userAvatar.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + user.avatar!)
+        userAvatar.setRounded(color: .white)
+        username.text = user.name!
+        inforUser.text = "newbee - Top 1000 - 10 Followers"
+        
+        username.setboldSystemFontOfSize(size: 18)
+        inforUser.setboldSystemFontOfSize(size: 14)
     }
     
     func setUpForTableView() {
@@ -42,8 +64,6 @@ class AccountDetailController: UIViewController {
     
     func disableUIView() {
         username.isEnabled = false
-        phone.isEnabled = false
-        isActive.isEnabled = false
     }
 
 }
@@ -54,7 +74,7 @@ extension AccountDetailController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "accountCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.accountInforCell.rawValue, for: indexPath)
         
         cell.detailTextLabel?.text = detailCell[indexPath.row]
         cell.textLabel?.text = titleCell[indexPath.row]
@@ -76,11 +96,6 @@ extension AccountDetailController: UITableViewDelegate, UITableViewDataSource {
             self.performSegue(withIdentifier: "ChangePassSegue", sender: self)
         }
         
-//        let alertController = UIAlertController(title: "Simplified iOS", message: "You Selected " + currentItem! , preferredStyle: .alert)
-//        let defaultAction = UIAlertAction(title: "Close Alert", style: .default, handler: nil)
-//        alertController.addAction(defaultAction)
-//
-//        present(alertController, animated: true, completion: nil)
     }
     
 }

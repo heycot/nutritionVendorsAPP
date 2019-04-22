@@ -83,9 +83,14 @@ class AccountController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back"
+        
         if segue.destination is AccountDetailController {
-//            let vc = segue.destination as? AccountDetailController
+            let vc = segue.destination as? AccountDetailController
+            vc?.user = self.user
             
+            navigationItem.backBarButtonItem = backItem
         } else if segue.destination is LoginController {
             
         }
