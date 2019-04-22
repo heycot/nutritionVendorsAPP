@@ -134,7 +134,15 @@ extension AccountDetailController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
-            // handle delete (by removing the data from your array and updating the tableview)
+            
+            CommentServices.shared.deleteOne(id: listComment[indexPath.row].id!) { (data) in
+                guard let data = data else { return }
+                
+                if data == 1 {
+                    self.listComment.remove(at: indexPath.row)
+                    self.tableView.deleteRows(at: [indexPath], with: .bottom)
+                }
+            }
         }
     }
     
