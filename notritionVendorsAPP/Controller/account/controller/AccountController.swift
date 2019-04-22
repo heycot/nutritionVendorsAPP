@@ -28,7 +28,6 @@ class AccountController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerNibCell()
-        getUserInfor()
         setupView()
         setupProperty()
         
@@ -109,6 +108,10 @@ extension AccountController : UITableViewDelegate {
                 
                 performSegue(withIdentifier: SegueIdentifier.accountToLogin.rawValue, sender: nil)
             }
+        } else if indexPath.section == 3 && indexPath.row == 2 {
+            AuthServices.instance.authToken = ""
+            AuthServices.instance.isLoggedIn = false
+            tableView.reloadData()
         }
     }
 }
@@ -127,7 +130,7 @@ extension AccountController : UITableViewDataSource {
         case 2:
             return 2
         default:
-            return 3
+            return AuthServices.instance.isLoggedIn ? 3 : 2
         }
     }
     
@@ -159,6 +162,7 @@ extension AccountController : UITableViewDataSource {
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
         
+        getUserInfor()
         super.viewWillAppear(true)
         tableView.reloadData()
     }
