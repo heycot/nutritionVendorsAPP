@@ -88,6 +88,11 @@
 		236A5A83225B455F005C27E8 /* HeaderCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236A5A82225B455F005C27E8 /* HeaderCollectionCell.swift */; };
 		2373EB90226D5E0B00D779F2 /* AccountLogedInCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2373EB8E226D5E0B00D779F2 /* AccountLogedInCell.swift */; };
 		2373EB91226D5E0B00D779F2 /* AccountLogedInCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2373EB8F226D5E0B00D779F2 /* AccountLogedInCell.xib */; };
+		2373EB96226D80DF00D779F2 /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2373EB94226D80DF00D779F2 /* ActivityCell.swift */; };
+		2373EB97226D80DF00D779F2 /* ActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2373EB95226D80DF00D779F2 /* ActivityCell.xib */; };
+		2373EB9A226D80F500D779F2 /* InforCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2373EB98226D80F500D779F2 /* InforCell.swift */; };
+		2373EB9B226D80F500D779F2 /* InforCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2373EB99226D80F500D779F2 /* InforCell.xib */; };
+		2373EB9D226DA07700D779F2 /* CommentDTOResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2373EB9C226DA07700D779F2 /* CommentDTOResponse.swift */; };
 		2376D98F224CDC4200DDFB19 /* PhotoItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2376D98E224CDC4200DDFB19 /* PhotoItemCell.swift */; };
 		2378E12D2247385700837883 /* DocumentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2378E12C2247385700837883 /* DocumentResponse.swift */; };
 		237DABF32261E37F00FE57FB /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237DABF22261E37F00FE57FB /* SearchController.swift */; };
@@ -200,6 +205,11 @@
 		236A5A82225B455F005C27E8 /* HeaderCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionCell.swift; sourceTree = "<group>"; };
 		2373EB8E226D5E0B00D779F2 /* AccountLogedInCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLogedInCell.swift; sourceTree = "<group>"; };
 		2373EB8F226D5E0B00D779F2 /* AccountLogedInCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountLogedInCell.xib; sourceTree = "<group>"; };
+		2373EB94226D80DF00D779F2 /* ActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
+		2373EB95226D80DF00D779F2 /* ActivityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityCell.xib; sourceTree = "<group>"; };
+		2373EB98226D80F500D779F2 /* InforCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InforCell.swift; sourceTree = "<group>"; };
+		2373EB99226D80F500D779F2 /* InforCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InforCell.xib; sourceTree = "<group>"; };
+		2373EB9C226DA07700D779F2 /* CommentDTOResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentDTOResponse.swift; sourceTree = "<group>"; };
 		2376D98E224CDC4200DDFB19 /* PhotoItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoItemCell.swift; sourceTree = "<group>"; };
 		2378E12C2247385700837883 /* DocumentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentResponse.swift; sourceTree = "<group>"; };
 		237DABF22261E37F00FE57FB /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
@@ -510,6 +520,10 @@
 				235B169E226C71F6001A6BB6 /* AccountCell.swift */,
 				2373EB8E226D5E0B00D779F2 /* AccountLogedInCell.swift */,
 				2373EB8F226D5E0B00D779F2 /* AccountLogedInCell.xib */,
+				2373EB94226D80DF00D779F2 /* ActivityCell.swift */,
+				2373EB95226D80DF00D779F2 /* ActivityCell.xib */,
+				2373EB98226D80F500D779F2 /* InforCell.swift */,
+				2373EB99226D80F500D779F2 /* InforCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -552,6 +566,7 @@
 				2378E12C2247385700837883 /* DocumentResponse.swift */,
 				23614F0E2256020E00B5DD81 /* FavoritesResponse.swift */,
 				235AC4AE2265BDDF009A0CD0 /* SearchResponse.swift */,
+				2373EB9C226DA07700D779F2 /* CommentDTOResponse.swift */,
 			);
 			path = ResponseEntity;
 			sourceTree = "<group>";
@@ -752,8 +767,10 @@
 				23D02E682223799400882742 /* Assets.xcassets in Resources */,
 				2373EB91226D5E0B00D779F2 /* AccountLogedInCell.xib in Resources */,
 				237DABF72262049C00FE57FB /* Search.storyboard in Resources */,
+				2373EB97226D80DF00D779F2 /* ActivityCell.xib in Resources */,
 				230E2DD22226431D00246392 /* LogInAndLogOut.storyboard in Resources */,
 				2300BE6C222D30B7008E9101 /* GeneralInforItemCell.xib in Resources */,
+				2373EB9B226D80F500D779F2 /* InforCell.xib in Resources */,
 				2352404F22634E33004B11CF /* ActionCell.xib in Resources */,
 				2323D6AE2269B4160005E104 /* MapCell.xib in Resources */,
 				2352405522635585004B11CF /* ItemInShop.storyboard in Resources */,
@@ -863,6 +880,7 @@
 				230E2DD822265A4700246392 /* User.swift in Sources */,
 				235B169F226C71F6001A6BB6 /* AccountCell.swift in Sources */,
 				23B6023F222E767E00FBBD79 /* ExtensionUIImage.swift in Sources */,
+				2373EB9D226DA07700D779F2 /* CommentDTOResponse.swift in Sources */,
 				231ABDBE2266E16B006D6B01 /* MapTaskManager.swift in Sources */,
 				2320C6F42251C8AD00A2C328 /* DetailPhotoCell.swift in Sources */,
 				2300BE6B222D30B7008E9101 /* GeneralInforItemCell.swift in Sources */,
@@ -872,6 +890,7 @@
 				233B390B223755FD003EB253 /* Constant.swift in Sources */,
 				232900D2225C7124009D7DD1 /* CommentServices.swift in Sources */,
 				235A32BF2225301E00DE5B0E /* ChangePasswordController.swift in Sources */,
+				2373EB96226D80DF00D779F2 /* ActivityCell.swift in Sources */,
 				234B5CC822682B0B00E7E61F /* ShopMarkerView.swift in Sources */,
 				2352405222635191004B11CF /* AddCommentBtnCell.swift in Sources */,
 				235B169D226C2EEC001A6BB6 /* SearchServices.swift in Sources */,
@@ -927,6 +946,7 @@
 				230E2DDE2226674200246392 /* Area.swift in Sources */,
 				230E2DE822266BFE00246392 /* Shop.swift in Sources */,
 				2323D6AD2269B4160005E104 /* MapCell.swift in Sources */,
+				2373EB9A226D80F500D779F2 /* InforCell.swift in Sources */,
 				2320C6F22251C7C700A2C328 /* DetailPhotoController.swift in Sources */,
 				231ABDC42266E1D4006D6B01 /* MapResponseDirections.swift in Sources */,
 				2376D98F224CDC4200DDFB19 /* PhotoItemCell.swift in Sources */,
