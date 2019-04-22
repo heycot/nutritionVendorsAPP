@@ -21,6 +21,8 @@ class AccountDetailController: UIViewController {
     let detailCell = ["nguyentu15061996@gmail.com", "15/06/1996", "60 Ngo Sy Lien", "24/02/2019", "", "", ""]
     
     var user = UserResponse()
+    var listComment = [CommentDTOResponse]()
+    var isActivity = true
     
     @IBAction func activitiesBtnPressed(_ sender: Any) {
     }
@@ -30,12 +32,20 @@ class AccountDetailController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        registerCells()
         setUpUI()
         disableUIView()
         
         setUpForTableView()
         
         viewInfor()
+    }
+    
+    func registerCells() {
+        
+        tableView.register(UINib(nibName: CellClassName.activityCell.rawValue, bundle: nil), forCellReuseIdentifier: CellIdentifier.activityCell.rawValue)
+        
+        tableView.register(UINib(nibName: CellClassName.inforCell.rawValue, bundle: nil), forCellReuseIdentifier: CellIdentifier.inforCell.rawValue)
     }
     
     func viewInfor() {
@@ -70,17 +80,24 @@ class AccountDetailController: UIViewController {
 
 extension AccountDetailController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return isActivity ? listComment.count : 7
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.accountInforCell.rawValue, for: indexPath)
-        
-        cell.detailTextLabel?.text = detailCell[indexPath.row]
-        cell.textLabel?.text = titleCell[indexPath.row]
-        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 17.0)
-
-        return cell
+        if isActivity {
+            let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.activityCell.rawValue, for: indexPath) as! ActivityCell
+            cell.updateView(comment: listComment[indexPath.row])
+            return cell
+            
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.accountInforCell.rawValue, for: indexPath)
+            
+            cell.detailTextLabel?.text = detailCell[indexPath.row]
+            cell.textLabel?.text = titleCell[indexPath.row]
+            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 17.0)
+            
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

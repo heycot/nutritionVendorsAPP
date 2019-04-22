@@ -105,6 +105,8 @@ enum CellClassName: String {
     case actionCell = "ActionCell"
     case mapCell = "MapCell"
     case accountLogedIn = "AccountLogedInCell"
+    case activityCell = "ActivityCell"
+    case inforCell = "InforCell"
 }
 
 enum CellIdentifier: String {
@@ -129,6 +131,8 @@ enum CellIdentifier: String {
     case accountCell = "AccountCell"
     case accountLogedIn = "AccountLogedInCell"
     case accountInforCell = "accountInforCell"
+    case activityCell = "ActivityCell"
+    case inforCell = "InforCell"
 }
 
 enum SegueIdentifier: String {
