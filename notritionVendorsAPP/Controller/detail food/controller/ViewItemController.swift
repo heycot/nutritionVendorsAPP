@@ -82,7 +82,8 @@ class ViewItemController: UIViewController {
     }
     
     func prepareData() {
-        appendItemValue(icon: Icon.price_icon.rawValue, value: "VND \(item.price!)")
+        let price = "VND: " + (item.price?.formatPrice())! + "/\(item.unit!)"
+        appendItemValue(icon: Icon.price_icon.rawValue, value: price )
         appendItemValue(icon: Icon.time_icon.rawValue, value: (item.shop!.time_open!  ) + " - " + (item.shop!.time_close!))
 //        appendItemValue(icon: Icon.category_icon.rawValue, value: "Rau cu")
         appendItemValue(icon: Icon.shop_icon.rawValue, value: (item.shop!.name!  ))
