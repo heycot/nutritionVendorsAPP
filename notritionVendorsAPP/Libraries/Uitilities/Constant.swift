@@ -56,6 +56,7 @@ enum CommentAPI: String {
     case countByShopItem = "comment/count"
     case getUserComment = "comment/check/shopitem"
     case getUserCommentDTO = "comment/dto/offset"
+    case deleteOne = "comment/delete"
 }
 
 enum CategoryAPI: String {

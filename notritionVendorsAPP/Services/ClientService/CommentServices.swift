@@ -130,6 +130,23 @@ class CommentServices {
             }
         }
     }
+    
+    func deleteOne(id: Int, completion: @escaping (Int?) -> Void) {
+        let urlStr = BASE_URL + CommentAPI.deleteOne.rawValue  + "/" + String(id)
+        
+        
+        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
+            
+            guard let data = data else {return}
+            DispatchQueue.main.async {
+                
+                let stringInt = String.init(data: data, encoding: String.Encoding.utf8)
+                let int = Int.init(stringInt!)
+                
+                completion(int)
+            }
+        }
+    }
         
 }
 
