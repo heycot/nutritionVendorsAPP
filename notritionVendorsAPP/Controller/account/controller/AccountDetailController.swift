@@ -47,8 +47,8 @@ class AccountDetailController: UIViewController {
         username.text = user.name!
         inforUser.text = "newbee - Top 1000 - 10 Followers"
         
-//        username.setboldSystemFontOfSize(size: 18)
         inforUser.setboldSystemFontOfSize(size: 14)
+        username.setboldSystemFontOfSize(size: 18)
     }
     
     func setUpForTableView() {
