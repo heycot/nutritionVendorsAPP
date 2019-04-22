@@ -29,7 +29,7 @@ class ActivityCell: UITableViewCell {
     }
     
     func updateView(comment: CommentDTOResponse) {
-        activityImage.loadImageUsingUrlString(urlString: BASE_URL_IMAGE +  comment.entity_image!)
+        activityImage.loadImageUsingUrlString(urlString: BASE_URL_IMAGE +  comment.entity_avatar!)
         activityTitle.text = comment.entity_name!
         contentTitle.text = comment.title!
         contentRating.text = String(format: "%0.2f", comment.rating!)
@@ -40,8 +40,9 @@ class ActivityCell: UITableViewCell {
     
     func setupView() {
         activityImage.setRounded(color: .white)
-        activityTitle.setboldSystemFontOfSize(size: 19)
-        contentRating.setboldSystemFontOfSize(size: 17)
+        activityTitle.setboldSystemFontOfSize(size: 17)
+        contentTitle.setboldSystemFontOfSize(size: 14)
+        contentRating.setboldSystemFontOfSize(size: 14)
         contentDetail.isEditable = false
     }
     

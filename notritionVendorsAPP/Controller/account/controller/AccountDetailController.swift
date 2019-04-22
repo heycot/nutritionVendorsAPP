@@ -53,7 +53,7 @@ class AccountDetailController: UIViewController {
         username.text = user.name!
         inforUser.text = "newbee - Top 1000 - 10 Followers"
         
-        username.setboldSystemFontOfSize(size: 18)
+//        username.setboldSystemFontOfSize(size: 18)
         inforUser.setboldSystemFontOfSize(size: 14)
     }
     
@@ -61,11 +61,6 @@ class AccountDetailController: UIViewController {
         tableView.tableFooterView = UIView()
         tableView.dataSource = self
         tableView.delegate = self
-        
-        self.tableView.reloadData()
-        tableView.estimatedRowHeight = UITableView.automaticDimension
-        //tableView.rowHeight = UITableView.automaticDimension
-        tableView.rowHeight = 50
     }
     
     func getDataFromAPI(offset: Int) {
@@ -110,6 +105,9 @@ extension AccountDetailController: UITableViewDelegate, UITableViewDataSource {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableView.automaticDimension
+        
         getDataFromAPI(offset: 0)
         super.viewWillAppear(true)
         tableView.reloadData()
@@ -128,6 +126,16 @@ extension AccountDetailController: UITableViewDelegate, UITableViewDataSource {
             self.performSegue(withIdentifier: "ChangePassSegue", sender: self)
         }
         
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            // handle delete (by removing the data from your array and updating the tableview)
+        }
     }
     
 }
