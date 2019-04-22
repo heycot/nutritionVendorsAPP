@@ -31,6 +31,7 @@ class AccountController: UIViewController {
         getUserInfor()
         setupView()
         setupProperty()
+        
     }
     
     func getUserInfor() {
