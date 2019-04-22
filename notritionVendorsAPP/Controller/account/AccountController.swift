@@ -11,7 +11,6 @@ import UIKit
 struct AccountProperty {
     var icon : String
     var property : String
-    var action : String
 }
 
 class AccountController: UIViewController {
@@ -20,16 +19,33 @@ class AccountController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var listAccountProperty = [AccountProperty]()
-    var listIcon = ["login", "payment", "history", "promo_code", "website", "invite_friends", "email", "policy", "settings", "logout"]
+    var user = UserResponse()
     
+    var listIcon = ["login", "payment", "history", "promo_code", "website", "invite_friends", "email", "policy", "settings", "logout"]
     var listProperty = ["Login", "Payment", "History", "My Promo Code", "For Shop Owner", "Invite Friends", "Feedback", "User Policy", "App Settings", "Log Out"]
     
-    var index = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        registerNibCell()
+        getUserInfor()
         setupView()
         setupProperty()
+    }
+    
+    func getUserInfor() {
+        if AuthServices.instance.isLoggedIn {
+            AuthServices.instance.getInforUser() { data in
+                guard let data = data else { return }
+                
+                self.user = data
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    func registerNibCell() {
+         tableView.register(UINib(nibName: CellClassName.accountLogedIn.rawValue, bundle: nil), forCellReuseIdentifier: CellIdentifier.accountLogedIn.rawValue)
     }
     
     func setupView() {
@@ -40,9 +56,9 @@ class AccountController: UIViewController {
         
         tableView.tableFooterView = addVersion()
         
-        self.tableView.reloadData()
-        tableView.estimatedRowHeight = UITableView.automaticDimension
-        tableView.rowHeight = 50
+//        self.tableView.reloadData()
+//        tableView.estimatedRowHeight = UITableView.automaticDimension
+//        tableView.rowHeight = 50
     }
     
     func addVersion() -> UILabel{
@@ -61,7 +77,7 @@ class AccountController: UIViewController {
     func setupProperty() {
         
         for i in 0 ..< listIcon.count {
-            listAccountProperty.append(AccountProperty(icon: listIcon[i], property: listProperty[i], action: ""))
+            listAccountProperty.append(AccountProperty(icon: listIcon[i], property: listProperty[i]))
         }
     }
     
@@ -101,7 +117,7 @@ extension AccountController : UITableViewDataSource {
         case 0:
             return 1
         case 1:
-            return 3
+            return 4
         case 2:
             return 2
         default:
@@ -110,16 +126,33 @@ extension AccountController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.accountCell.rawValue, for: indexPath) as! AccountCell
         
         
-        cell.updateView(iconName: listAccountProperty[index].icon, property_name: listAccountProperty[index].property, property_action: listAccountProperty[index].action)
+        if indexPath.section == 0, AuthServices.instance.isLoggedIn {
+            let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.accountLogedIn.rawValue, for: indexPath) as! AccountLogedInCell
+           cell.updateview(avatar: user.avatar!, nameStr: user.name!)
+           
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.accountCell.rawValue, for: indexPath) as! AccountCell
+            
+            var number = 0
+            for i in 0 ..< indexPath.section {
+                number += tableView.numberOfRows(inSection: i)
+            }
+            
+            let index = indexPath.row + number
+            
+            cell.updateView(iconName: listAccountProperty[index].icon, property_name: listAccountProperty[index].property)
+            return cell
+        }
         
-        index = index + 1
-        return cell
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableView.automaticDimension
+        
         super.viewWillAppear(true)
         tableView.reloadData()
     }

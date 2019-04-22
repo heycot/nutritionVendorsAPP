@@ -84,19 +84,19 @@ class AuthServices {
             }
         }
         
-        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "POST", jsonBody: jsonData, parameters: nil) { (data ) in
-
-            guard let data = data else {return}
-            do {
-
-                let userResponse = try JSONDecoder().decode(UserResponse.self, from: data)
-                DispatchQueue.main.async {
-                    completion(userResponse)
-                }
-            } catch let jsonError {
-                print("Error serializing json:", jsonError)
-            }
-        }
+//        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "POST", jsonBody: jsonData, parameters: nil) { (data ) in
+//
+//            guard let data = data else {return}
+//            do {
+//
+//                let userResponse = try JSONDecoder().decode(UserResponse.self, from: data)
+//                DispatchQueue.main.async {
+//                    completion(userResponse)
+//                }
+//            } catch let jsonError {
+//                print("Error serializing json:", jsonError)
+//            }
+//        }
     }
     
     func loginUser(email: String, password: String, completion: @escaping (UserResponse?) -> Void) {
@@ -123,6 +123,25 @@ class AuthServices {
             guard let data = data else {return}
             do {
 
+                let userResponse = try JSONDecoder().decode(UserResponse.self, from: data)
+                DispatchQueue.main.async {
+                    completion(userResponse)
+                }
+            } catch let jsonError {
+                print("Error serializing json:", jsonError)
+            }
+        }
+    }
+    
+    func getInforUser( completion: @escaping (UserResponse?) -> Void) {
+        
+        let urlStr = BASE_URL + UserAPI.getInfor.rawValue
+        
+        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
+            
+            guard let data = data else {return}
+            do {
+                
                 let userResponse = try JSONDecoder().decode(UserResponse.self, from: data)
                 DispatchQueue.main.async {
                     completion(userResponse)

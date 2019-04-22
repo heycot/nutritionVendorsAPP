@@ -24,6 +24,7 @@ let BASE_URL_IMAGE    = "http://192.168.21.59:3000/images/"
 enum UserAPI: String {
     case register    = "user/signup"
     case login       = "user/login"
+    case getInfor    = "user/infor"
 }
 
 enum ShopItemAPI: String {
@@ -86,7 +87,8 @@ let HEADER_AUTH = [
 
 // Constant color
 
-let APP_COLOR = UIColor(red: CGFloat(44/255.0), green: CGFloat(166/255.0), blue: CGFloat(172/255.0), alpha: CGFloat(0.75))
+//let APP_COLOR = UIColor(red: CGFloat(44/255.0), green: CGFloat(166/255.0), blue: CGFloat(172/255.0), alpha: CGFloat(0.75))
+let APP_COLOR = UIColor.red
 
 let APP_COLOR_35 = UIColor(red: CGFloat(44/255.0), green: CGFloat(166/255.0), blue: CGFloat(172/255.0), alpha: CGFloat(0.15))
 
@@ -101,6 +103,7 @@ enum CellClassName: String {
     case addCommentBtn = "AddCommentBtnCell"
     case actionCell = "ActionCell"
     case mapCell = "MapCell"
+    case accountLogedIn = "AccountLogedInCell"
 }
 
 enum CellIdentifier: String {
@@ -123,6 +126,7 @@ enum CellIdentifier: String {
     case itemInShop = "ItemInShopCell"
     case mapCell = "MapCell"
     case accountCell = "AccountCell"
+    case accountLogedIn = "AccountLogedInCell"
 }
 
 enum SegueIdentifier: String {
