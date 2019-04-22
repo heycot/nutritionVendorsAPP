@@ -112,7 +112,24 @@ class CommentServices {
         }
     }
     
-    
+    func getReviewsDTOOfUser(offset: Int, completion: @escaping ([CommentDTOResponse]?) -> Void) {
+        let urlStr = BASE_URL + CommentAPI.getUserCommentDTO.rawValue  + "/" + String(offset)
+        
+        
+        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
+            
+            guard let data = data else {return}
+            do {
+                
+                let comment = try JSONDecoder().decode([CommentDTOResponse].self, from: data)
+                DispatchQueue.main.async {
+                    completion(comment)
+                }
+            } catch let jsonError {
+                print("Error serializing json:", jsonError)
+            }
+        }
+    }
         
 }
 
