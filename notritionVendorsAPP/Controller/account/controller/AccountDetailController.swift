@@ -33,7 +33,6 @@ class AccountDetailController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCells()
-        setUpUI()
         disableUIView()
         
         setUpForTableView()
@@ -69,7 +68,17 @@ class AccountDetailController: UIViewController {
         tableView.rowHeight = 50
     }
     
-    func setUpUI() {
+    func getDataFromAPI(offset: Int) {
+        
+        CommentServices.shared.getReviewsDTOOfUser(offset: offset) { (data) in
+            guard let data = data else { return }
+            
+            for comment in data {
+                self.listComment.append(comment)
+            }
+            
+            self.tableView.reloadData()
+        }
     }
     
     func disableUIView() {
@@ -98,6 +107,12 @@ extension AccountDetailController: UITableViewDelegate, UITableViewDataSource {
             
             return cell
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getDataFromAPI(offset: 0)
+        super.viewWillAppear(true)
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

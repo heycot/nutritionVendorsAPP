@@ -169,7 +169,6 @@ extension FavoritesViewController : UITableViewDataSource {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.viewDidLoad()
         loadDataFromAPI(offset: 0, isLoadMore: false)
         super.viewWillAppear(true)
         tableView.reloadData()
