@@ -136,11 +136,20 @@
                         <outlet property="tableView" destination="XPY-8o-nTA" id="1zQ-6U-3M7"/>
                         <outlet property="userAvatar" destination="jB1-UH-Nl9" id="q9m-8B-oco"/>
                         <outlet property="username" destination="V60-Bw-FiI" id="Dea-7R-GDc"/>
+                        <segue destination="sdt-M8-uS0" kind="show" identifier="AccountToComment" id="bge-Oj-lBl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="khJ-py-MN8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1193" y="2991"/>
+        </scene>
+        <!--CommentStoryboardID-->
+        <scene sceneID="uLW-QY-oiT">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Comment" referencedIdentifier="CommentStoryboardID" id="sdt-M8-uS0" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VB9-jX-dJs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1797" y="2723"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wdg-sQ-6R3">

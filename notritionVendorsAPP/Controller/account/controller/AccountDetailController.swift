@@ -24,12 +24,6 @@ class AccountDetailController: UIViewController {
     var listComment = [CommentDTOResponse]()
     var isActivity = true
     
-    @IBAction func activitiesBtnPressed(_ sender: Any) {
-    }
-    
-    @IBAction func accountBtnPressed(_ sender: Any) {
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCells()
@@ -63,6 +57,17 @@ class AccountDetailController: UIViewController {
         tableView.delegate = self
     }
     
+    @IBAction func activitiesBtnPressed(_ sender: Any) {
+        isActivity = true
+        tableView.reloadData()
+    }
+    
+    @IBAction func accountBtnPressed(_ sender: Any) {
+        isActivity = false
+        tableView.reloadData()
+    }
+    
+    
     func getDataFromAPI(offset: Int) {
         
         CommentServices.shared.getReviewsDTOOfUser(offset: offset) { (data) in
@@ -79,7 +84,27 @@ class AccountDetailController: UIViewController {
     func disableUIView() {
         username.isEnabled = false
     }
+    
+    @objc func activityPressedFunction(btn: UIButton) {
+//        performSegueFunc(identifier: SegueIdentifier.detailToDelivery.rawValue)
+    }
 
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is NewCommentController {
+            let vc = segue.destination as? NewCommentController
+            let index = sender as! Int
+            
+            vc?.lastComment = convertCommentDTOToComment(commentDto: listComment[index])
+            vc?.isNew = false
+            vc?.shopitemId = listComment[index].shopitem_id!
+            vc?.nameShop = listComment[index].entity_name!
+        }
+    }
+    
+    func convertCommentDTOToComment(commentDto : CommentDTOResponse) -> CommentResponse {
+        return CommentResponse(id: commentDto.id!, title: commentDto.title!, content: commentDto.content!, create_date: commentDto.create_date!, user: user, rating: commentDto.rating!)
+    }
 }
 
 extension AccountDetailController: UITableViewDelegate, UITableViewDataSource {
@@ -90,6 +115,10 @@ extension AccountDetailController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if isActivity {
             let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.activityCell.rawValue, for: indexPath) as! ActivityCell
+            
+//            cell.activityImage.addTarget(self, action: #selector(activityPressedFunction), for: UIControl.Event.touchDown)
+//            cell.activityTitle.addTarget(self, action: #selector(activityPressedFunction), for: UIControl.Event.touchDown)
+            
             cell.updateView(comment: listComment[indexPath.row])
             return cell
             
@@ -116,15 +145,19 @@ extension AccountDetailController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let indexPath = tableView.indexPathForSelectedRow
         
-        //getting the current cell from the index path
-        let currentCell = tableView.cellForRow(at: indexPath!)! as UITableViewCell
-        
-        //getting the text of that cell
-        let currentItem = currentCell.textLabel!.text
-        
-        if currentItem == "Change password" {
-            self.performSegue(withIdentifier: "ChangePassSegue", sender: self)
+        if isActivity {
+            performSegue(withIdentifier: SegueIdentifier.accountToComment.rawValue, sender: indexPath?.row)
         }
+        
+//        //getting the current cell from the index path
+//        let currentCell = tableView.cellForRow(at: indexPath!)! as UITableViewCell
+//
+//        //getting the text of that cell
+//        let currentItem = currentCell.textLabel!.text
+//
+//        if currentItem == "Change password" {
+//            self.performSegue(withIdentifier: "ChangePassSegue", sender: self)
+//        }
         
     }
     
