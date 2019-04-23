@@ -18,6 +18,7 @@ class ShopController: UIViewController {
     var listItem = [ShopResponse]()
     var currentList = [ShopResponse]()
     var isNewest = false
+    var currentShop = ShopResponse()
     
     lazy var refresher: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -104,8 +105,17 @@ class ShopController: UIViewController {
         }
     }
     
+    func getShopInfor(id: Int) {
+        ShopServices.shared.getOne(id: id) { (data) in
+            guard let data = data else { return }
+            
+            self.currentShop = data
+            self.performSegue(withIdentifier: SegueIdentifier.shopToItemInShop.rawValue, sender: nil)
+        }
+    }
+    
     @IBAction func searchBarPressed(_ sender: Any) {
-        performSegue(withIdentifier: SegueIdentifier.shopToSearch.rawValue, sender: nil)
+        self.performSegue(withIdentifier: SegueIdentifier.shopToSearch.rawValue, sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -124,8 +134,8 @@ class ShopController: UIViewController {
             
         } else if segue.destination is ItemInShopController {
             let vc = segue.destination as? ItemInShopController
-            let index = sender as! Int
-            vc?.shop = listItem[index]
+//            let index = sender as! Int
+            vc?.shop = currentShop
         }
     }
     
@@ -152,7 +162,7 @@ class ShopController: UIViewController {
 extension ShopController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: SegueIdentifier.shopToItemInShop.rawValue, sender: indexPath.row)
+        getShopInfor(id: listItem[indexPath.row].id!)
     }
 }
 

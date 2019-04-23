@@ -60,13 +60,10 @@ class ViewItemController: UIViewController {
     func updateData() {
         ShopItemService.shared.getOneItem(id: item.id!) { data in
             guard let data = data else {return }
-            
-            
+                        
             self.item.documents = data.documents
             self.item.shop = data.shop
             self.item.shop?.location = data.shop?.location
-            
-//            self.item.distance = ShopServices.shared.getDistance(shop: self.item.shop ?? ShopResponse(), currlocation: AuthServices.instance.currentLocation)
             
             self.prepareData()
         }
