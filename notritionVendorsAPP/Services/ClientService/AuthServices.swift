@@ -154,7 +154,7 @@ class AuthServices {
     
     func checkPassword(pass: String, completion: @escaping (Int?) -> Void) {
         
-        let urlStr = BASE_URL + UserAPI.checkPass.rawValue + pass
+        let urlStr = BASE_URL + UserAPI.checkPass.rawValue + "/" + pass
         
         NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
             
@@ -171,7 +171,7 @@ class AuthServices {
     
     func changePassword(pass: String, completion: @escaping (Int?) -> Void) {
         
-        let urlStr = BASE_URL + UserAPI.changePass.rawValue + pass
+        let urlStr = BASE_URL + UserAPI.changePass.rawValue + "/" + pass
         
         NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
             
