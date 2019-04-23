@@ -20,6 +20,7 @@ class ChangePasswordController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         notification.isHidden = true
+        currentPass.delegate = self
     }
     
     @IBAction func doneBtnPressed(_ sender: Any) {
@@ -28,12 +29,19 @@ class ChangePasswordController: UIViewController {
         }
     }
     
+    func disableInputText() {
+        newPass.isUserInteractionEnabled = false
+        confirmPass.isUserInteractionEnabled = false
+    }
+    
+    func enableInputText() {
+        newPass.isUserInteractionEnabled = true
+        confirmPass.isUserInteractionEnabled = true
+    }
+    
+    
     func validInput() -> Bool {
-        guard let password = currentPass.text, currentPass.text!.isValidPassword() else {
-            notification.text = Notification.password.detail.rawValue
-//            detailNotifi.text = Notification.password.detail.rawValue
-            return false
-        }
+        
         
         guard let pass = newPass.text, newPass.text!.isValidPassword() else {
             notification.text = Notification.password.detail.rawValue
@@ -48,5 +56,33 @@ class ChangePasswordController: UIViewController {
         }
         
         return true
+    }
+}
+
+extension ChangePasswordController : UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+//        guard let password = currentPass.text, currentPass.text!.isValidPassword() else {
+//            notification.text = Notification.password.detail.rawValue
+//            disableInputText()
+//            return
+//        }
+        
+        guard let password = currentPass.text else {
+            notification.text = Notification.password.detail.rawValue
+            disableInputText()
+            return
+        }
+        
+        AuthServices.instance.checkPassword(pass: password) { (data) in
+            guard let data = data else { return }
+            
+            if data == 0 {
+                self.disableInputText()
+                self.notification.text = "Your current password is not correct."
+            }
+        }
+        
+         enableInputText()
     }
 }
