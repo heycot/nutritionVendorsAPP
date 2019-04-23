@@ -16,6 +16,7 @@ class ChangePasswordController: UIViewController {
     @IBOutlet weak var newPass: UITextField!
     @IBOutlet weak var confirmPass: UITextField!
     
+    var password = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +26,18 @@ class ChangePasswordController: UIViewController {
     
     @IBAction func doneBtnPressed(_ sender: Any) {
         if validInput() {
-            
+            AuthServices.instance.changePassword(pass: self.password) { (data) in
+                guard let data = data else { return }
+                
+                if data == 1 {
+                    self.notification.text = "Change password successfully!"
+                    self.notification.isHidden = false
+//                    self.navigationController?.popViewController(animated: true)
+                } else {
+                    self.notification.text = "Something went wrong. Please try again."
+                    self.notification.isHidden = false
+                }
+            }
         }
     }
     
@@ -41,8 +53,6 @@ class ChangePasswordController: UIViewController {
     
     
     func validInput() -> Bool {
-        
-        
         guard let pass = newPass.text, newPass.text!.isValidPassword() else {
             notification.text = Notification.password.detail.rawValue
 //            detailNotifi.text = Notification.password.detail.rawValue
@@ -80,8 +90,11 @@ extension ChangePasswordController : UITextFieldDelegate {
             if data == 0 {
                 self.disableInputText()
                 self.notification.text = "Your current password is not correct."
+                self.notification.isHidden = false
             }
         }
+        
+        self.password = password
         
          enableInputText()
     }
