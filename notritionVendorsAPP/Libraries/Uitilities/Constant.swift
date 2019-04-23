@@ -25,6 +25,7 @@ enum UserAPI: String {
     case register    = "user/signup"
     case login       = "user/login"
     case getInfor    = "user/infor"
+    case checkPass   = "user/checkPass"
 }
 
 enum ShopItemAPI: String {
