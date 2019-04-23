@@ -38,7 +38,7 @@ class AccountDetailController: UIViewController {
         
         tableView.register(UINib(nibName: CellClassName.activityCell.rawValue, bundle: nil), forCellReuseIdentifier: CellIdentifier.activityCell.rawValue)
         
-        tableView.register(UINib(nibName: CellClassName.inforCell.rawValue, bundle: nil), forCellReuseIdentifier: CellIdentifier.inforCell.rawValue)
+//        tableView.register(UINib(nibName: CellClassName.inforCell.rawValue, bundle: nil), forCellReuseIdentifier: CellIdentifier.inforCell.rawValue)
     }
     
     func viewInfor() {
@@ -120,6 +120,8 @@ class AccountDetailController: UIViewController {
             vc?.isNew = false
             vc?.shopitemId = listComment[index].shopitem_id!
             vc?.nameShop = listComment[index].entity_name!
+        } else if segue.destination is ChangePasswordController {
+            
         }
     }
     
@@ -144,7 +146,7 @@ extension AccountDetailController: UITableViewDelegate, UITableViewDataSource {
             return cell
             
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.accountInforCell.rawValue, for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.accountInforCell.rawValue, for: indexPath) 
             
             cell.detailTextLabel?.text = detailCell[indexPath.row]
             cell.textLabel?.text = titleCell[indexPath.row]
@@ -173,7 +175,7 @@ extension AccountDetailController: UITableViewDelegate, UITableViewDataSource {
         else {
             let index = titleCell.count - 1
             if indexPath?.row == index  {
-                performSegue(withIdentifier: SegueIdentifier.accountToPassword.rawValue, sender: indexPath?.row)
+                performSegue(withIdentifier: "AccountToPassword", sender: nil)
             }
         }
         

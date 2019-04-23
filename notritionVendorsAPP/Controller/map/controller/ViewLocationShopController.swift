@@ -290,7 +290,6 @@ extension ViewLocationShopController: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         print("didTap marker")
         if let shop = marker.userData as? ShopResponse {
-            print(shop.name)
             self.currentShop = shop
             configShopInfo(shop)
             showShopInfo(true)
