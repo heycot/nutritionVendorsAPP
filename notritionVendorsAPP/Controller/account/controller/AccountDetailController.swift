@@ -17,8 +17,8 @@ class AccountDetailController: UIViewController {
     @IBOutlet weak var activitiesBtn: UIButton!
     @IBOutlet weak var accountBtn: UIButton!
     
-    let titleCell = ["Email:", "Birthday:", "Address:", "Join on:", "Edit information", "Change password", "Sign out"]
-    let detailCell = ["nguyentu15061996@gmail.com", "15/06/1996", "60 Ngo Sy Lien", "24/02/2019", "", "", ""]
+    let titleCell = ["Email:", "Birthday:", "Address:", "Join on:", "Edit information", "Change password"]
+    var detailCell = [String]()
     
     var user = UserResponse()
     var listComment = [CommentDTOResponse]()
@@ -51,6 +51,25 @@ class AccountDetailController: UIViewController {
         username.setboldSystemFontOfSize(size: 18)
     }
     
+    func setupDetailInfor() {
+        
+        detailCell.append(user.email!)
+        
+        if (user.birthday != nil) {
+            let dateStr = NSObject().convertToString(date: user.birthday! , dateformat: DateFormatType.date)
+            detailCell.append(dateStr)
+        } else {
+            detailCell.append("")
+        }
+        
+        let createDate = NSObject().convertToString(date: user.create_date! , dateformat: DateFormatType.date)
+        
+        detailCell.append(user.address!)
+        detailCell.append(createDate)
+        detailCell.append("")
+        detailCell.append("")
+    }
+    
     func setUpForTableView() {
         tableView.tableFooterView = UIView()
         tableView.dataSource = self
@@ -76,7 +95,7 @@ class AccountDetailController: UIViewController {
             for comment in data {
                 self.listComment.append(comment)
             }
-            
+            self.setupDetailInfor()
             self.tableView.reloadData()
         }
     }
@@ -109,7 +128,7 @@ class AccountDetailController: UIViewController {
 
 extension AccountDetailController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return isActivity ? listComment.count : 7
+        return isActivity ? listComment.count : titleCell.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -127,7 +146,7 @@ extension AccountDetailController: UITableViewDelegate, UITableViewDataSource {
             
             cell.detailTextLabel?.text = detailCell[indexPath.row]
             cell.textLabel?.text = titleCell[indexPath.row]
-            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 17.0)
+            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 15.0)
             
             return cell
         }

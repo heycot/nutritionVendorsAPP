@@ -50,13 +50,32 @@ extension NSObject {
     
     /// Convert Date to String
     func convertToString(date: Date, dateformat formatType: DateFormatType) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = formatType.rawValue // Your New Date format as per requirement change it own
         
-        let newDate: String = dateFormatter.string(from: date) // pass Date here
-        print(newDate) // New formatted Date string
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
-        return newDate
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "MMM dd,yyyy"
+        
+        let dateStr = dateFormatterGet.string(from: date)
+        print(dateStr)
+        
+        if let dateFormat = dateFormatterGet.date(from: dateStr) {
+            let string = dateFormatterPrint.string(from: dateFormat)
+            let dateArr : [String] = string.components(separatedBy: ",")
+            return dateArr[0] + ",2019"
+        } else {
+            print("There was an error decoding the string")
+            return ""
+        }
+        
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = formatType.rawValue // Your New Date format as per requirement change it own
+//
+//        let newDate: String = dateFormatter.string(from: date) // pass Date here
+//        print(newDate) // New formatted Date string
+//
+//        return newDate
     }
     
     /// Diviation calculation
