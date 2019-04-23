@@ -105,6 +105,8 @@ class AccountDetailController: UIViewController {
     }
     
     @objc func activityPressedFunction(btn: UIButton) {
+        
+        
 //        performSegueFunc(identifier: SegueIdentifier.detailToDelivery.rawValue)
     }
 
@@ -168,15 +170,13 @@ extension AccountDetailController: UITableViewDelegate, UITableViewDataSource {
             performSegue(withIdentifier: SegueIdentifier.accountToComment.rawValue, sender: indexPath?.row)
         }
         
-//        //getting the current cell from the index path
-//        let currentCell = tableView.cellForRow(at: indexPath!)! as UITableViewCell
-//
-//        //getting the text of that cell
-//        let currentItem = currentCell.textLabel!.text
-//
-//        if currentItem == "Change password" {
-//            self.performSegue(withIdentifier: "ChangePassSegue", sender: self)
-//        }
+        else {
+            let index = titleCell.count - 1
+            if indexPath?.row == index  {
+                performSegue(withIdentifier: SegueIdentifier.accountToPassword.rawValue, sender: indexPath?.row)
+            }
+        }
+        
         
     }
     

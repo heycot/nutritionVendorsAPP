@@ -9,31 +9,44 @@
 import UIKit
 
 class ChangePasswordController: UIViewController {
-
-    @IBOutlet weak var password: UITextField!
-    @IBOutlet weak var confirmPassword: UITextField!
-    @IBOutlet weak var saveBtn: UIButton!
-    @IBOutlet weak var cancelBtn: UIButton!
+    
+    
+    @IBOutlet weak var notification: UILabel!
+    @IBOutlet weak var currentPass: UITextField!
+    @IBOutlet weak var newPass: UITextField!
+    @IBOutlet weak var confirmPass: UITextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpUI()
+        notification.isHidden = true
     }
     
-    func setUpUI() {
-        saveBtn.setBorderRadous(color: UIColor.white)
-        cancelBtn.setBorderRadous(color: UIColor.white)
+    @IBAction func doneBtnPressed(_ sender: Any) {
+        if validInput() {
+            
+        }
     }
     
-    @IBAction func clickSave(_ sender: Any) {
-        dismissHandle()
-    }
-    
-    @IBAction func clickCancel(_ sender: Any) {
-        dismissHandle()
-    }
-    
-    func dismissHandle() {
-        dismiss(animated: true, completion: nil)
+    func validInput() -> Bool {
+        guard let password = currentPass.text, currentPass.text!.isValidPassword() else {
+            notification.text = Notification.password.detail.rawValue
+//            detailNotifi.text = Notification.password.detail.rawValue
+            return false
+        }
+        
+        guard let pass = newPass.text, newPass.text!.isValidPassword() else {
+            notification.text = Notification.password.detail.rawValue
+//            detailNotifi.text = Notification.password.detail.rawValue
+            return false
+        }
+        
+        guard  let _ = confirmPass.text, confirmPass.text!.isValidPassword(), confirmPass.text! == pass else {
+            notification.text = Notification.confirmPass.detail.rawValue
+//            detailNotifi.text = Notification.confirmPass.detail.rawValue
+            return false
+        }
+        
+        return true
     }
 }
