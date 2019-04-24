@@ -10,6 +10,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 import CoreLocation
+import UIKit
 
 class AuthServices {
     static let instance = AuthServices()
@@ -152,16 +153,16 @@ class AuthServices {
         }
     }
     
-    func editInfor(user: User, completion: @escaping (UserResponse?) -> Void) {
+    func editInfor(user: User, dateStr: String, completion: @escaping (UserResponse?) -> Void) {
         
-        let urlStr = BASE_URL + UserAPI.editInfor.rawValue + "/\(user.id!)"
+        let urlStr = BASE_URL + UserAPI.editInfor.rawValue + "/\(dateStr)"
         
         let body = ["id": 0,
-                    "user_name": user.name,
+                    "name": user.name,
                     "email": "",
                     "phone": user.phone,
                     "password": "",
-                    "birthday": user.birthday,
+                    "birthday": dateStr,
                     "address": user.address,
                     "avatar": "",
                     "create_date": nil,

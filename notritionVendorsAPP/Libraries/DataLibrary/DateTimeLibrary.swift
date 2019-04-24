@@ -43,7 +43,8 @@ extension NSObject {
     /// Convert String to Date
     func convertToDate(dateString: String) -> Date {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = DateFormatType.date.rawValue // Your date format
+//        dateFormatter.dateFormat = DateFormatType.date.rawValue // Your date format
+        dateFormatter.dateFormat = "dd/MM/yyyy" // Your date format
         let serverDate: Date = dateFormatter.date(from: dateString)! // according to date format your date string
         return serverDate
     }
@@ -51,31 +52,27 @@ extension NSObject {
     /// Convert Date to String
     func convertToString(date: Date, dateformat formatType: DateFormatType) -> String {
         
+//        let lastWeekDate = Calendar.current.date(byAdding: .weekOfYear, value: 0, to: date)!
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+//        dateFormatter.dateFormat = "yyyy-MM-dd"
+//        let lastWeekDateString = dateFormatter.string(from: lastWeekDate)
+        
         let dateFormatterGet = DateFormatter()
-        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        
+        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss z"
+
         let dateFormatterPrint = DateFormatter()
-        dateFormatterPrint.dateFormat = "MMM dd,yyyy"
-        
+        dateFormatterPrint.dateFormat = "dd/MM/yyyy"
+
         let dateStr = dateFormatterGet.string(from: date)
-        print(dateStr)
-        
+
         if let dateFormat = dateFormatterGet.date(from: dateStr) {
             let string = dateFormatterPrint.string(from: dateFormat)
-            let dateArr : [String] = string.components(separatedBy: ",")
-            return dateArr[0] + ",2019"
+            return string
         } else {
             print("There was an error decoding the string")
             return ""
         }
-        
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = formatType.rawValue // Your New Date format as per requirement change it own
-//
-//        let newDate: String = dateFormatter.string(from: date) // pass Date here
-//        print(newDate) // New formatted Date string
-//
-//        return newDate
     }
     
     /// Diviation calculation

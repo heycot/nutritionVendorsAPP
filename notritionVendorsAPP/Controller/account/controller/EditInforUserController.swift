@@ -68,12 +68,19 @@ class EditInforUserController: UIViewController {
         userEdit.birthday = convertToDate(dateString: birthdayTxt.text!)
         userEdit.address = addressTxt.text
         
-        AuthServices.instance.editInfor(user: userEdit) { (data) in
+        AuthServices.instance.editInfor(user: userEdit, dateStr: birthdayTxt.text!) { (data) in
             guard let data = data else { return }
             
-            self.user = data
-            self.viewInfor()
-            self.reloadInputViews()
+            if data.id != nil {
+                self.notification.text = "Update successful"
+                self.notification.isHidden = false
+                self.user = data
+                self.viewInfor()
+                self.reloadInputViews()
+            } else {
+                self.notification.text = "Something went wrong. Please try again."
+                self.notification.isHidden = false
+            }
         }
     }
     
@@ -112,7 +119,7 @@ extension EditInforUserController {
     @objc func donedatePicker(){
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy"
+        formatter.dateFormat = "yyyy-MM-dd"
         birthdayTxt.text = formatter.string(from: datePicker.date)
         self.view.endEditing(true)
     }
