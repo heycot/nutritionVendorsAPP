@@ -53,14 +53,28 @@ class EditInforUserController: UIViewController {
     
 
     @IBAction func doneBtnPressed(_ sender: Any) {
-        guard let name = nameTxt.text, nameTxt.text?.isValidUserName() else {
+        guard let nameStr = nameTxt.text, (nameTxt.text?.isValidUserName())! else {
             notification.text = Notification.username.title.rawValue
             detailNotification.text = Notification.username.detail.rawValue
             notification.isHidden = false
             detailNotification.isHidden = false
+            return
         }
         
+        let userEdit = User()
+        userEdit.id = user.id
+        userEdit.name = nameStr
+        userEdit.phone = phoneTxt.text
+        userEdit.birthday = convertToDate(dateString: birthdayTxt.text!)
+        userEdit.address = addressTxt.text
         
+        AuthServices.instance.editInfor(user: userEdit) { (data) in
+            guard let data = data else { return }
+            
+            self.user = data
+            self.viewInfor()
+            self.reloadInputViews()
+        }
     }
     
 }

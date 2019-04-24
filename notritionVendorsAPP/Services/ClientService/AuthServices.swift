@@ -152,6 +152,39 @@ class AuthServices {
         }
     }
     
+    func editInfor(user: User, completion: @escaping (UserResponse?) -> Void) {
+        
+        let urlStr = BASE_URL + UserAPI.editInfor.rawValue + "/\(user.id!)"
+        
+        let body = ["id": 0,
+                    "user_name": user.name,
+                    "email": "",
+                    "phone": user.phone,
+                    "password": "",
+                    "birthday": user.birthday,
+                    "address": user.address,
+                    "avatar": "",
+                    "create_date": nil,
+                    "status": 1,
+                    "token": ""] as [String : Any?]
+        
+        let jsonData = try? JSONSerialization.data(withJSONObject: body)
+        
+        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "POST", jsonBody: jsonData, parameters: nil) { (data ) in
+            
+            guard let data = data else {return}
+            do {
+                
+                let userResponse = try JSONDecoder().decode(UserResponse.self, from: data)
+                DispatchQueue.main.async {
+                    completion(userResponse)
+                }
+            } catch let jsonError {
+                print("Error serializing json:", jsonError)
+            }
+        }
+    }
+    
     func checkPassword(pass: String, completion: @escaping (Int?) -> Void) {
         
         let urlStr = BASE_URL + UserAPI.checkPass.rawValue + "/" + pass

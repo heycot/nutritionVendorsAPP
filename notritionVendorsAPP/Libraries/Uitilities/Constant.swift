@@ -27,7 +27,7 @@ enum UserAPI: String {
     case getInfor    = "user/infor"
     case checkPass   = "user/check"
     case changePass  = "user/change"
-    
+    case editInfor   = "user/edit"
 }
 
 enum ShopItemAPI: String {
