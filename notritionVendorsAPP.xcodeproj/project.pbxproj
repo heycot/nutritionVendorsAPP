@@ -77,6 +77,7 @@
 		235B6685226308D900BBFAFC /* DetailFood.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 235B6684226308D900BBFAFC /* DetailFood.storyboard */; };
 		235B668722630BCA00BBFAFC /* AccountDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 235B668622630BCA00BBFAFC /* AccountDetail.storyboard */; };
 		235C9A2D2249E0A600E01484 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 235C9A2C2249E0A600E01484 /* QuartzCore.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		235CF320226FF1B500691D88 /* EditInforUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235CF31F226FF1B500691D88 /* EditInforUserController.swift */; };
 		23614F0F2256020E00B5DD81 /* FavoritesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23614F0E2256020E00B5DD81 /* FavoritesResponse.swift */; };
 		23614F1122560F7E00B5DD81 /* FavoritesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23614F1022560F7E00B5DD81 /* FavoritesService.swift */; };
 		23695E9222277DC600AD7076 /* ExtensionUICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23695E9122277DC600AD7076 /* ExtensionUICollectionView.swift */; };
@@ -194,6 +195,7 @@
 		235B6684226308D900BBFAFC /* DetailFood.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailFood.storyboard; sourceTree = "<group>"; };
 		235B668622630BCA00BBFAFC /* AccountDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountDetail.storyboard; sourceTree = "<group>"; };
 		235C9A2C2249E0A600E01484 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		235CF31F226FF1B500691D88 /* EditInforUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInforUserController.swift; sourceTree = "<group>"; };
 		23614F0E2256020E00B5DD81 /* FavoritesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesResponse.swift; sourceTree = "<group>"; };
 		23614F1022560F7E00B5DD81 /* FavoritesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesService.swift; sourceTree = "<group>"; };
 		23695E9122277DC600AD7076 /* ExtensionUICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUICollectionView.swift; sourceTree = "<group>"; };
@@ -512,6 +514,7 @@
 				235A32BC2224F51500DE5B0E /* AccountDetailController.swift */,
 				235A32BE2225301E00DE5B0E /* ChangePasswordController.swift */,
 				235B16A2226C72AC001A6BB6 /* AccountController.swift */,
+				235CF31F226FF1B500691D88 /* EditInforUserController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -922,6 +925,7 @@
 				23B765422264A27400DC76F7 /* ItemInShopCell.swift in Sources */,
 				23A31BB5224088FD00FE2D69 /* ShopItemResponse.swift in Sources */,
 				231AE462222E2A030082C06E /* ExtensionUIlabel.swift in Sources */,
+				235CF320226FF1B500691D88 /* EditInforUserController.swift in Sources */,
 				233B390822375463003EB253 /* AuthServices.swift in Sources */,
 				237DABF52261E7B200FE57FB /* SearchCell.swift in Sources */,
 				23695E9822278F3B00AD7076 /* ViewItemController.swift in Sources */,

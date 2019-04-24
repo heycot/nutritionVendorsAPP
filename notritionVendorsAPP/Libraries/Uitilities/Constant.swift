@@ -175,6 +175,7 @@ enum SegueIdentifier: String {
     case accountToLogin = "AccountToLogin"
     case accountToComment = "AccountToComment"
     case accountToPassword = "AccountToPassword"
+    case accountToEditInfor = "AccountToEditInfor"
 }
 
 enum StoryboardID : String {

@@ -122,6 +122,9 @@ class AccountDetailController: UIViewController {
             vc?.nameShop = listComment[index].entity_name!
         } else if segue.destination is ChangePasswordController {
             
+        } else if segue.destination is EditInforUserController {
+            let vc = segue.destination as? EditInforUserController
+            vc?.user = user
         }
     }
     
@@ -152,6 +155,10 @@ extension AccountDetailController: UITableViewDelegate, UITableViewDataSource {
             cell.textLabel?.text = titleCell[indexPath.row]
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 15.0)
             
+            if indexPath.row < (titleCell.count - 2) {
+                cell.selectionStyle = UITableViewCell.SelectionStyle.none;
+            }
+            
             return cell
         }
     }
@@ -175,7 +182,9 @@ extension AccountDetailController: UITableViewDelegate, UITableViewDataSource {
         else {
             let index = titleCell.count - 1
             if indexPath?.row == index  {
-                performSegue(withIdentifier: "AccountToPassword", sender: nil)
+                performSegue(withIdentifier: SegueIdentifier.accountToPassword.rawValue, sender: nil)
+            } else {
+                performSegue(withIdentifier: SegueIdentifier.accountToEditInfor.rawValue, sender: nil)
             }
         }
         
