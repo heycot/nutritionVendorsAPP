@@ -24,13 +24,13 @@ class GeneralInforItemCell: UITableViewCell {
     func updateView(item: ShopItemResponse) {
         customUI()
         
-        let urlStr = BASE_URL + FavoritesAPI.checkStatus.rawValue + "/" + String(item.id!)
-        let urlComment = BASE_URL + CommentAPI.countByShopItem.rawValue + "/" + String(item.id!)
-        let urlRating = BASE_URL + ShopItemAPI.getRating.rawValue + "/" + String(item.id!)
-        let urlFavorites = BASE_URL + FavoritesAPI.countByShopItem.rawValue + "/" + String(item.id!)
+        let urlStr = BASE_URL + FavoritesAPI.checkStatus.rawValue + "/" + String(item.id ?? 0)
+        let urlComment = BASE_URL + CommentAPI.countByShopItem.rawValue + "/" + String(item.id ?? 0)
+        let urlRating = BASE_URL + ShopItemAPI.getRating.rawValue + "/" + String(item.id ?? 0)
+        let urlFavorites = BASE_URL + FavoritesAPI.countByShopItem.rawValue + "/" + String(item.id ?? 0)
         
         loveBtn.viewImageUsingUrlString(urlString: urlStr)
-        itemImage.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + item.avatar! )
+        itemImage.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + (item.avatar ?? "logo.jpg"))
         itemComments.count(urlString: urlComment)
         itemFavorites.count(urlString: urlFavorites)
         itemRating.getRating(urlString: urlRating)

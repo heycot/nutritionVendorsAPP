@@ -23,7 +23,7 @@ extension Double {
         currencyFormatter.locale = Locale.current
         
         // We'll force unwrap with the !, if you've got defined data you may need more error checking
-        let priceString = currencyFormatter.string(from: priceNumber)!
+        let priceString = currencyFormatter.string(from: priceNumber) ?? ""
         
         return priceString
     }

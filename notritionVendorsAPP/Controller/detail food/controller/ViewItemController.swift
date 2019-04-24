@@ -58,7 +58,7 @@ class ViewItemController: UIViewController {
     }
     
     func updateData() {
-        ShopItemService.shared.getOneItem(id: item.id!) { data in
+        ShopItemService.shared.getOneItem(id: item.id ?? 0) { data in
             guard let data = data else {return }
                         
             self.item.documents = data.documents
@@ -81,12 +81,12 @@ class ViewItemController: UIViewController {
     func prepareData() {
         let price = "VND " + (item.price?.formatPrice())! + "/\(item.unit!)"
         appendItemValue(icon: Icon.price_icon.rawValue, value: price )
-        appendItemValue(icon: Icon.time_icon.rawValue, value: (item.shop!.time_open!  ) + " - " + (item.shop!.time_close!))
+        appendItemValue(icon: Icon.time_icon.rawValue, value: (item.shop!.time_open ?? ""  ) + " - " + (item.shop!.time_close ?? ""))
 //        appendItemValue(icon: Icon.category_icon.rawValue, value: "Rau cu")
-        appendItemValue(icon: Icon.shop_icon.rawValue, value: (item.shop!.name!  ))
+        appendItemValue(icon: Icon.shop_icon.rawValue, value: (item.shop!.name ?? "" ))
         appendItemValue(icon: Icon.picture.rawValue, value: String(item.documents!.count) + " photos")
 //        appendItemValue(icon: Icon.address_icon.rawValue, value: (item.shop!.location!.address!  ))
-        appendItemValue(icon: Icon.phone_icon.rawValue, value: (item.shop!.phone! ))
+        appendItemValue(icon: Icon.phone_icon.rawValue, value: (item.shop!.phone ?? "" ))
         
         setUPTableView()
         activityIndicatorView.stopAnimating()
@@ -112,7 +112,7 @@ class ViewItemController: UIViewController {
         
         if segue.destination is ViewLocationShopController  {
             let vc = segue.destination as? ViewLocationShopController
-            vc?.currentShop = item.shop!
+            vc?.currentShop = item.shop ?? ShopResponse()
             vc?.isFromShop = false
             
             navigationItem.backBarButtonItem = backItem
@@ -130,7 +130,7 @@ class ViewItemController: UIViewController {
             
         } else if segue.destination is ItemInShopController {
             let vc = segue.destination as? ItemInShopController
-            vc?.shop = item.shop!
+            vc?.shop = item.shop ?? ShopResponse()
             
             navigationItem.backBarButtonItem = backItem
             
@@ -139,9 +139,9 @@ class ViewItemController: UIViewController {
             
         } else if segue.destination is NewCommentController {
             let vc = segue.destination as? NewCommentController
-            vc?.nameShop = item.name! + " - " + (item.shop?.name!)!
-            vc?.addressShop = item.address!
-            vc?.shopitemId = item.id!
+            vc?.nameShop = (item.name ?? "") + " - " + (item.shop?.name ?? "" )
+            vc?.addressShop = item.address ?? ""
+            vc?.shopitemId = item.id ?? ""
             navigationItem.backBarButtonItem = backItem
         }
     }

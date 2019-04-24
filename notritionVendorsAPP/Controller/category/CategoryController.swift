@@ -91,7 +91,7 @@ class CategoryController: UIViewController {
         let spinnerActivity = MBProgressHUD.showAdded(to: self.view, animated: true);
         
         spinnerActivity.label.text = "Loading";
-        spinnerActivity.detailsLabel.text = "Please Wait!!";
+        spinnerActivity.detailsLabel.text = "Please Wait!";
         spinnerActivity.isUserInteractionEnabled = false;
         
         DispatchQueue.main.async {

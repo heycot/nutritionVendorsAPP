@@ -31,10 +31,10 @@ class ViewCommentCell: UITableViewCell {
     
     func updateView(comment: CommentResponse) {
         
-        userImage.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + comment.user!.avatar!)
+        userImage.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + (comment.user!.avatar ?? "logo.jpg"))
         userName.text = comment.user?.name
         cmtDate.text = NSObject().convertToString(date: comment.createDate ?? Date() , dateformat: DateFormatType.date)
-        cmtRating.rating = comment.rating!
+        cmtRating.rating = comment.rating ??  0.0
         cmtTitle.text = comment.title
         cmtContent.text = comment.content
         

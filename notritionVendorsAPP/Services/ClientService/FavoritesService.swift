@@ -76,29 +76,4 @@ class FavoritesService {
     }
     
     
-//
-//    func isFavoriteShopItem(shopitem_id: Int) -> Int {
-//        for i in 0 ..< favorites.count {
-//            if shopitem_id == favorites[i].shopitem_id {
-//                return favorites[i].status!
-//            }
-//        }
-//
-//        return 0
-//    }
-//
-//    func updateFavoriteItem(shopitem_id: Int, status: Int) -> Bool {
-//        for i in 0 ..< favorites.count {
-//            if shopitem_id == favorites[i].shopitem_id {
-//                favorites[i].status = status
-//                return true
-//            }
-//        }
-//
-//        return false
-//    }
-//
-//    func addNewFavorite(fa: FavoritesResponse) {
-//        favorites.append(fa)
-//    }
 }

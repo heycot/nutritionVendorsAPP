@@ -141,7 +141,8 @@ class CommentServices {
             DispatchQueue.main.async {
                 
                 let stringInt = String.init(data: data, encoding: String.Encoding.utf8)
-                let int = Int.init(stringInt!)
+                let intStr = stringInt ?? "0"
+                let int = Int.init(intStr)
                 
                 completion(int)
             }

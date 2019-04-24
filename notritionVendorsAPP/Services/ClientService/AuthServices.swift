@@ -197,7 +197,8 @@ class AuthServices {
             DispatchQueue.main.async {
                 
                 let stringInt = String.init(data: data, encoding: String.Encoding.utf8)
-                let int = Int.init(stringInt!)
+                let inStr = stringInt ?? "0"
+                let int = Int.init(inStr)
                 
                 completion(int)
             }
@@ -214,7 +215,8 @@ class AuthServices {
             DispatchQueue.main.async {
                 
                 let stringInt = String.init(data: data, encoding: String.Encoding.utf8)
-                let int = Int.init(stringInt!)
+                let inStr = stringInt ?? "0"
+                let int = Int.init(inStr)
                 
                 completion(int)
             }
@@ -223,26 +225,8 @@ class AuthServices {
     
     func saveUserLogedIn(user : UserResponse?) {
         isLoggedIn = true
-        authToken = user!.token!
-        authToken = user!.email!
+        authToken = user!.token ?? ""
+        authToken = user!.email ?? ""
     }
-    
-//    func getUserJsonBody(user: User) -> [String: Any?] {
-//        let body = [
-//            "id" : user.id,
-//            "username" : user.user_name,
-//            "email" : user.email,
-//            "phone" : user.phone,
-//            "password" : user.password,
-//            "birthday" : user.birthday,
-//            "avatar" : user.avatar,
-//            "address": user.address,
-//            "create_date": user.create_date,
-//            "status": user.status
-//            ] as [String : Any]
-//        return body
-//
-//    }
-
     
 }

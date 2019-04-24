@@ -28,15 +28,15 @@ class MapCell: UITableViewCell {
     func updateView(shop: ShopResponse) {
         
         guard let location = shop.location else { return }
-        address.text = location.address!
+        address.text = location.address ?? ""
         distance.text = ShopServices.shared.getDistance(shop: shop, currlocation: AuthServices.instance.currentLocation) + " (From current location)"
         
         
-        viewMapFunc(lc: shop.location!)
+        viewMapFunc(lc: shop.location ?? LocationResponse())
     }
     
     func viewMapFunc(lc : LocationResponse) {
-        let location = CLLocation(latitude: lc.latitude!, longitude: lc.longitude!)
+        let location = CLLocation(latitude: lc.latitude ?? 0, longitude: lc.longitude ?? 0)
         let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 17.0)
         
         mapView.camera = camera

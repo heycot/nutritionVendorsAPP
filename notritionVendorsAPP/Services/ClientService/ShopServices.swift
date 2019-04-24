@@ -74,7 +74,7 @@ class ShopServices {
         guard let location = shop.location else { return "Unknown" }
         guard let userLocation = currlocation else {  return "Unknown"  }
         
-        let coordinate₀ = CLLocation(latitude: location.latitude!, longitude: location.longitude!)
+        let coordinate₀ = CLLocation(latitude: location.latitude ?? 0, longitude: location.longitude ?? 0)
         
         let distanceInMeters = coordinate₀.distance(from: userLocation)
         if distanceInMeters < 1000 {

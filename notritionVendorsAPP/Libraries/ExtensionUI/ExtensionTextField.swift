@@ -55,10 +55,12 @@ class CustomTextFeild: UITextField {
             }
             
             DispatchQueue.main.async {
-                let stringInt = String.init(data: data!, encoding: String.Encoding.utf8)
-                let int = Int.init(stringInt!)
+                guard let data = data else { return }
+                let stringInt = String.init(data: data, encoding: String.Encoding.utf8)
+                let intStr = stringInt ?? "0"
+                let int = Int.init(intStr)
                 
-                self.text = String(int!)
+                self.text = String(int ?? 0)
             }
         }).resume()
     }
@@ -91,10 +93,12 @@ class CustomTextFeildRating: UITextField {
             }
             
             DispatchQueue.main.async {
-                let ratingStr = String.init(data: data!, encoding: String.Encoding.utf8)
-                let rating = Double.init(ratingStr!)
+                guard let data = data else { return }
+                let ratingStr = String.init(data: data, encoding: String.Encoding.utf8)
+                let raStr = ratingStr ?? "0.0"
+                let rating = Double.init(raStr)
                 
-                self.text = String(format: "%.2f", rating!)
+                self.text = String(format: "%.2f", rating ?? 0.0)
             }
         }).resume()
     }
