@@ -56,13 +56,13 @@ class AccountDetailController: UIViewController {
         detailCell.append(user.email!)
         
         if (user.birthday != nil) {
-            let dateStr = NSObject().convertToString(date: user.birthday! , dateformat: DateFormatType.date)
+            let dateStr = NSObject().convertToString(date: user.birthdayDate! , dateformat: DateFormatType.date)
             detailCell.append(dateStr)
         } else {
             detailCell.append("")
         }
         
-        let createDate = NSObject().convertToString(date: user.create_date! , dateformat: DateFormatType.date)
+        let createDate = NSObject().convertToString(date: user.createDate! , dateformat: DateFormatType.date)
         
         detailCell.append(user.address!)
         detailCell.append(createDate)
@@ -129,7 +129,7 @@ class AccountDetailController: UIViewController {
     }
     
     func convertCommentDTOToComment(commentDto : CommentDTOResponse) -> CommentResponse {
-        return CommentResponse(id: commentDto.id!, title: commentDto.title!, content: commentDto.content!, create_date: commentDto.create_date!, user: user, rating: commentDto.rating!)
+        return CommentResponse(id: commentDto.id!, title: commentDto.title!, content: commentDto.content!, create_date: commentDto.createDate!, user: user, rating: commentDto.rating!)
     }
 }
 

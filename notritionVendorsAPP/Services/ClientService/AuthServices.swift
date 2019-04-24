@@ -143,7 +143,8 @@ class AuthServices {
             guard let data = data else {return}
             do {
                 
-                let userResponse = try JSONDecoder().decode(UserResponse.self, from: data)
+                let decoder = JSONDecoder()
+                let userResponse = try decoder.decode(UserResponse.self, from: data)
                 DispatchQueue.main.async {
                     completion(userResponse)
                 }

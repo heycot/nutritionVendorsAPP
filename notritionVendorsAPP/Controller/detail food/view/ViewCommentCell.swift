@@ -33,7 +33,7 @@ class ViewCommentCell: UITableViewCell {
         
         userImage.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + comment.user!.avatar!)
         userName.text = comment.user?.name
-        cmtDate.text = NSObject().convertToString(date: comment.create_date ?? Date() , dateformat: DateFormatType.date)
+        cmtDate.text = NSObject().convertToString(date: comment.createDate ?? Date() , dateformat: DateFormatType.date)
         cmtRating.rating = comment.rating!
         cmtTitle.text = comment.title
         cmtContent.text = comment.content

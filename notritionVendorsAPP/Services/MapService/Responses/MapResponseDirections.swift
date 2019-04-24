@@ -77,7 +77,7 @@ class MapResponseLocation : Mappable {
     }
     
     func locationCoordinate() -> CLLocationCoordinate2D {
-        return CLLocationCoordinate2DMake(lat!, lng!)
+        return CLLocationCoordinate2DMake(lat ?? 0, lng ?? 0)
     }
 }
 

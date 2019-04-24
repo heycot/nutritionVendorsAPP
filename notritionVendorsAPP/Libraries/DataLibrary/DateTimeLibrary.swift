@@ -49,30 +49,49 @@ extension NSObject {
         return serverDate
     }
     
+//    /// Convert Date to String
+//    func convertToString(date: Date, dateformat formatType: DateFormatType) -> String {
+//
+////        let lastWeekDate = Calendar.current.date(byAdding: .weekOfYear, value: 0, to: date)!
+////        let dateFormatter = DateFormatter()
+////        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+////        dateFormatter.dateFormat = "yyyy-MM-dd"
+////        let lastWeekDateString = dateFormatter.string(from: lastWeekDate)
+//
+//        guard let date = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month, .day], from: date)) else {
+//            fatalError("Failed to strip time from Date object")
+//        }
+//
+//        let dateFormatterGet = DateFormatter()
+//        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//
+//        let dateFormatterPrint = DateFormatter()
+//        dateFormatterPrint.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//
+//        let dateStr = dateFormatterGet.string(from: date)
+//
+//        if let dateFormat = dateFormatterGet.date(from: dateStr) {
+//            let string = dateFormatterPrint.string(from: dateFormat)
+//            return string
+//        } else {
+//            print("There was an error decoding the string")
+//            return ""
+//        }
+//    }
+    
     /// Convert Date to String
     func convertToString(date: Date, dateformat formatType: DateFormatType) -> String {
         
-//        let lastWeekDate = Calendar.current.date(byAdding: .weekOfYear, value: 0, to: date)!
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-//        dateFormatter.dateFormat = "yyyy-MM-dd"
-//        let lastWeekDateString = dateFormatter.string(from: lastWeekDate)
-        
-        let dateFormatterGet = DateFormatter()
-        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss z"
+        guard let currentDate = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month, .day], from: date)) else {
+            fatalError("Failed to strip time from Date object")
+        }
 
         let dateFormatterPrint = DateFormatter()
-        dateFormatterPrint.dateFormat = "dd/MM/yyyy"
-
-        let dateStr = dateFormatterGet.string(from: date)
-
-        if let dateFormat = dateFormatterGet.date(from: dateStr) {
-            let string = dateFormatterPrint.string(from: dateFormat)
-            return string
-        } else {
-            print("There was an error decoding the string")
-            return ""
-        }
+        dateFormatterPrint.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatterPrint.timeZone = TimeZone(abbreviation: "UTC")
+        
+        let string = dateFormatterPrint.string(from: currentDate)
+        return string
     }
     
     /// Diviation calculation

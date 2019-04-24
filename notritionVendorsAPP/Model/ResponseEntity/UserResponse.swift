@@ -13,15 +13,30 @@ class UserResponse:Decodable {
     var email: String?
     var phone: String?
     var password: String?
-    var birthday: Date?
+    var birthday: Double?
     var avatar: String?
     var address: String?
-    var create_date: Date?
+    var create_date: Double?
     var status: Int?
     var token: String?
     var shops: [ShopResponse]?
     var comments: [CommentResponse]?
     var favorites: [FavoritesResponse]?
+    
+    var birthdayDate: Date? {
+        if let day = self.birthday {
+            // from milisecond in Java to second in Swift with TimeInterval
+            return Date(timeIntervalSince1970: day / 1000)
+        }
+        return nil
+    }
+    
+    var createDate: Date? {
+        if let day = self.create_date {
+            return Date(timeIntervalSince1970: day / 1000)
+        }
+        return nil
+    }
     
     
     init(id: Int, name: String, email: String, phone: String, password: String, birthday: Date, avatar: String, address: String, create_date: Date, status: Int, token: String, shops: [ShopResponse], comments: [CommentResponse], favorites: [FavoritesResponse]) {
@@ -30,10 +45,10 @@ class UserResponse:Decodable {
         self.email = email
         self.phone = phone
         self.password = password
-        self.birthday = birthday
+        self.birthday = birthday.timeIntervalSince1970
         self.avatar = avatar
         self.address = address
-        self.create_date = create_date
+        self.create_date = create_date.timeIntervalSince1970
         self.status = status
         self.token = token
         self.shops = shops

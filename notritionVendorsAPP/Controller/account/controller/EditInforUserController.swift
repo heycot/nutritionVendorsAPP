@@ -44,7 +44,7 @@ class EditInforUserController: UIViewController {
         addressTxt.text = user.address!
         
         if user.birthday != nil {
-            let dateStr = NSObject().convertToString(date: user.birthday! , dateformat: DateFormatType.date)
+            let dateStr = NSObject().convertToString(date: user.birthdayDate! , dateformat: DateFormatType.date)
             birthdayTxt.text = dateStr
         } else {
             birthdayTxt.text = ""

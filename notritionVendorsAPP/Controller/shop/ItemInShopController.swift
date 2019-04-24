@@ -41,8 +41,8 @@ class ItemInShopController: UIViewController {
     
     func viewShopInfor() {
         shopAvatar.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + shop.avatar!)
-        shopName.text = shop.name!
-        shopAddress.text = shop.location?.address!
+        shopName.text = shop.name
+        shopAddress.text = shop.location?.address
         shopTimeOpen.text = shop.time_open! + " - " + shop.time_close!
         shop.distance = ShopServices.shared.getDistance(shop: self.shop, currlocation: AuthServices.instance.currentLocation)
         distance.text = (shop.distance ?? " Unknow ") + " (From current location)"

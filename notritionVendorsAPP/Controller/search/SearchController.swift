@@ -46,6 +46,8 @@ class SearchController: UIViewController {
         searchBar.delegate = self
         
         self.navigationItem.titleView = searchBar
+        
+        searchBar.becomeFirstResponder()
     }
     
     func setupTableView() {

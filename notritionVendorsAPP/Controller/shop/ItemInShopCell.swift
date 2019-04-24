@@ -31,7 +31,9 @@ class ItemInShopCell: UITableViewCell {
     func updateView(item: ShopItemResponse) {
         setupView()
         
-        itemImage.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + item.avatar!)
+        if let avatar = item.avatar {
+            itemImage.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + avatar)
+        }
         itemname.text = String(item.name!)
         itemPrice.text = "price: VND " + String(item.price!)
         itemRating.rating = item.rating!
