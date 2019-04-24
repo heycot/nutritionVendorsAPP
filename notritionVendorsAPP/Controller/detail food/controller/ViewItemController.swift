@@ -141,7 +141,7 @@ class ViewItemController: UIViewController {
             let vc = segue.destination as? NewCommentController
             vc?.nameShop = (item.name ?? "") + " - " + (item.shop?.name ?? "" )
             vc?.addressShop = item.address ?? ""
-            vc?.shopitemId = item.id ?? ""
+            vc?.shopitemId = item.id ?? 0
             navigationItem.backBarButtonItem = backItem
         }
     }
