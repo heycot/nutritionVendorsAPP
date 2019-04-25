@@ -31,4 +31,9 @@ extension UIView {
         self.layer.shadowOpacity = 1.0
         self.layer.shadowRadius = 0.0
     }
+    
+    func setBorderRadious(radious: CGFloat) {
+        self.layer.cornerRadius = radious
+        self.layer.masksToBounds = true
+    }
 }

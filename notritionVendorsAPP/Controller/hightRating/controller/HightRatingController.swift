@@ -178,7 +178,7 @@ extension HightRatingController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.section == 0 {
             let cellWidth = (UIScreen.main.bounds.size.width - 50)/3
-            return CGSize(width: cellWidth, height: 60)
+            return CGSize(width: cellWidth, height: 90)
         } else {
             let cellWidth = (UIScreen.main.bounds.size.width - 30)/2
             return CGSize(width: cellWidth, height: 175)

@@ -9,6 +9,7 @@
 import UIKit
 
 class CategoryCell: UICollectionViewCell {
+    @IBOutlet weak var view: UIView!
     
     @IBOutlet weak var icon : CustomImageView!
     @IBOutlet weak var nameCategory: UILabel!
@@ -21,6 +22,9 @@ class CategoryCell: UICollectionViewCell {
     func updateView(Category: CategoryResponse) {
         icon.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + Category.icon!)
         nameCategory.text = Category.name!
+        
+        view.layer.cornerRadius = 8;
+        view.layer.masksToBounds = true;
     }
 
 }
