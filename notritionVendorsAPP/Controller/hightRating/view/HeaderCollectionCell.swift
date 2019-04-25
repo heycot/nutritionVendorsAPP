@@ -14,7 +14,7 @@ class HeaderCollectionCell: UICollectionReusableView {
     
     func updateView(titleStr: String) {
         title.text =  " " + titleStr
-        title.backgroundColor = HEADER_COLOR
-        title.setBottomBorder(color: HEADER_COLOR)
+//        title.backgroundColor = HEADER_COLOR
+//        title.setBottomBorder(color: APP_COLOR)
     }
 }

@@ -495,13 +495,13 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dUI-nI-RBF">
                                     <size key="itemSize" width="214" height="175"/>
-                                    <size key="headerReferenceSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="50" height="60"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="ItemCell" id="mUC-Of-eam" customClass="CollectionItemCell" customModule="notritionVendorsAPP" customModuleProvider="target">
-                                        <rect key="frame" x="90" y="50" width="214" height="175"/>
+                                        <rect key="frame" x="90" y="60" width="214" height="175"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="214" height="175"/>
@@ -591,21 +591,34 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="HeaderID" id="k2Y-SM-6eL" customClass="HeaderCollectionCell" customModule="notritionVendorsAPP" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="394" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="394" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6BJ-aJ-bCq">
-                                            <rect key="frame" x="0.0" y="10" width="394" height="30"/>
+                                            <rect key="frame" x="10" y="10" width="384" height="40"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nn4-Ny-yfe">
+                                            <rect key="frame" x="10" y="50" width="169" height="2"/>
+                                            <color key="backgroundColor" red="0.0" green="0.45098039220000002" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="2" id="KGk-d2-QWV"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <color key="highlightedColor" red="0.0" green="0.45098039220000002" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="6BJ-aJ-bCq" firstAttribute="top" secondItem="k2Y-SM-6eL" secondAttribute="top" constant="10" id="7IJ-hm-cuq"/>
-                                        <constraint firstItem="6BJ-aJ-bCq" firstAttribute="leading" secondItem="k2Y-SM-6eL" secondAttribute="leading" id="FYh-q6-tIY"/>
-                                        <constraint firstAttribute="bottom" secondItem="6BJ-aJ-bCq" secondAttribute="bottom" constant="10" id="bwl-AA-bd0"/>
+                                        <constraint firstItem="nn4-Ny-yfe" firstAttribute="bottom" secondItem="k2Y-SM-6eL" secondAttribute="bottomMargin" id="E7m-Bu-xTa"/>
+                                        <constraint firstItem="6BJ-aJ-bCq" firstAttribute="leading" secondItem="k2Y-SM-6eL" secondAttribute="leading" constant="10" id="FYh-q6-tIY"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="nn4-Ny-yfe" secondAttribute="trailing" constant="207" id="HeK-7c-WjW"/>
+                                        <constraint firstItem="nn4-Ny-yfe" firstAttribute="top" secondItem="6BJ-aJ-bCq" secondAttribute="bottom" id="bwl-AA-bd0"/>
                                         <constraint firstAttribute="trailing" secondItem="6BJ-aJ-bCq" secondAttribute="trailing" id="jym-rq-Bs5"/>
+                                        <constraint firstItem="nn4-Ny-yfe" firstAttribute="left" secondItem="6BJ-aJ-bCq" secondAttribute="left" id="qWX-Qa-Ddk"/>
                                     </constraints>
                                     <connections>
                                         <outlet property="title" destination="6BJ-aJ-bCq" id="Pwr-fI-GtH"/>
@@ -670,7 +683,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6aC-Bo-lwY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-461" y="691"/>
+            <point key="canvasLocation" x="-462.31884057971018" y="690.40178571428567"/>
         </scene>
         <!--Search Controller-->
         <scene sceneID="Q22-qT-ZQG">
@@ -1028,7 +1041,7 @@
         <image name="store(1)" width="23" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9zj-Eq-LIz"/>
+        <segue reference="WYP-LC-rZ2"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
