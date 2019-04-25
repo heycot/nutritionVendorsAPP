@@ -210,6 +210,12 @@ class ViewItemController: UIViewController {
         }
     }
     
+    @objc func mapPressedFunction() {
+        
+        print("touch on map")
+    }
+    
+    
     
     func dismissKeyboard() {
         view.endEditing(true)
@@ -279,7 +285,7 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.generalvalue.rawValue, for: indexPath) as! GeneralValueCell
                 cell.updateView(icon_image: itemValues[indexPath.row].icon!, value: itemValues[indexPath.row].value!)
                 
-                if indexPath.row < 3 {
+                if indexPath.row < 2 {
                     cell.selectionStyle = UITableViewCell.SelectionStyle.none;
                     cell.accessoryView = UIView()
                 }
@@ -322,6 +328,8 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
         } else if indexPath.section == 3 {
             
             switch indexPath.row {
+                case 2:
+                    performSegueFunc(identifier: SegueIdentifier.detailToShop.rawValue)
                 case 3:
                     performSegueFunc(identifier: SegueIdentifier.detailFoodToPhoto.rawValue)
 //                case 4:
