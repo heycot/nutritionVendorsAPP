@@ -166,12 +166,14 @@ extension NewCommentController: UITextFieldDelegate {
 extension NewCommentController: UITextViewDelegate {
     
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
-        if textView.text.isEmpty {
-            textView.text = "Enter content"
-            textView.textColor = .lightGray
-        } else {
-            textView.text = ""
-            textView.textColor = .black
+        if isNew {
+            if textView.text.isEmpty {
+                textView.text = "Enter content"
+                textView.textColor = .lightGray
+            } else {
+                textView.text = ""
+                textView.textColor = .black
+            }
         }
         
         return true
@@ -184,8 +186,11 @@ extension NewCommentController: UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
         if (textView.textColor == UIColor.lightGray) {
-            textView.text = ""
-            textView.textColor = UIColor.black
+            
+            if isNew {
+                textView.text = ""
+                textView.textColor = UIColor.black
+            }
         }
     }
     
