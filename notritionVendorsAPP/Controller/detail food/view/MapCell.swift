@@ -10,6 +10,7 @@ import UIKit
 import GoogleMaps
 
 class MapCell: UITableViewCell {
+    @IBOutlet weak var view: UIView!
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var distance: UILabel!
     @IBOutlet weak var mapView: GMSMapView!
@@ -26,6 +27,7 @@ class MapCell: UITableViewCell {
     }
     
     func updateView(shop: ShopResponse) {
+        view.setBorderRadious(radious: 15)
         
         guard let location = shop.location else { return }
         address.text = location.address ?? ""

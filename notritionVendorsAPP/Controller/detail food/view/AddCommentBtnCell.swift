@@ -14,6 +14,7 @@ class AddCommentBtnCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        addCmtBtn.setBorderRadious(radious: 15)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
