@@ -32,10 +32,10 @@ class CategoryController: UIViewController {
         setupView()
     }
     
-    
-    @IBAction func searchBarPressed(_ sender: Any) {
-        performSegueFunc(identifier: SegueIdentifier.favoritesToSearch.rawValue, sender: nil)
+    @IBAction func searchBtnPressed(_ sender: Any) {
+        performSegueFunc(identifier: SegueIdentifier.categoryToSearch.rawValue, sender: nil)
     }
+    
     
     func setupView() {
         navigationController?.navigationBar.barTintColor = APP_COLOR
@@ -75,15 +75,23 @@ class CategoryController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back"
+        
         if segue.destination is ViewItemController {
             let vc = segue.destination as? ViewItemController
             let index = sender as! Int
             vc?.item = currentListItem[index]
             
+            navigationItem.backBarButtonItem = backItem
         }  else if segue.destination is LoginController {
             _ = segue.destination as? LoginController
             
+            navigationItem.backBarButtonItem = backItem
+            
         } else if segue.destination is SearchController {
+            navigationItem.backBarButtonItem = backItem
         }
     }
     

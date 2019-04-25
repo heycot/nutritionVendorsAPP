@@ -457,10 +457,24 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xhR-tM-TeL"/>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="9Sg-IB-xGt">
+                        <nil key="title"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Pyj-4k-E4c">
+                            <rect key="frame" x="12" y="0.0" width="390" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Button" image="searchbar"/>
+                            <connections>
+                                <action selector="searchBtnPressed:" destination="QtR-ru-mlt" eventType="touchUpInside" id="1XU-d1-Fcf"/>
+                            </connections>
+                        </button>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="notification" destination="lfn-7K-c6V" id="zes-My-NBN"/>
                         <outlet property="tableView" destination="OPZ-SF-MUz" id="0BT-d4-rBH"/>
                         <segue destination="8Rb-Zj-4kI" kind="show" identifier="CategoryToDetail" id="bMp-ZF-8UM"/>
+                        <segue destination="O60-7L-RIi" kind="show" identifier="CategoryToSearch" id="LAx-na-B30"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tu7-rG-yp7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -649,7 +663,7 @@
                         <outlet property="resultSearchNotification" destination="3Vd-4X-EhU" id="noy-WT-eZ9"/>
                         <outlet property="searchBar" destination="IDw-Zc-xGf" id="4pj-nC-yxR"/>
                         <segue destination="O60-7L-RIi" kind="show" identifier="HighRatingSearch" id="WYP-LC-rZ2"/>
-                        <segue destination="QtR-ru-mlt" kind="show" identifier="HaighRatingToCategory" id="dVm-vS-K0I"/>
+                        <segue destination="QtR-ru-mlt" kind="push" identifier="HaighRatingToCategory" id="dVm-vS-K0I"/>
                         <segue destination="rEQ-Ch-SJA" kind="show" identifier="HighRatingToDetail" id="DWF-TS-9V8"/>
                     </connections>
                 </viewController>
@@ -1013,7 +1027,7 @@
         <image name="store(1)" width="23" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WYP-LC-rZ2"/>
+        <segue reference="LAx-na-B30"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
