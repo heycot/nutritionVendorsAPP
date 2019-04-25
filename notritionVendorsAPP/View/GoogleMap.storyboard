@@ -26,35 +26,52 @@
                                 <rect key="frame" x="0.0" y="667" width="375" height="0.0"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shop Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GSX-CV-aiz">
-                                        <rect key="frame" x="20" y="20" width="335" height="21"/>
+                                        <rect key="frame" x="10" y="10" width="355" height="20.5"/>
                                         <color key="backgroundColor" red="0.17254901959999999" green="0.65098039220000004" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MzO-o0-qbE">
-                                        <rect key="frame" x="112.5" y="61" width="150" height="36"/>
-                                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="weV-Ul-ek8">
+                                        <rect key="frame" x="10" y="40.5" width="355" height="36"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLL-MY-4al">
+                                                <rect key="frame" x="0.0" y="0.0" width="227" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MzO-o0-qbE">
+                                                <rect key="frame" x="235" y="0.0" width="120" height="36"/>
+                                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="120" id="lri-h9-pt3"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <state key="normal" title="Direction">
+                                                    <color key="titleColor" red="0.30196078430000001" green="0.68235294120000001" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="getDirectionPressed:" destination="jhW-Wa-AZu" eventType="touchUpInside" id="DyM-Jm-X2T"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="150" id="lri-h9-pt3"/>
+                                            <constraint firstItem="jLL-MY-4al" firstAttribute="height" secondItem="MzO-o0-qbE" secondAttribute="height" id="IHF-f7-HCp"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <state key="normal" title="Direction">
-                                            <color key="titleColor" red="0.30196078430000001" green="0.68235294120000001" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="getDirectionPressed:" destination="jhW-Wa-AZu" eventType="touchUpInside" id="DyM-Jm-X2T"/>
-                                        </connections>
-                                    </button>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.17254901959999999" green="0.65098039220000004" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" id="0cI-Hz-1wa"/>
-                                    <constraint firstItem="MzO-o0-qbE" firstAttribute="centerX" secondItem="g4y-Zz-aaN" secondAttribute="centerX" id="6zb-El-4c5"/>
-                                    <constraint firstAttribute="trailing" secondItem="GSX-CV-aiz" secondAttribute="trailing" constant="20" id="DOP-eM-X8D"/>
-                                    <constraint firstItem="GSX-CV-aiz" firstAttribute="leading" secondItem="g4y-Zz-aaN" secondAttribute="leading" constant="20" id="dvv-1V-W5p"/>
-                                    <constraint firstItem="MzO-o0-qbE" firstAttribute="top" secondItem="GSX-CV-aiz" secondAttribute="bottom" constant="20" id="lTs-SO-C0t"/>
-                                    <constraint firstItem="GSX-CV-aiz" firstAttribute="top" secondItem="g4y-Zz-aaN" secondAttribute="top" constant="20" id="szL-2d-Hij"/>
+                                    <constraint firstItem="weV-Ul-ek8" firstAttribute="centerX" secondItem="g4y-Zz-aaN" secondAttribute="centerX" id="Lg4-iz-YLh"/>
+                                    <constraint firstAttribute="trailing" secondItem="weV-Ul-ek8" secondAttribute="trailing" constant="10" id="VmH-MS-b3x"/>
+                                    <constraint firstItem="weV-Ul-ek8" firstAttribute="top" secondItem="GSX-CV-aiz" secondAttribute="bottom" constant="10" id="hv8-vk-ew5"/>
+                                    <constraint firstAttribute="bottom" secondItem="weV-Ul-ek8" secondAttribute="bottom" constant="10" id="kAX-ng-7Wh"/>
+                                    <constraint firstItem="weV-Ul-ek8" firstAttribute="leading" secondItem="g4y-Zz-aaN" secondAttribute="leading" constant="10" id="nnO-on-l35"/>
+                                    <constraint firstItem="GSX-CV-aiz" firstAttribute="width" secondItem="weV-Ul-ek8" secondAttribute="width" id="oX7-6z-ZBj"/>
+                                    <constraint firstItem="GSX-CV-aiz" firstAttribute="top" secondItem="g4y-Zz-aaN" secondAttribute="top" constant="10" id="szL-2d-Hij"/>
+                                    <constraint firstItem="GSX-CV-aiz" firstAttribute="centerX" secondItem="g4y-Zz-aaN" secondAttribute="centerX" id="zTh-iW-wEp"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -72,6 +89,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="oOZ-Jl-YzY"/>
                     <connections>
+                        <outlet property="distance" destination="jLL-MY-4al" id="Li9-CN-SEb"/>
                         <outlet property="mapView" destination="S6n-u8-8ub" id="7OQ-MH-n8d"/>
                         <outlet property="shopInforHeightConstraint" destination="0cI-Hz-1wa" id="K18-iL-09C"/>
                         <outlet property="shopName" destination="GSX-CV-aiz" id="IzV-GX-4Ae"/>

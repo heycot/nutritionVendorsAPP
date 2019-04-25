@@ -31,7 +31,8 @@ class ViewLocationShopController: UIViewController {
     // Outlets
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var shopName: UILabel!
-//    @IBOutlet weak var direction: UIButton!
+    @IBOutlet weak var distance: UILabel!
+    //    @IBOutlet weak var direction: UIButton!
     @IBOutlet weak var shopInforHeightConstraint: NSLayoutConstraint!
 
     var locationManager = CLLocationManager()
@@ -116,7 +117,7 @@ class ViewLocationShopController: UIViewController {
         let marker = GMSMarker(position: locationCoordinate2D!)
         marker.map = self.mapView
         let shopMarkerView = ShopMarkerView()
-        shopMarkerView.frame = CGRect(x: 0, y: 0, width: 30, height: 40)
+        shopMarkerView.frame = CGRect(x: 0, y: 0, width: 20, height: 30)
         marker.iconView = shopMarkerView
         marker.userData = shop
         marker.title = shop.name
@@ -126,12 +127,13 @@ class ViewLocationShopController: UIViewController {
 
     func configShopInfo(_ shop: ShopResponse) {
         shopName.text = shop.name
+        distance.text = ShopServices.shared.getDistance(shop: shop, currlocation: AuthServices.instance.currentLocation) + " (From current location)"
 
         // TODO: update more info if needed here
     }
 
     func showShopInfo(_ isShown: Bool) {
-        let value = isShown ? 150 : 0
+        let value = isShown ? 80 : 0
         updateDetailContainerHeightConstraint(value: CGFloat(value))
     }
 
