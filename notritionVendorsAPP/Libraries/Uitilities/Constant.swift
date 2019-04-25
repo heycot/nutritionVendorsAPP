@@ -97,6 +97,8 @@ let APP_COLOR = UIColor(red: CGFloat(44/255.0), green: CGFloat(166/255.0), blue:
 
 let APP_COLOR_35 = UIColor(red: CGFloat(44/255.0), green: CGFloat(166/255.0), blue: CGFloat(172/255.0), alpha: CGFloat(0.15))
 
+let HEADER_COLOR = UIColor(red: CGFloat(82/255.0), green: CGFloat(196/255.0), blue: CGFloat(154/255.0), alpha: CGFloat(0.5))
+
 
 enum CellClassName: String {
     case generalInfor   = "GeneralInforItemCell"
