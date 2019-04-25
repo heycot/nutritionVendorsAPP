@@ -35,15 +35,25 @@ class ActivityCell: UITableViewCell {
         contentRating.text = String(format: "%0.2f", comment.rating!)
         contentDetail.text = comment.content!
         
-        setupView()
+        setupView(rating: comment.rating ?? 0.0)
     }
     
-    func setupView() {
+    func setupView(rating: Double) {
         activityImage.setRounded(color: .white)
         activityTitle.setboldSystemFontOfSize(size: 17)
         contentTitle.setboldSystemFontOfSize(size: 14)
         contentRating.setboldSystemFontOfSize(size: 14)
         contentDetail.isEditable = false
+        
+        if rating < 2.5 {
+            contentRating.textColor = .red
+        } else if rating >= 4 {
+            contentRating.textColor = .green
+        } else if rating <= 5  {
+            contentRating.textColor = .orange
+        } else {
+            contentRating.textColor = .gray
+        }
     }
     
 }

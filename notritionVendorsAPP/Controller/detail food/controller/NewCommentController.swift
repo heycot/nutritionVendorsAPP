@@ -61,7 +61,8 @@ class NewCommentController: UIViewController {
     
     func setUpUI() {
         
-        ratingview.rating = 0.0
+        ratingview.rating = 3.0
+        ratingview.settings.minTouchRating = 1.0
         ratingview.settings.updateOnTouch = true
         ratingview.settings.fillMode = .precise
         ratingview.text = "Rate me"
