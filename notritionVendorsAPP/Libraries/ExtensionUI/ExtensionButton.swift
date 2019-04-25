@@ -15,6 +15,11 @@ extension UIButton {
         self.layer.borderWidth = 1
         self.layer.borderColor = color.cgColor
     }
+    
+    func boderRadiousWithoutCollor() {
+        self.layer.cornerRadius = 10
+        self.clipsToBounds = true
+    }
 }
 
 class CustomButton: UIButton {

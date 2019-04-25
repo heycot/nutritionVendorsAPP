@@ -13,6 +13,7 @@ class ShopController: UIViewController {
     
     // oulets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var viewInMapBtn: UIButton!
     
     // variables
     var listItem = [ShopResponse]()
@@ -37,6 +38,7 @@ class ShopController: UIViewController {
     
     func setupView() {
         navigationController?.navigationBar.barTintColor = APP_COLOR
+        viewInMapBtn.boderRadiousWithoutCollor()
         
         tableView.delegate = self
         tableView.dataSource = self

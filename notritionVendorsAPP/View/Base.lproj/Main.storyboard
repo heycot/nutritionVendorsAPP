@@ -19,19 +19,19 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f9f-Ve-zDT">
-                                <rect key="frame" x="0.0" y="88" width="414" height="40"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="10" y="98" width="394" height="40"/>
+                                <color key="backgroundColor" red="0.2627450980392157" green="0.73725490196078436" blue="0.67450980392156867" alpha="0.75476241438356162" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="8c1-b0-5xZ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="View in map">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bi8-3g-dWM">
-                                <rect key="frame" x="0.0" y="128" width="414" height="768"/>
+                                <rect key="frame" x="0.0" y="148" width="414" height="748"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShopCell" rowHeight="101" id="lqA-kv-XZ3" customClass="ShopCell" customModule="notritionVendorsAPP" customModuleProvider="target">
@@ -110,13 +110,13 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="bi8-3g-dWM" secondAttribute="bottom" id="CDv-Xh-x8s"/>
                             <constraint firstItem="bi8-3g-dWM" firstAttribute="leading" secondItem="lLJ-6y-uIX" secondAttribute="leading" id="TfU-Bh-Xhj"/>
-                            <constraint firstItem="bi8-3g-dWM" firstAttribute="top" secondItem="f9f-Ve-zDT" secondAttribute="bottom" id="acR-bB-o9e"/>
+                            <constraint firstItem="bi8-3g-dWM" firstAttribute="top" secondItem="f9f-Ve-zDT" secondAttribute="bottom" constant="10" id="acR-bB-o9e"/>
                             <constraint firstAttribute="bottom" secondItem="bi8-3g-dWM" secondAttribute="bottom" id="cUj-I9-9Hi"/>
-                            <constraint firstItem="f9f-Ve-zDT" firstAttribute="top" secondItem="lLJ-6y-uIX" secondAttribute="top" id="dmG-NA-4pE"/>
+                            <constraint firstItem="f9f-Ve-zDT" firstAttribute="top" secondItem="lLJ-6y-uIX" secondAttribute="top" constant="10" id="dmG-NA-4pE"/>
                             <constraint firstItem="bi8-3g-dWM" firstAttribute="trailing" secondItem="lLJ-6y-uIX" secondAttribute="trailing" id="eBl-kR-mVv"/>
-                            <constraint firstItem="f9f-Ve-zDT" firstAttribute="leading" secondItem="lLJ-6y-uIX" secondAttribute="leading" id="jaD-Js-99q"/>
+                            <constraint firstItem="f9f-Ve-zDT" firstAttribute="leading" secondItem="lLJ-6y-uIX" secondAttribute="leading" constant="10" id="jaD-Js-99q"/>
                             <constraint firstItem="bi8-3g-dWM" firstAttribute="centerX" secondItem="JK5-cg-Z16" secondAttribute="centerX" id="ntw-Ys-EZK"/>
-                            <constraint firstItem="f9f-Ve-zDT" firstAttribute="trailing" secondItem="lLJ-6y-uIX" secondAttribute="trailing" id="w7X-31-XCX"/>
+                            <constraint firstItem="f9f-Ve-zDT" firstAttribute="trailing" secondItem="lLJ-6y-uIX" secondAttribute="trailing" constant="-10" id="w7X-31-XCX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lLJ-6y-uIX"/>
                     </view>
@@ -133,6 +133,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="bi8-3g-dWM" id="Eut-Gh-79b"/>
+                        <outlet property="viewInMapBtn" destination="f9f-Ve-zDT" id="j5m-9t-drq"/>
                         <segue destination="O60-7L-RIi" kind="show" identifier="ShopSeachVC" id="9zj-Eq-LIz"/>
                         <segue destination="8fN-v2-VYx" kind="show" identifier="ShopToGoogleMap" id="QdL-Uh-9tM"/>
                         <segue destination="fsY-sK-E4e" kind="show" identifier="ShopToItemInShop" id="eEY-o3-cYD"/>
@@ -969,7 +970,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="LEi-Xu-zrM">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.2470588235" green="0.65490196079999996" blue="0.67450980390000004" alpha="0.73549871580000004" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.2470588235" green="0.65490196079999996" blue="0.67450980390000004" alpha="0.73999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="textShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1027,7 +1028,7 @@
         <image name="store(1)" width="23" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LAx-na-B30"/>
+        <segue reference="9zj-Eq-LIz"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
