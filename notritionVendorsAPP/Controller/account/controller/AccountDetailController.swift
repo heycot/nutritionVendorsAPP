@@ -87,13 +87,17 @@ class AccountDetailController: UIViewController {
     }
     
     
-    func getDataFromAPI(offset: Int) {
+    func getDataFromAPI(offset: Int, isLoadMore: Bool) {
         
         CommentServices.shared.getReviewsDTOOfUser(offset: offset) { (data) in
             guard let data = data else { return }
             
-            for comment in data {
-                self.listComment.append(comment)
+            if isLoadMore {
+                for comment in data {
+                    self.listComment.append(comment)
+                }
+            } else {
+                self.listComment = data
             }
             self.setupDetailInfor()
             self.tableView.reloadData()
@@ -167,7 +171,7 @@ extension AccountDetailController: UITableViewDelegate, UITableViewDataSource {
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
         
-        getDataFromAPI(offset: 0)
+        getDataFromAPI(offset: 0, isLoadMore: false)
         super.viewWillAppear(true)
         tableView.reloadData()
     }
