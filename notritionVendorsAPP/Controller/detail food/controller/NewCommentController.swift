@@ -54,12 +54,20 @@ class NewCommentController: UIViewController {
     }
 
     func viewLastComment(comment: CommentResponse) {
-        ratingview.rating = comment.rating!
-        titleCmt.text = comment.title!
-        content.text = comment.content!
+        
+        ratingview.rating = comment.rating ?? 3.0
+        titleCmt.text = comment.title ?? ""
+        content.text = comment.content ?? ""
+        content.textColor = .black
     }
     
     func setUpUI() {
+        
+        if isNew {
+            content.text = "Enter content"
+            content.textColor = .lightGray
+        }
+        
         
         ratingview.rating = 3.0
         ratingview.settings.minTouchRating = 1.0
@@ -131,14 +139,14 @@ class NewCommentController: UIViewController {
     
     func validateInput() -> Bool {
         
-        if titleCmt.text == "" || content.text == "" {
+        if titleCmt.text == "" || content.text == "" || content.text == "Enter content" {
             showAlertError(title: "Error", message: Notification.comment.nilWithInfor.rawValue)
             return false
         } else if !titleCmt.text!.isValidString() {
             showAlertError(title: "Error", message: Notification.comment.titleNotValid.rawValue)
             return false
             
-        } else if !content.text!.isValidString() {
+        } else if content.text == nil || !content.text!.isValidString() {
             showAlertError(title: "Error", message: Notification.comment.contentNotValid.rawValue)
             return false
             
@@ -151,7 +159,7 @@ class NewCommentController: UIViewController {
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        alert.present(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: nil)
     }
     
 }
@@ -171,10 +179,7 @@ extension NewCommentController: UITextViewDelegate {
             if textView.text.isEmpty {
                 textView.text = "Enter content"
                 textView.textColor = .lightGray
-            } else {
-                textView.text = ""
-                textView.textColor = .black
-            }
+            } 
         }
         
         return true
