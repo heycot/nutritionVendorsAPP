@@ -176,18 +176,28 @@ extension NewCommentController: UITextFieldDelegate {
 
 extension NewCommentController: UITextViewDelegate {
     
+    func textViewDidChangeSelection(_ textView: UITextView) {
+        print("textViewDidChangeSelection")
+    }
+    
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         if isNew {
             if textView.text.isEmpty {
                 textView.text = "Enter content"
                 textView.textColor = .lightGray
-            } 
+            } else {
+                textView.text = ""
+                textView.textColor = .black
+            }
         }
+        
+        textView.selectedRange = NSMakeRange(0, 0);
         
         return true
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
+        textView.selectedRange = NSMakeRange(0, 0);
         let invocation = IQInvocation(self, #selector(didPressOnDoneButton))
         textView.keyboardToolbar.doneBarButton.invocation = invocation
     }
