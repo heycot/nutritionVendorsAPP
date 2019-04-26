@@ -122,7 +122,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Jbx-cv-Bsn">
                         <nil key="title"/>
-                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="so8-8g-e38">
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" id="so8-8g-e38">
                             <rect key="frame" x="12" y="3" width="390" height="38"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Button" image="searchbar"/>
@@ -132,6 +132,7 @@
                         </button>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchBar" destination="so8-8g-e38" id="IC0-Ag-NzO"/>
                         <outlet property="tableView" destination="bi8-3g-dWM" id="Eut-Gh-79b"/>
                         <outlet property="viewInMapBtn" destination="f9f-Ve-zDT" id="j5m-9t-drq"/>
                         <segue destination="O60-7L-RIi" kind="show" identifier="ShopSeachVC" id="9zj-Eq-LIz"/>
@@ -289,7 +290,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="LiW-4H-3jg">
                         <nil key="title"/>
-                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gTw-ZG-AWZ">
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" id="gTw-ZG-AWZ">
                             <rect key="frame" x="12" y="3" width="390" height="38"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Button" image="searchbar"/>
@@ -300,6 +301,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="resultSearchNotification" destination="Pds-34-TvN" id="Xbs-Z5-JFl"/>
+                        <outlet property="searchBar" destination="gTw-ZG-AWZ" id="WiW-cY-ndw"/>
                         <outlet property="tableView" destination="mgZ-dQ-RhZ" id="9Li-bP-k1K"/>
                         <segue destination="zxw-JI-5Xv" kind="show" identifier="FavoritesToLogIn" id="J0c-hk-BSe"/>
                         <segue destination="O60-7L-RIi" kind="show" identifier="FavoritesSearchVC" id="Kqp-az-Zl9"/>
@@ -461,7 +463,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="9Sg-IB-xGt">
                         <nil key="title"/>
-                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Pyj-4k-E4c">
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" id="Pyj-4k-E4c">
                             <rect key="frame" x="12" y="0.0" width="390" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Button" image="searchbar"/>
@@ -473,6 +475,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="notification" destination="lfn-7K-c6V" id="zes-My-NBN"/>
+                        <outlet property="searchBar" destination="Pyj-4k-E4c" id="bkf-45-FSQ"/>
                         <outlet property="tableView" destination="OPZ-SF-MUz" id="0BT-d4-rBH"/>
                         <segue destination="8Rb-Zj-4kI" kind="show" identifier="CategoryToDetail" id="bMp-ZF-8UM"/>
                         <segue destination="O60-7L-RIi" kind="show" identifier="CategoryToSearch" id="LAx-na-B30"/>
@@ -660,7 +663,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="V3d-CZ-Zsq">
                         <nil key="title"/>
-                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IDw-Zc-xGf">
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" id="IDw-Zc-xGf">
                             <rect key="frame" x="12" y="0.0" width="390" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>

@@ -11,6 +11,7 @@ import UIKit
 class CategoryController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var notification: UILabel!
+    @IBOutlet weak var searchBar: UIButton!
     
     var listItem = [ShopItemResponse]()
     var currentListItem = [ShopItemResponse]()
@@ -39,6 +40,7 @@ class CategoryController: UIViewController {
     
     func setupView() {
         navigationController?.navigationBar.barTintColor = APP_COLOR
+        searchBar.adjustsImageWhenHighlighted = false
         
         tableView.delegate = self
         tableView.dataSource = self

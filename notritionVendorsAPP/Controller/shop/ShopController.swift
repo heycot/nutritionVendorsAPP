@@ -14,6 +14,7 @@ class ShopController: UIViewController {
     // oulets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var viewInMapBtn: UIButton!
+    @IBOutlet weak var searchBar: UIButton!
     
     // variables
     var listItem = [ShopResponse]()
@@ -39,6 +40,7 @@ class ShopController: UIViewController {
     func setupView() {
         navigationController?.navigationBar.barTintColor = APP_COLOR
         viewInMapBtn.boderRadiousWithoutCollor()
+        searchBar.adjustsImageWhenHighlighted = false
         
         tableView.delegate = self
         tableView.dataSource = self

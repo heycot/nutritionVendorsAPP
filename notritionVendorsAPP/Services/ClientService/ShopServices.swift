@@ -78,7 +78,7 @@ class ShopServices {
         
         let distanceInMeters = coordinate₀.distance(from: userLocation)
         if distanceInMeters < 1000 {
-            distance = String(format: " %.2f ", distanceInMeters.inMiles()) + " M"
+            distance = String(format: " %.2f ", distanceInMeters) + " M"
         } else {
             distance = String(format: " %.2f ", distanceInMeters.inKilometers()) + " KM"
         }

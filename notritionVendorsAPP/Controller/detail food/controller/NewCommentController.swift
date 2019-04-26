@@ -79,6 +79,8 @@ class NewCommentController: UIViewController {
         content.delegate = self
         
         address.setBottomBorder(color: APP_COLOR)
+        content.setBorder(with: BORDER_TEXT_COLOR)
+        content.setBorderRadious(radious: 10)
 //        ratingview.setBottomBorder(color: .darkGray)
 //        titleCmt.setBottomBorder(color: .darkGray)
         
@@ -139,7 +141,7 @@ class NewCommentController: UIViewController {
     
     func validateInput() -> Bool {
         
-        if titleCmt.text == "" || content.text == "" || content.text == "Enter content" {
+        if titleCmt.text == "" || titleCmt.text?.lowercased() == "enter title" || content.text == "" || content.text.lowercased() == "enter content" {
             showAlertError(title: "Error", message: Notification.comment.nilWithInfor.rawValue)
             return false
         } else if !titleCmt.text!.isValidString() {

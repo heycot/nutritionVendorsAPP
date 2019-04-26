@@ -12,6 +12,7 @@ class FavoritesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var resultSearchNotification: UILabel!
+    @IBOutlet weak var searchBar: UIButton!
     
     var currentListItem = [ShopItemResponse]()
     var currentShopItem = ShopItemResponse()
@@ -59,6 +60,8 @@ class FavoritesViewController: UIViewController {
     
     func setupView() {
         navigationController?.navigationBar.barTintColor = APP_COLOR
+        
+        searchBar.adjustsImageWhenHighlighted = false
         
         tableView.delegate = self
         tableView.dataSource = self

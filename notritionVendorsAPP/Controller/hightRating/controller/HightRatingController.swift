@@ -72,6 +72,8 @@ class HightRatingController: UIViewController {
         itemCollection.delegate = self
         itemCollection.dataSource = self
         itemCollection.bottomRefreshControl = refresher
+        
+        searchBar.adjustsImageWhenHighlighted = false
     }
     
     func findAllCategory() {

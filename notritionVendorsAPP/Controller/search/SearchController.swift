@@ -44,6 +44,7 @@ class SearchController: UIViewController {
         searchBar.showsCancelButton = false
         searchBar.placeholder = " Search here"
         searchBar.delegate = self
+        searchBar.tintColor = .black 
         
         self.navigationItem.titleView = searchBar
         
