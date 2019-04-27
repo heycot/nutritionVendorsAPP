@@ -25,30 +25,29 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g4y-Zz-aaN">
                                 <rect key="frame" x="0.0" y="667" width="375" height="0.0"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shop Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GSX-CV-aiz">
-                                        <rect key="frame" x="10" y="10" width="355" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shop Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GSX-CV-aiz">
+                                        <rect key="frame" x="20" y="10" width="335" height="20.5"/>
                                         <color key="backgroundColor" red="0.17254901959999999" green="0.65098039220000004" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="weV-Ul-ek8">
-                                        <rect key="frame" x="10" y="40.5" width="355" height="36"/>
+                                        <rect key="frame" x="20" y="30.5" width="335" height="0.0"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLL-MY-4al">
-                                                <rect key="frame" x="0.0" y="0.0" width="227" height="36"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="267" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MzO-o0-qbE">
-                                                <rect key="frame" x="235" y="0.0" width="120" height="36"/>
-                                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MzO-o0-qbE">
+                                                <rect key="frame" x="275" y="0.0" width="60" height="0.0"/>
+                                                <color key="backgroundColor" red="0.25490196079999999" green="0.66274509800000003" blue="0.68235294120000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="120" id="lri-h9-pt3"/>
+                                                    <constraint firstAttribute="width" constant="60" id="lri-h9-pt3"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                <state key="normal" title="Direction">
+                                                <state key="normal" image="right-arrow(1)">
                                                     <color key="titleColor" red="0.30196078430000001" green="0.68235294120000001" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
@@ -64,12 +63,11 @@
                                 <color key="backgroundColor" red="0.17254901959999999" green="0.65098039220000004" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" id="0cI-Hz-1wa"/>
-                                    <constraint firstItem="weV-Ul-ek8" firstAttribute="centerX" secondItem="g4y-Zz-aaN" secondAttribute="centerX" id="Lg4-iz-YLh"/>
-                                    <constraint firstAttribute="trailing" secondItem="weV-Ul-ek8" secondAttribute="trailing" constant="10" id="VmH-MS-b3x"/>
-                                    <constraint firstItem="weV-Ul-ek8" firstAttribute="top" secondItem="GSX-CV-aiz" secondAttribute="bottom" constant="10" id="hv8-vk-ew5"/>
-                                    <constraint firstAttribute="bottom" secondItem="weV-Ul-ek8" secondAttribute="bottom" constant="10" id="kAX-ng-7Wh"/>
-                                    <constraint firstItem="weV-Ul-ek8" firstAttribute="leading" secondItem="g4y-Zz-aaN" secondAttribute="leading" constant="10" id="nnO-on-l35"/>
-                                    <constraint firstItem="GSX-CV-aiz" firstAttribute="width" secondItem="weV-Ul-ek8" secondAttribute="width" id="oX7-6z-ZBj"/>
+                                    <constraint firstItem="weV-Ul-ek8" firstAttribute="top" secondItem="GSX-CV-aiz" secondAttribute="bottom" id="0fU-rt-H6k"/>
+                                    <constraint firstItem="weV-Ul-ek8" firstAttribute="centerX" secondItem="g4y-Zz-aaN" secondAttribute="centerX" id="8eE-hF-ri4"/>
+                                    <constraint firstItem="GSX-CV-aiz" firstAttribute="width" secondItem="g4y-Zz-aaN" secondAttribute="width" constant="-40" id="UEN-DN-x2a"/>
+                                    <constraint firstItem="weV-Ul-ek8" firstAttribute="width" secondItem="g4y-Zz-aaN" secondAttribute="width" constant="-40" id="asb-mi-DPF"/>
+                                    <constraint firstItem="weV-Ul-ek8" firstAttribute="height" secondItem="g4y-Zz-aaN" secondAttribute="height" priority="999" constant="-30" id="qRW-gO-Y5n"/>
                                     <constraint firstItem="GSX-CV-aiz" firstAttribute="top" secondItem="g4y-Zz-aaN" secondAttribute="top" constant="10" id="szL-2d-Hij"/>
                                     <constraint firstItem="GSX-CV-aiz" firstAttribute="centerX" secondItem="g4y-Zz-aaN" secondAttribute="centerX" id="zTh-iW-wEp"/>
                                 </constraints>
@@ -119,4 +117,7 @@
             <point key="canvasLocation" x="1880.8" y="974.6626686656673"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="right-arrow(1)" width="64" height="64"/>
+    </resources>
 </document>
