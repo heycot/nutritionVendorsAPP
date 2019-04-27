@@ -94,13 +94,32 @@ class NewCommentController: UIViewController {
         IQKeyboardManager.shared.shouldPlayInputClicks = false // set to true by default
     }
     
+    func validString(string: String) -> String {
+        var result = ""
+        var strimString = string.trimmingCharacters(in: .whitespacesAndNewlines)
+        //trim the string
+        strimString.trimmingCharacters(in: CharacterSet.newlines)
+        // replace occurences within the string
+        while let rangeToReplace = strimString.range(of: "\n\n") {
+            strimString.replaceSubrange(rangeToReplace, with: "\n")
+        }
+        
+        let resultArr  = strimString.split(separator: " ")
+                
+        for item in resultArr {
+            result += item + " "
+        }
+        
+        return result
+    }
+    
     
     @objc func didPressOnDoneButton() {
         if validateInput() {
             let comment = Comment()
             
-            comment.content = content.text
-            comment.title = titleCmt.text!
+            comment.content = validString(string: content.text)
+            comment.title = validString(string: titleCmt.text!)
             comment.rating = ratingview.rating
             comment.user_id = 0
             comment.shopItem_id = shopitemId
