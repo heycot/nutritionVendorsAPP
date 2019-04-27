@@ -251,6 +251,12 @@ class ViewLocationShopController: UIViewController {
         routePolyline.strokeWidth = 5
         routePolyline.strokeColor = UIColor.blue
         routePolyline.map = mapView
+        
+        if isFromShop {
+            configCamera(location: AuthServices.instance.currentLocation ?? CLLocation(latitude: 0.0, longitude: 0.0), zoomLevel: zoomLevel)
+        } else {
+            configCamera(location: AuthServices.instance.currentLocation ?? CLLocation(latitude: 0.0, longitude: 0.0), zoomLevel: 12)
+        }
     }
 
     func clearRoute() {
