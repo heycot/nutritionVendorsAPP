@@ -97,8 +97,9 @@ class CustomTextFeildRating: UITextField {
                 let ratingStr = String.init(data: data, encoding: String.Encoding.utf8)
                 let raStr = ratingStr ?? "0.0"
                 let rating = Double.init(raStr)
+                let showRating = rating?.rounded()
                 
-                self.text = String(format: "%.2f", rating ?? 0.0)
+                self.text = String(format: "%.2f", showRating ?? 0.0)
             }
         }).resume()
     }
