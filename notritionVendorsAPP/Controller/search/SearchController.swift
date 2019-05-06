@@ -12,6 +12,8 @@ class SearchController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var notification: UILabel!
+    @IBOutlet weak var searchTextNote: UILabel!
+    @IBOutlet weak var heightForSearchNote: NSLayoutConstraint!
     
     let searchBar = UISearchBar()
     var listItem = [SearchResponse] ()
@@ -26,6 +28,7 @@ class SearchController: UIViewController {
         super.viewDidLoad()
 
         navigationController?.navigationBar.barTintColor = APP_COLOR
+        searchTextNote.isHidden = true
         createSearchBar()
         setupTableView()
         getRecentSearch(offset: 0)
@@ -88,6 +91,10 @@ class SearchController: UIViewController {
         print("call api search")
         SearchServices.shared.searchItem(searchText: searchBar.text!.lowercased()) { data in
             guard let data = data else {return }
+            
+            self.heightForSearchNote.constant = 50
+            self.searchTextNote.text = "Result search for " + self.searchBar.text!
+            self.searchTextNote.isHidden = false
             
             if data.count == 0 {
                 self.notification.textColor = APP_COLOR

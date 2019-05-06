@@ -94,9 +94,7 @@ class ViewLocationShopController: UIViewController {
     }
 
     func configCamera(location: CLLocation, zoomLevel: Float) {
-        let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
-                                              longitude: location.coordinate.longitude,
-                                              zoom: zoomLevel)
+        let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: zoomLevel)
         mapView.camera = camera
     }
 

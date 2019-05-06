@@ -781,22 +781,39 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jSV-3q-yU2">
+                                <rect key="frame" x="0.0" y="88" width="414" height="0.0"/>
+                                <color key="backgroundColor" white="0.87065972222222221" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="kE1-K3-fs7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="GSE-jy-aC8" firstAttribute="leading" secondItem="NOg-Vi-689" secondAttribute="leading" id="20O-on-y1S"/>
                             <constraint firstItem="GSE-jy-aC8" firstAttribute="centerY" secondItem="EEm-Xk-iXR" secondAttribute="centerY" id="3MB-GB-dYJ"/>
                             <constraint firstAttribute="bottom" secondItem="TI1-aD-d0s" secondAttribute="bottom" id="Blh-6z-WjV"/>
+                            <constraint firstItem="jSV-3q-yU2" firstAttribute="top" secondItem="NOg-Vi-689" secondAttribute="top" id="FFB-Kq-8EB"/>
+                            <constraint firstItem="jSV-3q-yU2" firstAttribute="leading" secondItem="NOg-Vi-689" secondAttribute="leading" id="OVi-sM-fsR"/>
                             <constraint firstItem="TI1-aD-d0s" firstAttribute="trailing" secondItem="NOg-Vi-689" secondAttribute="trailing" id="Zbu-et-cXc"/>
+                            <constraint firstItem="jSV-3q-yU2" firstAttribute="centerX" secondItem="EEm-Xk-iXR" secondAttribute="centerX" id="aZw-I2-yx6"/>
+                            <constraint firstItem="TI1-aD-d0s" firstAttribute="top" secondItem="jSV-3q-yU2" secondAttribute="bottom" id="bYk-ru-4NW"/>
                             <constraint firstItem="GSE-jy-aC8" firstAttribute="centerX" secondItem="EEm-Xk-iXR" secondAttribute="centerX" id="baM-ej-o86"/>
-                            <constraint firstItem="TI1-aD-d0s" firstAttribute="top" secondItem="NOg-Vi-689" secondAttribute="top" id="hp9-rA-ZJB"/>
+                            <constraint firstItem="NOg-Vi-689" firstAttribute="trailing" secondItem="jSV-3q-yU2" secondAttribute="trailing" id="coK-K9-YPF"/>
+                            <constraint firstItem="TI1-aD-d0s" firstAttribute="top" secondItem="jSV-3q-yU2" secondAttribute="bottom" id="hp9-rA-ZJB"/>
                             <constraint firstItem="TI1-aD-d0s" firstAttribute="leading" secondItem="NOg-Vi-689" secondAttribute="leading" id="sbw-vC-gzb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NOg-Vi-689"/>
                     </view>
                     <navigationItem key="navigationItem" id="CCv-r0-4pU"/>
                     <connections>
+                        <outlet property="heightForSearchNote" destination="kE1-K3-fs7" id="eFp-VQ-zRr"/>
                         <outlet property="notification" destination="GSE-jy-aC8" id="ieA-Lf-YPK"/>
+                        <outlet property="searchTextNote" destination="jSV-3q-yU2" id="Qk6-pf-V3T"/>
                         <outlet property="tableView" destination="TI1-aD-d0s" id="wTh-E7-zL2"/>
                         <segue destination="pAv-CV-Swc" kind="show" identifier="SearchToDetaild" id="Li0-6H-FeM"/>
                         <segue destination="fGi-UI-Gzq" kind="show" identifier="SearchToItemInShop" id="LvM-We-fbG"/>
