@@ -172,6 +172,7 @@ extension AccountDetailController: UITableViewDelegate, UITableViewDataSource {
         tableView.rowHeight = UITableView.automaticDimension
         
         getDataFromAPI(offset: 0, isLoadMore: false)
+        isActivity = true
         super.viewWillAppear(true)
         tableView.reloadData()
     }

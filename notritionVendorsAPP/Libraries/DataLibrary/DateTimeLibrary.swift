@@ -44,7 +44,7 @@ extension NSObject {
     func convertToDate(dateString: String) -> Date {
         let dateFormatter = DateFormatter()
 //        dateFormatter.dateFormat = DateFormatType.date.rawValue // Your date format
-        dateFormatter.dateFormat = "yyyy/MM/dd" // Your date format
+        dateFormatter.dateFormat = "dd/MM/yyyy" // Your date format
         let serverDate: Date = dateFormatter.date(from: dateString)! // according to date format your date string
         return serverDate
     }
@@ -57,7 +57,7 @@ extension NSObject {
         }
 
         let dateFormatterPrint = DateFormatter()
-        dateFormatterPrint.dateFormat = "yyyy/MM/dd"
+        dateFormatterPrint.dateFormat = "dd/MM/yyyy"
         dateFormatterPrint.timeZone = TimeZone(abbreviation: "UTC")
         
         let string = dateFormatterPrint.string(from: currentDate)

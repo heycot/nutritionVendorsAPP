@@ -30,7 +30,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1zm-QM-QTf">
-                                <rect key="frame" x="75" y="10" width="274" height="30"/>
+                                <rect key="frame" x="75" y="10" width="264" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="uyY-Cc-MpJ"/>
                                 </constraints>
@@ -39,7 +39,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydf-g4-QPO">
-                                <rect key="frame" x="349" y="10" width="120" height="30"/>
+                                <rect key="frame" x="339" y="10" width="120" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="Jbb-xn-VQq"/>
                                 </constraints>
@@ -108,7 +108,7 @@
                             <constraint firstItem="ydf-g4-QPO" firstAttribute="height" secondItem="1zm-QM-QTf" secondAttribute="height" id="SFr-C8-WJR"/>
                             <constraint firstItem="PSs-gD-wGu" firstAttribute="top" secondItem="1zm-QM-QTf" secondAttribute="bottom" id="XGm-2z-hPa"/>
                             <constraint firstAttribute="trailing" secondItem="PSs-gD-wGu" secondAttribute="trailing" id="ZB8-Gd-cqa"/>
-                            <constraint firstItem="ydf-g4-QPO" firstAttribute="trailing" secondItem="ElU-cp-m2s" secondAttribute="trailing" id="ZKg-Fm-10z"/>
+                            <constraint firstItem="ydf-g4-QPO" firstAttribute="trailing" secondItem="ElU-cp-m2s" secondAttribute="trailing" constant="-10" id="ZKg-Fm-10z"/>
                             <constraint firstItem="VPO-Ni-VTK" firstAttribute="leading" secondItem="ElU-cp-m2s" secondAttribute="leading" constant="10" id="Zez-jj-GOT"/>
                             <constraint firstItem="ZVC-Ej-YCO" firstAttribute="leading" secondItem="ElU-cp-m2s" secondAttribute="leading" constant="10" id="fVZ-yo-7L5"/>
                             <constraint firstItem="ydf-g4-QPO" firstAttribute="bottom" secondItem="1zm-QM-QTf" secondAttribute="bottom" id="ix1-8e-aKE"/>

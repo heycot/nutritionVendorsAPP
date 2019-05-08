@@ -13,6 +13,8 @@ enum Notification : String {
     
     case noData = "No data to show"
     
+    case noFood = "No food to show"
+    
     case noSearchResult = ""
     
     case notLogedIn = "Please login to use this task."

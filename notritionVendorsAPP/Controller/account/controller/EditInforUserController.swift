@@ -65,7 +65,7 @@ class EditInforUserController: UIViewController {
         userEdit.id = user.id
         userEdit.name = nameStr
         userEdit.phone = phoneTxt.text
-        userEdit.birthday = convertToDate(dateString: birthdayTxt.text!)
+//        userEdit.birthday = convertToDate(dateString: birthdayTxt.text!)
         userEdit.address = addressTxt.text
         
         AuthServices.instance.editInfor(user: userEdit, dateStr: birthdayTxt.text!) { (data) in
