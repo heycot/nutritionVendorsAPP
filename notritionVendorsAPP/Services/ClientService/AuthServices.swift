@@ -51,7 +51,7 @@ class AuthServices {
     
     
     func registerUser(user: User, image: UIImage, completion: @escaping (UserResponse?) -> Void) {
-        let urlStr = BASE_URL + UserAPI.register.rawValue
+        var urlStr = BASE_URL + UserAPI.register.rawValue
         
         let body = ["id": 0,
                     "user_name": user.name,
@@ -72,32 +72,27 @@ class AuthServices {
         let imgDataEncode = imgData.base64EncodedData()
         
         
-        NetworkingClient.shared.requestJsonWithFile(urlStr: urlStr, method: "POST", jsonBody: jsonData, fileData: imgDataEncode, parameters: nil) { (data) in
+        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "POST", jsonBody: jsonData, parameters: nil) { (data) in
             guard let data = data else {return}
             do {
                 
                 let userResponse = try JSONDecoder().decode(UserResponse.self, from: data)
+                
                 DispatchQueue.main.async {
-                    completion(userResponse)
+                    urlStr = BASE_URL + "/user/upload"
+                    NetworkingClient.shared.uploadImage(urlStr: urlStr, method: "POST", jsonBody: nil, fileData: imgDataEncode, parameters: nil) { (data) in
+                        
+                        guard data != nil else {return}
+                        
+                        DispatchQueue.main.async {
+                            completion(userResponse)
+                        }
+                    }
                 }
             } catch let jsonError {
                 print("Error serializing json:", jsonError)
             }
         }
-        
-//        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "POST", jsonBody: jsonData, parameters: nil) { (data ) in
-//
-//            guard let data = data else {return}
-//            do {
-//
-//                let userResponse = try JSONDecoder().decode(UserResponse.self, from: data)
-//                DispatchQueue.main.async {
-//                    completion(userResponse)
-//                }
-//            } catch let jsonError {
-//                print("Error serializing json:", jsonError)
-//            }
-//        }
     }
     
     func loginUser(email: String, password: String, completion: @escaping (UserResponse?) -> Void) {

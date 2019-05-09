@@ -56,13 +56,14 @@ class NetworkingClient {
     }
     
     
-    func requestJsonWithFile(urlStr: String, method: String, jsonBody: Data?, fileData: Data?, parameters: Parameters?, completion: @escaping (Data?) -> Void){
+    func uploadImage(urlStr: String, method: String, jsonBody: Data?, fileData: Data?, parameters: Parameters?, completion: @escaping (Data?) -> Void){
         let url = URL(string: urlStr)
         guard let urlRequest = url else { return }
         
         var request = URLRequest(url: urlRequest)
         request.httpMethod = HTTPMethod.post.rawValue
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("multipart/form-data", forHTTPHeaderField: "Content-Type")
+        
 //        request.addValue("application/json", forHTTPHeaderField: "Accept")
         
         if AuthServices.instance.isLoggedIn {
@@ -72,7 +73,7 @@ class NetworkingClient {
         }
         
         if jsonBody != nil {
-            request.httpBody = jsonBody!
+            request.httpBody = jsonBody ?? Data()
         }
         
         URLSession.shared.uploadTask(with: request, from: fileData) { data, urlResponse, error in
@@ -82,7 +83,7 @@ class NetworkingClient {
             }
             
             completion(data)
-            }.resume()
+        }.resume()
     }
     
     
