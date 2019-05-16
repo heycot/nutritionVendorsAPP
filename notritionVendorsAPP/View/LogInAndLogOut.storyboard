@@ -57,7 +57,7 @@
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4RG-98-Xiw">
                                                 <rect key="frame" x="50" y="110" width="255" height="40"/>
-                                                <color key="backgroundColor" red="0.17254901959999999" green="0.65098039220000004" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.77647058820000003" green="0.0039215686269999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                 <state key="normal" title="Login">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -68,7 +68,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oWa-OZ-OUU">
                                                 <rect key="frame" x="50" y="165" width="255" height="40"/>
-                                                <color key="tintColor" red="0.17254901959999999" green="0.65098039220000004" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" red="0.77647058820000003" green="0.0039215686269999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Need an account? Sign up"/>
                                                 <connections>
                                                     <segue destination="OuZ-m9-mNt" kind="show" id="36h-Cz-GJU"/>
@@ -141,7 +141,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JZg-ar-h7W">
                                                 <rect key="frame" x="97.5" y="160" width="160" height="20"/>
                                                 <state key="normal" title="Choose the avatar here">
-                                                    <color key="titleColor" red="0.17254901959999999" green="0.65098039220000004" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" red="0.77647058820000003" green="0.0039215686269999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="chooseAvatarpressed:" destination="OuZ-m9-mNt" eventType="touchUpInside" id="lw8-Uw-rVs"/>
@@ -280,6 +280,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="119" height="119"/>
+        <image name="logo" width="129" height="129"/>
     </resources>
 </document>
