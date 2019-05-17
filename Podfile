@@ -22,4 +22,7 @@ target 'notritionVendorsAPP' do
     pod 'Socket.IO-Client-Swift'
     pod 'ObjectMapper'
     pod 'Firebase/Core'
+    pod 'Firebase/Firestore'
+    pod 'Firebase/Analytics'
+    pod 'Firebase/Auth'
 end
