@@ -9,6 +9,7 @@
 import UIKit
 import CCBottomRefreshControl
 import GoogleMaps
+import Firebase
 
 class HightRatingController: UIViewController {
 
@@ -41,17 +42,18 @@ class HightRatingController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCurrentLocation()
-        setUpCollectionView()
-        registerHeader()
-        
-        resultSearchNotification.isHidden = true
-        activityIndicator.color = APP_COLOR
-        activityIndicator.startAnimating()
-        
-        navigationController?.navigationBar.barTintColor = APP_COLOR
-        findAllCategory()
-        loadDataFromAPI(offset: 0)
+        firebase()
+//        setupCurrentLocation()
+//        setUpCollectionView()
+//        registerHeader()
+//
+//        resultSearchNotification.isHidden = true
+//        activityIndicator.color = APP_COLOR
+//        activityIndicator.startAnimating()
+//
+//        navigationController?.navigationBar.barTintColor = APP_COLOR
+//        findAllCategory()
+//        loadDataFromAPI(offset: 0)
     }
     
     func setupCurrentLocation() {
@@ -259,5 +261,323 @@ extension HightRatingController: CLLocationManagerDelegate {
 extension HightRatingController : LocationServicesProtocol {
     func authorizedLocationServices() {
         startUpdateLocation()
+    }
+}
+
+
+extension HightRatingController {
+    
+    func firebase() {
+        
+        let urlStr = BASE_URL + "shop/offset/0"
+        print(urlStr)
+        //
+        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
+            
+            guard let data = data else {return}
+            do {
+                
+                let items = try JSONDecoder().decode([ShopResponse].self, from: data)
+                for item in items {
+                    print("run")
+                    let key = String.gennerateKeywords([item.name ?? "", item.location?.address ?? ""])
+                    let db = Firestore.firestore()
+                    let shop = [
+                        "address": item.location?.address as Any,
+                        "avatar": "",
+                        "create_date": Date().timeIntervalSince1970,
+                        "keyword" : key,
+                        "latitude": item.location?.latitude,
+                        "longitude": item.location?.longitude,
+                        "name":  item.name,
+                        "phone": item.phone,
+                        "rating" : item.rating,
+                        "sell" : "",
+                        "status" : 1,
+                        "time_close" : item.time_open,
+                        "time_open": item.time_close,
+                        "user_id" : "HWQ9thTlZMVmnKWgb5C5UP9Re0r1"
+                        ] as [String : Any]
+                    
+
+                    
+                    var ref: DocumentReference? = nil
+                    
+                    // init first to get ID
+                    ref = db.collection("shop").document()
+                    
+                    ref?.setData(shop, completion:{ (error) in
+                        if error != nil {
+                            return
+                        }
+                        print("save shop")
+                        
+                        let urlStr = BASE_URL + "shop-item/shop/\(item.id!)/0"
+                        //
+                        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
+                            
+                            guard let data = data else {return}
+                            do {
+                                
+                                let iss = try JSONDecoder().decode([ShopItemResponse].self, from: data)
+                                for i in iss {
+                                    
+                                    print("running")
+                                    let docRef = db.collection("item").whereField("name", isEqualTo: i.name!)
+                                    //            .order(by: "update_date", descending: true)
+                                    print("aaaa")
+                                    docRef.getDocuments(completion: { (document, error) in
+                                        if let document = document {
+                                            
+                                            for cmtDoct in document.documents{
+                                                print("get item")
+                                                
+                                                let jsonData = try? JSONSerialization.data(withJSONObject: cmtDoct.data() as Any)
+                                                
+                                                do {
+                                                    let cmt = try JSONDecoder().decode(Cate.self, from: jsonData!)
+                                                    let aaaa = cmtDoct.documentID
+                                                    
+                                                    let key = String.gennerateKeywords([i.name ?? "", i.address ?? "", i.shop_name ?? ""])
+                                                    let s = ["name": i.name as Any,
+                                                                "avatar": i.avatar ?? "logo" as Any,
+                                                                "comment_number": i.comment_number,
+                                                                "favorites_number": i.favorites_number,
+                                                                "create_date": Date().timeIntervalSince1970,
+                                                                "rating": i.rating,
+                                                                "shop_id": ref?.documentID as Any,
+                                                                "shop_name": i.shop_name as Any,
+                                                                "status": 1,
+                                                                "unit": i.unit as Any,
+                                                                "keywords": key as Any,
+                                                                "item_id": aaaa as Any,
+                                                                "images": "" as Any,
+                                                                "latitude": item.location?.latitude,
+                                                                "longitude": item.location?.longitude,
+                                                                "price": i.price as Any] as [String : Any]
+                                                    
+                                                    var ref: DocumentReference? = nil
+                                                    
+                                                    // init first to get ID
+                                                    db.collection("shop_item").document().setData(s, completion:{ (error) in
+                                                        if error != nil {
+                                                            return
+                                                        }
+                                                        print("save shop item")
+                                                    })
+                                                    
+                                                }catch let jsonError {
+                                                    print("Error serializing json:", jsonError)
+                                                }
+                                            }
+                                            
+                                        } else {
+                                            print("User have no comment")
+                                        }
+                                    })
+                                    
+                                    
+                                }
+                            } catch let err {}
+                        }
+                        
+                    })
+                }
+            } catch let errs {
+                
+            }
+        }
+    }
+    
+    
+//    func firebase() {
+//
+//        let urlStr = BASE_URL + "category"
+//        //
+//        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
+//
+//            guard let data = data else {return}
+//            do {
+//
+//                let items = try JSONDecoder().decode([CategoryResponse].self, from: data)
+//                for item in items {
+//                    let db = Firestore.firestore()
+//                    let shop = [
+//                        "name": item.name as Any,
+//                        "icon": item.icon] as [String : Any]
+//
+//                    var ref: DocumentReference? = nil
+//
+//                    // init first to get ID
+//                    ref = db.collection("category").document()
+//
+//                    ref?.setData(shop, completion:{ (error) in
+//                        if error != nil {
+//                            return
+//                        }
+//                        print("save category")
+//
+//                        let urlStr = BASE_URL + "item/\(item.id!)"
+//                        //
+//                        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
+//
+//                            guard let data = data else {return}
+//                            do {
+//
+//                                let iss = try JSONDecoder().decode([ItemResponse].self, from: data)
+//                                for i in iss {
+//                                    let db = Firestore.firestore()
+//                                    let s = [
+//                                        "category_id": ref?.documentID as Any,
+//                                        "name": i.name as Any,
+//                                        "unit": "kg"] as [String : Any]
+//
+//                                    var ref: DocumentReference? = nil
+//
+//                                    // init first to get ID
+//                                    db.collection("item").document().setData(s, completion:{ (error) in
+//                                        if error != nil {
+//                                            return
+//                                        }
+//                                        print("save item")
+//                                    })
+//                                }
+//                            } catch let err {}
+//                        }
+//
+//                    })
+//                }
+//            } catch let errs {
+//
+//            }
+//        }
+//    }
+}
+        
+        
+//        let db = Firestore.firestore()
+//        let shop = [
+//            "id": item.id as Any,
+//            "category_id": id as Any,
+//            "name": item.name as Any,
+//            "unit": "kg" as Any] as [String : Any]
+//
+//        var ref: DocumentReference? = nil
+//
+//        // init first to get ID
+//        ref = db.collection("item").document()
+//
+//        ref?.setData(shop, completion:{ (error) in
+//            DispatchQueue.main.async {
+//                completion(ref?.documentID, true)
+//            }
+//
+//        })
+        
+//        let urlStr = BASE_URL + "item"
+//
+//    NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
+//
+//        guard let data = data else {return}
+//        do {
+//
+//            let items = try JSONDecoder().decode([ItemResponse].self, from: data)
+//                for item in items {
+//
+//                    print("add suceess")
+//                    var id = ""
+//                    for i in AuthServices.instance.cate {
+//                        if i.olid == item.category?.id {
+//                            id = i.id!
+//                        }
+//                    }
+//
+//                    ItemFirebase.instance.addOne(item: item, id: id, completion: { (id, check) in
+//                        print("add suceess")
+//                        AuthServices.instance.listitem.append(ItemF(oldid: item.id!, id: id! ))
+//                    })
+//                }
+//
+        
+//
+                
+//                ShopServices.shared.getNewestShop(offset: 0) { (data) in
+//                    let shops = data!
+//
+//                    for shop in shops {
+//                        let keys = String.gennerateKeywords([shop.name!, (shop.location?.address!)!])
+//                        ShopFirebase.instance.addNewShop(shop: shop, keyword: keys, completion: { (id, check) in
+//                            listI.append(ShopF(oldid: shop.id ?? 0, id: id ?? ""))
+//                        })
+//                    }
+//                }
+//
+//                ShopItemService.shared.getHighRatingItem(offset: 0, completion: { (data) in
+//                    let items = data!
+//
+//                    for i in items {
+//                        let key = String.gennerateKeywords([i.name!, i.address!, i.shop_name!])
+//                        var shopid = ""
+//                        for j in listI {
+//                            if i.id == j.olid {
+//                                shopid = j.id ?? ""
+//                            }
+//                        }
+//
+//                        var itemid = ""
+//                        for j in listitem {
+//                            if i.id == j.olid {
+//                                itemid = j.id ?? ""
+//                            }
+//                        }
+//
+//                        ShopItemFirebase.instance.addOne(item: i, shopid: shopid, key: key, itemid: itemid, completion: { (data) in
+//
+//                        })
+//                    }
+//                })
+                
+        
+class ItemF : Decodable {
+    var olid: Int?
+    var id: String?
+    
+    init(oldid: Int, id: String) {
+        self.olid = oldid
+        self.id = id
+    }
+    
+    convenience init() {
+        self.init(oldid: 0, id: "")
+    }
+}
+
+class ShopF: Decodable {
+    var olid: Int?
+    var id: String?
+    
+    init(oldid: Int, id: String) {
+        self.olid = oldid
+        self.id = id
+    }
+    
+    convenience init() {
+        self.init(oldid: 0, id: "")
+    }
+}
+
+class Cate : Decodable {
+    var name: String?
+    var id: String?
+    var category_id: String
+    
+    init(name: String, id: String, category_id: String) {
+        self.name = name
+        self.id = id
+        self.category_id = category_id
+    }
+    
+    convenience init() {
+        self.init(name: "", id: "", category_id: "")
     }
 }

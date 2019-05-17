@@ -11,6 +11,8 @@ import Firebase
 import FirebaseFirestore
 
 class UserFireBase {
+    static let instance = UserFireBase()
+    
     func signup(name: String, email: String, password: String, completion: @escaping (Bool?) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let err = error {

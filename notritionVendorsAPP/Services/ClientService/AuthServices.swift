@@ -19,6 +19,10 @@ class AuthServices {
     var currentLocation : CLLocation? // = CLLocation(latitude: 16.056214, longitude:  108.217154)
     
     
+    var listitem = [ItemF]()
+    var listshop = [ShopF]()
+    var cate = [Cate]()
+    
     var isLoggedIn : Bool {
         get {
             return defaults.bool(forKey: LOGGED_IN_KEY)
