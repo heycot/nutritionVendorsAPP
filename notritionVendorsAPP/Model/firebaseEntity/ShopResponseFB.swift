@@ -10,7 +10,7 @@ import Foundation
 import CoreLocation
 import Firebase
 
-struct ShopResponse: Decodable {
+struct ShopResponseFB : Decodable {
     var id: String?
     var user_id: String?
     var name: String?
@@ -74,12 +74,12 @@ struct ShopResponse: Decodable {
     }
 }
 
-extension CLLocationDistance {
-    func inMiles() -> CLLocationDistance {
-        return self*0.00062137
-    }
-    
-    func inKilometers() -> CLLocationDistance {
-        return self/1000
-    }
-}
+//extension CLLocationDistance {
+//    func inMiles() -> CLLocationDistance {
+//        return self*0.00062137
+//    }
+//
+//    func inKilometers() -> CLLocationDistance {
+//        return self/1000
+//    }
+//}

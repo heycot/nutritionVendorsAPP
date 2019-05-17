@@ -21,4 +21,5 @@ target 'notritionVendorsAPP' do
     pod 'CCBottomRefreshControl'
     pod 'Socket.IO-Client-Swift'
     pod 'ObjectMapper'
+    pod 'Firebase/Core'
 end

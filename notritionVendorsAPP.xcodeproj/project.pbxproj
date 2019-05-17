@@ -80,11 +80,13 @@
 		235CF320226FF1B500691D88 /* EditInforUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235CF31F226FF1B500691D88 /* EditInforUserController.swift */; };
 		23614F0F2256020E00B5DD81 /* FavoritesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23614F0E2256020E00B5DD81 /* FavoritesResponse.swift */; };
 		23614F1122560F7E00B5DD81 /* FavoritesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23614F1022560F7E00B5DD81 /* FavoritesService.swift */; };
-		23679F5B228E875700F427DD /* CommentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23679F5A228E875700F427DD /* CommentResponse.swift */; };
-		23679F5D228E877800F427DD /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23679F5C228E877800F427DD /* UserResponse.swift */; };
-		23679F5F228E879B00F427DD /* ShopResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23679F5E228E879B00F427DD /* ShopResponse.swift */; };
-		23679F61228E87C100F427DD /* ShopItemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23679F60228E87C100F427DD /* ShopItemResponse.swift */; };
-		23679F63228E87E000F427DD /* ItemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23679F62228E87E000F427DD /* ItemResponse.swift */; };
+		23679F5B228E875700F427DD /* CommentResponseFB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23679F5A228E875700F427DD /* CommentResponseFB.swift */; };
+		23679F5D228E877800F427DD /* UserResponseFB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23679F5C228E877800F427DD /* UserResponseFB.swift */; };
+		23679F5F228E879B00F427DD /* ShopResponseFB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23679F5E228E879B00F427DD /* ShopResponseFB.swift */; };
+		23679F61228E87C100F427DD /* ShopItemResponseFB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23679F60228E87C100F427DD /* ShopItemResponseFB.swift */; };
+		23679F63228E87E000F427DD /* ItemResponseFB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23679F62228E87E000F427DD /* ItemResponseFB.swift */; };
+		23679F65228E89AB00F427DD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 23679F64228E89AB00F427DD /* GoogleService-Info.plist */; };
+		23679F67228E8D9300F427DD /* FireBaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23679F66228E8D9300F427DD /* FireBaseService.swift */; };
 		23695E9222277DC600AD7076 /* ExtensionUICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23695E9122277DC600AD7076 /* ExtensionUICollectionView.swift */; };
 		23695E9422277F7200AD7076 /* ExtensionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23695E9322277F7200AD7076 /* ExtensionUIView.swift */; };
 		23695E9822278F3B00AD7076 /* ViewItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23695E9722278F3B00AD7076 /* ViewItemController.swift */; };
@@ -203,11 +205,13 @@
 		235CF31F226FF1B500691D88 /* EditInforUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInforUserController.swift; sourceTree = "<group>"; };
 		23614F0E2256020E00B5DD81 /* FavoritesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesResponse.swift; sourceTree = "<group>"; };
 		23614F1022560F7E00B5DD81 /* FavoritesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesService.swift; sourceTree = "<group>"; };
-		23679F5A228E875700F427DD /* CommentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentResponse.swift; sourceTree = "<group>"; };
-		23679F5C228E877800F427DD /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
-		23679F5E228E879B00F427DD /* ShopResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopResponse.swift; sourceTree = "<group>"; };
-		23679F60228E87C100F427DD /* ShopItemResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemResponse.swift; sourceTree = "<group>"; };
-		23679F62228E87E000F427DD /* ItemResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemResponse.swift; sourceTree = "<group>"; };
+		23679F5A228E875700F427DD /* CommentResponseFB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentResponseFB.swift; sourceTree = "<group>"; };
+		23679F5C228E877800F427DD /* UserResponseFB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponseFB.swift; sourceTree = "<group>"; };
+		23679F5E228E879B00F427DD /* ShopResponseFB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopResponseFB.swift; sourceTree = "<group>"; };
+		23679F60228E87C100F427DD /* ShopItemResponseFB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemResponseFB.swift; sourceTree = "<group>"; };
+		23679F62228E87E000F427DD /* ItemResponseFB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemResponseFB.swift; sourceTree = "<group>"; };
+		23679F64228E89AB00F427DD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		23679F66228E8D9300F427DD /* FireBaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseService.swift; sourceTree = "<group>"; };
 		23695E9122277DC600AD7076 /* ExtensionUICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUICollectionView.swift; sourceTree = "<group>"; };
 		23695E9322277F7200AD7076 /* ExtensionUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIView.swift; sourceTree = "<group>"; };
 		23695E9722278F3B00AD7076 /* ViewItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewItemController.swift; sourceTree = "<group>"; };
@@ -428,6 +432,7 @@
 				231ABDB82266DF2C006D6B01 /* MapService */,
 				23D8DF232240A93B004E9FAF /* ClientService */,
 				23A31BB82240941E00FE2D69 /* CommonRequest */,
+				23679F66228E8D9300F427DD /* FireBaseService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -519,11 +524,11 @@
 		23679F59228E874200F427DD /* firebaseEntity */ = {
 			isa = PBXGroup;
 			children = (
-				23679F5A228E875700F427DD /* CommentResponse.swift */,
-				23679F5C228E877800F427DD /* UserResponse.swift */,
-				23679F5E228E879B00F427DD /* ShopResponse.swift */,
-				23679F60228E87C100F427DD /* ShopItemResponse.swift */,
-				23679F62228E87E000F427DD /* ItemResponse.swift */,
+				23679F5A228E875700F427DD /* CommentResponseFB.swift */,
+				23679F5C228E877800F427DD /* UserResponseFB.swift */,
+				23679F5E228E879B00F427DD /* ShopResponseFB.swift */,
+				23679F60228E87C100F427DD /* ShopItemResponseFB.swift */,
+				23679F62228E87E000F427DD /* ItemResponseFB.swift */,
 			);
 			path = firebaseEntity;
 			sourceTree = "<group>";
@@ -643,6 +648,7 @@
 				23D02E7422237A7900882742 /* Controller */,
 				23D02E7322237A7300882742 /* View */,
 				23D02E6C2223799400882742 /* Info.plist */,
+				23679F64228E89AB00F427DD /* GoogleService-Info.plist */,
 				236A32BB22589D6100AA2410 /* MBProgressHUD.h */,
 				236A32BA22589D6100AA2410 /* MBProgressHUD.m */,
 				2347EEBA224E160400EC3A24 /* notritionVendorsAPP-Bridging-Header.h */,
@@ -817,6 +823,7 @@
 				2373EB9F226DC8A900D779F2 /* Comment.storyboard in Resources */,
 				235B6685226308D900BBFAFC /* DetailFood.storyboard in Resources */,
 				234B5CCA226834B100E7E61F /* GoogleMap.storyboard in Resources */,
+				23679F65228E89AB00F427DD /* GoogleService-Info.plist in Resources */,
 				235B668722630BCA00BBFAFC /* AccountDetail.storyboard in Resources */,
 				2352405722635661004B11CF /* Delivery.storyboard in Resources */,
 				2300BE79222D34B2008E9101 /* GeneralValueCell.xib in Resources */,
@@ -838,6 +845,7 @@
 				"${BUILT_PRODUCTS_DIR}/CCBottomRefreshControl/CCBottomRefreshControl.framework",
 				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
 				"${BUILT_PRODUCTS_DIR}/ESPullToRefresh/ESPullToRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PinterestLayout/PinterestLayout.framework",
@@ -845,6 +853,7 @@
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/TinyConstraints/TinyConstraints.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -853,6 +862,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CCBottomRefreshControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ESPullToRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PinterestLayout.framework",
@@ -860,6 +870,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TinyConstraints.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -914,7 +925,7 @@
 				235AC4AF2265BDDF009A0CD0 /* SearchResponse.swift in Sources */,
 				231ABDAA2266DAE0006D6B01 /* NibDesignable.swift in Sources */,
 				231ABDC22266E1B0006D6B01 /* mapRequestBodyDirections.swift in Sources */,
-				23679F5B228E875700F427DD /* CommentResponse.swift in Sources */,
+				23679F5B228E875700F427DD /* CommentResponseFB.swift in Sources */,
 				2323C8B2223F5B8B00DA68CA /* ViewLocationShopController.swift in Sources */,
 				230E2DD822265A4700246392 /* User.swift in Sources */,
 				235B169F226C71F6001A6BB6 /* AccountCell.swift in Sources */,
@@ -958,14 +969,14 @@
 				23A31BB5224088FD00FE2D69 /* ShopItemResponse.swift in Sources */,
 				231AE462222E2A030082C06E /* ExtensionUIlabel.swift in Sources */,
 				235CF320226FF1B500691D88 /* EditInforUserController.swift in Sources */,
-				23679F5D228E877800F427DD /* UserResponse.swift in Sources */,
+				23679F5D228E877800F427DD /* UserResponseFB.swift in Sources */,
 				233B390822375463003EB253 /* AuthServices.swift in Sources */,
 				237DABF52261E7B200FE57FB /* SearchCell.swift in Sources */,
 				23695E9822278F3B00AD7076 /* ViewItemController.swift in Sources */,
-				23679F5F228E879B00F427DD /* ShopResponse.swift in Sources */,
+				23679F5F228E879B00F427DD /* ShopResponseFB.swift in Sources */,
 				23351DC4222539BF003944E2 /* ExtensionButton.swift in Sources */,
 				231C5B6F224DCE5A00161534 /* PhotoItemController.swift in Sources */,
-				23679F63228E87E000F427DD /* ItemResponse.swift in Sources */,
+				23679F63228E87E000F427DD /* ItemResponseFB.swift in Sources */,
 				230E2DE0222667EE00246392 /* Location.swift in Sources */,
 				2359CD6A225750A200C5D892 /* NotificationConstant.swift in Sources */,
 				235A32B52224EAB400DE5B0E /* ExtensionTextField.swift in Sources */,
@@ -977,7 +988,8 @@
 				23E6FD75224B5479001C72B2 /* ExtentionDouble.swift in Sources */,
 				23D02E612223799300882742 /* AppDelegate.swift in Sources */,
 				2381B646225B0185004DAA64 /* CategoryServices.swift in Sources */,
-				23679F61228E87C100F427DD /* ShopItemResponse.swift in Sources */,
+				23679F67228E8D9300F427DD /* FireBaseService.swift in Sources */,
+				23679F61228E87C100F427DD /* ShopItemResponseFB.swift in Sources */,
 				23D5080922423637005FB1AC /* LocationResponse.swift in Sources */,
 				23B7653E22642F4300DC76F7 /* NewCommentController.swift in Sources */,
 				230E2DDC222666F300246392 /* City.swift in Sources */,

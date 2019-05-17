@@ -10,6 +10,7 @@ import UIKit
 import IQKeyboardManagerSwift
 import GoogleMaps
 import GooglePlaces
+import Firebase
 
 @UIApplicationMain
 	class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,7 @@ import GooglePlaces
         
         GMSServices.provideAPIKey(GOOGLE_API_KEY)
         GMSPlacesClient.provideAPIKey(GOOGLE_API_KEY)
+        FirebaseApp.configure()
         
         self.splahScreen()
         IQKeyboardManager.shared.enable = true
