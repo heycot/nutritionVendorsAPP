@@ -80,6 +80,11 @@
 		235CF320226FF1B500691D88 /* EditInforUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235CF31F226FF1B500691D88 /* EditInforUserController.swift */; };
 		23614F0F2256020E00B5DD81 /* FavoritesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23614F0E2256020E00B5DD81 /* FavoritesResponse.swift */; };
 		23614F1122560F7E00B5DD81 /* FavoritesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23614F1022560F7E00B5DD81 /* FavoritesService.swift */; };
+		23679F5B228E875700F427DD /* CommentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23679F5A228E875700F427DD /* CommentResponse.swift */; };
+		23679F5D228E877800F427DD /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23679F5C228E877800F427DD /* UserResponse.swift */; };
+		23679F5F228E879B00F427DD /* ShopResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23679F5E228E879B00F427DD /* ShopResponse.swift */; };
+		23679F61228E87C100F427DD /* ShopItemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23679F60228E87C100F427DD /* ShopItemResponse.swift */; };
+		23679F63228E87E000F427DD /* ItemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23679F62228E87E000F427DD /* ItemResponse.swift */; };
 		23695E9222277DC600AD7076 /* ExtensionUICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23695E9122277DC600AD7076 /* ExtensionUICollectionView.swift */; };
 		23695E9422277F7200AD7076 /* ExtensionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23695E9322277F7200AD7076 /* ExtensionUIView.swift */; };
 		23695E9822278F3B00AD7076 /* ViewItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23695E9722278F3B00AD7076 /* ViewItemController.swift */; };
@@ -198,6 +203,11 @@
 		235CF31F226FF1B500691D88 /* EditInforUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInforUserController.swift; sourceTree = "<group>"; };
 		23614F0E2256020E00B5DD81 /* FavoritesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesResponse.swift; sourceTree = "<group>"; };
 		23614F1022560F7E00B5DD81 /* FavoritesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesService.swift; sourceTree = "<group>"; };
+		23679F5A228E875700F427DD /* CommentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentResponse.swift; sourceTree = "<group>"; };
+		23679F5C228E877800F427DD /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
+		23679F5E228E879B00F427DD /* ShopResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopResponse.swift; sourceTree = "<group>"; };
+		23679F60228E87C100F427DD /* ShopItemResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemResponse.swift; sourceTree = "<group>"; };
+		23679F62228E87E000F427DD /* ItemResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemResponse.swift; sourceTree = "<group>"; };
 		23695E9122277DC600AD7076 /* ExtensionUICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUICollectionView.swift; sourceTree = "<group>"; };
 		23695E9322277F7200AD7076 /* ExtensionUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIView.swift; sourceTree = "<group>"; };
 		23695E9722278F3B00AD7076 /* ViewItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewItemController.swift; sourceTree = "<group>"; };
@@ -499,6 +509,25 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		23679F58228E873000F427DD /* firebase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = firebase;
+			sourceTree = "<group>";
+		};
+		23679F59228E874200F427DD /* firebaseEntity */ = {
+			isa = PBXGroup;
+			children = (
+				23679F5A228E875700F427DD /* CommentResponse.swift */,
+				23679F5C228E877800F427DD /* UserResponse.swift */,
+				23679F5E228E879B00F427DD /* ShopResponse.swift */,
+				23679F60228E87C100F427DD /* ShopItemResponse.swift */,
+				23679F62228E87E000F427DD /* ItemResponse.swift */,
+			);
+			path = firebaseEntity;
+			sourceTree = "<group>";
+		};
 		236A32B52258942500AA2410 /* favorites */ = {
 			isa = PBXGroup;
 			children = (
@@ -605,6 +634,7 @@
 		23D02E5F2223799300882742 /* notritionVendorsAPP */ = {
 			isa = PBXGroup;
 			children = (
+				23679F58228E873000F427DD /* firebase */,
 				231ABDB52266DDDB006D6B01 /* Protocol */,
 				233B39062237544E003EB253 /* Services */,
 				235A32B32224EA7800DE5B0E /* Libraries */,
@@ -659,6 +689,7 @@
 		23D02E7522237AB600882742 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				23679F59228E874200F427DD /* firebaseEntity */,
 				23A31BB3224088DA00FE2D69 /* ResponseEntity */,
 				23A31BB2224088BD00FE2D69 /* BeanEntity */,
 			);
@@ -883,6 +914,7 @@
 				235AC4AF2265BDDF009A0CD0 /* SearchResponse.swift in Sources */,
 				231ABDAA2266DAE0006D6B01 /* NibDesignable.swift in Sources */,
 				231ABDC22266E1B0006D6B01 /* mapRequestBodyDirections.swift in Sources */,
+				23679F5B228E875700F427DD /* CommentResponse.swift in Sources */,
 				2323C8B2223F5B8B00DA68CA /* ViewLocationShopController.swift in Sources */,
 				230E2DD822265A4700246392 /* User.swift in Sources */,
 				235B169F226C71F6001A6BB6 /* AccountCell.swift in Sources */,
@@ -926,11 +958,14 @@
 				23A31BB5224088FD00FE2D69 /* ShopItemResponse.swift in Sources */,
 				231AE462222E2A030082C06E /* ExtensionUIlabel.swift in Sources */,
 				235CF320226FF1B500691D88 /* EditInforUserController.swift in Sources */,
+				23679F5D228E877800F427DD /* UserResponse.swift in Sources */,
 				233B390822375463003EB253 /* AuthServices.swift in Sources */,
 				237DABF52261E7B200FE57FB /* SearchCell.swift in Sources */,
 				23695E9822278F3B00AD7076 /* ViewItemController.swift in Sources */,
+				23679F5F228E879B00F427DD /* ShopResponse.swift in Sources */,
 				23351DC4222539BF003944E2 /* ExtensionButton.swift in Sources */,
 				231C5B6F224DCE5A00161534 /* PhotoItemController.swift in Sources */,
+				23679F63228E87E000F427DD /* ItemResponse.swift in Sources */,
 				230E2DE0222667EE00246392 /* Location.swift in Sources */,
 				2359CD6A225750A200C5D892 /* NotificationConstant.swift in Sources */,
 				235A32B52224EAB400DE5B0E /* ExtensionTextField.swift in Sources */,
@@ -942,6 +977,7 @@
 				23E6FD75224B5479001C72B2 /* ExtentionDouble.swift in Sources */,
 				23D02E612223799300882742 /* AppDelegate.swift in Sources */,
 				2381B646225B0185004DAA64 /* CategoryServices.swift in Sources */,
+				23679F61228E87C100F427DD /* ShopItemResponse.swift in Sources */,
 				23D5080922423637005FB1AC /* LocationResponse.swift in Sources */,
 				23B7653E22642F4300DC76F7 /* NewCommentController.swift in Sources */,
 				230E2DDC222666F300246392 /* City.swift in Sources */,
