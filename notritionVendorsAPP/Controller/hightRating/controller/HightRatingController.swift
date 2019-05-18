@@ -156,7 +156,7 @@ extension HightRatingController: UICollectionViewDelegate, UICollectionViewDataS
         
         if indexPath.section == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.category.rawValue, for: indexPath) as! CategoryCell
-                cell.updateView(Category: listCategory[indexPath.row])
+                cell.updateView(category: listCategory[indexPath.row])
                 return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.highRatingItem.rawValue, for: indexPath) as! CollectionItemCell

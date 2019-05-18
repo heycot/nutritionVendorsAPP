@@ -28,7 +28,7 @@ class CategoryUITableCell: UITableViewCell {
     func updateView(item: ShopItemResponse) {
         setupView()
         
-        itemImage.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + item.avatar!)
+//        itemImage.loadImageFromFirebase(folder: ReferenceImage.shopItem.rawValue + item.id +  item.avatar ?? "")
         name.text = item.name! + " - " + item.shop_name!
         address.text = item.address!
         rating.rating = item.rating!

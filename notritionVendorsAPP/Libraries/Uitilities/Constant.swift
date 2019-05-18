@@ -210,4 +210,5 @@ enum ReferenceImage : String {
     case shop = "shop_images/"
     case user = "user_images/"
     case shopItem = "shop_item_images/"
+    case category = "category_images/"
 }

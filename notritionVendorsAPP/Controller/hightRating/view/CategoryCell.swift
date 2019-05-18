@@ -19,9 +19,9 @@ class CategoryCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func updateView(Category: CategoryResponse) {
-        icon.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + Category.icon!)
-        nameCategory.text = Category.name!
+    func updateView(category: CategoryResponse) {
+        icon.loadImageFromFirebase(folder: ReferenceImage.category.rawValue + (category.icon ?? ""))
+        nameCategory.text = category.name!
         
         view.layer.cornerRadius = 8;
         view.layer.masksToBounds = true;
