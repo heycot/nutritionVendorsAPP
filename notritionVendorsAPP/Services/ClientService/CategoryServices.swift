@@ -7,26 +7,40 @@
 //
 
 import Foundation
+import Firebase
 
 class CategoryService {
-    static let shared = CategoryService()
+    static let instance = CategoryService()
     
     func findAll(completion: @escaping ([CategoryResponse]?) -> Void) {
-        let urlStr = BASE_URL + CategoryAPI.findAll.rawValue
+     
+        let db = Firestore.firestore()
+        let docRef = db.collection("category")
         
-        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
-            
-            guard let data = data else {return}
-            do {
+        docRef.getDocuments(completion: { (document, error) in
+            if let document = document {
                 
-                let shopItems = try JSONDecoder().decode([CategoryResponse].self, from: data)
-                DispatchQueue.main.async {
-                    completion(shopItems)
+                var categoryList = [CategoryResponse]()
+                for categoryDoct in document.documents{
+                    let jsonData = try? JSONSerialization.data(withJSONObject: categoryDoct.data() as Any)
+                    
+                    do {
+                        let category = try JSONDecoder().decode(CategoryResponse.self, from: jsonData!)
+                        category.id = categoryDoct.documentID
+                        categoryList.append(category)
+                    }
+                    catch let jsonError {
+                        print("Error serializing json:", jsonError)
+                    }
                 }
-            } catch let jsonError {
-                print("Error serializing json:", jsonError)
+                DispatchQueue.main.async {
+                    completion(categoryList)
+                }
+                
+            } else {
+                print("User have no profile")
             }
-        }
+        })
     }
 
 }

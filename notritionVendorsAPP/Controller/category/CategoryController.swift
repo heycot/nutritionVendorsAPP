@@ -15,7 +15,7 @@ class CategoryController: UIViewController {
     
     var listItem = [ShopItemResponse]()
     var currentListItem = [ShopItemResponse]()
-    var categoryId = 0
+    var categoryId = ""
     var categoryName = ""
     
     lazy var refresher: UIRefreshControl = {
@@ -54,7 +54,7 @@ class CategoryController: UIViewController {
     func loadDataFromAPI(offset: Int) {
         startSpinnerActivity()
         
-        ShopItemService.shared.findAllByCategory(categoryId: categoryId, offset: offset) { data in
+        ShopItemService.shared.findAllByCategory(categoryId: 0, offset: offset) { data in
             guard let data = data else {return }
             
             for item in data {

@@ -78,10 +78,11 @@ class HightRatingController: UIViewController {
     }
     
     func findAllCategory() {
-        CategoryService.shared.findAll() { data in
-            guard let data = data else {return }
+        CategoryService.instance.findAll { (data) in
+            guard let data = data else { return }
             
             self.listCategory = data
+            self.itemCollection.reloadData()
         }
     }
     
