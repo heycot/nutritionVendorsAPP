@@ -291,11 +291,14 @@ extension HightRatingController {
                                 var images = [String]()
                                 let items = try JSONDecoder().decode([Document].self, from: data)
                                 for item in items {
+                                    var filename = ""
                                     if item.priority == 1 {
                                         avat = item.link!
                                         images.append(avat)
+                                        filename = avat
                                     } else {
                                         images.append(item.link!)
+                                        filename = item.link!
                                     }
                                     
                                     let u = BASE_URL_IMAGE + item.link!
@@ -312,12 +315,21 @@ extension HightRatingController {
                                             guard let data = data else { return }
                                             guard let imageToCache = UIImage(data: data) else { return }
                                             ima.append(imageToCache)
+                                            
+                                            
+                                            let foler = ReferenceImage.shopItem.rawValue + shop.id! + "/\(filename)"
+                                            
+                                            ImageServices.instance.uploadMedia(image: imageToCache, reference: foler, completion: { (data) in
+                                                print("save image success")
+                                            })
+                                            
                                         }
                                         
                                     }).resume()
                                 }
                                 
                                 DispatchQueue.main.async {
+                                    
                                     let db = Firestore.firestore()
                                     
                                     let values = ["avatar": avat,
@@ -331,25 +343,11 @@ extension HightRatingController {
                                         } else {
                                             print("Document successfully written!")
                                             
-                                            for i in 0 ..< images.count {
-                                                let foler = ReferenceImage.shopItem.rawValue + shop.id! + "/\(i)"
-                                                
-                                                ImageServices.instance.uploadMedia(image: ima[i], reference: foler, completion: { (data) in
-                                                    print("save image success")
-                                                })
-                                            }
                                         }
                                     }
                                 }
-                                
-                                
-                            }catch let err {
-                                
-                            }
-                            
+                            } catch {}
                         }
-                        
-                        
                     }
                     catch let jsonError {
                         print("Error serializing json:", jsonError)
