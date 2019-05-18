@@ -28,7 +28,7 @@ class FavoritesCell: UITableViewCell {
     func updateView(item: ShopItemResponse) {
         itemImage.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + item.avatar!)
         itemName.text = item.name! + " - " + item.shop_name!
-        address.text = item.address!
+//        address.text = item.address!
         rating.rating = item.rating!
         rating.text = "(" + String(item.comment_number!) + ")"
         

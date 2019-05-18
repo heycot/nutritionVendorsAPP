@@ -122,14 +122,13 @@ class NewCommentController: UIViewController {
             comment.content = validString(string: content.text)
             comment.title = validString(string: titleCmt.text!)
             comment.rating = ratingview.rating
-            comment.shopItem_id = shopItem.id
-            comment.shop_id = shopItem.shop
+            comment.shopitem_id = shopItem.id
+            comment.shop_id = shopItem.shop_id
             comment.status = 1
             comment.create_date = Date().timeIntervalSince1970
             
             
             if isNew {
-                comment.id = 0
                 CommentServices.shared.addNewComment(comment: comment) { (data) in
                     guard let data = data else { return }
                     

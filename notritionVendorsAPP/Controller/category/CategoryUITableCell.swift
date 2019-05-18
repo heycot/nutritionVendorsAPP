@@ -30,7 +30,7 @@ class CategoryUITableCell: UITableViewCell {
         
 //        itemImage.loadImageFromFirebase(folder: ReferenceImage.shopItem.rawValue + item.id +  item.avatar ?? "")
         name.text = item.name! + " - " + item.shop_name!
-        address.text = item.address!
+//        address.text = item.address!
         rating.rating = item.rating!
         rating.text = " (" + String(item.comment_number!) + ")"
     }

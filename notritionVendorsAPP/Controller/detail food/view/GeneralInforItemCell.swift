@@ -24,10 +24,10 @@ class GeneralInforItemCell: UITableViewCell {
     func updateView(item: ShopItemResponse) {
         customUI()
         
-        let urlStr = BASE_URL + FavoritesAPI.checkStatus.rawValue + "/" + String(item.id ?? 0)
-        let urlComment = BASE_URL + CommentAPI.countByShopItem.rawValue + "/" + String(item.id ?? 0)
-        let urlRating = BASE_URL + ShopItemAPI.getRating.rawValue + "/" + String(item.id ?? 0)
-        let urlFavorites = BASE_URL + FavoritesAPI.countByShopItem.rawValue + "/" + String(item.id ?? 0)
+        let urlStr = BASE_URL + FavoritesAPI.checkStatus.rawValue + "/" + (item.id ?? "")
+        let urlComment = BASE_URL + CommentAPI.countByShopItem.rawValue + "/" + String(item.id ?? "")
+        let urlRating = BASE_URL + ShopItemAPI.getRating.rawValue + "/" + String(item.id ?? "")
+        let urlFavorites = BASE_URL + FavoritesAPI.countByShopItem.rawValue + "/" + String(item.id ?? "")
         
         loveBtn.viewImageUsingUrlString(urlString: urlStr)
         itemImage.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + (item.avatar ?? "logo.jpg"))
@@ -37,7 +37,7 @@ class GeneralInforItemCell: UITableViewCell {
         
         itemName.text      = item.name ?? ""
 //        itemComments.text  = String(item.comment_number ?? 0)
-        itemPhotos.setTitle(String(item.documents?.count ?? 0),for: .normal)
+        itemPhotos.setTitle(0,for: .normal)
 //        itemFavorites.text = String(item.favorites_number ?? 0)
 //        itemRating.text    = String(format: "%.2f", item.rating ?? 0)
     }

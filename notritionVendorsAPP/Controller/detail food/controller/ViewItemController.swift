@@ -18,6 +18,7 @@ class ViewItemController: UIViewController {
     var comments = [CommentResponse]()
     var itemValues = [ItemValue] ()
     var item = ShopItemResponse()
+    var shop = ShopResponse()
     var loveBtn = UIButton()
     var rating = UITextField()
     var numberComment = UITextField()
@@ -80,9 +81,9 @@ class ViewItemController: UIViewController {
     func prepareData() {
         let price = "VND " + (item.price?.formatPrice())! + "/\(item.unit!)"
         appendItemValue(icon: Icon.price_icon.rawValue, value: price )
-        appendItemValue(icon: Icon.time_icon.rawValue, value: (item.shop!.time_open ?? ""  ) + " - " + (item.shop!.time_close ?? ""))
+        appendItemValue(icon: Icon.time_icon.rawValue, value: (shop.time_open ?? ""  ) + " - " + (shop.time_close ?? ""))
 //        appendItemValue(icon: Icon.category_icon.rawValue, value: "Rau cu")
-        appendItemValue(icon: Icon.shop_icon.rawValue, value: (item.shop!.name ?? "" ))
+        appendItemValue(icon: Icon.shop_icon.rawValue, value: (shop.name ?? "" ))
         appendItemValue(icon: Icon.picture.rawValue, value: String(item.documents!.count) + " photos")
 //        appendItemValue(icon: Icon.address_icon.rawValue, value: (item.shop!.location!.address!  ))
         appendItemValue(icon: Icon.phone_icon.rawValue, value: (item.shop!.phone ?? "" ))
