@@ -85,8 +85,7 @@ class ViewLocationShopController: UIViewController {
         // check show list shop or one shop
         if !isFromShop {
             
-            guard let location = currentShop?.location else { return }
-            let cl_location = CLLocation(latitude: location.latitude!, longitude: location.longitude!)
+            let cl_location = CLLocation(latitude: currentShop?.latitude! ?? 0, longitude: currentShop?.longitude! ?? 0)
             
             configCamera(location: cl_location, zoomLevel: zoomLevel)
         }
@@ -111,8 +110,8 @@ class ViewLocationShopController: UIViewController {
     }
     
     func getMarker(_ shop: ShopResponse) -> GMSMarker {
-        let locationCoordinate2D = shop.location?.locationCoordinate2D()
-        let marker = GMSMarker(position: locationCoordinate2D!)
+        let locationCoordinate2D  = CLLocationCoordinate2D(latitude: shop.latitude ?? 0, longitude: shop.longitude ?? 0)
+        let marker = GMSMarker(position: locationCoordinate2D)
         marker.map = self.mapView
         let shopMarkerView = ShopMarkerView()
         shopMarkerView.frame = CGRect(x: 0, y: 0, width: 20, height: 30)
@@ -125,7 +124,8 @@ class ViewLocationShopController: UIViewController {
 
     func configShopInfo(_ shop: ShopResponse) {
         shopName.text = shop.name
-        distance.text = ShopServices.shared.getDistance(shop: shop, currlocation: AuthServices.instance.currentLocation) + " (From current location)"
+        distance.text = shop.getDistance(currlocation: AuthServices.instance.currentLocation) + " (From current location)"
+        
 
         // TODO: update more info if needed here
     }
@@ -163,9 +163,8 @@ class ViewLocationShopController: UIViewController {
     }
 
     @IBAction func getDirectionPressed(_ sender: Any) {
-        if let locationCoordinate2D = self.currentShop?.location?.locationCoordinate2D() {
-            createRoute(locationCoordinate2D)
-        }
+        let locationCoordinate2D = CLLocationCoordinate2D(latitude: self.currentShop?.longitude ?? 0, longitude: self.currentShop?.longitude ?? 0)
+        createRoute(locationCoordinate2D)
     }
     // MARK: - APIs call
 

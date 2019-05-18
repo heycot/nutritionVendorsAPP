@@ -22,6 +22,7 @@ class NewCommentController: UIViewController {
     var nameShop = ""
     var addressShop = ""
     var isNew = true
+    var shopItem = ShopItemResponse()
     var lastComment = CommentResponse()
     
     override func viewDidLoad() {
@@ -116,15 +117,16 @@ class NewCommentController: UIViewController {
     
     @objc func didPressOnDoneButton() {
         if validateInput() {
-            let comment = Comment()
+            let comment = CommentResponse()
             
             comment.content = validString(string: content.text)
             comment.title = validString(string: titleCmt.text!)
             comment.rating = ratingview.rating
-            comment.user_id = 0
-            comment.shopItem_id = shopitemId
+            comment.shopItem_id = shopItem.id
+            comment.shop_id = shopItem.shop
             comment.status = 1
-            comment.create_date = Date()
+            comment.create_date = Date().timeIntervalSince1970
+            
             
             if isNew {
                 comment.id = 0

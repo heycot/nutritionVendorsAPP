@@ -133,7 +133,9 @@ class AccountDetailController: UIViewController {
     }
     
     func convertCommentDTOToComment(commentDto : CommentDTOResponse) -> CommentResponse {
-        return CommentResponse(id: commentDto.id!, title: commentDto.title!, content: commentDto.content!, create_date: commentDto.createDate!, user: user, rating: commentDto.rating!)
+//        return CommentResponse(id: commentDto.id!, title: commentDto.title!, content: commentDto.content!, create_date: commentDto.createDate!, user: user, rating: commentDto.rating!)
+        
+        return CommentResponse()
     }
 }
 

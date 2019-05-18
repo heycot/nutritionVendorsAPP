@@ -74,12 +74,4 @@ struct ShopResponseFB : Decodable {
     }
 }
 
-//extension CLLocationDistance {
-//    func inMiles() -> CLLocationDistance {
-//        return self*0.00062137
-//    }
-//
-//    func inKilometers() -> CLLocationDistance {
-//        return self/1000
-//    }
-//}
+

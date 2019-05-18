@@ -8,17 +8,18 @@
 
 import Foundation
 
-public class ItemResponse : Decodable {
-    var id: Int?
+class ItemResponse :Decodable {
+    var id: String?
     var name: String?
-    var category : CategoryResponse?
+    var unit: String?
     
-    init(id: Int, name: String, icon: String) {
+    init(id: String, name: String, unit: String) {
         self.id = id
         self.name = name
+        self.unit = unit
     }
     
     convenience init() {
-        self.init(id: 0, name: "", icon: "")
+        self.init(id: "", name: "", unit: "")
     }
 }

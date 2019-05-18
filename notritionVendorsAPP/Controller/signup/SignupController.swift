@@ -25,8 +25,9 @@ class SignupController: UIViewController {
     @IBOutlet weak var detailNotifi : UILabel!
     
     // variables
-    var user = User()
+    var user = UserResponse()
     var image : UIImage?
+    var pass  = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,14 +56,14 @@ class SignupController: UIViewController {
             
             HUD.flash(.success, delay: 1.0)
             
-            AuthServices.instance.signup(name: user.name ?? "", email: user.email ?? "", password: user.password ?? "") { (data) in
+            AuthServices.instance.signup(name: user.name ?? "", email: user.email ?? "", password: self.pass) { (data) in
                 guard let data = data else { return }
                 
                 if !data {
                     self.notification.text = "Signup failed"
                     self.detailNotifi.text = "Something went wrong. Please try again"
                 } else {
-                    AuthServices.instance.signin(email: self.user.email, password: self.user.password, completion: { (data) in
+                    AuthServices.instance.signin(email: self.user.email!, password: self.pass, completion: { (data) in
                         guard let data = data else { return }
                         
                         if data {
@@ -101,7 +102,7 @@ class SignupController: UIViewController {
             return false
         }
         
-        guard let password = passTxt.text, passTxt.text!.isValidPassword() else {
+        guard let password = passTxt.text , passTxt.text!.isValidPassword() else {
             notification.text = Notification.password.title.rawValue
             detailNotifi.text = Notification.password.detail.rawValue
             return false
@@ -115,7 +116,7 @@ class SignupController: UIViewController {
         
         self.user.name = name
         self.user.email = email
-        self.user.password = password
+        self.pass = password
         return true
     }
     

@@ -30,15 +30,26 @@ class ViewCommentCell: UITableViewCell {
     
     
     func updateView(comment: CommentResponse) {
-        
-        userImage.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + (comment.user!.avatar ?? "logo.jpg"))
-        userName.text = comment.user?.name
+        getUserInfor(userID: comment.user_id ?? "")
         cmtDate.text = NSObject().convertToString(date: comment.createDate ?? Date() , dateformat: DateFormatType.date)
         cmtRating.rating = comment.rating ??  0.0
         cmtTitle.text = comment.title
         cmtContent.text = comment.content
         
         customUI()
+    }
+    
+    func getUserInfor(userID: String) {
+        AuthServices.instance.getProfile(userID: userID) { (data) in
+            guard let data = data else { return }
+            
+            self.updateCommentView(user: data)
+        }
+    }
+    
+    func updateCommentView(user: UserResponse) {
+        userImage.loadImageFromFirebase(folder: ReferenceImage.user.rawValue + (user.avatar ?? "") )
+        userName.text = user.name
     }
     
     func customUI() {

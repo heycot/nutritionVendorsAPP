@@ -7,9 +7,9 @@
 //
 
 import Foundation
-
 struct ShopItemResponse: Decodable{
-    var id: Int?
+    var id: String?
+    var shop_id: String?
     var price: Double?
     var status: Int?
     var rating: Double?
@@ -18,17 +18,16 @@ struct ShopItemResponse: Decodable{
     var name: String?
     var shop_name: String?
     var avatar: String?
-    var love_status: Int?
-    var address: String?
-    var distance: String?
     var unit : String?
-    var shop: ShopResponse?
-    var documents: [DocumentResponse]?
-    var comments: [CommentResponse]?
+    var item_id: String?
+    var keywords: [String]?
+    var images : [String]?
+    var create_date: TimeInterval?
     
     // Constructor.
-    init(id: Int, price: Double, status: Int, rating: Double, comment_number: Int, favorites_number: Int, name: String, shop_name: String, avatar: String, love_status: Int, address: String, distance: String, unit : String, shop: ShopResponse, documents: [DocumentResponse], comments: [CommentResponse]) {
+    init(id: String, shop_id: String, price: Double, status: Int, rating: Double, comment_number: Int, favorites_number: Int, name: String, shop_name: String, avatar: String, unit : String, item_id: String, keywords: [String], images: [String]) {
         self.id = id
+        self.shop_id = shop_id
         self.price = price
         self.status = status
         self.rating = rating
@@ -37,16 +36,13 @@ struct ShopItemResponse: Decodable{
         self.name = name
         self.shop_name = shop_name
         self.avatar = avatar
-        self.love_status = love_status
-        self.address = address
-        self.distance = distance
         self.unit = unit
-        self.shop = shop
-        self.documents = documents
-        self.comments = comments
+        self.item_id = item_id
+        self.keywords = keywords
+        self.images = images
     }
     
     init() {
-        self.init(id: 0, price: 0.0, status: 1, rating: 0, comment_number: 0, favorites_number: 0, name: "", shop_name: "", avatar: "", love_status: 0, address: "", distance: "", unit: "", shop: ShopResponse(), documents: [], comments: [])
+        self.init(id: "", shop_id: "", price: 0.0, status: 1, rating: 0, comment_number: 0, favorites_number: 0, name: "", shop_name: "", avatar: "", unit: "", item_id: "", keywords: [], images: [])
     }
 }

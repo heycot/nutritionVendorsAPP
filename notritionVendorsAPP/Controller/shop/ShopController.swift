@@ -94,20 +94,20 @@ class ShopController: UIViewController {
                     self.listItem = data
                 }
                 
-                self.updateDistance(shops: self.listItem)
+//                self.updateDistance(shops: self.listItem)
                 self.currentList = self.listItem
                 self.tableView.reloadData()
             }
         }
     }
     
-    func updateDistance(shops: [ShopResponse]) {
-        guard let location = AuthServices.instance.currentLocation else { return }
-        
-        for i in 0 ..< listItem.count {
-            listItem[i].distance = ShopServices.shared.getDistance(shop: listItem[i], currlocation: location)
-        }
-    }
+//    func updateDistance(shops: [ShopResponse]) {
+//        guard let location = AuthServices.instance.currentLocation else { return }
+//
+//        for i in 0 ..< listItem.count {
+//            listItem[i].distance = listItem[i].getDistance(currlocation: location)
+//        }
+//    }
     
     func getShopInfor(id: Int) {
         ShopServices.shared.getOne(id: id) { (data) in
@@ -166,7 +166,8 @@ class ShopController: UIViewController {
 extension ShopController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        getShopInfor(id: listItem[indexPath.row].id!)
+//        getShopInfor(id: listItem[indexPath.row].id!)
+        getShopInfor(id: 0)
     }
 }
 

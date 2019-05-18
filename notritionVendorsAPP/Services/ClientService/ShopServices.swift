@@ -69,32 +69,6 @@ class ShopServices {
         }
     }
     
-    func getDistance(shop: ShopResponse, currlocation: CLLocation?) -> String {
-        var distance =  ""
-        guard let location = shop.location else { return "Unknown" }
-        guard let userLocation = currlocation else {  return "Unknown"  }
-        
-        let coordinate₀ = CLLocation(latitude: location.latitude ?? 0, longitude: location.longitude ?? 0)
-        
-        let distanceInMeters = coordinate₀.distance(from: userLocation)
-        if distanceInMeters < 1000 {
-            distance = String(format: " %.2f ", distanceInMeters) + " M"
-        } else {
-            distance = String(format: " %.2f ", distanceInMeters.inKilometers()) + " KM"
-        }
-        
-        return distance
-    }
-        
 }
 
 
-extension CLLocationDistance {
-    func inMiles() -> CLLocationDistance {
-        return self*0.00062137
-    }
-    
-    func inKilometers() -> CLLocationDistance {
-        return self/1000
-    }
-}

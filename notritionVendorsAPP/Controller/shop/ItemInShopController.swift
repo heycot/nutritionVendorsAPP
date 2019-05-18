@@ -42,10 +42,9 @@ class ItemInShopController: UIViewController {
     func viewShopInfor() {
         shopAvatar.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + shop.avatar!)
         shopName.text = shop.name
-        shopAddress.text = shop.location?.address
+        shopAddress.text = shop.address
         shopTimeOpen.text = shop.time_open! + " - " + shop.time_close!
-        shop.distance = ShopServices.shared.getDistance(shop: self.shop, currlocation: AuthServices.instance.currentLocation)
-        distance.text = (shop.distance ?? " Unknow ") + " (From current location)"
+        distance.text = shop.getDistance(currlocation: AuthServices.instance.currentLocation) + " (From current location)"
         openStatus.text = getOpenStatus(start: shop.time_open!, end: shop.time_close!)
         
         setupViewInfor()
@@ -96,7 +95,7 @@ class ItemInShopController: UIViewController {
     
     func loadDataFromAPI(offset: Int) {
         
-        ShopItemService.shared.findAllByShop(shopId: shop.id!, offset: offset) { data in
+        ShopItemService.shared.findAllByShop(shopId: 0, offset: offset) { data in
             guard let data = data else {return }
             
             if data.count == 0 {

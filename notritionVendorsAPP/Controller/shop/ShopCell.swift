@@ -34,13 +34,9 @@ class ShopCell: UITableViewCell {
         viewInMapBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: CGFloat(19.0))
         
         shopImage.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + shop.avatar!)
-        shopName.text = shop.name!
-        shopAddress.text = shop.location?.address!
-        if isNewest {
-            infor.text = shop.create_date?.timeAgoDisplay()
-        } else {
-            infor.text =  "Distance : " + (shop.distance ?? "500 m")
-        }
+        shopName.text = shop.name ?? ""
+        shopAddress.text = shop.address ?? ""
+        infor.text =  "Distance : " + shop.getDistance(currlocation: AuthServices.instance.currentLocation)
     }
     
 

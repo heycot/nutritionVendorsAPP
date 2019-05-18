@@ -14,7 +14,7 @@ class CommentServices {
     public static let shared = CommentServices()
     
     
-    func addNewComment(comment: Comment, completion: @escaping (CommentResponse?) -> Void) {
+    func addNewComment(comment: CommentResponse, completion: @escaping (CommentResponse?) -> Void) {
         let urlStr = BASE_URL + CommentAPI.addNew.rawValue
         
         let body = ["id": 0,
@@ -23,7 +23,8 @@ class CommentServices {
                     "rating": comment.rating,
                     "create_date": nil,
                     "status": 1,
-                    "shopitem_id": comment.shopItem_id,
+                    "shopitem_id": comment.shopitem_id,
+                    "shop_id": comment.shop_id,
                     "user_id": 0] as [String : Any?]
         
 //        let josn = try? JSONSerialization.jsonObject(with: body, options: [])
@@ -44,7 +45,7 @@ class CommentServices {
         }
     }
     
-    func editComment(comment: Comment, completion: @escaping (CommentResponse?) -> Void) {
+    func editComment(comment: CommentResponse, completion: @escaping (CommentResponse?) -> Void) {
         let urlStr = BASE_URL + CommentAPI.edit.rawValue
         
         let body = ["id": comment.id,
@@ -53,7 +54,7 @@ class CommentServices {
                     "rating": comment.rating,
                     "create_date": nil,
                     "status": 1,
-                    "shopitem_id": comment.shopItem_id,
+//                    "shopitem_id": comment.shopItem_id,
                     "user_id": 0] as [String : Any?]
         
         //        let josn = try? JSONSerialization.jsonObject(with: body, options: [])

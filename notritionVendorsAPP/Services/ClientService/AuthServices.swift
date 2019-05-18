@@ -157,7 +157,7 @@ class AuthServices {
         
     }
     
-    func editInfor(user: User, dateStr: String, completion: @escaping (UserResponse?) -> Void) {
+    func editInfor(user: UserResponse, dateStr: String, completion: @escaping (UserResponse?) -> Void) {
         
         let urlStr = BASE_URL + UserAPI.editInfor.rawValue + "/\(dateStr)"
         

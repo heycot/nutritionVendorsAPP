@@ -29,16 +29,14 @@ class MapCell: UITableViewCell {
     func updateView(shop: ShopResponse) {
         view.setBorderRadious(radious: 15)
         
-        guard let location = shop.location else { return }
-        address.text = location.address ?? ""
-        distance.text = ShopServices.shared.getDistance(shop: shop, currlocation: AuthServices.instance.currentLocation) + " (From current location)"
+        address.text = shop.address ?? ""
+        distance.text = shop.getDistance(currlocation: AuthServices.instance.currentLocation) + " (From current location)"
+        let location = CLLocation(latitude: shop.latitude ?? 0, longitude: shop.longitude ?? 0)
         
-        
-        viewMapFunc(lc: shop.location ?? LocationResponse())
+        viewMapFunc(location)
     }
     
-    func viewMapFunc(lc : LocationResponse) {
-        let location = CLLocation(latitude: lc.latitude ?? 0, longitude: lc.longitude ?? 0)
+    func viewMapFunc(_ location : CLLocation) {
         let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 17.0)
         
         mapView.camera = camera

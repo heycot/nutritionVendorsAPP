@@ -63,7 +63,6 @@ class ViewItemController: UIViewController {
                         
             self.item.documents = data.documents
             self.item.shop = data.shop
-            self.item.shop?.location = data.shop?.location
             
             self.prepareData()
         }

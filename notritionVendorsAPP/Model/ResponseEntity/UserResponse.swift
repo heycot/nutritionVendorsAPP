@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 class UserResponse:Decodable {
     var id: String?
     var name: String?
