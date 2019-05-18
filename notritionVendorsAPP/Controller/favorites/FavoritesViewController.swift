@@ -75,7 +75,7 @@ class FavoritesViewController: UIViewController {
     
     func loadDataFromAPI(offset: Int, isLoadMore: Bool) {
         
-        ShopItemService.shared.findAllLoved(offset: offset) { data in
+        ShopItemService.instance.findAllLoved(offset: offset) { data in
             guard let data = data else {return }
             
             // check listitem is already have

@@ -87,14 +87,14 @@ class HightRatingController: UIViewController {
     }
     
     func loadDataFromAPI(offset: Int) {
-        ShopItemService.shared.getHighRatingItem(offset: offset) { data in
+        
+        ShopItemService.instance.getHighRatingItem(offset: offset) { data in
             guard let data = data else {return }
             
             for item in data {
                 self.listItem.append(item)
             }
             self.currentListItem = self.listItem
-            self.activityIndicator.stopAnimating()
             self.itemCollection.reloadData()
         }
     }

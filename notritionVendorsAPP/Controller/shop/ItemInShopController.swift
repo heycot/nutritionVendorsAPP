@@ -95,7 +95,7 @@ class ItemInShopController: UIViewController {
     
     func loadDataFromAPI(offset: Int) {
         
-        ShopItemService.shared.findAllByShop(shopId: 0, offset: offset) { data in
+        ShopItemService.instance.findAllByShop(shopId: shop.id ?? "", offset: offset) { (data) in
             guard let data = data else {return }
             
             if data.count == 0 {

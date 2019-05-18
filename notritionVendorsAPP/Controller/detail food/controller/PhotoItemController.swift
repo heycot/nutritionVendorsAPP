@@ -13,14 +13,15 @@ class PhotoItemController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var photoNotification: UILabel!
     
-    var documents = [DocumentResponse]()
-    var imgArr: [CustomImageView] = [CustomImageView]()
+    var images = [String]()
+    var shopItemID = ""
+    var imgArr = [CustomImageView]()
     var indexForShow = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNotification()
-        self.title = "Photos (" + String(documents.count) + ")"
+        self.title = "Photos \(images.count )"
         self.navigationItem.backBarButtonItem?.title = "Back"
         setupData()
         
@@ -32,7 +33,7 @@ class PhotoItemController: UIViewController {
     }
     
     func setupNotification() {
-        if documents.count == 0 {
+        if images.count == 0 {
             photoNotification.textColor = APP_COLOR
             photoNotification.text = "No photo!"
             photoNotification.isHidden = false
@@ -40,9 +41,10 @@ class PhotoItemController: UIViewController {
     }
     
     func setupData() {
-        for item in documents {
+        for item in images {
             let image = CustomImageView()
-            image.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + item.link! )
+            let folder = ReferenceImage.shopItem.rawValue + shopItemID + "/\(item)"
+            image.loadImageFromFirebase(folder: folder)
             imgArr.append(image)
         }
     }
@@ -81,13 +83,13 @@ extension PhotoItemController: UICollectionViewDelegate, UICollectionViewDataSou
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return documents.count
+        return imgArr.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.photoItem.rawValue, for: indexPath) as! PhotoItemCell
         
-        cell.updateView(image: documents[indexPath.row].link!)
+        cell.updateView(image: imgArr[indexPath.row])
         
         return cell
     }

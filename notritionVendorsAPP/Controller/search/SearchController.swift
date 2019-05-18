@@ -110,15 +110,15 @@ class SearchController: UIViewController {
     }
     
     
-    func getShopItemResponse(id: Int) {
-        ShopItemService.shared.getOneDTOItem(id: id) { (data) in
+    func getShopItemResponse(id: String) {
+        ShopItemService.instance.getOneById(shop_item_id: id) { (data) in
             self.shopitem = data!
             self.performSegue(withIdentifier: SegueIdentifier.searchToDetaild.rawValue, sender: nil)
         }
     }
     
-    func getShopResponse(id: Int) {
-        ShopServices.shared.getOne(id: id) { (data) in
+    func getShopResponse(id: String) {
+        ShopServices.shared.getOne(id: 0) { (data) in
             self.shop = data!
             self.performSegue(withIdentifier: SegueIdentifier.searchToShop.rawValue, sender: nil)
         }
@@ -158,9 +158,9 @@ extension SearchController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if listItem[indexPath.row].is_shop! == 1 {
-            getShopResponse(id: listItem[indexPath.row].entity_id!)
+            getShopResponse(id: listItem[indexPath.row].entity_id ?? "")
         } else {
-            getShopItemResponse(id: listItem[indexPath.row].entity_id!)
+            getShopItemResponse(id: listItem[indexPath.row].entity_id ?? "")
         }
     }
     

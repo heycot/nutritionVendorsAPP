@@ -18,9 +18,6 @@ class NewCommentController: UIViewController {
     @IBOutlet weak var titleCmt: UITextField!
     @IBOutlet weak var content: UITextView!
     
-    var shopitemId = 0
-    var nameShop = ""
-    var addressShop = ""
     var isNew = true
     var shopItem = ShopItemResponse()
     var lastComment = CommentResponse()
@@ -29,8 +26,9 @@ class NewCommentController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(donePressed))
         
-        shopItemName.text = nameShop
-        address.text = addressShop
+        shopItemName.text = "Food : \(shopItem.name ?? "")" 
+        
+        address.text = "Shop : \( shopItem.shop_name ?? "")"
 
         setUpUI()
         handlerkeyboard()
@@ -42,16 +40,17 @@ class NewCommentController: UIViewController {
     }
     
     func getReviewOfUser() {
-        CommentServices.shared.getReviewOfUser(shopitemId: shopitemId) { data in
-            if data != nil || data!.id != nil {
+        CommentServices.instance.getCommentByUserAnShopItem(shopitemID: shopItem.id ?? "") { (data) in
+            if data == nil {
+                self.title = "Write review"
+            } else {
                 self.isNew = false
                 self.title = "Edit review"
                 self.lastComment = data!
                 self.viewLastComment(comment: data!)
-            } else {
-                self.title = "Write review"
             }
         }
+        
     }
 
     func viewLastComment(comment: CommentResponse) {
@@ -129,30 +128,32 @@ class NewCommentController: UIViewController {
             
             
             if isNew {
-                CommentServices.shared.addNewComment(comment: comment) { (data) in
+                CommentServices.instance.addOne(cmt: comment) { (data) in
                     guard let data = data else { return }
                     
-                    if data.id != nil {
-                        self.navigationController?.popViewController(animated: true)
-                    } else {
+                    if !data {
                         let alert = UIAlertController(title: Notification.comment.addCmtFailedTitle.rawValue, message: Notification.comment.addCmtFailedMessgae.rawValue, preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
                         alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
                         self.present(alert, animated: true)
+                    } else {
+                        self.navigationController?.popViewController(animated: true)
                     }
                 }
+                
             } else {
                 comment.id = self.lastComment.id!
-                CommentServices.shared.editComment(comment: comment) { (data) in
+                
+                CommentServices.instance.editOne(cmt: comment) { (data) in
                     guard let data = data else { return }
                     
-                    if data.id != nil {
-                        self.navigationController?.popViewController(animated: true)
-                    } else {
+                    if !data {
                         let alert = UIAlertController(title: Notification.comment.addCmtFailedTitle.rawValue, message: Notification.comment.addCmtFailedMessgae.rawValue, preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
                         alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
                         self.present(alert, animated: true)
+                    } else {
+                        self.navigationController?.popViewController(animated: true)
                     }
                 }
             }

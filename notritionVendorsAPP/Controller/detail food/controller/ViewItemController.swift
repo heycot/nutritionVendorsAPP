@@ -59,18 +59,18 @@ class ViewItemController: UIViewController {
     }
     
     func updateData() {
-        ShopItemService.shared.getOneItem(id: item.id ?? 0) { data in
+        ShopItemService.instance.getOneById(shop_item_id: item.id ?? "") { (data) in
             guard let data = data else {return }
-                        
-            self.item.documents = data.documents
-            self.item.shop = data.shop
+            
+            self.item = data
             
             self.prepareData()
         }
     }
     
     func updateComment(offset: Int) {
-        CommentServices.shared.getComments(shopitemId: item.id!, offset: offset) { data in
+        
+        CommentServices.instance.getCommentsByShopItem(shopItemID: item.id ?? "") { (data) in
             guard let data = data else {return }
             
             self.comments = data
@@ -84,9 +84,9 @@ class ViewItemController: UIViewController {
         appendItemValue(icon: Icon.time_icon.rawValue, value: (shop.time_open ?? ""  ) + " - " + (shop.time_close ?? ""))
 //        appendItemValue(icon: Icon.category_icon.rawValue, value: "Rau cu")
         appendItemValue(icon: Icon.shop_icon.rawValue, value: (shop.name ?? "" ))
-        appendItemValue(icon: Icon.picture.rawValue, value: String(item.documents!.count) + " photos")
+        appendItemValue(icon: Icon.picture.rawValue, value: "\(item.images?.count ?? 0) photos")
 //        appendItemValue(icon: Icon.address_icon.rawValue, value: (item.shop!.location!.address!  ))
-        appendItemValue(icon: Icon.phone_icon.rawValue, value: (item.shop!.phone ?? "" ))
+        appendItemValue(icon: Icon.phone_icon.rawValue, value: (shop.phone ?? "" ))
         
         setUPTableView()
         activityIndicatorView.stopAnimating()
@@ -112,14 +112,14 @@ class ViewItemController: UIViewController {
         
         if segue.destination is ViewLocationShopController  {
             let vc = segue.destination as? ViewLocationShopController
-            vc?.currentShop = item.shop ?? ShopResponse()
+            vc?.currentShop = shop
             vc?.isFromShop = false
             
             navigationItem.backBarButtonItem = backItem
             
         } else if segue.destination is PhotoItemController {
             let vc = segue.destination as? PhotoItemController
-            vc?.documents = item.documents!
+            vc?.images = item.images ?? []
             
             navigationItem.backBarButtonItem = backItem
             
@@ -130,7 +130,7 @@ class ViewItemController: UIViewController {
             
         } else if segue.destination is ItemInShopController {
             let vc = segue.destination as? ItemInShopController
-            vc?.shop = item.shop ?? ShopResponse()
+            vc?.shop = shop
             
             navigationItem.backBarButtonItem = backItem
             
@@ -139,9 +139,7 @@ class ViewItemController: UIViewController {
             
         } else if segue.destination is NewCommentController {
             let vc = segue.destination as? NewCommentController
-            vc?.nameShop = (item.name ?? "") + " - " + (item.shop?.name ?? "" )
-            vc?.addressShop = item.address ?? ""
-            vc?.shopitemId = item.id ?? 0
+            vc?.shopItem = item
             navigationItem.backBarButtonItem = backItem
         }
     }
@@ -171,19 +169,19 @@ class ViewItemController: UIViewController {
             self.present(alert, animated: true)
             
         } else {
-            FavoritesService.shared.loveOne(shopItemId: item.id!) { data in
-                guard let data = data else {return }
-                var loveIconName = ""
-                
-                if data.status! == 0 {
-                    self.numberFavorites.text = String(Int(self.numberFavorites.text!)! - 1)
-                    loveIconName = "unlove"
-                } else {
-                    self.numberFavorites.text = String(Int(self.numberFavorites.text!)! + 1)
-                    loveIconName = "loved"
-                }
-                self.loveBtn.setImage(UIImage(named: loveIconName), for: .normal)
-            }
+//            FavoritesService.shared.loveOne(shopItemId: item.id!) { data in
+//                guard let data = data else {return }
+//                var loveIconName = ""
+//
+//                if data.status! == 0 {
+//                    self.numberFavorites.text = String(Int(self.numberFavorites.text!)! - 1)
+//                    loveIconName = "unlove"
+//                } else {
+//                    self.numberFavorites.text = String(Int(self.numberFavorites.text!)! + 1)
+//                    loveIconName = "loved"
+//                }
+//                self.loveBtn.setImage(UIImage(named: loveIconName), for: .normal)
+//            }
         }
     }
     
@@ -268,7 +266,7 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
             case 1:
                 
                  let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.mapCell.rawValue, for: indexPath) as! MapCell
-                cell.updateView(shop: item.shop!)
+                cell.updateView(shop: shop )
                 return cell
             
             case 2:

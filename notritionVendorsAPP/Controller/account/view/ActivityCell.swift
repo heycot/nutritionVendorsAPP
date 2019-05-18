@@ -28,9 +28,9 @@ class ActivityCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func updateView(comment: CommentDTOResponse) {
+    func updateView(comment: CommentResponse) {
         activityImage.loadImageUsingUrlString(urlString: BASE_URL_IMAGE +  comment.entity_avatar!)
-        activityTitle.text = comment.entity_name!
+        activityTitle.text = comment.entity_name ?? ""
         contentTitle.text = comment.title!
         contentRating.text = String(format: "%0.2f", comment.rating!)
         contentDetail.text = comment.content!

@@ -21,7 +21,7 @@ class AccountDetailController: UIViewController {
     var detailCell = [String]()
     
     var user = UserResponse()
-    var listComment = [CommentDTOResponse]()
+    var listComment = [CommentResponse]()
     var isActivity = true
     
     override func viewDidLoad() {
@@ -89,7 +89,7 @@ class AccountDetailController: UIViewController {
     
     func getDataFromAPI(offset: Int, isLoadMore: Bool) {
         
-        CommentServices.shared.getReviewsDTOOfUser(offset: offset) { (data) in
+        CommentServices.instance.getAllCommentByUser { (data) in
             guard let data = data else { return }
             
             if isLoadMore {
@@ -120,10 +120,8 @@ class AccountDetailController: UIViewController {
             let vc = segue.destination as? NewCommentController
             let index = sender as! Int
             
-            vc?.lastComment = convertCommentDTOToComment(commentDto: listComment[index])
+            vc?.lastComment =  listComment[index]
             vc?.isNew = false
-            vc?.shopitemId = listComment[index].shopitem_id!
-            vc?.nameShop = listComment[index].entity_name!
         } else if segue.destination is ChangePasswordController {
             
         } else if segue.destination is EditInforUserController {
@@ -132,11 +130,6 @@ class AccountDetailController: UIViewController {
         }
     }
     
-    func convertCommentDTOToComment(commentDto : CommentDTOResponse) -> CommentResponse {
-//        return CommentResponse(id: commentDto.id!, title: commentDto.title!, content: commentDto.content!, create_date: commentDto.createDate!, user: user, rating: commentDto.rating!)
-        
-        return CommentResponse()
-    }
 }
 
 extension AccountDetailController: UITableViewDelegate, UITableViewDataSource {
@@ -205,12 +198,14 @@ extension AccountDetailController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
             
-            CommentServices.shared.deleteOne(id: listComment[indexPath.row].id!) { (data) in
+            CommentServices.instance.deleteOne(cmtID: listComment[indexPath.row].id ?? "") { (data) in
                 guard let data = data else { return }
                 
-                if data == 1 {
+                if data {
                     self.listComment.remove(at: indexPath.row)
                     self.tableView.deleteRows(at: [indexPath], with: .bottom)
+                } else {
+                    
                 }
             }
         }

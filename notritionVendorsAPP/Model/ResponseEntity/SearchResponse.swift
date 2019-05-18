@@ -9,8 +9,7 @@
 import Foundation
 
 struct SearchResponse: Decodable{
-    var id: Int?
-    var entity_id: Int?
+    var entity_id: String?
     var entity_name: String?
     var rating: Double?
     var comment_number: Int?
@@ -18,8 +17,7 @@ struct SearchResponse: Decodable{
     var is_shop: Int?
     var avatar: String?
     
-    init(id: Int, entity_id: Int, entity_name: String, rating: Double, comment_number: Int, address: String, is_shop: Int, avatar: String) {
-        self.id = id
+    init( entity_id: String, entity_name: String, rating: Double, comment_number: Int, address: String, is_shop: Int, avatar: String) {
         self.entity_id = entity_id
         self.entity_name = entity_name
         self.rating = rating
@@ -30,6 +28,6 @@ struct SearchResponse: Decodable{
     }
     
     init() {
-        self.init(id: 0, entity_id: 0, entity_name: "", rating: 0.0, comment_number: 0, address: "", is_shop: 0, avatar: "")
+        self.init(entity_id: "", entity_name: "", rating: 0.0, comment_number: 0, address: "", is_shop: 0, avatar: "")
     }
 }

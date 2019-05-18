@@ -19,6 +19,8 @@ class CommentResponse: Decodable {
     var update_date: TimeInterval?
     var rating: Double?
     var status: Int?
+    var entity_name: String?
+    var entity_avatar: String?
     
     var createDate: Date? {
         if let day = self.create_date {

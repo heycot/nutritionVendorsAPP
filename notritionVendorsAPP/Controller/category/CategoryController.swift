@@ -52,9 +52,7 @@ class CategoryController: UIViewController {
     }
     
     func loadDataFromAPI(offset: Int) {
-        startSpinnerActivity()
-        
-        ShopItemService.shared.findAllByCategory(categoryId: 0, offset: offset) { data in
+        ShopItemService.instance.findAllByCategory(categoryID: categoryId, offset: offset) { (data) in
             guard let data = data else {return }
             
             for item in data {
