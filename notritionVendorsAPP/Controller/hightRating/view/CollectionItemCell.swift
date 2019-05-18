@@ -20,8 +20,7 @@ class CollectionItemCell: UICollectionViewCell {
     func updateView(shopItemRe: ShopItemResponse) {
         setUpUI()
         
-        let urlStr = BASE_URL_IMAGE + shopItemRe.avatar! 
-        setupItemImage(urlStr: urlStr)
+        setupItemImage(id: shopItemRe.id ?? "", avatar: shopItemRe.avatar ?? "")
         itemName.text = shopItemRe.name! + " - " + shopItemRe.shop_name!
         
         itemRating.rating = shopItemRe.rating! 
@@ -34,7 +33,8 @@ class CollectionItemCell: UICollectionViewCell {
         itemRating.settings.updateOnTouch = false
     }
     
-    func setupItemImage(urlStr: String) {
-        itemImage.loadImageUsingUrlString(urlString: urlStr)
+    func setupItemImage(id: String, avatar: String) {
+        let folder = ReferenceImage.shopItem.rawValue + "\(id)/\(avatar)"
+        itemImage.loadImageFromFirebase(folder: folder)
     }
 }

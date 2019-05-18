@@ -18,7 +18,8 @@ class ShopItemService {
         let docRef = db.collection("shop_item")
         docRef.order(by: "comment_number", descending: true)
               .order(by: "rating", descending: true)
-        .limit(to: 20)
+            .start(at: [offset])
+            .limit(to: 20)
         
         docRef.getDocuments(completion: { (document, error) in
             if let document = document {
