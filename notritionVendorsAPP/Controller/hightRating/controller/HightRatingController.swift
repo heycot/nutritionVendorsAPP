@@ -313,7 +313,7 @@ extension HightRatingController {
                         print("save shop")
                         
                         let urlStr = BASE_URL + "shop-item/shop/\(item.id!)/0"
-                        //
+                        // 
                         NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
                             
                             guard let data = data else {return}
