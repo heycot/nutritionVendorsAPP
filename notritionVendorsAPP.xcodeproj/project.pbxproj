@@ -14,16 +14,6 @@
 		2300BE7C222D3658008E9101 /* ViewCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2300BE7A222D3658008E9101 /* ViewCommentCell.swift */; };
 		2300BE7D222D3658008E9101 /* ViewCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2300BE7B222D3658008E9101 /* ViewCommentCell.xib */; };
 		230E2DD22226431D00246392 /* LogInAndLogOut.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 230E2DD12226431D00246392 /* LogInAndLogOut.storyboard */; };
-		230E2DD822265A4700246392 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230E2DD722265A4700246392 /* User.swift */; };
-		230E2DDA2226650700246392 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230E2DD92226650700246392 /* Comment.swift */; };
-		230E2DDC222666F300246392 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230E2DDB222666F300246392 /* City.swift */; };
-		230E2DDE2226674200246392 /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230E2DDD2226674200246392 /* Area.swift */; };
-		230E2DE0222667EE00246392 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230E2DDF222667EE00246392 /* Location.swift */; };
-		230E2DE2222668C000246392 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230E2DE1222668C000246392 /* Item.swift */; };
-		230E2DE4222669F000246392 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230E2DE3222669F000246392 /* Document.swift */; };
-		230E2DE622266AEF00246392 /* ShopItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230E2DE522266AEF00246392 /* ShopItem.swift */; };
-		230E2DE822266BFE00246392 /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230E2DE722266BFE00246392 /* Shop.swift */; };
-		230E2DEA22266DDE00246392 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230E2DE922266DDE00246392 /* Favorites.swift */; };
 		230E2DED22267DCA00246392 /* CollectionItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230E2DEB22267DCA00246392 /* CollectionItemCell.swift */; };
 		231ABDAA2266DAE0006D6B01 /* NibDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ABDA92266DAE0006D6B01 /* NibDesignable.swift */; };
 		231ABDB72266DE0C006D6B01 /* LocationServicesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ABDB62266DE0C006D6B01 /* LocationServicesProtocol.swift */; };
@@ -146,16 +136,6 @@
 		2300BE7A222D3658008E9101 /* ViewCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCommentCell.swift; sourceTree = "<group>"; };
 		2300BE7B222D3658008E9101 /* ViewCommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewCommentCell.xib; sourceTree = "<group>"; };
 		230E2DD12226431D00246392 /* LogInAndLogOut.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogInAndLogOut.storyboard; sourceTree = "<group>"; };
-		230E2DD722265A4700246392 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		230E2DD92226650700246392 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
-		230E2DDB222666F300246392 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
-		230E2DDD2226674200246392 /* Area.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
-		230E2DDF222667EE00246392 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
-		230E2DE1222668C000246392 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		230E2DE3222669F000246392 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
-		230E2DE522266AEF00246392 /* ShopItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItem.swift; sourceTree = "<group>"; };
-		230E2DE722266BFE00246392 /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
-		230E2DE922266DDE00246392 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		230E2DEB22267DCA00246392 /* CollectionItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionItemCell.swift; sourceTree = "<group>"; };
 		231ABDA92266DAE0006D6B01 /* NibDesignable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibDesignable.swift; sourceTree = "<group>"; };
 		231ABDB62266DE0C006D6B01 /* LocationServicesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServicesProtocol.swift; sourceTree = "<group>"; };
@@ -606,23 +586,6 @@
 			path = search;
 			sourceTree = "<group>";
 		};
-		23A31BB2224088BD00FE2D69 /* BeanEntity */ = {
-			isa = PBXGroup;
-			children = (
-				230E2DE922266DDE00246392 /* Favorites.swift */,
-				230E2DD722265A4700246392 /* User.swift */,
-				230E2DD92226650700246392 /* Comment.swift */,
-				230E2DDB222666F300246392 /* City.swift */,
-				230E2DDD2226674200246392 /* Area.swift */,
-				230E2DDF222667EE00246392 /* Location.swift */,
-				230E2DE1222668C000246392 /* Item.swift */,
-				230E2DE3222669F000246392 /* Document.swift */,
-				230E2DE522266AEF00246392 /* ShopItem.swift */,
-				230E2DE722266BFE00246392 /* Shop.swift */,
-			);
-			path = BeanEntity;
-			sourceTree = "<group>";
-		};
 		23A31BB3224088DA00FE2D69 /* ResponseEntity */ = {
 			isa = PBXGroup;
 			children = (
@@ -728,7 +691,6 @@
 			children = (
 				23679F59228E874200F427DD /* firebaseEntity */,
 				23A31BB3224088DA00FE2D69 /* ResponseEntity */,
-				23A31BB2224088BD00FE2D69 /* BeanEntity */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -981,7 +943,6 @@
 				231ABDC22266E1B0006D6B01 /* mapRequestBodyDirections.swift in Sources */,
 				23679F5B228E875700F427DD /* CommentResponseFB.swift in Sources */,
 				2323C8B2223F5B8B00DA68CA /* ViewLocationShopController.swift in Sources */,
-				230E2DD822265A4700246392 /* User.swift in Sources */,
 				235B169F226C71F6001A6BB6 /* AccountCell.swift in Sources */,
 				23B6023F222E767E00FBBD79 /* ExtensionUIImage.swift in Sources */,
 				23679F6C228E915000F427DD /* ShopFirebase.swift in Sources */,
@@ -999,7 +960,6 @@
 				234B5CC822682B0B00E7E61F /* ShopMarkerView.swift in Sources */,
 				2352405222635191004B11CF /* AddCommentBtnCell.swift in Sources */,
 				235B169D226C2EEC001A6BB6 /* SearchServices.swift in Sources */,
-				230E2DE622266AEF00246392 /* ShopItem.swift in Sources */,
 				236A32B72258944500AA2410 /* FavoritesViewController.swift in Sources */,
 				235B16A3226C72AC001A6BB6 /* AccountController.swift in Sources */,
 				235A32B02224E9F200DE5B0E /* SignupController.swift in Sources */,
@@ -1010,7 +970,6 @@
 				23A31BB7224093F800FE2D69 /* ShopItemService.swift in Sources */,
 				231AE460222E28860082C06E /* DateTimeLibrary.swift in Sources */,
 				237DABF32261E37F00FE57FB /* SearchController.swift in Sources */,
-				230E2DDA2226650700246392 /* Comment.swift in Sources */,
 				2352404922632E7F004B11CF /* CategoryUITableCell.swift in Sources */,
 				231AF5CC225F2BE50057DD11 /* ShopController.swift in Sources */,
 				23614F1122560F7E00B5DD81 /* FavoritesService.swift in Sources */,
@@ -1020,7 +979,6 @@
 				2300BE7C222D3658008E9101 /* ViewCommentCell.swift in Sources */,
 				23D5080B224236D4005FB1AC /* ShopResponse.swift in Sources */,
 				23679F70228E922500F427DD /* ImageFirebase.swift in Sources */,
-				230E2DEA22266DDE00246392 /* Favorites.swift in Sources */,
 				2378E12D2247385700837883 /* DocumentResponse.swift in Sources */,
 				23B765422264A27400DC76F7 /* ItemInShopCell.swift in Sources */,
 				23A31BB5224088FD00FE2D69 /* ShopItemResponse.swift in Sources */,
@@ -1035,7 +993,6 @@
 				23679F74228E97AC00F427DD /* ItemFirebase.swift in Sources */,
 				231C5B6F224DCE5A00161534 /* PhotoItemController.swift in Sources */,
 				23679F63228E87E000F427DD /* ItemResponseFB.swift in Sources */,
-				230E2DE0222667EE00246392 /* Location.swift in Sources */,
 				2359CD6A225750A200C5D892 /* NotificationConstant.swift in Sources */,
 				235A32B52224EAB400DE5B0E /* ExtensionTextField.swift in Sources */,
 				23679F6E228E919A00F427DD /* ShopItemFirebase.swift in Sources */,
@@ -1043,7 +1000,6 @@
 				235A32B72224EB6400DE5B0E /* ExtensionStackView.swift in Sources */,
 				236A32B92258945F00AA2410 /* FavoritesCell.swift in Sources */,
 				2352404E22634E33004B11CF /* ActionCell.swift in Sources */,
-				230E2DE2222668C000246392 /* Item.swift in Sources */,
 				23E6FD75224B5479001C72B2 /* ExtentionDouble.swift in Sources */,
 				23D02E612223799300882742 /* AppDelegate.swift in Sources */,
 				2381B646225B0185004DAA64 /* CategoryServices.swift in Sources */,
@@ -1051,15 +1007,12 @@
 				23679F61228E87C100F427DD /* ShopItemResponseFB.swift in Sources */,
 				23D5080922423637005FB1AC /* LocationResponse.swift in Sources */,
 				23B7653E22642F4300DC76F7 /* NewCommentController.swift in Sources */,
-				230E2DDC222666F300246392 /* City.swift in Sources */,
 				236A5A83225B455F005C27E8 /* HeaderCollectionCell.swift in Sources */,
 				235A32BD2224F51500DE5B0E /* AccountDetailController.swift in Sources */,
 				2352404B22632E99004B11CF /* CategoryController.swift in Sources */,
 				23EAA4472246638300A30E98 /* UserResponse.swift in Sources */,
 				2381B644225AFDE0004DAA64 /* CategoryResponse.swift in Sources */,
 				231ABDBA2266DF4D006D6B01 /* MapManager.swift in Sources */,
-				230E2DDE2226674200246392 /* Area.swift in Sources */,
-				230E2DE822266BFE00246392 /* Shop.swift in Sources */,
 				2323D6AD2269B4160005E104 /* MapCell.swift in Sources */,
 				2373EB9A226D80F500D779F2 /* InforCell.swift in Sources */,
 				2320C6F22251C7C700A2C328 /* DetailPhotoController.swift in Sources */,
@@ -1078,7 +1031,6 @@
 				23679F6A228E8E1400F427DD /* UserFirebase.swift in Sources */,
 				2300BE78222D34B2008E9101 /* GeneralValueCell.swift in Sources */,
 				23679F782290042F00F427DD /* ImageServices.swift in Sources */,
-				230E2DE4222669F000246392 /* Document.swift in Sources */,
 				231AF5D0225F4EA10057DD11 /* ShopServices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
