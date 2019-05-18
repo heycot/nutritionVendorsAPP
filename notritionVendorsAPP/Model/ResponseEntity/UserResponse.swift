@@ -8,20 +8,15 @@
 
 import Foundation
 class UserResponse:Decodable {
-    var id: Int?
+    var id: String?
     var name: String?
     var email: String?
     var phone: String?
-    var password: String?
-    var birthday: Double?
+    var birthday: TimeInterval?
     var avatar: String?
     var address: String?
-    var create_date: Double?
+    var create_date: TimeInterval?
     var status: Int?
-    var token: String?
-    var shops: [ShopResponse]?
-    var comments: [CommentResponse]?
-    var favorites: [FavoritesResponse]?
     
     var birthdayDate: Date? {
         if let day = self.birthday {
@@ -39,24 +34,19 @@ class UserResponse:Decodable {
     }
     
     
-    init(id: Int, name: String, email: String, phone: String, password: String, birthday: Date, avatar: String, address: String, create_date: Date, status: Int, token: String, shops: [ShopResponse], comments: [CommentResponse], favorites: [FavoritesResponse]) {
+    init( id: String, name: String, email: String, phone: String,  birthday: TimeInterval, avatar: String, address: String, create_date: TimeInterval, status: Int) {
         self.id = id
         self.name = name
         self.email = email
         self.phone = phone
-        self.password = password
-        self.birthday = birthday.timeIntervalSince1970
+        self.birthday = birthday
         self.avatar = avatar
         self.address = address
-        self.create_date = create_date.timeIntervalSince1970
+        self.create_date = create_date
         self.status = status
-        self.token = token
-        self.shops = shops
-        self.comments = comments
-        self.favorites = favorites
     }
     
     convenience init() {
-        self.init(id: 0, name: "", email: "", phone: "", password: "", birthday: Date(), avatar: "", address: "", create_date: Date(), status: 0, token: "", shops: [], comments: [], favorites: [])
+        self.init( id: "", name: "", email: "", phone: "",  birthday: Date().timeIntervalSince1970, avatar: "", address: "", create_date: Date().timeIntervalSince1970, status: 0)
     }
 }

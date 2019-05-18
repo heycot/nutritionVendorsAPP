@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 struct AccountProperty {
     var icon : String
@@ -35,7 +36,8 @@ class AccountController: UIViewController {
     
     func getUserInfor() {
         if AuthServices.instance.isLoggedIn {
-            AuthServices.instance.getInforUser() { data in
+            let userId = Auth.auth().currentUser?.uid
+            AuthServices.instance.getProfile(userID: userId!) { (data) in
                 guard let data = data else { return }
                 
                 self.user = data
@@ -109,8 +111,8 @@ extension AccountController : UITableViewDelegate {
                 performSegue(withIdentifier: SegueIdentifier.accountToLogin.rawValue, sender: nil)
             }
         } else if indexPath.section == 3 && indexPath.row == 2 {
-            AuthServices.instance.authToken = ""
-            AuthServices.instance.isLoggedIn = false
+//            AuthServices.instance.authToken = ""
+//            AuthServices.instance.isLoggedIn = false
             tableView.reloadData()
         }
     }

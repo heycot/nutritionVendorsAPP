@@ -7,10 +7,9 @@
 //
 
 import Foundation
-import Alamofire
-import SwiftyJSON
 import CoreLocation
 import UIKit
+import Firebase
 
 class AuthServices {
     static let instance = AuthServices()
@@ -19,138 +18,143 @@ class AuthServices {
     var currentLocation : CLLocation? // = CLLocation(latitude: 16.056214, longitude:  108.217154)
     
     
-    var listitem = [ItemF]()
-    var listshop = [ShopF]()
-    var cate = [Cate]()
-    
     var isLoggedIn : Bool {
         get {
-            return defaults.bool(forKey: LOGGED_IN_KEY)
-        }
-        
-        set {
-            defaults.set(newValue, forKey: LOGGED_IN_KEY)
-        }
-    }
-    
-    var authToken : String {
-        get {
-            return defaults.value(forKey: TOKEN_KEY) as! String
-        }
-        
-        set {
-            defaults.set(newValue, forKey: TOKEN_KEY)
+            return (Auth.auth().currentUser != nil)
         }
     }
     
     var userEmail : String {
-        get {
-            return defaults.value(forKey: USER_EMAIL) as! String
-        }
-        
-        set {
-            defaults.set(newValue, forKey: USER_EMAIL)
-        }
+        return (Auth.auth().currentUser?.email ?? "")
+    }
+    
+    var authToken : String {
+        return (Auth.auth().currentUser?.refreshToken ?? "")
     }
     
     
-    func registerUser(user: User, image: UIImage, completion: @escaping (UserResponse?) -> Void) {
-        var urlStr = BASE_URL + UserAPI.register.rawValue
-        
-        let body = ["id": 0,
-                    "user_name": user.name,
-                    "email": user.email,
-                    "phone": user.phone,
-                    "password": user.password,
-                    "birthday": nil,
-                    "address": "",
-                    "avatar": user.avatar,
-                    "create_date": nil,
-                    "status": 1,
-                    "token": ""
-            ] as [String : Any?]
-        
-        let jsonData = try? JSONSerialization.data(withJSONObject: body)
-        
-        let imgData = image.jpegData(compressionQuality: 0.2)!
-        let imgDataEncode = imgData.base64EncodedData()
-        
-        
-        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "POST", jsonBody: jsonData, parameters: nil) { (data) in
-            guard let data = data else {return}
-            do {
+    func signup(name: String, email: String, password: String, completion: @escaping (Bool?) -> Void) {
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if let err = error {
+                print(err.localizedDescription)
+            }
+            else{
+                let date = Date().timeIntervalSince1970
+                let userProfile = ["name": name,
+                                   "email": email,
+                                   "phone": "",
+                                   "birthday": 0,
+                                   "create_date": date,
+                                   "address": "" ] as [String : Any]
                 
-                let userResponse = try JSONDecoder().decode(UserResponse.self, from: data)
-                
-                DispatchQueue.main.async {
-                    urlStr = BASE_URL + "/user/upload"
-                    NetworkingClient.shared.uploadImage(urlStr: urlStr, method: "POST", jsonBody: nil, fileData: imgDataEncode, parameters: nil) { (data) in
-                        
-                        guard data != nil else {return}
-                        
-                        DispatchQueue.main.async {
-                            completion(userResponse)
-                        }
+                let db = Firestore.firestore()
+                db.collection("user_profile").document(authResult!.user.uid).setData(userProfile) { err in
+                    var result = true
+                    if let err = err {
+                        result = false
+                        print("Error writing document: \(err)")
+                    } else {
+                        print("Document successfully written!")
+                        //Đoạn này em có thể lưu user profile vào user default rồi nhảy tiếp qua home screen
+                        //Ở bước này thì em có thể lưu user email, user name, user avatar. Hết. Ko đc lưu mật khẩu nha
+                    }
+                    
+                    DispatchQueue.main.async {
+                        completion(result)
                     }
                 }
-            } catch let jsonError {
-                print("Error serializing json:", jsonError)
-            }
-        }
-    }
-    
-    func loginUser(email: String, password: String, completion: @escaping (UserResponse?) -> Void) {
-        
-        let lowerCaseEmail = email.lowercased()
-        let urlStr = BASE_URL + UserAPI.login.rawValue
-        
-        let body = ["id": 0,
-                    "user_name": "",
-                    "email": lowerCaseEmail,
-                    "phone": "",
-                    "password": password,
-                    "birthday": nil,
-                    "address": "",
-                    "avatar": "",
-                    "create_date": nil,
-                    "status": 1,
-                    "token": ""] as [String : Any?]
-        
-        let jsonData = try? JSONSerialization.data(withJSONObject: body)
-        
-        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "POST", jsonBody: jsonData, parameters: nil) { (data ) in
-
-            guard let data = data else {return}
-            do {
-
-                let userResponse = try JSONDecoder().decode(UserResponse.self, from: data)
-                DispatchQueue.main.async {
-                    completion(userResponse)
-                }
-            } catch let jsonError {
-                print("Error serializing json:", jsonError)
-            }
-        }
-    }
-    
-    func getInforUser( completion: @escaping (UserResponse?) -> Void) {
-        
-        let urlStr = BASE_URL + UserAPI.getInfor.rawValue
-        
-        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
-            
-            guard let data = data else {return}
-            do {
                 
-                let decoder = JSONDecoder()
-                let userResponse = try decoder.decode(UserResponse.self, from: data)
-                DispatchQueue.main.async {
-                    completion(userResponse)
-                }
-            } catch let jsonError {
-                print("Error serializing json:", jsonError)
             }
         }
+    }
+    
+    func signin(email: String, password: String, completion: @escaping (Bool?) -> Void){
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+            
+            if error != nil {
+                DispatchQueue.main.async {
+                    completion(false)
+                }
+            } else {
+                if let user = authResult?.user {
+                    let uid = user.uid
+                    
+                    //Truy cập vào user_profile để lấy user profile với uid
+                    let db = Firestore.firestore()
+                    let docRef = db.collection("user_profile").document(uid)
+                    
+                    docRef.getDocument(completion: { (document, error) in
+                        if let document = document, document.exists {
+                            let jsonData = try? JSONSerialization.data(withJSONObject: document.data() as Any)
+                            do {
+                                _ = try JSONDecoder().decode(UserResponse.self, from: jsonData!)
+                            } catch let jsonError {
+                                print("Error serializing json:", jsonError)
+                            }
+                            
+                            DispatchQueue.main.async {
+                                completion(true)
+                            }
+                        } else {
+                            print("User have no profile")
+                        }
+                    })
+                }
+            }
+        }
+    }
+    
+    
+    func getProfile(userID: String, completion: @escaping (UserResponse?) -> Void){
+        
+        let db = Firestore.firestore()
+        let docRef = db.collection("user_profile").document(userID)
+        
+        docRef.getDocument(completion: { (document, error) in
+            if let document = document, document.exists {
+                let jsonData = try? JSONSerialization.data(withJSONObject: document.data() as Any)
+                do {
+                    let user = try JSONDecoder().decode(UserResponse.self, from: jsonData!)
+                    user.id = document.documentID
+                    
+                    DispatchQueue.main.async {
+                        completion(user)
+                    }
+                } catch let jsonError {
+                    print("Error serializing json:", jsonError)
+                }
+                
+            } else {
+                print("User have no profile")
+            }
+        })
+    }
+    
+    func edit(user: UserResponse, completion: @escaping (Bool?) -> Void){
+        let userID = Auth.auth().currentUser!.uid
+        
+        let db = Firestore.firestore()
+        
+        let userProfile = ["name": user.name as Any,
+                           "avatar": user.avatar as Any,
+                           "phone": user.phone as Any,
+                           "birthday": user.birthday as Any,
+                           "address": user.address as Any ] as [String : Any]
+        
+        db.collection("user_profile").document(userID).updateData(userProfile) { err in
+            var result = true
+            if let err = err {
+                result = false
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
+            }
+            
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }
+        
     }
     
     func editInfor(user: User, dateStr: String, completion: @escaping (UserResponse?) -> Void) {
@@ -222,10 +226,5 @@ class AuthServices {
         }
     }
     
-    func saveUserLogedIn(user : UserResponse?) {
-        isLoggedIn = true
-        authToken = user!.token ?? ""
-        authToken = user!.email ?? ""
-    }
     
 }

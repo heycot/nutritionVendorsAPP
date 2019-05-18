@@ -61,27 +61,29 @@ class EditInforUserController: UIViewController {
             return
         }
         
-        let userEdit = User()
+        let userEdit = UserResponse()
         userEdit.id = user.id
         userEdit.name = nameStr
         userEdit.phone = phoneTxt.text
-//        userEdit.birthday = convertToDate(dateString: birthdayTxt.text!)
+        userEdit.birthday = convertToDate(dateString: birthdayTxt.text!).timeIntervalSince1970
         userEdit.address = addressTxt.text
         
-        AuthServices.instance.editInfor(user: userEdit, dateStr: birthdayTxt.text!) { (data) in
+        AuthServices.instance.edit(user: userEdit) { (data) in
             guard let data = data else { return }
             
-            if data.id != nil {
-                self.notification.text = "Update successful"
-                self.notification.isHidden = false
-                self.user = data
-                self.viewInfor()
-                self.reloadInputViews()
-            } else {
+            if !data {
+                
                 self.notification.text = "Something went wrong. Please try again."
                 self.notification.isHidden = false
+                
+            } else {
+                self.notification.text = "Update successful"
+                self.notification.isHidden = false
+                self.viewInfor()
+                self.reloadInputViews()
             }
         }
+        
     }
     
 }

@@ -42,24 +42,15 @@ class LoginController: UIViewController {
 
         } else {
             
-            AuthServices.instance.loginUser(email: emailTF.text!, password: passwordTF.text!) { (user) in
-                guard let user = user else {
-                    return
-                    
-                }
+            AuthServices.instance.signin(email: emailTF.text!, password: passwordTF.text!) { (data) in
+                guard let data = data else { return }
                 
-                if user.id == nil {
+                if !data {
                     let alert = UIAlertController(title: "Can not log in!", message: "Your email and password do not match any account.", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
                     alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
                     self.present(alert, animated: true)
                 } else {
-                    
-                    //set up is logined
-                    AuthServices.instance.isLoggedIn = true
-                    AuthServices.instance.authToken = user.token!
-                    AuthServices.instance.userEmail = user.email!
-                    
                     self.navigationController?.popViewController(animated: true)
                 }
             }

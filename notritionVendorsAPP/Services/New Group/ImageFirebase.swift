@@ -9,8 +9,9 @@
 //
 
 import Foundation
-import FirebaseFirestore
 import Firebase
+import FirebaseStorage
+
 
 
 class ImageFirebase {
@@ -20,7 +21,8 @@ class ImageFirebase {
         // Points to the root reference
         let storageRef = Storage.storage().reference()
 
-        let data = image.jpeg(UIImage.JPEGQuality.lowest)
+        let data = image.jpegData(compressionQuality: 0.25)
+//        let data = image.jpeg(UIImage.JPEGQuality.lowest)
 
         // Create a reference to the file you want to upload
         let riversRef = storageRef.child("images/" + reference)

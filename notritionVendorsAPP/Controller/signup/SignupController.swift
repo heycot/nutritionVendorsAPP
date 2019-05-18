@@ -23,13 +23,12 @@ class SignupController: UIViewController {
     @IBOutlet weak var detailNotifi : UILabel!
     
     // variables
-    var user: User?
+    var user = User()
     var image : UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        user = User()
-        user?.avatar = "logo.jpg"
+        user.avatar = "logo.jpg"
         setUpUI()
     }
     
@@ -56,22 +55,25 @@ class SignupController: UIViewController {
             spinner.startAnimating()
             
             if image == nil {
-                image = UIImage(named: (user?.avatar!)!)
+                image = UIImage(named: user.avatar!)
             }
             
-            AuthServices.instance.registerUser(user: self.user!, image: image!) { (data) in
-                guard let user = data else { return }
+            AuthServices.instance.signup(name: user.name ?? "", email: user.email ?? "", password: user.password ?? "") { (data) in
+                guard let data = data else { return }
                 
-                if user.id != nil {
-                    AuthServices.instance.loginUser(email: self.emailTxt.text!, password: self.passTxt.text!, completion: { (data) in
+                if !data {
+                    self.notification.text = "Signup failed"
+                    self.detailNotifi.text = "Something went wrong. Please try again"
+                } else {
+                    AuthServices.instance.signin(email: self.user.email, password: self.user.password, completion: { (data) in
                         guard let data = data else { return }
-                        
-                        AuthServices.instance.saveUserLogedIn(user: data)
-                        self.spinner.stopAnimating()
-                        self.backTwoViewController()
+                        if data {
+                            self.backTwoViewController()
+                        }
                     })
                 }
             }
+            
         }
         
     }
@@ -106,9 +108,9 @@ class SignupController: UIViewController {
             return false
         }
         
-        self.user?.name = name
-        self.user?.email = email
-        self.user?.password = password
+        self.user.name = name
+        self.user.email = email
+        self.user.password = password
         return true
     }
     
@@ -188,13 +190,7 @@ extension SignupController : UIImagePickerControllerDelegate, UINavigationContro
         }
         
         if (fileName != "") {
-//            let fileManager = FileManager.default
-//            let paths = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(fileName)
-//            print(paths)
-//            let imageData = selectedImage.jpegData(compressionQuality: 0.75)
-//            fileManager.createFile(atPath: paths as String, contents: imageData, attributes: nil)
-            
-            user?.avatar = fileName
+            user.avatar = fileName
             self.image = selectedImage
             self.dismisHandle()
             self.avatarImage.image = selectedImage
