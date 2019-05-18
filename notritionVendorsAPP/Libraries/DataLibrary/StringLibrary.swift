@@ -107,6 +107,7 @@ extension String {
     }
     
     
+    
     static func getImageFormatFromUrl(url : URL) -> String {
         
         if url.absoluteString.hasSuffix("JPG") {

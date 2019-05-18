@@ -10,6 +10,7 @@ import UIKit
 import CCBottomRefreshControl
 import GoogleMaps
 import Firebase
+import PKHUD
 
 class HightRatingController: UIViewController {
 
@@ -25,7 +26,6 @@ class HightRatingController: UIViewController {
     
     // variables
     var listItem = [ShopItemResponse] ()
-    var currentListItem = [ShopItemResponse]()
     var listCategory = [CategoryResponse]()
     
     let headerId = "HeaderID"
@@ -42,17 +42,18 @@ class HightRatingController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCurrentLocation()
-        setUpCollectionView()
-        registerHeader()
-
-        resultSearchNotification.isHidden = true
-        activityIndicator.color = APP_COLOR
-        activityIndicator.startAnimating()
-
-        navigationController?.navigationBar.barTintColor = APP_COLOR
-        findAllCategory()
-        loadDataFromAPI(offset: 0)
+        saveiamge()
+//        setupCurrentLocation()
+//        setUpCollectionView()
+//        registerHeader()
+//
+//        resultSearchNotification.isHidden = true
+//        activityIndicator.color = APP_COLOR
+//        activityIndicator.startAnimating()
+//
+//        navigationController?.navigationBar.barTintColor = APP_COLOR
+//        findAllCategory()
+//        loadDataFromAPI(offset: 0)
     }
     
     func setupCurrentLocation() {
@@ -78,6 +79,7 @@ class HightRatingController: UIViewController {
     }
     
     func findAllCategory() {
+        HUD.flash(.success, delay: 1.5)
         CategoryService.instance.findAll { (data) in
             guard let data = data else { return }
             
@@ -94,7 +96,6 @@ class HightRatingController: UIViewController {
             for item in data {
                 self.listItem.append(item)
             }
-            self.currentListItem = self.listItem
             self.itemCollection.reloadData()
         }
     }
@@ -110,7 +111,7 @@ class HightRatingController: UIViewController {
         if segue.destination is ViewItemController {
             let vc = segue.destination as? ViewItemController
             let index = sender as! Int
-            vc?.item = currentListItem[index]
+            vc?.item = listItem[index]
             
         } else if segue.destination is SearchController {
             _ = segue.destination as? SearchController
@@ -149,7 +150,7 @@ extension HightRatingController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return section == 0 ? listCategory.count : currentListItem.count
+        return section == 0 ? listCategory.count : listItem.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -160,7 +161,7 @@ extension HightRatingController: UICollectionViewDelegate, UICollectionViewDataS
                 return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.highRatingItem.rawValue, for: indexPath) as! CollectionItemCell
-            cell.updateView(shopItemRe: currentListItem[indexPath.row])
+            cell.updateView(shopItemRe: listItem[indexPath.row])
             return cell
         }
     }
@@ -264,3 +265,107 @@ extension HightRatingController : LocationServicesProtocol {
     }
 }
 
+extension HightRatingController {
+    func saveiamge() {
+        let db = Firestore.firestore()
+        let docRef = db.collection("shop_item")
+        
+        docRef.getDocuments(completion: { (document, error) in
+            if let document = document {
+                print(document.documents)
+                var shopList = [ShopItemResponseFB]()
+                for shopDoct in document.documents{
+                    let jsonData = try? JSONSerialization.data(withJSONObject: shopDoct.data() as Any)
+                    do {
+                        var shop = try JSONDecoder().decode(ShopItemResponseFB.self, from: jsonData!)
+                        shop.id = shopDoct.documentID
+                        shopList.append(shop)
+                        
+                        
+                        let usrl = BASE_URL + "document/\(shop.oldid!)"
+                        NetworkingClient.shared.requestJson(urlStr: usrl, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
+                            guard let data = data else {return}
+                            do {
+                                var avat = ""
+                                var ima = [UIImage]()
+                                var images = [String]()
+                                let items = try JSONDecoder().decode([Document].self, from: data)
+                                for item in items {
+                                    if item.priority == 1 {
+                                        avat = item.link!
+                                        images.append(avat)
+                                    } else {
+                                        images.append(item.link!)
+                                    }
+                                    
+                                    let u = BASE_URL_IMAGE + item.link!
+                                    guard let urls = URL(string: u) else { return }
+                                    URLSession.shared.dataTask(with: urls, completionHandler: { (data, respones, error) in
+                                        
+                                        if error != nil {
+                                            print(error ?? "")
+                                            return
+                                        }
+                                        
+                                        
+                                        DispatchQueue.main.async {
+                                            guard let data = data else { return }
+                                            guard let imageToCache = UIImage(data: data) else { return }
+                                            ima.append(imageToCache)
+                                        }
+                                        
+                                    }).resume()
+                                }
+                                
+                                DispatchQueue.main.async {
+                                    let db = Firestore.firestore()
+                                    
+                                    let values = ["avatar": avat,
+                                                  "images": images] as [String : Any]
+                                    
+                                    db.collection("shop_item").document(shop.id!).updateData(values) { err in
+                                        var result = true
+                                        if let err = err {
+                                            result = false
+                                            print("Error writing document: \(err)")
+                                        } else {
+                                            print("Document successfully written!")
+                                            
+                                            for i in 0 ..< images.count {
+                                                let foler = ReferenceImage.shopItem.rawValue + shop.id! + "/\(i)"
+                                                
+                                                ImageServices.instance.uploadMedia(image: ima[i], reference: foler, completion: { (data) in
+                                                    print("save image success")
+                                                })
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                                
+                            }catch let err {
+                                
+                            }
+                            
+                        }
+                        
+                        
+                    }
+                    catch let jsonError {
+                        print("Error serializing json:", jsonError)
+                    }
+                }
+                
+            } else {
+                print("User have no profile")
+            }
+        })
+    }
+}
+
+
+class Document : Decodable {
+    var id: Int?
+    var link : String?
+    var priority: Int?
+}
