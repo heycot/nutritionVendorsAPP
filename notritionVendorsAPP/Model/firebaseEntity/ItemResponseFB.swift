@@ -9,6 +9,7 @@
 import Foundation
 
 class ItemResponseFB :Decodable {
+    var oldid: Int?
     var id: String?
     var name: String?
     var unit: String?

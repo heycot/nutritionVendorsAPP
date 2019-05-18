@@ -25,4 +25,5 @@ target 'notritionVendorsAPP' do
     pod 'Firebase/Firestore'
     pod 'Firebase/Analytics'
     pod 'Firebase/Auth'
+    pod 'Firebase/Storage'
 end

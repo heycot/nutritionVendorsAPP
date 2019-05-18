@@ -8,14 +8,14 @@
 
 import Foundation
 
-public class Document {
-    var id: Int
-    var shopItem_id: Int
+public class Document: Decodable {
+    var id: Int?
+    var priority: Int?
     var link: String
     
     init(id: Int, shopItem_id: Int, link: String) {
         self.id = id
-        self.shopItem_id = shopItem_id
+        self.priority = shopItem_id
         self.link = link
     }
     

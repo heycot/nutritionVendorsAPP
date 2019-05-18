@@ -10,6 +10,7 @@ import Foundation
 
 
 struct ShopItemResponseFB: Decodable{
+    var oldid : Int?
     var id: String?
     var shop_id: String?
     var price: Double?

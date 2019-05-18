@@ -267,6 +267,89 @@ extension HightRatingController : LocationServicesProtocol {
 
 extension HightRatingController {
     
+    func saveiamge() {
+        let db = Firestore.firestore()
+        let docRef = db.collection("shop_item")
+        
+        docRef.getDocuments(completion: { (document, error) in
+            if let document = document {
+                print(document.documents)
+                var shopList = [ShopItemResponseFB]()
+                for shopDoct in document.documents{
+                    let jsonData = try? JSONSerialization.data(withJSONObject: shopDoct.data() as Any)
+                    do {
+                        var shop = try JSONDecoder().decode(ShopItemResponseFB.self, from: jsonData!)
+                        shop.id = shopDoct.documentID
+                        shopList.append(shop)
+                    
+                        
+                        let usrl = BASE_URL + "document/\(shop.oldid!)"
+                        NetworkingClient.shared.requestJson(urlStr: usrl, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
+                            guard let data = data else {return}
+                            do {
+                                var avat = ""
+                                var images = [String]()
+                                let items = try JSONDecoder().decode([Document].self, from: data)
+                                for item in items {
+                                    if item.priority == 1 {
+                                        avat = item.link
+                                    }
+                                    images.append(item.link)
+                                    
+                                    let u = BASE_URL_IMAGE + item.link
+                                    guard let urls = URL(string: u) else { return }
+                                    URLSession.shared.dataTask(with: urls, completionHandler: { (data, respones, error) in
+                                        
+                                        if error != nil {
+                                            print(error ?? "")
+                                            return
+                                        }
+                                        
+                                    
+                                        DispatchQueue.main.async {
+                                            guard let data = data else { return }
+                                            guard let imageToCache = UIImage(data: data) else { return }
+                                            
+                                            ImageFirebase.instance.up
+                                        }
+                                        
+                                    }).resume()
+                                }
+                                
+                                let db = Firestore.firestore()
+                                
+                                let values = ["avatar": avat,
+                                              "images": images] as [String : Any]
+                                
+                                db.collection("shop_item").document(shop.id!).updateData(values) { err in
+                                    var result = true
+                                    if let err = err {
+                                        result = false
+                                        print("Error writing document: \(err)")
+                                    } else {
+                                        print("Document successfully written!")
+                                    }
+                                }
+                                
+                            }catch let err {
+                                
+                            }
+                            
+                        }
+                        
+                        
+                    }
+                    catch let jsonError {
+                        print("Error serializing json:", jsonError)
+                    }
+                }
+
+            } else {
+                print("User have no profile")
+            }
+        })
+    }
+    
     func firebase() {
         
         let urlStr = BASE_URL + "shop/offset/0"
@@ -283,6 +366,7 @@ extension HightRatingController {
                     let key = String.gennerateKeywords([item.name ?? "", item.location?.address ?? ""])
                     let db = Firestore.firestore()
                     let shop = [
+                        "oldid": item.id as Any,
                         "address": item.location?.address as Any,
                         "avatar": "",
                         "create_date": Date().timeIntervalSince1970,
@@ -311,6 +395,7 @@ extension HightRatingController {
                             return
                         }
                         print("save shop")
+                        let shopId = ref?.documentID
                         
                         let urlStr = BASE_URL + "shop-item/shop/\(item.id!)/0"
                         // 
@@ -340,12 +425,13 @@ extension HightRatingController {
                                                     
                                                     let key = String.gennerateKeywords([i.name ?? "", i.address ?? "", i.shop_name ?? ""])
                                                     let s = ["name": i.name as Any,
+                                                             "oldid": i.id as Any,
                                                                 "avatar": i.avatar ?? "logo" as Any,
                                                                 "comment_number": i.comment_number,
                                                                 "favorites_number": i.favorites_number,
                                                                 "create_date": Date().timeIntervalSince1970,
                                                                 "rating": i.rating,
-                                                                "shop_id": ref?.documentID as Any,
+                                                                "shop_id": shopId as Any,
                                                                 "shop_name": i.shop_name as Any,
                                                                 "status": 1,
                                                                 "unit": i.unit as Any,
@@ -355,8 +441,6 @@ extension HightRatingController {
                                                                 "latitude": item.location?.latitude,
                                                                 "longitude": item.location?.longitude,
                                                                 "price": i.price as Any] as [String : Any]
-                                                    
-                                                    var ref: DocumentReference? = nil
                                                     
                                                     // init first to get ID
                                                     db.collection("shop_item").document().setData(s, completion:{ (error) in
