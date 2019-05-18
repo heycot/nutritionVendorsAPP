@@ -124,12 +124,18 @@ PODS:
   - nanopb/encode (0.3.901)
   - ObjectMapper (3.4.2)
   - PinterestLayout (1.0.3)
+  - PKHUD (5.2.0)
   - Protobuf (3.6.1)
+  - PryntTrimmerView (3.0.0)
   - Socket.IO-Client-Swift (13.4.0):
     - Starscream (~> 3.0.2)
   - Starscream (3.0.6)
+  - SteviaLayout (4.4.3)
   - SwiftyJSON (4.2.0)
   - TinyConstraints (3.3.1)
+  - YPImagePicker (3.5.3):
+    - PryntTrimmerView (~> 3.0.0)
+    - SteviaLayout (~> 4.4.1)
 
 DEPENDENCIES:
   - Alamofire
@@ -147,9 +153,11 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - ObjectMapper
   - PinterestLayout
+  - PKHUD (~> 5.0)
   - Socket.IO-Client-Swift
   - SwiftyJSON
   - TinyConstraints
+  - YPImagePicker (~> 3.5.2)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -179,11 +187,15 @@ SPEC REPOS:
     - nanopb
     - ObjectMapper
     - PinterestLayout
+    - PKHUD
     - Protobuf
+    - PryntTrimmerView
     - Socket.IO-Client-Swift
     - Starscream
+    - SteviaLayout
     - SwiftyJSON
     - TinyConstraints
+    - YPImagePicker
 
 SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
@@ -212,12 +224,16 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
   PinterestLayout: f1c7ec0254ffa842d69f1b43e4436c8ded4359b9
+  PKHUD: dd5357ac65f26115c35c4a68e9b328053326c5fe
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
+  PryntTrimmerView: 53ac64053c7ce63cb3e27f54090f52da0734891d
   Socket.IO-Client-Swift: 2b2720f14c92ff1237ced09bc2f2da2022624fee
   Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
+  SteviaLayout: ae5ee66101e03607a93c9b3773b84ab7ba7b3d17
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   TinyConstraints: dbf7519aefc01ea59d62244300c7718aec68e280
+  YPImagePicker: 5dd3814b47b1208e9c8cc8f6ef77fe90db3723b6
 
-PODFILE CHECKSUM: 0dd36d3018a9dc8ce838797b80b141c573cc070f
+PODFILE CHECKSUM: 0ea8b5040f4e6df5ff24a0f07eb5881afe635bd6
 
 COCOAPODS: 1.5.2

@@ -22,7 +22,7 @@ extension String {
     //    Only letters, underscores and numbers allowed
     //    Length should be 20 characters max and 6 characters minimum
     func isValidUserName() -> Bool {
-        let RegEx = "\\w{6,20}"
+        let RegEx = "\\w{4,20}"
         let regex = try! NSRegularExpression(pattern: RegEx, options: .caseInsensitive)
         return regex.firstMatch(in: self, options: [], range: NSRange(location: 0, length: count)) != nil
     }
