@@ -9,17 +9,17 @@
 import Foundation
 
 public class CategoryResponse : Decodable {
-    var id: Int?
+    var id: String?
     var name: String?
     var icon: String?
     
-    init(id: Int, name: String, icon: String) {
+    init(id: String, name: String, icon: String) {
         self.id = id
         self.name = name
         self.icon = icon
     }
     
     convenience init() {
-        self.init(id: 0, name: "", icon: "")
+        self.init(id: "", name: "", icon: "")
     }
 }
