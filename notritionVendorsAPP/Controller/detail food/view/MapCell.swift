@@ -26,12 +26,13 @@ class MapCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func updateView(shop: ShopResponse) {
+    func updateView(item: ShopItemResponse) {
         view.setBorderRadious(radious: 15)
         
-        address.text = shop.address ?? ""
+        address.text = item.address ?? ""
+        let shop = ShopResponse(name: item.shop_name ?? "", longitude: item.longitude ?? 0, latitude: item.latitude ?? 0)
         distance.text = shop.getDistance(currlocation: AuthServices.instance.currentLocation) + " (From current location)"
-        let location = CLLocation(latitude: shop.latitude ?? 0, longitude: shop.longitude ?? 0)
+        let location = CLLocation(latitude: item.latitude ?? 0, longitude: item.longitude ?? 0)
         
         viewMapFunc(location)
     }

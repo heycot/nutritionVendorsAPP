@@ -56,6 +56,23 @@ struct ShopResponse: Decodable {
         self.name = name
     }
     
+    init(name: String, address: String, longitude: Double, latitude: Double) {
+        self.init()
+        self.longitude = longitude
+        self.latitude = latitude
+        self.name = name
+        self.address = address
+    }
+    
+    init(id: String, name: String, address: String, longitude: Double, latitude: Double) {
+        self.init()
+        self.id = id
+        self.longitude = longitude
+        self.latitude = latitude
+        self.name = name
+        self.address = address
+    }
+    
     func getDistance(currlocation: CLLocation?) -> String {
         var distance =  ""
         if self.latitude == 0.0, self.longitude == 0.0 { return "Unknown" }

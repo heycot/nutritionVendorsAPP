@@ -8,12 +8,15 @@
 
 import Foundation
 class FavoritesResponse : Decodable {
-    var id: Int?
-    var shopitem_id: Int?
-    var user_id: Int?
+    var id: String?
+    var shopitem_id: String?
+    var user_id: String?
     var status: Int?
+    var create_date : TimeInterval?
+    var update_date : TimeInterval?
     
-    init(id: Int, shopitem_id: Int, user_id: Int, status: Int) {
+    
+    init(id: String, shopitem_id: String, user_id: String, status: Int) {
         self.id = id
         self.shopitem_id = shopitem_id
         self.user_id = user_id
@@ -21,6 +24,6 @@ class FavoritesResponse : Decodable {
     }
     
     convenience init() {
-        self.init(id: 0, shopitem_id: 0, user_id: 0, status: 0)
+        self.init(id: "", shopitem_id: "", user_id: "", status: 0)
     }
 }

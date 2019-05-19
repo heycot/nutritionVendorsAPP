@@ -20,33 +20,36 @@ class GeneralInforItemCell: UITableViewCell {
     @IBOutlet weak var itemRating: CustomTextFeildRating!
     @IBOutlet weak var loveBtn: CustomButton!
     
-    
     func updateView(item: ShopItemResponse) {
         customUI()
         
-        let urlStr = BASE_URL + FavoritesAPI.checkStatus.rawValue + "/" + (item.id ?? "")
-        let urlComment = BASE_URL + CommentAPI.countByShopItem.rawValue + "/" + String(item.id ?? "")
-        let urlRating = BASE_URL + ShopItemAPI.getRating.rawValue + "/" + String(item.id ?? "")
-        let urlFavorites = BASE_URL + FavoritesAPI.countByShopItem.rawValue + "/" + String(item.id ?? "")
-        
-        loveBtn.viewImageUsingUrlString(urlString: urlStr)
-        itemImage.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + (item.avatar ?? "logo.jpg"))
-        itemComments.count(urlString: urlComment)
-        itemFavorites.count(urlString: urlFavorites)
-        itemRating.getRating(urlString: urlRating)
+        showLoveStatus(itemID: item.id ?? "")
+        itemImage.loadImageFromFirebase(folder: ReferenceImage.shopItem.rawValue + "\(item.id ?? "")/\(item.avatar ?? "")")
+        itemComments.text = "\(item.comment_number ?? 0)"
+        itemFavorites.text = "\(item.favorites_number ?? 0)"
         
         itemName.text      = item.name ?? ""
-//        itemComments.text  = String(item.comment_number ?? 0)
-        itemPhotos.setTitle( "0" ,for: .normal)
-//        itemFavorites.text = String(item.favorites_number ?? 0)
-//        itemRating.text    = String(format: "%.2f", item.rating ?? 0)
+        itemComments.text  = String(item.comment_number ?? 0)
+        itemPhotos.setTitle( "\(item.images?.count ?? 0)" ,for: .normal)
+        itemFavorites.text = String(item.favorites_number ?? 0)
+        itemRating.text    = String(format: "%.2f", item.rating ?? 0)
+    }
+    
+    func showLoveStatus(itemID: String) {
+        FavoritesService.shared.checkLoveStatus(shopItemID: itemID) { (data) in
+            guard let data = data else { return }
+            
+            if !data {
+                self.loveBtn.imageView!.image = UIImage(named: "unlove")
+            }
+            self.loveBtn.imageView!.image = UIImage(named: "loved")
+        }
     }
     
     
     func customUI() {
         itemName.setBottomBorder(color: APP_COLOR)
     }
-    
     
 }
 

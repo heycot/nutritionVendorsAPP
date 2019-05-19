@@ -12,13 +12,11 @@ import UIKit
 class ViewItemController: UIViewController {
     
     @IBOutlet weak var tabelView: UITableView!
-    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     // variables
     var comments = [CommentResponse]()
     var itemValues = [ItemValue] ()
     var item = ShopItemResponse()
-    var shop = ShopResponse()
     var loveBtn = UIButton()
     var rating = UITextField()
     var numberComment = UITextField()
@@ -31,9 +29,8 @@ class ViewItemController: UIViewController {
         
         self.title = item.name!
         navigationController?.navigationBar.barTintColor = APP_COLOR
-        updateData()
+        prepareData()
         tabelView.tableFooterView = UIView()
-        activityIndicatorView.startAnimating()
     }
     
     func registerNibCell() {
@@ -58,15 +55,6 @@ class ViewItemController: UIViewController {
         tabelView.register(UINib(nibName: CellClassName.addCommentBtn.rawValue, bundle: nil), forCellReuseIdentifier: CellIdentifier.addCommentBtn.rawValue)
     }
     
-    func updateData() {
-        ShopItemService.instance.getOneById(shop_item_id: item.id ?? "") { (data) in
-            guard let data = data else {return }
-            
-            self.item = data
-            
-            self.prepareData()
-        }
-    }
     
     func updateComment(offset: Int) {
         
@@ -81,15 +69,14 @@ class ViewItemController: UIViewController {
     func prepareData() {
         let price = "VND " + (item.price?.formatPrice())! + "/\(item.unit!)"
         appendItemValue(icon: Icon.price_icon.rawValue, value: price )
-        appendItemValue(icon: Icon.time_icon.rawValue, value: (shop.time_open ?? ""  ) + " - " + (shop.time_close ?? ""))
+        appendItemValue(icon: Icon.time_icon.rawValue, value: (item.time_open ?? ""  ) + " - " + (item.time_close ?? ""))
 //        appendItemValue(icon: Icon.category_icon.rawValue, value: "Rau cu")
-        appendItemValue(icon: Icon.shop_icon.rawValue, value: (shop.name ?? "" ))
+        appendItemValue(icon: Icon.shop_icon.rawValue, value: (item.shop_name ?? "" ))
         appendItemValue(icon: Icon.picture.rawValue, value: "\(item.images?.count ?? 0) photos")
 //        appendItemValue(icon: Icon.address_icon.rawValue, value: (item.shop!.location!.address!  ))
-        appendItemValue(icon: Icon.phone_icon.rawValue, value: (shop.phone ?? "" ))
+        appendItemValue(icon: Icon.phone_icon.rawValue, value: (item.phone ?? "" ))
         
         setUPTableView()
-        activityIndicatorView.stopAnimating()
         self.tabelView.reloadData()
     }
     
@@ -112,7 +99,7 @@ class ViewItemController: UIViewController {
         
         if segue.destination is ViewLocationShopController  {
             let vc = segue.destination as? ViewLocationShopController
-            vc?.currentShop = shop
+            vc?.currentShop = ShopResponse(name: item.shop_name ?? "", address: item.address ?? "", longitude: item.longitude ?? 0, latitude: item.latitude ?? 0)
             vc?.isFromShop = false
             
             navigationItem.backBarButtonItem = backItem
@@ -130,7 +117,7 @@ class ViewItemController: UIViewController {
             
         } else if segue.destination is ItemInShopController {
             let vc = segue.destination as? ItemInShopController
-            vc?.shop = shop
+            vc?.shop = ShopResponse(id: item.shop_id ?? "", name: item.shop_name ?? "", address: item.address ?? "", longitude: item.longitude ?? 0, latitude: item.latitude ?? 0)
             
             navigationItem.backBarButtonItem = backItem
             
@@ -266,7 +253,7 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
             case 1:
                 
                  let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.mapCell.rawValue, for: indexPath) as! MapCell
-                cell.updateView(shop: shop )
+                 cell.updateView(item: item )
                 return cell
             
             case 2:

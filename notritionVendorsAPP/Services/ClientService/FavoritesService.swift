@@ -7,13 +7,43 @@
 //
 
 import Foundation
+import Firebase
 
 class FavoritesService {
     
     public static let shared = FavoritesService()
     
-    
-//    var favorites : [FavoritesResponse] = [FavoritesResponse]()
+    func checkLoveStatus(shopItemID: String, completion: @escaping (Bool?) -> Void) {
+        var result  = false
+        let userID = Auth.auth().currentUser?.uid
+        let db = Firestore.firestore()
+        let docRef = db.collection("favorites").whereField("shop_item_id", isEqualTo: shopItemID)
+                                                .whereField("user_id", isEqualTo: userID as Any)
+        
+        docRef.getDocuments(completion: { (document, error) in
+            if let document = document {
+                
+                for favoriteDoct in document.documents{
+                    let jsonData = try? JSONSerialization.data(withJSONObject: favoriteDoct.data() as Any)
+                    
+                    do {
+                        let favorite = try JSONDecoder().decode(FavoritesResponse.self, from: jsonData!)
+                        
+                        result = favorite.status == 0 ? false : true
+                    }
+                    catch let jsonError {
+                        print("Error serializing json:", jsonError)
+                    }
+                }
+                DispatchQueue.main.async {
+                    completion(result)
+                }
+                
+            } else {
+                print("User have no profile")
+            }
+        })
+    }
     
     func getAllByUser(completion: @escaping ([FavoritesResponse]?) -> Void) {
         let urlStr = BASE_URL + FavoritesAPI.getAllByUser.rawValue
