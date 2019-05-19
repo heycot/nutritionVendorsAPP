@@ -25,6 +25,7 @@ class AccountController: UIViewController {
     var listIcon = ["login", "payment", "history", "promo_code", "website", "invite_friends", "email", "policy", "settings", "logout"]
     var listProperty = ["Login", "Payment", "History", "My Promo Code", "For Shop Owner", "Invite Friends", "Feedback", "User Policy", "App Settings", "Log Out"]
     
+    var isLogedIn = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +33,17 @@ class AccountController: UIViewController {
         setupView()
         setupProperty()
         
+        AuthServices.instance.checkLogedIn(completion: { (data) in
+            guard let data = data else { return }
+            
+            self.isLogedIn = data
+            self.tableView.reloadData()
+        })
+        
     }
     
     func getUserInfor() {
-        if AuthServices.instance.isLoggedIn {
+        if isLogedIn {
             let userId = Auth.auth().currentUser?.uid
             AuthServices.instance.getProfile(userID: userId!) { (data) in
                 guard let data = data else { return }
@@ -104,15 +112,15 @@ extension AccountController : UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if indexPath.section == 0 {
-            if AuthServices.instance.isLoggedIn {
-                performSegue(withIdentifier: SegueIdentifier.accountToDetail.rawValue, sender: nil)
+           
+            if isLogedIn{
+                self.performSegue(withIdentifier: SegueIdentifier.accountToDetail.rawValue, sender: nil)
             } else {
-                
-                performSegue(withIdentifier: SegueIdentifier.accountToLogin.rawValue, sender: nil)
+                self.performSegue(withIdentifier: SegueIdentifier.accountToLogin.rawValue, sender: nil)
             }
         } else if indexPath.section == 3 && indexPath.row == 2 {
-//            AuthServices.instance.authToken = ""
-//            AuthServices.instance.isLoggedIn = false
+            AuthServices.instance.signout()
+            self.isLogedIn = false
             tableView.reloadData()
         }
     }
@@ -132,14 +140,14 @@ extension AccountController : UITableViewDataSource {
         case 2:
             return 2
         default:
-            return AuthServices.instance.isLoggedIn ? 3 : 2
+            return isLogedIn ? 3 : 2
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-        if indexPath.section == 0, AuthServices.instance.isLoggedIn {
+        if indexPath.section == 0, isLogedIn {
             let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.accountLogedIn.rawValue, for: indexPath) as! AccountLogedInCell
            cell.updateview(avatar: user.avatar!, nameStr: user.name!)
            

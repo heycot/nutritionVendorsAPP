@@ -104,6 +104,29 @@ class AuthServices {
         }
     }
     
+    func checkLogedIn(completion: @escaping (Bool?) -> Void) {
+    
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            if user != nil {
+                // user is signed in
+                // go to feature controller
+                DispatchQueue.main.async {
+                    completion(true)
+                }
+            } else {
+                // user is not signed in
+                DispatchQueue.main.async {
+                    completion(false)
+                }
+            }
+        }
+        
+    }
+    
+    
+    func signout() {
+        try! Auth.auth().signOut()
+    }
     
     func getProfile(userID: String, completion: @escaping (UserResponse?) -> Void){
         

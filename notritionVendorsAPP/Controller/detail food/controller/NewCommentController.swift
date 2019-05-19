@@ -9,6 +9,8 @@
 import UIKit
 import Cosmos
 import IQKeyboardManagerSwift
+import PKHUD
+import Firebase
 
 class NewCommentController: UIViewController {
     @IBOutlet weak var shopItemName: UILabel!
@@ -40,7 +42,9 @@ class NewCommentController: UIViewController {
     }
     
     func getReviewOfUser() {
+        HUD.show(.progress)
         CommentServices.instance.getCommentByUserAnShopItem(shopitemID: shopItem.id ?? "") { (data) in
+            HUD.hide()
             if data == nil {
                 self.title = "Write review"
             } else {
@@ -116,44 +120,57 @@ class NewCommentController: UIViewController {
     
     @objc func didPressOnDoneButton() {
         if validateInput() {
-            let comment = CommentResponse()
             
-            comment.content = validString(string: content.text)
-            comment.title = validString(string: titleCmt.text!)
-            comment.rating = ratingview.rating
-            comment.shopitem_id = shopItem.id
-            comment.shop_id = shopItem.shop_id
-            comment.status = 1
-            comment.create_date = Date().timeIntervalSince1970
+            lastComment.user_id = Auth.auth().currentUser?.uid
+            lastComment.content = validString(string: content.text)
+            lastComment.title = validString(string: titleCmt.text!)
+            lastComment.rating = ratingview.rating
+            lastComment.status = 1
             
             
+            HUD.show(.success)
             if isNew {
-                CommentServices.instance.addOne(cmt: comment) { (data) in
+                
+                lastComment.shopitem_id = shopItem.id
+                lastComment.shop_id = shopItem.shop_id
+                
+                CommentServices.instance.addOne(cmt: lastComment) { (data) in
                     guard let data = data else { return }
                     
+                    HUD.hide()
                     if !data {
                         let alert = UIAlertController(title: Notification.comment.addCmtFailedTitle.rawValue, message: Notification.comment.addCmtFailedMessgae.rawValue, preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
                         alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
                         self.present(alert, animated: true)
+                        
                     } else {
-                        self.navigationController?.popViewController(animated: true)
+                        ShopItemService.instance.editOneWhenComment(itemID: self.lastComment.shopitem_id ?? "", cmt: self.lastComment, completion: { (data) in
+                            
+                            HUD.hide()
+                            self.navigationController?.popViewController(animated: true)
+                        })
                     }
                 }
                 
             } else {
-                comment.id = self.lastComment.id!
                 
-                CommentServices.instance.editOne(cmt: comment) { (data) in
+                CommentServices.instance.editOne(cmt: lastComment) { (data) in
                     guard let data = data else { return }
                     
+                    HUD.hide()
                     if !data {
                         let alert = UIAlertController(title: Notification.comment.addCmtFailedTitle.rawValue, message: Notification.comment.addCmtFailedMessgae.rawValue, preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
                         alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
                         self.present(alert, animated: true)
+                        
                     } else {
-                        self.navigationController?.popViewController(animated: true)
+                        ShopItemService.instance.editOneWhenComment(itemID: self.lastComment.shopitem_id ?? "", cmt: self.lastComment, completion: { (data) in
+                            
+                            HUD.hide()
+                            self.navigationController?.popViewController(animated: true)
+                        })
                     }
                 }
             }
@@ -197,9 +214,6 @@ extension NewCommentController: UITextFieldDelegate {
 
 extension NewCommentController: UITextViewDelegate {
     
-    func textViewDidChangeSelection(_ textView: UITextView) {
-        print("textViewDidChangeSelection")
-    }
     
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         if isNew {

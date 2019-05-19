@@ -94,6 +94,43 @@ class ShopItemService {
         
     }
     
+    func editOneWhenComment( itemID: String, cmt: CommentResponse,  completion: @escaping (Bool?) -> Void) {
+        
+        let db = Firestore.firestore()
+        
+        let docRef = db.collection("shop_item").document(itemID)
+        
+        docRef.getDocument(completion: { (document, error) in
+            if let document = document, document.exists {
+                let jsonData = try? JSONSerialization.data(withJSONObject: document.data() as Any)
+                do {
+                    let shopItem = try JSONDecoder().decode(ShopItemResponse.self, from: jsonData!)
+                    let newCommentNumber = shopItem.comment_number ?? 0 + 1
+                    let newRating = ((shopItem.rating ?? 0 * Double(newCommentNumber) ) + (cmt.rating ?? 3.0)) / Double(newCommentNumber)
+                    
+                    let values = ["comment_number": newCommentNumber as Any,
+                                  "rating": newRating as Any] as [String : Any]
+                    
+                    db.collection("shop_item").document(itemID).updateData(values) { err in
+                        var result = true
+                        if let err = err {
+                            result = false
+                            print("Error writing document: \(err)")
+                        } else {
+                            print("Document successfully written!")
+                        }
+                        
+                        DispatchQueue.main.async {
+                            completion(result)
+                        }
+                    }
+                } catch let jsonError {
+                    print("Error serializing json:", jsonError)
+                }
+                
+            }
+        })
+    }
     
     func getOneById( shop_item_id: String, completion: @escaping (ShopItemResponse?) -> Void) {
         

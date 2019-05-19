@@ -107,9 +107,8 @@ class CommentServices {
     
     func addOne(cmt: CommentResponse, completion: @escaping (Bool?) -> Void) {
         let db = Firestore.firestore()
-        let userId = Auth.auth().currentUser?.uid
         
-        let values = [  "user_id": userId as Any,
+        let values = [  "user_id": cmt.user_id as Any,
                         "shop_item_id": cmt.shopitem_id as Any,
                         "shop_id": cmt.shop_id as Any,
                         "title": cmt.title as Any,
@@ -119,7 +118,7 @@ class CommentServices {
                         "rating": cmt.rating as Any,
                         "status": 1] as [String : Any]
         
-        db.collection("comment").document(cmt.id ?? "").updateData(values) { err in
+        db.collection("comment").document().setData(values) { err in
             var result = true
             if let err = err {
                 result = false

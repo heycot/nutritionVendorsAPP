@@ -61,7 +61,9 @@ class CustomImageView: UIImageView {
         }
         
         ImageServices.instance.downloadImages(folderPath: folder, success: { (data) in
-            self.image = data
+            if data != nil {
+                self.image = data
+            }
             
             imageCache.setObject(data, forKey: folder as NSString)
         }) { (err) in

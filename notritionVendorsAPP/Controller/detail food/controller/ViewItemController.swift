@@ -24,6 +24,7 @@ class ViewItemController: UIViewController {
     var numberComment = UITextField()
     var numberFavorites = UITextField()
     var isRefersh = false
+    var shouldReload = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +67,19 @@ class ViewItemController: UIViewController {
             
             HUD.hide()
             self.comments = data
+            self.tabelView.reloadData()
+        }
+    }
+    
+    func getShopItem() {
+        HUD.show(.progress)
+        
+        ShopItemService.instance.getOneById(shop_item_id: item.id ?? "") { (data) in
+            guard let data = data else { return }
+            
+            HUD.hide()
+            self.shouldReload = false
+            self.item = data
             self.tabelView.reloadData()
         }
     }
@@ -192,12 +206,10 @@ class ViewItemController: UIViewController {
     }
     
     @objc func addCmtBtnPressed(btn: UIButton) {
-        
-        
-        Auth.auth().addStateDidChangeListener { (auth, user) in
-            if user != nil {
-                self.performSegueFunc(identifier: SegueIdentifier.detailToComment.rawValue)
-            } else {
+        AuthServices.instance.checkLogedIn { (data) in
+            guard let data = data else { return }
+            
+            if !data {
                 // user is not signed in
                 let alert = UIAlertController(title: "Can not Comment", message: "Please sign in!", preferredStyle: .alert)
                 
@@ -206,6 +218,9 @@ class ViewItemController: UIViewController {
                 }))
                 alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
                 self.present(alert, animated: true)
+            } else {
+                self.shouldReload = true
+                self.performSegueFunc(identifier: SegueIdentifier.detailToComment.rawValue)
             }
         }
     }
@@ -312,6 +327,9 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
         tabelView.rowHeight = UITableView.automaticDimension
         
         updateComment(offset: 0)
+        if shouldReload {
+            getShopItem()
+        }
         super.viewWillAppear(true)
         tabelView.reloadData()
     }
