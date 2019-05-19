@@ -46,7 +46,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="4pn-EL-S5Y"/>
                     <connections>
-                        <outlet property="activityIndicatorView" destination="2t1-Ps-e30" id="Fu3-WX-ZDj"/>
                         <outlet property="tabelView" destination="yrC-Jj-oxm" id="Ppz-zn-5cj"/>
                         <segue destination="ZsY-0P-eMa" kind="show" identifier="DetailFoodToPhoto" id="w4n-Kf-6jr"/>
                         <segue destination="vrL-wc-1BG" kind="show" identifier="DetailFoodToLogin" id="ZXq-q1-a0w"/>

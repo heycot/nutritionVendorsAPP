@@ -163,7 +163,7 @@ extension HightRatingController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        collectionView.deselectItem(at: indexPath, animated: true)
+        collectionView.deselectItem(at: indexPath, animated: false)
         
         if indexPath.section == 0 {
             performSegue(withIdentifier: SegueIdentifier.highRatingToCategory.rawValue, sender: indexPath.row)

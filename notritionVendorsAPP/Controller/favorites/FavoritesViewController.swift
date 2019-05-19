@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PKHUD
 
 class FavoritesViewController: UIViewController {
     
@@ -50,7 +51,7 @@ class FavoritesViewController: UIViewController {
             
             tableView.tableFooterView = UIView()
         } else {
-//            loadDataFromAPI(offset: 0, isLoadMore: false)
+            loadDataFromAPI(offset: 0, isLoadMore: false)
         }
     }
     
@@ -74,8 +75,9 @@ class FavoritesViewController: UIViewController {
     
     
     func loadDataFromAPI(offset: Int, isLoadMore: Bool) {
+        HUD.show(.progress)
         
-        ShopItemService.instance.findAllLoved(offset: offset) { data in
+        FavoritesService.instance.getAllLovedByUser { (data) in
             guard let data = data else {return }
             
             // check listitem is already have
@@ -94,6 +96,8 @@ class FavoritesViewController: UIViewController {
                 
                 self.resultSearchNotification.isHidden = true
             }
+            
+            HUD.hide()
             self.tableView.reloadData()
         }
     }
@@ -103,15 +107,7 @@ class FavoritesViewController: UIViewController {
         loadDataFromAPI(offset: currentListItem.count, isLoadMore: true)
         refresher.endRefreshing()
     }
-//
-//    func getShopItem(id: Int) {
-//        ShopItemService.shared.getOneDTOItem(id: id) { (data) in
-//            guard let data = data else { return }
-//            self.currentShopItem = data
-//
-//        }
-//    }
-//
+
     func performSegueFunc(identifier: String, sender: Any?) {
         performSegue(withIdentifier: identifier, sender: sender)
     }
@@ -127,7 +123,6 @@ class FavoritesViewController: UIViewController {
             
         } else if segue.destination is SearchController {
             _ = segue.destination as? SearchController
-//            vc?.listItem = currentListItem
         }
     }
     

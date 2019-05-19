@@ -36,7 +36,7 @@ class GeneralInforItemCell: UITableViewCell {
     }
     
     func showLoveStatus(itemID: String) {
-        FavoritesService.shared.checkLoveStatus(shopItemID: itemID) { (data) in
+        FavoritesService.instance.checkLoveStatus(shopItemID: itemID) { (data) in
             guard let data = data else { return }
             
             if !data {
