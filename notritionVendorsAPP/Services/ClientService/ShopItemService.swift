@@ -122,7 +122,7 @@ class ShopItemService {
     
     func findAllByShop(shopId: String, offset: Int, completion: @escaping ([ShopItemResponse]?) -> Void) {
         let db = Firestore.firestore()
-        let docRef = db.collection("shop_item").whereField("category_id", isEqualTo: shopId)
+        let docRef = db.collection("shop_item").whereField("shop_id", isEqualTo: shopId)
         docRef.order(by: "comment_number", descending: true)
             .order(by: "rating", descending: true)
             .limit(to: 20)
