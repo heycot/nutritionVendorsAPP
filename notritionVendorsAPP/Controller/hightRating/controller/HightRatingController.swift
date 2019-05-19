@@ -75,12 +75,13 @@ class HightRatingController: UIViewController {
     }
     
     func findAllCategory() {
-        HUD.flash(.success, delay: 1.5)
+        HUD.show(.progress)
         CategoryService.instance.findAll { (data) in
             guard let data = data else { return }
             
             self.listCategory = data
             self.itemCollection.reloadData()
+            HUD.hide()
         }
     }
     
@@ -111,13 +112,11 @@ class HightRatingController: UIViewController {
             
         } else if segue.destination is SearchController {
             _ = segue.destination as? SearchController
-//            vc?.listItem = currentListItem
             
         } else if segue.destination is CategoryController {
             let vc = segue.destination as? CategoryController
             let index = sender as! Int
-            vc?.categoryId = listCategory[index].id!
-            vc?.categoryName = listCategory[index].name!
+            vc?.category = listCategory[index]
         }
     }
     

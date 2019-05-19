@@ -50,35 +50,47 @@ class ShopItemService {
     
     func findAllByCategory(categoryID: String, offset: Int,  completion: @escaping ([ShopItemResponse]?) -> Void) {
         let db = Firestore.firestore()
-        let docRef = db.collection("shop_item").whereField("category_id", isEqualTo: categoryID)
-        docRef.order(by: "comment_number", descending: true)
-            .order(by: "rating", descending: true)
-            .limit(to: 20)
         
-        docRef.getDocuments(completion: { (document, error) in
+        let cateRef = db.collection("item").whereField("category_id", isEqualTo: categoryID)
+        
+        
+        cateRef.getDocuments { (document, err) in
             if let document = document {
-                var shopItemList = [ShopItemResponse]()
-                
-                for shopItemDoct in document.documents{
-                    let jsonData = try? JSONSerialization.data(withJSONObject: shopItemDoct.data() as Any)
+                for itemDoct in document.documents {
                     
-                    do {
-                        var shopItem = try JSONDecoder().decode(ShopItemResponse.self, from: jsonData!)
-                        shopItem.id = shopItemDoct.documentID
-                        shopItemList.append(shopItem)
-                    }
-                    catch let jsonError {
-                        print("Error serializing json:", jsonError)
-                    }
+                    let docRef = db.collection("shop_item").whereField("item_id", isEqualTo: itemDoct.documentID)
+                    docRef.order(by: "comment_number", descending: true)
+                            .order(by: "rating", descending: true)
+                            .limit(to: 20)
+                    
+                    docRef.getDocuments(completion: { (document, error) in
+                        if let document = document {
+                            var shopItemList = [ShopItemResponse]()
+                            
+                            for shopItemDoct in document.documents{
+                                let jsonData = try? JSONSerialization.data(withJSONObject: shopItemDoct.data() as Any)
+                                
+                                do {
+                                    var shopItem = try JSONDecoder().decode(ShopItemResponse.self, from: jsonData!)
+                                    shopItem.id = shopItemDoct.documentID
+                                    shopItemList.append(shopItem)
+                                }
+                                catch let jsonError {
+                                    print("Error serializing json:", jsonError)
+                                }
+                            }
+                            
+                            DispatchQueue.main.async {
+                                completion(shopItemList)
+                            }
+                            
+                        } else {
+                            print("User have no profile")
+                        }
+                    })
                 }
-                DispatchQueue.main.async {
-                    completion(shopItemList)
-                }
-                
-            } else {
-                print("User have no profile")
             }
-        })
+        }
         
     }
     

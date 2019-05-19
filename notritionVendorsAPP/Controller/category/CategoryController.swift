@@ -7,16 +7,15 @@
 //
 
 import UIKit
+import PKHUD
 
 class CategoryController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var notification: UILabel!
     @IBOutlet weak var searchBar: UIButton!
     
-    var listItem = [ShopItemResponse]()
     var currentListItem = [ShopItemResponse]()
-    var categoryId = ""
-    var categoryName = ""
+    var category  = CategoryResponse()
     
     lazy var refresher: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -28,7 +27,7 @@ class CategoryController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = categoryName
+        self.title = category.name ?? ""
         self.notification.isHidden = true
         setupView()
     }
@@ -52,14 +51,14 @@ class CategoryController: UIViewController {
     }
     
     func loadDataFromAPI(offset: Int) {
-        ShopItemService.instance.findAllByCategory(categoryID: categoryId, offset: offset) { (data) in
+        HUD.show(.progress)
+        ShopItemService.instance.findAllByCategory(categoryID: category.id ?? "", offset: offset) { (data) in
             guard let data = data else {return }
             
             for item in data {
                 self.currentListItem.append(item)
             }
-            
-            self.stopSpinnerActivity()
+            HUD.hide()
             self.tableView.reloadData()
         }
     }

@@ -669,7 +669,7 @@
                         <outlet property="resultSearchNotification" destination="3Vd-4X-EhU" id="noy-WT-eZ9"/>
                         <outlet property="searchBar" destination="IDw-Zc-xGf" id="4pj-nC-yxR"/>
                         <segue destination="O60-7L-RIi" kind="show" identifier="HighRatingSearch" id="WYP-LC-rZ2"/>
-                        <segue destination="QtR-ru-mlt" kind="push" identifier="HaighRatingToCategory" id="dVm-vS-K0I"/>
+                        <segue destination="QtR-ru-mlt" kind="show" identifier="HaighRatingToCategory" id="dVm-vS-K0I"/>
                         <segue destination="rEQ-Ch-SJA" kind="show" identifier="HighRatingToDetail" id="DWF-TS-9V8"/>
                     </connections>
                 </viewController>
