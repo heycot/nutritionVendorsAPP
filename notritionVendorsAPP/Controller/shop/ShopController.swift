@@ -22,6 +22,10 @@ class ShopController: UIViewController {
     var isNewest = false
     var currentShop = ShopResponse()
     
+    // location manager
+    var locationManager = CLLocationManager()
+    var didUpdateLocation: Bool = false
+    
     lazy var refresher: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.tintColor = APP_COLOR
@@ -62,43 +66,29 @@ class ShopController: UIViewController {
     
     func loadDataFromAPI(offset: Int, isLoadMore: Bool, isNewest: Bool) {
         
-        if isNewest {
-            ShopServices.shared.getNewestShop(offset: offset) { data in
-                guard let data = data else {return }
-
-                if isLoadMore {
-                    for shop in data {
-                        self.listItem.append(shop)
-                    }
-                } else {
-                    self.listItem = data
-                }
-
-                self.currentList = self.listItem
-                self.tableView.reloadData()
-            }
-        } else {
-            guard let location = AuthServices.instance.currentLocation else { return }
-            let latitude = location.coordinate.latitude
-            let longitude = location.coordinate.longitude
-            
-            ShopServices.shared.getNearestShop(latitude: latitude, longitude: longitude, offset: offset) { data in
-                guard let data = data else {return }
-                
-                if isLoadMore {
-                    for shop in data {
-                        
-                        self.listItem.append(shop)
-                    }
-                } else {
-                    self.listItem = data
-                }
-                
-//                self.updateDistance(shops: self.listItem)
-                self.currentList = self.listItem
-                self.tableView.reloadData()
-            }
+        guard let location = AuthServices.instance.currentLocation else {
+            setupCurrentLocation()
+            return
         }
+        let latitude = location.coordinate.latitude
+        let longitude = location.coordinate.longitude
+        
+//        ShopServices.shared.getNearestShop(latitude: latitude, longitude: longitude, offset: offset) { data in
+//            guard let data = data else {return }
+//
+//            if isLoadMore {
+//                for shop in data {
+//
+//                    self.listItem.append(shop)
+//                }
+//            } else {
+//                self.listItem = data
+//            }
+//
+////                self.updateDistance(shops: self.listItem)
+//            self.currentList = self.listItem
+//            self.tableView.reloadData()
+//        }
     }
     
 //    func updateDistance(shops: [ShopResponse]) {
@@ -110,12 +100,12 @@ class ShopController: UIViewController {
 //    }
     
     func getShopInfor(id: Int) {
-        ShopServices.shared.getOne(id: id) { (data) in
-            guard let data = data else { return }
-            
-            self.currentShop = data
-            self.performSegue(withIdentifier: SegueIdentifier.shopToItemInShop.rawValue, sender: nil)
-        }
+//        ShopServices.shared.getOne(id: id) { (data) in
+//            guard let data = data else { return }
+//
+//            self.currentShop = data
+//            self.performSegue(withIdentifier: SegueIdentifier.shopToItemInShop.rawValue, sender: nil)
+//        }
     }
     
     @IBAction func searchBarPressed(_ sender: Any) {
@@ -195,4 +185,76 @@ extension ShopController: UITableViewDataSource {
     
 }
 
+// extention for handle user's location
+extension ShopController {
+    
+    // MARK - Map, Location
+    
+    func setupCurrentLocation() {
+        
+        // User Location
+        locationManager.delegate = self
+        
+        // Start Location
+        accessLocationServices()
+    }
+    
+    func startUpdateLocation() {
+        didUpdateLocation = false
+        locationManager.startUpdatingLocation()
+    }
+    
+    func stopUpdateLocation() {
+        didUpdateLocation = true
+        locationManager.stopUpdatingLocation()
+    }
+}
+
+extension ShopController: CLLocationManagerDelegate {
+    
+    func handleDidUpdateLocation(location: CLLocation) {
+        guard !didUpdateLocation else {
+            stopUpdateLocation()
+            return
+        }
+        
+        stopUpdateLocation()
+        AuthServices.instance.currentLocation = location
+    }
+    
+    // Handle incoming location events.
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location: CLLocation = locations.last!
+        print("Location: \(location)")
+        handleDidUpdateLocation(location: location)
+    }
+    
+    // Handle authorization for the location manager.
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .restricted:
+            print("Location access was restricted.")
+        case .denied:
+            print("User denied access to location.")
+        case .notDetermined:
+            print("Location status not determined.")
+        case .authorizedAlways: fallthrough
+        case .authorizedWhenInUse:
+            print("Location status is OK.")
+        }
+    }
+    
+    // Handle location manager errors.
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        locationManager.stopUpdatingLocation()
+        print("Error: \(error)")
+    }
+    
+}
+
+extension ShopController : LocationServicesProtocol {
+    func authorizedLocationServices() {
+        startUpdateLocation()
+    }
+}
 

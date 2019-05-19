@@ -11,6 +11,7 @@ import CoreLocation
 import Firebase
 
 struct ShopResponse: Decodable {
+    var oldid: Int?
     var id: String?
     var user_id: String?
     var name: String?
@@ -49,6 +50,12 @@ struct ShopResponse: Decodable {
         self.init(id: "", user_id: "", name: "", rating: 0.0, time_open: "", time_close: "", create_date: NSDate().timeIntervalSince1970, status: 1, phone: "", avatar: "", sell: "",longitude: 0.0, latitude: 0.0, address: "", keyword: [String]())
     }
     
+    init(id: String, name: String) {
+        self.init()
+        self.id = id
+        self.name = name
+    }
+    
     init(name: String, longitude: Double, latitude: Double) {
         self.init()
         self.longitude = longitude
@@ -71,6 +78,17 @@ struct ShopResponse: Decodable {
         self.latitude = latitude
         self.name = name
         self.address = address
+    }
+    
+    init(id: String, name: String, address: String, longitude: Double, latitude: Double, time_open: String, time_close: String) {
+        self.init()
+        self.id = id
+        self.longitude = longitude
+        self.latitude = latitude
+        self.name = name
+        self.address = address
+        self.time_open = time_open
+        self.time_close = time_close
     }
     
     func getDistance(currlocation: CLLocation?) -> String {

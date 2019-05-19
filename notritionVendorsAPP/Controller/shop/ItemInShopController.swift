@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import PKHUD
 
 class ItemInShopController: UIViewController {
     @IBOutlet weak var shopAvatar: CustomImageView!
@@ -30,17 +31,34 @@ class ItemInShopController: UIViewController {
     
     var shop = ShopResponse()
     var listItem = [ShopItemResponse]()
+    var isFromFood = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewShopInfor()
         setupView()
         loadDataFromAPI(offset: 0)
+        
+        if isFromFood {
+            getShop()
+        } else{
+            viewShopInfor()
+        }
+    }
+    
+    func getShop() {
+        HUD.show(.progress)
+        ShopService.instance.getOneById(shopId: shop.id ?? "") { (data) in
+            guard let data = data else { return }
+            
+            HUD.hide()
+            self.shop = data
+            self.viewShopInfor()
+        }
     }
     
     func viewShopInfor() {
-        shopAvatar.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + shop.avatar!)
+        shopAvatar.loadImageFromFirebase(folder: ReferenceImage.shop.rawValue + "\(shop.id ?? "")/\(shop.avatar ?? "")")
         shopName.text = shop.name
         shopAddress.text = shop.address
         shopTimeOpen.text = shop.time_open! + " - " + shop.time_close!
@@ -94,7 +112,7 @@ class ItemInShopController: UIViewController {
     }
     
     func loadDataFromAPI(offset: Int) {
-        
+        HUD.show(.progress)
         ShopItemService.instance.findAllByShop(shopId: shop.id ?? "", offset: offset) { (data) in
             guard let data = data else {return }
             
@@ -107,6 +125,8 @@ class ItemInShopController: UIViewController {
                     self.listItem.append(item)
                 }
             }
+            
+            HUD.hide()
             self.tableView.reloadData()
         }
     }
@@ -132,35 +152,9 @@ class ItemInShopController: UIViewController {
             
         } else if segue.destination is SearchController {
             _ = segue.destination as? SearchController
-//            vc?.listItem = listItem
         }
     }
     
-    func startSpinnerActivity() {
-        let spinnerActivity = MBProgressHUD.showAdded(to: self.view, animated: true);
-        
-        spinnerActivity.label.text = "Loading";
-        spinnerActivity.detailsLabel.text = "Please Wait!!";
-        spinnerActivity.isUserInteractionEnabled = false;
-        
-        DispatchQueue.main.async {
-            spinnerActivity.hide(animated: true);
-        }
-    }
-    
-    func stopSpinnerActivity() {
-        MBProgressHUD.hide(for: self.view, animated: true);
-    }
-    
-    
-    func checkItemInArray(array: [ShopItemResponse], item: ShopItemResponse) -> Bool {
-        for arr in array {
-            if item.id! == arr.id! {
-                return true
-            }
-        }
-        return false
-    }
 }
 
 extension ItemInShopController : UITableViewDataSource {
@@ -177,7 +171,6 @@ extension ItemInShopController : UITableViewDataSource {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.viewDidLoad()
         super.viewWillAppear(true)
         tableView.reloadData()
     }

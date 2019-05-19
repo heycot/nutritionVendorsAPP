@@ -52,14 +52,6 @@ class HightRatingController: UIViewController {
         loadDataFromAPI(offset: 0)
     }
     
-    func setupCurrentLocation() {
-        
-        // User Location
-        locationManager.delegate = self
-        
-        // Start Location
-        accessLocationServices()
-    }
     
     func registerHeader() {
         itemCollection.register(UINib(nibName: CellClassName.category.rawValue, bundle: nil), forCellWithReuseIdentifier: CellIdentifier.category.rawValue)
@@ -120,17 +112,6 @@ class HightRatingController: UIViewController {
         }
     }
     
-    // MARK - Map, Location
-    
-    func startUpdateLocation() {
-        didUpdateLocation = false
-        locationManager.startUpdatingLocation()
-    }
-    
-    func stopUpdateLocation() {
-        didUpdateLocation = true
-        locationManager.stopUpdatingLocation()
-    }
     
     @IBAction func searchBtnPressed(_ sender: Any) {
         performSegue(withIdentifier: SegueIdentifier.highRatingToSearch.rawValue, sender: nil)
@@ -174,6 +155,7 @@ extension HightRatingController: UICollectionViewDelegate, UICollectionViewDataS
 }
 
 
+
 extension HightRatingController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.section == 0 {
@@ -210,6 +192,31 @@ extension HightRatingController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: view.frame.width, height: 50)
     }
     
+}
+
+// extention for handle user's location
+extension HightRatingController {
+    
+    // MARK - Map, Location
+    
+    func setupCurrentLocation() {
+        
+        // User Location
+        locationManager.delegate = self
+        
+        // Start Location
+        accessLocationServices()
+    }
+    
+    func startUpdateLocation() {
+        didUpdateLocation = false
+        locationManager.startUpdatingLocation()
+    }
+    
+    func stopUpdateLocation() {
+        didUpdateLocation = true
+        locationManager.stopUpdatingLocation()
+    }
 }
 
 extension HightRatingController: CLLocationManagerDelegate {
@@ -258,4 +265,106 @@ extension HightRatingController : LocationServicesProtocol {
     func authorizedLocationServices() {
         startUpdateLocation()
     }
+}
+
+
+extension HightRatingController {
+    func saveiamge() {
+        let db = Firestore.firestore()
+        let docRef = db.collection("shop")
+        
+        docRef.getDocuments(completion: { (document, error) in
+            if let document = document {
+                print(document.documents)
+                for shopDoct in document.documents{
+                    let jsonData = try? JSONSerialization.data(withJSONObject: shopDoct.data() as Any)
+                    do {
+                        var shop = try JSONDecoder().decode(ShopResponse.self, from: jsonData!)
+                        shop.id = shopDoct.documentID
+                        
+                        
+                        let usrl = BASE_URL + "shop/\(shop.oldid!)"
+                        NetworkingClient.shared.requestJson(urlStr: usrl, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
+                            guard let data = data else {return}
+                            do {
+                                var avat = ""
+                                var ima = [UIImage]()
+                                var images = [String]()
+                                let items = try JSONDecoder().decode([Document].self, from: data)
+                                for item in items {
+                                    var filename = ""
+                                    if item.priority == 1 {
+                                        avat = item.link!
+                                        images.append(avat)
+                                        filename = avat
+                                    } else {
+                                        images.append(item.link!)
+                                        filename = item.link!
+                                    }
+                                    
+                                    let u = BASE_URL_IMAGE + item.link!
+                                    guard let urls = URL(string: u) else { return }
+                                    URLSession.shared.dataTask(with: urls, completionHandler: { (data, respones, error) in
+                                        
+                                        if error != nil {
+                                            print(error ?? "")
+                                            return
+                                        }
+                                        
+                                        
+                                        DispatchQueue.main.async {
+                                            guard let data = data else { return }
+                                            guard let imageToCache = UIImage(data: data) else { return }
+                                            ima.append(imageToCache)
+                                            
+                                            
+                                            let foler = ReferenceImage.shopItem.rawValue + shop.id! + "/\(filename)"
+                                            
+                                            ImageServices.instance.uploadMedia(image: imageToCache, reference: foler, completion: { (data) in
+                                                print("save image success")
+                                            })
+                                            
+                                        }
+                                        
+                                    }).resume()
+                                }
+                                
+                                DispatchQueue.main.async {
+                                    
+                                    let db = Firestore.firestore()
+                                    
+                                    let values = ["avatar": avat,
+                                                  "images": images] as [String : Any]
+                                    
+                                    db.collection("shop_item").document(shop.id!).updateData(values) { err in
+                                        var result = true
+                                        if let err = err {
+                                            result = false
+                                            print("Error writing document: \(err)")
+                                        } else {
+                                            print("Document successfully written!")
+                                            
+                                        }
+                                    }
+                                }
+                            } catch {}
+                        }
+                    }
+                    catch let jsonError {
+                        print("Error serializing json:", jsonError)
+                    }
+                }
+                
+            } else {
+                print("User have no profile")
+            }
+        })
+    }
+}
+
+
+class Document : Decodable {
+    var id: Int?
+    var link : String?
+    var priority: Int?
 }

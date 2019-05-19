@@ -121,7 +121,8 @@ class ViewItemController: UIViewController {
             
         } else if segue.destination is ItemInShopController {
             let vc = segue.destination as? ItemInShopController
-            vc?.shop = ShopResponse(id: item.shop_id ?? "", name: item.shop_name ?? "", address: item.address ?? "", longitude: item.longitude ?? 0, latitude: item.latitude ?? 0)
+            vc?.shop = ShopResponse(id: item.shop_id ?? "", name: item.shop_name ?? "")
+            vc?.isFromFood = true
             
             navigationItem.backBarButtonItem = backItem
             

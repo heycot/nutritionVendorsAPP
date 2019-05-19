@@ -112,14 +112,18 @@ class SearchController: UIViewController {
     
     func getShopItemResponse(id: String) {
         ShopItemService.instance.getOneById(shop_item_id: id) { (data) in
-            self.shopitem = data!
+            guard let data = data else { return }
+            
+            self.shopitem = data
             self.performSegue(withIdentifier: SegueIdentifier.searchToDetaild.rawValue, sender: nil)
         }
     }
     
     func getShopResponse(id: String) {
-        ShopServices.shared.getOne(id: 0) { (data) in
-            self.shop = data!
+        ShopService.instance.getOneById(shopId: id) { (data) in
+            guard let data = data else { return }
+            
+            self.shop = data
             self.performSegue(withIdentifier: SegueIdentifier.searchToShop.rawValue, sender: nil)
         }
     }
