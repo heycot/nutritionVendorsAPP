@@ -13,8 +13,8 @@ class FavoritesService {
     
     public static let instance = FavoritesService()
     
-    func checkLoveStatus(shopItemID: String, completion: @escaping (Bool?) -> Void) {
-        var result  = false
+    func checkLoveStatus(shopItemID: String, completion: @escaping (Int?) -> Void) {
+        var result  = 0
         let userID = Auth.auth().currentUser?.uid
         let db = Firestore.firestore()
         let docRef = db.collection("favorites").whereField("shop_item_id", isEqualTo: shopItemID)
@@ -29,7 +29,7 @@ class FavoritesService {
                     do {
                         let favorite = try JSONDecoder().decode(FavoritesResponse.self, from: jsonData!)
                         
-                        result = favorite.status == 0 ? false : true
+                        result = favorite.status ?? 0
                     }
                     catch let jsonError {
                         print("Error serializing json:", jsonError)
@@ -40,16 +40,13 @@ class FavoritesService {
                     completion(result)
                 }
                 
-            } else {
-                DispatchQueue.main.async {
-                    completion(false)
-                }
             }
         })
     }
     
-    func loveOne(shopItemID: String , status: Int, completion: @escaping (Int?, Bool?) -> Void) {
+    func loveOne(shopItemID: String , completion: @escaping (Int?, Bool?) -> Void) {
         var result = false
+        var status = 0
         let userID = Auth.auth().currentUser?.uid
         let db = Firestore.firestore()
         let docRef = db.collection("favorites").whereField("shop_item_id", isEqualTo: shopItemID)
@@ -57,33 +54,47 @@ class FavoritesService {
         
         docRef.getDocuments(completion: { (document, error) in
             if let document = document {
+                var check = false
                 
                 for favoriteDoct in document.documents{
+                    check = true
                     
-                    self.changeStatusOne(id: favoriteDoct.documentID, status: status, completion: { (data) in
-                        guard let data = data else { return }
-                        
-                        result = data ? true : false
-                    })
-                }
-                DispatchQueue.main.async {
-                    completion(status, result)
+                    let jsonData = try? JSONSerialization.data(withJSONObject: favoriteDoct.data() as Any)
+                    
+                    do {
+                        let favorite = try JSONDecoder().decode(FavoritesResponse.self, from: jsonData!)
+                        status = favorite.status == 0 ? 1 : 0
+                        self.changeStatusOne(id: favoriteDoct.documentID, status: status, completion: { (data) in
+                            guard let data = data else { return }
+                            
+                            result = data ? true : false
+                        })
+                    }
+                    catch let jsonError {
+                        print("Error serializing json:", jsonError)
+                    }
                 }
                 
-            } else {
-                self.addOne(id: shopItemID, status: 1, completion: { (data) in
-                    guard let data = data else { return }
-                    
-                    if !data {
-                        DispatchQueue.main.async {
-                            completion(status, false)
-                        }
-                    } else {
-                        DispatchQueue.main.async {
-                            completion(status, true)
-                        }
+                if check  {
+                    DispatchQueue.main.async {
+                        completion(status, result)
                     }
-                })
+                } else {
+                    self.addOne(id: shopItemID, status: 1, completion: { (data) in
+                        guard let data = data else { return }
+                        
+                        if !data {
+                            DispatchQueue.main.async {
+                                completion(1, false)
+                            }
+                        } else {
+                            DispatchQueue.main.async {
+                                completion(1, true)
+                            }
+                        }
+                    })
+                }
+                
             }
         })
     }

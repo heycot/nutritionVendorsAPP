@@ -39,10 +39,11 @@ class GeneralInforItemCell: UITableViewCell {
         FavoritesService.instance.checkLoveStatus(shopItemID: itemID) { (data) in
             guard let data = data else { return }
             
-            if !data {
+            if data == 0 {
                 self.loveBtn.imageView!.image = UIImage(named: "unlove")
+            } else {
+                self.loveBtn.imageView!.image = UIImage(named: "loved")
             }
-            self.loveBtn.imageView!.image = UIImage(named: "loved")
         }
     }
     

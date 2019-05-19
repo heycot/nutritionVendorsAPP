@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import PKHUD
 
 
 class ViewItemController: UIViewController {
@@ -57,10 +59,12 @@ class ViewItemController: UIViewController {
     
     
     func updateComment(offset: Int) {
+        HUD.show(.progress)
         
         CommentServices.instance.getCommentsByShopItem(shopItemID: item.id ?? "") { (data) in
             guard let data = data else {return }
             
+            HUD.hide()
             self.comments = data
             self.tabelView.reloadData()
         }
@@ -145,30 +149,35 @@ class ViewItemController: UIViewController {
     
     @objc func lovePressedFunction(btn: UIButton) {
         
-        if !AuthServices.instance.isLoggedIn {
-            
-            let alert = UIAlertController(title: "Can not love", message: "Please sign in!", preferredStyle: .alert)
-            
-            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
-                self.performSegueFunc(identifier: SegueIdentifier.detailFoodToLogin.rawValue)
-            }))
-            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
-            self.present(alert, animated: true)
-            
-        } else {
-//            FavoritesService.shared.loveOne(shopItemId: item.id!) { data in
-//                guard let data = data else {return }
-//                var loveIconName = ""
-//
-//                if data.status! == 0 {
-//                    self.numberFavorites.text = String(Int(self.numberFavorites.text!)! - 1)
-//                    loveIconName = "unlove"
-//                } else {
-//                    self.numberFavorites.text = String(Int(self.numberFavorites.text!)! + 1)
-//                    loveIconName = "loved"
-//                }
-//                self.loveBtn.setImage(UIImage(named: loveIconName), for: .normal)
-//            }
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            if user != nil {
+                HUD.show(.success)
+                
+                FavoritesService.instance.loveOne(shopItemID: self.item.id ?? "", completion: { (status, success) in
+                    guard let status = status else { return }
+                    var loveIconName = ""
+                    
+                    if status == 0 {
+                        self.numberFavorites.text = String(Int(self.numberFavorites.text!)! - 1)
+                        loveIconName = "unlove"
+                    } else {
+                        self.numberFavorites.text = String(Int(self.numberFavorites.text!)! + 1)
+                        loveIconName = "loved"
+                    }
+                    HUD.hide()
+                    self.loveBtn.setImage(UIImage(named: loveIconName), for: .normal)
+                })
+            } else {
+                // user is not signed in
+                
+                let alert = UIAlertController(title: "Can not love", message: "Please sign in!", preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+                    self.performSegueFunc(identifier: SegueIdentifier.detailFoodToLogin.rawValue)
+                }))
+                alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+                self.present(alert, animated: true)
+            }
         }
     }
     
@@ -182,16 +191,21 @@ class ViewItemController: UIViewController {
     }
     
     @objc func addCmtBtnPressed(btn: UIButton) {
-        if !AuthServices.instance.isLoggedIn {
-            let alert = UIAlertController(title: "Can not Comment", message: "Please sign in!", preferredStyle: .alert)
-            
-            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
-                self.performSegueFunc(identifier: SegueIdentifier.detailFoodToLogin.rawValue)
-            }))
-            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
-            self.present(alert, animated: true)
-        } else {
-            performSegueFunc(identifier: SegueIdentifier.detailToComment.rawValue)
+        
+        
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            if user != nil {
+                self.performSegueFunc(identifier: SegueIdentifier.detailToComment.rawValue)
+            } else {
+                // user is not signed in
+                let alert = UIAlertController(title: "Can not Comment", message: "Please sign in!", preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+                    self.performSegueFunc(identifier: SegueIdentifier.detailFoodToLogin.rawValue)
+                }))
+                alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+                self.present(alert, animated: true)
+            }
         }
     }
     

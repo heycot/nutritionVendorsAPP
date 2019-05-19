@@ -125,24 +125,7 @@ class FavoritesViewController: UIViewController {
             _ = segue.destination as? SearchController
         }
     }
-    
-    func startSpinnerActivity() {
-        let spinnerActivity = MBProgressHUD.showAdded(to: self.view, animated: true);
         
-        spinnerActivity.label.text = "Loading";
-        spinnerActivity.detailsLabel.text = "Please Wait!!";
-        spinnerActivity.isUserInteractionEnabled = false;
-        
-        DispatchQueue.main.async {
-            spinnerActivity.hide(animated: true);
-        }
-    }
-    
-    func stopSpinnerActivity() {
-        MBProgressHUD.hide(for: self.view, animated: true);
-    }
-
-    
     func checkItemInArray(array: [ShopItemResponse], item: ShopItemResponse) -> Bool {
         for arr in array {
             if item.id! == arr.id! {

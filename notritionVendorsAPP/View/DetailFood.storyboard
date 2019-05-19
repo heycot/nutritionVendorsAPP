@@ -23,14 +23,6 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" red="0.89351998730964466" green="0.89351998730964466" blue="0.89351998730964466" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="2t1-Ps-e30">
-                                <rect key="frame" x="162.66666666666666" y="381" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="KBl-jD-7GZ"/>
-                                    <constraint firstAttribute="width" constant="50" id="hp2-nm-fTn"/>
-                                </constraints>
-                                <color key="color" red="0.17254901959999999" green="0.65098039220000004" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -38,9 +30,7 @@
                             <constraint firstItem="yrC-Jj-oxm" firstAttribute="top" secondItem="YYU-VC-2KF" secondAttribute="top" id="4iU-8w-iLC"/>
                             <constraint firstItem="YYU-VC-2KF" firstAttribute="bottom" secondItem="yrC-Jj-oxm" secondAttribute="bottom" id="6AS-VJ-I1M"/>
                             <constraint firstItem="YYU-VC-2KF" firstAttribute="trailing" secondItem="yrC-Jj-oxm" secondAttribute="trailing" id="6wM-nx-YQe"/>
-                            <constraint firstItem="2t1-Ps-e30" firstAttribute="centerY" secondItem="c9E-K6-sGa" secondAttribute="centerY" id="An1-fR-RLA"/>
                             <constraint firstItem="yrC-Jj-oxm" firstAttribute="leading" secondItem="YYU-VC-2KF" secondAttribute="leading" id="ECb-zn-5ft"/>
-                            <constraint firstItem="2t1-Ps-e30" firstAttribute="centerX" secondItem="c9E-K6-sGa" secondAttribute="centerX" id="bxY-SV-mUM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YYU-VC-2KF"/>
                     </view>

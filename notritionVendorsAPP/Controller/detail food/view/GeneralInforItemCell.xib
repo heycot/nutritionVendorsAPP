@@ -205,7 +205,7 @@
                 <outlet property="itemRating" destination="TkN-tt-3Vs" id="y6b-kU-yim"/>
                 <outlet property="loveBtn" destination="vFG-dw-pvR" id="CFc-JC-ikT"/>
             </connections>
-            <point key="canvasLocation" x="36" y="110.19490254872565"/>
+            <point key="canvasLocation" x="12" y="99"/>
         </tableViewCell>
     </objects>
     <resources>
