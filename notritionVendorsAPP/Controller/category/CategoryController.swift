@@ -30,6 +30,7 @@ class CategoryController: UIViewController {
         self.title = category.name ?? ""
         self.notification.isHidden = true
         setupView()
+        loadDataFromAPI(offset: 0)
     }
     
     @IBAction func searchBtnPressed(_ sender: Any) {
@@ -94,22 +95,6 @@ class CategoryController: UIViewController {
         }
     }
     
-    func startSpinnerActivity() {
-        let spinnerActivity = MBProgressHUD.showAdded(to: self.view, animated: true);
-        
-        spinnerActivity.label.text = "Loading";
-        spinnerActivity.detailsLabel.text = "Please Wait!";
-        spinnerActivity.isUserInteractionEnabled = false;
-        
-        DispatchQueue.main.async {
-            spinnerActivity.hide(animated: true);
-        }
-    }
-    
-    func stopSpinnerActivity() {
-        MBProgressHUD.hide(for: self.view, animated: true);
-    }
-    
 }
 
 
@@ -127,8 +112,7 @@ extension CategoryController : UITableViewDataSource {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.viewDidLoad()
-        loadDataFromAPI(offset: 0)
+//        self.viewDidLoad()
         super.viewWillAppear(true)
         tableView.reloadData()
     }
