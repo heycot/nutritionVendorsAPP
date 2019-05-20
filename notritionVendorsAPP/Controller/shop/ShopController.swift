@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import PKHUD
 
 class ShopController: UIViewController {
     
@@ -17,10 +18,7 @@ class ShopController: UIViewController {
     @IBOutlet weak var searchBar: UIButton!
     
     // variables
-    var listItem = [ShopResponse]()
     var currentList = [ShopResponse]()
-    var isNewest = false
-    var currentShop = ShopResponse()
     
     // location manager
     var locationManager = CLLocationManager()
@@ -38,6 +36,7 @@ class ShopController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        loadDataFromAPI(offset: 0, isLoadMore: false)
     }
     
     
@@ -50,46 +49,67 @@ class ShopController: UIViewController {
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
         
-        self.tableView.reloadData()
         tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.rowHeight = 90
-        
         tableView.bottomRefreshControl = refresher
     }
     
     
     @objc
     func loadMoreData() {
-        loadDataFromAPI(offset: listItem.count, isLoadMore: true, isNewest: isNewest)
+        loadDataFromAPI(offset: currentList.count, isLoadMore: true)
         refresher.endRefreshing()
     }
     
-    func loadDataFromAPI(offset: Int, isLoadMore: Bool, isNewest: Bool) {
-        
-        guard let location = AuthServices.instance.currentLocation else {
-            setupCurrentLocation()
-            return
+    func loadDataFromAPI(offset: Int, isLoadMore: Bool) {
+        HUD.show(.progress)
+       
+        ShopService.instance.getListShop() {  data in
+            guard var data = data else {return }
+            data.sort(by: {$0.distance! < $1.distance! })
+
+            if isLoadMore {
+                for shop in data {
+
+                    self.currentList.append(shop)
+                }
+            } else {
+                self.currentList = data
+            }
+
+            HUD.hide()
+            self.tableView.reloadData()
         }
-        let latitude = location.coordinate.latitude
-        let longitude = location.coordinate.longitude
         
-//        ShopServices.shared.getNearestShop(latitude: latitude, longitude: longitude, offset: offset) { data in
+    }
+    
+//    func loadDataFromAPI(offset: Int, isLoadMore: Bool) {
+//        HUD.show(.progress)
+//        guard let location = AuthServices.instance.currentLocation else {
+//            setupCurrentLocation()
+//            return
+//        }
+//
+//        let latitude = location.coordinate.latitude
+//        let longitude = location.coordinate.longitude
+//
+//        ShopService.instance.getListShopNearBy(latitude: latitude, longitude: longitude, distance: 5){ data in
 //            guard let data = data else {return }
 //
 //            if isLoadMore {
 //                for shop in data {
 //
-//                    self.listItem.append(shop)
+//                    self.currentList.append(shop)
 //                }
 //            } else {
-//                self.listItem = data
+//                self.currentList = data
 //            }
 //
-////                self.updateDistance(shops: self.listItem)
-//            self.currentList = self.listItem
+//            HUD.hide()
 //            self.tableView.reloadData()
 //        }
-    }
+//
+//    }
     
 //    func updateDistance(shops: [ShopResponse]) {
 //        guard let location = AuthServices.instance.currentLocation else { return }
@@ -99,14 +119,6 @@ class ShopController: UIViewController {
 //        }
 //    }
     
-    func getShopInfor(id: Int) {
-//        ShopServices.shared.getOne(id: id) { (data) in
-//            guard let data = data else { return }
-//
-//            self.currentShop = data
-//            self.performSegue(withIdentifier: SegueIdentifier.shopToItemInShop.rawValue, sender: nil)
-//        }
-    }
     
     @IBAction func searchBarPressed(_ sender: Any) {
         self.performSegue(withIdentifier: SegueIdentifier.shopToSearch.rawValue, sender: nil)
@@ -122,14 +134,14 @@ class ShopController: UIViewController {
             
         } else if segue.destination is ViewLocationShopController {
             let vc = segue.destination as? ViewLocationShopController
-            vc?.listShop = listItem
+            vc?.listShop = currentList
             vc?.isFromShop = true
             navigationItem.backBarButtonItem = backItem
             
         } else if segue.destination is ItemInShopController {
             let vc = segue.destination as? ItemInShopController
-//            let index = sender as! Int
-            vc?.shop = currentShop
+            let index = sender as! Int
+            vc?.shop = currentList[index]
         }
     }
     
@@ -155,9 +167,8 @@ class ShopController: UIViewController {
 
 extension ShopController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-//        getShopInfor(id: listItem[indexPath.row].id!)
-        getShopInfor(id: 0)
+        tableView.deselectRow(at: indexPath, animated: false)
+        self.performSegue(withIdentifier: SegueIdentifier.shopToItemInShop.rawValue, sender: indexPath.row)
     }
 }
 
@@ -170,14 +181,13 @@ extension ShopController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.shop.rawValue, for: indexPath) as! ShopCell
         
         
-        cell.updateView(shop: currentList[indexPath.row], isNewest: isNewest)
+        cell.updateView(shop: currentList[indexPath.row])
         cell.viewInMapBtn.addTarget(self, action: #selector(viewInMapPressed), for: UIControl.Event.touchDown)
         
         return cell
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        loadDataFromAPI(offset: 0, isLoadMore: false, isNewest: isNewest)
         super.viewWillAppear(true)
         tableView.reloadData()
     }

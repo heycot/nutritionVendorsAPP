@@ -79,13 +79,15 @@ class HightRatingController: UIViewController {
     }
     
     func loadDataFromAPI(offset: Int) {
-        
+        HUD.show(.progress)
         ShopItemService.instance.getHighRatingItem(offset: offset) { data in
             guard let data = data else {return }
             
             for item in data {
                 self.listItem.append(item)
             }
+            
+            HUD.hide()
             self.itemCollection.reloadData()
         }
     }
@@ -199,7 +201,6 @@ extension HightRatingController: UICollectionViewDelegateFlowLayout {
 extension HightRatingController {
     
     // MARK - Map, Location
-    
     func setupCurrentLocation() {
         
         // User Location

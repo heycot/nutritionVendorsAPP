@@ -22,7 +22,6 @@ class CollectionItemCell: UICollectionViewCell {
         
         setupItemImage(id: shopItemRe.id ?? "", avatar: shopItemRe.avatar ?? "")
         itemName.text = shopItemRe.name! + " - " + shopItemRe.shop_name!
-        
         itemRating.rating = shopItemRe.rating! 
         itemRating.text = "(" + String(shopItemRe.comment_number!)  + ")"
         

@@ -28,6 +28,14 @@ struct ShopResponse: Decodable {
     var address: String?
     var keyword: [String]?
     
+    var distance: Double? {
+        if (AuthServices.instance.currentLocation != nil) {
+             let coordinate₀ = CLLocation(latitude: self.latitude ?? 0.0, longitude: self.longitude ?? 0.0)
+            return coordinate₀.distance(from: AuthServices.instance.currentLocation!)
+        }
+        return nil
+    }
+    
     init(id: String, user_id: String, name: String, rating: Double, time_open: String, time_close: String, create_date: TimeInterval, status: Int, phone: String, avatar: String, sell: String, longitude: Double, latitude: Double, address: String, keyword: [String]) {
         self.id = id
         self.user_id = user_id

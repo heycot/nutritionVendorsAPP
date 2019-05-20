@@ -45,6 +45,45 @@ class ShopService {
         })
     }
     
+    func getListShopNearBy (latitude: Double, longitude: Double, distance: Double, completion: @escaping ([ShopResponse]?) -> Void) {
+        // ~1 mile of lat and lon in degrees
+        let lat = 0.0144927536231884
+        let lon = 0.0181818181818182
+        
+        let lowerLat = latitude - (lat * distance)
+        let lowerLon = longitude - (lon * distance)
+
+        let greaterLat = latitude + (lat * distance)
+        let greaterLon = longitude + (lon * distance)
+
+        let db = Firestore.firestore()
+        let docRef = db.collection("shop").whereField("latitude", isGreaterThan: lowerLat).whereField("latitude", isLessThan: greaterLat).whereField("longitude", isGreaterThan: lowerLon).whereField("longitude", isLessThan: greaterLon)
+        
+        docRef.getDocuments(completion: { (document, error) in
+            if let document = document {
+                print(document.documents)
+                var shopList = [ShopResponse]()
+                for shopDoct in document.documents{
+                    let jsonData = try? JSONSerialization.data(withJSONObject: shopDoct.data() as Any)
+                    do {
+                        var shop = try JSONDecoder().decode(ShopResponse.self, from: jsonData!)
+                        shop.id = shopDoct.documentID
+                        shopList.append(shop)
+                    }
+                    catch let jsonError {
+                        print("Error serializing json:", jsonError)
+                    }
+                }
+                DispatchQueue.main.async {
+                    completion(shopList)
+                }
+                
+            } else {
+                print("User have no profile")
+            }
+        })
+    }
+    
     func getOneById(shopId: String, completion: @escaping (ShopResponse?) -> Void) {
         
         let db = Firestore.firestore()
