@@ -21,6 +21,7 @@ class SearchController: UIViewController {
     var priorSearchText = ""
     
     var shopitem = ShopItemResponse()
+    var list = [ShopItemResponse]()
     var shop = ShopResponse()
     
     
@@ -35,11 +36,24 @@ class SearchController: UIViewController {
     }
     
     func getRecentSearch(offset: Int) {
-        SearchServices.shared.getRecentSearch(offset: offset) { (data) in
+        
+        RecentService.instance.getListRecent { (data) in
             guard let data = data else { return }
+            var i = 0
+            let count = data.count
             
-            self.listItem = data
-            self.tableView.reloadData()
+            for item in data {
+                i += 1
+                ShopItemService.instance.getOneById(shop_item_id: item.shop_item_id ?? "", completion: { (data) in
+                    guard let data = data else { return }
+                    
+                    self.list.append(data)
+                    
+                    if i == count {
+                        self.tableView.reloadData()
+                    }
+                })
+            }
         }
     }
     

@@ -41,6 +41,7 @@ class HightRatingController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupCurrentLocation()
         setUpCollectionView()
         registerHeader()

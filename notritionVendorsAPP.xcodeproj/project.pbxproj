@@ -75,7 +75,7 @@
 		23679F76228E986000F427DD /* ItemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23679F75228E986000F427DD /* ItemResponse.swift */; };
 		23679F782290042F00F427DD /* ImageServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23679F772290042F00F427DD /* ImageServices.swift */; };
 		23679F7A22928C7400F427DD /* RecentServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23679F7922928C7400F427DD /* RecentServices.swift */; };
-		23679F7C22928CF200F427DD /* RecentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23679F7B22928CF200F427DD /* RecentResponse.swift */; };
+		23679F7E229292E600F427DD /* RecentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23679F7D229292E600F427DD /* RecentResponse.swift */; };
 		23695E9222277DC600AD7076 /* ExtensionUICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23695E9122277DC600AD7076 /* ExtensionUICollectionView.swift */; };
 		23695E9422277F7200AD7076 /* ExtensionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23695E9322277F7200AD7076 /* ExtensionUIView.swift */; };
 		23695E9822278F3B00AD7076 /* ViewItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23695E9722278F3B00AD7076 /* ViewItemController.swift */; };
@@ -189,7 +189,7 @@
 		23679F75228E986000F427DD /* ItemResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemResponse.swift; sourceTree = "<group>"; };
 		23679F772290042F00F427DD /* ImageServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServices.swift; sourceTree = "<group>"; };
 		23679F7922928C7400F427DD /* RecentServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentServices.swift; sourceTree = "<group>"; };
-		23679F7B22928CF200F427DD /* RecentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentResponse.swift; sourceTree = "<group>"; };
+		23679F7D229292E600F427DD /* RecentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentResponse.swift; sourceTree = "<group>"; };
 		23695E9122277DC600AD7076 /* ExtensionUICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUICollectionView.swift; sourceTree = "<group>"; };
 		23695E9322277F7200AD7076 /* ExtensionUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIView.swift; sourceTree = "<group>"; };
 		23695E9722278F3B00AD7076 /* ViewItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewItemController.swift; sourceTree = "<group>"; };
@@ -638,7 +638,7 @@
 				235AC4AE2265BDDF009A0CD0 /* SearchResponse.swift */,
 				2373EB9C226DA07700D779F2 /* CommentDTOResponse.swift */,
 				23679F75228E986000F427DD /* ItemResponse.swift */,
-				23679F7B22928CF200F427DD /* RecentResponse.swift */,
+				23679F7D229292E600F427DD /* RecentResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -891,6 +891,7 @@
 			files = (
 				235AC4AF2265BDDF009A0CD0 /* SearchResponse.swift in Sources */,
 				231ABDAA2266DAE0006D6B01 /* NibDesignable.swift in Sources */,
+				23679F7E229292E600F427DD /* RecentResponse.swift in Sources */,
 				231ABDC22266E1B0006D6B01 /* mapRequestBodyDirections.swift in Sources */,
 				2323C8B2223F5B8B00DA68CA /* ViewLocationShopController.swift in Sources */,
 				235B169F226C71F6001A6BB6 /* AccountCell.swift in Sources */,
@@ -919,7 +920,6 @@
 				23A31BB7224093F800FE2D69 /* ShopItemService.swift in Sources */,
 				231AE460222E28860082C06E /* DateTimeLibrary.swift in Sources */,
 				237DABF32261E37F00FE57FB /* SearchController.swift in Sources */,
-				23679F7C22928CF200F427DD /* RecentResponse.swift in Sources */,
 				2352404922632E7F004B11CF /* CategoryUITableCell.swift in Sources */,
 				231AF5CC225F2BE50057DD11 /* ShopController.swift in Sources */,
 				23614F1122560F7E00B5DD81 /* FavoritesService.swift in Sources */,
