@@ -48,7 +48,7 @@ class ViewCommentCell: UITableViewCell {
     }
     
     func updateCommentView(user: UserResponse) {
-        userImage.loadImageFromFirebase(folder: ReferenceImage.user.rawValue + (user.avatar ?? "") )
+        userImage.displayImage(folderPath: ReferenceImage.user.rawValue + (user.avatar ?? "") )
         userName.text = user.name
     }
     

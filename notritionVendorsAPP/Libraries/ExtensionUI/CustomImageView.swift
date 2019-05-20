@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import FirebaseStorage
+import Firebase
+import FirebaseUI
 
 let imageCache = NSCache<NSString, UIImage>()
 
@@ -83,7 +84,7 @@ class CustomImageView: UIImageView {
         
         
         // Load the image using SDWebImage
-//        self.ssetImama
+        self.sd_setImage(with: reference)
         
     }
 }

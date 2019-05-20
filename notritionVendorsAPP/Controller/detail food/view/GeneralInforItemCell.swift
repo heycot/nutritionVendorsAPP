@@ -24,7 +24,7 @@ class GeneralInforItemCell: UITableViewCell {
         customUI()
         
         showLoveStatus(itemID: item.id ?? "")
-        itemImage.loadImageFromFirebase(folder: ReferenceImage.shopItem.rawValue + "\(item.id ?? "")/\(item.avatar ?? "")")
+        itemImage.displayImage(folderPath: ReferenceImage.shopItem.rawValue + "\(item.id ?? "")/\(item.avatar ?? "")")
         itemComments.text = "\(item.comment_number ?? 0)"
         itemFavorites.text = "\(item.favorites_number ?? 0)"
         

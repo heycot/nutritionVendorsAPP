@@ -58,7 +58,7 @@ class ItemInShopController: UIViewController {
     }
     
     func viewShopInfor() {
-        shopAvatar.loadImageFromFirebase(folder: ReferenceImage.shop.rawValue + "\(shop.id ?? "")/\(shop.avatar ?? "")")
+        shopAvatar.displayImage(folderPath: ReferenceImage.shop.rawValue + "\(shop.id ?? "")/\(shop.avatar ?? "")")
         shopName.text = shop.name
         shopAddress.text = shop.address
         shopTimeOpen.text = shop.time_open! + " - " + shop.time_close!

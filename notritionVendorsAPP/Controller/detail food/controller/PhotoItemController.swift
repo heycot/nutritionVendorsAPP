@@ -44,7 +44,7 @@ class PhotoItemController: UIViewController {
         for item in images {
             let image = CustomImageView()
             let folder = ReferenceImage.shopItem.rawValue + shopItemID + "/\(item)"
-            image.loadImageFromFirebase(folder: folder)
+            image.displayImage(folderPath: folder)
             imgArr.append(image)
         }
     }

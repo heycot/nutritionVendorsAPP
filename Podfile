@@ -28,4 +28,5 @@ target 'notritionVendorsAPP' do
     pod 'Firebase/Storage'
     pod 'YPImagePicker', '~> 3.5.2'
     pod 'PKHUD', '~> 5.0'
+    pod 'FirebaseUI/Storage'
 end

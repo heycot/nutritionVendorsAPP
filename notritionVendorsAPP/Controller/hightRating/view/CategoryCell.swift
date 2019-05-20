@@ -20,7 +20,7 @@ class CategoryCell: UICollectionViewCell {
     }
     
     func updateView(category: CategoryResponse) {
-        icon.loadImageFromFirebase(folder: ReferenceImage.category.rawValue + (category.icon ?? ""))
+        icon.displayImage(folderPath: ReferenceImage.category.rawValue + (category.icon ?? ""))
         nameCategory.text = category.name!
         
         view.layer.cornerRadius = 8;
