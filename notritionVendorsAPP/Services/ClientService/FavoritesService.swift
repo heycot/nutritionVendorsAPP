@@ -109,7 +109,9 @@ class FavoritesService {
                       "status": status as Any,
                       "shop_item_name": shopItem.name as Any,
                       "shop_name": shopItem.shop_name as Any,
-                      "rating": shopItem.rating as Any] as [String : Any]
+                      "rating": shopItem.rating as Any,
+                      "avatar": shopItem.avatar as Any,
+                      "address": shopItem.address as Any] as [String : Any]
         
         
         db.collection("favorites").document().setData(values) { err in

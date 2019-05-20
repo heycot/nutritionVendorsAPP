@@ -17,6 +17,8 @@ class FavoritesResponse : Decodable {
     var shop_item_name: String?
     var shop_name: String?
     var rating: Double?
+    var avatar: String?
+    var address: String?
     
     
     init(id: String, shop_item_id: String, user_id: String, status: Int) {
