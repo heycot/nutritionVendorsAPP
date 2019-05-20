@@ -377,6 +377,7 @@
 				23695E9122277DC600AD7076 /* ExtensionUICollectionView.swift */,
 				23695E9322277F7200AD7076 /* ExtensionUIView.swift */,
 				231AE461222E2A030082C06E /* ExtensionUIlabel.swift */,
+				23E6FD74224B5479001C72B2 /* ExtentionDouble.swift */,
 				235A49EC2248BEF70034A944 /* CustomImageView.swift */,
 			);
 			path = ExtensionUI;
@@ -388,7 +389,6 @@
 				231AE45F222E28860082C06E /* DateTimeLibrary.swift */,
 				231AE467222E2EDF0082C06E /* GeneralValueItem.swift */,
 				233B390C22376476003EB253 /* StringLibrary.swift */,
-				23E6FD74224B5479001C72B2 /* ExtentionDouble.swift */,
 			);
 			path = DataLibrary;
 			sourceTree = "<group>";

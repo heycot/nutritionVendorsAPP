@@ -22,8 +22,7 @@ class RecentService {
         
         let db = Firestore.firestore()
         let docRef = db.collection("recent").whereField("user_id", isEqualTo: userID)
-        docRef.order(by: "update_date", descending: true)
-        docRef.limit(to: 20)
+        docRef.order(by: "update_date", descending: true).limit(to: 20)
         
         docRef.getDocuments(completion: { (document, error) in
             if let document = document {
@@ -93,7 +92,7 @@ class RecentService {
                     completion(true)
                 }
             } else {
-                
+                print("update update_date recent success")
                 DispatchQueue.main.async {
                     completion(false)
                 }

@@ -27,8 +27,15 @@ class SearchCell: UITableViewCell {
     
     func updateView(item: SearchResponse) {
         setupView()
+        var folder = ""
         
-        itemImage.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + item.avatar!)
+        if item.is_shop == 0 {
+            folder = ReferenceImage.shopItem.rawValue + "\(item.entity_id ?? "")/\(item.avatar ?? "")"
+        } else{
+            folder = ReferenceImage.shop.rawValue + "\(item.entity_id ?? "")/\(item.avatar ?? "")"
+        }
+        
+        itemImage.displayImage(folderPath: folder)
         name.text = item.entity_name!
         address.text = item.address!
         rating.rating = item.rating!

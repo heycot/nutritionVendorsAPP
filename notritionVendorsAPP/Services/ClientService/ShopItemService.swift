@@ -18,8 +18,7 @@ class ShopItemService {
         let docRef = db.collection("shop_item")
         docRef.order(by: "comment_number", descending: true)
               .order(by: "rating", descending: true)
-            .start(at: [offset])
-            .limit(to: 20)
+              .limit(to: 20)
         
         docRef.getDocuments(completion: { (document, error) in
             if let document = document {
@@ -94,7 +93,7 @@ class ShopItemService {
         
     }
     
-    func editOneWhenComment( itemID: String, cmt: CommentResponse,  completion: @escaping (Bool?) -> Void) {
+    func editOneWhenComment( itemID: String, cmt: CommentResponse, isNewCmt: Bool,  completion: @escaping (Bool?) -> Void) {
         
         let db = Firestore.firestore()
         
@@ -105,7 +104,12 @@ class ShopItemService {
                 let jsonData = try? JSONSerialization.data(withJSONObject: document.data() as Any)
                 do {
                     let shopItem = try JSONDecoder().decode(ShopItemResponse.self, from: jsonData!)
-                    let newCommentNumber = shopItem.comment_number ?? 0 + 1
+                    
+                    var newCommentNumber = shopItem.comment_number ?? 0
+                    if isNewCmt {
+                        newCommentNumber += 1
+                    }
+                    
                     let newRating = ((shopItem.rating ?? 0 * Double(newCommentNumber) ) + (cmt.rating ?? 3.0)) / Double(newCommentNumber)
                     
                     let values = ["comment_number": newCommentNumber as Any,

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PKHUD
 
 class SearchController: UIViewController {
 
@@ -21,7 +22,6 @@ class SearchController: UIViewController {
     var priorSearchText = ""
     
     var shopitem = ShopItemResponse()
-    var list = [ShopItemResponse]()
     var shop = ShopResponse()
     
     
@@ -36,9 +36,13 @@ class SearchController: UIViewController {
     }
     
     func getRecentSearch(offset: Int) {
-        
+        HUD.show(.progress)
         RecentService.instance.getListRecent { (data) in
-            guard let data = data else { return }
+            guard var data = data else {
+                HUD.hide()
+                return
+            }
+            data.sort(by: {$0.update_date! > $1.update_date! })
             var i = 0
             let count = data.count
             
@@ -47,14 +51,27 @@ class SearchController: UIViewController {
                 ShopItemService.instance.getOneById(shop_item_id: item.shop_item_id ?? "", completion: { (data) in
                     guard let data = data else { return }
                     
-                    self.list.append(data)
+                    self.listItem.append(data.convertToSearchResponse())
                     
                     if i == count {
+                        HUD.hide()
                         self.tableView.reloadData()
                     }
                 })
             }
         }
+    }
+    
+    func sortList(list: [RecentResponse]) {
+//        for i in  0 ..< list.count {
+//            for j in list.count ..> i {
+//                if (list[i].update_date! < list[j].update_date!) {
+//                    let temp = list[j]
+//                    list[i] = temp
+//
+//                }
+//            }
+//        }
     }
     
     func createSearchBar() {
@@ -78,22 +95,7 @@ class SearchController: UIViewController {
         tableView.rowHeight = 80
     }
     
-    func startSpinnerActivity() {
-        let spinnerActivity = MBProgressHUD.showAdded(to: self.view, animated: true);
-        
-        spinnerActivity.label.text = "Loading";
-        spinnerActivity.detailsLabel.text = "Please Wait!!";
-        spinnerActivity.isUserInteractionEnabled = false;
-        
-        DispatchQueue.main.async {
-            spinnerActivity.hide(animated: true);
-        }
-    }
     
-    
-    func stopSpinnerActivity() {
-        MBProgressHUD.hide(for: self.view, animated: true);
-    }
     
     @objc func doDelayedSearch(_ t: Timer) {
         assert(t == searchDelayer)

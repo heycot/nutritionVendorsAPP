@@ -33,7 +33,12 @@ class ViewItemController: UIViewController {
         self.title = item.name!
         navigationController?.navigationBar.barTintColor = APP_COLOR
         prepareData()
+        saveAsRecent()
         tabelView.tableFooterView = UIView()
+    }
+    
+    func saveAsRecent(){
+        RecentService.instance.saveOne(shopItemID: item.id ?? "")
     }
     
     func registerNibCell() {

@@ -69,7 +69,7 @@ class AuthServices {
     }
     
     func signin(email: String, password: String, completion: @escaping (Bool?) -> Void){
-        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             
             if error != nil {
                 DispatchQueue.main.async {

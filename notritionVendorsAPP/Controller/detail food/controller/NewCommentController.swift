@@ -145,7 +145,7 @@ class NewCommentController: UIViewController {
                         self.present(alert, animated: true)
                         
                     } else {
-                        ShopItemService.instance.editOneWhenComment(itemID: self.lastComment.shopitem_id ?? "", cmt: self.lastComment, completion: { (data) in
+                        ShopItemService.instance.editOneWhenComment(itemID: self.lastComment.shopitem_id ?? "", cmt: self.lastComment, isNewCmt: true, completion: { (data) in
                             
                             HUD.hide()
                             self.navigationController?.popViewController(animated: true)
@@ -166,7 +166,7 @@ class NewCommentController: UIViewController {
                         self.present(alert, animated: true)
                         
                     } else {
-                        ShopItemService.instance.editOneWhenComment(itemID: self.lastComment.shopitem_id ?? "", cmt: self.lastComment, completion: { (data) in
+                        ShopItemService.instance.editOneWhenComment(itemID: self.lastComment.shopitem_id ?? "", cmt: self.lastComment, isNewCmt: false, completion: { (data) in
                             
                             HUD.hide()
                             self.navigationController?.popViewController(animated: true)
