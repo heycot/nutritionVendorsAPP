@@ -15,8 +15,7 @@ class FavoritesViewController: UIViewController {
     @IBOutlet weak var resultSearchNotification: UILabel!
     @IBOutlet weak var searchBar: UIButton!
     
-    var currentListItem = [ShopItemResponse]()
-    var currentShopItem = ShopItemResponse()
+    var favoritesList = [FavoritesResponse]()
     
     lazy var refresher: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -81,30 +80,32 @@ class FavoritesViewController: UIViewController {
             guard let data = data else {return }
             
             // check listitem is already have
-            if data.count == 0, self.currentListItem.count == 0{
+            if data.count == 0, self.favoritesList.count == 0{
+                HUD.hide()
                 self.resultSearchNotification.isHidden = false
                 self.resultSearchNotification.text = Notification.noData.rawValue
             } else {
                 //if load more data => add to listItem else replace listItem
                 if isLoadMore {
                     for i in 0 ..< data.count {
-                        self.currentListItem.append(data[i])
+                        self.favoritesList.append(data[i])
                     }
                 } else {
-                    self.currentListItem = data
+                    self.favoritesList = data
                 }
                 
+                HUD.hide()
                 self.resultSearchNotification.isHidden = true
+                self.tableView.reloadData()
             }
             
-            HUD.hide()
-            self.tableView.reloadData()
         }
     }
     
+    
     @objc
     func loadMoreData() {
-        loadDataFromAPI(offset: currentListItem.count, isLoadMore: true)
+        loadDataFromAPI(offset: favoritesList.count, isLoadMore: true)
         refresher.endRefreshing()
     }
 
@@ -116,7 +117,7 @@ class FavoritesViewController: UIViewController {
         if segue.destination is ViewItemController {
             let vc = segue.destination as? ViewItemController
             let index = sender as! Int
-            vc?.item = currentListItem[index]
+//            vc?.item = currentListItem[index]
             
         }  else if segue.destination is LoginController {
             _ = segue.destination as? LoginController
@@ -138,19 +139,18 @@ class FavoritesViewController: UIViewController {
 
 extension FavoritesViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return currentListItem.count
+        return favoritesList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.favoritesItem.rawValue) as! FavoritesCell
         
-        cell.updateView(item: currentListItem[indexPath.row])
+        cell.updateView(item: favoritesList[indexPath.row])
         
         return cell
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        loadDataFromAPI(offset: 0, isLoadMore: false)
         super.viewWillAppear(true)
         tableView.reloadData()
     }

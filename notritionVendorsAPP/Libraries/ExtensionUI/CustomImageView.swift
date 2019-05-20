@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseStorage
 
 let imageCache = NSCache<NSString, UIImage>()
 
@@ -69,5 +70,20 @@ class CustomImageView: UIImageView {
         }) { (err) in
             print("something wrong with image folder")
         }
+        
+    }
+    
+    
+    func displayImage(folderPath: String) {
+        let storage = Storage.storage()
+        let storageRef = storage.reference(withPath: "images")
+
+        // Reference to an image file in Firebase Storage
+        let reference = storageRef.child(folderPath)
+        
+        
+        // Load the image using SDWebImage
+//        self.ssetImama
+        
     }
 }

@@ -44,12 +44,12 @@ class FavoritesService {
         })
     }
     
-    func loveOne(shopItemID: String , completion: @escaping (Int?, Bool?) -> Void) {
+    func loveOne(shopItem: ShopItemResponse , completion: @escaping (Int?, Bool?) -> Void) {
         var result = false
         var status = 0
         let userID = Auth.auth().currentUser?.uid
         let db = Firestore.firestore()
-        let docRef = db.collection("favorites").whereField("shop_item_id", isEqualTo: shopItemID)
+        let docRef = db.collection("favorites").whereField("shop_item_id", isEqualTo: shopItem.id ?? "")
             .whereField("user_id", isEqualTo: userID as Any)
         
         docRef.getDocuments(completion: { (document, error) in
@@ -80,7 +80,7 @@ class FavoritesService {
                         completion(status, result)
                     }
                 } else {
-                    self.addOne(id: shopItemID, status: 1, completion: { (data) in
+                    self.addOne( shopItem: shopItem, status: 1, completion: { (data) in
                         guard let data = data else { return }
                         
                         if !data {
@@ -99,14 +99,17 @@ class FavoritesService {
         })
     }
     
-    func addOne(id: String, status: Int, completion: @escaping (Bool?) -> Void) {
+    func addOne(shopItem: ShopItemResponse, status: Int, completion: @escaping (Bool?) -> Void) {
         let userID = Auth.auth().currentUser?.uid
         let db = Firestore.firestore()
         let values = ["user_id": userID as Any,
-                      "shop_item_id": id as Any,
+                      "shop_item_id": shopItem.id as Any,
                       "create_date": Date().timeIntervalSince1970,
                       "update_date": Date().timeIntervalSince1970,
-                      "status": status as Any] as [String : Any]
+                      "status": status as Any,
+                      "shop_item_name": shopItem.name as Any,
+                      "shop_name": shopItem.shop_name as Any,
+                      "rating": shopItem.rating as Any] as [String : Any]
         
         
         db.collection("favorites").document().setData(values) { err in
@@ -146,8 +149,8 @@ class FavoritesService {
         
     }
     
-    func getAllLovedByUser(completion: @escaping ([ShopItemResponse]?) -> Void) {
-        var shopItemList = [ShopItemResponse]()
+    func getAllLovedByUser(completion: @escaping ([FavoritesResponse]?) -> Void) {
+        var favoritesList = [FavoritesResponse]()
         let userID = Auth.auth().currentUser?.uid
         let db = Firestore.firestore()
         let docRef = db.collection("favorites")
@@ -162,22 +165,23 @@ class FavoritesService {
                     
                     do {
                         let favorite = try JSONDecoder().decode(FavoritesResponse.self, from: jsonData!)
+                        favorite.id = favoriteDoct.documentID
+                        favoritesList.append(favorite)
                         
-                        ShopItemService.instance.getOneById(shop_item_id: favorite.shopitem_id ?? "", completion: { (data) in
-                            guard let data = data else { return }
-                            
-                            shopItemList.append(data)
-                        })
                     }
                     catch let jsonError {
                         print("Error serializing json:", jsonError)
                     }
                 }
+                
                 DispatchQueue.main.async {
-                    completion(shopItemList)
+                    completion(favoritesList)
                 }
                 
             } else {
+                DispatchQueue.main.async {
+                    completion(favoritesList)
+                }
                 print("User have no profile")
             }
         })

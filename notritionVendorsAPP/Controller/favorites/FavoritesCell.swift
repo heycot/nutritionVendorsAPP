@@ -25,12 +25,11 @@ class FavoritesCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func updateView(item: ShopItemResponse) {
-        itemImage.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + item.avatar!)
-        itemName.text = item.name! + " - " + item.shop_name!
+    func updateView(item: FavoritesResponse) {
+//        itemImage.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + item.avatar!)
+        itemName.text = item.shop_item_name! + " - " + item.shop_name!
 //        address.text = item.address!
         rating.rating = item.rating!
-        rating.text = "(" + String(item.comment_number!) + ")"
         
         setupView() 
     }

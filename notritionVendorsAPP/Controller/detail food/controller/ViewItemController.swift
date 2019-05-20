@@ -168,7 +168,7 @@ class ViewItemController: UIViewController {
             if user != nil {
                 HUD.show(.success)
                 
-                FavoritesService.instance.loveOne(shopItemID: self.item.id ?? "", completion: { (status, success) in
+                FavoritesService.instance.loveOne(shopItem: self.item, completion: { (status, success) in
                     guard let status = status else { return }
                     var loveIconName = ""
                     

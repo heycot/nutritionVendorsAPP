@@ -157,6 +157,35 @@ class ShopItemService {
         })
     }
     
+    func getListFavorite(favorites: [FavoritesResponse], completion: @escaping ([ShopItemResponse]?) -> Void) {
+        let db = Firestore.firestore()
+        var listFood = [ShopItemResponse]()
+        
+        for item in favorites {
+            let docRef = db.collection("shop_item").document(item.shop_item_id ?? "")
+            
+            docRef.getDocument(completion: { (document, error) in
+                if let document = document, document.exists {
+                    let jsonData = try? JSONSerialization.data(withJSONObject: document.data() as Any)
+                    do {
+                        var shopItem = try JSONDecoder().decode(ShopItemResponse.self, from: jsonData!)
+                        shopItem.id = document.documentID
+                        listFood.append(shopItem)
+                        
+                    } catch let jsonError {
+                        print("Error serializing json:", jsonError)
+                    }
+                    
+                    DispatchQueue.main.async {
+                        completion(listFood)
+                    }
+                } else {
+                    print("User have no profile")
+                }
+            })
+        }
+    }
+    
     func findAllByShop(shopId: String, offset: Int, completion: @escaping ([ShopItemResponse]?) -> Void) {
         let db = Firestore.firestore()
         let docRef = db.collection("shop_item").whereField("shop_id", isEqualTo: shopId)
