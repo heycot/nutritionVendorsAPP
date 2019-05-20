@@ -30,10 +30,7 @@ class ItemInShopCell: UITableViewCell {
     
     func updateView(item: ShopItemResponse) {
         setupView()
-        
-        if let avatar = item.avatar {
-            itemImage.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + avatar)
-        }
+        itemImage.displayImage(folderPath: ReferenceImage.shopItem.rawValue + "\(item.id ?? "")/\(item.avatar ?? "")")
         itemname.text = String(item.name!)
         itemPrice.text = "price: VND " + String(item.price!)
         itemRating.rating = item.rating!
