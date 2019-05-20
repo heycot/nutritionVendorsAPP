@@ -10,7 +10,7 @@ import Foundation
 import CoreLocation
 import Firebase
 
-struct ShopResponse: Decodable {
+struct ShopResponse: Decodable, Hashable {
     var oldid: Int?
     var id: String?
     var user_id: String?
@@ -115,7 +115,20 @@ struct ShopResponse: Decodable {
         
         return distance
     }
-}
+    
+    func convertToSearchResponse() -> SearchResponse {
+        var search = SearchResponse()
+        
+        search.is_shop = 1
+        search.entity_id = self.id
+        search.address = self.address
+        search.comment_number = 0
+        search.rating = self.rating
+        search.entity_name = self.name
+        search.avatar = self.avatar
+        
+        return search
+    }}
 
 extension CLLocationDistance {
     func inMiles() -> CLLocationDistance {

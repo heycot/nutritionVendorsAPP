@@ -7,46 +7,109 @@
 //
 
 import Foundation
+import Firebase
 
 
 class SearchServices {
     
-    public static let shared = SearchServices()
+    public static let instance = SearchServices()
 
-    func searchItem(searchText: String, completion: @escaping ([SearchResponse]?) -> Void) {
-        let urlStr = BASE_URL + ShopItemAPI.searchOne.rawValue  + "/" + searchText
-
-        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
+    func searchShopItem(searchText: String, completion: @escaping (Set<SearchResponse>?) -> Void) {
+        var results = [SearchResponse]()
+        
+        let searchConvert = ConverHelper.convertVietNam(text: searchText)
+        
+        let urlArray = results.map({ $0.entity_id })
+        var myResult = Set(urlArray)
+        //attendees.formUnion(visitors)
+        
+        var aa = Set<SearchResponse>()
+        
+        
+        let searchArr = String.gennerateKeywords([searchConvert])
+        let db = Firestore.firestore()
+        
+        for text in searchArr {
+            let docRef = db.collection("shop_item").whereField("keywords", arrayContains: text)
+            docRef.order(by: "comment_number", descending: true)
+                .order(by: "rating", descending: true)
+            docRef.limit(to: 20)
             
-            guard let data = data else {return}
-            do {
-                
-                let shopItems = try JSONDecoder().decode([SearchResponse].self, from: data)
-                DispatchQueue.main.async {
-                    completion(shopItems)
+            docRef.getDocuments(completion: { (document, error) in
+                if let document = document {
+                    
+                    for shopItemDoct in document.documents{
+                        let jsonData = try? JSONSerialization.data(withJSONObject: shopItemDoct.data() as Any)
+                        
+                        do {
+                            var shopItem = try JSONDecoder().decode(ShopItemResponse.self, from: jsonData!)
+                            shopItem.id = shopItemDoct.documentID
+                            //results.append(shopItem.convertToSearchResponse())
+                            aa.insert(shopItem.convertToSearchResponse())
+                        }
+                        catch let jsonError {
+                            print("Error serializing json:", jsonError)
+                        }
+                    }
+                    
+                    DispatchQueue.main.async {
+                        completion(aa)
+                    }
+                    
+                } else {
+                    print("User have no profile")
                 }
-            } catch let jsonError {
-                print("Error serializing json:", jsonError)
-            }
+            })
+            
         }
     }
     
-    func getRecentSearch(offset: Int, completion: @escaping ([SearchResponse]?) -> Void) {
-        let urlStr = BASE_URL + SearchAPI.recentSearch.rawValue + "/\(offset)"
+    
+    func searchShop(searchText: String, completion: @escaping (Set<SearchResponse>?) -> Void) {
+        var results = Set<SearchResponse>()
+        let searchConvert = ConverHelper.convertVietNam(text: searchText)
         
-        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
+        let searchArr = String.gennerateKeywords([searchConvert])
+        let db = Firestore.firestore()
+        
+        for text in searchArr {
+            let docRef = db.collection("shop").whereField("keywords", arrayContains: text)
+            docRef.order(by: "comment_number", descending: true)
+                .order(by: "rating", descending: true)
+            docRef.limit(to: 20)
             
-            guard let data = data else {return}
-            do {
-                
-                let shopItems = try JSONDecoder().decode([SearchResponse].self, from: data)
-                DispatchQueue.main.async {
-                    completion(shopItems)
+            docRef.getDocuments(completion: { (document, error) in
+                if let document = document {
+                    
+                    for doct in document.documents{
+                        let jsonData = try? JSONSerialization.data(withJSONObject: doct.data() as Any)
+                        
+                        do {
+                            var shop = try JSONDecoder().decode(ShopResponse.self, from: jsonData!)
+                            shop.id = doct.documentID
+                            results.insert(shop.convertToSearchResponse())
+                        }
+                        catch let jsonError {
+                            print("Error serializing json:", jsonError)
+                        }
+                    }
+                    DispatchQueue.main.async {
+                        completion(results)
+                    }
+                    
+                } else {
+                    print("User have no profile")
                 }
-            } catch let jsonError {
-                print("Error serializing json:", jsonError)
-            }
+            })
+            
         }
+    }
+    
+}
+
+    
+extension Set {
+    var array: [Element] {
+        return Array(self)
     }
 }
-    

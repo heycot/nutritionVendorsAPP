@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SearchResponse: Decodable{
+struct SearchResponse: Decodable, Hashable{
     var entity_id: String?
     var entity_name: String?
     var rating: Double?
