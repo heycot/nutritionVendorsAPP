@@ -14,16 +14,10 @@ class SearchServices {
     
     public static let instance = SearchServices()
 
-    func searchShopItem(searchText: String, completion: @escaping (Set<SearchResponse>?) -> Void) {
+    func searchShopItem(searchText: String, completion: @escaping ([SearchResponse]?) -> Void) {
         var results = [SearchResponse]()
         
         let searchConvert = ConverHelper.convertVietNam(text: searchText)
-        
-        let urlArray = results.map({ $0.entity_id })
-        var myResult = Set(urlArray)
-        //attendees.formUnion(visitors)
-        
-        var aa = Set<SearchResponse>()
         
         
         let searchArr = String.gennerateKeywords([searchConvert])
@@ -44,8 +38,16 @@ class SearchServices {
                         do {
                             var shopItem = try JSONDecoder().decode(ShopItemResponse.self, from: jsonData!)
                             shopItem.id = shopItemDoct.documentID
-                            //results.append(shopItem.convertToSearchResponse())
-                            aa.insert(shopItem.convertToSearchResponse())
+                            var search = shopItem.convertToSearchResponse()
+                            search.number_occurrences = 1
+                            let index = self.checkAlreadyExistsIntArray(list: results, id: shopItem.id ?? "")
+                            
+                            if index != nil {
+                                results[index!].number_occurrences! += 1
+                                print("already exit")
+                            } else {
+                                results.append(search)
+                            }
                         }
                         catch let jsonError {
                             print("Error serializing json:", jsonError)
@@ -53,7 +55,7 @@ class SearchServices {
                     }
                     
                     DispatchQueue.main.async {
-                        completion(aa)
+                        completion(results)
                     }
                     
                 } else {
@@ -62,6 +64,16 @@ class SearchServices {
             })
             
         }
+    }
+    
+    func checkAlreadyExistsIntArray(list: [SearchResponse], id: String) -> Int? {
+        for i in 0 ..< list.count {
+            if list[i].entity_id == id {
+                return i
+            }
+        }
+        
+        return nil
     }
     
     

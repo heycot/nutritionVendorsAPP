@@ -52,10 +52,10 @@ class RecentService {
         })
     }
     
-    func saveOne(shopItemID: String) {
+    func saveOne(shopItem: ShopItemResponse) {
         let userID = Auth.auth().currentUser?.uid
         let db = Firestore.firestore()
-        let docRef = db.collection("recent").whereField("shop_item_id", isEqualTo: shopItemID)
+        let docRef = db.collection("recent").whereField("shop_item_id", isEqualTo: shopItem.id ?? "")
             .whereField("user_id", isEqualTo: userID as Any)
         
         docRef.getDocuments(completion: { (document, error) in
@@ -70,11 +70,11 @@ class RecentService {
                 }
                 
                 if !check  {
-                    self.addOne(itemID: shopItemID, completion: { (data) in
+                    self.addOne(item: shopItem, completion: { (data) in
                     })
                 }
             } else {
-                self.addOne(itemID: shopItemID, completion: { (data) in
+                self.addOne(item: shopItem, completion: { (data) in
                 })
             }
         })
@@ -101,14 +101,21 @@ class RecentService {
     }
     
     
-    func addOne( itemID: String,  completion: @escaping (Bool?) -> Void) {
+    func addOne( item: ShopItemResponse,  completion: @escaping (Bool?) -> Void) {
         let date = Date().timeIntervalSince1970
         let userID = Auth.auth().currentUser!.uid
         
-        let item = ["shop_item_id": itemID as Any,
+        let item = ["shop_item_id": item.id as Any,
                     "create_date": date,
                     "update_date": date,
-                    "user_id": userID] as [String : Any]
+                    "user_id": userID,
+                    "rating": item.rating as Any,
+                    "comment_number": item.comment_number as Any,
+                    "name": item.name as Any,
+                    "avatar": item.avatar as Any,
+                    "shop_id": item.shop_id as Any,
+                    "shop_name": item.shop_name as Any,
+                    "address": item.address as Any] as [String : Any]
         
         let db = Firestore.firestore()
         var ref: DocumentReference? = nil

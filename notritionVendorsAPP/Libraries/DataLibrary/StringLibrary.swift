@@ -70,7 +70,7 @@ extension String {
         var newArray = [Substring]()
         for string in inputs {
             //2.1. get list of words by seperate string with space character
-            let string = ConverHelper.convertVietNam(text: string)
+            let string = self.convertVietNam(text: string)
             let subStrings = string.split(separator: ",")
             newArray += subStrings
         }
@@ -89,6 +89,48 @@ extension String {
                 for nextIndex in index+1..<subStrings.count{
                     let nextWords = subStrings[nextIndex].lowercased()
                     word += " " + nextWords
+                    permutations.append(String(word))
+                }
+            }
+        }
+        
+        return permutations
+    }
+    
+    static func gennerateKeywordsMo(_ inputs:[String]) -> [String] {
+        //1. first remove "," from address
+        var newArray = [Substring]()
+        for string in inputs {
+            //2.1. get list of words by seperate string with space character
+            let string = self.convertVietNam(text: string)
+            let subStrings = string.split(separator: ",")
+            newArray += subStrings
+        }
+        
+        //2. Then generate permutations from newArray
+        var permutations = [String]()
+        for string in newArray {
+            //2.1. get list of words by seperate string with space character
+            let subStrings = string.split(separator: " ")
+            
+            //2.2. Then double loop for generate permutations
+            for index in 0..<subStrings.count {
+                var number_Count = 2
+                var word = subStrings[index].lowercased()
+                permutations.append(String(word))
+                
+                for nextIndex in index+1..<subStrings.count{
+                    
+                    let nextWords = subStrings[nextIndex].lowercased()
+                    word += " " + nextWords
+                    var w  = [String]()
+                    var a = ""
+                    for number in 2 ..< subStrings.count {
+                        a +=  " " + subStrings[number].lowercased()
+                        
+                        w.append(a)
+                    }
+                    
                     permutations.append(String(word))
                 }
             }
@@ -122,6 +164,16 @@ extension String {
         else {
             return "jpg"
         }
+    }
+    
+    static func convertVietNam(text: String) -> String {
+        guard let data = text.data(using: .ascii, allowLossyConversion: true) else { return text }
+        guard let searchText = String(data: data, encoding: .ascii) else { return text }
+        return searchText
+    }
+    
+    func convertVietNam1(text: String) -> String {
+        return text.folding(options: .diacriticInsensitive, locale: .current)
     }
     
 }

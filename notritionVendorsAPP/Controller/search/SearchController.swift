@@ -22,6 +22,7 @@ class SearchController: UIViewController {
     var priorSearchText = ""
     
     var shopitem = ShopItemResponse()
+    var recentList = [RecentResponse]()
     var shop = ShopResponse()
     
     
@@ -43,22 +44,13 @@ class SearchController: UIViewController {
                 return
             }
             data.sort(by: {$0.update_date! > $1.update_date! })
-            var i = 0
-            let count = data.count
             
             for item in data {
-                i += 1
-                ShopItemService.instance.getOneById(shop_item_id: item.shop_item_id ?? "", completion: { (data) in
-                    guard let data = data else { return }
-                    
-                    self.listItem.append(data.convertToSearchResponse())
-                    
-                    if i == count {
-                        HUD.hide()
-                        self.tableView.reloadData()
-                    }
-                })
+                self.listItem.append(item.convertToSearchResponse())
             }
+            
+            HUD.hide()
+            self.tableView.reloadData()
         }
     }
     
@@ -81,7 +73,6 @@ class SearchController: UIViewController {
         searchBar.tintColor = .black 
         
         self.navigationItem.titleView = searchBar
-        
         searchBar.becomeFirstResponder()
     }
     
@@ -110,8 +101,13 @@ class SearchController: UIViewController {
         SearchServices.instance.searchShopItem(searchText: searchBar.text!.lowercased()) { (data) in
             guard let data = data else { return }
             
-            result = data
-            print("search result \(result.count)")
+            let sortedArray = data.sorted(by: { $0.number_occurrences! > $1.number_occurrences! })
+            
+            for itemm in sortedArray {
+                print(itemm.number_occurrences!)
+            }
+            
+//            print("search result \(result.count)")
         }
         
         //SearchServices.shared.searchItem(searchText: searchBar.text!.lowercased()) { data in

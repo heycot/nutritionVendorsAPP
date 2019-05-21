@@ -38,7 +38,7 @@ class ViewItemController: UIViewController {
     }
     
     func saveAsRecent(){
-        RecentService.instance.saveOne(shopItemID: item.id ?? "")
+        RecentService.instance.saveOne(shopItem: item)
     }
     
     func registerNibCell() {

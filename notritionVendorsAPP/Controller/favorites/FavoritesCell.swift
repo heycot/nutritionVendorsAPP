@@ -26,7 +26,7 @@ class FavoritesCell: UITableViewCell {
     }
     
     func updateView(item: FavoritesResponse) {
-        itemImage.displayImage(folderPath: ReferenceImage.shopItem.rawValue + "\(item.id ?? "")/\(item.avatar ?? "")")
+        itemImage.displayImage(folderPath: ReferenceImage.shopItem.rawValue + "\(item.shop_item_id ?? "")/\(item.avatar ?? "")")
         itemName.text = (item.shop_item_name ?? "") + " - " + (item.shop_name ?? "")
         address.text = item.address ?? ""
         rating.rating = item.rating ?? 3.0
