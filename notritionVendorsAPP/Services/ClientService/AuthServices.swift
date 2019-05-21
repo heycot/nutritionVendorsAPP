@@ -231,6 +231,8 @@ class AuthServices {
         }
     }
     
+    
+    
     func changePassword(pass: String, completion: @escaping (Int?) -> Void) {
         
         let urlStr = BASE_URL + UserAPI.changePass.rawValue + "/" + pass

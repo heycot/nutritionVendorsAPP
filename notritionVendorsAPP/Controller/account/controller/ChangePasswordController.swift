@@ -107,11 +107,11 @@ class ChangePasswordController: UIViewController {
 extension ChangePasswordController : UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         
-//        guard let password = currentPass.text, currentPass.text!.isValidPassword() else {
-//            notification.text = Notification.password.detail.rawValue
-//            disableInputText()
-//            return
-//        }
+        guard let password = currentPass.text, currentPass.text!.isValidPassword() else {
+            notification.text = Notification.password.detail.rawValue
+            disableInputText()
+            return
+        }
         
         switch textField {
             case currentPass:

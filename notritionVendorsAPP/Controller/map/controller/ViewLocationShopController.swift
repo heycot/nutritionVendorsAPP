@@ -71,10 +71,15 @@ class ViewLocationShopController: UIViewController {
     func configs() {
         addMap()
         configLocationManager()
-        if isFromShop {
-            displayListShopMarkers()
+        
+        if AuthServices.instance.currentLocation == nil {
+            
         } else {
-            displayCurrentShop()
+            if isFromShop {
+                displayListShopMarkers()
+            } else {
+                displayCurrentShop()
+            }
         }
     }
 
@@ -181,8 +186,8 @@ class ViewLocationShopController: UIViewController {
         var origin = ""
         var destinationString = ""
 
-        origin = String.locationCoordinate(lat: self.currentLocation?.coordinate.latitude
-            , lng: self.currentLocation?.coordinate.longitude)
+        origin = String.locationCoordinate(lat: AuthServices.instance.currentLocation?.coordinate.latitude
+            , lng: AuthServices.instance.currentLocation?.coordinate.longitude)
         destinationString = String.locationCoordinate(lat: destination.latitude, lng: destination.longitude)
 
         Mapmanager.getDirections(origin, destination: destinationString, success: { (response) in

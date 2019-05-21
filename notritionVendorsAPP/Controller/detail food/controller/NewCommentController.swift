@@ -42,9 +42,9 @@ class NewCommentController: UIViewController {
     }
     
     func getReviewOfUser() {
-        HUD.show(.progress)
+        //HUD.show(.progress)
         CommentServices.instance.getCommentByUserAnShopItem(shopitemID: shopItem.id ?? "") { (data) in
-            HUD.hide()
+           // HUD.hide()
             if data == nil {
                 self.title = "Write review"
             } else {

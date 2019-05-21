@@ -36,12 +36,16 @@ class CommentServices {
                         print("Error serializing json:", jsonError)
                     }
                 }
+                
                 DispatchQueue.main.async {
                     completion(cmtList)
                 }
                 
             } else {
-                print("User have no profile")
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
+                print("User have no comment")
             }
         })
     }
@@ -67,11 +71,15 @@ class CommentServices {
                         print("Error serializing json:", jsonError)
                     }
                 }
+                
                 DispatchQueue.main.async {
                     completion(cmts)
                 }
                 
             } else {
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
                 print("User have no comment")
             }
         })
@@ -99,7 +107,15 @@ class CommentServices {
                         print("Error serializing json:", jsonError)
                     }
                 }
+                
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
+                
             } else {
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
                 print("User have no comment")
             }
         })
@@ -182,6 +198,9 @@ class CommentServices {
                 }
                 
             } else {
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
                 print("User have no comment")
             }
         })
