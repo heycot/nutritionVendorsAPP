@@ -121,6 +121,28 @@ class CommentServices {
         })
     }
     
+    func updateUserComment(cmtID: String) {
+        let db = Firestore.firestore()
+        let userID = Auth.auth().currentUser?.uid
+        
+        AuthServices.instance.getProfile(userID: userID ?? "") { (data) in
+            guard let data = data else { return }
+            
+            let values = ["user_name": data.name as Any,
+                          "user_avatar": data.name as Any] as [String : Any]
+            
+            db.collection("comment").document(cmtID).updateData(values) { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("Document successfully written!")
+                }
+            }
+            
+        }
+        
+    }
+    
     func addOne(cmt: CommentResponse, completion: @escaping (Bool?) -> Void) {
         let db = Firestore.firestore()
         
@@ -132,7 +154,9 @@ class CommentServices {
                         "create_date": Date().timeIntervalSince1970,
                         "update_date": Date().timeIntervalSince1970,
                         "rating": cmt.rating as Any,
-                        "status": 1] as [String : Any]
+                        "status": 1,
+                        "shop_item_name": cmt.shop_item_name as Any,
+                        "shop_item_avatar": cmt.shop_item_avatar as Any] as [String : Any]
         
         db.collection("comment").document().setData(values) { err in
             var result = true

@@ -10,8 +10,6 @@ import Foundation
 
 class CommentResponse: Decodable {
     var id: String?
-    var user_id: String?
-    var shop_item_id: String?
     var shop_id: String?
     var title: String?
     var content: String?
@@ -19,8 +17,12 @@ class CommentResponse: Decodable {
     var update_date: TimeInterval?
     var rating: Double?
     var status: Int?
-    var entity_name: String?
-    var entity_avatar: String?
+    var user_id: String?
+    var shop_item_id: String?
+    var user_name: String?
+    var user_avatar: String?
+    var shop_item_name: String?
+    var shop_item_avatar: String?
     
     var createDate: Date? {
         if let day = self.create_date {

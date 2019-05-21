@@ -80,6 +80,11 @@ class RecentService {
         })
     }
     
+    func updateRecentWhenComment() {
+        
+    }
+    
+    
     func updateOne( recentID: String,  completion: @escaping (Bool?) -> Void) {
         let date = Date().timeIntervalSince1970
         

@@ -133,6 +133,8 @@ class NewCommentController: UIViewController {
                 
                 lastComment.shop_item_id = shopItem.id
                 lastComment.shop_id = shopItem.shop_id
+                lastComment.shop_item_name = shopItem.name
+                lastComment.shop_item_avatar = shopItem.avatar
                 
                 CommentServices.instance.addOne(cmt: lastComment) { (data) in
                     guard let data = data else { return }
