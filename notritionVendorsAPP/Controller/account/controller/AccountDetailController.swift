@@ -31,18 +31,16 @@ class AccountDetailController: UIViewController {
         
         setUpForTableView()
         
-        viewInfor()
     }
     
     func registerCells() {
         
         tableView.register(UINib(nibName: CellClassName.activityCell.rawValue, bundle: nil), forCellReuseIdentifier: CellIdentifier.activityCell.rawValue)
         
-//        tableView.register(UINib(nibName: CellClassName.inforCell.rawValue, bundle: nil), forCellReuseIdentifier: CellIdentifier.inforCell.rawValue)
     }
     
     func viewInfor() {
-        userAvatar.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + user.avatar!)
+        userAvatar.displayImage(folderPath: ReferenceImage.user.rawValue + "\(user.avatar ?? "")")
         userAvatar.setRounded(color: .white)
         username.text = user.name!
         inforUser.text = "newbee - Top 1000 - 10 Followers"
@@ -68,6 +66,7 @@ class AccountDetailController: UIViewController {
         detailCell.append(createDate)
         detailCell.append("")
         detailCell.append("")
+        viewInfor()
     }
     
     func setUpForTableView() {
@@ -92,13 +91,7 @@ class AccountDetailController: UIViewController {
         CommentServices.instance.getAllCommentByUser { (data) in
             guard let data = data else { return }
             
-            if isLoadMore {
-                for comment in data {
-                    self.listComment.append(comment)
-                }
-            } else {
-                self.listComment = data
-            }
+            self.listComment = data
             self.setupDetailInfor()
             self.tableView.reloadData()
         }

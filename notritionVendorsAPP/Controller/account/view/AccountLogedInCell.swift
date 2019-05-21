@@ -26,7 +26,7 @@ class AccountLogedInCell: UITableViewCell {
     func updateview(avatar: String, nameStr: String) {
         setupView()
         
-        userAvatar.loadImageUsingUrlString(urlString: BASE_URL_IMAGE + avatar)
+        userAvatar.displayImage(folderPath: ReferenceImage.user.rawValue + avatar)
         name.text = nameStr
     }
     

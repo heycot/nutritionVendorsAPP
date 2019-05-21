@@ -34,6 +34,7 @@
 		2323C8B2223F5B8B00DA68CA /* ViewLocationShopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2323C8B1223F5B8B00DA68CA /* ViewLocationShopController.swift */; };
 		2323D6AD2269B4160005E104 /* MapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2323D6AB2269B4160005E104 /* MapCell.swift */; };
 		2323D6AE2269B4160005E104 /* MapCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2323D6AC2269B4160005E104 /* MapCell.xib */; };
+		2327E28022940B80002E2109 /* FeebackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2327E27F22940B80002E2109 /* FeebackController.swift */; };
 		232900D2225C7124009D7DD1 /* CommentServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232900D1225C7124009D7DD1 /* CommentServices.swift */; };
 		23351DC4222539BF003944E2 /* ExtensionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23351DC3222539BF003944E2 /* ExtensionButton.swift */; };
 		233B390822375463003EB253 /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233B390722375463003EB253 /* AuthServices.swift */; };
@@ -147,6 +148,7 @@
 		2323C8B1223F5B8B00DA68CA /* ViewLocationShopController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLocationShopController.swift; sourceTree = "<group>"; };
 		2323D6AB2269B4160005E104 /* MapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCell.swift; sourceTree = "<group>"; };
 		2323D6AC2269B4160005E104 /* MapCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapCell.xib; sourceTree = "<group>"; };
+		2327E27F22940B80002E2109 /* FeebackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeebackController.swift; sourceTree = "<group>"; };
 		232900D1225C7124009D7DD1 /* CommentServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentServices.swift; sourceTree = "<group>"; };
 		23351DC3222539BF003944E2 /* ExtensionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionButton.swift; sourceTree = "<group>"; };
 		233B390722375463003EB253 /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
@@ -515,6 +517,7 @@
 				235A32BE2225301E00DE5B0E /* ChangePasswordController.swift */,
 				235B16A2226C72AC001A6BB6 /* AccountController.swift */,
 				235CF31F226FF1B500691D88 /* EditInforUserController.swift */,
+				2327E27F22940B80002E2109 /* FeebackController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -952,6 +955,7 @@
 				23D5080922423637005FB1AC /* LocationResponse.swift in Sources */,
 				23B7653E22642F4300DC76F7 /* NewCommentController.swift in Sources */,
 				236A5A83225B455F005C27E8 /* HeaderCollectionCell.swift in Sources */,
+				2327E28022940B80002E2109 /* FeebackController.swift in Sources */,
 				235A32BD2224F51500DE5B0E /* AccountDetailController.swift in Sources */,
 				2352404B22632E99004B11CF /* CategoryController.swift in Sources */,
 				23EAA4472246638300A30E98 /* UserResponse.swift in Sources */,

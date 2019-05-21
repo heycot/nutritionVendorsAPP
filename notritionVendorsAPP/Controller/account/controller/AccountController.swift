@@ -22,8 +22,8 @@ class AccountController: UIViewController {
     var listAccountProperty = [AccountProperty]()
     var user = UserResponse()
     
-    var listIcon = ["login", "payment", "history", "promo_code", "website", "invite_friends", "email", "policy", "settings", "logout"]
-    var listProperty = ["Login", "Payment", "History", "My Promo Code", "For Shop Owner", "Invite Friends", "Feedback", "User Policy", "App Settings", "Log Out"]
+    var listIcon = ["login", "history", "promo_code", "website", "invite_friends", "email", "policy", "settings", "logout"]
+    var listProperty = ["Login", "History", "My Promo Code", "For Shop Owner", "Invite Friends", "Feedback", "User Policy", "App Settings", "Log Out"]
     
     var isLogedIn = false
     
@@ -33,13 +33,18 @@ class AccountController: UIViewController {
         setupView()
         setupProperty()
         
+        
+    }
+    
+    func checkLogin() {
+        
         AuthServices.instance.checkLogedIn(completion: { (data) in
             guard let data = data else { return }
             
             self.isLogedIn = data
+            self.getUserInfor()
             self.tableView.reloadData()
         })
-        
     }
     
     func getUserInfor() {
@@ -136,7 +141,7 @@ extension AccountController : UITableViewDataSource {
         case 0:
             return 1
         case 1:
-            return 4
+            return 3
         case 2:
             return 2
         default:
@@ -172,7 +177,7 @@ extension AccountController : UITableViewDataSource {
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
         
-        getUserInfor()
+        checkLogin()
         super.viewWillAppear(true)
         tableView.reloadData()
     }

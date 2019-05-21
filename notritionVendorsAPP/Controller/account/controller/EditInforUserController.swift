@@ -121,7 +121,7 @@ extension EditInforUserController {
     @objc func donedatePicker(){
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.dateFormat = "dd/MM/yyyy"
         birthdayTxt.text = formatter.string(from: datePicker.date)
         self.view.endEditing(true)
     }

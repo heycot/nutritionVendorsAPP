@@ -29,14 +29,22 @@ class ActivityCell: UITableViewCell {
     }
     
     func updateView(comment: CommentResponse) {
-        activityImage.loadImageUsingUrlString(urlString: BASE_URL_IMAGE +  comment.entity_avatar!)
-        activityTitle.text = comment.entity_name ?? ""
+        getShopItemInfor(id: comment.shop_item_id ?? "")
         contentTitle.text = comment.title!
         contentRating.text = String(format: "%0.2f", comment.rating!)
         contentDetail.text = comment.content!
         
         setupView(rating: comment.rating ?? 0.0)
     }
+    
+    func getShopItemInfor(id: String) {
+        ShopItemService.instance.getOneById(shop_item_id: id) { (data) in
+            guard let data = data else { return }
+            self.activityTitle.text = data.name
+            self.activityImage.displayImage(folderPath: ReferenceImage.shop.rawValue + "\(data.id ?? "")/\(data.avatar ?? "")")
+        }
+    }
+    
     
     func setupView(rating: Double) {
         activityImage.setRounded(color: .white)

@@ -37,9 +37,9 @@ class SearchCell: UITableViewCell {
         
         print("folder images :  \(folder)")
         itemImage.displayImage(folderPath: folder)
-        name.text = item.entity_name!
-        address.text = item.address!
-        rating.rating = item.rating!
+        name.text = item.entity_name ?? ""
+        address.text = item.address ?? ""
+        rating.rating = item.rating ?? 3.0
         rating.text = " (" + String(item.comment_number!) + ")"
     }
     

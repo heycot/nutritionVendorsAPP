@@ -109,7 +109,7 @@ class CommentServices {
         let db = Firestore.firestore()
         
         let values = [  "user_id": cmt.user_id as Any,
-                        "shop_item_id": cmt.shopitem_id as Any,
+                        "shop_item_id": cmt.shop_item_id as Any,
                         "shop_id": cmt.shop_id as Any,
                         "title": cmt.title as Any,
                         "content": cmt.content as Any,

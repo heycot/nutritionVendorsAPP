@@ -16,6 +16,7 @@ class FavoritesViewController: UIViewController {
     @IBOutlet weak var searchBar: UIButton!
     
     var favoritesList = [FavoritesResponse]()
+    var selectedItem = ShopItemResponse()
     
     lazy var refresher: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -28,7 +29,6 @@ class FavoritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        checkLogIn()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -77,7 +77,7 @@ class FavoritesViewController: UIViewController {
         HUD.show(.progress)
         
         FavoritesService.instance.getAllLovedByUser { (data) in
-            guard let data = data else {return }
+            guard var data = data else {return }
             
             // check listitem is already have
             if data.count == 0, self.favoritesList.count == 0{
@@ -85,6 +85,8 @@ class FavoritesViewController: UIViewController {
                 self.resultSearchNotification.isHidden = false
                 self.resultSearchNotification.text = Notification.noData.rawValue
             } else {
+                data.sort(by: {$0.update_date! > $1.update_date! })
+                
                 //if load more data => add to listItem else replace listItem
                 if isLoadMore {
                     for i in 0 ..< data.count {
@@ -102,6 +104,15 @@ class FavoritesViewController: UIViewController {
         }
     }
     
+    func getShopItemByID(index: Int) {
+        ShopItemService.instance.getOneById(shop_item_id: favoritesList[index].shop_item_id ?? "") { (data) in
+            guard let data = data else { return }
+            
+            self.selectedItem = data
+            self.performSegueFunc(identifier: SegueIdentifier.favoriteToDetail.rawValue, sender: nil)
+        }
+    }
+    
     
     @objc
     func loadMoreData() {
@@ -116,8 +127,7 @@ class FavoritesViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is ViewItemController {
             let vc = segue.destination as? ViewItemController
-            let index = sender as! Int
-//            vc?.item = currentListItem[index]
+            vc?.item = selectedItem
             
         }  else if segue.destination is LoginController {
             _ = segue.destination as? LoginController
@@ -151,6 +161,8 @@ extension FavoritesViewController : UITableViewDataSource {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        checkLogIn()
         super.viewWillAppear(true)
         tableView.reloadData()
     }
@@ -161,7 +173,7 @@ extension FavoritesViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
-        self.performSegueFunc(identifier: SegueIdentifier.favoriteToDetail.rawValue, sender: indexPath.row)
+        self.getShopItemByID(index: indexPath.row)
     }
     
     
