@@ -105,24 +105,33 @@ class SearchController: UIViewController {
     
     @objc func search() {
         print("call api search")
-        SearchServices.shared.searchItem(searchText: searchBar.text!.lowercased()) { data in
-            guard let data = data else {return }
+        var result = Set<SearchResponse>()
+        
+        SearchServices.instance.searchShopItem(searchText: searchBar.text!.lowercased()) { (data) in
+            guard let data = data else { return }
             
-            self.heightForSearchNote.constant = 50
-            self.searchTextNote.text = "Result search for " + self.searchBar.text!
-            self.searchTextNote.isHidden = false
-            
-            if data.count == 0 {
-                self.notification.textColor = APP_COLOR
-                self.notification.text = "There is no suitable food"
-                self.notification.isHidden = false
-                
-            } else {
-                self.listItem = data
-                self.tableView.reloadData()
-            }
-            
+            result = data
+            print("search result \(result.count)")
         }
+        
+        //SearchServices.shared.searchItem(searchText: searchBar.text!.lowercased()) { data in
+   //         guard let data = data else {return }
+            
+    //        self.heightForSearchNote.constant = 50
+    //        self.searchTextNote.text = "Result search for " + self.searchBar.text!
+    //        self.searchTextNote.isHidden = false
+            
+    //        if data.count == 0 {
+    //            self.notification.textColor = APP_COLOR
+    //            self.notification.text = "There is no suitable food"
+    //            self.notification.isHidden = false
+                
+     //       } else {
+     //           self.listItem = data
+      //          self.tableView.reloadData()
+     //       }
+     //
+     //   }
     }
     
     
