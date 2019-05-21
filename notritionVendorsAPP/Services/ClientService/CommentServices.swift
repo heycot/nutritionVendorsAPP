@@ -143,7 +143,7 @@ class CommentServices {
         
     }
     
-    func addOne(cmt: CommentResponse, completion: @escaping (Bool?) -> Void) {
+    func addOne(cmt: CommentResponse, completion: @escaping (String?) -> Void) {
         let db = Firestore.firestore()
         
         let values = [  "user_id": cmt.user_id as Any,
@@ -158,18 +158,21 @@ class CommentServices {
                         "shop_item_name": cmt.shop_item_name as Any,
                         "shop_item_avatar": cmt.shop_item_avatar as Any] as [String : Any]
         
-        db.collection("comment").document().setData(values) { err in
-            var result = true
+        let docRef = db.collection("comment").document()
+        
+        docRef.setData(values) { err in
             if let err = err {
-                result = false
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
                 print("Error writing document: \(err)")
             } else {
+                DispatchQueue.main.async {
+                    completion(docRef.documentID)
+                }
                 print("Document successfully written!")
             }
             
-            DispatchQueue.main.async {
-                completion(result)
-            }
         }
     }
     

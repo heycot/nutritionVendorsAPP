@@ -15,6 +15,7 @@ import Firebase
 class NewCommentController: UIViewController {
     @IBOutlet weak var shopItemName: UILabel!
     @IBOutlet weak var address: UILabel!
+    @IBOutlet weak var doneBtn: UIButton!
     
     @IBOutlet weak var ratingview: CosmosView!
     @IBOutlet weak var titleCmt: UITextField!
@@ -42,9 +43,9 @@ class NewCommentController: UIViewController {
     }
     
     func getReviewOfUser() {
-        //HUD.show(.progress)
+        HUD.show(.progress)
         CommentServices.instance.getCommentByUserAnShopItem(shopitemID: shopItem.id ?? "") { (data) in
-           // HUD.hide()
+            HUD.hide()
             if data == nil {
                 self.title = "Write review"
             } else {
@@ -117,6 +118,15 @@ class NewCommentController: UIViewController {
         return result
     }
     
+    func disableView() {
+        doneBtn.isEnabled = false
+        shopItemName.isEnabled = false
+        address.isEnabled = false
+        ratingview.settings.updateOnTouch = false
+        titleCmt.isEnabled = false
+        content.isEditable = false
+    }
+    
     
     @objc func didPressOnDoneButton() {
         if validateInput() {
@@ -137,22 +147,21 @@ class NewCommentController: UIViewController {
                 lastComment.shop_item_avatar = shopItem.avatar
                 
                 CommentServices.instance.addOne(cmt: lastComment) { (data) in
-                    guard let data = data else { return }
                     
                     HUD.hide()
-                    if !data {
+                    if data == nil {
                         let alert = UIAlertController(title: Notification.comment.addCmtFailedTitle.rawValue, message: Notification.comment.addCmtFailedMessgae.rawValue, preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
                         alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
                         self.present(alert, animated: true)
                         
                     } else {
-                        ShopItemService.instance.editOneWhenComment(itemID: self.lastComment.shop_item_id ?? "", cmt: self.lastComment, isNewCmt: true, completion: { (data) in
-                            
-                            HUD.hide()
-                            self.navigationController?.popViewController(animated: true)
-                        })
-                    }
+                        
+                        self.disableView()
+                        ShopItemService.instance.editOneWhenComment(itemID: self.lastComment.shop_item_id ?? "", cmt: self.lastComment, isNewCmt: true)
+                         CommentServices.instance.updateUserComment(cmtID: data ?? "")
+                        //self.navigationController?.popViewController(animated: true)
+                     }
                 }
                 
             } else {
@@ -168,11 +177,9 @@ class NewCommentController: UIViewController {
                         self.present(alert, animated: true)
                         
                     } else {
-                        ShopItemService.instance.editOneWhenComment(itemID: self.lastComment.shop_item_id ?? "", cmt: self.lastComment, isNewCmt: false, completion: { (data) in
-                            
-                            HUD.hide()
-                            self.navigationController?.popViewController(animated: true)
-                        })
+                        self.disableView()
+                        ShopItemService.instance.editOneWhenComment(itemID: self.lastComment.shop_item_id ?? "", cmt: self.lastComment, isNewCmt: false)
+                        //self.navigationController?.popViewController(animated: true)
                     }
                 }
             }

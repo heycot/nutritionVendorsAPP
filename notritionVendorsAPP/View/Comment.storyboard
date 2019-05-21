@@ -106,6 +106,7 @@
                     <connections>
                         <outlet property="address" destination="mMO-Yw-BED" id="cHS-fx-wnd"/>
                         <outlet property="content" destination="5ga-sV-NYl" id="txs-sx-0m2"/>
+                        <outlet property="doneBtn" destination="TjG-66-UNH" id="1B6-p1-alb"/>
                         <outlet property="ratingview" destination="MZQ-bN-bfG" id="jgy-bH-Xb7"/>
                         <outlet property="shopItemName" destination="Upk-4e-eqy" id="gSM-gl-lEf"/>
                         <outlet property="titleCmt" destination="g5G-r4-rmA" id="UBD-XE-abi"/>

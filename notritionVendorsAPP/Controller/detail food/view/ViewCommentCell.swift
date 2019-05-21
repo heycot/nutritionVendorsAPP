@@ -30,7 +30,9 @@ class ViewCommentCell: UITableViewCell {
     
     
     func updateView(comment: CommentResponse) {
-        getUserInfor(userID: comment.user_id ?? "")
+        
+        userImage.displayImage(folderPath: ReferenceImage.user.rawValue + (comment.user_avatar ?? "") )
+        userName.text = comment.user_name
         cmtDate.text = NSObject().convertToString(date: comment.createDate ?? Date() , dateformat: DateFormatType.date)
         cmtRating.rating = comment.rating ??  0.0
         cmtTitle.text = comment.title
@@ -39,18 +41,6 @@ class ViewCommentCell: UITableViewCell {
         customUI()
     }
     
-    func getUserInfor(userID: String) {
-        AuthServices.instance.getProfile(userID: userID) { (data) in
-            guard let data = data else { return }
-            
-            self.updateCommentView(user: data)
-        }
-    }
-    
-    func updateCommentView(user: UserResponse) {
-        userImage.displayImage(folderPath: ReferenceImage.user.rawValue + (user.avatar ?? "") )
-        userName.text = user.name
-    }
     
     func customUI() {
         cmtRating.settings.updateOnTouch = false

@@ -93,7 +93,7 @@ class ShopItemService {
         
     }
     
-    func editOneWhenComment( itemID: String, cmt: CommentResponse, isNewCmt: Bool,  completion: @escaping (Bool?) -> Void) {
+    func editOneWhenComment( itemID: String, cmt: CommentResponse, isNewCmt: Bool) {
         
         let db = Firestore.firestore()
         
@@ -116,16 +116,10 @@ class ShopItemService {
                                   "rating": newRating as Any] as [String : Any]
                     
                     db.collection("shop_item").document(itemID).updateData(values) { err in
-                        var result = true
                         if let err = err {
-                            result = false
                             print("Error writing document: \(err)")
                         } else {
                             print("Document successfully written!")
-                        }
-                        
-                        DispatchQueue.main.async {
-                            completion(result)
                         }
                     }
                 } catch let jsonError {

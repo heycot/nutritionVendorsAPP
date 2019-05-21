@@ -29,7 +29,8 @@ class ActivityCell: UITableViewCell {
     }
     
     func updateView(comment: CommentResponse) {
-        getShopItemInfor(id: comment.shop_item_id ?? "")
+        activityImage.displayImage(folderPath: ReferenceImage.shop.rawValue + "\(comment.shop_item_id ?? "")/\(comment.shop_item_avatar ?? "")")
+        activityTitle.text = comment.shop_item_name
         contentTitle.text = comment.title!
         contentRating.text = String(format: "%0.2f", comment.rating!)
         contentDetail.text = comment.content!
@@ -37,13 +38,6 @@ class ActivityCell: UITableViewCell {
         setupView(rating: comment.rating ?? 0.0)
     }
     
-    func getShopItemInfor(id: String) {
-        ShopItemService.instance.getOneById(shop_item_id: id) { (data) in
-            guard let data = data else { return }
-            self.activityTitle.text = data.name
-            self.activityImage.displayImage(folderPath: ReferenceImage.shop.rawValue + "\(data.id ?? "")/\(data.avatar ?? "")")
-        }
-    }
     
     
     func setupView(rating: Double) {
