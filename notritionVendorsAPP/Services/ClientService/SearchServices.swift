@@ -17,14 +17,16 @@ class SearchServices {
     func searchShopItem(searchText: String, completion: @escaping ([SearchResponse]?) -> Void) {
         var results = [SearchResponse]()
         
-        let searchConvert = ConverHelper.convertVietNam(text: searchText)
+        let searchConvert = String.convertVietNam(text: searchText)
+        print("search text : \(searchConvert)")
         
         
-        let searchArr = String.gennerateKeywords([searchConvert])
+//        let searchArr = String.gennerateKeywords([searchConvert])
+        let searchArr = searchConvert.split(separator: " ")
         let db = Firestore.firestore()
         
         for text in searchArr {
-            let docRef = db.collection("shop_item").whereField("keywords", arrayContains: text)
+            let docRef = db.collection("shop_item").whereField("keywords", arrayContains: text.lowercased() )
             docRef.order(by: "comment_number", descending: true)
                 .order(by: "rating", descending: true)
             docRef.limit(to: 20)
@@ -39,13 +41,13 @@ class SearchServices {
                             var shopItem = try JSONDecoder().decode(ShopItemResponse.self, from: jsonData!)
                             shopItem.id = shopItemDoct.documentID
                             var search = shopItem.convertToSearchResponse()
-                            search.number_occurrences = 1
                             let index = self.checkAlreadyExistsIntArray(list: results, id: shopItem.id ?? "")
                             
                             if index != nil {
                                 results[index!].number_occurrences! += 1
                                 print("already exit")
                             } else {
+                                search.number_occurrences = 1
                                 results.append(search)
                             }
                         }

@@ -66,6 +66,8 @@ extension String {
     }
     
     static func gennerateKeywords(_ inputs:[String]) -> [String] {
+//        self.gennerateKeywordsMo(inputs)
+        
         //1. first remove "," from address
         var newArray = [Substring]()
         for string in inputs {
@@ -98,7 +100,6 @@ extension String {
     }
     
     static func gennerateKeywordsMo(_ inputs:[String]) -> [String] {
-        //1. first remove "," from address
         var newArray = [Substring]()
         for string in inputs {
             //2.1. get list of words by seperate string with space character
@@ -109,31 +110,40 @@ extension String {
         
         //2. Then generate permutations from newArray
         var permutations = [String]()
-        for string in newArray {
+        for i in 0..<newArray.count {
             //2.1. get list of words by seperate string with space character
-            let subStrings = string.split(separator: " ")
+            var subStrings = newArray[i].split(separator: " ")
             
             //2.2. Then double loop for generate permutations
             for index in 0..<subStrings.count {
-                var number_Count = 2
                 var word = subStrings[index].lowercased()
                 permutations.append(String(word))
                 
                 for nextIndex in index+1..<subStrings.count{
-                    
                     let nextWords = subStrings[nextIndex].lowercased()
                     word += " " + nextWords
-                    var w  = [String]()
-                    var a = ""
-                    for number in 2 ..< subStrings.count {
-                        a +=  " " + subStrings[number].lowercased()
-                        
-                        w.append(a)
-                    }
-                    
                     permutations.append(String(word))
                 }
+                
+                
             }
+            
+            subStrings = newArray[i + 1].split(separator: " ")
+            
+            //2.2. Then double loop for generate permutations
+            for index in 0..<subStrings.count {
+                var word = subStrings[index].lowercased()
+                permutations.append(String(word))
+                
+                for nextIndex in index+1..<subStrings.count{
+                    let nextWords = subStrings[nextIndex].lowercased()
+                    word += " " + nextWords
+                    permutations.append(String(word))
+                }
+                
+                
+            }
+            
         }
         
         return permutations

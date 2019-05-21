@@ -54,18 +54,6 @@ class SearchController: UIViewController {
         }
     }
     
-    func sortList(list: [RecentResponse]) {
-//        for i in  0 ..< list.count {
-//            for j in list.count ..> i {
-//                if (list[i].update_date! < list[j].update_date!) {
-//                    let temp = list[j]
-//                    list[i] = temp
-//
-//                }
-//            }
-//        }
-    }
-    
     func createSearchBar() {
         searchBar.showsCancelButton = false
         searchBar.placeholder = " Search here"
@@ -96,38 +84,30 @@ class SearchController: UIViewController {
     
     @objc func search() {
         print("call api search")
-        var result = Set<SearchResponse>()
+        HUD.show(.progress)
         
         SearchServices.instance.searchShopItem(searchText: searchBar.text!.lowercased()) { (data) in
             guard let data = data else { return }
             
+            print(data.count)
+            
             let sortedArray = data.sorted(by: { $0.number_occurrences! > $1.number_occurrences! })
             
-            for itemm in sortedArray {
-                print(itemm.number_occurrences!)
+            if sortedArray.count > 25 {
+                for item in sortedArray {
+                    if self.listItem.count < 25 {
+                        self.listItem.append(item)
+                    } else {
+                        break
+                    }
+                }
+            } else {
+                self.listItem = sortedArray
             }
             
-//            print("search result \(result.count)")
+            HUD.hide()
+            self.tableView.reloadData()
         }
-        
-        //SearchServices.shared.searchItem(searchText: searchBar.text!.lowercased()) { data in
-   //         guard let data = data else {return }
-            
-    //        self.heightForSearchNote.constant = 50
-    //        self.searchTextNote.text = "Result search for " + self.searchBar.text!
-    //        self.searchTextNote.isHidden = false
-            
-    //        if data.count == 0 {
-    //            self.notification.textColor = APP_COLOR
-    //            self.notification.text = "There is no suitable food"
-    //            self.notification.isHidden = false
-                
-     //       } else {
-     //           self.listItem = data
-      //          self.tableView.reloadData()
-     //       }
-     //
-     //   }
     }
     
     
@@ -210,10 +190,11 @@ extension SearchController: UISearchBarDelegate {
     }
     
     // seach after 0.5s delay
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.search), object: nil)
-        self.perform(#selector(self.search), with: nil, afterDelay: 0.5)
-    }
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.search), object: nil)
+//        self.perform(#selector(self.search), with: nil, afterDelay: 0.5)
+//    }
+    
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         
     }
