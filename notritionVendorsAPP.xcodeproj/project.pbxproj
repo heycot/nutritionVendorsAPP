@@ -36,6 +36,7 @@
 		2323D6AE2269B4160005E104 /* MapCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2323D6AC2269B4160005E104 /* MapCell.xib */; };
 		2327E28022940B80002E2109 /* FeebackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2327E27F22940B80002E2109 /* FeebackController.swift */; };
 		2327E28422951647002E2109 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2327E28322951647002E2109 /* Chat.storyboard */; };
+		2327E28922951C17002E2109 /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2327E28822951C17002E2109 /* ChatController.swift */; };
 		232900D2225C7124009D7DD1 /* CommentServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232900D1225C7124009D7DD1 /* CommentServices.swift */; };
 		23351DC4222539BF003944E2 /* ExtensionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23351DC3222539BF003944E2 /* ExtensionButton.swift */; };
 		233B390822375463003EB253 /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233B390722375463003EB253 /* AuthServices.swift */; };
@@ -150,6 +151,7 @@
 		2323D6AC2269B4160005E104 /* MapCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapCell.xib; sourceTree = "<group>"; };
 		2327E27F22940B80002E2109 /* FeebackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeebackController.swift; sourceTree = "<group>"; };
 		2327E28322951647002E2109 /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
+		2327E28822951C17002E2109 /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
 		232900D1225C7124009D7DD1 /* CommentServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentServices.swift; sourceTree = "<group>"; };
 		23351DC3222539BF003944E2 /* ExtensionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionButton.swift; sourceTree = "<group>"; };
 		233B390722375463003EB253 /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
@@ -406,6 +408,14 @@
 			path = shop;
 			sourceTree = "<group>";
 		};
+		2327E28522951BD2002E2109 /* chat */ = {
+			isa = PBXGroup;
+			children = (
+				2327E28822951C17002E2109 /* ChatController.swift */,
+			);
+			path = chat;
+			sourceTree = "<group>";
+		};
 		233B39062237544E003EB253 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -603,6 +613,7 @@
 		23D02E7422237A7900882742 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2327E28522951BD2002E2109 /* chat */,
 				231ABDA62266DA93006D6B01 /* map */,
 				2352405822635749004B11CF /* delivery */,
 				2352404722632E08004B11CF /* category */,
@@ -894,6 +905,7 @@
 				23B6023F222E767E00FBBD79 /* ExtensionUIImage.swift in Sources */,
 				2373EB9D226DA07700D779F2 /* CommentDTOResponse.swift in Sources */,
 				231ABDBE2266E16B006D6B01 /* MapTaskManager.swift in Sources */,
+				2327E28922951C17002E2109 /* ChatController.swift in Sources */,
 				2320C6F42251C8AD00A2C328 /* DetailPhotoCell.swift in Sources */,
 				2300BE6B222D30B7008E9101 /* GeneralInforItemCell.swift in Sources */,
 				2352405C226358A6004B11CF /* ItemInShopController.swift in Sources */,
