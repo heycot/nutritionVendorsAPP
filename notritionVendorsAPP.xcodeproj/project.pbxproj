@@ -35,6 +35,7 @@
 		2323D6AD2269B4160005E104 /* MapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2323D6AB2269B4160005E104 /* MapCell.swift */; };
 		2323D6AE2269B4160005E104 /* MapCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2323D6AC2269B4160005E104 /* MapCell.xib */; };
 		2327E28022940B80002E2109 /* FeebackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2327E27F22940B80002E2109 /* FeebackController.swift */; };
+		2327E28422951647002E2109 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2327E28322951647002E2109 /* Chat.storyboard */; };
 		232900D2225C7124009D7DD1 /* CommentServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232900D1225C7124009D7DD1 /* CommentServices.swift */; };
 		23351DC4222539BF003944E2 /* ExtensionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23351DC3222539BF003944E2 /* ExtensionButton.swift */; };
 		233B390822375463003EB253 /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233B390722375463003EB253 /* AuthServices.swift */; };
@@ -148,6 +149,7 @@
 		2323D6AB2269B4160005E104 /* MapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCell.swift; sourceTree = "<group>"; };
 		2323D6AC2269B4160005E104 /* MapCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapCell.xib; sourceTree = "<group>"; };
 		2327E27F22940B80002E2109 /* FeebackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeebackController.swift; sourceTree = "<group>"; };
+		2327E28322951647002E2109 /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		232900D1225C7124009D7DD1 /* CommentServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentServices.swift; sourceTree = "<group>"; };
 		23351DC3222539BF003944E2 /* ExtensionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionButton.swift; sourceTree = "<group>"; };
 		233B390722375463003EB253 /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
@@ -593,6 +595,7 @@
 				2352405622635661004B11CF /* Delivery.storyboard */,
 				234B5CC9226834B100E7E61F /* GoogleMap.storyboard */,
 				2373EB9E226DC8A900D779F2 /* Comment.storyboard */,
+				2327E28322951647002E2109 /* Chat.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -745,6 +748,7 @@
 				23D02E682223799400882742 /* Assets.xcassets in Resources */,
 				2373EB91226D5E0B00D779F2 /* AccountLogedInCell.xib in Resources */,
 				237DABF72262049C00FE57FB /* Search.storyboard in Resources */,
+				2327E28422951647002E2109 /* Chat.storyboard in Resources */,
 				2373EB97226D80DF00D779F2 /* ActivityCell.xib in Resources */,
 				230E2DD22226431D00246392 /* LogInAndLogOut.storyboard in Resources */,
 				2300BE6C222D30B7008E9101 /* GeneralInforItemCell.xib in Resources */,

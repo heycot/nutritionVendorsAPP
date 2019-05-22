@@ -66,7 +66,7 @@ class CategoryController: UIViewController {
     
     @objc
     func loadMoreData() {
-        loadDataFromAPI(offset: currentListItem.count)
+//        loadDataFromAPI(offset: currentListItem.count)
         refresher.endRefreshing()
     }
     
