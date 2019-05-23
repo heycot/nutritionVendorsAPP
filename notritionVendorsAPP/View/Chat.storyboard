@@ -13,7 +13,7 @@
         <!--Chat Controller-->
         <scene sceneID="bf7-Co-Sqv">
             <objects>
-                <viewController id="HA6-XU-uzh" customClass="ChatController" customModule="notritionVendorsAPP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatStoryboardID" id="HA6-XU-uzh" customClass="ChatController" customModule="notritionVendorsAPP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yIa-2h-F3B">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -65,11 +65,20 @@
                     <connections>
                         <outlet property="backBtn" destination="Gmc-7b-b5a" id="POr-9k-9d2"/>
                         <outlet property="shopName" destination="u31-iW-VC2" id="3ji-r9-x7y"/>
+                        <segue destination="aLd-lP-aTX" kind="show" identifier="ChatToLogin" id="N6u-Jo-8nN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dGu-cm-hCc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-274.39999999999998" y="160.56971514242881"/>
+        </scene>
+        <!--LoginLogoutStoryboardID-->
+        <scene sceneID="hjI-1O-vtc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="LogInAndLogOut" referencedIdentifier="LoginLogoutStoryboardID" id="aLd-lP-aTX" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AP7-R8-aMd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="481" y="-74"/>
         </scene>
     </scenes>
     <resources>

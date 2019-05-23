@@ -154,6 +154,7 @@ enum SegueIdentifier: String {
     case detailToComment = "DetailToComment"
     case detailToShop = "DetailToItemInShop"
     case detailToDelivery = "DetailToDelivery"
+    case detailToChat = "DetailToChat"
     
     // hight rating
     case highRatingToCategory = "HaighRatingToCategory"
@@ -182,6 +183,8 @@ enum SegueIdentifier: String {
     case accountToComment = "AccountToComment"
     case accountToPassword = "AccountToPassword"
     case accountToEditInfor = "AccountToEditInfor"
+    
+    case chatToLogin = "ChatToLogin"
 }
 
 enum StoryboardID : String {

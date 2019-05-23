@@ -43,6 +43,7 @@
                         <segue destination="Uan-Lt-bny" kind="show" identifier="DetailToDelivery" id="FWO-zQ-ze5"/>
                         <segue destination="8zH-lq-QpG" kind="show" identifier="DetailToLocation" id="rGj-c0-01f"/>
                         <segue destination="JbY-di-fAw" kind="show" identifier="DetailToComment" id="5cg-IP-d5R"/>
+                        <segue destination="4kr-h5-eh7" kind="show" identifier="DetailToChat" id="g4X-KF-o78"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k87-dP-sEp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -56,6 +57,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E2C-RE-GV9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1481" y="-538"/>
+        </scene>
+        <!--ChatStoryboardID-->
+        <scene sceneID="dGQ-tc-w0B">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Chat" referencedIdentifier="ChatStoryboardID" id="4kr-h5-eh7" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X9q-Q5-fCm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="849" y="-427"/>
         </scene>
         <!--ItemInShopStoryboardID-->
         <scene sceneID="97G-IA-W1T">

@@ -158,6 +158,10 @@ class ViewItemController: UIViewController {
             let vc = segue.destination as? NewCommentController
             vc?.shopItem = item
             navigationItem.backBarButtonItem = backItem
+        } else if segue.destination is ChatController {
+            let vc = segue.destination as? ChatController
+            vc?.shop = ShopResponse(id: item.shop_id ?? "", name: item.shop_name ?? "")
+            navigationItem.backBarButtonItem = backItem
         }
     }
     
@@ -214,6 +218,10 @@ class ViewItemController: UIViewController {
     
     @objc func deliveryPressed(btn: UIButton) {
         performSegueFunc(identifier: SegueIdentifier.detailToDelivery.rawValue)
+    }
+    
+    @objc func chatBtnPressed(btn: UIButton) {
+        performSegueFunc(identifier: SegueIdentifier.detailToChat.rawValue)
     }
     
     @objc func addCmtBtnPressed(btn: UIButton) {
@@ -303,6 +311,7 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
 
                     cell.viewMore.addTarget(self, action: #selector(viewMorePressed), for: UIControl.Event.touchDown)
                     cell.delivery.addTarget(self, action: #selector(deliveryPressed), for: UIControl.Event.touchDown)
+                    cell.chatBtn.addTarget(self, action: #selector(chatBtnPressed), for: UIControl.Event.touchDown)
 
                     cell.selectionStyle = UITableViewCell.SelectionStyle.none;
                     return cell
