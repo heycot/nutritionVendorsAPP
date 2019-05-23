@@ -42,7 +42,6 @@ class HightRatingController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let a = String.gennerateKeywords(["tao xanh my", "ngo sy lien, lien chieu, da nang"])
         
         setupCurrentLocation()
         setUpCollectionView()

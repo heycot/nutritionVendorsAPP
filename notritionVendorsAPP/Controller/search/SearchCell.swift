@@ -25,7 +25,6 @@ class SearchCell: UITableViewCell {
     }
     
     func updateView(item: SearchResponse) {
-        setupView()
         var folder = ""
         
         if item.is_shop == 0 {
@@ -40,10 +39,5 @@ class SearchCell: UITableViewCell {
         address.text = item.address ?? ""
     }
     
-    func setupView() {
-        rating.settings.updateOnTouch = false
-        rating.settings.fillMode = .precise
-        
-    }
 
 }

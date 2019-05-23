@@ -90,8 +90,8 @@ class ATCChatThreadViewController: MessagesViewController, MessagesDataSource {
         inputTextView.font = UIFont.systemFont(ofSize: 16.0)
         inputTextView.placeholderLabel.textColor = uiConfig.inputPlaceholderTextColor
         inputTextView.placeholderLabel.text = "Start typing..."
-        inputTextView.textContainerInset = UIEdgeInsetsMake(6, 12, 6, 12)
-        inputTextView.placeholderLabelInsets = UIEdgeInsetsMake(6, 15, 6, 15)
+        inputTextView.textContainerInset = UIEdgeInsets(top: 6, left: 12, bottom: 6, right: 12)
+        inputTextView.placeholderLabelInsets = UIEdgeInsets(top: 6, left: 15, bottom: 6, right: 15)
 
         let sendButton = messageInputBar.sendButton
         sendButton.setTitleColor(uiConfig.primaryColor, for: .normal)
@@ -201,7 +201,8 @@ class ATCChatThreadViewController: MessagesViewController, MessagesDataSource {
 
     private func uploadImage(_ image: UIImage, to channel: ATCChatChannel, completion: @escaping (URL?) -> Void) {
 
-        guard let scaledImage = image.scaledToSafeUploadSize, let data = UIImageJPEGRepresentation(scaledImage, 0.4) else {
+//        guard let scaledImage = image.scaledToSafeUploadSize, let data = UIImageJPEGRepresentation(scaledImage, 0.4) else {
+        guard let scaledImage = image.scaledToSafeUploadSize, let data = scaledImage.jpegData(compressionQuality: 0.4) else {
             completion(nil)
             return
         }
