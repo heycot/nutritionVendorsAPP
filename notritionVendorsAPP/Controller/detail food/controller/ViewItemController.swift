@@ -38,7 +38,13 @@ class ViewItemController: UIViewController {
     }
     
     func saveAsRecent(){
-        RecentService.instance.saveOne(shopItem: item)
+        AuthServices.instance.checkLogedIn { (data) in
+            guard let data = data else { return }
+            
+            if data {
+                RecentService.instance.saveOne(shopItem: self.item)
+            }
+        }
     }
     
     func registerNibCell() {

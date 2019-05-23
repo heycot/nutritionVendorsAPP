@@ -16,7 +16,6 @@ PODS:
   - BoringSSL/Interface (10.0.6)
   - CCBottomRefreshControl (0.5.2)
   - Cosmos (18.0.1)
-  - ESPullToRefresh (2.7)
   - FacebookCore (0.5.0):
     - Bolts (~> 1.9)
     - FBSDKCoreKit (~> 4.37)
@@ -155,7 +154,7 @@ PODS:
   - gRPC-Core/Interface (1.14.0)
   - GTMSessionFetcher/Core (1.2.1)
   - IQKeyboardManagerSwift (6.2.0)
-  - Kingfisher (4.10.1)
+  - Kingfisher (5.0.1)
   - leveldb-library (1.20)
   - MessageInputBar (0.4.1):
     - MessageInputBar/Core (= 0.4.1)
@@ -168,7 +167,6 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - ObjectMapper (3.4.2)
-  - PinterestLayout (1.0.3)
   - PKHUD (5.2.0)
   - Protobuf (3.6.1)
   - PryntTrimmerView (3.0.0)
@@ -187,7 +185,6 @@ DEPENDENCIES:
   - AlamofireImage
   - CCBottomRefreshControl
   - Cosmos
-  - ESPullToRefresh
   - FacebookCore
   - FacebookLogin
   - FacebookShare
@@ -206,7 +203,6 @@ DEPENDENCIES:
   - MessageInputBar
   - MessageKit
   - ObjectMapper
-  - PinterestLayout
   - PKHUD (~> 5.0)
   - SwiftyJSON
   - TinyConstraints
@@ -220,7 +216,6 @@ SPEC REPOS:
     - BoringSSL
     - CCBottomRefreshControl
     - Cosmos
-    - ESPullToRefresh
     - FacebookCore
     - FacebookLogin
     - FacebookShare
@@ -252,7 +247,6 @@ SPEC REPOS:
     - MessageKit
     - nanopb
     - ObjectMapper
-    - PinterestLayout
     - PKHUD
     - Protobuf
     - PryntTrimmerView
@@ -269,7 +263,6 @@ SPEC CHECKSUMS:
   BoringSSL: e10f92a27043805c01071fe815a5cd98ae8212e7
   CCBottomRefreshControl: 389780b4488321c91d18f66a6da5ef9606df6de5
   Cosmos: 7dfaa3f52584ca5f94ab74b5c2e264019cc9f7f5
-  ESPullToRefresh: 119e2710b82b75536aab2bbe4883ba119fca35c8
   FacebookCore: 74288d0add931d361b1596beae787ab72c438249
   FacebookLogin: ebcf34714a1cb9f0759d9f071cfb01ed500996cf
   FacebookShare: 963b4bb1124a64a395b1e428163d70b5774116e8
@@ -295,13 +288,12 @@ SPEC CHECKSUMS:
   gRPC-Core: f4836515817c0eb479aeeb9cc27c91c4ba62a9f6
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
   IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
-  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
+  Kingfisher: 4f771421b9208185217550528a06fd48756cb7c2
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   MessageInputBar: e81c7535347f1f7b923de7080409a535a004b6e4
   MessageKit: 29c1c87e5a396d2ca7a3f712e5171dc9aba42a1e
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
-  PinterestLayout: f1c7ec0254ffa842d69f1b43e4436c8ded4359b9
   PKHUD: dd5357ac65f26115c35c4a68e9b328053326c5fe
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   PryntTrimmerView: 53ac64053c7ce63cb3e27f54090f52da0734891d
@@ -311,6 +303,6 @@ SPEC CHECKSUMS:
   TinyConstraints: dbf7519aefc01ea59d62244300c7718aec68e280
   YPImagePicker: 5dd3814b47b1208e9c8cc8f6ef77fe90db3723b6
 
-PODFILE CHECKSUM: 5fc3890eaf931670e08f60647b2e664d10bb9e7a
+PODFILE CHECKSUM: 29254b4d1e641ef4030f045febf0931a1c9ecee5
 
 COCOAPODS: 1.5.2

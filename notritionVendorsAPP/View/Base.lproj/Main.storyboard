@@ -334,7 +334,7 @@
                 <viewControllerPlaceholder storyboardName="AccountDetail" referencedIdentifier="AccountDetailStoryboardID" id="8ap-Zq-13Y" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7kK-fE-kxM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2131" y="2626"/>
+            <point key="canvasLocation" x="3039.8550724637685" y="2625.6696428571427"/>
         </scene>
         <!--LoginLogoutStoryboardID-->
         <scene sceneID="Uqc-JC-CBG">
@@ -342,7 +342,7 @@
                 <viewControllerPlaceholder storyboardName="LogInAndLogOut" referencedIdentifier="LoginLogoutStoryboardID" id="kNg-Ir-EQw" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1zT-0o-lCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2252" y="2886"/>
+            <point key="canvasLocation" x="3160.8695652173915" y="2885.4910714285711"/>
         </scene>
         <!--Category Controller-->
         <scene sceneID="8I9-Vg-tx7">
@@ -981,7 +981,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oXM-62-nyg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2858" y="2845"/>
+            <point key="canvasLocation" x="3768.115942028986" y="2844.6428571428569"/>
         </scene>
         <!--Shop-->
         <scene sceneID="Y4g-FC-RLh">
@@ -1146,7 +1146,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lpk-he-fh5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2014" y="3080"/>
+            <point key="canvasLocation" x="-360.86956521739131" y="2998.6607142857142"/>
         </scene>
         <!--Edit Infor User Controller-->
         <scene sceneID="7Fy-3z-Gjo">
@@ -1414,7 +1414,7 @@
                 <viewControllerPlaceholder storyboardName="Comment" referencedIdentifier="CommentStoryboardID" id="Hhs-xT-Xtj" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xPv-Zd-KoX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="609" y="2759"/>
+            <point key="canvasLocation" x="1518.840579710145" y="2758.9285714285711"/>
         </scene>
         <!--Change Password Controller-->
         <scene sceneID="Jg9-CS-pm8">
@@ -1529,7 +1529,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aAz-pQ-tcl" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="SEN-JW-qCC" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1036" y="2999"/>
+            <point key="canvasLocation" x="1944.9275362318842" y="2998.6607142857142"/>
         </scene>
     </scenes>
     <resources>

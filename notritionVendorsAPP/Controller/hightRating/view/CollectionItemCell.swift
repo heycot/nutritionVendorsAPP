@@ -35,6 +35,5 @@ class CollectionItemCell: UICollectionViewCell {
     func setupItemImage(id: String, avatar: String) {
         let folder = ReferenceImage.shopItem.rawValue + "\(id)/\(avatar)"
         itemImage.displayImage(folderPath: folder)
-//        itemImage.loadImageFromFirebase(folder: folder)
     }
 }
