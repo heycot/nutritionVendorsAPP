@@ -11,34 +11,37 @@ import Firebase
 
 class ChatController: UIViewController {
 
-    @IBOutlet weak var backBtn: UIButton!
-    @IBOutlet weak var shopName: UILabel!
+    @IBOutlet weak var viewChat: UIView!
     
     var shop = ShopResponse()
     var user = UserResponse()
+    var titleChat: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
-        getUser()
+        if AuthServices.instance.user == nil {
+            getUser()
+        }
     }
     
-    func setupView() {
-        shopName.text = shop.name
-    }
     
     func showChat() {
+        let userID = Auth.auth().currentUser?.uid
+        let channedl_id = "\(shop.id ?? "")-\(userID ?? "")"
         
         let uiConfig = ATCChatUIConfiguration(primaryColor: UIColor(hexString: "#0084ff"),
                                               secondaryColor: UIColor(hexString: "#f0f0f0"),
                                               inputTextViewBgColor: UIColor(hexString: "#f4f4f6"),
                                               inputTextViewTextColor: .black,
                                               inputPlaceholderTextColor: UIColor(hexString: "#979797"))
-        let channel = ATCChatChannel(id: "channel_id", name: "Chat Title")
-        let viewer = ATCUser(firstName: "Florian", lastName: "Marcu")
+        let channel = ATCChatChannel(id: channedl_id, name: titleChat)
+        let viewer = ATCUser(firstName: user.name ?? "Guest", lastName: "")
         let chatVC = ATCChatThreadViewController(user: viewer, channel: channel, uiConfig: uiConfig)
+        
+        self.viewChat.addSubview(chatVC.view)
         //         Do any additional setup after loading the view.
-        self.present(chatVC, animated: true)
+//        self.viewChat.present(chatVC, animated: true)
+        
     }
 
     func getUser() {

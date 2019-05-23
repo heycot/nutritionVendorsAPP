@@ -32,6 +32,8 @@ class AuthServices {
         return (Auth.auth().currentUser?.refreshToken ?? "")
     }
     
+    var user: UserResponse?
+    
     
     func signup(name: String, email: String, password: String, completion: @escaping (Bool?) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
@@ -57,6 +59,10 @@ class AuthServices {
                         print("Document successfully written!")
                         //Đoạn này em có thể lưu user profile vào user default rồi nhảy tiếp qua home screen
                         //Ở bước này thì em có thể lưu user email, user name, user avatar. Hết. Ko đc lưu mật khẩu nha
+                        
+                        self.signin(email: email, password: password, completion: { (data) in
+                            
+                        })
                     }
                     
                     DispatchQueue.main.async {
@@ -87,7 +93,8 @@ class AuthServices {
                         if let document = document, document.exists {
                             let jsonData = try? JSONSerialization.data(withJSONObject: document.data() as Any)
                             do {
-                                _ = try JSONDecoder().decode(UserResponse.self, from: jsonData!)
+                                let user = try JSONDecoder().decode(UserResponse.self, from: jsonData!)
+                                self.user = user
                             } catch let jsonError {
                                 print("Error serializing json:", jsonError)
                             }
@@ -125,6 +132,7 @@ class AuthServices {
     
     
     func signout() {
+        self.user = nil
         try! Auth.auth().signOut()
     }
     
@@ -155,6 +163,7 @@ class AuthServices {
     
     func edit(user: UserResponse, completion: @escaping (Bool?) -> Void){
         let userID = Auth.auth().currentUser!.uid
+        self.user = user
         
         let db = Firestore.firestore()
         
@@ -180,38 +189,7 @@ class AuthServices {
         
     }
     
-    func editInfor(user: UserResponse, dateStr: String, completion: @escaping (UserResponse?) -> Void) {
-        
-        let urlStr = BASE_URL + UserAPI.editInfor.rawValue + "/\(dateStr)"
-        
-        let body = ["id": 0,
-                    "name": user.name,
-                    "email": "",
-                    "phone": user.phone,
-                    "password": "",
-                    "birthday": dateStr,
-                    "address": user.address,
-                    "avatar": "",
-                    "create_date": nil,
-                    "status": 1,
-                    "token": ""] as [String : Any?]
-        
-        let jsonData = try? JSONSerialization.data(withJSONObject: body)
-        
-        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "POST", jsonBody: jsonData, parameters: nil) { (data ) in
-            
-            guard let data = data else {return}
-            do {
-                
-                let userResponse = try JSONDecoder().decode(UserResponse.self, from: data)
-                DispatchQueue.main.async {
-                    completion(userResponse)
-                }
-            } catch let jsonError {
-                print("Error serializing json:", jsonError)
-            }
-        }
-    }
+    
     
     func checkPassword(pass: String, completion: @escaping (Int?) -> Void) {
         

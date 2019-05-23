@@ -161,6 +161,9 @@ class ViewItemController: UIViewController {
         } else if segue.destination is ChatController {
             let vc = segue.destination as? ChatController
             vc?.shop = ShopResponse(id: item.shop_id ?? "", name: item.shop_name ?? "")
+            vc?.titleChat = item.name ?? ""
+            
+            backItem.title = item.shop_name
             navigationItem.backBarButtonItem = backItem
         }
     }
