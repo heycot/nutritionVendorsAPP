@@ -65,90 +65,6 @@ extension String {
        return ""
     }
     
-    static func gennerateKeywords(_ inputs:[String]) -> [String] {
-//        self.gennerateKeywordsMo(inputs)
-        
-        //1. first remove "," from address
-        var newArray = [Substring]()
-        for string in inputs {
-            //2.1. get list of words by seperate string with space character
-            let string = self.convertVietNam(text: string)
-            let subStrings = string.split(separator: ",")
-            newArray += subStrings
-        }
-        
-        //2. Then generate permutations from newArray
-        var permutations = [String]()
-        for string in newArray {
-            //2.1. get list of words by seperate string with space character
-            let subStrings = string.split(separator: " ")
-            
-            //2.2. Then double loop for generate permutations
-            for index in 0..<subStrings.count {
-                var word = subStrings[index].lowercased()
-                permutations.append(String(word))
-                
-                for nextIndex in index+1..<subStrings.count{
-                    let nextWords = subStrings[nextIndex].lowercased()
-                    word += " " + nextWords
-                    permutations.append(String(word))
-                }
-            }
-        }
-        
-        return permutations
-    }
-    
-    static func gennerateKeywordsMo(_ inputs:[String]) -> [String] {
-        var newArray = [Substring]()
-        for string in inputs {
-            //2.1. get list of words by seperate string with space character
-            let string = self.convertVietNam(text: string)
-            let subStrings = string.split(separator: ",")
-            newArray += subStrings
-        }
-        
-        //2. Then generate permutations from newArray
-        var permutations = [String]()
-        for i in 0..<newArray.count {
-            //2.1. get list of words by seperate string with space character
-            var subStrings = newArray[i].split(separator: " ")
-            
-            //2.2. Then double loop for generate permutations
-            for index in 0..<subStrings.count {
-                var word = subStrings[index].lowercased()
-                permutations.append(String(word))
-                
-                for nextIndex in index+1..<subStrings.count{
-                    let nextWords = subStrings[nextIndex].lowercased()
-                    word += " " + nextWords
-                    permutations.append(String(word))
-                }
-                
-                
-            }
-            
-            subStrings = newArray[i + 1].split(separator: " ")
-            
-            //2.2. Then double loop for generate permutations
-            for index in 0..<subStrings.count {
-                var word = subStrings[index].lowercased()
-                permutations.append(String(word))
-                
-                for nextIndex in index+1..<subStrings.count{
-                    let nextWords = subStrings[nextIndex].lowercased()
-                    word += " " + nextWords
-                    permutations.append(String(word))
-                }
-                
-                
-            }
-            
-        }
-        
-        return permutations
-    }
-    
     
     
     static func generateNameForImage() -> String {
@@ -176,91 +92,92 @@ extension String {
         }
     }
     
-    static func convertVietNam(text: String) -> String {
-        guard let data = text.data(using: .ascii, allowLossyConversion: true) else { return text }
-        guard let searchText = String(data: data, encoding: .ascii) else { return text }
-        return searchText
-    }
+    // wrong with đ -> ?
+//    static func convertVietNam(text: String) -> String {
+//        guard let data = text.data(using: .ascii, allowLossyConversion: true) else { return text }
+//        guard let searchText = String(data: data, encoding: .ascii) else { return text }
+//        return searchText
+//    }
     
-    func convertVietNam1(text: String) -> String {
+    static func convertVietNam(text: String) -> String {
         return text.folding(options: .diacriticInsensitive, locale: .current)
     }
     
 }
 
-
-class ConverHelper {
-    private static let arrCoDau: [Character] =
-        ["á","à","ả","ã","ạ",
-         "ă","ắ","ằ","ẳ","ẵ","ặ",
-         "â","ấ","ầ","ẩ","ẫ","ậ",
-         "đ",
-         "é","è","ẻ","ẽ","ẹ",
-         "ê","ế","ề","ể","ễ","ệ",
-         "í","ì","ỉ","ĩ","ị",
-         "ó","ò","ỏ","õ","ọ",
-         "ô","ố","ồ","ổ","ỗ","ộ",
-         "ơ","ớ","ờ","ở","ỡ","ợ",
-         "ú","ù","ủ","ũ","ụ",
-         "ư","ứ","ừ","ử","ữ","ự",
-         "ý","ỳ","ỷ","ỹ","ỵ",
-         
-         "Á","À","Ả","Ã","Ạ",
-         "Ă","Ắ","Ằ","Ẳ","Ẵ","Ặ",
-         "Â","Ấ","Ầ","Ẩ","Ẫ","Ậ",
-         "Đ",
-         "É","È","Ẻ","Ẽ","Ẹ",
-         "Ê","Ế","Ề","Ể","Ễ","Ệ",
-         "Í","Ì","Ỉ","Ĩ","Ị",
-         "Ó","Ò","Ỏ","Õ","Ọ",
-         "Ô","Ố","Ồ","Ổ","Ỗ","Ộ",
-         "Ơ","Ớ","Ờ","Ở","Ỡ","Ợ",
-         "Ú","Ù","Ủ","Ũ","Ụ",
-         "Ư","Ứ","Ừ","Ử","Ữ","Ự",
-         "Ý","Ỳ","Ỷ","Ỹ","Ỵ"]
-    
-    private static let arrKhongDau: [Character] =
-        ["a","a","a","a","a",
-         "a","a","a","a","a","a",
-         "a","a","a","a","a","a",
-         "d",
-         "e","e","e","e","e",
-         "e","e","e","e","e","e",
-         "i","i","i","i","i",
-         "o","o","o","o","o",
-         "o","o","o","o","o","o",
-         "o","o","o","o","o","o",
-         "u","u","u","u","u",
-         "u","u","u","u","u","u",
-         "y","y","y","y","y",
-         
-         "A","A","A","A","A",
-         "A","A","A","A","A","A",
-         "A","A","A","A","A","A",
-         "D",
-         "E","E","E","E","E",
-         "E","E","E","E","E","E",
-         "I","I","I","I","I",
-         "O","O","O","O","O",
-         "O","O","O","O","O","O",
-         "O","O","O","O","O","O",
-         "U","U","U","U","U",
-         "U","U","U","U","U","U",
-         "Y","Y","Y","Y","Y"
-    ]
-    
-    class func convertVietNam(text: String) -> String {
-        var arr = Array(text.characters)
-        for i in 0 ..< arr.count {
-            for j in 0 ..< arrCoDau.count {
-                if (arr[i] == arrCoDau[j]) {
-                    arr[i] = arrKhongDau[j]
-                    break
-                }
-            }
-        }
-        return String(arr)
-    }
-    
-    
-}
+//
+//class ConverHelper {
+//    private static let arrCoDau: [Character] =
+//        ["á","à","ả","ã","ạ",
+//         "ă","ắ","ằ","ẳ","ẵ","ặ",
+//         "â","ấ","ầ","ẩ","ẫ","ậ",
+//         "đ",
+//         "é","è","ẻ","ẽ","ẹ",
+//         "ê","ế","ề","ể","ễ","ệ",
+//         "í","ì","ỉ","ĩ","ị",
+//         "ó","ò","ỏ","õ","ọ",
+//         "ô","ố","ồ","ổ","ỗ","ộ",
+//         "ơ","ớ","ờ","ở","ỡ","ợ",
+//         "ú","ù","ủ","ũ","ụ",
+//         "ư","ứ","ừ","ử","ữ","ự",
+//         "ý","ỳ","ỷ","ỹ","ỵ",
+//
+//         "Á","À","Ả","Ã","Ạ",
+//         "Ă","Ắ","Ằ","Ẳ","Ẵ","Ặ",
+//         "Â","Ấ","Ầ","Ẩ","Ẫ","Ậ",
+//         "Đ",
+//         "É","È","Ẻ","Ẽ","Ẹ",
+//         "Ê","Ế","Ề","Ể","Ễ","Ệ",
+//         "Í","Ì","Ỉ","Ĩ","Ị",
+//         "Ó","Ò","Ỏ","Õ","Ọ",
+//         "Ô","Ố","Ồ","Ổ","Ỗ","Ộ",
+//         "Ơ","Ớ","Ờ","Ở","Ỡ","Ợ",
+//         "Ú","Ù","Ủ","Ũ","Ụ",
+//         "Ư","Ứ","Ừ","Ử","Ữ","Ự",
+//         "Ý","Ỳ","Ỷ","Ỹ","Ỵ"]
+//
+//    private static let arrKhongDau: [Character] =
+//        ["a","a","a","a","a",
+//         "a","a","a","a","a","a",
+//         "a","a","a","a","a","a",
+//         "d",
+//         "e","e","e","e","e",
+//         "e","e","e","e","e","e",
+//         "i","i","i","i","i",
+//         "o","o","o","o","o",
+//         "o","o","o","o","o","o",
+//         "o","o","o","o","o","o",
+//         "u","u","u","u","u",
+//         "u","u","u","u","u","u",
+//         "y","y","y","y","y",
+//
+//         "A","A","A","A","A",
+//         "A","A","A","A","A","A",
+//         "A","A","A","A","A","A",
+//         "D",
+//         "E","E","E","E","E",
+//         "E","E","E","E","E","E",
+//         "I","I","I","I","I",
+//         "O","O","O","O","O",
+//         "O","O","O","O","O","O",
+//         "O","O","O","O","O","O",
+//         "U","U","U","U","U",
+//         "U","U","U","U","U","U",
+//         "Y","Y","Y","Y","Y"
+//    ]
+//
+//    class func convertVietNam(text: String) -> String {
+//        var arr = Array(text.characters)
+//        for i in 0 ..< arr.count {
+//            for j in 0 ..< arrCoDau.count {
+//                if (arr[i] == arrCoDau[j]) {
+//                    arr[i] = arrKhongDau[j]
+//                    break
+//                }
+//            }
+//        }
+//        return String(arr)
+//    }
+//
+//
+//}

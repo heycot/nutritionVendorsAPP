@@ -16,6 +16,7 @@ struct ShopResponse: Decodable, Hashable {
     var user_id: String?
     var name: String?
     var rating: Double?
+    var comment_number: Int?
     var time_open: String?
     var time_close: String?
     var create_date: TimeInterval?
@@ -122,8 +123,6 @@ struct ShopResponse: Decodable, Hashable {
         search.is_shop = 1
         search.entity_id = self.id
         search.address = self.address
-        search.comment_number = 0
-        search.rating = self.rating
         search.entity_name = self.name
         search.avatar = self.avatar
         

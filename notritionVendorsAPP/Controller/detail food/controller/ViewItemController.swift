@@ -237,7 +237,7 @@ class ViewItemController: UIViewController {
     
     
     
-    func dismissKeyboard() {
+    override func dismissKeyboard() {
         view.endEditing(true)
     }
     

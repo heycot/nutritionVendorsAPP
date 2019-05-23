@@ -14,7 +14,6 @@ class SearchCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var distance: UILabel!
-    @IBOutlet weak var rating: CosmosView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -39,8 +38,6 @@ class SearchCell: UITableViewCell {
         itemImage.displayImage(folderPath: folder)
         name.text = item.entity_name ?? ""
         address.text = item.address ?? ""
-        rating.rating = item.rating ?? 3.0
-        rating.text = " (" + String(item.comment_number!) + ")"
     }
     
     func setupView() {

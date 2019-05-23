@@ -20,6 +20,7 @@ import Firebase
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        
         GMSServices.provideAPIKey(GOOGLE_API_KEY)
         GMSPlacesClient.provideAPIKey(GOOGLE_API_KEY)
         FirebaseApp.configure()

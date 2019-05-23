@@ -60,8 +60,6 @@ struct ShopItemResponse: Decodable{
         search.is_shop = 0
         search.entity_id = self.id
         search.address = self.address
-        search.comment_number = self.comment_number
-        search.rating = self.rating
         search.entity_name = "\(self.name ?? "") - \(self.shop_name ?? "")"
         search.avatar = self.avatar
         

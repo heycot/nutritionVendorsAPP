@@ -86,24 +86,9 @@ class SearchController: UIViewController {
         print("call api search")
         HUD.show(.progress)
         
-        SearchServices.instance.searchShopItem(searchText: searchBar.text!.lowercased()) { (data) in
+        SearchServices.instance.search(searchText: searchBar.text!.lowercased()) { (data) in
             guard let data = data else { return }
-            
-            print(data.count)
-            
-            let sortedArray = data.sorted(by: { $0.number_occurrences! > $1.number_occurrences! })
-            
-            if sortedArray.count > 25 {
-                for item in sortedArray {
-                    if self.listItem.count < 25 {
-                        self.listItem.append(item)
-                    } else {
-                        break
-                    }
-                }
-            } else {
-                self.listItem = sortedArray
-            }
+            self.listItem = data
             
             HUD.hide()
             self.tableView.reloadData()
