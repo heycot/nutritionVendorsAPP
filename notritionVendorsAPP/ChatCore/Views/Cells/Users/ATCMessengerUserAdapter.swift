@@ -40,7 +40,7 @@ class ATCMessengerUserAdapter: ATCGenericCollectionRowAdapter {
     }
 
     func size(containerBounds: CGRect, object: ATCGenericBaseModel) -> CGSize {
-        guard let viewModel = object as? ATCUser else { return .zero }
+        guard object is ATCUser else { return .zero }
         return CGSize(width: containerBounds.width, height: 80)
     }
 }

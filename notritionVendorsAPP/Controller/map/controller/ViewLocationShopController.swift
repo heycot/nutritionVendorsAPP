@@ -192,7 +192,7 @@ class ViewLocationShopController: UIViewController {
 
         Mapmanager.getDirections(origin, destination: destinationString, success: { (response) in
             if let routes = response?.routes, let selectedRoute = routes.first {
-                self.handleGetDirectionsSuccessfully(selectedRoute: selectedRoute)
+                _ = self.handleGetDirectionsSuccessfully(selectedRoute: selectedRoute)
                 success()
             } else {
                 failed(nil)

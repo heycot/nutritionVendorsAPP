@@ -107,7 +107,7 @@ public class ATCHostViewController: UIViewController {
 
     fileprivate func presentLoggedInViewControllers() {
         let childVC: UIViewController = (style == .tabBar) ? tabController! : drawerController!
-        if let view = (style == .tabBar) ? tabController!.view : drawerController!.view {
+        if ((style == .tabBar) ? tabController!.view : drawerController!.view) != nil {
             UIView.transition(with: self.view, duration: 0.5, options: .transitionFlipFromLeft, animations: {
                 self.addChildViewControllerWithView(childVC)
             }, completion: nil)

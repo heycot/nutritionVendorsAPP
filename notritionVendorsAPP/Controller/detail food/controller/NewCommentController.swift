@@ -103,7 +103,7 @@ class NewCommentController: UIViewController {
         var result = ""
         var strimString = string.trimmingCharacters(in: .whitespacesAndNewlines)
         //trim the string
-        strimString.trimmingCharacters(in: CharacterSet.newlines)
+        _ = strimString.trimmingCharacters(in: CharacterSet.newlines)
         // replace occurences within the string
         while let rangeToReplace = strimString.range(of: "\n\n") {
             strimString.replaceSubrange(rangeToReplace, with: "\n")

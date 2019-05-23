@@ -12,6 +12,7 @@ import Firebase
 import MessageKit
 import FirebaseFirestore
 import FirebaseStorage
+import MessageInputBar
 
 struct ATCChatUIConfiguration {
     let primaryColor: UIColor
@@ -31,15 +32,16 @@ class ATCChatThreadViewController: MessagesViewController, MessagesDataSource {
     private var reference: CollectionReference?
     private let storage = Storage.storage().reference()
 
-    private var isSendingPhoto = false {
-        didSet {
-            DispatchQueue.main.async {
-                self.messageInputBar.leftStackViewItems.forEach { item in
-                    item.isEnabled = !self.isSendingPhoto
-                }
-            }
-        }
-    }
+    private var isSendingPhoto = false
+//    {!!!ShouldCheck
+//        didSet {
+//            DispatchQueue.main.async {
+//                self.messageInputBar.leftStackViewItems.forEach { item in
+//                    item.isEnabled = !self.isSendingPhoto
+//                }
+//            }
+//        }
+//    }
 
     var channel: ATCChatChannel
     var uiConfig: ATCChatUIConfiguration
@@ -104,7 +106,7 @@ class ATCChatThreadViewController: MessagesViewController, MessagesDataSource {
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
 
-        let cameraItem =  UIBarButtonItem(type: .system)
+        let cameraItem = InputBarButtonItem(type: .system)
         cameraItem.tintColor = uiConfig.primaryColor
         cameraItem.image = UIImage.localImage("camera-filled-icon", template: true)
         cameraItem.addTarget(
@@ -172,7 +174,7 @@ class ATCChatThreadViewController: MessagesViewController, MessagesDataSource {
     }
 
     private func handleDocumentChange(_ change: DocumentChange) {
-        guard var message = ATChatMessage(document: change.document) else {
+        guard let message = ATChatMessage(document: change.document) else {
             return
         }
 
@@ -229,7 +231,7 @@ class ATCChatThreadViewController: MessagesViewController, MessagesDataSource {
                 return
             }
 
-            var message = ATChatMessage(user: self.user, image: image)
+            let message = ATChatMessage(user: self.user, image: image)
             message.downloadURL = url
 
             self.save(message)
