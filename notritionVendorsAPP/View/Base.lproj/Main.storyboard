@@ -714,40 +714,24 @@
                                                                 <constraint firstAttribute="width" constant="60" id="3GG-1l-fqE"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="w0E-oa-az9">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="w0E-oa-az9">
                                                             <rect key="frame" x="75" y="0.0" width="329" height="79.666666666666671"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfh-mu-5DP">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="329" height="20.333333333333332"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="329" height="40"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mmc-dN-ULd">
-                                                                    <rect key="frame" x="0.0" y="20.333333333333332" width="329" height="15.666666666666668"/>
+                                                                    <rect key="frame" x="0.0" y="40" width="329" height="39.666666666666657"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mhs-Gb-YBD" customClass="CosmosView" customModule="Cosmos">
-                                                                    <rect key="frame" x="0.0" y="36" width="329" height="43.666666666666657"/>
-                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
-                                                                            <color key="value" red="1" green="0.66666666669999997" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
-                                                                            <color key="value" red="1" green="0.66666666669999997" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                                                            <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                    </userDefinedRuntimeAttributes>
-                                                                </view>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="mmc-dN-ULd" firstAttribute="width" secondItem="w0E-oa-az9" secondAttribute="width" id="8YW-tf-hFO"/>
-                                                                <constraint firstItem="Mhs-Gb-YBD" firstAttribute="width" secondItem="w0E-oa-az9" secondAttribute="width" id="Jq6-Kh-5CO"/>
                                                                 <constraint firstItem="yfh-mu-5DP" firstAttribute="width" secondItem="w0E-oa-az9" secondAttribute="width" id="Mwa-BG-gQQ"/>
                                                             </constraints>
                                                         </stackView>
@@ -765,7 +749,6 @@
                                             <outlet property="address" destination="mmc-dN-ULd" id="4AX-Ov-tsz"/>
                                             <outlet property="itemImage" destination="RRt-Jl-ASr" id="Huc-WS-bOt"/>
                                             <outlet property="name" destination="yfh-mu-5DP" id="tCh-oX-cQ4"/>
-                                            <outlet property="rating" destination="Mhs-Gb-YBD" id="Kg9-xz-gvY"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
