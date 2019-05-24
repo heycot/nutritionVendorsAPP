@@ -165,6 +165,7 @@ class ViewItemController: UIViewController {
             
             backItem.title = item.shop_name
             navigationItem.backBarButtonItem = backItem
+            self.hidesBottomBarWhenPushed = true
         }
     }
     

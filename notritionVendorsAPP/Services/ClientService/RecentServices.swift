@@ -26,7 +26,7 @@ class RecentService {
         
         docRef.getDocuments(completion: { (document, error) in
             if let document = document {
-                print(document.documents)
+                
                 for doct in document.documents{
                     let jsonData = try? JSONSerialization.data(withJSONObject: doct.data() as Any)
                     do {

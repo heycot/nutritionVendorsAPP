@@ -13,7 +13,6 @@ class SearchCell: UITableViewCell {
     @IBOutlet weak var itemImage: CustomImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var address: UILabel!
-    @IBOutlet weak var distance: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,7 +32,6 @@ class SearchCell: UITableViewCell {
             folder = ReferenceImage.shop.rawValue + "\(item.entity_id ?? "")/\(item.avatar ?? "")"
         }
         
-        print("folder images :  \(folder)")
         itemImage.displayImage(folderPath: folder)
         name.text = item.entity_name ?? ""
         address.text = item.address ?? ""

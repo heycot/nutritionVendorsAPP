@@ -38,20 +38,27 @@ class SearchController: UIViewController {
     
     func getRecentSearch(offset: Int) {
         HUD.show(.progress)
-        RecentService.instance.getListRecent { (data) in
-            guard var data = data else {
-                HUD.hide()
-                return
-            }
-            data.sort(by: {$0.update_date! > $1.update_date! })
+        
+        AuthServices.instance.checkLogedIn(completion: { (data) in
+            guard let data = data else { return }
             
-            for item in data {
-                self.listItem.append(item.convertToSearchResponse())
+            if data {
+                RecentService.instance.getListRecent { (data) in
+                    guard var data = data else {
+                        HUD.hide()
+                        return
+                    }
+                    data.sort(by: {$0.update_date! > $1.update_date! })
+                    
+                    for item in data {
+                        self.listItem.append(item.convertToSearchResponse())
+                    }
+                    
+                    HUD.hide()
+                    self.tableView.reloadData()
+                }
             }
-            
-            HUD.hide()
-            self.tableView.reloadData()
-        }
+        })
     }
     
     func createSearchBar() {

@@ -17,7 +17,7 @@ class AccountDetailController: UIViewController {
     @IBOutlet weak var activitiesBtn: UIButton!
     @IBOutlet weak var accountBtn: UIButton!
     
-    let titleCell = ["Email:", "Birthday:", "Address:", "Join on:", "Edit information", "Change password"]
+    let titleCell = ["Email:", "Birthday:", "Address:", "Join on:", "Edit information", "Change password", "Log out"]
     var detailCell = [String]()
     
     var user = UserResponse()
@@ -174,7 +174,10 @@ extension AccountDetailController: UITableViewDelegate, UITableViewDataSource {
         
         else {
             let index = titleCell.count - 1
+            
             if indexPath?.row == index  {
+                AuthServices.instance.signout()
+            } else if indexPath?.row ==  (index - 1) {
                 performSegue(withIdentifier: SegueIdentifier.accountToPassword.rawValue, sender: nil)
             } else {
                 performSegue(withIdentifier: SegueIdentifier.accountToEditInfor.rawValue, sender: nil)
