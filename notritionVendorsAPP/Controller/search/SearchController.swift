@@ -90,7 +90,6 @@ class SearchController: UIViewController {
     }
     
     @objc func search() {
-        print("call api search")
         HUD.show(.progress)
         
         SearchServices.instance.search(searchText: searchBar.text!.lowercased()) { (data) in

@@ -43,6 +43,11 @@ class ChatController: UIViewController {
        
         chatVC.navigationItem.backBarButtonItem?.title = "Trai cay co nga"
         
+        
+        chatVC.view.addSubview(addNavigationBar()!)
+        
+        chatVC.view?.frame = CGRect(x: 0, y: 75, width: UIScreen.main.bounds.width, height: (UIScreen.main.bounds.height - 75))
+        
 //        self.presentedViewController(chatVC)
 //        self.presentedViewController(chatVC)
         
@@ -52,9 +57,27 @@ class ChatController: UIViewController {
         
         
         
-//        self.present(chatVC, animated: true)
-        self.viewChat.addSubview(chatVC.view)
+        self.present(chatVC, animated: true)
         
+    }
+    
+    @IBAction func dismissViewController() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    private func addNavigationBar() -> UINavigationBar? {
+        let height: CGFloat = 75
+        let statusBarHeight = UIApplication.shared.statusBarFrame.height;
+        let navbar = UINavigationBar(frame: CGRect(x: 0, y: statusBarHeight, width: UIScreen.main.bounds.width, height: height))
+        navbar.backgroundColor = APP_COLOR
+        navbar.delegate = self as? UINavigationBarDelegate
+        
+        let navItem = UINavigationItem()
+        navItem.title = shop.name
+        navItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(dismissViewController))
+        
+        navbar.items = [navItem]
+        return navbar
     }
 
     func setNavigationBar() {

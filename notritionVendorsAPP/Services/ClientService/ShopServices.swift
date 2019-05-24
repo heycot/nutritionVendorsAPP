@@ -40,6 +40,9 @@ class ShopService {
                 }
                 
             } else {
+                DispatchQueue.main.async {
+                    completion([])
+                }
                 print("User have no profile")
             }
         })
@@ -79,6 +82,9 @@ class ShopService {
                 }
                 
             } else {
+                DispatchQueue.main.async {
+                    completion([])
+                }
                 print("User have no profile")
             }
         })
