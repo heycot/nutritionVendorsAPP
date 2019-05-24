@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 class FavoritesResponse : Decodable {
     var id: String?
     var shop_item_id: String?

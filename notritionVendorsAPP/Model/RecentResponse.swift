@@ -10,7 +10,7 @@ import Foundation
 
 
 class RecentResponse : Decodable {
-    var id:         String?
+    var id: String?
     var user_id: String?
     var shop_item_id: String?
     var create_date: TimeInterval?

@@ -4,241 +4,210 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Alamofire.xcscheme_^#shared#^_</key>
+		<key>Alamofire.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>5</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>AlamofireImage.xcscheme_^#shared#^_</key>
+		<key>AlamofireImage.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>6</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>Bolts.xcscheme_^#shared#^_</key>
+		<key>Bolts.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>4</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>BoringSSL.xcscheme_^#shared#^_</key>
+		<key>BoringSSL.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>7</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>CCBottomRefreshControl.xcscheme_^#shared#^_</key>
+		<key>CCBottomRefreshControl.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>9</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Cosmos.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>0</integer>
 		</dict>
-		<key>ESPullToRefresh-ESPullToRefresh.xcscheme_^#shared#^_</key>
+		<key>FBSDKCoreKit.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>10</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>ESPullToRefresh.xcscheme_^#shared#^_</key>
+		<key>FBSDKLoginKit.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>9</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>FBSDKCoreKit.xcscheme_^#shared#^_</key>
+		<key>FBSDKShareKit.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>12</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>FBSDKLoginKit.xcscheme_^#shared#^_</key>
+		<key>FacebookCore.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>13</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>FBSDKShareKit.xcscheme_^#shared#^_</key>
+		<key>FacebookLogin.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>14</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>FacebookCore.xcscheme_^#shared#^_</key>
+		<key>FacebookShare.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>8</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>FacebookLogin.xcscheme_^#shared#^_</key>
+		<key>FirebaseAuth.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>10</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>FacebookShare.xcscheme_^#shared#^_</key>
+		<key>FirebaseCore.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>11</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>FirebaseAuth.xcscheme_^#shared#^_</key>
+		<key>FirebaseDatabase.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>15</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>FirebaseCore.xcscheme_^#shared#^_</key>
+		<key>FirebaseFirestore-gRPCCertificates-Firestore.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>17</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>FirebaseDatabase.xcscheme_^#shared#^_</key>
+		<key>FirebaseFirestore.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>18</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>FirebaseFirestore-gRPCCertificates-Firestore.xcscheme_^#shared#^_</key>
+		<key>FirebaseStorage.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>20</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>FirebaseFirestore.xcscheme_^#shared#^_</key>
+		<key>FirebaseUI.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>19</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>FirebaseStorage.xcscheme_^#shared#^_</key>
+		<key>GTMSessionFetcher.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>21</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>FirebaseUI.xcscheme_^#shared#^_</key>
+		<key>GoogleUtilities.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>22</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>GTMSessionFetcher.xcscheme_^#shared#^_</key>
+		<key>IQKeyboardManagerSwift.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>26</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>GoogleUtilities.xcscheme_^#shared#^_</key>
+		<key>Kingfisher.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>23</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>IQKeyboardManagerSwift.xcscheme_^#shared#^_</key>
+		<key>MessageInputBar.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>27</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>Kingfisher.xcscheme_^#shared#^_</key>
+		<key>MessageKit-MessageKitAssets.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>16</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>MessageInputBar.xcscheme_^#shared#^_</key>
+		<key>MessageKit.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>29</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>MessageKit-MessageKitAssets.xcscheme_^#shared#^_</key>
+		<key>ObjectMapper.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>31</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>MessageKit.xcscheme_^#shared#^_</key>
+		<key>PKHUD-PKHUDResources.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>30</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>ObjectMapper.xcscheme_^#shared#^_</key>
+		<key>PKHUD.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>33</integer>
-		</dict>
-		<key>PKHUD-PKHUDResources.xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>35</integer>
-		</dict>
-		<key>PKHUD.xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>34</integer>
-		</dict>
-		<key>PinterestLayout.xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>36</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-notritionVendorsAPP.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
-		<key>Protobuf.xcscheme_^#shared#^_</key>
+		<key>Protobuf.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>36</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>PryntTrimmerView.xcscheme_^#shared#^_</key>
+		<key>PryntTrimmerView.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>37</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>SDWebImage.xcscheme_^#shared#^_</key>
+		<key>SDWebImage.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>38</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>Socket.IO-Client-Swift.xcscheme_^#shared#^_</key>
+		<key>SteviaLayout.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>42</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>Starscream.xcscheme_^#shared#^_</key>
+		<key>SwiftyJSON.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>43</integer>
-		</dict>
-		<key>SteviaLayout.xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>39</integer>
-		</dict>
-		<key>SwiftyJSON.xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>40</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>TinyConstraints.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
-		<key>YPImagePicker.xcscheme_^#shared#^_</key>
+		<key>YPImagePicker.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>41</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>gRPC-C++.xcscheme_^#shared#^_</key>
+		<key>gRPC-C++.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>24</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>gRPC-Core.xcscheme_^#shared#^_</key>
+		<key>gRPC-Core.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>25</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>leveldb-library.xcscheme_^#shared#^_</key>
+		<key>leveldb-library.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>28</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>nanopb.xcscheme_^#shared#^_</key>
+		<key>nanopb.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>32</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>

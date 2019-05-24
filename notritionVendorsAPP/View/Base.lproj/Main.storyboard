@@ -862,7 +862,7 @@
         <!--Chat-->
         <scene sceneID="C7x-FZ-6oP">
             <objects>
-                <viewController id="JW7-JX-eQv" customClass="ChatHostViewController" customModule="notritionVendorsAPP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JW7-JX-eQv" customClass="ChatHomeController" customModule="notritionVendorsAPP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rfO-3E-XVp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

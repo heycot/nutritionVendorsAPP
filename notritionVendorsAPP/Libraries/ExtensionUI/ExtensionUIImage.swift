@@ -59,12 +59,6 @@ extension UIImageView {
     }
 }
 
-extension PHAsset {
-    var originalFilename: String? {
-        return PHAssetResource.assetResources(for: self).first?.originalFilename
-    }
-}
-
 extension UIImage {
     enum JPEGQuality: CGFloat {
         case lowest  = 0
