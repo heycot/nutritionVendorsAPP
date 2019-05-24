@@ -19,10 +19,12 @@ class ChatController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         if AuthServices.instance.user == nil {
             getUser()
         } else {
             user = AuthServices.instance.user!
+            getShop()
         }
     }
     
@@ -37,14 +39,15 @@ class ChatController: UIViewController {
                                               inputTextViewBgColor: UIColor(hexString: "#f4f4f6"),
                                               inputTextViewTextColor: .black,
                                               inputPlaceholderTextColor: UIColor(hexString: "#979797"))
-        let channel = ATCChatChannel(id: "channel_id", name: titleChat)
+        let channel = ATCChatChannel(id: channedl_id, name: titleChat)
         let viewer = ATCUser(uid: userID ?? "", firstName: user.name ?? "", lastName: "", avatarURL: urlAvatar, email: user.email ?? "", isOnline: true)
         let chatVC = ATCChatThreadViewController(user: viewer, channel: channel, uiConfig: uiConfig)
        
-        chatVC.navigationItem.backBarButtonItem?.title = "Trai cay co nga"
+        chatVC.navigationItem.backBarButtonItem?.title = shop.name
         
+        let navbar = addNavigationBar()
         
-        chatVC.view.addSubview(addNavigationBar()!)
+        chatVC.view.addSubview(navbar)
         
         chatVC.view?.frame = CGRect(x: 0, y: 75, width: UIScreen.main.bounds.width, height: (UIScreen.main.bounds.height - 75))
         
@@ -56,20 +59,31 @@ class ChatController: UIViewController {
 //        self.viewChat.present(chatVC, animated: true)
         
         
-        
         self.present(chatVC, animated: true)
         
     }
     
-    @IBAction func dismissViewController() {
-        self.navigationController?.popViewController(animated: true)
+    func getShop() {
+        ShopService.instance.getOneById(shopId: shop.id ?? "") { (data) in
+            guard let data = data else { return }
+            
+            self.shop = data
+            self.showChat()
+        }
     }
     
-    private func addNavigationBar() -> UINavigationBar? {
+   @objc private func dismissViewController() {
+//        self.navigationController?.popViewController(animated: true)
+    
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+        self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
+    }
+    
+    private func addNavigationBar() -> UINavigationBar {
         let height: CGFloat = 75
         let statusBarHeight = UIApplication.shared.statusBarFrame.height;
         let navbar = UINavigationBar(frame: CGRect(x: 0, y: statusBarHeight, width: UIScreen.main.bounds.width, height: height))
-        navbar.backgroundColor = APP_COLOR
+        navbar.backgroundColor = .white
         navbar.delegate = self as? UINavigationBarDelegate
         
         let navItem = UINavigationItem()
@@ -79,10 +93,6 @@ class ChatController: UIViewController {
         navbar.items = [navItem]
         return navbar
     }
-
-    func setNavigationBar() {
-    }
-
 
     func getUser() {
         AuthServices.instance.checkLogedIn { (data) in
@@ -95,7 +105,7 @@ class ChatController: UIViewController {
                     
                     self.user = data
                     print("user chat \(data.name ?? "")" )
-                    self.showChat()
+                    self.getShop()
                 })
             } else {
                 

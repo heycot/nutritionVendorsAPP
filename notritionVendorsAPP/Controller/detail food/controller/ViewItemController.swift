@@ -164,7 +164,7 @@ class ViewItemController: UIViewController {
             vc?.titleChat = item.name ?? ""
             
             backItem.title = item.shop_name
-            navigationItem.backBarButtonItem = backItem
+//            navigationItem.backBarButtonItem = backItem
             self.hidesBottomBarWhenPushed = true
         }
     }
