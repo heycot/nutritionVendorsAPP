@@ -167,7 +167,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1zu-5P-5Tx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.77647058820000003" green="0.0039215686269999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" red="0.77647058820000003" green="0.0039215686269999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
@@ -175,6 +175,7 @@
                         <segue destination="QZb-0J-Nu3" kind="relationship" relationship="viewControllers" id="d7A-Ep-MnC"/>
                         <segue destination="sHg-wU-7nF" kind="relationship" relationship="viewControllers" id="eKp-Fv-hKF"/>
                         <segue destination="0LH-PA-krd" kind="relationship" relationship="viewControllers" id="Ni5-Dc-RiU"/>
+                        <segue destination="JW7-JX-eQv" kind="relationship" relationship="viewControllers" id="4hM-vz-fZE"/>
                         <segue destination="cUB-LF-Hav" kind="relationship" relationship="viewControllers" id="ES6-js-4rW"/>
                     </connections>
                 </tabBarController>
@@ -858,6 +859,22 @@
             </objects>
             <point key="canvasLocation" x="-1371" y="670"/>
         </scene>
+        <!--Chat-->
+        <scene sceneID="C7x-FZ-6oP">
+            <objects>
+                <viewController id="JW7-JX-eQv" customClass="ChatHostViewController" customModule="notritionVendorsAPP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rfO-3E-XVp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="dal-df-Ece"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Chat" image="messenger(1)" id="W4h-4h-lT3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9bX-YN-9uG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3396" y="2484"/>
+        </scene>
         <!--Favorites-->
         <scene sceneID="Z4V-Ef-bG8">
             <objects>
@@ -1520,6 +1537,7 @@
         <image name="full_star" width="24" height="24"/>
         <image name="loved" width="24" height="24"/>
         <image name="man-user" width="24" height="24"/>
+        <image name="messenger(1)" width="32" height="32"/>
         <image name="nutrition_icon" width="460" height="460"/>
         <image name="searchbar" width="364" height="42"/>
         <image name="store(1)" width="23" height="23"/>

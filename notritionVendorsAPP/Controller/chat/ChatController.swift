@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import IQKeyboardManagerSwift
 
 class ChatController: UIViewController {
 
@@ -26,6 +27,7 @@ class ChatController: UIViewController {
             user = AuthServices.instance.user!
             getShop()
         }
+        self.handlerkeyboard()
     }
     
     
@@ -50,6 +52,7 @@ class ChatController: UIViewController {
         chatVC.view.addSubview(navbar)
         
         chatVC.view?.frame = CGRect(x: 0, y: 75, width: UIScreen.main.bounds.width, height: (UIScreen.main.bounds.height - 75))
+        chatVC.hideKeyboardWhenTappedAround()
         
 //        self.presentedViewController(chatVC)
 //        self.presentedViewController(chatVC)
@@ -92,6 +95,13 @@ class ChatController: UIViewController {
         
         navbar.items = [navItem]
         return navbar
+    }
+    
+    // handle keyboard when add new comment
+    func handlerkeyboard() {
+        IQKeyboardManager.shared.toolbarDoneBarButtonItemText = "Send"
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = false
+        IQKeyboardManager.shared.shouldPlayInputClicks = false // set to true by default
     }
 
     func getUser() {

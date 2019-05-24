@@ -15,6 +15,101 @@
 		2300BE7D222D3658008E9101 /* ViewCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2300BE7B222D3658008E9101 /* ViewCommentCell.xib */; };
 		230E2DD22226431D00246392 /* LogInAndLogOut.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 230E2DD12226431D00246392 /* LogInAndLogOut.storyboard */; };
 		230E2DED22267DCA00246392 /* CollectionItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230E2DEB22267DCA00246392 /* CollectionItemCell.swift */; };
+		2319A6502297CFA3001D9F20 /* ChatHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A64F2297CFA3001D9F20 /* ChatHomeController.swift */; };
+		2319A6522297D8E9001D9F20 /* ChatUIConfigurationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6512297D8E9001D9F20 /* ChatUIConfigurationController.swift */; };
+		2319A6C72297DC8F001D9F20 /* ATCChatChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6562297DC8E001D9F20 /* ATCChatChannel.swift */; };
+		2319A6C82297DC8F001D9F20 /* ATChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6572297DC8E001D9F20 /* ATChatMessage.swift */; };
+		2319A6C92297DC8F001D9F20 /* ATCChatUserStoryAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6592297DC8E001D9F20 /* ATCChatUserStoryAdapter.swift */; };
+		2319A6CA2297DC8F001D9F20 /* ATCChatThreadAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A65A2297DC8E001D9F20 /* ATCChatThreadAdapter.swift */; };
+		2319A6CB2297DC8F001D9F20 /* ATCChatThreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A65C2297DC8E001D9F20 /* ATCChatThreadViewController.swift */; };
+		2319A6CC2297DC8F001D9F20 /* ATCChatHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A65D2297DC8E001D9F20 /* ATCChatHomeViewController.swift */; };
+		2319A6CD2297DC8F001D9F20 /* ATCChatThreadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A65E2297DC8E001D9F20 /* ATCChatThreadsViewController.swift */; };
+		2319A6CE2297DC8F001D9F20 /* ATCThreadCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2319A6612297DC8E001D9F20 /* ATCThreadCollectionViewCell.xib */; };
+		2319A6CF2297DC8F001D9F20 /* ATCUserStoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2319A6622297DC8E001D9F20 /* ATCUserStoryCollectionViewCell.xib */; };
+		2319A6D02297DC8F001D9F20 /* ATCThreadCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6632297DC8E001D9F20 /* ATCThreadCollectionViewCell.swift */; };
+		2319A6D12297DC8F001D9F20 /* ATCUserStoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6642297DC8E001D9F20 /* ATCUserStoryCollectionViewCell.swift */; };
+		2319A6D22297DC8F001D9F20 /* ATCChatMockStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6662297DC8E001D9F20 /* ATCChatMockStore.swift */; };
+		2319A6D32297DC8F001D9F20 /* ATCRemoteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6672297DC8E001D9F20 /* ATCRemoteData.swift */; };
+		2319A6D42297DC8F001D9F20 /* ATCViewControllerContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6692297DC8E001D9F20 /* ATCViewControllerContainerViewModel.swift */; };
+		2319A6D52297DC8F001D9F20 /* ATCUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A66A2297DC8E001D9F20 /* ATCUser.swift */; };
+		2319A6D62297DC8F001D9F20 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A66C2297DC8E001D9F20 /* UIScrollView.swift */; };
+		2319A6D72297DC8F001D9F20 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A66D2297DC8E001D9F20 /* Date.swift */; };
+		2319A6D82297DC8F001D9F20 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A66E2297DC8E001D9F20 /* UIView.swift */; };
+		2319A6D92297DC8F001D9F20 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A66F2297DC8E001D9F20 /* UIColor.swift */; };
+		2319A6DA2297DC8F001D9F20 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6702297DC8E001D9F20 /* UITextField.swift */; };
+		2319A6DB2297DC8F001D9F20 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6712297DC8E001D9F20 /* String.swift */; };
+		2319A6DC2297DC8F001D9F20 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6722297DC8E001D9F20 /* UIImage.swift */; };
+		2319A6DD2297DC8F001D9F20 /* ATCStoryAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6742297DC8E001D9F20 /* ATCStoryAdapter.swift */; };
+		2319A6DE2297DC8F001D9F20 /* ATCViewControllerContainerRowAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6752297DC8E001D9F20 /* ATCViewControllerContainerRowAdapter.swift */; };
+		2319A6DF2297DC8F001D9F20 /* ATCCarouselAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6762297DC8E001D9F20 /* ATCCarouselAdapter.swift */; };
+		2319A6E02297DC8F001D9F20 /* UIViewController+ATCAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6782297DC8E001D9F20 /* UIViewController+ATCAdditions.swift */; };
+		2319A6E12297DC8F001D9F20 /* ATCHostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A67A2297DC8E001D9F20 /* ATCHostViewController.swift */; };
+		2319A6E22297DC8F001D9F20 /* ATCNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A67B2297DC8E001D9F20 /* ATCNavigationController.swift */; };
+		2319A6E32297DC8F001D9F20 /* ATCMenuItemCollectionViewCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A67C2297DC8E001D9F20 /* ATCMenuItemCollectionViewCellProtocol.swift */; };
+		2319A6E42297DC8F001D9F20 /* ATCDrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A67D2297DC8E001D9F20 /* ATCDrawerController.swift */; };
+		2319A6E52297DC8F001D9F20 /* ATCMenuTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2319A67E2297DC8E001D9F20 /* ATCMenuTableViewController.xib */; };
+		2319A6E62297DC8F001D9F20 /* ATCMenuCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A67F2297DC8E001D9F20 /* ATCMenuCollectionViewController.swift */; };
+		2319A6E72297DC8F001D9F20 /* ATCMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6802297DC8E001D9F20 /* ATCMenuTableViewController.swift */; };
+		2319A6E82297DC8F001D9F20 /* ATCMenuHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2319A6812297DC8E001D9F20 /* ATCMenuHeaderTableViewCell.xib */; };
+		2319A6E92297DC8F001D9F20 /* ATCMenuHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6822297DC8E001D9F20 /* ATCMenuHeaderTableViewCell.swift */; };
+		2319A6EA2297DC8F001D9F20 /* ATCMenuItemRowAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6832297DC8E001D9F20 /* ATCMenuItemRowAdapter.swift */; };
+		2319A6EB2297DC8F001D9F20 /* ATCGenericCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6842297DC8E001D9F20 /* ATCGenericCollectionViewController.swift */; };
+		2319A6EC2297DC8F001D9F20 /* ATCLiquidCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6862297DC8E001D9F20 /* ATCLiquidCollectionViewLayout.swift */; };
+		2319A6ED2297DC8F001D9F20 /* ATCCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6872297DC8E001D9F20 /* ATCCollectionViewFlowLayout.swift */; };
+		2319A6EE2297DC8F001D9F20 /* ATCStoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A68A2297DC8E001D9F20 /* ATCStoryCollectionViewCell.swift */; };
+		2319A6EF2297DC8F001D9F20 /* ATCViewControllerContainerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2319A68B2297DC8E001D9F20 /* ATCViewControllerContainerCollectionViewCell.xib */; };
+		2319A6F02297DC8F001D9F20 /* ATCStoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2319A68C2297DC8E001D9F20 /* ATCStoryCollectionViewCell.xib */; };
+		2319A6F12297DC8F001D9F20 /* ATCViewControllerContainerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A68D2297DC8E001D9F20 /* ATCViewControllerContainerCollectionViewCell.swift */; };
+		2319A6F22297DC8F001D9F20 /* ATCCircledIconMenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2319A68F2297DC8E001D9F20 /* ATCCircledIconMenuCollectionViewCell.xib */; };
+		2319A6F32297DC8F001D9F20 /* ATCCircledIconMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6902297DC8E001D9F20 /* ATCCircledIconMenuCollectionViewCell.swift */; };
+		2319A6F42297DC8F001D9F20 /* ATCMessengerUserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6922297DC8E001D9F20 /* ATCMessengerUserCollectionViewCell.swift */; };
+		2319A6F52297DC8F001D9F20 /* ATCMessengerUserCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2319A6932297DC8E001D9F20 /* ATCMessengerUserCollectionViewCell.xib */; };
+		2319A6F62297DC8F001D9F20 /* ATCMessengerUserAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6942297DC8E001D9F20 /* ATCMessengerUserAdapter.swift */; };
+		2319A6F72297DC8F001D9F20 /* ATCCarouselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6952297DC8E001D9F20 /* ATCCarouselCollectionViewCell.swift */; };
+		2319A6F82297DC8F001D9F20 /* ATCCarouselCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2319A6962297DC8E001D9F20 /* ATCCarouselCollectionViewCell.xib */; };
+		2319A6F92297DC8F001D9F20 /* Misc.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2319A6982297DC8E001D9F20 /* Misc.xcassets */; };
+		2319A6FA2297DC8F001D9F20 /* CoreImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2319A6992297DC8E001D9F20 /* CoreImages.xcassets */; };
+		2319A6FB2297DC8F001D9F20 /* ATCGenericLocalHeteroDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A69B2297DC8E001D9F20 /* ATCGenericLocalHeteroDataSource.swift */; };
+		2319A6FC2297DC8F001D9F20 /* ATCGenericLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A69C2297DC8E001D9F20 /* ATCGenericLocalDataSource.swift */; };
+		2319A6FD2297DC8F001D9F20 /* ATCUIGenericConfigurationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A69D2297DC8E001D9F20 /* ATCUIGenericConfigurationProtocol.swift */; };
+		2319A6FE2297DC8F001D9F20 /* UITabBarItem+ATCAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A69E2297DC8E001D9F20 /* UITabBarItem+ATCAdditions.swift */; };
+		2319A6FF2297DC8F001D9F20 /* TimeFormatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A69F2297DC8E001D9F20 /* TimeFormatHelper.swift */; };
+		2319A7002297DC8F001D9F20 /* ATCGenericFirebaseDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6A02297DC8E001D9F20 /* ATCGenericFirebaseDataSource.swift */; };
+		2319A7012297DC8F001D9F20 /* UIImage+ATCAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6A12297DC8E001D9F20 /* UIImage+ATCAdditions.swift */; };
+		2319A7022297DC8F001D9F20 /* ConstraintMultiplierTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6A42297DC8E001D9F20 /* ConstraintMultiplierTarget.swift */; };
+		2319A7032297DC8F001D9F20 /* LayoutConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6A52297DC8E001D9F20 /* LayoutConstraintItem.swift */; };
+		2319A7042297DC8F001D9F20 /* ConstraintDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6A62297DC8E001D9F20 /* ConstraintDescription.swift */; };
+		2319A7052297DC8F001D9F20 /* ConstraintMakerPriortizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6A72297DC8E001D9F20 /* ConstraintMakerPriortizable.swift */; };
+		2319A7062297DC8F001D9F20 /* ConstraintAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6A82297DC8E001D9F20 /* ConstraintAttributes.swift */; };
+		2319A7072297DC8F001D9F20 /* ConstraintViewDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6A92297DC8E001D9F20 /* ConstraintViewDSL.swift */; };
+		2319A7082297DC8F001D9F20 /* ConstraintPriorityTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6AA2297DC8E001D9F20 /* ConstraintPriorityTarget.swift */; };
+		2319A7092297DC8F001D9F20 /* ConstraintInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6AB2297DC8E001D9F20 /* ConstraintInsets.swift */; };
+		2319A70A2297DC8F001D9F20 /* ConstraintMakerFinalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6AC2297DC8E001D9F20 /* ConstraintMakerFinalizable.swift */; };
+		2319A70B2297DC8F001D9F20 /* ConstraintDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6AD2297DC8E001D9F20 /* ConstraintDSL.swift */; };
+		2319A70C2297DC8F001D9F20 /* ConstraintMakerExtendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6AE2297DC8E001D9F20 /* ConstraintMakerExtendable.swift */; };
+		2319A70D2297DC8F001D9F20 /* ConstraintPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6AF2297DC8E001D9F20 /* ConstraintPriority.swift */; };
+		2319A70E2297DC8F001D9F20 /* ConstraintInsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6B02297DC8E001D9F20 /* ConstraintInsetTarget.swift */; };
+		2319A70F2297DC8F001D9F20 /* ConstraintConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6B22297DC8E001D9F20 /* ConstraintConfig.swift */; };
+		2319A7102297DC8F001D9F20 /* UILayoutSupport+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6B32297DC8E001D9F20 /* UILayoutSupport+Extensions.swift */; };
+		2319A7112297DC8F001D9F20 /* ConstraintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6B42297DC8E001D9F20 /* ConstraintView.swift */; };
+		2319A7122297DC8F001D9F20 /* ConstraintLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6B52297DC8E001D9F20 /* ConstraintLayoutGuide.swift */; };
+		2319A7132297DC8F001D9F20 /* ConstraintLayoutSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6B62297DC8E001D9F20 /* ConstraintLayoutSupport.swift */; };
+		2319A7142297DC8F001D9F20 /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6B72297DC8E001D9F20 /* Typealiases.swift */; };
+		2319A7152297DC8F001D9F20 /* ConstraintConstantTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6B82297DC8E001D9F20 /* ConstraintConstantTarget.swift */; };
+		2319A7162297DC8F001D9F20 /* ConstraintOffsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6B92297DC8E001D9F20 /* ConstraintOffsetTarget.swift */; };
+		2319A7172297DC8F001D9F20 /* ConstraintMakerEditable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6BA2297DC8E001D9F20 /* ConstraintMakerEditable.swift */; };
+		2319A7182297DC8F001D9F20 /* ConstraintMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6BB2297DC8E001D9F20 /* ConstraintMaker.swift */; };
+		2319A7192297DC8F001D9F20 /* ConstraintRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6BC2297DC8E001D9F20 /* ConstraintRelation.swift */; };
+		2319A71A2297DC8F001D9F20 /* ConstraintLayoutGuideDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6BD2297DC8E001D9F20 /* ConstraintLayoutGuideDSL.swift */; };
+		2319A71B2297DC8F001D9F20 /* ConstraintView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6BE2297DC8E001D9F20 /* ConstraintView+Extensions.swift */; };
+		2319A71C2297DC8F001D9F20 /* ConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6BF2297DC8E001D9F20 /* ConstraintItem.swift */; };
+		2319A71D2297DC8F001D9F20 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6C02297DC8E001D9F20 /* Constraint.swift */; };
+		2319A71E2297DC8F001D9F20 /* Debugging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6C12297DC8E001D9F20 /* Debugging.swift */; };
+		2319A71F2297DC8F001D9F20 /* ConstraintRelatableTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6C22297DC8E001D9F20 /* ConstraintRelatableTarget.swift */; };
+		2319A7202297DC8F001D9F20 /* LayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6C32297DC8E001D9F20 /* LayoutConstraint.swift */; };
+		2319A7212297DC8F001D9F20 /* ConstraintLayoutGuide+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6C42297DC8E001D9F20 /* ConstraintLayoutGuide+Extensions.swift */; };
+		2319A7222297DC8F001D9F20 /* ConstraintLayoutSupportDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6C52297DC8E001D9F20 /* ConstraintLayoutSupportDSL.swift */; };
+		2319A7232297DC8F001D9F20 /* ConstraintMakerRelatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A6C62297DC8E001D9F20 /* ConstraintMakerRelatable.swift */; };
 		231ABDAA2266DAE0006D6B01 /* NibDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ABDA92266DAE0006D6B01 /* NibDesignable.swift */; };
 		231ABDB72266DE0C006D6B01 /* LocationServicesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ABDB62266DE0C006D6B01 /* LocationServicesProtocol.swift */; };
 		231ABDBA2266DF4D006D6B01 /* MapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ABDB92266DF4D006D6B01 /* MapManager.swift */; };
@@ -118,96 +213,6 @@
 		23E6FD75224B5479001C72B2 /* ExtentionDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E6FD74224B5479001C72B2 /* ExtentionDouble.swift */; };
 		23EAA4452246621100A30E98 /* CommentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EAA4442246621100A30E98 /* CommentResponse.swift */; };
 		23EAA4472246638300A30E98 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EAA4462246638300A30E98 /* UserResponse.swift */; };
-		23F09E7E229539340041ECCC /* ATCChatChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E04229539320041ECCC /* ATCChatChannel.swift */; };
-		23F09E7F229539340041ECCC /* ATChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E05229539320041ECCC /* ATChatMessage.swift */; };
-		23F09E80229539340041ECCC /* ATCChatUserStoryAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E07229539320041ECCC /* ATCChatUserStoryAdapter.swift */; };
-		23F09E81229539340041ECCC /* ATCChatThreadAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E08229539320041ECCC /* ATCChatThreadAdapter.swift */; };
-		23F09E82229539340041ECCC /* ATCChatThreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E0A229539320041ECCC /* ATCChatThreadViewController.swift */; };
-		23F09E83229539340041ECCC /* ATCChatHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E0B229539320041ECCC /* ATCChatHomeViewController.swift */; };
-		23F09E84229539340041ECCC /* ATCChatThreadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E0C229539320041ECCC /* ATCChatThreadsViewController.swift */; };
-		23F09E86229539340041ECCC /* ATCUserStoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23F09E10229539320041ECCC /* ATCUserStoryCollectionViewCell.xib */; };
-		23F09E87229539340041ECCC /* ATCThreadCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E11229539320041ECCC /* ATCThreadCollectionViewCell.swift */; };
-		23F09E88229539340041ECCC /* ATCUserStoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E12229539320041ECCC /* ATCUserStoryCollectionViewCell.swift */; };
-		23F09E89229539340041ECCC /* ATCChatMockStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E14229539320041ECCC /* ATCChatMockStore.swift */; };
-		23F09E8A229539340041ECCC /* ATCViewControllerContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E18229539320041ECCC /* ATCViewControllerContainerViewModel.swift */; };
-		23F09E8B229539340041ECCC /* ATCUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E19229539320041ECCC /* ATCUser.swift */; };
-		23F09E8C229539340041ECCC /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E1B229539320041ECCC /* UIScrollView.swift */; };
-		23F09E8D229539340041ECCC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E1C229539320041ECCC /* Date.swift */; };
-		23F09E8E229539340041ECCC /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E1D229539320041ECCC /* UIView.swift */; };
-		23F09E8F229539340041ECCC /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E1E229539320041ECCC /* UIColor.swift */; };
-		23F09E90229539340041ECCC /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E1F229539320041ECCC /* UITextField.swift */; };
-		23F09E91229539340041ECCC /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E20229539320041ECCC /* String.swift */; };
-		23F09E92229539340041ECCC /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E21229539320041ECCC /* UIImage.swift */; };
-		23F09E93229539340041ECCC /* ATCStoryAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E23229539330041ECCC /* ATCStoryAdapter.swift */; };
-		23F09E94229539340041ECCC /* ATCViewControllerContainerRowAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E24229539330041ECCC /* ATCViewControllerContainerRowAdapter.swift */; };
-		23F09E95229539340041ECCC /* ATCCarouselAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E25229539330041ECCC /* ATCCarouselAdapter.swift */; };
-		23F09E96229539340041ECCC /* UIViewController+ATCAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E27229539330041ECCC /* UIViewController+ATCAdditions.swift */; };
-		23F09E97229539340041ECCC /* ATCHostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E29229539330041ECCC /* ATCHostViewController.swift */; };
-		23F09E98229539340041ECCC /* ATCNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E2A229539330041ECCC /* ATCNavigationController.swift */; };
-		23F09E99229539340041ECCC /* ATCMenuItemCollectionViewCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E2B229539330041ECCC /* ATCMenuItemCollectionViewCellProtocol.swift */; };
-		23F09E9A229539340041ECCC /* ATCDrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E2C229539330041ECCC /* ATCDrawerController.swift */; };
-		23F09E9B229539340041ECCC /* ATCMenuTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23F09E2D229539330041ECCC /* ATCMenuTableViewController.xib */; };
-		23F09E9C229539340041ECCC /* ATCMenuCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E2E229539330041ECCC /* ATCMenuCollectionViewController.swift */; };
-		23F09E9D229539340041ECCC /* ATCMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E2F229539330041ECCC /* ATCMenuTableViewController.swift */; };
-		23F09E9E229539340041ECCC /* ATCMenuHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23F09E30229539330041ECCC /* ATCMenuHeaderTableViewCell.xib */; };
-		23F09E9F229539340041ECCC /* ATCMenuHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E31229539330041ECCC /* ATCMenuHeaderTableViewCell.swift */; };
-		23F09EA0229539340041ECCC /* ATCMenuItemRowAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E32229539330041ECCC /* ATCMenuItemRowAdapter.swift */; };
-		23F09EA1229539340041ECCC /* ATCGenericCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E34229539330041ECCC /* ATCGenericCollectionViewController.swift */; };
-		23F09EA2229539340041ECCC /* ATCLiquidCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E36229539330041ECCC /* ATCLiquidCollectionViewLayout.swift */; };
-		23F09EA3229539340041ECCC /* ATCCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E37229539330041ECCC /* ATCCollectionViewFlowLayout.swift */; };
-		23F09EA4229539340041ECCC /* ATCStoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E3A229539330041ECCC /* ATCStoryCollectionViewCell.swift */; };
-		23F09EA5229539340041ECCC /* ATCViewControllerContainerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23F09E3B229539330041ECCC /* ATCViewControllerContainerCollectionViewCell.xib */; };
-		23F09EA6229539340041ECCC /* ATCStoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23F09E3C229539330041ECCC /* ATCStoryCollectionViewCell.xib */; };
-		23F09EA7229539340041ECCC /* ATCViewControllerContainerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E3E229539330041ECCC /* ATCViewControllerContainerCollectionViewCell.swift */; };
-		23F09EA8229539340041ECCC /* ATCCircledIconMenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23F09E40229539330041ECCC /* ATCCircledIconMenuCollectionViewCell.xib */; };
-		23F09EA9229539340041ECCC /* ATCCircledIconMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E41229539330041ECCC /* ATCCircledIconMenuCollectionViewCell.swift */; };
-		23F09EAA229539340041ECCC /* ATCMessengerUserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E44229539330041ECCC /* ATCMessengerUserCollectionViewCell.swift */; };
-		23F09EAB229539340041ECCC /* ATCMessengerUserCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23F09E45229539330041ECCC /* ATCMessengerUserCollectionViewCell.xib */; };
-		23F09EAC229539340041ECCC /* ATCMessengerUserAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E46229539330041ECCC /* ATCMessengerUserAdapter.swift */; };
-		23F09EAD229539340041ECCC /* ATCCarouselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E47229539330041ECCC /* ATCCarouselCollectionViewCell.swift */; };
-		23F09EAE229539340041ECCC /* ATCCarouselCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23F09E48229539330041ECCC /* ATCCarouselCollectionViewCell.xib */; };
-		23F09EAF229539340041ECCC /* Misc.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23F09E4B229539330041ECCC /* Misc.xcassets */; };
-		23F09EB0229539340041ECCC /* CoreImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23F09E4C229539330041ECCC /* CoreImages.xcassets */; };
-		23F09EB1229539340041ECCC /* ATCGenericLocalHeteroDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E4E229539330041ECCC /* ATCGenericLocalHeteroDataSource.swift */; };
-		23F09EB2229539340041ECCC /* ATCGenericLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E4F229539330041ECCC /* ATCGenericLocalDataSource.swift */; };
-		23F09EB3229539340041ECCC /* ATCUIGenericConfigurationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E50229539330041ECCC /* ATCUIGenericConfigurationProtocol.swift */; };
-		23F09EB4229539340041ECCC /* UITabBarItem+ATCAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E51229539330041ECCC /* UITabBarItem+ATCAdditions.swift */; };
-		23F09EB5229539340041ECCC /* TimeFormatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E52229539330041ECCC /* TimeFormatHelper.swift */; };
-		23F09EB6229539340041ECCC /* ATCGenericFirebaseDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E53229539330041ECCC /* ATCGenericFirebaseDataSource.swift */; };
-		23F09EB7229539340041ECCC /* UIImage+ATCAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E54229539330041ECCC /* UIImage+ATCAdditions.swift */; };
-		23F09EB8229539340041ECCC /* ConstraintMultiplierTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E59229539330041ECCC /* ConstraintMultiplierTarget.swift */; };
-		23F09EB9229539340041ECCC /* LayoutConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E5A229539330041ECCC /* LayoutConstraintItem.swift */; };
-		23F09EBA229539340041ECCC /* ConstraintDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E5B229539330041ECCC /* ConstraintDescription.swift */; };
-		23F09EBB229539340041ECCC /* ConstraintMakerPriortizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E5C229539330041ECCC /* ConstraintMakerPriortizable.swift */; };
-		23F09EBC229539340041ECCC /* ConstraintAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E5D229539330041ECCC /* ConstraintAttributes.swift */; };
-		23F09EBD229539340041ECCC /* ConstraintViewDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E5E229539330041ECCC /* ConstraintViewDSL.swift */; };
-		23F09EBE229539340041ECCC /* ConstraintPriorityTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E5F229539330041ECCC /* ConstraintPriorityTarget.swift */; };
-		23F09EBF229539340041ECCC /* ConstraintInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E60229539330041ECCC /* ConstraintInsets.swift */; };
-		23F09EC0229539340041ECCC /* ConstraintMakerFinalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E61229539330041ECCC /* ConstraintMakerFinalizable.swift */; };
-		23F09EC1229539340041ECCC /* ConstraintDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E62229539330041ECCC /* ConstraintDSL.swift */; };
-		23F09EC2229539340041ECCC /* ConstraintMakerExtendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E63229539330041ECCC /* ConstraintMakerExtendable.swift */; };
-		23F09EC3229539340041ECCC /* ConstraintPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E64229539330041ECCC /* ConstraintPriority.swift */; };
-		23F09EC4229539340041ECCC /* ConstraintInsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E65229539330041ECCC /* ConstraintInsetTarget.swift */; };
-		23F09EC5229539340041ECCC /* ConstraintConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E67229539330041ECCC /* ConstraintConfig.swift */; };
-		23F09EC6229539340041ECCC /* UILayoutSupport+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E68229539330041ECCC /* UILayoutSupport+Extensions.swift */; };
-		23F09EC7229539340041ECCC /* ConstraintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E69229539330041ECCC /* ConstraintView.swift */; };
-		23F09EC8229539340041ECCC /* ConstraintLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E6A229539330041ECCC /* ConstraintLayoutGuide.swift */; };
-		23F09EC9229539340041ECCC /* ConstraintLayoutSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E6B229539330041ECCC /* ConstraintLayoutSupport.swift */; };
-		23F09ECA229539340041ECCC /* ConstraintConstantTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E6C229539330041ECCC /* ConstraintConstantTarget.swift */; };
-		23F09ECB229539340041ECCC /* ConstraintOffsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E6D229539330041ECCC /* ConstraintOffsetTarget.swift */; };
-		23F09ECC229539340041ECCC /* ConstraintMakerEditable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E6E229539330041ECCC /* ConstraintMakerEditable.swift */; };
-		23F09ECD229539340041ECCC /* ConstraintMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E6F229539330041ECCC /* ConstraintMaker.swift */; };
-		23F09ECE229539340041ECCC /* ConstraintRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E70229539330041ECCC /* ConstraintRelation.swift */; };
-		23F09ECF229539340041ECCC /* ConstraintLayoutGuideDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E71229539330041ECCC /* ConstraintLayoutGuideDSL.swift */; };
-		23F09ED0229539340041ECCC /* ConstraintView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E72229539330041ECCC /* ConstraintView+Extensions.swift */; };
-		23F09ED1229539340041ECCC /* ConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E73229539330041ECCC /* ConstraintItem.swift */; };
-		23F09ED2229539340041ECCC /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E74229539330041ECCC /* Constraint.swift */; };
-		23F09ED3229539340041ECCC /* Debugging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E75229539330041ECCC /* Debugging.swift */; };
-		23F09ED4229539340041ECCC /* ConstraintRelatableTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E76229539330041ECCC /* ConstraintRelatableTarget.swift */; };
-		23F09ED6229539350041ECCC /* LayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E78229539330041ECCC /* LayoutConstraint.swift */; };
-		23F09ED7229539350041ECCC /* ConstraintLayoutGuide+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E79229539330041ECCC /* ConstraintLayoutGuide+Extensions.swift */; };
-		23F09ED8229539350041ECCC /* ConstraintLayoutSupportDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E7A229539330041ECCC /* ConstraintLayoutSupportDSL.swift */; };
-		23F09ED9229539350041ECCC /* ConstraintMakerRelatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F09E7B229539330041ECCC /* ConstraintMakerRelatable.swift */; };
 		C1E9E7CB534923D4BFC15F1F /* Pods_notritionVendorsAPP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5B772CE597B45A98D426415 /* Pods_notritionVendorsAPP.framework */; };
 /* End PBXBuildFile section */
 
@@ -220,6 +225,102 @@
 		2300BE7B222D3658008E9101 /* ViewCommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewCommentCell.xib; sourceTree = "<group>"; };
 		230E2DD12226431D00246392 /* LogInAndLogOut.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogInAndLogOut.storyboard; sourceTree = "<group>"; };
 		230E2DEB22267DCA00246392 /* CollectionItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionItemCell.swift; sourceTree = "<group>"; };
+		2319A64F2297CFA3001D9F20 /* ChatHomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHomeController.swift; sourceTree = "<group>"; };
+		2319A6512297D8E9001D9F20 /* ChatUIConfigurationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUIConfigurationController.swift; sourceTree = "<group>"; };
+		2319A6562297DC8E001D9F20 /* ATCChatChannel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCChatChannel.swift; sourceTree = "<group>"; };
+		2319A6572297DC8E001D9F20 /* ATChatMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATChatMessage.swift; sourceTree = "<group>"; };
+		2319A6592297DC8E001D9F20 /* ATCChatUserStoryAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCChatUserStoryAdapter.swift; sourceTree = "<group>"; };
+		2319A65A2297DC8E001D9F20 /* ATCChatThreadAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCChatThreadAdapter.swift; sourceTree = "<group>"; };
+		2319A65C2297DC8E001D9F20 /* ATCChatThreadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCChatThreadViewController.swift; sourceTree = "<group>"; };
+		2319A65D2297DC8E001D9F20 /* ATCChatHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCChatHomeViewController.swift; sourceTree = "<group>"; };
+		2319A65E2297DC8E001D9F20 /* ATCChatThreadsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCChatThreadsViewController.swift; sourceTree = "<group>"; };
+		2319A6612297DC8E001D9F20 /* ATCThreadCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATCThreadCollectionViewCell.xib; sourceTree = "<group>"; };
+		2319A6622297DC8E001D9F20 /* ATCUserStoryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATCUserStoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		2319A6632297DC8E001D9F20 /* ATCThreadCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCThreadCollectionViewCell.swift; sourceTree = "<group>"; };
+		2319A6642297DC8E001D9F20 /* ATCUserStoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCUserStoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		2319A6662297DC8E001D9F20 /* ATCChatMockStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCChatMockStore.swift; sourceTree = "<group>"; };
+		2319A6672297DC8E001D9F20 /* ATCRemoteData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCRemoteData.swift; sourceTree = "<group>"; };
+		2319A6692297DC8E001D9F20 /* ATCViewControllerContainerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCViewControllerContainerViewModel.swift; sourceTree = "<group>"; };
+		2319A66A2297DC8E001D9F20 /* ATCUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCUser.swift; sourceTree = "<group>"; };
+		2319A66C2297DC8E001D9F20 /* UIScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
+		2319A66D2297DC8E001D9F20 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		2319A66E2297DC8E001D9F20 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		2319A66F2297DC8E001D9F20 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		2319A6702297DC8E001D9F20 /* UITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		2319A6712297DC8E001D9F20 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		2319A6722297DC8E001D9F20 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		2319A6742297DC8E001D9F20 /* ATCStoryAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCStoryAdapter.swift; sourceTree = "<group>"; };
+		2319A6752297DC8E001D9F20 /* ATCViewControllerContainerRowAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCViewControllerContainerRowAdapter.swift; sourceTree = "<group>"; };
+		2319A6762297DC8E001D9F20 /* ATCCarouselAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCCarouselAdapter.swift; sourceTree = "<group>"; };
+		2319A6782297DC8E001D9F20 /* UIViewController+ATCAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+ATCAdditions.swift"; sourceTree = "<group>"; };
+		2319A67A2297DC8E001D9F20 /* ATCHostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCHostViewController.swift; sourceTree = "<group>"; };
+		2319A67B2297DC8E001D9F20 /* ATCNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCNavigationController.swift; sourceTree = "<group>"; };
+		2319A67C2297DC8E001D9F20 /* ATCMenuItemCollectionViewCellProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCMenuItemCollectionViewCellProtocol.swift; sourceTree = "<group>"; };
+		2319A67D2297DC8E001D9F20 /* ATCDrawerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCDrawerController.swift; sourceTree = "<group>"; };
+		2319A67E2297DC8E001D9F20 /* ATCMenuTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATCMenuTableViewController.xib; sourceTree = "<group>"; };
+		2319A67F2297DC8E001D9F20 /* ATCMenuCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCMenuCollectionViewController.swift; sourceTree = "<group>"; };
+		2319A6802297DC8E001D9F20 /* ATCMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCMenuTableViewController.swift; sourceTree = "<group>"; };
+		2319A6812297DC8E001D9F20 /* ATCMenuHeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATCMenuHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		2319A6822297DC8E001D9F20 /* ATCMenuHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCMenuHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		2319A6832297DC8E001D9F20 /* ATCMenuItemRowAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCMenuItemRowAdapter.swift; sourceTree = "<group>"; };
+		2319A6842297DC8E001D9F20 /* ATCGenericCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCGenericCollectionViewController.swift; sourceTree = "<group>"; };
+		2319A6862297DC8E001D9F20 /* ATCLiquidCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCLiquidCollectionViewLayout.swift; sourceTree = "<group>"; };
+		2319A6872297DC8E001D9F20 /* ATCCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		2319A68A2297DC8E001D9F20 /* ATCStoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCStoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		2319A68B2297DC8E001D9F20 /* ATCViewControllerContainerCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATCViewControllerContainerCollectionViewCell.xib; sourceTree = "<group>"; };
+		2319A68C2297DC8E001D9F20 /* ATCStoryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATCStoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		2319A68D2297DC8E001D9F20 /* ATCViewControllerContainerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCViewControllerContainerCollectionViewCell.swift; sourceTree = "<group>"; };
+		2319A68F2297DC8E001D9F20 /* ATCCircledIconMenuCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATCCircledIconMenuCollectionViewCell.xib; sourceTree = "<group>"; };
+		2319A6902297DC8E001D9F20 /* ATCCircledIconMenuCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCCircledIconMenuCollectionViewCell.swift; sourceTree = "<group>"; };
+		2319A6922297DC8E001D9F20 /* ATCMessengerUserCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCMessengerUserCollectionViewCell.swift; sourceTree = "<group>"; };
+		2319A6932297DC8E001D9F20 /* ATCMessengerUserCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATCMessengerUserCollectionViewCell.xib; sourceTree = "<group>"; };
+		2319A6942297DC8E001D9F20 /* ATCMessengerUserAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCMessengerUserAdapter.swift; sourceTree = "<group>"; };
+		2319A6952297DC8E001D9F20 /* ATCCarouselCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCCarouselCollectionViewCell.swift; sourceTree = "<group>"; };
+		2319A6962297DC8E001D9F20 /* ATCCarouselCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATCCarouselCollectionViewCell.xib; sourceTree = "<group>"; };
+		2319A6982297DC8E001D9F20 /* Misc.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Misc.xcassets; sourceTree = "<group>"; };
+		2319A6992297DC8E001D9F20 /* CoreImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CoreImages.xcassets; sourceTree = "<group>"; };
+		2319A69B2297DC8E001D9F20 /* ATCGenericLocalHeteroDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCGenericLocalHeteroDataSource.swift; sourceTree = "<group>"; };
+		2319A69C2297DC8E001D9F20 /* ATCGenericLocalDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCGenericLocalDataSource.swift; sourceTree = "<group>"; };
+		2319A69D2297DC8E001D9F20 /* ATCUIGenericConfigurationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCUIGenericConfigurationProtocol.swift; sourceTree = "<group>"; };
+		2319A69E2297DC8E001D9F20 /* UITabBarItem+ATCAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITabBarItem+ATCAdditions.swift"; sourceTree = "<group>"; };
+		2319A69F2297DC8E001D9F20 /* TimeFormatHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeFormatHelper.swift; sourceTree = "<group>"; };
+		2319A6A02297DC8E001D9F20 /* ATCGenericFirebaseDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCGenericFirebaseDataSource.swift; sourceTree = "<group>"; };
+		2319A6A12297DC8E001D9F20 /* UIImage+ATCAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ATCAdditions.swift"; sourceTree = "<group>"; };
+		2319A6A42297DC8E001D9F20 /* ConstraintMultiplierTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMultiplierTarget.swift; sourceTree = "<group>"; };
+		2319A6A52297DC8E001D9F20 /* LayoutConstraintItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConstraintItem.swift; sourceTree = "<group>"; };
+		2319A6A62297DC8E001D9F20 /* ConstraintDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintDescription.swift; sourceTree = "<group>"; };
+		2319A6A72297DC8E001D9F20 /* ConstraintMakerPriortizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerPriortizable.swift; sourceTree = "<group>"; };
+		2319A6A82297DC8E001D9F20 /* ConstraintAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintAttributes.swift; sourceTree = "<group>"; };
+		2319A6A92297DC8E001D9F20 /* ConstraintViewDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintViewDSL.swift; sourceTree = "<group>"; };
+		2319A6AA2297DC8E001D9F20 /* ConstraintPriorityTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintPriorityTarget.swift; sourceTree = "<group>"; };
+		2319A6AB2297DC8E001D9F20 /* ConstraintInsets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintInsets.swift; sourceTree = "<group>"; };
+		2319A6AC2297DC8E001D9F20 /* ConstraintMakerFinalizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerFinalizable.swift; sourceTree = "<group>"; };
+		2319A6AD2297DC8E001D9F20 /* ConstraintDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintDSL.swift; sourceTree = "<group>"; };
+		2319A6AE2297DC8E001D9F20 /* ConstraintMakerExtendable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerExtendable.swift; sourceTree = "<group>"; };
+		2319A6AF2297DC8E001D9F20 /* ConstraintPriority.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintPriority.swift; sourceTree = "<group>"; };
+		2319A6B02297DC8E001D9F20 /* ConstraintInsetTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintInsetTarget.swift; sourceTree = "<group>"; };
+		2319A6B12297DC8E001D9F20 /* SnapKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapKit.h; sourceTree = "<group>"; };
+		2319A6B22297DC8E001D9F20 /* ConstraintConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintConfig.swift; sourceTree = "<group>"; };
+		2319A6B32297DC8E001D9F20 /* UILayoutSupport+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILayoutSupport+Extensions.swift"; sourceTree = "<group>"; };
+		2319A6B42297DC8E001D9F20 /* ConstraintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintView.swift; sourceTree = "<group>"; };
+		2319A6B52297DC8E001D9F20 /* ConstraintLayoutGuide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintLayoutGuide.swift; sourceTree = "<group>"; };
+		2319A6B62297DC8E001D9F20 /* ConstraintLayoutSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintLayoutSupport.swift; sourceTree = "<group>"; };
+		2319A6B72297DC8E001D9F20 /* Typealiases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
+		2319A6B82297DC8E001D9F20 /* ConstraintConstantTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintConstantTarget.swift; sourceTree = "<group>"; };
+		2319A6B92297DC8E001D9F20 /* ConstraintOffsetTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintOffsetTarget.swift; sourceTree = "<group>"; };
+		2319A6BA2297DC8E001D9F20 /* ConstraintMakerEditable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerEditable.swift; sourceTree = "<group>"; };
+		2319A6BB2297DC8E001D9F20 /* ConstraintMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMaker.swift; sourceTree = "<group>"; };
+		2319A6BC2297DC8E001D9F20 /* ConstraintRelation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintRelation.swift; sourceTree = "<group>"; };
+		2319A6BD2297DC8E001D9F20 /* ConstraintLayoutGuideDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintLayoutGuideDSL.swift; sourceTree = "<group>"; };
+		2319A6BE2297DC8E001D9F20 /* ConstraintView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConstraintView+Extensions.swift"; sourceTree = "<group>"; };
+		2319A6BF2297DC8E001D9F20 /* ConstraintItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintItem.swift; sourceTree = "<group>"; };
+		2319A6C02297DC8E001D9F20 /* Constraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraint.swift; sourceTree = "<group>"; };
+		2319A6C12297DC8E001D9F20 /* Debugging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debugging.swift; sourceTree = "<group>"; };
+		2319A6C22297DC8E001D9F20 /* ConstraintRelatableTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintRelatableTarget.swift; sourceTree = "<group>"; };
+		2319A6C32297DC8E001D9F20 /* LayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConstraint.swift; sourceTree = "<group>"; };
+		2319A6C42297DC8E001D9F20 /* ConstraintLayoutGuide+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConstraintLayoutGuide+Extensions.swift"; sourceTree = "<group>"; };
+		2319A6C52297DC8E001D9F20 /* ConstraintLayoutSupportDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintLayoutSupportDSL.swift; sourceTree = "<group>"; };
+		2319A6C62297DC8E001D9F20 /* ConstraintMakerRelatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerRelatable.swift; sourceTree = "<group>"; };
 		231ABDA92266DAE0006D6B01 /* NibDesignable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibDesignable.swift; sourceTree = "<group>"; };
 		231ABDB62266DE0C006D6B01 /* LocationServicesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServicesProtocol.swift; sourceTree = "<group>"; };
 		231ABDB92266DF4D006D6B01 /* MapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapManager.swift; sourceTree = "<group>"; };
@@ -327,99 +428,6 @@
 		23E6FD74224B5479001C72B2 /* ExtentionDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtentionDouble.swift; sourceTree = "<group>"; };
 		23EAA4442246621100A30E98 /* CommentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentResponse.swift; sourceTree = "<group>"; };
 		23EAA4462246638300A30E98 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
-		23F09E04229539320041ECCC /* ATCChatChannel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCChatChannel.swift; sourceTree = "<group>"; };
-		23F09E05229539320041ECCC /* ATChatMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATChatMessage.swift; sourceTree = "<group>"; };
-		23F09E07229539320041ECCC /* ATCChatUserStoryAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCChatUserStoryAdapter.swift; sourceTree = "<group>"; };
-		23F09E08229539320041ECCC /* ATCChatThreadAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCChatThreadAdapter.swift; sourceTree = "<group>"; };
-		23F09E0A229539320041ECCC /* ATCChatThreadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCChatThreadViewController.swift; sourceTree = "<group>"; };
-		23F09E0B229539320041ECCC /* ATCChatHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCChatHomeViewController.swift; sourceTree = "<group>"; };
-		23F09E0C229539320041ECCC /* ATCChatThreadsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCChatThreadsViewController.swift; sourceTree = "<group>"; };
-		23F09E0F229539320041ECCC /* ATCThreadCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATCThreadCollectionViewCell.xib; sourceTree = "<group>"; };
-		23F09E10229539320041ECCC /* ATCUserStoryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATCUserStoryCollectionViewCell.xib; sourceTree = "<group>"; };
-		23F09E11229539320041ECCC /* ATCThreadCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCThreadCollectionViewCell.swift; sourceTree = "<group>"; };
-		23F09E12229539320041ECCC /* ATCUserStoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCUserStoryCollectionViewCell.swift; sourceTree = "<group>"; };
-		23F09E14229539320041ECCC /* ATCChatMockStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCChatMockStore.swift; sourceTree = "<group>"; };
-		23F09E18229539320041ECCC /* ATCViewControllerContainerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCViewControllerContainerViewModel.swift; sourceTree = "<group>"; };
-		23F09E19229539320041ECCC /* ATCUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCUser.swift; sourceTree = "<group>"; };
-		23F09E1B229539320041ECCC /* UIScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
-		23F09E1C229539320041ECCC /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		23F09E1D229539320041ECCC /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		23F09E1E229539320041ECCC /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		23F09E1F229539320041ECCC /* UITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
-		23F09E20229539320041ECCC /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		23F09E21229539320041ECCC /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
-		23F09E23229539330041ECCC /* ATCStoryAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCStoryAdapter.swift; sourceTree = "<group>"; };
-		23F09E24229539330041ECCC /* ATCViewControllerContainerRowAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCViewControllerContainerRowAdapter.swift; sourceTree = "<group>"; };
-		23F09E25229539330041ECCC /* ATCCarouselAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCCarouselAdapter.swift; sourceTree = "<group>"; };
-		23F09E27229539330041ECCC /* UIViewController+ATCAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+ATCAdditions.swift"; sourceTree = "<group>"; };
-		23F09E29229539330041ECCC /* ATCHostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCHostViewController.swift; sourceTree = "<group>"; };
-		23F09E2A229539330041ECCC /* ATCNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCNavigationController.swift; sourceTree = "<group>"; };
-		23F09E2B229539330041ECCC /* ATCMenuItemCollectionViewCellProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCMenuItemCollectionViewCellProtocol.swift; sourceTree = "<group>"; };
-		23F09E2C229539330041ECCC /* ATCDrawerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCDrawerController.swift; sourceTree = "<group>"; };
-		23F09E2D229539330041ECCC /* ATCMenuTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATCMenuTableViewController.xib; sourceTree = "<group>"; };
-		23F09E2E229539330041ECCC /* ATCMenuCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCMenuCollectionViewController.swift; sourceTree = "<group>"; };
-		23F09E2F229539330041ECCC /* ATCMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCMenuTableViewController.swift; sourceTree = "<group>"; };
-		23F09E30229539330041ECCC /* ATCMenuHeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATCMenuHeaderTableViewCell.xib; sourceTree = "<group>"; };
-		23F09E31229539330041ECCC /* ATCMenuHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCMenuHeaderTableViewCell.swift; sourceTree = "<group>"; };
-		23F09E32229539330041ECCC /* ATCMenuItemRowAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCMenuItemRowAdapter.swift; sourceTree = "<group>"; };
-		23F09E34229539330041ECCC /* ATCGenericCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCGenericCollectionViewController.swift; sourceTree = "<group>"; };
-		23F09E36229539330041ECCC /* ATCLiquidCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCLiquidCollectionViewLayout.swift; sourceTree = "<group>"; };
-		23F09E37229539330041ECCC /* ATCCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
-		23F09E3A229539330041ECCC /* ATCStoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCStoryCollectionViewCell.swift; sourceTree = "<group>"; };
-		23F09E3B229539330041ECCC /* ATCViewControllerContainerCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATCViewControllerContainerCollectionViewCell.xib; sourceTree = "<group>"; };
-		23F09E3C229539330041ECCC /* ATCStoryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATCStoryCollectionViewCell.xib; sourceTree = "<group>"; };
-		23F09E3E229539330041ECCC /* ATCViewControllerContainerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCViewControllerContainerCollectionViewCell.swift; sourceTree = "<group>"; };
-		23F09E40229539330041ECCC /* ATCCircledIconMenuCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATCCircledIconMenuCollectionViewCell.xib; sourceTree = "<group>"; };
-		23F09E41229539330041ECCC /* ATCCircledIconMenuCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCCircledIconMenuCollectionViewCell.swift; sourceTree = "<group>"; };
-		23F09E44229539330041ECCC /* ATCMessengerUserCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCMessengerUserCollectionViewCell.swift; sourceTree = "<group>"; };
-		23F09E45229539330041ECCC /* ATCMessengerUserCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATCMessengerUserCollectionViewCell.xib; sourceTree = "<group>"; };
-		23F09E46229539330041ECCC /* ATCMessengerUserAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCMessengerUserAdapter.swift; sourceTree = "<group>"; };
-		23F09E47229539330041ECCC /* ATCCarouselCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCCarouselCollectionViewCell.swift; sourceTree = "<group>"; };
-		23F09E48229539330041ECCC /* ATCCarouselCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATCCarouselCollectionViewCell.xib; sourceTree = "<group>"; };
-		23F09E4B229539330041ECCC /* Misc.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Misc.xcassets; sourceTree = "<group>"; };
-		23F09E4C229539330041ECCC /* CoreImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CoreImages.xcassets; sourceTree = "<group>"; };
-		23F09E4E229539330041ECCC /* ATCGenericLocalHeteroDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCGenericLocalHeteroDataSource.swift; sourceTree = "<group>"; };
-		23F09E4F229539330041ECCC /* ATCGenericLocalDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCGenericLocalDataSource.swift; sourceTree = "<group>"; };
-		23F09E50229539330041ECCC /* ATCUIGenericConfigurationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCUIGenericConfigurationProtocol.swift; sourceTree = "<group>"; };
-		23F09E51229539330041ECCC /* UITabBarItem+ATCAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITabBarItem+ATCAdditions.swift"; sourceTree = "<group>"; };
-		23F09E52229539330041ECCC /* TimeFormatHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeFormatHelper.swift; sourceTree = "<group>"; };
-		23F09E53229539330041ECCC /* ATCGenericFirebaseDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCGenericFirebaseDataSource.swift; sourceTree = "<group>"; };
-		23F09E54229539330041ECCC /* UIImage+ATCAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ATCAdditions.swift"; sourceTree = "<group>"; };
-		23F09E59229539330041ECCC /* ConstraintMultiplierTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMultiplierTarget.swift; sourceTree = "<group>"; };
-		23F09E5A229539330041ECCC /* LayoutConstraintItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConstraintItem.swift; sourceTree = "<group>"; };
-		23F09E5B229539330041ECCC /* ConstraintDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintDescription.swift; sourceTree = "<group>"; };
-		23F09E5C229539330041ECCC /* ConstraintMakerPriortizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerPriortizable.swift; sourceTree = "<group>"; };
-		23F09E5D229539330041ECCC /* ConstraintAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintAttributes.swift; sourceTree = "<group>"; };
-		23F09E5E229539330041ECCC /* ConstraintViewDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintViewDSL.swift; sourceTree = "<group>"; };
-		23F09E5F229539330041ECCC /* ConstraintPriorityTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintPriorityTarget.swift; sourceTree = "<group>"; };
-		23F09E60229539330041ECCC /* ConstraintInsets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintInsets.swift; sourceTree = "<group>"; };
-		23F09E61229539330041ECCC /* ConstraintMakerFinalizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerFinalizable.swift; sourceTree = "<group>"; };
-		23F09E62229539330041ECCC /* ConstraintDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintDSL.swift; sourceTree = "<group>"; };
-		23F09E63229539330041ECCC /* ConstraintMakerExtendable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerExtendable.swift; sourceTree = "<group>"; };
-		23F09E64229539330041ECCC /* ConstraintPriority.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintPriority.swift; sourceTree = "<group>"; };
-		23F09E65229539330041ECCC /* ConstraintInsetTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintInsetTarget.swift; sourceTree = "<group>"; };
-		23F09E66229539330041ECCC /* SnapKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapKit.h; sourceTree = "<group>"; };
-		23F09E67229539330041ECCC /* ConstraintConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintConfig.swift; sourceTree = "<group>"; };
-		23F09E68229539330041ECCC /* UILayoutSupport+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILayoutSupport+Extensions.swift"; sourceTree = "<group>"; };
-		23F09E69229539330041ECCC /* ConstraintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintView.swift; sourceTree = "<group>"; };
-		23F09E6A229539330041ECCC /* ConstraintLayoutGuide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintLayoutGuide.swift; sourceTree = "<group>"; };
-		23F09E6B229539330041ECCC /* ConstraintLayoutSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintLayoutSupport.swift; sourceTree = "<group>"; };
-		23F09E6C229539330041ECCC /* ConstraintConstantTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintConstantTarget.swift; sourceTree = "<group>"; };
-		23F09E6D229539330041ECCC /* ConstraintOffsetTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintOffsetTarget.swift; sourceTree = "<group>"; };
-		23F09E6E229539330041ECCC /* ConstraintMakerEditable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerEditable.swift; sourceTree = "<group>"; };
-		23F09E6F229539330041ECCC /* ConstraintMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMaker.swift; sourceTree = "<group>"; };
-		23F09E70229539330041ECCC /* ConstraintRelation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintRelation.swift; sourceTree = "<group>"; };
-		23F09E71229539330041ECCC /* ConstraintLayoutGuideDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintLayoutGuideDSL.swift; sourceTree = "<group>"; };
-		23F09E72229539330041ECCC /* ConstraintView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConstraintView+Extensions.swift"; sourceTree = "<group>"; };
-		23F09E73229539330041ECCC /* ConstraintItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintItem.swift; sourceTree = "<group>"; };
-		23F09E74229539330041ECCC /* Constraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraint.swift; sourceTree = "<group>"; };
-		23F09E75229539330041ECCC /* Debugging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debugging.swift; sourceTree = "<group>"; };
-		23F09E76229539330041ECCC /* ConstraintRelatableTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintRelatableTarget.swift; sourceTree = "<group>"; };
-		23F09E77229539330041ECCC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		23F09E78229539330041ECCC /* LayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConstraint.swift; sourceTree = "<group>"; };
-		23F09E79229539330041ECCC /* ConstraintLayoutGuide+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConstraintLayoutGuide+Extensions.swift"; sourceTree = "<group>"; };
-		23F09E7A229539330041ECCC /* ConstraintLayoutSupportDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintLayoutSupportDSL.swift; sourceTree = "<group>"; };
-		23F09E7B229539330041ECCC /* ConstraintMakerRelatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerRelatable.swift; sourceTree = "<group>"; };
 		2517CE55DA2DAF805F435575 /* Pods-notritionVendorsAPP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-notritionVendorsAPP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-notritionVendorsAPP/Pods-notritionVendorsAPP.debug.xcconfig"; sourceTree = "<group>"; };
 		A8D3C78C5C198D1296EA2D52 /* Pods-notritionVendorsAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-notritionVendorsAPP.release.xcconfig"; path = "Pods/Target Support Files/Pods-notritionVendorsAPP/Pods-notritionVendorsAPP.release.xcconfig"; sourceTree = "<group>"; };
 		C5B772CE597B45A98D426415 /* Pods_notritionVendorsAPP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_notritionVendorsAPP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -489,6 +497,276 @@
 				236A5A82225B455F005C27E8 /* HeaderCollectionCell.swift */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		2319A6532297DC8E001D9F20 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				2319A6542297DC8E001D9F20 /* Chat */,
+				2319A6682297DC8E001D9F20 /* Models */,
+				2319A66B2297DC8E001D9F20 /* UIExtensions */,
+				2319A6732297DC8E001D9F20 /* Adapters */,
+				2319A6772297DC8E001D9F20 /* ViewControllers */,
+				2319A6882297DC8E001D9F20 /* Views */,
+				2319A6972297DC8E001D9F20 /* Assets */,
+				2319A69A2297DC8E001D9F20 /* Helpers */,
+				2319A6A22297DC8E001D9F20 /* ThirdParty */,
+			);
+			name = Core;
+			path = "../../../../Downloads/messenger-iOS-chat-swift-firestore-master/ChatApp/Core";
+			sourceTree = "<group>";
+		};
+		2319A6542297DC8E001D9F20 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				2319A6552297DC8E001D9F20 /* Models */,
+				2319A6582297DC8E001D9F20 /* Adapters */,
+				2319A65B2297DC8E001D9F20 /* ViewControllers */,
+				2319A65F2297DC8E001D9F20 /* Themes */,
+				2319A6652297DC8E001D9F20 /* Store */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		2319A6552297DC8E001D9F20 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2319A6562297DC8E001D9F20 /* ATCChatChannel.swift */,
+				2319A6572297DC8E001D9F20 /* ATChatMessage.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2319A6582297DC8E001D9F20 /* Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				2319A6592297DC8E001D9F20 /* ATCChatUserStoryAdapter.swift */,
+				2319A65A2297DC8E001D9F20 /* ATCChatThreadAdapter.swift */,
+			);
+			path = Adapters;
+			sourceTree = "<group>";
+		};
+		2319A65B2297DC8E001D9F20 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2319A65C2297DC8E001D9F20 /* ATCChatThreadViewController.swift */,
+				2319A65D2297DC8E001D9F20 /* ATCChatHomeViewController.swift */,
+				2319A65E2297DC8E001D9F20 /* ATCChatThreadsViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2319A65F2297DC8E001D9F20 /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				2319A6602297DC8E001D9F20 /* Messenger */,
+			);
+			path = Themes;
+			sourceTree = "<group>";
+		};
+		2319A6602297DC8E001D9F20 /* Messenger */ = {
+			isa = PBXGroup;
+			children = (
+				2319A6612297DC8E001D9F20 /* ATCThreadCollectionViewCell.xib */,
+				2319A6622297DC8E001D9F20 /* ATCUserStoryCollectionViewCell.xib */,
+				2319A6632297DC8E001D9F20 /* ATCThreadCollectionViewCell.swift */,
+				2319A6642297DC8E001D9F20 /* ATCUserStoryCollectionViewCell.swift */,
+			);
+			path = Messenger;
+			sourceTree = "<group>";
+		};
+		2319A6652297DC8E001D9F20 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				2319A6662297DC8E001D9F20 /* ATCChatMockStore.swift */,
+				2319A6672297DC8E001D9F20 /* ATCRemoteData.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		2319A6682297DC8E001D9F20 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2319A6692297DC8E001D9F20 /* ATCViewControllerContainerViewModel.swift */,
+				2319A66A2297DC8E001D9F20 /* ATCUser.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2319A66B2297DC8E001D9F20 /* UIExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				2319A66C2297DC8E001D9F20 /* UIScrollView.swift */,
+				2319A66D2297DC8E001D9F20 /* Date.swift */,
+				2319A66E2297DC8E001D9F20 /* UIView.swift */,
+				2319A66F2297DC8E001D9F20 /* UIColor.swift */,
+				2319A6702297DC8E001D9F20 /* UITextField.swift */,
+				2319A6712297DC8E001D9F20 /* String.swift */,
+				2319A6722297DC8E001D9F20 /* UIImage.swift */,
+			);
+			path = UIExtensions;
+			sourceTree = "<group>";
+		};
+		2319A6732297DC8E001D9F20 /* Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				2319A6742297DC8E001D9F20 /* ATCStoryAdapter.swift */,
+				2319A6752297DC8E001D9F20 /* ATCViewControllerContainerRowAdapter.swift */,
+				2319A6762297DC8E001D9F20 /* ATCCarouselAdapter.swift */,
+			);
+			path = Adapters;
+			sourceTree = "<group>";
+		};
+		2319A6772297DC8E001D9F20 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2319A6782297DC8E001D9F20 /* UIViewController+ATCAdditions.swift */,
+				2319A6792297DC8E001D9F20 /* Navigation */,
+				2319A6842297DC8E001D9F20 /* ATCGenericCollectionViewController.swift */,
+				2319A6852297DC8E001D9F20 /* Layouts */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2319A6792297DC8E001D9F20 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				2319A67A2297DC8E001D9F20 /* ATCHostViewController.swift */,
+				2319A67B2297DC8E001D9F20 /* ATCNavigationController.swift */,
+				2319A67C2297DC8E001D9F20 /* ATCMenuItemCollectionViewCellProtocol.swift */,
+				2319A67D2297DC8E001D9F20 /* ATCDrawerController.swift */,
+				2319A67E2297DC8E001D9F20 /* ATCMenuTableViewController.xib */,
+				2319A67F2297DC8E001D9F20 /* ATCMenuCollectionViewController.swift */,
+				2319A6802297DC8E001D9F20 /* ATCMenuTableViewController.swift */,
+				2319A6812297DC8E001D9F20 /* ATCMenuHeaderTableViewCell.xib */,
+				2319A6822297DC8E001D9F20 /* ATCMenuHeaderTableViewCell.swift */,
+				2319A6832297DC8E001D9F20 /* ATCMenuItemRowAdapter.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		2319A6852297DC8E001D9F20 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				2319A6862297DC8E001D9F20 /* ATCLiquidCollectionViewLayout.swift */,
+				2319A6872297DC8E001D9F20 /* ATCCollectionViewFlowLayout.swift */,
+			);
+			path = Layouts;
+			sourceTree = "<group>";
+		};
+		2319A6882297DC8E001D9F20 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2319A6892297DC8E001D9F20 /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2319A6892297DC8E001D9F20 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2319A68A2297DC8E001D9F20 /* ATCStoryCollectionViewCell.swift */,
+				2319A68B2297DC8E001D9F20 /* ATCViewControllerContainerCollectionViewCell.xib */,
+				2319A68C2297DC8E001D9F20 /* ATCStoryCollectionViewCell.xib */,
+				2319A68D2297DC8E001D9F20 /* ATCViewControllerContainerCollectionViewCell.swift */,
+				2319A68E2297DC8E001D9F20 /* MenuCells */,
+				2319A6912297DC8E001D9F20 /* Users */,
+				2319A6952297DC8E001D9F20 /* ATCCarouselCollectionViewCell.swift */,
+				2319A6962297DC8E001D9F20 /* ATCCarouselCollectionViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		2319A68E2297DC8E001D9F20 /* MenuCells */ = {
+			isa = PBXGroup;
+			children = (
+				2319A68F2297DC8E001D9F20 /* ATCCircledIconMenuCollectionViewCell.xib */,
+				2319A6902297DC8E001D9F20 /* ATCCircledIconMenuCollectionViewCell.swift */,
+			);
+			path = MenuCells;
+			sourceTree = "<group>";
+		};
+		2319A6912297DC8E001D9F20 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				2319A6922297DC8E001D9F20 /* ATCMessengerUserCollectionViewCell.swift */,
+				2319A6932297DC8E001D9F20 /* ATCMessengerUserCollectionViewCell.xib */,
+				2319A6942297DC8E001D9F20 /* ATCMessengerUserAdapter.swift */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		2319A6972297DC8E001D9F20 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				2319A6982297DC8E001D9F20 /* Misc.xcassets */,
+				2319A6992297DC8E001D9F20 /* CoreImages.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		2319A69A2297DC8E001D9F20 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2319A69B2297DC8E001D9F20 /* ATCGenericLocalHeteroDataSource.swift */,
+				2319A69C2297DC8E001D9F20 /* ATCGenericLocalDataSource.swift */,
+				2319A69D2297DC8E001D9F20 /* ATCUIGenericConfigurationProtocol.swift */,
+				2319A69E2297DC8E001D9F20 /* UITabBarItem+ATCAdditions.swift */,
+				2319A69F2297DC8E001D9F20 /* TimeFormatHelper.swift */,
+				2319A6A02297DC8E001D9F20 /* ATCGenericFirebaseDataSource.swift */,
+				2319A6A12297DC8E001D9F20 /* UIImage+ATCAdditions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		2319A6A22297DC8E001D9F20 /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				2319A6A32297DC8E001D9F20 /* SnapKit */,
+			);
+			path = ThirdParty;
+			sourceTree = "<group>";
+		};
+		2319A6A32297DC8E001D9F20 /* SnapKit */ = {
+			isa = PBXGroup;
+			children = (
+				2319A6A42297DC8E001D9F20 /* ConstraintMultiplierTarget.swift */,
+				2319A6A52297DC8E001D9F20 /* LayoutConstraintItem.swift */,
+				2319A6A62297DC8E001D9F20 /* ConstraintDescription.swift */,
+				2319A6A72297DC8E001D9F20 /* ConstraintMakerPriortizable.swift */,
+				2319A6A82297DC8E001D9F20 /* ConstraintAttributes.swift */,
+				2319A6A92297DC8E001D9F20 /* ConstraintViewDSL.swift */,
+				2319A6AA2297DC8E001D9F20 /* ConstraintPriorityTarget.swift */,
+				2319A6AB2297DC8E001D9F20 /* ConstraintInsets.swift */,
+				2319A6AC2297DC8E001D9F20 /* ConstraintMakerFinalizable.swift */,
+				2319A6AD2297DC8E001D9F20 /* ConstraintDSL.swift */,
+				2319A6AE2297DC8E001D9F20 /* ConstraintMakerExtendable.swift */,
+				2319A6AF2297DC8E001D9F20 /* ConstraintPriority.swift */,
+				2319A6B02297DC8E001D9F20 /* ConstraintInsetTarget.swift */,
+				2319A6B12297DC8E001D9F20 /* SnapKit.h */,
+				2319A6B22297DC8E001D9F20 /* ConstraintConfig.swift */,
+				2319A6B32297DC8E001D9F20 /* UILayoutSupport+Extensions.swift */,
+				2319A6B42297DC8E001D9F20 /* ConstraintView.swift */,
+				2319A6B52297DC8E001D9F20 /* ConstraintLayoutGuide.swift */,
+				2319A6B62297DC8E001D9F20 /* ConstraintLayoutSupport.swift */,
+				2319A6B72297DC8E001D9F20 /* Typealiases.swift */,
+				2319A6B82297DC8E001D9F20 /* ConstraintConstantTarget.swift */,
+				2319A6B92297DC8E001D9F20 /* ConstraintOffsetTarget.swift */,
+				2319A6BA2297DC8E001D9F20 /* ConstraintMakerEditable.swift */,
+				2319A6BB2297DC8E001D9F20 /* ConstraintMaker.swift */,
+				2319A6BC2297DC8E001D9F20 /* ConstraintRelation.swift */,
+				2319A6BD2297DC8E001D9F20 /* ConstraintLayoutGuideDSL.swift */,
+				2319A6BE2297DC8E001D9F20 /* ConstraintView+Extensions.swift */,
+				2319A6BF2297DC8E001D9F20 /* ConstraintItem.swift */,
+				2319A6C02297DC8E001D9F20 /* Constraint.swift */,
+				2319A6C12297DC8E001D9F20 /* Debugging.swift */,
+				2319A6C22297DC8E001D9F20 /* ConstraintRelatableTarget.swift */,
+				2319A6C32297DC8E001D9F20 /* LayoutConstraint.swift */,
+				2319A6C42297DC8E001D9F20 /* ConstraintLayoutGuide+Extensions.swift */,
+				2319A6C52297DC8E001D9F20 /* ConstraintLayoutSupportDSL.swift */,
+				2319A6C62297DC8E001D9F20 /* ConstraintMakerRelatable.swift */,
+			);
+			path = SnapKit;
 			sourceTree = "<group>";
 		};
 		231ABDA62266DA93006D6B01 /* map */ = {
@@ -595,6 +873,8 @@
 			isa = PBXGroup;
 			children = (
 				2327E28822951C17002E2109 /* ChatController.swift */,
+				2319A64F2297CFA3001D9F20 /* ChatHomeController.swift */,
+				2319A6512297D8E9001D9F20 /* ChatUIConfigurationController.swift */,
 			);
 			path = chat;
 			sourceTree = "<group>";
@@ -759,7 +1039,7 @@
 		23D02E5F2223799300882742 /* notritionVendorsAPP */ = {
 			isa = PBXGroup;
 			children = (
-				23F09E01229539320041ECCC /* ChatCore */,
+				2319A6532297DC8E001D9F20 /* Core */,
 				231ABDB52266DDDB006D6B01 /* Protocol */,
 				233B39062237544E003EB253 /* Services */,
 				235A32B32224EA7800DE5B0E /* Libraries */,
@@ -857,354 +1137,6 @@
 			path = ClientService;
 			sourceTree = "<group>";
 		};
-		23F09E01229539320041ECCC /* ChatCore */ = {
-			isa = PBXGroup;
-			children = (
-				23F09E02229539320041ECCC /* Chat */,
-				23F09E15229539320041ECCC /* Models */,
-				23F09E1A229539320041ECCC /* UIExtensions */,
-				23F09E22229539320041ECCC /* Adapters */,
-				23F09E26229539330041ECCC /* ViewControllers */,
-				23F09E38229539330041ECCC /* Views */,
-				23F09E4A229539330041ECCC /* Assets */,
-				23F09E4D229539330041ECCC /* Helpers */,
-				23F09E55229539330041ECCC /* ThirdParty */,
-			);
-			path = ChatCore;
-			sourceTree = "<group>";
-		};
-		23F09E02229539320041ECCC /* Chat */ = {
-			isa = PBXGroup;
-			children = (
-				23F09E03229539320041ECCC /* Models */,
-				23F09E06229539320041ECCC /* Adapters */,
-				23F09E09229539320041ECCC /* ViewControllers */,
-				23F09E0D229539320041ECCC /* Themes */,
-				23F09E13229539320041ECCC /* Store */,
-			);
-			path = Chat;
-			sourceTree = "<group>";
-		};
-		23F09E03229539320041ECCC /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				23F09E04229539320041ECCC /* ATCChatChannel.swift */,
-				23F09E05229539320041ECCC /* ATChatMessage.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		23F09E06229539320041ECCC /* Adapters */ = {
-			isa = PBXGroup;
-			children = (
-				23F09E07229539320041ECCC /* ATCChatUserStoryAdapter.swift */,
-				23F09E08229539320041ECCC /* ATCChatThreadAdapter.swift */,
-			);
-			path = Adapters;
-			sourceTree = "<group>";
-		};
-		23F09E09229539320041ECCC /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				23F09E0A229539320041ECCC /* ATCChatThreadViewController.swift */,
-				23F09E0B229539320041ECCC /* ATCChatHomeViewController.swift */,
-				23F09E0C229539320041ECCC /* ATCChatThreadsViewController.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		23F09E0D229539320041ECCC /* Themes */ = {
-			isa = PBXGroup;
-			children = (
-				23F09E0E229539320041ECCC /* Messenger */,
-			);
-			path = Themes;
-			sourceTree = "<group>";
-		};
-		23F09E0E229539320041ECCC /* Messenger */ = {
-			isa = PBXGroup;
-			children = (
-				23F09E0F229539320041ECCC /* ATCThreadCollectionViewCell.xib */,
-				23F09E10229539320041ECCC /* ATCUserStoryCollectionViewCell.xib */,
-				23F09E11229539320041ECCC /* ATCThreadCollectionViewCell.swift */,
-				23F09E12229539320041ECCC /* ATCUserStoryCollectionViewCell.swift */,
-			);
-			path = Messenger;
-			sourceTree = "<group>";
-		};
-		23F09E13229539320041ECCC /* Store */ = {
-			isa = PBXGroup;
-			children = (
-				23F09E14229539320041ECCC /* ATCChatMockStore.swift */,
-			);
-			path = Store;
-			sourceTree = "<group>";
-		};
-		23F09E15229539320041ECCC /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				23F09E16229539320041ECCC /* Filters */,
-				23F09E17229539320041ECCC /* Charts */,
-				23F09E18229539320041ECCC /* ATCViewControllerContainerViewModel.swift */,
-				23F09E19229539320041ECCC /* ATCUser.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		23F09E16229539320041ECCC /* Filters */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Filters;
-			sourceTree = "<group>";
-		};
-		23F09E17229539320041ECCC /* Charts */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Charts;
-			sourceTree = "<group>";
-		};
-		23F09E1A229539320041ECCC /* UIExtensions */ = {
-			isa = PBXGroup;
-			children = (
-				23F09E1B229539320041ECCC /* UIScrollView.swift */,
-				23F09E1C229539320041ECCC /* Date.swift */,
-				23F09E1D229539320041ECCC /* UIView.swift */,
-				23F09E1E229539320041ECCC /* UIColor.swift */,
-				23F09E1F229539320041ECCC /* UITextField.swift */,
-				23F09E20229539320041ECCC /* String.swift */,
-				23F09E21229539320041ECCC /* UIImage.swift */,
-			);
-			path = UIExtensions;
-			sourceTree = "<group>";
-		};
-		23F09E22229539320041ECCC /* Adapters */ = {
-			isa = PBXGroup;
-			children = (
-				23F09E23229539330041ECCC /* ATCStoryAdapter.swift */,
-				23F09E24229539330041ECCC /* ATCViewControllerContainerRowAdapter.swift */,
-				23F09E25229539330041ECCC /* ATCCarouselAdapter.swift */,
-			);
-			path = Adapters;
-			sourceTree = "<group>";
-		};
-		23F09E26229539330041ECCC /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				23F09E27229539330041ECCC /* UIViewController+ATCAdditions.swift */,
-				23F09E28229539330041ECCC /* Navigation */,
-				23F09E33229539330041ECCC /* Walkthrough */,
-				23F09E34229539330041ECCC /* ATCGenericCollectionViewController.swift */,
-				23F09E35229539330041ECCC /* Layouts */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		23F09E28229539330041ECCC /* Navigation */ = {
-			isa = PBXGroup;
-			children = (
-				23F09E29229539330041ECCC /* ATCHostViewController.swift */,
-				23F09E2A229539330041ECCC /* ATCNavigationController.swift */,
-				23F09E2B229539330041ECCC /* ATCMenuItemCollectionViewCellProtocol.swift */,
-				23F09E2C229539330041ECCC /* ATCDrawerController.swift */,
-				23F09E2D229539330041ECCC /* ATCMenuTableViewController.xib */,
-				23F09E2E229539330041ECCC /* ATCMenuCollectionViewController.swift */,
-				23F09E2F229539330041ECCC /* ATCMenuTableViewController.swift */,
-				23F09E30229539330041ECCC /* ATCMenuHeaderTableViewCell.xib */,
-				23F09E31229539330041ECCC /* ATCMenuHeaderTableViewCell.swift */,
-				23F09E32229539330041ECCC /* ATCMenuItemRowAdapter.swift */,
-			);
-			path = Navigation;
-			sourceTree = "<group>";
-		};
-		23F09E33229539330041ECCC /* Walkthrough */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Walkthrough;
-			sourceTree = "<group>";
-		};
-		23F09E35229539330041ECCC /* Layouts */ = {
-			isa = PBXGroup;
-			children = (
-				23F09E36229539330041ECCC /* ATCLiquidCollectionViewLayout.swift */,
-				23F09E37229539330041ECCC /* ATCCollectionViewFlowLayout.swift */,
-			);
-			path = Layouts;
-			sourceTree = "<group>";
-		};
-		23F09E38229539330041ECCC /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				23F09E39229539330041ECCC /* Cells */,
-				23F09E49229539330041ECCC /* Controls */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		23F09E39229539330041ECCC /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				23F09E3A229539330041ECCC /* ATCStoryCollectionViewCell.swift */,
-				23F09E3B229539330041ECCC /* ATCViewControllerContainerCollectionViewCell.xib */,
-				23F09E3C229539330041ECCC /* ATCStoryCollectionViewCell.xib */,
-				23F09E3D229539330041ECCC /* Charts */,
-				23F09E3E229539330041ECCC /* ATCViewControllerContainerCollectionViewCell.swift */,
-				23F09E3F229539330041ECCC /* MenuCells */,
-				23F09E42229539330041ECCC /* Search */,
-				23F09E43229539330041ECCC /* Users */,
-				23F09E47229539330041ECCC /* ATCCarouselCollectionViewCell.swift */,
-				23F09E48229539330041ECCC /* ATCCarouselCollectionViewCell.xib */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		23F09E3D229539330041ECCC /* Charts */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Charts;
-			sourceTree = "<group>";
-		};
-		23F09E3F229539330041ECCC /* MenuCells */ = {
-			isa = PBXGroup;
-			children = (
-				23F09E40229539330041ECCC /* ATCCircledIconMenuCollectionViewCell.xib */,
-				23F09E41229539330041ECCC /* ATCCircledIconMenuCollectionViewCell.swift */,
-			);
-			path = MenuCells;
-			sourceTree = "<group>";
-		};
-		23F09E42229539330041ECCC /* Search */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Search;
-			sourceTree = "<group>";
-		};
-		23F09E43229539330041ECCC /* Users */ = {
-			isa = PBXGroup;
-			children = (
-				23F09E44229539330041ECCC /* ATCMessengerUserCollectionViewCell.swift */,
-				23F09E45229539330041ECCC /* ATCMessengerUserCollectionViewCell.xib */,
-				23F09E46229539330041ECCC /* ATCMessengerUserAdapter.swift */,
-			);
-			path = Users;
-			sourceTree = "<group>";
-		};
-		23F09E49229539330041ECCC /* Controls */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controls;
-			sourceTree = "<group>";
-		};
-		23F09E4A229539330041ECCC /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				23F09E4B229539330041ECCC /* Misc.xcassets */,
-				23F09E4C229539330041ECCC /* CoreImages.xcassets */,
-			);
-			path = Assets;
-			sourceTree = "<group>";
-		};
-		23F09E4D229539330041ECCC /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				23F09E4E229539330041ECCC /* ATCGenericLocalHeteroDataSource.swift */,
-				23F09E4F229539330041ECCC /* ATCGenericLocalDataSource.swift */,
-				23F09E50229539330041ECCC /* ATCUIGenericConfigurationProtocol.swift */,
-				23F09E51229539330041ECCC /* UITabBarItem+ATCAdditions.swift */,
-				23F09E52229539330041ECCC /* TimeFormatHelper.swift */,
-				23F09E53229539330041ECCC /* ATCGenericFirebaseDataSource.swift */,
-				23F09E54229539330041ECCC /* UIImage+ATCAdditions.swift */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
-		23F09E55229539330041ECCC /* ThirdParty */ = {
-			isa = PBXGroup;
-			children = (
-				23F09E56229539330041ECCC /* Stepperier */,
-				23F09E57229539330041ECCC /* CalendarDateRangePickerViewController */,
-				23F09E58229539330041ECCC /* SnapKit */,
-				23F09E7C229539330041ECCC /* SJSegmentedScrollView */,
-			);
-			path = ThirdParty;
-			sourceTree = "<group>";
-		};
-		23F09E56229539330041ECCC /* Stepperier */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Stepperier;
-			sourceTree = "<group>";
-		};
-		23F09E57229539330041ECCC /* CalendarDateRangePickerViewController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CalendarDateRangePickerViewController;
-			sourceTree = "<group>";
-		};
-		23F09E58229539330041ECCC /* SnapKit */ = {
-			isa = PBXGroup;
-			children = (
-				23F09E59229539330041ECCC /* ConstraintMultiplierTarget.swift */,
-				23F09E5A229539330041ECCC /* LayoutConstraintItem.swift */,
-				23F09E5B229539330041ECCC /* ConstraintDescription.swift */,
-				23F09E5C229539330041ECCC /* ConstraintMakerPriortizable.swift */,
-				23F09E5D229539330041ECCC /* ConstraintAttributes.swift */,
-				23F09E5E229539330041ECCC /* ConstraintViewDSL.swift */,
-				23F09E5F229539330041ECCC /* ConstraintPriorityTarget.swift */,
-				23F09E60229539330041ECCC /* ConstraintInsets.swift */,
-				23F09E61229539330041ECCC /* ConstraintMakerFinalizable.swift */,
-				23F09E62229539330041ECCC /* ConstraintDSL.swift */,
-				23F09E63229539330041ECCC /* ConstraintMakerExtendable.swift */,
-				23F09E64229539330041ECCC /* ConstraintPriority.swift */,
-				23F09E65229539330041ECCC /* ConstraintInsetTarget.swift */,
-				23F09E66229539330041ECCC /* SnapKit.h */,
-				23F09E67229539330041ECCC /* ConstraintConfig.swift */,
-				23F09E68229539330041ECCC /* UILayoutSupport+Extensions.swift */,
-				23F09E69229539330041ECCC /* ConstraintView.swift */,
-				23F09E6A229539330041ECCC /* ConstraintLayoutGuide.swift */,
-				23F09E6B229539330041ECCC /* ConstraintLayoutSupport.swift */,
-				23F09E6C229539330041ECCC /* ConstraintConstantTarget.swift */,
-				23F09E6D229539330041ECCC /* ConstraintOffsetTarget.swift */,
-				23F09E6E229539330041ECCC /* ConstraintMakerEditable.swift */,
-				23F09E6F229539330041ECCC /* ConstraintMaker.swift */,
-				23F09E70229539330041ECCC /* ConstraintRelation.swift */,
-				23F09E71229539330041ECCC /* ConstraintLayoutGuideDSL.swift */,
-				23F09E72229539330041ECCC /* ConstraintView+Extensions.swift */,
-				23F09E73229539330041ECCC /* ConstraintItem.swift */,
-				23F09E74229539330041ECCC /* Constraint.swift */,
-				23F09E75229539330041ECCC /* Debugging.swift */,
-				23F09E76229539330041ECCC /* ConstraintRelatableTarget.swift */,
-				23F09E77229539330041ECCC /* Info.plist */,
-				23F09E78229539330041ECCC /* LayoutConstraint.swift */,
-				23F09E79229539330041ECCC /* ConstraintLayoutGuide+Extensions.swift */,
-				23F09E7A229539330041ECCC /* ConstraintLayoutSupportDSL.swift */,
-				23F09E7B229539330041ECCC /* ConstraintMakerRelatable.swift */,
-			);
-			path = SnapKit;
-			sourceTree = "<group>";
-		};
-		23F09E7C229539330041ECCC /* SJSegmentedScrollView */ = {
-			isa = PBXGroup;
-			children = (
-				23F09E7D229539330041ECCC /* Classes */,
-			);
-			path = SJSegmentedScrollView;
-			sourceTree = "<group>";
-		};
-		23F09E7D229539330041ECCC /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
 		D6D88E404BF4B5919EE2F7E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1285,40 +1217,41 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23F09EA5229539340041ECCC /* ATCViewControllerContainerCollectionViewCell.xib in Resources */,
+				2319A6EF2297DC8F001D9F20 /* ATCViewControllerContainerCollectionViewCell.xib in Resources */,
 				2352405322635191004B11CF /* AddCommentBtnCell.xib in Resources */,
 				23D02E6B2223799400882742 /* LaunchScreen.storyboard in Resources */,
 				2300BE7D222D3658008E9101 /* ViewCommentCell.xib in Resources */,
 				23D02E682223799400882742 /* Assets.xcassets in Resources */,
 				2373EB91226D5E0B00D779F2 /* AccountLogedInCell.xib in Resources */,
 				237DABF72262049C00FE57FB /* Search.storyboard in Resources */,
-				23F09EAE229539340041ECCC /* ATCCarouselCollectionViewCell.xib in Resources */,
+				2319A6F82297DC8F001D9F20 /* ATCCarouselCollectionViewCell.xib in Resources */,
 				2373EB97226D80DF00D779F2 /* ActivityCell.xib in Resources */,
 				230E2DD22226431D00246392 /* LogInAndLogOut.storyboard in Resources */,
 				2300BE6C222D30B7008E9101 /* GeneralInforItemCell.xib in Resources */,
-				23F09EA6229539340041ECCC /* ATCStoryCollectionViewCell.xib in Resources */,
 				2373EB9B226D80F500D779F2 /* InforCell.xib in Resources */,
+				2319A6F02297DC8F001D9F20 /* ATCStoryCollectionViewCell.xib in Resources */,
 				2352404F22634E33004B11CF /* ActionCell.xib in Resources */,
-				23F09EB0229539340041ECCC /* CoreImages.xcassets in Resources */,
 				2323D6AE2269B4160005E104 /* MapCell.xib in Resources */,
+				2319A6FA2297DC8F001D9F20 /* CoreImages.xcassets in Resources */,
 				23A786B22296BB6F00897A2F /* Chat.storyboard in Resources */,
 				2352405522635585004B11CF /* ItemInShop.storyboard in Resources */,
 				23D02E662223799300882742 /* Main.storyboard in Resources */,
 				234B5CC622682AA900E7E61F /* ShopMarkerView.xib in Resources */,
+				2319A6CE2297DC8F001D9F20 /* ATCThreadCollectionViewCell.xib in Resources */,
 				2381B64A225B064F004DAA64 /* CategoryCell.xib in Resources */,
-				23F09E86229539340041ECCC /* ATCUserStoryCollectionViewCell.xib in Resources */,
+				2319A6CF2297DC8F001D9F20 /* ATCUserStoryCollectionViewCell.xib in Resources */,
 				2373EB9F226DC8A900D779F2 /* Comment.storyboard in Resources */,
 				235B6685226308D900BBFAFC /* DetailFood.storyboard in Resources */,
-				23F09E9B229539340041ECCC /* ATCMenuTableViewController.xib in Resources */,
+				2319A6E52297DC8F001D9F20 /* ATCMenuTableViewController.xib in Resources */,
 				234B5CCA226834B100E7E61F /* GoogleMap.storyboard in Resources */,
-				23F09E9E229539340041ECCC /* ATCMenuHeaderTableViewCell.xib in Resources */,
-				23F09EA8229539340041ECCC /* ATCCircledIconMenuCollectionViewCell.xib in Resources */,
 				235B668722630BCA00BBFAFC /* AccountDetail.storyboard in Resources */,
+				2319A6E82297DC8F001D9F20 /* ATCMenuHeaderTableViewCell.xib in Resources */,
+				2319A6F22297DC8F001D9F20 /* ATCCircledIconMenuCollectionViewCell.xib in Resources */,
 				23A786B02296A94600897A2F /* GoogleService-Info.plist in Resources */,
 				2352405722635661004B11CF /* Delivery.storyboard in Resources */,
-				23F09EAB229539340041ECCC /* ATCMessengerUserCollectionViewCell.xib in Resources */,
+				2319A6F52297DC8F001D9F20 /* ATCMessengerUserCollectionViewCell.xib in Resources */,
 				2300BE79222D34B2008E9101 /* GeneralValueCell.xib in Resources */,
-				23F09EAF229539340041ECCC /* Misc.xcassets in Resources */,
+				2319A6F92297DC8F001D9F20 /* Misc.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1450,171 +1383,175 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2319A6D82297DC8F001D9F20 /* UIView.swift in Sources */,
+				2319A6D52297DC8F001D9F20 /* ATCUser.swift in Sources */,
+				2319A7232297DC8F001D9F20 /* ConstraintMakerRelatable.swift in Sources */,
+				2319A6D22297DC8F001D9F20 /* ATCChatMockStore.swift in Sources */,
 				235AC4AF2265BDDF009A0CD0 /* SearchResponse.swift in Sources */,
-				23F09E97229539340041ECCC /* ATCHostViewController.swift in Sources */,
 				231ABDAA2266DAE0006D6B01 /* NibDesignable.swift in Sources */,
+				2319A6E12297DC8F001D9F20 /* ATCHostViewController.swift in Sources */,
+				2319A6E02297DC8F001D9F20 /* UIViewController+ATCAdditions.swift in Sources */,
 				23679F7E229292E600F427DD /* RecentResponse.swift in Sources */,
-				23F09E8B229539340041ECCC /* ATCUser.swift in Sources */,
-				23F09ED7229539350041ECCC /* ConstraintLayoutGuide+Extensions.swift in Sources */,
+				2319A7012297DC8F001D9F20 /* UIImage+ATCAdditions.swift in Sources */,
+				2319A7222297DC8F001D9F20 /* ConstraintLayoutSupportDSL.swift in Sources */,
 				231ABDC22266E1B0006D6B01 /* mapRequestBodyDirections.swift in Sources */,
 				2323C8B2223F5B8B00DA68CA /* ViewLocationShopController.swift in Sources */,
-				23F09ECC229539340041ECCC /* ConstraintMakerEditable.swift in Sources */,
-				23F09EB5229539340041ECCC /* TimeFormatHelper.swift in Sources */,
-				23F09E92229539340041ECCC /* UIImage.swift in Sources */,
-				23F09EC9229539340041ECCC /* ConstraintLayoutSupport.swift in Sources */,
-				23F09E9C229539340041ECCC /* ATCMenuCollectionViewController.swift in Sources */,
+				2319A6FB2297DC8F001D9F20 /* ATCGenericLocalHeteroDataSource.swift in Sources */,
+				2319A7092297DC8F001D9F20 /* ConstraintInsets.swift in Sources */,
 				235B169F226C71F6001A6BB6 /* AccountCell.swift in Sources */,
 				23B6023F222E767E00FBBD79 /* ExtensionUIImage.swift in Sources */,
+				2319A70E2297DC8F001D9F20 /* ConstraintInsetTarget.swift in Sources */,
+				2319A70F2297DC8F001D9F20 /* ConstraintConfig.swift in Sources */,
 				2373EB9D226DA07700D779F2 /* CommentDTOResponse.swift in Sources */,
-				23F09E99229539340041ECCC /* ATCMenuItemCollectionViewCellProtocol.swift in Sources */,
 				231ABDBE2266E16B006D6B01 /* MapTaskManager.swift in Sources */,
+				2319A6EB2297DC8F001D9F20 /* ATCGenericCollectionViewController.swift in Sources */,
+				2319A7132297DC8F001D9F20 /* ConstraintLayoutSupport.swift in Sources */,
 				2327E28922951C17002E2109 /* ChatController.swift in Sources */,
+				2319A6FC2297DC8F001D9F20 /* ATCGenericLocalDataSource.swift in Sources */,
+				2319A7042297DC8F001D9F20 /* ConstraintDescription.swift in Sources */,
 				2320C6F42251C8AD00A2C328 /* DetailPhotoCell.swift in Sources */,
+				2319A70B2297DC8F001D9F20 /* ConstraintDSL.swift in Sources */,
 				2300BE6B222D30B7008E9101 /* GeneralInforItemCell.swift in Sources */,
 				2352405C226358A6004B11CF /* ItemInShopController.swift in Sources */,
-				23F09EA7229539340041ECCC /* ATCViewControllerContainerCollectionViewCell.swift in Sources */,
-				23F09E91229539340041ECCC /* String.swift in Sources */,
-				23F09E87229539340041ECCC /* ATCThreadCollectionViewCell.swift in Sources */,
-				23F09ECA229539340041ECCC /* ConstraintConstantTarget.swift in Sources */,
+				2319A6D62297DC8F001D9F20 /* UIScrollView.swift in Sources */,
 				231AE468222E2EDF0082C06E /* GeneralValueItem.swift in Sources */,
+				2319A6D32297DC8F001D9F20 /* ATCRemoteData.swift in Sources */,
+				2319A7022297DC8F001D9F20 /* ConstraintMultiplierTarget.swift in Sources */,
 				23A31BBA2240948F00FE2D69 /* NetworkingClient.swift in Sources */,
 				233B390B223755FD003EB253 /* Constant.swift in Sources */,
 				232900D2225C7124009D7DD1 /* CommentServices.swift in Sources */,
 				235A32BF2225301E00DE5B0E /* ChangePasswordController.swift in Sources */,
-				23F09E8E229539340041ECCC /* UIView.swift in Sources */,
-				23F09EA9229539340041ECCC /* ATCCircledIconMenuCollectionViewCell.swift in Sources */,
 				2373EB96226D80DF00D779F2 /* ActivityCell.swift in Sources */,
+				2319A71E2297DC8F001D9F20 /* Debugging.swift in Sources */,
 				234B5CC822682B0B00E7E61F /* ShopMarkerView.swift in Sources */,
-				23F09ED4229539340041ECCC /* ConstraintRelatableTarget.swift in Sources */,
-				23F09EAA229539340041ECCC /* ATCMessengerUserCollectionViewCell.swift in Sources */,
-				23F09E84229539340041ECCC /* ATCChatThreadsViewController.swift in Sources */,
 				2352405222635191004B11CF /* AddCommentBtnCell.swift in Sources */,
 				235B169D226C2EEC001A6BB6 /* SearchServices.swift in Sources */,
+				2319A6CC2297DC8F001D9F20 /* ATCChatHomeViewController.swift in Sources */,
+				2319A6E72297DC8F001D9F20 /* ATCMenuTableViewController.swift in Sources */,
 				236A32B72258944500AA2410 /* FavoritesViewController.swift in Sources */,
-				23F09ED0229539340041ECCC /* ConstraintView+Extensions.swift in Sources */,
+				2319A6FD2297DC8F001D9F20 /* ATCUIGenericConfigurationProtocol.swift in Sources */,
 				235B16A3226C72AC001A6BB6 /* AccountController.swift in Sources */,
-				23F09EA0229539340041ECCC /* ATCMenuItemRowAdapter.swift in Sources */,
+				2319A6D72297DC8F001D9F20 /* Date.swift in Sources */,
 				235A32B02224E9F200DE5B0E /* SignupController.swift in Sources */,
+				2319A71C2297DC8F001D9F20 /* ConstraintItem.swift in Sources */,
 				23679F76228E986000F427DD /* ItemResponse.swift in Sources */,
-				23F09E98229539340041ECCC /* ATCNavigationController.swift in Sources */,
-				23F09EC3229539340041ECCC /* ConstraintPriority.swift in Sources */,
+				2319A6DC2297DC8F001D9F20 /* UIImage.swift in Sources */,
 				2352405A2263577A004B11CF /* DeliveryController.swift in Sources */,
 				2373EB90226D5E0B00D779F2 /* AccountLogedInCell.swift in Sources */,
-				23F09ED2229539340041ECCC /* Constraint.swift in Sources */,
-				23F09E94229539340041ECCC /* ATCViewControllerContainerRowAdapter.swift in Sources */,
-				23F09E8D229539340041ECCC /* Date.swift in Sources */,
-				23F09EBC229539340041ECCC /* ConstraintAttributes.swift in Sources */,
-				23F09EB3229539340041ECCC /* ATCUIGenericConfigurationProtocol.swift in Sources */,
+				2319A6FF2297DC8F001D9F20 /* TimeFormatHelper.swift in Sources */,
 				23695E9222277DC600AD7076 /* ExtensionUICollectionView.swift in Sources */,
-				23F09E7E229539340041ECCC /* ATCChatChannel.swift in Sources */,
+				2319A6DD2297DC8F001D9F20 /* ATCStoryAdapter.swift in Sources */,
 				23A31BB7224093F800FE2D69 /* ShopItemService.swift in Sources */,
 				231AE460222E28860082C06E /* DateTimeLibrary.swift in Sources */,
+				2319A70A2297DC8F001D9F20 /* ConstraintMakerFinalizable.swift in Sources */,
+				2319A6D12297DC8F001D9F20 /* ATCUserStoryCollectionViewCell.swift in Sources */,
 				237DABF32261E37F00FE57FB /* SearchController.swift in Sources */,
 				2352404922632E7F004B11CF /* CategoryUITableCell.swift in Sources */,
-				23F09E81229539340041ECCC /* ATCChatThreadAdapter.swift in Sources */,
 				231AF5CC225F2BE50057DD11 /* ShopController.swift in Sources */,
 				23614F1122560F7E00B5DD81 /* FavoritesService.swift in Sources */,
 				23EAA4452246621100A30E98 /* CommentResponse.swift in Sources */,
-				23F09EA3229539340041ECCC /* ATCCollectionViewFlowLayout.swift in Sources */,
-				23F09EBD229539340041ECCC /* ConstraintViewDSL.swift in Sources */,
+				2319A6DF2297DC8F001D9F20 /* ATCCarouselAdapter.swift in Sources */,
+				2319A6502297CFA3001D9F20 /* ChatHomeController.swift in Sources */,
 				23614F0F2256020E00B5DD81 /* FavoritesResponse.swift in Sources */,
-				23F09E9A229539340041ECCC /* ATCDrawerController.swift in Sources */,
+				2319A7032297DC8F001D9F20 /* LayoutConstraintItem.swift in Sources */,
+				2319A6DB2297DC8F001D9F20 /* String.swift in Sources */,
+				2319A6EE2297DC8F001D9F20 /* ATCStoryCollectionViewCell.swift in Sources */,
 				23695E9422277F7200AD7076 /* ExtensionUIView.swift in Sources */,
-				23F09E8A229539340041ECCC /* ATCViewControllerContainerViewModel.swift in Sources */,
-				23F09E80229539340041ECCC /* ATCChatUserStoryAdapter.swift in Sources */,
 				2300BE7C222D3658008E9101 /* ViewCommentCell.swift in Sources */,
-				23F09EAD229539340041ECCC /* ATCCarouselCollectionViewCell.swift in Sources */,
 				23D5080B224236D4005FB1AC /* ShopResponse.swift in Sources */,
 				2378E12D2247385700837883 /* DocumentResponse.swift in Sources */,
-				23F09EB8229539340041ECCC /* ConstraintMultiplierTarget.swift in Sources */,
-				23F09EC6229539340041ECCC /* UILayoutSupport+Extensions.swift in Sources */,
-				23F09ECB229539340041ECCC /* ConstraintOffsetTarget.swift in Sources */,
-				23F09EBF229539340041ECCC /* ConstraintInsets.swift in Sources */,
+				2319A7162297DC8F001D9F20 /* ConstraintOffsetTarget.swift in Sources */,
+				2319A71F2297DC8F001D9F20 /* ConstraintRelatableTarget.swift in Sources */,
+				2319A7122297DC8F001D9F20 /* ConstraintLayoutGuide.swift in Sources */,
 				23B765422264A27400DC76F7 /* ItemInShopCell.swift in Sources */,
-				23F09E82229539340041ECCC /* ATCChatThreadViewController.swift in Sources */,
-				23F09E9F229539340041ECCC /* ATCMenuHeaderTableViewCell.swift in Sources */,
+				2319A7152297DC8F001D9F20 /* ConstraintConstantTarget.swift in Sources */,
 				23A31BB5224088FD00FE2D69 /* ShopItemResponse.swift in Sources */,
 				231AE462222E2A030082C06E /* ExtensionUIlabel.swift in Sources */,
 				235CF320226FF1B500691D88 /* EditInforUserController.swift in Sources */,
+				2319A6F12297DC8F001D9F20 /* ATCViewControllerContainerCollectionViewCell.swift in Sources */,
+				2319A6D42297DC8F001D9F20 /* ATCViewControllerContainerViewModel.swift in Sources */,
 				233B390822375463003EB253 /* AuthServices.swift in Sources */,
 				237DABF52261E7B200FE57FB /* SearchCell.swift in Sources */,
-				23F09EB4229539340041ECCC /* UITabBarItem+ATCAdditions.swift in Sources */,
-				23F09ED8229539350041ECCC /* ConstraintLayoutSupportDSL.swift in Sources */,
 				23695E9822278F3B00AD7076 /* ViewItemController.swift in Sources */,
+				2319A6ED2297DC8F001D9F20 /* ATCCollectionViewFlowLayout.swift in Sources */,
+				2319A7192297DC8F001D9F20 /* ConstraintRelation.swift in Sources */,
 				23351DC4222539BF003944E2 /* ExtensionButton.swift in Sources */,
-				23F09EA1229539340041ECCC /* ATCGenericCollectionViewController.swift in Sources */,
+				2319A6F72297DC8F001D9F20 /* ATCCarouselCollectionViewCell.swift in Sources */,
 				231C5B6F224DCE5A00161534 /* PhotoItemController.swift in Sources */,
-				23F09E93229539340041ECCC /* ATCStoryAdapter.swift in Sources */,
+				2319A6522297D8E9001D9F20 /* ChatUIConfigurationController.swift in Sources */,
+				2319A7002297DC8F001D9F20 /* ATCGenericFirebaseDataSource.swift in Sources */,
 				23679F7A22928C7400F427DD /* RecentServices.swift in Sources */,
+				2319A7182297DC8F001D9F20 /* ConstraintMaker.swift in Sources */,
 				2359CD6A225750A200C5D892 /* NotificationConstant.swift in Sources */,
-				23F09E9D229539340041ECCC /* ATCMenuTableViewController.swift in Sources */,
+				2319A7052297DC8F001D9F20 /* ConstraintMakerPriortizable.swift in Sources */,
+				2319A6C92297DC8F001D9F20 /* ATCChatUserStoryAdapter.swift in Sources */,
+				2319A6D92297DC8F001D9F20 /* UIColor.swift in Sources */,
 				235A32B52224EAB400DE5B0E /* ExtensionTextField.swift in Sources */,
-				23F09EBE229539340041ECCC /* ConstraintPriorityTarget.swift in Sources */,
+				2319A6D02297DC8F001D9F20 /* ATCThreadCollectionViewCell.swift in Sources */,
+				2319A6E42297DC8F001D9F20 /* ATCDrawerController.swift in Sources */,
+				2319A7142297DC8F001D9F20 /* Typealiases.swift in Sources */,
+				2319A71A2297DC8F001D9F20 /* ConstraintLayoutGuideDSL.swift in Sources */,
+				2319A71D2297DC8F001D9F20 /* Constraint.swift in Sources */,
+				2319A6EA2297DC8F001D9F20 /* ATCMenuItemRowAdapter.swift in Sources */,
+				2319A6E62297DC8F001D9F20 /* ATCMenuCollectionViewController.swift in Sources */,
+				2319A7212297DC8F001D9F20 /* ConstraintLayoutGuide+Extensions.swift in Sources */,
 				23D02E632223799300882742 /* LoginController.swift in Sources */,
 				235A32B72224EB6400DE5B0E /* ExtensionStackView.swift in Sources */,
-				23F09ED1229539340041ECCC /* ConstraintItem.swift in Sources */,
-				23F09EB6229539340041ECCC /* ATCGenericFirebaseDataSource.swift in Sources */,
 				236A32B92258945F00AA2410 /* FavoritesCell.swift in Sources */,
-				23F09EC7229539340041ECCC /* ConstraintView.swift in Sources */,
-				23F09E90229539340041ECCC /* UITextField.swift in Sources */,
-				23F09ECD229539340041ECCC /* ConstraintMaker.swift in Sources */,
-				23F09ED9229539350041ECCC /* ConstraintMakerRelatable.swift in Sources */,
 				2352404E22634E33004B11CF /* ActionCell.swift in Sources */,
 				23E6FD75224B5479001C72B2 /* ExtentionDouble.swift in Sources */,
-				23F09EBB229539340041ECCC /* ConstraintMakerPriortizable.swift in Sources */,
-				23F09EB9229539340041ECCC /* LayoutConstraintItem.swift in Sources */,
-				23F09E89229539340041ECCC /* ATCChatMockStore.swift in Sources */,
 				23D02E612223799300882742 /* AppDelegate.swift in Sources */,
-				23F09EC0229539340041ECCC /* ConstraintMakerFinalizable.swift in Sources */,
 				2381B646225B0185004DAA64 /* CategoryServices.swift in Sources */,
-				23F09ED6229539350041ECCC /* LayoutConstraint.swift in Sources */,
 				23D5080922423637005FB1AC /* LocationResponse.swift in Sources */,
+				2319A71B2297DC8F001D9F20 /* ConstraintView+Extensions.swift in Sources */,
+				2319A6F62297DC8F001D9F20 /* ATCMessengerUserAdapter.swift in Sources */,
+				2319A6DA2297DC8F001D9F20 /* UITextField.swift in Sources */,
+				2319A6F32297DC8F001D9F20 /* ATCCircledIconMenuCollectionViewCell.swift in Sources */,
 				23B7653E22642F4300DC76F7 /* NewCommentController.swift in Sources */,
-				23F09E96229539340041ECCC /* UIViewController+ATCAdditions.swift in Sources */,
 				236A5A83225B455F005C27E8 /* HeaderCollectionCell.swift in Sources */,
+				2319A6CA2297DC8F001D9F20 /* ATCChatThreadAdapter.swift in Sources */,
 				2327E28022940B80002E2109 /* FeebackController.swift in Sources */,
-				23F09EC2229539340041ECCC /* ConstraintMakerExtendable.swift in Sources */,
-				23F09EC5229539340041ECCC /* ConstraintConfig.swift in Sources */,
-				23F09EC4229539340041ECCC /* ConstraintInsetTarget.swift in Sources */,
+				2319A6EC2297DC8F001D9F20 /* ATCLiquidCollectionViewLayout.swift in Sources */,
 				235A32BD2224F51500DE5B0E /* AccountDetailController.swift in Sources */,
 				2352404B22632E99004B11CF /* CategoryController.swift in Sources */,
-				23F09EBA229539340041ECCC /* ConstraintDescription.swift in Sources */,
-				23F09E8C229539340041ECCC /* UIScrollView.swift in Sources */,
 				23EAA4472246638300A30E98 /* UserResponse.swift in Sources */,
-				23F09EB7229539340041ECCC /* UIImage+ATCAdditions.swift in Sources */,
-				23F09EC1229539340041ECCC /* ConstraintDSL.swift in Sources */,
+				2319A7062297DC8F001D9F20 /* ConstraintAttributes.swift in Sources */,
+				2319A6E32297DC8F001D9F20 /* ATCMenuItemCollectionViewCellProtocol.swift in Sources */,
 				2381B644225AFDE0004DAA64 /* CategoryResponse.swift in Sources */,
+				2319A6CD2297DC8F001D9F20 /* ATCChatThreadsViewController.swift in Sources */,
+				2319A7082297DC8F001D9F20 /* ConstraintPriorityTarget.swift in Sources */,
+				2319A7072297DC8F001D9F20 /* ConstraintViewDSL.swift in Sources */,
+				2319A6C72297DC8F001D9F20 /* ATCChatChannel.swift in Sources */,
 				231ABDBA2266DF4D006D6B01 /* MapManager.swift in Sources */,
-				23F09EB2229539340041ECCC /* ATCGenericLocalDataSource.swift in Sources */,
+				2319A6CB2297DC8F001D9F20 /* ATCChatThreadViewController.swift in Sources */,
+				2319A6C82297DC8F001D9F20 /* ATChatMessage.swift in Sources */,
 				2323D6AD2269B4160005E104 /* MapCell.swift in Sources */,
-				23F09EA4229539340041ECCC /* ATCStoryCollectionViewCell.swift in Sources */,
-				23F09EA2229539340041ECCC /* ATCLiquidCollectionViewLayout.swift in Sources */,
+				2319A7112297DC8F001D9F20 /* ConstraintView.swift in Sources */,
 				2373EB9A226D80F500D779F2 /* InforCell.swift in Sources */,
-				23F09E7F229539340041ECCC /* ATChatMessage.swift in Sources */,
-				23F09EAC229539340041ECCC /* ATCMessengerUserAdapter.swift in Sources */,
-				23F09ECF229539340041ECCC /* ConstraintLayoutGuideDSL.swift in Sources */,
-				23F09EC8229539340041ECCC /* ConstraintLayoutGuide.swift in Sources */,
+				2319A6F42297DC8F001D9F20 /* ATCMessengerUserCollectionViewCell.swift in Sources */,
+				2319A6E92297DC8F001D9F20 /* ATCMenuHeaderTableViewCell.swift in Sources */,
 				2320C6F22251C7C700A2C328 /* DetailPhotoController.swift in Sources */,
 				231ABDC42266E1D4006D6B01 /* MapResponseDirections.swift in Sources */,
 				2376D98F224CDC4200DDFB19 /* PhotoItemCell.swift in Sources */,
+				2319A6FE2297DC8F001D9F20 /* UITabBarItem+ATCAdditions.swift in Sources */,
 				231ABDBC2266E13B006D6B01 /* MapRouter.swift in Sources */,
+				2319A7172297DC8F001D9F20 /* ConstraintMakerEditable.swift in Sources */,
 				235A49ED2248BEF70034A944 /* CustomImageView.swift in Sources */,
 				233B390D22376476003EB253 /* StringLibrary.swift in Sources */,
 				230E2DED22267DCA00246392 /* CollectionItemCell.swift in Sources */,
-				23F09E8F229539340041ECCC /* UIColor.swift in Sources */,
-				23F09E88229539340041ECCC /* ATCUserStoryCollectionViewCell.swift in Sources */,
-				23F09ED3229539340041ECCC /* Debugging.swift in Sources */,
 				235A32B22224EA0C00DE5B0E /* HightRatingController.swift in Sources */,
 				231ABDB72266DE0C006D6B01 /* LocationServicesProtocol.swift in Sources */,
-				23F09EB1229539340041ECCC /* ATCGenericLocalHeteroDataSource.swift in Sources */,
+				2319A7202297DC8F001D9F20 /* LayoutConstraint.swift in Sources */,
 				231AF5CE225F45850057DD11 /* ShopCell.swift in Sources */,
 				236A32BC22589D6100AA2410 /* MBProgressHUD.m in Sources */,
+				2319A6E22297DC8F001D9F20 /* ATCNavigationController.swift in Sources */,
 				2381B649225B064F004DAA64 /* CategoryCell.swift in Sources */,
+				2319A7102297DC8F001D9F20 /* UILayoutSupport+Extensions.swift in Sources */,
+				2319A6DE2297DC8F001D9F20 /* ATCViewControllerContainerRowAdapter.swift in Sources */,
+				2319A70C2297DC8F001D9F20 /* ConstraintMakerExtendable.swift in Sources */,
 				2300BE78222D34B2008E9101 /* GeneralValueCell.swift in Sources */,
 				23679F782290042F00F427DD /* ImageServices.swift in Sources */,
-				23F09E83229539340041ECCC /* ATCChatHomeViewController.swift in Sources */,
-				23F09E95229539340041ECCC /* ATCCarouselAdapter.swift in Sources */,
-				23F09ECE229539340041ECCC /* ConstraintRelation.swift in Sources */,
+				2319A70D2297DC8F001D9F20 /* ConstraintPriority.swift in Sources */,
 				231AF5D0225F4EA10057DD11 /* ShopServices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
