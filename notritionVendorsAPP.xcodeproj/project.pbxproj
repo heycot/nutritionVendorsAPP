@@ -16,6 +16,7 @@
 		230E2DD22226431D00246392 /* LogInAndLogOut.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 230E2DD12226431D00246392 /* LogInAndLogOut.storyboard */; };
 		230E2DED22267DCA00246392 /* CollectionItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230E2DEB22267DCA00246392 /* CollectionItemCell.swift */; };
 		2319A8CA2297F020001D9F20 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2319A8C92297F01F001D9F20 /* GoogleService-Info.plist */; };
+		2319A8D02297F9C4001D9F20 /* ChatHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A8CF2297F9C4001D9F20 /* ChatHomeController.swift */; };
 		231ABDAA2266DAE0006D6B01 /* NibDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ABDA92266DAE0006D6B01 /* NibDesignable.swift */; };
 		231ABDB72266DE0C006D6B01 /* LocationServicesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ABDB62266DE0C006D6B01 /* LocationServicesProtocol.swift */; };
 		231ABDBA2266DF4D006D6B01 /* MapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ABDB92266DF4D006D6B01 /* MapManager.swift */; };
@@ -130,6 +131,7 @@
 		230E2DD12226431D00246392 /* LogInAndLogOut.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogInAndLogOut.storyboard; sourceTree = "<group>"; };
 		230E2DEB22267DCA00246392 /* CollectionItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionItemCell.swift; sourceTree = "<group>"; };
 		2319A8C92297F01F001D9F20 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2319A8CF2297F9C4001D9F20 /* ChatHomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHomeController.swift; sourceTree = "<group>"; };
 		231ABDA92266DAE0006D6B01 /* NibDesignable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibDesignable.swift; sourceTree = "<group>"; };
 		231ABDB62266DE0C006D6B01 /* LocationServicesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServicesProtocol.swift; sourceTree = "<group>"; };
 		231ABDB92266DF4D006D6B01 /* MapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapManager.swift; sourceTree = "<group>"; };
@@ -304,6 +306,14 @@
 				236A5A82225B455F005C27E8 /* HeaderCollectionCell.swift */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		2319A8CE2297F9A8001D9F20 /* chat */ = {
+			isa = PBXGroup;
+			children = (
+				2319A8CF2297F9C4001D9F20 /* ChatHomeController.swift */,
+			);
+			path = chat;
 			sourceTree = "<group>";
 		};
 		231ABDA62266DA93006D6B01 /* map */ = {
@@ -603,6 +613,7 @@
 		23D02E7422237A7900882742 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2319A8CE2297F9A8001D9F20 /* chat */,
 				231ABDA62266DA93006D6B01 /* map */,
 				2352405822635749004B11CF /* delivery */,
 				2352404722632E08004B11CF /* category */,
@@ -925,6 +936,7 @@
 				2352405A2263577A004B11CF /* DeliveryController.swift in Sources */,
 				2373EB90226D5E0B00D779F2 /* AccountLogedInCell.swift in Sources */,
 				23695E9222277DC600AD7076 /* ExtensionUICollectionView.swift in Sources */,
+				2319A8D02297F9C4001D9F20 /* ChatHomeController.swift in Sources */,
 				23A31BB7224093F800FE2D69 /* ShopItemService.swift in Sources */,
 				231AE460222E28860082C06E /* DateTimeLibrary.swift in Sources */,
 				237DABF32261E37F00FE57FB /* SearchController.swift in Sources */,
