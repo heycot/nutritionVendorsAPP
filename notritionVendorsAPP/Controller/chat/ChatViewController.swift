@@ -100,7 +100,7 @@ final class ChatViewController: MessagesViewController {
         let cameraItem = UIBarButtonItem(barButtonSystemItem: .done, target:  #selector(cameraButtonPressed), action: nil)
         //            UIButton(type: .system) // 1
         cameraItem.tintColor = .primary
-        cameraItem.image = #imageLiteral(resourceName: "camera")
+        cameraItem.image = #imageLiteral(resourceName: "photo-camera")
         //        cameraItem.addTarget(
         //            self,
         //            action: #selector(cameraButtonPressed), // 2
@@ -115,12 +115,17 @@ final class ChatViewController: MessagesViewController {
     
     private func createChannel() {
         
-        channelReference.addDocument(data: channel.representation) { error in
+        let values = ["folder": channel.folder_image as Any,
+                      "users": channel.users as [String],
+        "name": channel.name as Any] as [String :  Any]
+        
+        channelReference.addDocument(data: values) { error in
             if let e = error {
                 print("Error saving channel: \(e.localizedDescription)")
             }
             
             let id =  self.channelReference.document().documentID
+            print("id channel : \(id)")
             self.setup(id: id)
         }
     }

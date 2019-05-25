@@ -50,7 +50,7 @@ extension Channel: DatabaseRepresentation {
     var representation: [String : Any] {
         var rep = ["name": name]
         rep["folder_image"] = folder_image
-//        rep["users"] = users
+//        rep["users"] = users as Any
         
         if let id = id {
             rep["id"] = id

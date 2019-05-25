@@ -245,7 +245,7 @@ class ViewItemController: UIViewController {
                 var users = [String]()
                 users.append(userID ?? "")
                 users.append(data.user_id ?? "")
-                let channel = Channel(name: self.item.name ?? "", folder_image: folder, users: users)
+                let channel = Channel(name: data.name ?? "", folder_image: folder, users: users)
                 let vc = ChatViewController(user: user, channel: channel)
                 self.navigationController?.pushViewController(vc, animated: true)
             }
