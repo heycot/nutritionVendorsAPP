@@ -36,20 +36,11 @@
                     <navigationItem key="navigationItem" id="0JG-Ol-lm3"/>
                     <connections>
                         <outlet property="viewChat" destination="vM0-ku-W5I" id="zuv-F0-uXD"/>
-                        <segue destination="aLd-lP-aTX" kind="show" identifier="ChatToLogin" id="N6u-Jo-8nN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dGu-cm-hCc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="664.79999999999995" y="160.56971514242881"/>
-        </scene>
-        <!--LoginLogoutStoryboardID-->
-        <scene sceneID="hjI-1O-vtc">
-            <objects>
-                <viewControllerPlaceholder storyboardName="LogInAndLogOut" referencedIdentifier="LoginLogoutStoryboardID" id="aLd-lP-aTX" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AP7-R8-aMd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1419.2" y="-74.662668665667169"/>
         </scene>
     </scenes>
 </document>
