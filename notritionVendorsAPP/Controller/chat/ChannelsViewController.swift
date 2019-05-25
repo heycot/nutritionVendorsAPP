@@ -87,46 +87,6 @@ class ChannelsViewController: UITableViewController {
         navigationController?.isToolbarHidden = true
     }
     
-    // MARK: - Actions
-    
-    @objc private func signOut() {
-        let ac = UIAlertController(title: nil, message: "Are you sure you want to sign out?", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        ac.addAction(UIAlertAction(title: "Sign Out", style: .destructive, handler: { _ in
-            do {
-                try Auth.auth().signOut()
-            } catch {
-                print("Error signing out: \(error.localizedDescription)")
-            }
-        }))
-        present(ac, animated: true, completion: nil)
-    }
-    
-    @objc private func addButtonPressed() {
-        let ac = UIAlertController(title: "Create a new Channel", message: nil, preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        ac.addTextField { field in
-            field.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
-            field.enablesReturnKeyAutomatically = true
-            field.autocapitalizationType = .words
-            field.clearButtonMode = .whileEditing
-            field.placeholder = "Channel name"
-            field.returnKeyType = .done
-            field.tintColor = .primary
-        }
-        
-        let createAction = UIAlertAction(title: "Create", style: .default, handler: { _ in
-            self.createChannel()
-        })
-        createAction.isEnabled = false
-        ac.addAction(createAction)
-        ac.preferredAction = createAction
-        
-        present(ac, animated: true) {
-            ac.textFields?.first?.becomeFirstResponder()
-        }
-        currentChannelAlertController = ac
-    }
     
     @objc private func textFieldDidChange(_ field: UITextField) {
         guard let ac = currentChannelAlertController else {
@@ -234,8 +194,8 @@ extension ChannelsViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let channel = channels[indexPath.row]
-//        let vc = ChatViewController(user: currentUser, channel: channel)
-//        navigationController?.pushViewController(vc, animated: true)
+        let vc = ChatViewController(user: currentUser, channel: channel)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }

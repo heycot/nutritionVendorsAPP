@@ -12,10 +12,12 @@ struct Channel {
     
     let id: String?
     let name: String
+    let folder_image: String
     
-    init(name: String) {
+    init(name: String, folder_image: String) {
         id = nil
         self.name = name
+        self.folder_image = folder_image
     }
     
     init?(document: QueryDocumentSnapshot) {
@@ -25,8 +27,13 @@ struct Channel {
             return nil
         }
         
+        guard let folder_image = data["folder_image"] as? String else {
+            return nil
+        }
+        
         id = document.documentID
         self.name = name
+        self.folder_image = folder_image
     }
     
 }
@@ -35,6 +42,7 @@ extension Channel: DatabaseRepresentation {
     
     var representation: [String : Any] {
         var rep = ["name": name]
+        rep["folder_image"] = folder_image
         
         if let id = id {
             rep["id"] = id
