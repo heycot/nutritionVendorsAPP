@@ -8,6 +8,7 @@
 //
 
 import Foundation
+import UIKit
 
 public protocol NibDesignableProtocol: NSObjectProtocol {
     // MARK: - Nib loading

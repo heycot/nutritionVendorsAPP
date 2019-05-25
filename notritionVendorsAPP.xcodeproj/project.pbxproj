@@ -15,7 +15,6 @@
 		2300BE7D222D3658008E9101 /* ViewCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2300BE7B222D3658008E9101 /* ViewCommentCell.xib */; };
 		230E2DD22226431D00246392 /* LogInAndLogOut.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 230E2DD12226431D00246392 /* LogInAndLogOut.storyboard */; };
 		230E2DED22267DCA00246392 /* CollectionItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230E2DEB22267DCA00246392 /* CollectionItemCell.swift */; };
-		2319A8CA2297F020001D9F20 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2319A8C92297F01F001D9F20 /* GoogleService-Info.plist */; };
 		2319A8D02297F9C4001D9F20 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A8CF2297F9C4001D9F20 /* ChatViewController.swift */; };
 		2319A8D22298021C001D9F20 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A8D12298021C001D9F20 /* Message.swift */; };
 		2319A8D5229806A9001D9F20 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A8D4229806A9001D9F20 /* Channel.swift */; };
@@ -27,6 +26,8 @@
 		2319A8E32298F6DB001D9F20 /* ChatNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A8E22298F6DB001D9F20 /* ChatNavigationController.swift */; };
 		2319A8E52298FB9F001D9F20 /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A8E42298FB9F001D9F20 /* ChannelViewController.swift */; };
 		2319A8E822990129001D9F20 /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A8E722990129001D9F20 /* ChannelCell.swift */; };
+		2319A8EA2299235C001D9F20 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2319A8E92299235B001D9F20 /* GoogleService-Info.plist */; };
+		2319A8EE22995565001D9F20 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2319A8ED22995562001D9F20 /* MBProgressHUD.m */; };
 		231ABDAA2266DAE0006D6B01 /* NibDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ABDA92266DAE0006D6B01 /* NibDesignable.swift */; };
 		231ABDB72266DE0C006D6B01 /* LocationServicesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ABDB62266DE0C006D6B01 /* LocationServicesProtocol.swift */; };
 		231ABDBA2266DF4D006D6B01 /* MapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ABDB92266DF4D006D6B01 /* MapManager.swift */; };
@@ -92,7 +93,6 @@
 		23695E9822278F3B00AD7076 /* ViewItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23695E9722278F3B00AD7076 /* ViewItemController.swift */; };
 		236A32B72258944500AA2410 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236A32B62258944500AA2410 /* FavoritesViewController.swift */; };
 		236A32B92258945F00AA2410 /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236A32B82258945F00AA2410 /* FavoritesCell.swift */; };
-		236A32BC22589D6100AA2410 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 236A32BA22589D6100AA2410 /* MBProgressHUD.m */; };
 		236A5A83225B455F005C27E8 /* HeaderCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236A5A82225B455F005C27E8 /* HeaderCollectionCell.swift */; };
 		2373EB90226D5E0B00D779F2 /* AccountLogedInCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2373EB8E226D5E0B00D779F2 /* AccountLogedInCell.swift */; };
 		2373EB91226D5E0B00D779F2 /* AccountLogedInCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2373EB8F226D5E0B00D779F2 /* AccountLogedInCell.xib */; };
@@ -136,7 +136,6 @@
 		2300BE7B222D3658008E9101 /* ViewCommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewCommentCell.xib; sourceTree = "<group>"; };
 		230E2DD12226431D00246392 /* LogInAndLogOut.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogInAndLogOut.storyboard; sourceTree = "<group>"; };
 		230E2DEB22267DCA00246392 /* CollectionItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionItemCell.swift; sourceTree = "<group>"; };
-		2319A8C92297F01F001D9F20 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2319A8CF2297F9C4001D9F20 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		2319A8D12298021C001D9F20 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		2319A8D4229806A9001D9F20 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
@@ -148,6 +147,10 @@
 		2319A8E22298F6DB001D9F20 /* ChatNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatNavigationController.swift; sourceTree = "<group>"; };
 		2319A8E42298FB9F001D9F20 /* ChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
 		2319A8E722990129001D9F20 /* ChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
+		2319A8E92299235B001D9F20 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2319A8EB2299555C001D9F20 /* notritionVendorsAPP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "notritionVendorsAPP-Bridging-Header.h"; sourceTree = "<group>"; };
+		2319A8EC22995561001D9F20 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		2319A8ED22995562001D9F20 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		231ABDA92266DAE0006D6B01 /* NibDesignable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibDesignable.swift; sourceTree = "<group>"; };
 		231ABDB62266DE0C006D6B01 /* LocationServicesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServicesProtocol.swift; sourceTree = "<group>"; };
 		231ABDB92266DF4D006D6B01 /* MapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapManager.swift; sourceTree = "<group>"; };
@@ -173,7 +176,6 @@
 		233B390722375463003EB253 /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
 		233B390A223755FD003EB253 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		233B390C22376476003EB253 /* StringLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringLibrary.swift; sourceTree = "<group>"; };
-		2347EEBA224E160400EC3A24 /* notritionVendorsAPP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "notritionVendorsAPP-Bridging-Header.h"; sourceTree = "<group>"; };
 		234B5CC522682AA900E7E61F /* ShopMarkerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopMarkerView.xib; sourceTree = "<group>"; };
 		234B5CC722682B0B00E7E61F /* ShopMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopMarkerView.swift; sourceTree = "<group>"; };
 		234B5CC9226834B100E7E61F /* GoogleMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GoogleMap.storyboard; sourceTree = "<group>"; };
@@ -214,8 +216,6 @@
 		23695E9722278F3B00AD7076 /* ViewItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewItemController.swift; sourceTree = "<group>"; };
 		236A32B62258944500AA2410 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		236A32B82258945F00AA2410 /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
-		236A32BA22589D6100AA2410 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		236A32BB22589D6100AA2410 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		236A5A82225B455F005C27E8 /* HeaderCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionCell.swift; sourceTree = "<group>"; };
 		2373EB8E226D5E0B00D779F2 /* AccountLogedInCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLogedInCell.swift; sourceTree = "<group>"; };
 		2373EB8F226D5E0B00D779F2 /* AccountLogedInCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountLogedInCell.xib; sourceTree = "<group>"; };
@@ -612,10 +612,10 @@
 				23D02E7422237A7900882742 /* Controller */,
 				23D02E7322237A7300882742 /* View */,
 				23D02E6C2223799400882742 /* Info.plist */,
-				2319A8C92297F01F001D9F20 /* GoogleService-Info.plist */,
-				236A32BB22589D6100AA2410 /* MBProgressHUD.h */,
-				236A32BA22589D6100AA2410 /* MBProgressHUD.m */,
-				2347EEBA224E160400EC3A24 /* notritionVendorsAPP-Bridging-Header.h */,
+				2319A8E92299235B001D9F20 /* GoogleService-Info.plist */,
+				2319A8EC22995561001D9F20 /* MBProgressHUD.h */,
+				2319A8ED22995562001D9F20 /* MBProgressHUD.m */,
+				2319A8EB2299555C001D9F20 /* notritionVendorsAPP-Bridging-Header.h */,
 			);
 			path = notritionVendorsAPP;
 			sourceTree = "<group>";
@@ -796,10 +796,10 @@
 				23D02E662223799300882742 /* Main.storyboard in Resources */,
 				234B5CC622682AA900E7E61F /* ShopMarkerView.xib in Resources */,
 				2381B64A225B064F004DAA64 /* CategoryCell.xib in Resources */,
+				2319A8EA2299235C001D9F20 /* GoogleService-Info.plist in Resources */,
 				2373EB9F226DC8A900D779F2 /* Comment.storyboard in Resources */,
 				235B6685226308D900BBFAFC /* DetailFood.storyboard in Resources */,
 				234B5CCA226834B100E7E61F /* GoogleMap.storyboard in Resources */,
-				2319A8CA2297F020001D9F20 /* GoogleService-Info.plist in Resources */,
 				235B668722630BCA00BBFAFC /* AccountDetail.storyboard in Resources */,
 				2352405722635661004B11CF /* Delivery.storyboard in Resources */,
 				2300BE79222D34B2008E9101 /* GeneralValueCell.xib in Resources */,
@@ -1005,6 +1005,7 @@
 				235A32BD2224F51500DE5B0E /* AccountDetailController.swift in Sources */,
 				2352404B22632E99004B11CF /* CategoryController.swift in Sources */,
 				2319A8D922980D3F001D9F20 /* AppSettings.swift in Sources */,
+				2319A8EE22995565001D9F20 /* MBProgressHUD.m in Sources */,
 				23EAA4472246638300A30E98 /* UserResponse.swift in Sources */,
 				2381B644225AFDE0004DAA64 /* CategoryResponse.swift in Sources */,
 				231ABDBA2266DF4D006D6B01 /* MapManager.swift in Sources */,
@@ -1020,7 +1021,6 @@
 				235A32B22224EA0C00DE5B0E /* HightRatingController.swift in Sources */,
 				231ABDB72266DE0C006D6B01 /* LocationServicesProtocol.swift in Sources */,
 				231AF5CE225F45850057DD11 /* ShopCell.swift in Sources */,
-				236A32BC22589D6100AA2410 /* MBProgressHUD.m in Sources */,
 				2381B649225B064F004DAA64 /* CategoryCell.swift in Sources */,
 				2319A8D7229806E5001D9F20 /* DatabaseRepresentation.swift in Sources */,
 				2300BE78222D34B2008E9101 /* GeneralValueCell.swift in Sources */,

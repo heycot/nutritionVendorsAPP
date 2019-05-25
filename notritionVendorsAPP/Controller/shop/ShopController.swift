@@ -83,41 +83,6 @@ class ShopController: UIViewController {
         
     }
     
-//    func loadDataFromAPI(offset: Int, isLoadMore: Bool) {
-//        HUD.show(.progress)
-//        guard let location = AuthServices.instance.currentLocation else {
-//            setupCurrentLocation()
-//            return
-//        }
-//
-//        let latitude = location.coordinate.latitude
-//        let longitude = location.coordinate.longitude
-//
-//        ShopService.instance.getListShopNearBy(latitude: latitude, longitude: longitude, distance: 5){ data in
-//            guard let data = data else {return }
-//
-//            if isLoadMore {
-//                for shop in data {
-//
-//                    self.currentList.append(shop)
-//                }
-//            } else {
-//                self.currentList = data
-//            }
-//
-//            HUD.hide()
-//            self.tableView.reloadData()
-//        }
-//
-//    }
-    
-//    func updateDistance(shops: [ShopResponse]) {
-//        guard let location = AuthServices.instance.currentLocation else { return }
-//
-//        for i in 0 ..< listItem.count {
-//            listItem[i].distance = listItem[i].getDistance(currlocation: location)
-//        }
-//    }
     
     
     @IBAction func searchBarPressed(_ sender: Any) {
@@ -148,11 +113,6 @@ class ShopController: UIViewController {
     @objc func viewInMapPressed() {
         performSegue(withIdentifier: SegueIdentifier.shopToGoogleMap.rawValue, sender: nil)
     }
-    
-    func stopSpinnerActivity() {
-        MBProgressHUD.hide(for: self.view, animated: true);
-    }
-    
     
     func checkItemInArray(array: [ShopResponse], item: ShopResponse) -> Bool {
         for arr in array {
