@@ -25,6 +25,8 @@
 		2319A8DF2298EFEC001D9F20 /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A8DE2298EFEC001D9F20 /* ChatController.swift */; };
 		2319A8E12298F135001D9F20 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A8E02298F135001D9F20 /* NavigationController.swift */; };
 		2319A8E32298F6DB001D9F20 /* ChatNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A8E22298F6DB001D9F20 /* ChatNavigationController.swift */; };
+		2319A8E52298FB9F001D9F20 /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A8E42298FB9F001D9F20 /* ChannelViewController.swift */; };
+		2319A8E822990129001D9F20 /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A8E722990129001D9F20 /* ChannelCell.swift */; };
 		231ABDAA2266DAE0006D6B01 /* NibDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ABDA92266DAE0006D6B01 /* NibDesignable.swift */; };
 		231ABDB72266DE0C006D6B01 /* LocationServicesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ABDB62266DE0C006D6B01 /* LocationServicesProtocol.swift */; };
 		231ABDBA2266DF4D006D6B01 /* MapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ABDB92266DF4D006D6B01 /* MapManager.swift */; };
@@ -144,6 +146,8 @@
 		2319A8DE2298EFEC001D9F20 /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
 		2319A8E02298F135001D9F20 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		2319A8E22298F6DB001D9F20 /* ChatNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatNavigationController.swift; sourceTree = "<group>"; };
+		2319A8E42298FB9F001D9F20 /* ChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
+		2319A8E722990129001D9F20 /* ChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
 		231ABDA92266DAE0006D6B01 /* NibDesignable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibDesignable.swift; sourceTree = "<group>"; };
 		231ABDB62266DE0C006D6B01 /* LocationServicesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServicesProtocol.swift; sourceTree = "<group>"; };
 		231ABDB92266DF4D006D6B01 /* MapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapManager.swift; sourceTree = "<group>"; };
@@ -319,12 +323,14 @@
 		2319A8CE2297F9A8001D9F20 /* chat */ = {
 			isa = PBXGroup;
 			children = (
+				2319A8E622990104001D9F20 /* view */,
 				2319A8CF2297F9C4001D9F20 /* ChatViewController.swift */,
 				2319A8D822980D3F001D9F20 /* AppSettings.swift */,
 				2319A8DA22980D71001D9F20 /* ChannelsViewController.swift */,
 				2319A8DE2298EFEC001D9F20 /* ChatController.swift */,
 				2319A8E02298F135001D9F20 /* NavigationController.swift */,
 				2319A8E22298F6DB001D9F20 /* ChatNavigationController.swift */,
+				2319A8E42298FB9F001D9F20 /* ChannelViewController.swift */,
 			);
 			path = chat;
 			sourceTree = "<group>";
@@ -337,6 +343,14 @@
 				2319A8D6229806E5001D9F20 /* DatabaseRepresentation.swift */,
 			);
 			path = chat;
+			sourceTree = "<group>";
+		};
+		2319A8E622990104001D9F20 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				2319A8E722990129001D9F20 /* ChannelCell.swift */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		231ABDA62266DA93006D6B01 /* map */ = {
@@ -925,6 +939,7 @@
 				23679F7E229292E600F427DD /* RecentResponse.swift in Sources */,
 				231ABDC22266E1B0006D6B01 /* mapRequestBodyDirections.swift in Sources */,
 				2323C8B2223F5B8B00DA68CA /* ViewLocationShopController.swift in Sources */,
+				2319A8E52298FB9F001D9F20 /* ChannelViewController.swift in Sources */,
 				235B169F226C71F6001A6BB6 /* AccountCell.swift in Sources */,
 				23B6023F222E767E00FBBD79 /* ExtensionUIImage.swift in Sources */,
 				231ABDBE2266E16B006D6B01 /* MapTaskManager.swift in Sources */,
@@ -956,6 +971,7 @@
 				2319A8D22298021C001D9F20 /* Message.swift in Sources */,
 				231AF5CC225F2BE50057DD11 /* ShopController.swift in Sources */,
 				23614F1122560F7E00B5DD81 /* FavoritesService.swift in Sources */,
+				2319A8E822990129001D9F20 /* ChannelCell.swift in Sources */,
 				2319A8DB22980D71001D9F20 /* ChannelsViewController.swift in Sources */,
 				23EAA4452246621100A30E98 /* CommentResponse.swift in Sources */,
 				23614F0F2256020E00B5DD81 /* FavoritesResponse.swift in Sources */,

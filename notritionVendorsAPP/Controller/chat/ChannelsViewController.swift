@@ -108,7 +108,7 @@ class ChannelsViewController: UITableViewController {
         }
         
         
-        let channel = Channel(name: channelName)
+        let channel = Channel(name: channelName, folder_image: "")
         channelReference.addDocument(data: channel.representation) { error in
             if let e = error {
                 print("Error saving channel: \(e.localizedDescription)")
@@ -194,8 +194,8 @@ extension ChannelsViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let channel = channels[indexPath.row]
-        let vc = ChatViewController(user: currentUser, channel: channel)
-        navigationController?.pushViewController(vc, animated: true)
+//        let vc = ChatViewController(user: currentUser, channel: channel)
+//        navigationController?.pushViewController(vc, animated: true)
     }
     
 }
