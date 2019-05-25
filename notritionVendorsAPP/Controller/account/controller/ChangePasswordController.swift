@@ -35,21 +35,21 @@ class ChangePasswordController: UIViewController {
     
     @IBAction func doneBtnPressed(_ sender: Any) {
         if validInput() && isCurrentCorrect {
-            AuthServices.instance.changePassword(pass: self.newPassword) { (data) in
-                guard let data = data else { return }
-                
-                if data == 1 {
-                    self.titleNotification.text = "Change password successfully!"
-                    self.notification.isHidden = true
-                    self.titleNotification.isHidden = false
-                    self.clearInput()
-//                    self.navigationController?.popViewController(animated: true)
-                } else {
-                    self.titleNotification.text = "Something went wrong. Please try again."
-                    self.titleNotification.isHidden = false
-                    self.notification.isHidden = true
-                }
-            }
+//            AuthServices.instance.changePassword(pass: self.newPassword) { (data) in
+//                guard let data = data else { return }
+//
+//                if data == 1 {
+//                    self.titleNotification.text = "Change password successfully!"
+//                    self.notification.isHidden = true
+//                    self.titleNotification.isHidden = false
+//                    self.clearInput()
+////                    self.navigationController?.popViewController(animated: true)
+//                } else {
+//                    self.titleNotification.text = "Something went wrong. Please try again."
+//                    self.titleNotification.isHidden = false
+//                    self.notification.isHidden = true
+//                }
+//            }
         }
     }
     
@@ -122,22 +122,22 @@ extension ChangePasswordController : UITextFieldDelegate {
                     return
                 }
                 
-                AuthServices.instance.checkPassword(pass: password) { (data) in
-                    guard let data = data else { return }
-                    
-                    if data == 0 {
-                        self.isCurrentCorrect = false
-                        self.titleNotification.text = "Your current password is not correct."
-                        self.titleNotification.isHidden = false
-                        self.notification.isHidden = true
-                        
-                    } else {
-                        self.isCurrentCorrect = true
-                        self.titleNotification.isHidden = true
-                        self.notification.isHidden = true
-                    }
-                    
-                }
+//                AuthServices.instance.checkPassword(pass: password) { (data) in
+//                    guard let data = data else { return }
+//                    
+//                    if data == 0 {
+//                        self.isCurrentCorrect = false
+//                        self.titleNotification.text = "Your current password is not correct."
+//                        self.titleNotification.isHidden = false
+//                        self.notification.isHidden = true
+//                        
+//                    } else {
+//                        self.isCurrentCorrect = true
+//                        self.titleNotification.isHidden = true
+//                        self.notification.isHidden = true
+//                    }
+//                    
+//                }
                 
 //                self.password = password
             case newPass:

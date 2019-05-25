@@ -22,6 +22,9 @@
 		2319A8D7229806E5001D9F20 /* DatabaseRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A8D6229806E5001D9F20 /* DatabaseRepresentation.swift */; };
 		2319A8D922980D3F001D9F20 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A8D822980D3F001D9F20 /* AppSettings.swift */; };
 		2319A8DB22980D71001D9F20 /* ChannelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A8DA22980D71001D9F20 /* ChannelsViewController.swift */; };
+		2319A8DF2298EFEC001D9F20 /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A8DE2298EFEC001D9F20 /* ChatController.swift */; };
+		2319A8E12298F135001D9F20 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A8E02298F135001D9F20 /* NavigationController.swift */; };
+		2319A8E32298F6DB001D9F20 /* ChatNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A8E22298F6DB001D9F20 /* ChatNavigationController.swift */; };
 		231ABDAA2266DAE0006D6B01 /* NibDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ABDA92266DAE0006D6B01 /* NibDesignable.swift */; };
 		231ABDB72266DE0C006D6B01 /* LocationServicesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ABDB62266DE0C006D6B01 /* LocationServicesProtocol.swift */; };
 		231ABDBA2266DF4D006D6B01 /* MapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ABDB92266DF4D006D6B01 /* MapManager.swift */; };
@@ -138,6 +141,9 @@
 		2319A8D6229806E5001D9F20 /* DatabaseRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseRepresentation.swift; sourceTree = "<group>"; };
 		2319A8D822980D3F001D9F20 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		2319A8DA22980D71001D9F20 /* ChannelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsViewController.swift; sourceTree = "<group>"; };
+		2319A8DE2298EFEC001D9F20 /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
+		2319A8E02298F135001D9F20 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		2319A8E22298F6DB001D9F20 /* ChatNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatNavigationController.swift; sourceTree = "<group>"; };
 		231ABDA92266DAE0006D6B01 /* NibDesignable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibDesignable.swift; sourceTree = "<group>"; };
 		231ABDB62266DE0C006D6B01 /* LocationServicesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServicesProtocol.swift; sourceTree = "<group>"; };
 		231ABDB92266DF4D006D6B01 /* MapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapManager.swift; sourceTree = "<group>"; };
@@ -316,6 +322,9 @@
 				2319A8CF2297F9C4001D9F20 /* ChatViewController.swift */,
 				2319A8D822980D3F001D9F20 /* AppSettings.swift */,
 				2319A8DA22980D71001D9F20 /* ChannelsViewController.swift */,
+				2319A8DE2298EFEC001D9F20 /* ChatController.swift */,
+				2319A8E02298F135001D9F20 /* NavigationController.swift */,
+				2319A8E22298F6DB001D9F20 /* ChatNavigationController.swift */,
 			);
 			path = chat;
 			sourceTree = "<group>";
@@ -922,10 +931,12 @@
 				2320C6F42251C8AD00A2C328 /* DetailPhotoCell.swift in Sources */,
 				2300BE6B222D30B7008E9101 /* GeneralInforItemCell.swift in Sources */,
 				2352405C226358A6004B11CF /* ItemInShopController.swift in Sources */,
+				2319A8DF2298EFEC001D9F20 /* ChatController.swift in Sources */,
 				231AE468222E2EDF0082C06E /* GeneralValueItem.swift in Sources */,
 				233B390B223755FD003EB253 /* Constant.swift in Sources */,
 				232900D2225C7124009D7DD1 /* CommentServices.swift in Sources */,
 				235A32BF2225301E00DE5B0E /* ChangePasswordController.swift in Sources */,
+				2319A8E12298F135001D9F20 /* NavigationController.swift in Sources */,
 				2373EB96226D80DF00D779F2 /* ActivityCell.swift in Sources */,
 				234B5CC822682B0B00E7E61F /* ShopMarkerView.swift in Sources */,
 				2352405222635191004B11CF /* AddCommentBtnCell.swift in Sources */,
@@ -974,6 +985,7 @@
 				23B7653E22642F4300DC76F7 /* NewCommentController.swift in Sources */,
 				236A5A83225B455F005C27E8 /* HeaderCollectionCell.swift in Sources */,
 				2327E28022940B80002E2109 /* FeebackController.swift in Sources */,
+				2319A8E32298F6DB001D9F20 /* ChatNavigationController.swift in Sources */,
 				235A32BD2224F51500DE5B0E /* AccountDetailController.swift in Sources */,
 				2352404B22632E99004B11CF /* CategoryController.swift in Sources */,
 				2319A8D922980D3F001D9F20 /* AppSettings.swift in Sources */,

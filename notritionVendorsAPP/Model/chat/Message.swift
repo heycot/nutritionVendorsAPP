@@ -9,6 +9,7 @@
 import Firebase
 import MessageKit
 import FirebaseFirestore
+import MessageInputBar
 
 struct Message: MessageType {
 //    var kind: MessageKind
@@ -19,7 +20,7 @@ struct Message: MessageType {
     let sentDate: Date
     let sender: Sender
     
-    var data: MessageKind {
+    var kind: MessageKind {
         if let image = image {
             return .photo(image as! MediaItem)
         } else {

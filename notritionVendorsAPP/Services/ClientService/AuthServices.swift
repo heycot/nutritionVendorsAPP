@@ -189,45 +189,45 @@ class AuthServices {
         
     }
     
-    
-    
-    func checkPassword(pass: String, completion: @escaping (Int?) -> Void) {
-        
-        let urlStr = BASE_URL + UserAPI.checkPass.rawValue + "/" + pass
-        
-        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
-            
-            guard let data = data else {return}
-            DispatchQueue.main.async {
-                
-                let stringInt = String.init(data: data, encoding: String.Encoding.utf8)
-                let inStr = stringInt ?? "0"
-                let int = Int.init(inStr)
-                
-                completion(int)
-            }
-        }
-    }
-    
-    
-    
-    func changePassword(pass: String, completion: @escaping (Int?) -> Void) {
-        
-        let urlStr = BASE_URL + UserAPI.changePass.rawValue + "/" + pass
-        
-        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
-            
-            guard let data = data else {return}
-            DispatchQueue.main.async {
-                
-                let stringInt = String.init(data: data, encoding: String.Encoding.utf8)
-                let inStr = stringInt ?? "0"
-                let int = Int.init(inStr)
-                
-                completion(int)
-            }
-        }
-    }
+//
+//
+//    func checkPassword(pass: String, completion: @escaping (Int?) -> Void) {
+//
+//        let urlStr = BASE_URL + UserAPI.checkPass.rawValue + "/" + pass
+//
+//        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
+//
+//            guard let data = data else {return}
+//            DispatchQueue.main.async {
+//
+//                let stringInt = String.init(data: data, encoding: String.Encoding.utf8)
+//                let inStr = stringInt ?? "0"
+//                let int = Int.init(inStr)
+//
+//                completion(int)
+//            }
+//        }
+//    }
+//
+//
+//
+//    func changePassword(pass: String, completion: @escaping (Int?) -> Void) {
+//
+//        let urlStr = BASE_URL + UserAPI.changePass.rawValue + "/" + pass
+//        
+//        NetworkingClient.shared.requestJson(urlStr: urlStr, method: "GET", jsonBody: nil, parameters: nil) { (data ) in
+//
+//            guard let data = data else {return}
+//            DispatchQueue.main.async {
+//
+//                let stringInt = String.init(data: data, encoding: String.Encoding.utf8)
+//                let inStr = stringInt ?? "0"
+//                let int = Int.init(inStr)
+//
+//                completion(int)
+//            }
+//        }
+//    }
     
     
 }

@@ -31,7 +31,7 @@ class ChannelsViewController: UITableViewController {
     private var channels = [Channel]()
     private var channelListener: ListenerRegistration?
     
-    private var currentUser: UserResponse
+    private var currentUser = UserResponse()
     
     deinit {
         channelListener?.remove()
@@ -41,7 +41,7 @@ class ChannelsViewController: UITableViewController {
         self.currentUser = currentUser
         super.init(style: .grouped)
         
-        title = "Channels"
+        title = "Chats"
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -54,14 +54,14 @@ class ChannelsViewController: UITableViewController {
         clearsSelectionOnViewWillAppear = true
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: channelCellIdentifier)
         
-        toolbarItems = [
-            UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(signOut)),
-            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            UIBarButtonItem(customView: toolbarLabel),
-            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed)),
-        ]
-        toolbarLabel.text = AppSettings.displayName
+//        toolbarItems = [
+//            UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(signOut)),
+//            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+//            UIBarButtonItem(customView: toolbarLabel),
+//            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+//            UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed)),
+//        ]
+//        toolbarLabel.text = AppSettings.displayName
         
         channelListener = channelReference.addSnapshotListener { querySnapshot, error in
             guard let snapshot = querySnapshot else {
@@ -234,8 +234,8 @@ extension ChannelsViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let channel = channels[indexPath.row]
-        let vc = ChatViewController(user: currentUser, channel: channel)
-        navigationController?.pushViewController(vc, animated: true)
+//        let vc = ChatViewController(user: currentUser, channel: channel)
+//        navigationController?.pushViewController(vc, animated: true)
     }
     
 }
