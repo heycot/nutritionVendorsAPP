@@ -13,22 +13,22 @@ class ChannelViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var notification: UILabel!
-//
+
 //    // firebase variale
 //    private let db = Firestore.firestore()
 //    private var channelReference: CollectionReference {
 //        return db.collection("channels").whereField("users", arrayContains: user.id ?? "") as! CollectionReference
 //    }
-//
+
     var channels = [Channel]()
-//    private var channelListener: ListenerRegistration?
-//
+    private var channelListener: ListenerRegistration?
+
     var user = UserResponse()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-
+        setupUser()
     }
 
     func setupView() {
@@ -51,24 +51,24 @@ class ChannelViewController: UIViewController {
 //        }
 //    }
 //
-//    func setupUser() {
-//        AuthServices.instance.checkLogedIn { (data) in
-//            guard let data = data else { return }
-//
-//            if data {
-//                let userID = Auth.auth().currentUser?.uid
-//                self.notification.isHidden = true
-//                AuthServices.instance.getProfile(userID: userID ?? "", completion: { (data) in
-//                    guard let data = data else { return }
-//                    self.user = data
+    func setupUser() {
+        AuthServices.instance.checkLogedIn { (data) in
+            guard let data = data else { return }
+
+            if data {
+                let userID = Auth.auth().currentUser?.uid
+                self.notification.isHidden = true
+                AuthServices.instance.getProfile(userID: userID ?? "", completion: { (data) in
+                    guard let data = data else { return }
+                    self.user = data
 //                    self.addSnapshot()
-//                })
-//
-//            } else {
-//                self.notification.text = "Please sign in to use this task"
-//            }
-//        }
-//    }
+                })
+
+            } else {
+                self.notification.text = "Please sign in to use this task"
+            }
+        }
+    }
 //
 //
 //    private func handleDocumentChange(_ change: DocumentChange) {
