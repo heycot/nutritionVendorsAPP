@@ -8,20 +8,20 @@
 
 import UIKit
 import Firebase
+import FirebaseFirestore
 
 class ChannelViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var notification: UILabel!
 
-//    // firebase variale
-//    private let db = Firestore.firestore()
+    // firebase variale
 //    private var channelReference: CollectionReference {
 //        return db.collection("channels").whereField("users", arrayContains: user.id ?? "") as! CollectionReference
 //    }
 
     var channels = [Channel]()
-    private var channelListener: ListenerRegistration?
+//    private var channelListener: ListenerRegistration?
 
     var user = UserResponse()
 
@@ -38,19 +38,22 @@ class ChannelViewController: UIViewController {
 
     }
     
-//    func addSnapshot() {
-//        channelListener = channelReference.addSnapshotListener { querySnapshot, error in
-//            guard let snapshot = querySnapshot else {
-//                print("Error listening for channel updates: \(error?.localizedDescription ?? "No error")")
-//                return
-//            }
-//
-//            snapshot.documentChanges.forEach { change in
-//                self.handleDocumentChange(change)
-//            }
-//        }
-//    }
-//
+    func addSnapshot() {
+        
+        let db = Firestore.firestore()
+        
+        db.collection("channels").whereField("users", arrayContains: self.user.id ?? "").addSnapshotListener(includeMetadataChanges: true) { (snapshot, error) in
+            
+            if error != nil {
+                print("error with snapshot")
+            }
+            
+            snapshot?.documentChanges.forEach({ (change) in
+                self.handleDocumentChange(change)
+            })
+        }
+    }
+
     func setupUser() {
         AuthServices.instance.checkLogedIn { (data) in
             guard let data = data else { return }
@@ -69,57 +72,57 @@ class ChannelViewController: UIViewController {
             }
         }
     }
-//
-//
-//    private func handleDocumentChange(_ change: DocumentChange) {
-//        guard let channel = Channel(document: change.document) else {
-//            return
-//        }
-//
-//        switch change.type {
-//        case .added:
-//            addChannelToTable(channel)
-//
-//        case .modified:
-//            updateChannelInTable(channel)
-//
-//        case .removed:
-//            removeChannelFromTable(channel)
-//        }
-//    }
-//
-//    private func addChannelToTable(_ channel: Channel) {
-//        guard !channels.contains(channel) else {
-//            return
-//        }
-//
-//        channels.append(channel)
-//        channels.sort()
-//
-//        guard let index = channels.index(of: channel) else {
-//            return
-//        }
-//        tableView.insertRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
-//    }
-//
-//    private func updateChannelInTable(_ channel: Channel) {
-//        guard let index = channels.index(of: channel) else {
-//            return
-//        }
-//
-//        channels[index] = channel
-//        tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
-//    }
-//
-//    private func removeChannelFromTable(_ channel: Channel) {
-//        guard let index = channels.index(of: channel) else {
-//            return
-//        }
-//
-//        channels.remove(at: index)
-//        tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
-//    }
-//
+
+
+    private func handleDocumentChange(_ change: DocumentChange) {
+        guard let channel = Channel(document: change.document) else {
+            return
+        }
+
+        switch change.type {
+        case .added:
+            addChannelToTable(channel)
+
+        case .modified:
+            updateChannelInTable(channel)
+
+        case .removed:
+            removeChannelFromTable(channel)
+        }
+    }
+
+    private func addChannelToTable(_ channel: Channel) {
+        guard !channels.contains(channel) else {
+            return
+        }
+
+        channels.append(channel)
+        channels.sort()
+
+        guard let index = channels.index(of: channel) else {
+            return
+        }
+        tableView.insertRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+    }
+
+    private func updateChannelInTable(_ channel: Channel) {
+        guard let index = channels.index(of: channel) else {
+            return
+        }
+
+        channels[index] = channel
+        tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+    }
+
+    private func removeChannelFromTable(_ channel: Channel) {
+        guard let index = channels.index(of: channel) else {
+            return
+        }
+
+        channels.remove(at: index)
+        tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+    }
+
 }
 
 extension ChannelViewController : UITableViewDelegate, UITableViewDataSource {
