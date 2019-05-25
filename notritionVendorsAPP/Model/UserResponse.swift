@@ -50,4 +50,9 @@ class UserResponse:Decodable {
     convenience init() {
         self.init( id: "", name: "", email: "", phone: "",  birthday: Date().timeIntervalSince1970, avatar: "", address: "", create_date: Date().timeIntervalSince1970, status: 0)
     }
+    
+    convenience init( id: String) {
+        self.init()
+        self.id = id
+    }
 }

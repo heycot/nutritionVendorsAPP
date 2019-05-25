@@ -158,14 +158,6 @@ class ViewItemController: UIViewController {
             let vc = segue.destination as? NewCommentController
             vc?.shopItem = item
             navigationItem.backBarButtonItem = backItem
-//        } else if segue.destination is ChatController {
-//            let vc = segue.destination as? ChatController
-//            vc?.shop = ShopResponse(id: item.shop_id ?? "", name: item.shop_name ?? "")
-//            vc?.titleChat = item.name ?? ""
-//            
-//            backItem.title = item.shop_name
-////            navigationItem.backBarButtonItem = backItem
-//            self.hidesBottomBarWhenPushed = true
         }
     }
     
@@ -225,9 +217,40 @@ class ViewItemController: UIViewController {
     }
     
     @objc func chatBtnPressed(btn: UIButton) {
-        performSegueFunc(identifier: SegueIdentifier.detailToChat.rawValue)
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            if user != nil {
+                self.getShopById()
+            } else {
+                // user is not signed in
+                
+                let alert = UIAlertController(title: "Can not chat", message: "Please sign in!", preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+                    self.performSegueFunc(identifier: SegueIdentifier.detailFoodToLogin.rawValue)
+                }))
+                alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+                self.present(alert, animated: true)
+            }
+        }
     }
     
+    func getShopById() {
+        ShopService.instance.getOneById(shopId: item.shop_id ?? "") { (data) in
+            guard let data = data else { return }
+            
+            if data.id != nil {
+                let userID = Auth.auth().currentUser?.uid
+                let user = UserResponse(id: userID ?? "")
+                let folder = "/images/\(ReferenceImage.shop.rawValue)/\(self.item.shop_id ?? "")/\(data.avatar ?? "")"
+                var users = [String]()
+                users.append(userID ?? "")
+                users.append(data.user_id ?? "")
+                let channel = Channel(name: self.item.name ?? "", folder_image: folder, users: users)
+                let vc = ChatViewController(user: user, channel: channel)
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
+    }
     @objc func addCmtBtnPressed(btn: UIButton) {
         AuthServices.instance.checkLogedIn { (data) in
             guard let data = data else { return }

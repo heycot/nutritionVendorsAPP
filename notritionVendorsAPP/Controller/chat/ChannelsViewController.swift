@@ -108,12 +108,12 @@ class ChannelsViewController: UITableViewController {
         }
         
         
-        let channel = Channel(name: channelName, folder_image: "")
-        channelReference.addDocument(data: channel.representation) { error in
-            if let e = error {
-                print("Error saving channel: \(e.localizedDescription)")
-            }
-        }
+//        let channel = Channel(name: channelName, folder_image: "")
+//        channelReference.addDocument(data: channel.representation) { error in
+//            if let e = error {
+//                print("Error saving channel: \(e.localizedDescription)")
+//            }
+//        }
     }
     
     private func addChannelToTable(_ channel: Channel) {
