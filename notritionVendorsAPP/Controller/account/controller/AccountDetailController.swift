@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class AccountDetailController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -31,6 +32,22 @@ class AccountDetailController: UIViewController {
         
         setUpForTableView()
         
+    }
+    
+    func getUser() {
+        AuthServices.instance.checkLogedIn { (data) in
+            guard let data = data else { return }
+            
+            if data {
+                let userID = Auth.auth().currentUser?.uid
+                AuthServices.instance.getProfile(userID: userID ?? "", completion: { (data) in
+                    guard let data = data else { return }
+                    self.user = data
+                    self.getDataFromAPI(offset: 0, isLoadMore: false)
+                    self.setupDetailInfor()
+                })
+            }
+        }
     }
     
     func registerCells() {
@@ -66,6 +83,7 @@ class AccountDetailController: UIViewController {
         detailCell.append(createDate)
         detailCell.append("")
         detailCell.append("")
+        detailCell.append("")
         viewInfor()
     }
     
@@ -92,7 +110,6 @@ class AccountDetailController: UIViewController {
             guard let data = data else { return }
             
             self.listComment = data
-            self.setupDetailInfor()
             self.tableView.reloadData()
         }
     }
@@ -159,7 +176,7 @@ extension AccountDetailController: UITableViewDelegate, UITableViewDataSource {
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
         
-        getDataFromAPI(offset: 0, isLoadMore: false)
+        getUser()
         isActivity = true
         super.viewWillAppear(true)
         tableView.reloadData()

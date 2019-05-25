@@ -96,21 +96,29 @@ final class ChatViewController: MessagesViewController {
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
         
+        
+        let moreButton = UIButton(frame: CGRect(x: 0, y: UIScreen.main.bounds.height - 50, width: 60, height: 30))
+        moreButton.setBackgroundImage(UIImage(named: "ic_more_vert_3"), for: .normal)
+        moreButton.addTarget(self, action: #selector(cameraButtonPressed), for: .touchUpInside)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: moreButton)
+        
+        
         //        let button = UIButton(type: .System)
-        let cameraItem = UIBarButtonItem(barButtonSystemItem: .done, target:  #selector(cameraButtonPressed), action: nil)
-        //            UIButton(type: .system) // 1
-        cameraItem.tintColor = .primary
-        cameraItem.image = #imageLiteral(resourceName: "photo-camera")
-        //        cameraItem.addTarget(
-        //            self,
-        //            action: #selector(cameraButtonPressed), // 2
-        //            for: .primaryActionTriggered
-        //        )
-        //        cameraItem.setSize(CGSize(width: 60, height: 30), animated: false)
+//        let cameraItem = UIBarButtonItem(barButtonSystemItem: .done, target:  #selector(cameraButtonPressed), action: nil)
+//        //            UIButton(type: .system) // 1
+//        cameraItem.tintColor = .primary
+//        cameraItem.image = #imageLiteral(resourceName: "photo-camera")
+//        //        cameraItem.addTarget(
+//        //            self,
+//        //            action: #selector(cameraButtonPressed), // 2
+//        //            for: .primaryActionTriggered
+//        //        )
+//        cameraItem.
+//                cameraItem.setSize(CGSize(width: 60, height: 30), animated: false)
         
         messageInputBar.leftStackView.alignment = .center
         messageInputBar.setLeftStackViewWidthConstant(to: 50, animated: false)
-        messageInputBar.setStackViewItems([cameraItem as! InputItem], forStack: .left, animated: false) // 3
+//        messageInputBar.setStackViewItems([moreButton as! InputItem], forStack: .left, animated: false) // 3
     }
     
     private func createChannel() {
@@ -119,15 +127,26 @@ final class ChatViewController: MessagesViewController {
                       "users": channel.users as [String],
         "name": channel.name as Any] as [String :  Any]
         
-        channelReference.addDocument(data: values) { error in
+        let ref = channelReference.document()
+        
+        ref.setData(values) { (error) in
             if let e = error {
                 print("Error saving channel: \(e.localizedDescription)")
             }
             
             let id =  self.channelReference.document().documentID
-            print("id channel : \(id)")
+            print("id channel : \(ref.documentID)")
             self.setup(id: id)
         }
+        
+//        channelReference.addDocument(data: values) { error in
+//            if let e = error {
+//                print("Error saving channel: \(e.localizedDescription)")
+//            }
+//
+//            let id =  self.channelReference.document().documentID
+//            self.setup(id: id)
+//        }
     }
     
     // MARK: - Actions
