@@ -7,32 +7,15 @@
 //
 
 import UIKit
-import Firebase
 
 class ChatController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if Auth.auth().currentUser != nil {
-            let userID = Auth.auth().currentUser?.uid
-            AuthServices.instance.getProfile(userID: userID ?? "") { (data) in
-                guard let data = data else { return }
-                
-                
-                let vc = ChannelsViewController(currentUser: data)
-               // self.navigationController?.pushViewController(vc, animated: true)
-               let rootViewController = NavigationController(vc)
-
-                self.view = vc.view
-//                self.present(rootViewController, animated: true, completion: {
-                
-//                })
-            }
-        } else {
-            
-        }
+        // Do any additional setup after loading the view.
     }
     
+
 
 }

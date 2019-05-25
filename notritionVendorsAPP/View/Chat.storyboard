@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Chat Controller-->
         <scene sceneID="bf7-Co-Sqv">
             <objects>
-                <viewController storyboardIdentifier="ChatStoryboardID" id="HA6-XU-uzh" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatStoryboardID" id="HA6-XU-uzh" customClass="ChatController" customModule="notritionVendorsAPP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yIa-2h-F3B">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -40,7 +40,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dGu-cm-hCc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="664.79999999999995" y="160.56971514242881"/>
+            <point key="canvasLocation" x="1172" y="-5"/>
         </scene>
     </scenes>
 </document>

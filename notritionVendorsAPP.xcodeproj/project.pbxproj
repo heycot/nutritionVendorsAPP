@@ -21,13 +21,13 @@
 		2319A8D7229806E5001D9F20 /* DatabaseRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A8D6229806E5001D9F20 /* DatabaseRepresentation.swift */; };
 		2319A8D922980D3F001D9F20 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A8D822980D3F001D9F20 /* AppSettings.swift */; };
 		2319A8DB22980D71001D9F20 /* ChannelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A8DA22980D71001D9F20 /* ChannelsViewController.swift */; };
-		2319A8DF2298EFEC001D9F20 /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A8DE2298EFEC001D9F20 /* ChatController.swift */; };
 		2319A8E12298F135001D9F20 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A8E02298F135001D9F20 /* NavigationController.swift */; };
 		2319A8E32298F6DB001D9F20 /* ChatNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A8E22298F6DB001D9F20 /* ChatNavigationController.swift */; };
 		2319A8E52298FB9F001D9F20 /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A8E42298FB9F001D9F20 /* ChannelViewController.swift */; };
 		2319A8E822990129001D9F20 /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A8E722990129001D9F20 /* ChannelCell.swift */; };
 		2319A8EA2299235C001D9F20 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2319A8E92299235B001D9F20 /* GoogleService-Info.plist */; };
 		2319A8EE22995565001D9F20 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2319A8ED22995562001D9F20 /* MBProgressHUD.m */; };
+		2319A8F022995F77001D9F20 /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319A8EF22995F77001D9F20 /* ChatController.swift */; };
 		231ABDAA2266DAE0006D6B01 /* NibDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ABDA92266DAE0006D6B01 /* NibDesignable.swift */; };
 		231ABDB72266DE0C006D6B01 /* LocationServicesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ABDB62266DE0C006D6B01 /* LocationServicesProtocol.swift */; };
 		231ABDBA2266DF4D006D6B01 /* MapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231ABDB92266DF4D006D6B01 /* MapManager.swift */; };
@@ -142,7 +142,6 @@
 		2319A8D6229806E5001D9F20 /* DatabaseRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseRepresentation.swift; sourceTree = "<group>"; };
 		2319A8D822980D3F001D9F20 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		2319A8DA22980D71001D9F20 /* ChannelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsViewController.swift; sourceTree = "<group>"; };
-		2319A8DE2298EFEC001D9F20 /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
 		2319A8E02298F135001D9F20 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		2319A8E22298F6DB001D9F20 /* ChatNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatNavigationController.swift; sourceTree = "<group>"; };
 		2319A8E42298FB9F001D9F20 /* ChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +150,7 @@
 		2319A8EB2299555C001D9F20 /* notritionVendorsAPP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "notritionVendorsAPP-Bridging-Header.h"; sourceTree = "<group>"; };
 		2319A8EC22995561001D9F20 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		2319A8ED22995562001D9F20 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		2319A8EF22995F77001D9F20 /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
 		231ABDA92266DAE0006D6B01 /* NibDesignable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibDesignable.swift; sourceTree = "<group>"; };
 		231ABDB62266DE0C006D6B01 /* LocationServicesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServicesProtocol.swift; sourceTree = "<group>"; };
 		231ABDB92266DF4D006D6B01 /* MapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapManager.swift; sourceTree = "<group>"; };
@@ -327,10 +327,10 @@
 				2319A8CF2297F9C4001D9F20 /* ChatViewController.swift */,
 				2319A8D822980D3F001D9F20 /* AppSettings.swift */,
 				2319A8DA22980D71001D9F20 /* ChannelsViewController.swift */,
-				2319A8DE2298EFEC001D9F20 /* ChatController.swift */,
 				2319A8E02298F135001D9F20 /* NavigationController.swift */,
 				2319A8E22298F6DB001D9F20 /* ChatNavigationController.swift */,
 				2319A8E42298FB9F001D9F20 /* ChannelViewController.swift */,
+				2319A8EF22995F77001D9F20 /* ChatController.swift */,
 			);
 			path = chat;
 			sourceTree = "<group>";
@@ -946,7 +946,6 @@
 				2320C6F42251C8AD00A2C328 /* DetailPhotoCell.swift in Sources */,
 				2300BE6B222D30B7008E9101 /* GeneralInforItemCell.swift in Sources */,
 				2352405C226358A6004B11CF /* ItemInShopController.swift in Sources */,
-				2319A8DF2298EFEC001D9F20 /* ChatController.swift in Sources */,
 				231AE468222E2EDF0082C06E /* GeneralValueItem.swift in Sources */,
 				233B390B223755FD003EB253 /* Constant.swift in Sources */,
 				232900D2225C7124009D7DD1 /* CommentServices.swift in Sources */,
@@ -990,6 +989,7 @@
 				23679F7A22928C7400F427DD /* RecentServices.swift in Sources */,
 				2359CD6A225750A200C5D892 /* NotificationConstant.swift in Sources */,
 				235A32B52224EAB400DE5B0E /* ExtensionTextField.swift in Sources */,
+				2319A8F022995F77001D9F20 /* ChatController.swift in Sources */,
 				23D02E632223799300882742 /* LoginController.swift in Sources */,
 				235A32B72224EB6400DE5B0E /* ExtensionStackView.swift in Sources */,
 				236A32B92258945F00AA2410 /* FavoritesCell.swift in Sources */,
