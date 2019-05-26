@@ -36,7 +36,7 @@ struct Message: MessageType {
     var downloadURL: URL? = nil
     
     init(user: UserResponse, content: String) {
-        sender = Sender(id: user.id ?? "", displayName: AppSettings.displayName)
+        sender = Sender(id: user.id ?? "", displayName: AppSettings.displayName ?? "")
         self.content = content
         sentDate = Date()
         id = nil

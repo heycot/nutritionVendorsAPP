@@ -134,7 +134,7 @@ final class ChatViewController: MessagesViewController {
                 print("Error saving channel: \(e.localizedDescription)")
             }
             
-            let id =  self.channelReference.document().documentID
+            let id =  ref.documentID
             print("id channel : \(ref.documentID)")
             self.setup(id: id)
         }
@@ -333,7 +333,7 @@ extension ChatViewController: MessagesDataSource {
     
     
     func currentSender() -> Sender {
-        return Sender(id: user.id ?? "", displayName: AppSettings.displayName)
+        return Sender(id: user.id ?? "", displayName: AppSettings.displayName ?? "")
     }
     
     func numberOfMessages(in messagesCollectionView: MessagesCollectionView) -> Int {
