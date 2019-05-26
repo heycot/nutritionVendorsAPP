@@ -61,31 +61,37 @@ final class ChatViewController: MessagesViewController {
     }
     
     func checkChannel() {
-        var exists = false
         
-        let docRef = db.collection("channels").whereField("users", arrayContains: user.id as Any).whereField("name", isEqualTo: channel.name)
-        
-        docRef.getDocuments { (document, error) in
-            
-            if error != nil {
-                print(error as Any)
-                return
-            }
-            
-            if let document = document {
-                
-                for doc in document.documents {
-                    exists = true
-                    print(doc.documentID)
-                    self.setup(id: doc.documentID)
-                    break
-                }
-                
-                if !exists {
-                    self.createChannel()
-                }
+        ChannelServices.instance.checkChannel(channel: channel, userID: user.id ?? "") { (data) in
+            if data == nil {
+                self.createChannel()
+            } else {
+                self.setup(id: data ?? "")
             }
         }
+//        var exists = false
+//
+//        let docRef = db.collection("channels").whereField("users", arrayContains: user.id as Any).whereField("name", isEqualTo: channel.name)
+//
+//        docRef.getDocuments { (document, error) in
+//
+//            if error != nil {
+//                print(error as Any)
+//                return
+//            }
+//
+//            if let document = document {
+//
+//                for doc in document.documents {
+//                    exists = true
+//                    print(doc.documentID)
+//                    break
+//                }
+//
+//                if !exists {
+//                }
+//            }
+//        }
     }
     
     func setup(id: String) {

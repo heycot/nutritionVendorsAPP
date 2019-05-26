@@ -67,6 +67,7 @@
 		2352405A2263577A004B11CF /* DeliveryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235240592263577A004B11CF /* DeliveryController.swift */; };
 		2352405C226358A6004B11CF /* ItemInShopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2352405B226358A6004B11CF /* ItemInShopController.swift */; };
 		2359CD6A225750A200C5D892 /* NotificationConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359CD69225750A200C5D892 /* NotificationConstant.swift */; };
+		235A16C2229A61CB00AD09BB /* ChannelServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A16C1229A61CB00AD09BB /* ChannelServices.swift */; };
 		235A32B02224E9F200DE5B0E /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32AF2224E9F200DE5B0E /* SignupController.swift */; };
 		235A32B22224EA0C00DE5B0E /* HightRatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32B12224EA0C00DE5B0E /* HightRatingController.swift */; };
 		235A32B52224EAB400DE5B0E /* ExtensionTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A32B42224EAB400DE5B0E /* ExtensionTextField.swift */; };
@@ -190,6 +191,7 @@
 		235240592263577A004B11CF /* DeliveryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryController.swift; sourceTree = "<group>"; };
 		2352405B226358A6004B11CF /* ItemInShopController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInShopController.swift; sourceTree = "<group>"; };
 		2359CD69225750A200C5D892 /* NotificationConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationConstant.swift; sourceTree = "<group>"; };
+		235A16C1229A61CB00AD09BB /* ChannelServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelServices.swift; sourceTree = "<group>"; };
 		235A32AF2224E9F200DE5B0E /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
 		235A32B12224EA0C00DE5B0E /* HightRatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HightRatingController.swift; sourceTree = "<group>"; };
 		235A32B42224EAB400DE5B0E /* ExtensionTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTextField.swift; sourceTree = "<group>"; };
@@ -695,6 +697,7 @@
 				235B169C226C2EEC001A6BB6 /* SearchServices.swift */,
 				23679F772290042F00F427DD /* ImageServices.swift */,
 				23679F7922928C7400F427DD /* RecentServices.swift */,
+				235A16C1229A61CB00AD09BB /* ChannelServices.swift */,
 			);
 			path = ClientService;
 			sourceTree = "<group>";
@@ -971,6 +974,7 @@
 				231AF5CC225F2BE50057DD11 /* ShopController.swift in Sources */,
 				23614F1122560F7E00B5DD81 /* FavoritesService.swift in Sources */,
 				2319A8E822990129001D9F20 /* ChannelCell.swift in Sources */,
+				235A16C2229A61CB00AD09BB /* ChannelServices.swift in Sources */,
 				2319A8DB22980D71001D9F20 /* ChannelsViewController.swift in Sources */,
 				23EAA4452246621100A30E98 /* CommentResponse.swift in Sources */,
 				23614F0F2256020E00B5DD81 /* FavoritesResponse.swift in Sources */,
