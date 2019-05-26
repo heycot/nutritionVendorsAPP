@@ -18,7 +18,7 @@ class GeneralInforItemCell: UITableViewCell {
     @IBOutlet weak var itemPhotos: UIButton!
     @IBOutlet weak var itemFavorites: CustomTextFeild!
     @IBOutlet weak var itemRating: CustomTextFeildRating!
-    @IBOutlet weak var loveBtn: CustomButton!
+    @IBOutlet weak var loveBtn: UIButton!
     
     func updateView(item: ShopItemResponse) {
         customUI()

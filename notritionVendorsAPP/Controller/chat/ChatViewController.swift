@@ -69,29 +69,6 @@ final class ChatViewController: MessagesViewController {
                 self.setup(id: data ?? "")
             }
         }
-//        var exists = false
-//
-//        let docRef = db.collection("channels").whereField("users", arrayContains: user.id as Any).whereField("name", isEqualTo: channel.name)
-//
-//        docRef.getDocuments { (document, error) in
-//
-//            if error != nil {
-//                print(error as Any)
-//                return
-//            }
-//
-//            if let document = document {
-//
-//                for doc in document.documents {
-//                    exists = true
-//                    print(doc.documentID)
-//                    break
-//                }
-//
-//                if !exists {
-//                }
-//            }
-//        }
     }
     
     func setup(id: String) {
@@ -121,10 +98,10 @@ final class ChatViewController: MessagesViewController {
         messagesCollectionView.messagesDisplayDelegate = self
         
         
-        let moreButton = UIButton(frame: CGRect(x: 0, y: UIScreen.main.bounds.height - 50, width: 60, height: 30))
+        let moreButton = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 50))
         moreButton.setBackgroundImage(#imageLiteral(resourceName: "photo-camera"), for: .normal)
         moreButton.addTarget(self, action: #selector(cameraButtonPressed), for: .touchUpInside)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: moreButton)
+//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: moreButton)
         
         
         //        let button = UIButton(type: .System)
@@ -142,25 +119,15 @@ final class ChatViewController: MessagesViewController {
         
         messageInputBar.leftStackView.alignment = .center
         messageInputBar.setLeftStackViewWidthConstant(to: 50, animated: false)
+//        messageInputBar.setStackViewItems([moreButton as! InputItem], forStack: .left, animated: false)
 //        messageInputBar.setStackViewItems([moreButton as! InputItem], forStack: .left, animated: false) // 3
     }
     
     private func createChannel() {
         
-        let values = ["folder": channel.folder_image as Any,
-                      "users": channel.users as [String],
-        "name": channel.name as Any] as [String :  Any]
-        
-        let ref = channelReference.document()
-        
-        ref.setData(values) { (error) in
-            if let e = error {
-                print("Error saving channel: \(e.localizedDescription)")
-            }
-            
-            let id =  ref.documentID
-            print("id channel : \(ref.documentID)")
-            self.setup(id: id)
+        ChannelServices.instance.addOne(channel: channel) { (data) in
+            guard let data = data else { return }
+            self.setup(id: data)
         }
     }
     

@@ -15,6 +15,7 @@ class ChannelViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var notification: UILabel!
 
+    
     // firebase variale
 //    private var channelReference: CollectionReference {
 //        return db.collection("channels").whereField("users", arrayContains: user.id ?? "") as! CollectionReference
@@ -29,6 +30,7 @@ class ChannelViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         setupUser()
+        viewListChannel()
     }
 
     func setupView() {
@@ -36,6 +38,20 @@ class ChannelViewController: UIViewController {
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
 
+    }
+    
+    func viewListChannel() {
+        ChannelServices.instance.getAllChannelByUser { (data) in
+            guard let data = data else { return }
+            
+            if data.count == 0 {
+                self.notification.text = "No data to show"
+                self.notification.isHidden = false
+            }
+            
+            self.channels = data
+            self.tableView.reloadData()
+        }
     }
     
     func addSnapshot() {
@@ -150,8 +166,8 @@ extension ChannelViewController : UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let channel = channels[indexPath.row]
-        //        let vc = ChatViewController(user: currentUser, channel: channel)
-        //        navigationController?.pushViewController(vc, animated: true)
+        let vc = ChatViewController(user: user, channel: channel)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }

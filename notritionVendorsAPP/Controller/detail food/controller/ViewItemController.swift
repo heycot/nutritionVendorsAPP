@@ -241,7 +241,7 @@ class ViewItemController: UIViewController {
             if data.id != nil {
                 let userID = Auth.auth().currentUser?.uid
                 let user = UserResponse(id: userID ?? "")
-                let folder = "/images/\(ReferenceImage.shop.rawValue)/\(self.item.shop_id ?? "")/\(data.avatar ?? "")"
+                let folder = "/images/\(ReferenceImage.shop.rawValue)\(self.item.shop_id ?? "")/\(data.avatar ?? "")"
                 var users = [String]()
                 users.append(userID ?? "")
                 users.append(data.user_id ?? "")

@@ -709,7 +709,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="tT0-jy-YF6">
                                                     <rect key="frame" x="10" y="10" width="404" height="79.666666666666671"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RRt-Jl-ASr" customClass="CustomImageView" customModule="notritionVendorsAPP" customModuleProvider="target">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RRt-Jl-ASr" customClass="CustomImageView" customModule="notritionVendorsAPP" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="60" height="79.666666666666671"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="60" id="3GG-1l-fqE"/>
@@ -1537,7 +1537,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="1rJ-35-7EC">
                                                     <rect key="frame" x="0.0" y="0.0" width="394" height="60.666666666666664"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u9k-uf-g5c" customClass="CustomImageView" customModule="notritionVendorsAPP" customModuleProvider="target">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="u9k-uf-g5c" customClass="CustomImageView" customModule="notritionVendorsAPP" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="70" height="60.666666666666664"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="70" id="awX-Ml-SIM"/>
@@ -1613,9 +1613,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="o9p-8j-6lK"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Chats" id="bFx-Xc-fzN">
-                        <barButtonItem key="leftBarButtonItem" image="loved" id="KF9-1s-bFY"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Chats" id="bFx-Xc-fzN"/>
                     <connections>
                         <outlet property="notification" destination="nDI-KF-0LS" id="vAl-BX-Jr3"/>
                         <outlet property="tableView" destination="73C-21-Ziz" id="wMg-ig-pqK"/>
@@ -1652,6 +1650,7 @@
     <resources>
         <image name="backgroud" width="1600" height="900"/>
         <image name="full_star" width="24" height="24"/>
+        <image name="logo" width="129" height="129"/>
         <image name="loved" width="24" height="24"/>
         <image name="man-user" width="24" height="24"/>
         <image name="messenger(1)" width="32" height="32"/>

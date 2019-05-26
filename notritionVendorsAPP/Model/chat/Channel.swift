@@ -8,12 +8,12 @@
 
 import FirebaseFirestore
 
-struct Channel {
+struct Channel : Decodable{
     
-    let id: String?
-    let name: String
-    let folder_image: String
-    let users: [String]
+    var id: String?
+    var name: String
+    var folder_image: String
+    var users: [String]
     
     init(name: String, folder_image: String, users: [String]) {
         id = nil
