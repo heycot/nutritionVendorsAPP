@@ -265,7 +265,9 @@ class ViewItemController: UIViewController {
         channel.name_second = shop.name ?? ""
         channel.image_second = folder
         channel.user_id_second = shop.user_id ?? ""
+        
         channel.is_with_shop = 1
+        channel.users = users
         
         return channel
     }
