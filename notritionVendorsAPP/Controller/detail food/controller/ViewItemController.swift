@@ -239,18 +239,37 @@ class ViewItemController: UIViewController {
             guard let data = data else { return }
             
             if data.id != nil {
-                let userID = Auth.auth().currentUser?.uid
-                let user = UserResponse(id: userID ?? "")
-                let folder = "/images/\(ReferenceImage.shop.rawValue)\(self.item.shop_id ?? "")/\(data.avatar ?? "")"
-                var users = [String]()
-                users.append(userID ?? "")
-                users.append(data.user_id ?? "")
-                let channel = Channel(name: data.name ?? "", folder_image: folder, users: users)
+                let user = AuthServices.instance.user ?? UserResponse()
+                let channel = self.initChannel(shop: data, user: user )
                 let vc = ChatViewController(user: user, channel: channel)
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         }
     }
+    
+    
+    func initChannel(shop: ShopResponse, user: UserResponse) -> Channel {
+        
+        var users = [String]()
+        users.append(user.id ?? "")
+        users.append(shop.user_id ?? "")
+        
+        var channel = Channel()
+        
+        var folder = "\(ReferenceImage.user.rawValue)\(user.avatar ?? "")"
+        channel.name_first = user.name ?? ""
+        channel.image_first = folder
+        channel.user_id_first = user.id ?? ""
+        
+        folder = "\(ReferenceImage.shop.rawValue)\(shop.id ?? "")/\(shop.avatar ?? "")"
+        channel.name_second = shop.name ?? ""
+        channel.image_second = folder
+        channel.user_id_second = shop.user_id ?? ""
+        channel.is_with_shop = 1
+        
+        return channel
+    }
+    
     @objc func addCmtBtnPressed(btn: UIButton) {
         AuthServices.instance.checkLogedIn { (data) in
             guard let data = data else { return }

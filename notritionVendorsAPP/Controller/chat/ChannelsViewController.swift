@@ -187,7 +187,7 @@ extension ChannelsViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: channelCellIdentifier, for: indexPath)
         
         cell.accessoryType = .disclosureIndicator
-        cell.textLabel?.text = channels[indexPath.row].name
+//        cell.textLabel?.text = channels[indexPath.row].name
         
         return cell
     }
