@@ -64,7 +64,7 @@ class ChannelViewController: UIViewController {
                 AuthServices.instance.getProfile(userID: userID ?? "", completion: { (data) in
                     guard let data = data else { return }
                     self.user = data
-//                    self.addSnapshot()
+                    self.addSnapshot()
                 })
 
             } else {

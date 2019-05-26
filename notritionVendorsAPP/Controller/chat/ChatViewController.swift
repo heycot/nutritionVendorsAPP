@@ -57,17 +57,35 @@ final class ChatViewController: MessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let id = channel.id else {
-            
-            createChannel()
-            return
-        }
-        
-        setup(id: id)
+        checkChannel()
     }
     
-    func getChatByChannel() {
+    func checkChannel() {
+        var exists = false
         
+        let docRef = db.collection("channels").whereField("users", arrayContains: user.id as Any).whereField("name", isEqualTo: channel.name)
+        
+        docRef.getDocuments { (document, error) in
+            
+            if error != nil {
+                print(error as Any)
+                return
+            }
+            
+            if let document = document {
+                
+                for doc in document.documents {
+                    exists = true
+                    print(doc.documentID)
+                    self.setup(id: doc.documentID)
+                    break
+                }
+                
+                if !exists {
+                    self.createChannel()
+                }
+            }
+        }
     }
     
     func setup(id: String) {
@@ -98,7 +116,7 @@ final class ChatViewController: MessagesViewController {
         
         
         let moreButton = UIButton(frame: CGRect(x: 0, y: UIScreen.main.bounds.height - 50, width: 60, height: 30))
-        moreButton.setBackgroundImage(UIImage(named: "ic_more_vert_3"), for: .normal)
+        moreButton.setBackgroundImage(#imageLiteral(resourceName: "photo-camera"), for: .normal)
         moreButton.addTarget(self, action: #selector(cameraButtonPressed), for: .touchUpInside)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: moreButton)
         
@@ -138,15 +156,6 @@ final class ChatViewController: MessagesViewController {
             print("id channel : \(ref.documentID)")
             self.setup(id: id)
         }
-        
-//        channelReference.addDocument(data: values) { error in
-//            if let e = error {
-//                print("Error saving channel: \(e.localizedDescription)")
-//            }
-//
-//            let id =  self.channelReference.document().documentID
-//            self.setup(id: id)
-//        }
     }
     
     // MARK: - Actions
