@@ -22,12 +22,12 @@ class NavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationBar.tintColor = .primary
+        navigationBar.tintColor = .primaryCustom
         navigationBar.prefersLargeTitles = true
-        navigationBar.titleTextAttributes = [.foregroundColor: UIColor.primary]
+        navigationBar.titleTextAttributes = [.foregroundColor: UIColor.primaryCustom]
         navigationBar.largeTitleTextAttributes = navigationBar.titleTextAttributes
         
-        toolbar.tintColor = .primary
+        toolbar.tintColor = .primaryCustom
     }
     
     override var shouldAutorotate: Bool {

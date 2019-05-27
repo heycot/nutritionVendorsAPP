@@ -101,9 +101,12 @@ class AuthServices {
                     docRef.getDocument(completion: { (document, error) in
                         if let document = document, document.exists {
                             let jsonData = try? JSONSerialization.data(withJSONObject: document.data() as Any)
+                            
                             do {
                                 let user = try JSONDecoder().decode(UserResponse.self, from: jsonData!)
                                 self.user = user
+                                self.user?.id = document.documentID
+                                
                             } catch let jsonError {
                                 print("Error serializing json:", jsonError)
                             }
@@ -146,24 +149,24 @@ class AuthServices {
     }
     
     func getProfile(userID: String, completion: @escaping (UserResponse?) -> Void){
-        
+
         let db = Firestore.firestore()
         let docRef = db.collection("user_profile").document(userID)
-        
+
         docRef.getDocument(completion: { (document, error) in
             if let document = document, document.exists {
                 let jsonData = try? JSONSerialization.data(withJSONObject: document.data() as Any)
                 do {
                     let user = try JSONDecoder().decode(UserResponse.self, from: jsonData!)
                     user.id = document.documentID
-                    
+
                     DispatchQueue.main.async {
                         completion(user)
                     }
                 } catch let jsonError {
                     print("Error serializing json:", jsonError)
                 }
-                
+
             } else {
                 print("User have no profile")
             }
