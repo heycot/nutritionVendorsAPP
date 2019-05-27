@@ -104,13 +104,33 @@ final class ChatViewController: MessagesViewController {
         messagesCollectionView.messagesDisplayDelegate = self
         
         
-        let moreButton = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 50))
-        moreButton.setBackgroundImage(#imageLiteral(resourceName: "photo-camera"), for: .normal)
-        moreButton.addTarget(self, action: #selector(cameraButtonPressed), for: .touchUpInside)
+//        let moreButton = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 50))
+//        moreButton.setBackgroundImage(#imageLiteral(resourceName: "photo-camera"), for: .normal)
+//        moreButton.addTarget(self, action: #selector(cameraButtonPressed), for: .touchUpInside)
+//
+//        messageInputBar.leftStackView.alignment = .center
+//        messageInputBar.setLeftStackViewWidthConstant(to: 50, animated: false)
+////        messageInputBar.setStackViewItems([moreButton as! InputItem], forStack: .left, animated: false)
+        
+        // 1
+        let cameraItem = InputBarButtonItem(type: .system)
+        cameraItem.tintColor = .primary
+        cameraItem.image = #imageLiteral(resourceName: "photo-camera")
+        
+        // 2
+        cameraItem.addTarget(
+            self,
+            action: #selector(cameraButtonPressed),
+            for: .primaryActionTriggered
+        )
+        cameraItem.setSize(CGSize(width: 60, height: 30), animated: false)
         
         messageInputBar.leftStackView.alignment = .center
         messageInputBar.setLeftStackViewWidthConstant(to: 50, animated: false)
-//        messageInputBar.setStackViewItems([moreButton as! InputItem], forStack: .left, animated: false)
+        messageInputBar.setStackViewItems([cameraItem], forStack: .left, animated: false)
+        
+        
+
         
     }
     
