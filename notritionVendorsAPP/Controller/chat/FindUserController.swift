@@ -58,6 +58,29 @@ class FindUserController: UIViewController {
             self.tableView.reloadData()
         }
     }
+    
+    func pushChatViewController(index: Int) {
+        var channel = Channel()
+        
+        var folder = ReferenceImage.user.rawValue + "\(self.user.avatar ?? "")"
+        channel.is_with_shop = 0
+        channel.user_id_first = self.user.id ?? ""
+        channel.name_first = self.user.name ?? ""
+        channel.image_first = folder
+        
+        folder = ReferenceImage.user.rawValue + "\(listUser[index].avatar ?? "")"
+        channel.user_id_second = listUser[index].id ?? ""
+        channel.name_second = listUser[index].name ?? ""
+        channel.image_second = folder
+        
+        var users = [String]()
+        users.append(self.user.id ?? "")
+        users.append(listUser[index].id ?? "")
+        channel.users = users
+        
+        let vc = ChatViewController(user: self.user, channel: channel)
+        navigationController?.pushViewController(vc, animated: true)
+    }
 
 }
 
@@ -77,6 +100,7 @@ extension FindUserController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+        pushChatViewController(index: indexPath.row)
         
     }
     
