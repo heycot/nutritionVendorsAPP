@@ -98,6 +98,60 @@ extension String {
 //        guard let searchText = String(data: data, encoding: .ascii) else { return text }
 //        return searchText
 //    }
+    static func gennerateKeywordsMod( name: String, address: String) -> [String] {
+        
+        
+        let nameConvert = self.convertVietNam(text: name.lowercased())
+        let addressConvert = self.convertVietNam(text: address.lowercased())
+        
+        //1. first remove "," from address
+        let nameArr = nameConvert.split(separator: ",")
+        var addressArr = addressConvert.split(separator: ",")
+        
+        //2. Then generate permutations from newArray
+        var permutations = [String]()
+        for string in nameArr {
+            //2.1. get list of words by seperate string with space character
+            let subStrings = string.split(separator: " ")
+            
+            //2.2. Then double loop for generate permutations
+            for index in 0..<subStrings.count {
+                var word = subStrings[index].lowercased()
+                permutations.append(String(word))
+                
+                for nextIndex in 0..<addressArr.count{
+                    let nextWords = addressArr[nextIndex].lowercased()
+                    var subWord = ""
+                    if nextIndex == 0 {
+                        subWord = subStrings[index].lowercased() + " " + nextWords
+                    } else {
+                        subWord = subStrings[index].lowercased() + nextWords
+                    }
+                    permutations.append(String(subWord))
+                }
+                
+                for nextIndex in index+1..<subStrings.count{
+                    let nextWords = subStrings[nextIndex].lowercased()
+                    word += " " + nextWords
+                    permutations.append(String(word))
+                    
+                    for i in 0..<addressArr.count {
+                        
+                        let addressWord = addressArr[i].lowercased()
+                        let anotherWord = word + " " + addressWord
+                        permutations.append(String(anotherWord))
+                    }
+                }
+            }
+        }
+        
+        for index in 0..<addressArr.count {
+            permutations.append(String(addressArr[index]).lowercased())
+        }
+        
+        return permutations
+    }
+    
     
     static func convertVietNam(text: String) -> String {
         return text.folding(options: .diacriticInsensitive, locale: .current)

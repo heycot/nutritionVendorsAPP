@@ -42,12 +42,21 @@ class AuthServices {
             }
             else{
                 let date = Date().timeIntervalSince1970
+                
+                let emails = email.split(separator: "@")
+                
+                var keywords = String.gennerateKeywordsMod(name: name , address: "")
+                keywords.append(email.lowercased())
+                keywords.append(emails[0].lowercased())
+                
+                
                 let userProfile = ["name": name,
                                    "email": email,
                                    "phone": "",
                                    "birthday": 0,
                                    "create_date": date,
-                                   "address": "" ] as [String : Any]
+                                   "address": "" ,
+                                   "keywords": keywords] as [String : Any]
                 
                 let db = Firestore.firestore()
                 db.collection("user_profile").document(authResult!.user.uid).setData(userProfile) { err in
@@ -167,11 +176,18 @@ class AuthServices {
         
         let db = Firestore.firestore()
         
+        let emails = user.email!.split(separator: "@")
+                
+        var keywords = String.gennerateKeywordsMod(name: user.name ?? "", address: user.address ?? "")
+        keywords.append((user.email?.lowercased())!)
+        keywords.append(emails[0].lowercased())
+        
         let userProfile = ["name": user.name as Any,
                            "avatar": user.avatar as Any,
                            "phone": user.phone as Any,
                            "birthday": user.birthday as Any,
-                           "address": user.address as Any ] as [String : Any]
+                           "address": user.address as Any,
+                           "keywords": keywords] as [String : Any]
         
         db.collection("user_profile").document(userID).updateData(userProfile) { err in
             var result = true

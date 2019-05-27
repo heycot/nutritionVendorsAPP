@@ -27,5 +27,6 @@ class UserCell: UITableViewCell {
     func updateView(user: UserResponse) {
         userAvatar.displayImage(folderPath: ReferenceImage.user.rawValue + "\(user.avatar ?? "")")
         user_name.text = user.name
+        userAvatar.setButtomBorderRadious()
     }
 }
