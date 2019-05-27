@@ -1577,13 +1577,7 @@
                                                             <rect key="frame" x="80" y="0.0" width="314" height="59.666666666666664"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLb-6m-K5V">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="314" height="30"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gi7-N8-poR">
-                                                                    <rect key="frame" x="0.0" y="30" width="314" height="29.666666666666671"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="314" height="59.666666666666664"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -1603,7 +1597,6 @@
                                         <connections>
                                             <outlet property="channelImage" destination="u9k-uf-g5c" id="qLd-ti-jLA"/>
                                             <outlet property="name" destination="fLb-6m-K5V" id="fgY-JH-qWs"/>
-                                            <outlet property="newMessage" destination="Gi7-N8-poR" id="1a3-A0-L6Y"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
