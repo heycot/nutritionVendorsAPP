@@ -12,8 +12,6 @@ import FirebaseFirestore
 import MessageInputBar
 
 struct Message: MessageType {
-//    var kind: MessageKind
-    
     
     let id: String?
     let content: String
@@ -22,7 +20,7 @@ struct Message: MessageType {
     
     var kind: MessageKind {
         if let image = image {
-            return .photo(image as! MediaItem)
+            return .photo(MyMediaItem(image: image))
         } else {
             return .text(content)
         }
@@ -43,7 +41,7 @@ struct Message: MessageType {
     }
     
     init(user: UserResponse, image: UIImage) {
-        sender = Sender(id: user.id ?? "", displayName: AppSettings.displayName)
+        sender = Sender(id: user.id ?? "", displayName: AppSettings.displayName ?? "")
         self.image = image
         content = ""
         sentDate = Date()
@@ -111,4 +109,18 @@ extension Message: Comparable {
         return lhs.sentDate < rhs.sentDate
     }
     
+}
+
+
+struct MyMediaItem: MediaItem {
+    var url: URL?
+    var image: UIImage?
+    var placeholderImage: UIImage
+    var size: CGSize
+    
+    init(image: UIImage) {
+        self.image = image
+        self.size = CGSize(width: 240, height: 240)
+        self.placeholderImage = UIImage()
+    }
 }
