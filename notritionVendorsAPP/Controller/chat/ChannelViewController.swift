@@ -14,6 +14,8 @@ class ChannelViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var notification: UILabel!
+    
+    var userID = ""
 
     
     // firebase variale
@@ -75,9 +77,10 @@ class ChannelViewController: UIViewController {
             guard let data = data else { return }
 
             if data {
-                let userID = Auth.auth().currentUser?.uid
+//                let userID = Auth.auth().currentUser?.uid
+                self.userID = Auth.auth().currentUser?.uid ?? ""
                 self.notification.isHidden = true
-                AuthServices.instance.getProfile(userID: userID ?? "", completion: { (data) in
+                AuthServices.instance.getProfile(userID: self.userID , completion: { (data) in
                     guard let data = data else { return }
                     self.user = data
                     self.addSnapshot()
@@ -157,9 +160,10 @@ extension ChannelViewController : UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChannelCellID", for: indexPath) as! ChannelCell
+        
 
         cell.accessoryType = .disclosureIndicator
-        cell.updateView(channel: channels[indexPath.row], userID: user.id ?? "")
+        cell.updateView(channel: channels[indexPath.row], userID: self.userID)
 
         return cell
     }

@@ -31,7 +31,7 @@ class ChannelCell: UITableViewCell {
             name.text = channel.name_second
             name.setboldSystemFontOfSize(size: 18)
             channelImage.displayImage(folderPath: channel.image_second)
-            channelImage.setBorder(with: .white)
+            channelImage.setRounded(color: .white)
         } else {
             
             name.text = channel.name_first
