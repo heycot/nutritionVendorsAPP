@@ -35,6 +35,17 @@ class ChannelViewController: UIViewController {
         viewListChannel()
     }
 
+    @IBAction func searchBtnPressed(_ sender: Any) {
+        self.performSegue(withIdentifier: SegueIdentifier.channelToFindUser.rawValue, sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is FindUserController {
+            let vc = segue.destination as? FindUserController
+            vc?.user = self.user
+        }
+    }
+    
     func setupView() {
         tableView.delegate = self
         tableView.dataSource = self

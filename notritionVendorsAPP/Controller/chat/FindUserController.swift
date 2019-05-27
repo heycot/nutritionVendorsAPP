@@ -16,6 +16,7 @@ class FindUserController: UIViewController {
     
     let searchBar = UISearchBar()
     var listUser = [UserResponse]()
+    var user = UserResponse()
     
     override func viewDidLoad() {
         super.viewDidLoad()
