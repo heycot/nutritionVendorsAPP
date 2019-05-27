@@ -50,6 +50,7 @@ class ChannelViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
+        
 
     }
     
@@ -162,7 +163,7 @@ extension ChannelViewController : UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return 80
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
