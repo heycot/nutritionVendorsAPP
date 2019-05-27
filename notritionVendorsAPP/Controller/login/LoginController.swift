@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PKHUD
 
 class LoginController: UIViewController {
 
@@ -41,10 +42,13 @@ class LoginController: UIViewController {
 
 
         } else {
+            HUD.show(.progress)
             
             AuthServices.instance.signin(email: emailTF.text!, password: passwordTF.text!) { (data) in
                 guard let data = data else { return }
                 
+                
+                HUD.hide()
                 if !data {
                     let alert = UIAlertController(title: "Can not log in!", message: "Your email and password do not match any account.", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))

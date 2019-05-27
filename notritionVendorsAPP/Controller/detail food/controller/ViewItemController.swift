@@ -219,7 +219,14 @@ class ViewItemController: UIViewController {
     @objc func chatBtnPressed(btn: UIButton) {
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if user != nil {
-                self.getShopById()
+                
+                HUD.show(.progress)
+                let userID = Auth.auth().currentUser?.uid
+                AuthServices.instance.getProfile(userID: userID ?? "", completion: { (data) in
+                    guard let data = data  else { return }
+                    
+                    self.getShopById(user: data)
+                })
             } else {
                 // user is not signed in
                 
@@ -234,12 +241,12 @@ class ViewItemController: UIViewController {
         }
     }
     
-    func getShopById() {
+    func getShopById(user: UserResponse) {
         ShopService.instance.getOneById(shopId: item.shop_id ?? "") { (data) in
             guard let data = data else { return }
             
             if data.id != nil {
-                let user = AuthServices.instance.user ?? UserResponse()
+                HUD.hide()
                 let channel = self.initChannel(shop: data, user: user )
                 let vc = ChatViewController(user: user, channel: channel)
                 self.navigationController?.pushViewController(vc, animated: true)
