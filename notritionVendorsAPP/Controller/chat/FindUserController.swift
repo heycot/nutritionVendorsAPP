@@ -49,13 +49,13 @@ class FindUserController: UIViewController {
     @objc func search() {
         HUD.show(.progress)
         
-//        SearchServices.instance.search(searchText: searchBar.text!.lowercased()) { (data) in
-//            guard let data = data else { return }
-//            self.listUser = data
-//
-//            HUD.hide()
-//            self.tableView.reloadData()
-//        }
+        AuthServices.instance.search(searchText: searchBar.text!.lowercased()) { (data) in
+            guard let data = data else { return }
+            self.listUser = data
+
+            HUD.hide()
+            self.tableView.reloadData()
+        }
     }
 
 }

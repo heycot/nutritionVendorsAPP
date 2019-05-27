@@ -189,6 +189,42 @@ class AuthServices {
         
     }
     
+    func search(searchText: String, completion: @escaping ([UserResponse]?) -> Void){
+        var result = [UserResponse]()
+        
+        let db = Firestore.firestore()
+        let docRef = db.collection("user_profile").whereField("keywords", arrayContains: searchText.lowercased())
+        
+        docRef.getDocuments { (document, error) in
+            if let document = document {
+                
+                for doc in document.documents {
+                    let jsonData = try? JSONSerialization.data(withJSONObject: doc.data() as Any)
+                    do {
+                        let user = try JSONDecoder().decode(UserResponse.self, from: jsonData!)
+                        user.id = doc.documentID
+                        result.append(user)
+                        
+                    } catch let jsonError {
+                        print("Error serializing json:", jsonError)
+                    }
+                }
+                
+                DispatchQueue.main.async {
+                    completion(result)
+                }
+                
+            } else {
+                
+                DispatchQueue.main.async {
+                    completion(result)
+                }
+                print("User have no profile")
+            }
+        }
+        
+    }
+    
 //
 //
 //    func checkPassword(pass: String, completion: @escaping (Int?) -> Void) {
