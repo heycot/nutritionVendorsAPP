@@ -10,6 +10,10 @@ import UIKit
 
 class FindUserController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var notification: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
