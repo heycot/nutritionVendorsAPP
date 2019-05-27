@@ -142,6 +142,7 @@ enum CellIdentifier: String {
     case accountInforCell = "accountInforCell"
     case activityCell = "ActivityCell"
     case inforCell = "InforCell"
+    case userCell = "UserCell"
 }
 
 enum SegueIdentifier: String {
@@ -185,6 +186,8 @@ enum SegueIdentifier: String {
     case accountToEditInfor = "AccountToEditInfor"
     
     case chatToLogin = "ChatToLogin"
+    
+    case channelToFindUser = "ChannelToFindUser"
 }
 
 enum StoryboardID : String {

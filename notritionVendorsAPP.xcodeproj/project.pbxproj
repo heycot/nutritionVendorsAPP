@@ -82,6 +82,8 @@
 		235B668722630BCA00BBFAFC /* AccountDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 235B668622630BCA00BBFAFC /* AccountDetail.storyboard */; };
 		235C9A2D2249E0A600E01484 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 235C9A2C2249E0A600E01484 /* QuartzCore.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		235CF320226FF1B500691D88 /* EditInforUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235CF31F226FF1B500691D88 /* EditInforUserController.swift */; };
+		235D846A229B833D00527A60 /* FindUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235D8469229B833D00527A60 /* FindUserController.swift */; };
+		235D846C229B836B00527A60 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235D846B229B836B00527A60 /* UserCell.swift */; };
 		23614F0F2256020E00B5DD81 /* FavoritesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23614F0E2256020E00B5DD81 /* FavoritesResponse.swift */; };
 		23614F1122560F7E00B5DD81 /* FavoritesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23614F1022560F7E00B5DD81 /* FavoritesService.swift */; };
 		23679F76228E986000F427DD /* ItemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23679F75228E986000F427DD /* ItemResponse.swift */; };
@@ -205,6 +207,8 @@
 		235B668622630BCA00BBFAFC /* AccountDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountDetail.storyboard; sourceTree = "<group>"; };
 		235C9A2C2249E0A600E01484 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		235CF31F226FF1B500691D88 /* EditInforUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInforUserController.swift; sourceTree = "<group>"; };
+		235D8469229B833D00527A60 /* FindUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindUserController.swift; sourceTree = "<group>"; };
+		235D846B229B836B00527A60 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		23614F0E2256020E00B5DD81 /* FavoritesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesResponse.swift; sourceTree = "<group>"; };
 		23614F1022560F7E00B5DD81 /* FavoritesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesService.swift; sourceTree = "<group>"; };
 		23679F75228E986000F427DD /* ItemResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemResponse.swift; sourceTree = "<group>"; };
@@ -329,6 +333,7 @@
 				2319A8DA22980D71001D9F20 /* ChannelsViewController.swift */,
 				2319A8E02298F135001D9F20 /* NavigationController.swift */,
 				2319A8E42298FB9F001D9F20 /* ChannelViewController.swift */,
+				235D8469229B833D00527A60 /* FindUserController.swift */,
 			);
 			path = chat;
 			sourceTree = "<group>";
@@ -348,6 +353,7 @@
 			isa = PBXGroup;
 			children = (
 				2319A8E722990129001D9F20 /* ChannelCell.swift */,
+				235D846B229B836B00527A60 /* UserCell.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -940,6 +946,7 @@
 				231ABDC22266E1B0006D6B01 /* mapRequestBodyDirections.swift in Sources */,
 				2323C8B2223F5B8B00DA68CA /* ViewLocationShopController.swift in Sources */,
 				2319A8E52298FB9F001D9F20 /* ChannelViewController.swift in Sources */,
+				235D846A229B833D00527A60 /* FindUserController.swift in Sources */,
 				235B169F226C71F6001A6BB6 /* AccountCell.swift in Sources */,
 				23B6023F222E767E00FBBD79 /* ExtensionUIImage.swift in Sources */,
 				231ABDBE2266E16B006D6B01 /* MapTaskManager.swift in Sources */,
@@ -993,6 +1000,7 @@
 				235A32B52224EAB400DE5B0E /* ExtensionTextField.swift in Sources */,
 				23D02E632223799300882742 /* LoginController.swift in Sources */,
 				235A32B72224EB6400DE5B0E /* ExtensionStackView.swift in Sources */,
+				235D846C229B836B00527A60 /* UserCell.swift in Sources */,
 				236A32B92258945F00AA2410 /* FavoritesCell.swift in Sources */,
 				2319A8D5229806A9001D9F20 /* Channel.swift in Sources */,
 				2352404E22634E33004B11CF /* ActionCell.swift in Sources */,
