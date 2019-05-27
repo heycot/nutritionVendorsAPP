@@ -17,14 +17,7 @@ class ChannelViewController: UIViewController {
     
     var userID = ""
 
-    
-    // firebase variale
-//    private var channelReference: CollectionReference {
-//        return db.collection("channels").whereField("users", arrayContains: user.id ?? "") as! CollectionReference
-//    }
-
     var channels = [Channel]()
-//    private var channelListener: ListenerRegistration?
 
     var user = UserResponse()
 
@@ -186,4 +179,9 @@ extension ChannelViewController : UITableViewDelegate, UITableViewDataSource {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        setupUser()
+        super.viewWillAppear(true)
+        tableView.reloadData()
+    }
 }

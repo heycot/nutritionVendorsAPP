@@ -17,8 +17,9 @@ class AccountDetailController: UIViewController {
     @IBOutlet weak var inforUser: UITextField!
     @IBOutlet weak var activitiesBtn: UIButton!
     @IBOutlet weak var accountBtn: UIButton!
+    @IBOutlet weak var notification: UILabel!
     
-    let titleCell = ["Email:", "Birthday:", "Address:", "Join on:", "Edit information", "Change password", "Log out"]
+    var titleCell = ["Email:", "Birthday:", "Address:", "Join on:", "Edit information", "Change password", "Log out"]
     var detailCell = [String]()
     
     var user = UserResponse()
@@ -30,11 +31,33 @@ class AccountDetailController: UIViewController {
         registerCells()
         disableUIView()
         
-        setUpForTableView()
         
+        setUpForTableView()
+        notification.isHidden = true
+    }
+    
+    func handleAfterLogOut() {
+        userAvatar.image = UIImage(named: "logo")
+        username.text = "Guest"
+        inforUser.text = "You are using this application as a guest"
+        notification.text = "No data to show"
+        notification.isHidden = false
+        
+        detailCell = [String]()
+        
+        for _ in 0 ..< 7 {
+            detailCell.append("")
+        }
+        
+        titleCell.remove(at: titleCell.count - 1)
+        titleCell.append("Log in")
+        listComment.removeAll()
+        
+        tableView.reloadData()
     }
     
     func getUser() {
+        
         AuthServices.instance.checkLogedIn { (data) in
             guard let data = data else { return }
             
@@ -46,6 +69,10 @@ class AccountDetailController: UIViewController {
                     self.getDataFromAPI(offset: 0, isLoadMore: false)
                     self.setupDetailInfor()
                 })
+            } else {
+                self.handleAfterLogOut()
+                self.notification.text = "No data to show"
+                self.notification.isHidden = false
             }
         }
     }
@@ -193,7 +220,22 @@ extension AccountDetailController: UITableViewDelegate, UITableViewDataSource {
             let index = titleCell.count - 1
             
             if indexPath?.row == index  {
-                AuthServices.instance.signout()
+                
+                AuthServices.instance.checkLogedIn(completion: { (data) in
+                    guard let data = data else { return }
+                    
+                    if data {
+                        AuthServices.instance.signout()
+                        self.handleAfterLogOut()
+                    } else {
+                        
+                        let vc = LoginController()
+                        let navigationController = NavigationController(vc)
+                        
+                        navigationController.pushViewController(vc, animated: false)
+//                        self.performSegue(withIdentifier: "AccountToLogin", sender: nil)
+                    }
+                })
             } else if indexPath?.row ==  (index - 1) {
                 performSegue(withIdentifier: SegueIdentifier.accountToPassword.rawValue, sender: nil)
             } else {
