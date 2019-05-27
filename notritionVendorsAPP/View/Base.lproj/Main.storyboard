@@ -311,7 +311,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2CJ-ST-Wkd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2269.5652173913045" y="2195.7589285714284"/>
+            <point key="canvasLocation" x="283" y="2357"/>
         </scene>
         <!--DetailFoodStoryboardID-->
         <scene sceneID="vgc-FG-C4U">
@@ -885,7 +885,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4LE-d0-WR0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1359.4202898550725" y="2195.7589285714284"/>
+            <point key="canvasLocation" x="-1026" y="2235"/>
         </scene>
         <!--Account Controller-->
         <scene sceneID="Pvf-3K-9Vz">
@@ -971,7 +971,7 @@
         <scene sceneID="Y4g-FC-RLh">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sHg-wU-7nF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Shop" image="store(1)" id="5ht-dM-JmW"/>
+                    <tabBarItem key="tabBarItem" title="Shop" image="store" id="5ht-dM-JmW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="LEi-Xu-zrM">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -1130,7 +1130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lpk-he-fh5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1275.3623188405797" y="2998.6607142857142"/>
+            <point key="canvasLocation" x="-907" y="3003"/>
         </scene>
         <!--Edit Infor User Controller-->
         <scene sceneID="7Fy-3z-Gjo">
@@ -1711,7 +1711,7 @@
         <scene sceneID="n4E-3Y-0gR">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1sC-hV-1Wh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Chat" image="messenger(1)" id="U3V-BV-pWf"/>
+                    <tabBarItem key="tabBarItem" title="Chat" image="messenger" id="U3V-BV-pWf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="O1a-7E-50M">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -1735,16 +1735,16 @@
         <image name="backgroud" width="1600" height="900"/>
         <image name="full_star" width="24" height="24"/>
         <image name="logo" width="129" height="129"/>
-        <image name="loved" width="24" height="24"/>
-        <image name="man-user" width="24" height="24"/>
-        <image name="messenger(1)" width="32" height="32"/>
+        <image name="loved" width="29" height="29"/>
+        <image name="man-user" width="29" height="29"/>
+        <image name="messenger" width="29" height="29"/>
         <image name="nutrition_icon" width="460" height="460"/>
         <image name="search-user" width="407" height="53"/>
         <image name="searchbar" width="364" height="42"/>
-        <image name="store(1)" width="23" height="23"/>
+        <image name="store" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WYP-LC-rZ2"/>
+        <segue reference="Kqp-az-Zl9"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

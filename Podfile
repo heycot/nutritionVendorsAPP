@@ -31,11 +31,7 @@ target 'notritionVendorsAPP' do
     pod 'Firebase/Database'
     
     pod 'MessageKit'
-
-    pod 'FacebookCore'
-    pod 'FacebookLogin'
-    pod 'FacebookShare'
-    
     pod 'Kingfisher'
     pod 'MessageInputBar'
+
 end

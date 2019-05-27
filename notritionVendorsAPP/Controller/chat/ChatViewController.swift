@@ -144,21 +144,6 @@ final class ChatViewController: MessagesViewController {
         }
     }
     
-    // MARK: - Actions
-    
-//    @objc private func cameraButtonPressed() {
-//        let picker = UIImagePickerController()
-//        picker.delegate = self
-//
-//        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-//            picker.sourceType = .camera
-//        } else {
-//            picker.sourceType = .photoLibrary
-//        }
-//
-//        present(picker, animated: true, completion: nil)
-//    }
-
     
     @objc private func cameraButtonPressed() {
 
