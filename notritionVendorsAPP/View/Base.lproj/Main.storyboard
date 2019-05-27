@@ -1534,33 +1534,33 @@
                                 <rect key="frame" x="10" y="141" width="394" height="755"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChannelCellID" rowHeight="61" id="X7f-l5-15t" customClass="ChannelCell" customModule="notritionVendorsAPP" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="394" height="61"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChannelCellID" rowHeight="80" id="X7f-l5-15t" customClass="ChannelCell" customModule="notritionVendorsAPP" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="394" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="X7f-l5-15t" id="PCg-El-OB3">
-                                            <rect key="frame" x="0.0" y="0.0" width="394" height="60.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="394" height="79.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="1rJ-35-7EC">
-                                                    <rect key="frame" x="0.0" y="0.0" width="394" height="60.666666666666664"/>
+                                                    <rect key="frame" x="0.0" y="9.9999999999999964" width="394" height="59.666666666666657"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="u9k-uf-g5c" customClass="CustomImageView" customModule="notritionVendorsAPP" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="70" height="60.666666666666664"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="60" height="59.666666666666664"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="70" id="awX-Ml-SIM"/>
+                                                                <constraint firstAttribute="width" constant="60" id="rwg-oC-bgg"/>
                                                             </constraints>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Ini-EY-ino">
-                                                            <rect key="frame" x="90" y="0.0" width="304" height="60.666666666666664"/>
+                                                            <rect key="frame" x="80" y="0.0" width="314" height="59.666666666666664"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLb-6m-K5V">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="304" height="30.333333333333332"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="314" height="30"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gi7-N8-poR">
-                                                                    <rect key="frame" x="0.0" y="30.333333333333336" width="304" height="30.333333333333336"/>
+                                                                    <rect key="frame" x="0.0" y="30" width="314" height="29.666666666666671"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -1571,10 +1571,10 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="1rJ-35-7EC" firstAttribute="top" secondItem="PCg-El-OB3" secondAttribute="top" id="7WK-sF-OEe"/>
                                                 <constraint firstAttribute="trailing" secondItem="1rJ-35-7EC" secondAttribute="trailing" id="EyR-c4-wbe"/>
                                                 <constraint firstItem="1rJ-35-7EC" firstAttribute="leading" secondItem="PCg-El-OB3" secondAttribute="leading" id="WPP-FL-wpE"/>
-                                                <constraint firstAttribute="bottom" secondItem="1rJ-35-7EC" secondAttribute="bottom" id="tMd-Ra-UHf"/>
+                                                <constraint firstAttribute="bottom" secondItem="1rJ-35-7EC" secondAttribute="bottom" constant="10" id="Ydz-fh-Zqb"/>
+                                                <constraint firstItem="1rJ-35-7EC" firstAttribute="top" secondItem="PCg-El-OB3" secondAttribute="top" constant="10" id="az8-DU-X7e"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1621,7 +1621,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2yg-BL-zxn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2904" y="2452"/>
+            <point key="canvasLocation" x="-2904.347826086957" y="2451.5625"/>
         </scene>
         <!--Find User Controller-->
         <scene sceneID="rdT-dN-P5R">
