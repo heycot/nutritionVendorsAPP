@@ -19,10 +19,10 @@ class AccountDetailController: UIViewController {
     @IBOutlet weak var accountBtn: UIButton!
     @IBOutlet weak var notification: UILabel!
     
-    var titleCell = ["Email:", "Birthday:", "Address:", "Join on:", "Edit information", "Change password", "Log out"]
+    var titleCell = ["Email:", "Birthday:", "Address:", "Join on:", "Edit information", "Change password", ""]
     var detailCell = [String]()
     
-    var user = UserResponse()
+    var user : UserResponse?
     var listComment = [CommentResponse]()
     var isActivity = true
     
@@ -38,6 +38,7 @@ class AccountDetailController: UIViewController {
     
     func handleAfterLogOut() {
         userAvatar.image = UIImage(named: "logo")
+        userAvatar.setBottomBorder(color: .white)
         username.text = "Guest"
         inforUser.text = "You are using this application as a guest"
         notification.text = "No data to show"
@@ -49,8 +50,7 @@ class AccountDetailController: UIViewController {
             detailCell.append("")
         }
         
-        titleCell.remove(at: titleCell.count - 1)
-        titleCell.append("Log in")
+        titleCell[titleCell.count - 1] = "Log in "
         listComment.removeAll()
         
         tableView.reloadData()
@@ -84,9 +84,9 @@ class AccountDetailController: UIViewController {
     }
     
     func viewInfor() {
-        userAvatar.displayImage(folderPath: ReferenceImage.user.rawValue + "\(user.avatar ?? "")")
+        userAvatar.displayImage(folderPath: ReferenceImage.user.rawValue + "\(user?.avatar ?? "")")
         userAvatar.setRounded(color: .white)
-        username.text = user.name!
+        username.text = user?.name ?? ""
         inforUser.text = "newbee - Top 1000 - 10 Followers"
         
         inforUser.setboldSystemFontOfSize(size: 14)
@@ -95,23 +95,27 @@ class AccountDetailController: UIViewController {
     
     func setupDetailInfor() {
         
-        detailCell.append(user.email!)
+        titleCell[titleCell.count - 1] = "Log out "
+        detailCell.removeAll()
         
-        if (user.birthday != nil) {
-            let dateStr = NSObject().convertToString(date: user.birthdayDate! , dateformat: DateFormatType.date)
+        detailCell.append(user?.email ?? "")
+        
+        if (user?.birthday != nil) {
+            let dateStr = NSObject().convertToString(date: user?.birthdayDate ?? Date() , dateformat: DateFormatType.date)
             detailCell.append(dateStr)
         } else {
             detailCell.append("")
         }
         
-        let createDate = NSObject().convertToString(date: user.createDate! , dateformat: DateFormatType.date)
+        let createDate = NSObject().convertToString(date: user?.createDate ?? Date(), dateformat: DateFormatType.date)
         
-        detailCell.append(user.address!)
+        detailCell.append(user?.address ?? "")
         detailCell.append(createDate)
         detailCell.append("")
         detailCell.append("")
         detailCell.append("")
         viewInfor()
+        tableView.reloadData()
     }
     
     func setUpForTableView() {
@@ -122,11 +126,28 @@ class AccountDetailController: UIViewController {
     
     @IBAction func activitiesBtnPressed(_ sender: Any) {
         isActivity = true
+        
+        if listComment.count == 0 || user == nil {
+            notification.text = "No data to show"
+            notification.isHidden = false
+        } else {
+            notification.isHidden = true
+        }
+        
         tableView.reloadData()
     }
     
     @IBAction func accountBtnPressed(_ sender: Any) {
         isActivity = false
+        
+        if user == nil {
+            notification.text = "No data to show"
+            notification.isHidden = false
+        } else {
+            notification.isHidden = true
+        }
+        
+        
         tableView.reloadData()
     }
     
@@ -135,6 +156,11 @@ class AccountDetailController: UIViewController {
         
         CommentServices.instance.getAllCommentByUser { (data) in
             guard let data = data else { return }
+            
+            if data.count == 0 {
+                self.notification.text = "No data to show"
+                self.notification.isHidden = false
+            }
             
             self.listComment = data
             self.tableView.reloadData()
@@ -163,7 +189,7 @@ class AccountDetailController: UIViewController {
             
         } else if segue.destination is EditInforUserController {
             let vc = segue.destination as? EditInforUserController
-            vc?.user = user
+            vc?.user = user ?? UserResponse()
         }
     }
     
@@ -220,22 +246,14 @@ extension AccountDetailController: UITableViewDelegate, UITableViewDataSource {
             let index = titleCell.count - 1
             
             if indexPath?.row == index  {
-                
-                AuthServices.instance.checkLogedIn(completion: { (data) in
-                    guard let data = data else { return }
-                    
-                    if data {
-                        AuthServices.instance.signout()
-                        self.handleAfterLogOut()
-                    } else {
-                        
-                        let vc = LoginController()
-                        let navigationController = NavigationController(vc)
-                        
-                        navigationController.pushViewController(vc, animated: false)
-//                        self.performSegue(withIdentifier: "AccountToLogin", sender: nil)
-                    }
-                })
+                if user != nil {
+                    self.user = nil
+                    AuthServices.instance.signout()
+                    self.handleAfterLogOut()
+                } else {
+//                    self.navigationItem = NavigationController()
+                    self.performSegue(withIdentifier: "AccountToLogin", sender: nil)
+                }
             } else if indexPath?.row ==  (index - 1) {
                 performSegue(withIdentifier: SegueIdentifier.accountToPassword.rawValue, sender: nil)
             } else {

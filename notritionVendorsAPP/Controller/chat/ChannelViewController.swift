@@ -9,23 +9,24 @@
 import UIKit
 import Firebase
 import FirebaseFirestore
+import PKHUD
 
 class ChannelViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var notification: UILabel!
     
-    var userID = ""
-
     var channels = [Channel]()
+    var listUser = [UserResponse]()
 
+    var userID = ""
     var user = UserResponse()
+    var isSearch = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         setupUser()
-        viewListChannel()
     }
 
     @IBAction func searchBtnPressed(_ sender: Any) {
@@ -42,10 +43,7 @@ class ChannelViewController: UIViewController {
     func setupView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.tableFooterView = UIView()
-        
-
-    }
+        tableView.tableFooterView = UIView()    }
     
     func viewListChannel() {
         ChannelServices.instance.getAllChannelByUser { (data) in
@@ -58,6 +56,12 @@ class ChannelViewController: UIViewController {
             
             self.channels = data
             self.tableView.reloadData()
+            
+            AuthServices.instance.getProfile(userID: self.userID , completion: { (data) in
+                guard let data = data else { return }
+                self.user = data
+                self.addSnapshot()
+            })
         }
     }
     
@@ -82,14 +86,10 @@ class ChannelViewController: UIViewController {
             guard let data = data else { return }
 
             if data {
-//                let userID = Auth.auth().currentUser?.uid
+                
                 self.userID = Auth.auth().currentUser?.uid ?? ""
+                self.viewListChannel()
                 self.notification.isHidden = true
-                AuthServices.instance.getProfile(userID: self.userID , completion: { (data) in
-                    guard let data = data else { return }
-                    self.user = data
-                    self.addSnapshot()
-                })
 
             } else {
                 self.notification.text = "Please sign in to use this task"
@@ -185,3 +185,5 @@ extension ChannelViewController : UITableViewDelegate, UITableViewDataSource {
         tableView.reloadData()
     }
 }
+
+

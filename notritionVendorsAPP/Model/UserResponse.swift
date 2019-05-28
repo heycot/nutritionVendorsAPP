@@ -29,7 +29,7 @@ class UserResponse:Decodable {
     
     var createDate: Date? {
         if let day = self.create_date {
-            return Date(timeIntervalSince1970: day / 1000)
+            return Date(timeIntervalSince1970: day)
         }
         return nil
     }
