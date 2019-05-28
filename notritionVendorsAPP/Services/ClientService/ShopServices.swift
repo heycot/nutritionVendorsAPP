@@ -49,6 +49,7 @@ class ShopService {
     }
     
     func getListShopNearBy (latitude: Double, longitude: Double, distance: Double, completion: @escaping ([ShopResponse]?) -> Void) {
+        
         // ~1 mile of lat and lon in degrees
         let lat = 0.0144927536231884
         let lon = 0.0181818181818182
@@ -60,9 +61,11 @@ class ShopService {
         let greaterLon = longitude + (lon * distance)
 
         let db = Firestore.firestore()
-        let docRef = db.collection("shop").whereField("latitude", isGreaterThan: lowerLat).whereField("latitude", isLessThan: greaterLat).whereField("longitude", isGreaterThan: lowerLon).whereField("longitude", isLessThan: greaterLon)
+        let shopRef = db.collection("shop")
+        shopRef.whereField("latitude", isGreaterThan: "\(lowerLat)").whereField("latitude", isLessThan: "\(greaterLat)")
+        shopRef.whereField("longitude", isGreaterThan: "\(lowerLon)").whereField("longitude", isLessThan: "\(greaterLon)")
         
-        docRef.getDocuments(completion: { (document, error) in
+        shopRef.getDocuments(completion: { (document, error) in
             if let document = document {
                 print(document.documents)
                 var shopList = [ShopResponse]()

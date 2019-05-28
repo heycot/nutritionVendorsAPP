@@ -57,14 +57,23 @@ class ShopController: UIViewController {
     
     @objc
     func loadMoreData() {
-        loadDataFromAPI(offset: currentList.count, isLoadMore: true)
+//        loadDataFromAPI(offset: 0, isLoadMore: false)
         refresher.endRefreshing()
     }
     
     func loadDataFromAPI(offset: Int, isLoadMore: Bool) {
+        
+        guard let location = AuthServices.instance.currentLocation else {
+            return
+        }
+        
         HUD.show(.progress)
+        
        
-        ShopService.instance.getListShop() {  data in
+        // get list shop with distance <= 30 KM
+        // 1 Kilômét = 0.621371 Miles
+        // prarameter is miles
+        ShopService.instance.getListShopNearBy(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, distance: 18.6411) {  data in
             guard var data = data else {return }
             data.sort(by: {$0.distance! < $1.distance! })
 
