@@ -129,7 +129,7 @@ class CommentServices {
             guard let data = data else { return }
             
             let values = ["user_name": data.name as Any,
-                          "user_avatar": data.name as Any] as [String : Any]
+                          "user_avatar": data.avatar as Any] as [String : Any]
             
             db.collection("comment").document(cmtID).updateData(values) { err in
                 if let err = err {
