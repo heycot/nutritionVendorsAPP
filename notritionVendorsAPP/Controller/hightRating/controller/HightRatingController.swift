@@ -11,6 +11,7 @@ import CCBottomRefreshControl
 import GoogleMaps
 import Firebase
 import PKHUD
+import YPImagePicker
 
 class HightRatingController: UIViewController {
 

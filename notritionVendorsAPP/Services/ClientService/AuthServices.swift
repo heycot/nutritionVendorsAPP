@@ -208,6 +208,29 @@ class AuthServices {
         
     }
     
+    func updateAvatar(avatar: String, userID: String, completion: @escaping (Bool?) -> Void){
+        
+        let db = Firestore.firestore()
+        
+        
+        let userProfile = ["avatar": avatar as Any] as [String : Any]
+        
+        db.collection("user_profile").document(userID).updateData(userProfile) { err in
+            var result = true
+            if let err = err {
+                result = false
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
+            }
+            
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }
+        
+    }
+    
     func search(searchText: String, completion: @escaping ([UserResponse]?) -> Void){
         var result = [UserResponse]()
         
