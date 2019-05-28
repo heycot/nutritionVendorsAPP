@@ -32,7 +32,7 @@ class ItemInShopCell: UITableViewCell {
         setupView()
         itemImage.displayImage(folderPath: ReferenceImage.shopItem.rawValue + "\(item.id ?? "")/\(item.avatar ?? "")")
         itemname.text = String(item.name!)
-        itemPrice.text = "price: VND " + String(item.price!)
+        itemPrice.text = "price: " + (item.price?.formatPrice())! + "/\(item.unit!)"
         itemRating.rating = item.rating!
     }
     
