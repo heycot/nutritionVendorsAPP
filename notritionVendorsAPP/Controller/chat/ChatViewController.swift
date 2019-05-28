@@ -16,16 +16,6 @@ import YPImagePicker
 
 final class ChatViewController: MessagesViewController {
     
-//    private var isSendingPhoto = false {
-//        didSet {
-//            DispatchQueue.main.async {
-//                self.messageInputBar.leftStackViewItems.forEach { item in
-////                    item.isEnabled = !self.isSendingPhoto
-//                }
-//            }
-//        }
-//    }
-    
     private var isSendingPhoto = false {
         didSet {
             DispatchQueue.main.async {
@@ -192,7 +182,8 @@ final class ChatViewController: MessagesViewController {
         messages.sort()
         
         let isLatestMessage = messages.index(of: message) == (messages.count - 1)
-        let shouldScrollToBottom = messagesCollectionView.isAtBottom && isLatestMessage
+//        let shouldScrollToBottom = messagesCollectionView.isAtBottom && isLatestMessage
+        let shouldScrollToBottom = true
         
         messagesCollectionView.reloadData()
         

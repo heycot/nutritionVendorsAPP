@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PKHUD
 
 class EditInforUserController: UIViewController {
     
@@ -61,16 +62,17 @@ class EditInforUserController: UIViewController {
             return
         }
         
-        let userEdit = UserResponse()
-        userEdit.id = user.id
-        userEdit.name = nameStr
-        userEdit.phone = phoneTxt.text
-        userEdit.birthday = convertToDate(dateString: birthdayTxt.text!).timeIntervalSince1970
-        userEdit.address = addressTxt.text
+        user.name = nameStr
+        user.phone = phoneTxt.text
+        user.birthday = convertToDate(dateString: birthdayTxt.text!).timeIntervalSince1970
+        user.address = addressTxt.text
         
-        AuthServices.instance.edit(user: userEdit) { (data) in
+        HUD.show(.progress)
+        
+        AuthServices.instance.edit(user: user) { (data) in
             guard let data = data else { return }
             
+            HUD.hide()
             if !data {
                 
                 self.notification.text = "Something went wrong. Please try again."
@@ -79,8 +81,8 @@ class EditInforUserController: UIViewController {
             } else {
                 self.notification.text = "Update successful"
                 self.notification.isHidden = false
-                self.viewInfor()
-                self.reloadInputViews()
+//                self.viewInfor()
+//                self.reloadInputViews()
             }
         }
         

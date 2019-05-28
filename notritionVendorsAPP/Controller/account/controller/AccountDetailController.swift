@@ -204,9 +204,6 @@ extension AccountDetailController: UITableViewDelegate, UITableViewDataSource {
         if isActivity {
             let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.activityCell.rawValue, for: indexPath) as! ActivityCell
             
-//            cell.activityImage.addTarget(self, action: #selector(activityPressedFunction), for: UIControl.Event.touchDown)
-//            cell.activityTitle.addTarget(self, action: #selector(activityPressedFunction), for: UIControl.Event.touchDown)
-            
             cell.updateView(comment: listComment[indexPath.row])
             return cell
             
@@ -251,9 +248,9 @@ extension AccountDetailController: UITableViewDelegate, UITableViewDataSource {
                     AuthServices.instance.signout()
                     self.handleAfterLogOut()
                 } else {
-//                    self.navigationItem = NavigationController()
                     self.performSegue(withIdentifier: "AccountToLogin", sender: nil)
                 }
+                
             } else if indexPath?.row ==  (index - 1) {
                 performSegue(withIdentifier: SegueIdentifier.accountToPassword.rawValue, sender: nil)
             } else {
