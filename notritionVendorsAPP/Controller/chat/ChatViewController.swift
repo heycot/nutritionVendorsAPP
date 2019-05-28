@@ -136,14 +136,13 @@ final class ChatViewController: MessagesViewController {
     
     
     @objc private func cameraButtonPressed() {
-
         var config = YPImagePickerConfiguration()
         config.library.maxNumberOfItems = 10
         let picker = YPImagePicker(configuration: config)
         self.present(picker, animated: true, completion: nil)
-
+        
         picker.didFinishPicking { [unowned picker] items, cancelled in
-
+            
             for item in items {
                 switch item {
                 case .photo(let photo):
