@@ -43,7 +43,7 @@ extension DetailPhotoController : UICollectionViewDelegate, UICollectionViewData
         super.viewDidAppear(animated)
         //auto selected 1st item
         let indexPathForFirstRow = IndexPath(row: indexWillShow, section: 0)
-        self.collectionView?.selectItem(at: indexPathForFirstRow, animated: true, scrollPosition: .top)
+        self.collectionView?.selectItem(at: indexPathForFirstRow, animated: false, scrollPosition: .top)
     }
     
     override func viewDidLayoutSubviews() {

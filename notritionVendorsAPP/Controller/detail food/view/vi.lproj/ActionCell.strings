@@ -1,0 +1,9 @@
+
+/* Class = "UIButton"; normalTitle = "Chat"; ObjectID = "0bT-H8-bfr"; */
+"0bT-H8-bfr.normalTitle" = "Nhắn tin";
+
+/* Class = "UIButton"; normalTitle = "Delivery"; ObjectID = "bEi-CX-Izn"; */
+"bEi-CX-Izn.normalTitle" = "Giao hàng";
+
+/* Class = "UIButton"; normalTitle = "View more"; ObjectID = "s2e-sq-fc2"; */
+"s2e-sq-fc2.normalTitle" = "Xem thêm";

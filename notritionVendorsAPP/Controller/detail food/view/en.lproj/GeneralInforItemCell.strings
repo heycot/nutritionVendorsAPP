@@ -1,0 +1,30 @@
+
+/* Class = "UITextField"; text = "0"; ObjectID = "6qi-yg-RNP"; */
+"6qi-yg-RNP.text" = "0";
+
+/* Class = "UIButton"; normalTitle = "0"; ObjectID = "HsW-zU-zRQ"; */
+"HsW-zU-zRQ.normalTitle" = "0";
+
+/* Class = "UITextField"; text = "0"; ObjectID = "TkN-tt-3Vs"; */
+"TkN-tt-3Vs.text" = "0";
+
+/* Class = "UITextField"; text = "comments"; ObjectID = "WH1-bw-T8h"; */
+"WH1-bw-T8h.text" = "comments";
+
+/* Class = "UITextField"; text = "rating"; ObjectID = "Z5g-2a-v6R"; */
+"Z5g-2a-v6R.text" = "rating";
+
+/* Class = "UITextField"; text = "0"; ObjectID = "frw-O6-wgT"; */
+"frw-O6-wgT.text" = "0";
+
+/* Class = "UITextField"; text = "favorites"; ObjectID = "ovL-hA-5rf"; */
+"ovL-hA-5rf.text" = "favorites";
+
+/* Class = "UITextField"; text = "photos"; ObjectID = "q3S-fo-3SS"; */
+"q3S-fo-3SS.text" = "photos";
+
+/* Class = "UITextField"; text = "name"; ObjectID = "qsb-mH-nth"; */
+"qsb-mH-nth.text" = "name";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "vFG-dw-pvR"; */
+"vFG-dw-pvR.normalTitle" = "Button";

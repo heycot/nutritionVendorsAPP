@@ -12,7 +12,7 @@ class PhotoItemCell: UICollectionViewCell {
     @IBOutlet weak var imageView: CustomImageView!
     
     func updateView(image: CustomImageView) {
-        imageView = image
+        imageView.image = image.image
     }
     
 }

@@ -1,0 +1,27 @@
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "2Na-35-m1k"; */
+"2Na-35-m1k.placeholder" = "Email";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "4RG-98-Xiw"; */
+"4RG-98-Xiw.normalTitle" = "Login";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "JWk-rj-eoQ"; */
+"JWk-rj-eoQ.placeholder" = "Email";
+
+/* Class = "UIButton"; normalTitle = "Choose the avatar here"; ObjectID = "JZg-ar-h7W"; */
+"JZg-ar-h7W.normalTitle" = "Choose the avatar here";
+
+/* Class = "UITextField"; placeholder = "Name"; ObjectID = "NOP-YD-57G"; */
+"NOP-YD-57G.placeholder" = "Name";
+
+/* Class = "UIButton"; normalTitle = "Need an account? Sign up"; ObjectID = "oWa-OZ-OUU"; */
+"oWa-OZ-OUU.normalTitle" = "Need an account? Sign up";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "rou-hC-cf6"; */
+"rou-hC-cf6.placeholder" = "Password";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "uRT-jI-rhM"; */
+"uRT-jI-rhM.placeholder" = "Password";
+
+/* Class = "UITextField"; placeholder = "Confirm password"; ObjectID = "uVv-Lk-JbS"; */
+"uVv-Lk-JbS.placeholder" = "Confirm password";

@@ -124,7 +124,7 @@ class ViewItemController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let backItem = UIBarButtonItem()
-        backItem.title = "Back"
+        backItem.title = NSLocalizedString("Back", comment: "")
         
         if segue.destination is ViewLocationShopController  {
             let vc = segue.destination as? ViewLocationShopController
@@ -136,6 +136,7 @@ class ViewItemController: UIViewController {
         } else if segue.destination is PhotoItemController {
             let vc = segue.destination as? PhotoItemController
             vc?.images = item.images ?? []
+            vc?.shopItemID = item.id ?? ""
             
             navigationItem.backBarButtonItem = backItem
             

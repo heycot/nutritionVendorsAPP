@@ -45,7 +45,7 @@ class RecentService {
                 }
             } else {
                 DispatchQueue.main.async {
-                    completion(list)
+                    completion([])
                 }
                 print("User have no profile")
             }

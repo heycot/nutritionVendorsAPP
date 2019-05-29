@@ -1,0 +1,12 @@
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "TjG-66-UNH"; */
+"TjG-66-UNH.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Upk-4e-eqy"; */
+"Upk-4e-eqy.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "Enter title"; ObjectID = "g5G-r4-rmA"; */
+"g5G-r4-rmA.placeholder" = "Enter title";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "mMO-Yw-BED"; */
+"mMO-Yw-BED.text" = "Label";

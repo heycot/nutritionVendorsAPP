@@ -39,7 +39,7 @@
 "Can not chat" = "Không thể nhắn tin";
 "Can not Comment" = "Không thể bình luận";
 "No photo!" = "Không có ảnh nào";
-"Photos" = "Ảnh";
+"Photos" = "Hình ảnh";
 "Done" = "Xong";
 "Shop :" = "Cửa hàng :";
 "Food :" = "Sản phẩm :";
@@ -73,3 +73,4 @@
 "Your email and password do not match any account" = "Sai email hoặc password";
 "Categories" = "Danh mục";
 "Foods" = "Sản phẩm";
+"photos" = "hình ảnh";

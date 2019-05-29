@@ -44,6 +44,7 @@ class PhotoItemController: UIViewController {
         for item in images {
             let image = CustomImageView()
             let folder = ReferenceImage.shopItem.rawValue + shopItemID + "/\(item)"
+            print(folder)
             image.displayImage(folderPath: folder)
             imgArr.append(image)
         }

@@ -12,7 +12,8 @@ class DetailPhotoCell: UICollectionViewCell {
     @IBOutlet weak var image: CustomImageView!
     
     func updateView(image: CustomImageView) {
-        self.image.loadImageUsingUrlString(urlString: image.imageUrlString ?? "logo.jpg" )
+        
+        self.image.image = image.image
     }
     
 }
