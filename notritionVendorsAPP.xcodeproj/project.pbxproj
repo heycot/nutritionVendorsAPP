@@ -256,6 +256,7 @@
 		23E6FD74224B5479001C72B2 /* ExtentionDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtentionDouble.swift; sourceTree = "<group>"; };
 		23EAA4442246621100A30E98 /* CommentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentResponse.swift; sourceTree = "<group>"; };
 		23EAA4462246638300A30E98 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
+		23EBC7B7229E946000127EE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		2517CE55DA2DAF805F435575 /* Pods-notritionVendorsAPP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-notritionVendorsAPP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-notritionVendorsAPP/Pods-notritionVendorsAPP.debug.xcconfig"; sourceTree = "<group>"; };
 		A8D3C78C5C198D1296EA2D52 /* Pods-notritionVendorsAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-notritionVendorsAPP.release.xcconfig"; path = "Pods/Target Support Files/Pods-notritionVendorsAPP/Pods-notritionVendorsAPP.release.xcconfig"; sourceTree = "<group>"; };
 		C5B772CE597B45A98D426415 /* Pods_notritionVendorsAPP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_notritionVendorsAPP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1044,6 +1045,7 @@
 			children = (
 				23D02E652223799300882742 /* Base */,
 				232C8CE2229E478B0039C118 /* vi */,
+				23EBC7B7229E946000127EE5 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
