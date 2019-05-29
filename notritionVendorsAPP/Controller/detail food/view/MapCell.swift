@@ -31,7 +31,7 @@ class MapCell: UITableViewCell {
         
         address.text = item.address ?? ""
         let shop = ShopResponse(name: item.shop_name ?? "", longitude: item.longitude ?? 0, latitude: item.latitude ?? 0)
-        distance.text = shop.getDistance(currlocation: AuthServices.instance.currentLocation) + " (From current location)"
+        distance.text = shop.getDistance(currlocation: AuthServices.instance.currentLocation) + NSLocalizedString(" (From current location)", comment: "") 
         let location = CLLocation(latitude: item.latitude ?? 0, longitude: item.longitude ?? 0)
         
         viewMapFunc(location)

@@ -27,11 +27,11 @@ class NewCommentController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(donePressed))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Done", comment: ""), style: .done, target: self, action: #selector(donePressed))
         
-        shopItemName.text = "Food :" + " \(shopItem.name ?? "")"
+        shopItemName.text = NSLocalizedString("Food :", comment: "") + " \(shopItem.name ?? "")"
         
-        address.text = "Shop :" + " \( shopItem.shop_name ?? "")"
+        address.text = NSLocalizedString("Shop :", comment: "") + " \( shopItem.shop_name ?? "")"
 
         setUpUI()
         handlerkeyboard()
@@ -47,10 +47,10 @@ class NewCommentController: UIViewController {
         CommentServices.instance.getCommentByUserAnShopItem(shopitemID: shopItem.id ?? "") { (data) in
             HUD.hide()
             if data == nil {
-                self.title = "Write review"
+                self.title = NSLocalizedString("Write review", comment: "")
             } else {
                 self.isNew = false
-                self.title = "Edit review"
+                self.title = NSLocalizedString("Edit review", comment: "")
                 self.lastComment = data!
                 self.viewLastComment(comment: data!)
             }
@@ -69,7 +69,7 @@ class NewCommentController: UIViewController {
     func setUpUI() {
         
         if isNew {
-            content.text = "Enter content"
+            content.text = NSLocalizedString("Enter content", comment: "")
             content.textColor = .lightGray
         }
         
@@ -78,7 +78,7 @@ class NewCommentController: UIViewController {
         ratingview.settings.minTouchRating = 1.0
         ratingview.settings.updateOnTouch = true
         ratingview.settings.fillMode = .precise
-        ratingview.text = "Rate me"
+        ratingview.text = NSLocalizedString("Rate me", comment: "")
         
         titleCmt.delegate = self
         content.delegate = self
@@ -94,7 +94,7 @@ class NewCommentController: UIViewController {
     
     // handle keyboard when add new comment
     func handlerkeyboard() {
-        IQKeyboardManager.shared.toolbarDoneBarButtonItemText = "Send"
+        IQKeyboardManager.shared.toolbarDoneBarButtonItemText = NSLocalizedString("Send", comment: "")
         IQKeyboardManager.shared.shouldResignOnTouchOutside = false
         IQKeyboardManager.shared.shouldPlayInputClicks = false // set to true by default
     }
@@ -150,9 +150,9 @@ class NewCommentController: UIViewController {
                     
                     HUD.hide()
                     if data == nil {
-                        let alert = UIAlertController(title: Notification.comment.addCmtFailedTitle.rawValue, message: Notification.comment.addCmtFailedMessgae.rawValue, preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
-                        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+                        let alert = UIAlertController(title: NSLocalizedString(Notification.comment.addCmtFailedTitle.rawValue, comment: "")  , message: NSLocalizedString(Notification.comment.addCmtFailedMessgae.rawValue, comment: "")  , preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .default, handler: nil))
+                        alert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: ""), style: .cancel, handler: nil))
                         self.present(alert, animated: true)
                         
                     } else {
@@ -171,9 +171,9 @@ class NewCommentController: UIViewController {
                     
                     HUD.hide()
                     if !data {
-                        let alert = UIAlertController(title: Notification.comment.addCmtFailedTitle.rawValue, message: Notification.comment.addCmtFailedMessgae.rawValue, preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
-                        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+                        let alert = UIAlertController(title: NSLocalizedString(Notification.comment.addCmtFailedTitle.rawValue, comment: "")  , message: NSLocalizedString(Notification.comment.addCmtFailedMessgae.rawValue, comment: "")  , preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .default, handler: nil))
+                        alert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: ""), style: .cancel, handler: nil))
                         self.present(alert, animated: true)
                         
                     } else {
@@ -189,14 +189,14 @@ class NewCommentController: UIViewController {
     func validateInput() -> Bool {
         
         if titleCmt.text == "" || titleCmt.text?.lowercased() == "enter title" || content.text == "" || content.text.lowercased() == "enter content" {
-            showAlertError(title: "Error", message: Notification.comment.nilWithInfor.rawValue)
+            showAlertError(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString(Notification.comment.nilWithInfor.rawValue, comment: "") )
             return false
         } else if !titleCmt.text!.isValidString() {
-            showAlertError(title: "Error", message: Notification.comment.titleNotValid.rawValue)
+            showAlertError(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString(Notification.comment.titleNotValid.rawValue, comment: "") )
             return false
             
         } else if content.text == nil || !content.text!.isValidString() {
-            showAlertError(title: "Error", message: Notification.comment.contentNotValid.rawValue)
+            showAlertError(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString(Notification.comment.contentNotValid.rawValue, comment: "") )
             return false
             
         } else {
@@ -227,7 +227,7 @@ extension NewCommentController: UITextViewDelegate {
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         if isNew {
             if textView.text.isEmpty {
-                textView.text = "Enter content"
+                textView.text = NSLocalizedString("Enter content", comment: "")
                 textView.textColor = .lightGray
             } else {
                 textView.text = ""

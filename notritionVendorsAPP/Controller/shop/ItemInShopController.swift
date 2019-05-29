@@ -62,7 +62,7 @@ class ItemInShopController: UIViewController {
         shopName.text = shop.name
         shopAddress.text = shop.address
         shopTimeOpen.text = shop.time_open! + " - " + shop.time_close!
-        distance.text = shop.getDistance(currlocation: AuthServices.instance.currentLocation) + " (From current location)"
+        distance.text = shop.getDistance(currlocation: AuthServices.instance.currentLocation) + NSLocalizedString(" (From current location)", comment: "")
         openStatus.text = getOpenStatus(start: shop.time_open!, end: shop.time_close!)
         
         setupViewInfor()
@@ -92,9 +92,10 @@ class ItemInShopController: UIViewController {
       
         
         if hour < endHour, hour > startHour {
-            return "Opening"
+            return NSLocalizedString("Opening", comment: "")
+            
         } else {
-            return "Closed"
+            return NSLocalizedString("Closed", comment: "")
         }
         
     }
@@ -117,7 +118,7 @@ class ItemInShopController: UIViewController {
             guard let data = data else {return }
             
             if data.count == 0 {
-                self.notification.text = Notification.noFood.rawValue
+                self.notification.text = NSLocalizedString(Notification.noFood.rawValue, comment: "") 
                 self.notification.isHidden = false
             } else {
                 

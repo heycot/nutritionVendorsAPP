@@ -59,8 +59,8 @@ class SignupController: UIViewController {
                 guard let data = data else { return }
                 
                 if !data {
-                    self.notification.text = "Signup failed"
-                    self.detailNotifi.text = "Something went wrong. Please try again"
+                    self.notification.text = NSLocalizedString("Signup failed", comment: "")
+                    self.detailNotifi.text = NSLocalizedString("Something went wrong. Please try again", comment: "")
                 } else {
                     AuthServices.instance.signin(email: self.user.email!, password: self.pass, completion: { (data) in
                         guard let data = data else { return }
@@ -90,26 +90,26 @@ class SignupController: UIViewController {
     
     func checkInputData() -> Bool {
         guard let name = nameTxt.text, nameTxt.text!.isValidUserName() else{
-            notification.text = Notification.username.title.rawValue
-            detailNotifi.text = Notification.username.detail.rawValue
+            notification.text = NSLocalizedString(Notification.username.title.rawValue, comment: "")
+            detailNotifi.text = NSLocalizedString(Notification.username.detail.rawValue, comment: "")
             return false
         }
         
         guard let email = emailTxt.text , emailTxt.text!.isValidEmail() else {
-            notification.text = Notification.email.title.rawValue
-            detailNotifi.text = Notification.email.detail.rawValue
+            notification.text = NSLocalizedString(Notification.email.title.rawValue, comment: "")
+            detailNotifi.text = NSLocalizedString(Notification.email.detail.rawValue, comment: "")
             return false
         }
         
         guard let password = passTxt.text , passTxt.text!.isValidPassword() else {
-            notification.text = Notification.password.title.rawValue
-            detailNotifi.text = Notification.password.detail.rawValue
+            notification.text = NSLocalizedString(Notification.password.title.rawValue, comment: "")
+            detailNotifi.text = NSLocalizedString(Notification.password.detail.rawValue, comment: "")
             return false
         }
         
         guard  let _ = confirmPassTXT.text, confirmPassTXT.text!.isValidPassword(), confirmPassTXT.text! == password else {
-            notification.text = Notification.confirmPass.title.rawValue
-            detailNotifi.text = Notification.confirmPass.detail.rawValue
+            notification.text = NSLocalizedString(Notification.confirmPass.title.rawValue, comment: "")
+            detailNotifi.text = NSLocalizedString(Notification.confirmPass.detail.rawValue, comment: "") 
             return false
         }
         

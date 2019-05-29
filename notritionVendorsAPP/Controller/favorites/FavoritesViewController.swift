@@ -38,13 +38,13 @@ class FavoritesViewController: UIViewController {
     func checkLogIn() {
         
         if !AuthServices.instance.isLoggedIn {
-            let alert = UIAlertController(title: Notification.notLogedIn.rawValue, message: "", preferredStyle: .alert)
+            let alert = UIAlertController(title: NSLocalizedString(Notification.notLogedIn.rawValue, comment: "") , message: "", preferredStyle: .alert)
             
-            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .default, handler: { action in
                 self.performSegueFunc(identifier: SegueIdentifier.favoritesToLogIn.rawValue, sender: nil)
             }))
-            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { action in
-                self.resultSearchNotification.text = Notification.notLogedIn.rawValue
+            alert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: ""), style: .cancel, handler: { action in
+                self.resultSearchNotification.text = NSLocalizedString( Notification.notLogedIn.rawValue, comment: "")
             }))
             self.present(alert, animated: true)
             
@@ -83,7 +83,7 @@ class FavoritesViewController: UIViewController {
             if data.count == 0, self.favoritesList.count == 0{
                 HUD.hide()
                 self.resultSearchNotification.isHidden = false
-                self.resultSearchNotification.text = Notification.noData.rawValue
+                self.resultSearchNotification.text = NSLocalizedString(Notification.noData.rawValue, comment: "") 
             } else {
                 data.sort(by: {$0.update_date! > $1.update_date! })
                 

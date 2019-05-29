@@ -101,7 +101,7 @@ class ShopController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let backItem = UIBarButtonItem()
-        backItem.title = "Back"
+        backItem.title = NSLocalizedString("Back", comment: "") 
         
         if segue.destination is SearchController {
              navigationItem.backBarButtonItem = backItem

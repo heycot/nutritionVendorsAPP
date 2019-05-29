@@ -101,7 +101,7 @@ class ViewItemController: UIViewController {
         appendItemValue(icon: Icon.time_icon.rawValue, value: (item.time_open ?? ""  ) + " - " + (item.time_close ?? ""))
 //        appendItemValue(icon: Icon.category_icon.rawValue, value: "Rau cu")
         appendItemValue(icon: Icon.shop_icon.rawValue, value: (item.shop_name ?? "" ))
-        appendItemValue(icon: Icon.picture.rawValue, value: "\(item.images?.count ?? 0) photos")
+        appendItemValue(icon: Icon.picture.rawValue, value: "\(item.images?.count ?? 0) " + NSLocalizedString("photos", comment: ""))
 //        appendItemValue(icon: Icon.address_icon.rawValue, value: (item.shop!.location!.address!  ))
         appendItemValue(icon: Icon.phone_icon.rawValue, value: (item.phone ?? "" ))
         
@@ -197,12 +197,12 @@ class ViewItemController: UIViewController {
             } else {
                 // user is not signed in
                 
-                let alert = UIAlertController(title: "Can not love", message: "Please sign in!", preferredStyle: .alert)
+                let alert = UIAlertController(title: NSLocalizedString( "Can not love", comment: ""), message: NSLocalizedString( "Please sign in!", comment: ""), preferredStyle: .alert)
                 
-                alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+                alert.addAction(UIAlertAction(title: NSLocalizedString( "Yes", comment: ""), style: .default, handler: { action in
                     self.performSegueFunc(identifier: SegueIdentifier.detailFoodToLogin.rawValue)
                 }))
-                alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+                alert.addAction(UIAlertAction(title: NSLocalizedString( "No", comment: ""), style: .cancel, handler: nil))
                 self.present(alert, animated: true)
             }
         }
@@ -230,13 +230,12 @@ class ViewItemController: UIViewController {
                 })
             } else {
                 // user is not signed in
+                let alert = UIAlertController(title: NSLocalizedString( "Can not chat", comment: ""), message: NSLocalizedString( "Please sign in!", comment: ""), preferredStyle: .alert)
                 
-                let alert = UIAlertController(title: "Can not chat", message: "Please sign in!", preferredStyle: .alert)
-                
-                alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+                alert.addAction(UIAlertAction(title: NSLocalizedString( "Yes", comment: ""), style: .default, handler: { action in
                     self.performSegueFunc(identifier: SegueIdentifier.detailFoodToLogin.rawValue)
                 }))
-                alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+                alert.addAction(UIAlertAction(title: NSLocalizedString( "No", comment: ""), style: .cancel, handler: nil))
                 self.present(alert, animated: true)
             }
         }
@@ -286,12 +285,12 @@ class ViewItemController: UIViewController {
             
             if !data {
                 // user is not signed in
-                let alert = UIAlertController(title: "Can not Comment", message: "Please sign in!", preferredStyle: .alert)
+                let alert = UIAlertController(title: NSLocalizedString( "Can not Comment", comment: ""), message: NSLocalizedString( "Please sign in!", comment: ""), preferredStyle: .alert)
                 
-                alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+                alert.addAction(UIAlertAction(title: NSLocalizedString( "Yes", comment: ""), style: .default, handler: { action in
                     self.performSegueFunc(identifier: SegueIdentifier.detailFoodToLogin.rawValue)
                 }))
-                alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+                alert.addAction(UIAlertAction(title: NSLocalizedString( "No", comment: ""), style: .cancel, handler: nil))
                 self.present(alert, animated: true)
             } else {
                 self.shouldReload = true

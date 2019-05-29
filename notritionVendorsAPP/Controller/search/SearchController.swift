@@ -63,7 +63,7 @@ class SearchController: UIViewController {
     
     func createSearchBar() {
         searchBar.showsCancelButton = false
-        searchBar.placeholder = " Search here"
+        searchBar.placeholder = NSLocalizedString(" Search here", comment: "")
         searchBar.delegate = self
         searchBar.tintColor = .black 
         

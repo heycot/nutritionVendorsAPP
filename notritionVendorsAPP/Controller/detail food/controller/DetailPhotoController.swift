@@ -17,7 +17,7 @@ class DetailPhotoController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Photos" + " \(String(imgArr.count))"
+        self.title = NSLocalizedString("Photos", comment: "") + " \(String(imgArr.count))"
 
         collectionView.delegate = self
         collectionView.dataSource = self

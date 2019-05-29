@@ -32,7 +32,8 @@ extension LocationServicesProtocol where Self: UIViewController {
     }
     
     func alertPromptToAllowLocationAccessViaSettings() {
-        alertPromptToAccessPrivacy(title: "We would like to access your location", message: "Please grant permission to access your location.")
+        alertPromptToAccessPrivacy(title: NSLocalizedString("We would like to access your location", comment: "") , message: NSLocalizedString("Please grant permission to access your location", comment: "")
+            )
     }
     
     func permissionLocationServicesAccess() {
@@ -46,11 +47,11 @@ extension LocationServicesProtocol where Self: UIViewController {
 extension UIViewController {
     func alertPromptToAccessPrivacy(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert )
-        let openSetting = UIAlertAction(title: "Open Settings", style: .default) { alert in
+        let openSetting = UIAlertAction(title: NSLocalizedString("Open Settings", comment: ""), style: .default) { alert in
             UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
         }
         alert.addAction(openSetting)
-        let declineAction = UIAlertAction(title: "Not Now", style: .cancel) { (alert) in
+        let declineAction = UIAlertAction(title: NSLocalizedString("Not Now", comment: ""), style: .cancel) { (alert) in
         }
         alert.addAction(declineAction)
         present(alert, animated: true, completion: nil)

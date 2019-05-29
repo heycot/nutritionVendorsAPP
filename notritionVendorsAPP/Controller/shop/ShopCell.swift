@@ -37,7 +37,7 @@ class ShopCell: UITableViewCell {
         shopImage.displayImage(folderPath: folder)
         shopName.text = shop.name ?? ""
         shopAddress.text = shop.address ?? ""
-        infor.text =  "Distance: " + shop.getDistance(currlocation: AuthServices.instance.currentLocation)
+        infor.text =  NSLocalizedString("Distance: ", comment: "")  + shop.getDistance(currlocation: AuthServices.instance.currentLocation)
     }
     
 

@@ -15,9 +15,10 @@ struct DistanceDurationItem {
 
     var durationDescription: String {
         if duration == 1 {
-            return String(format: "%.0f mins", duration)
+            return String(format: NSLocalizedString("%.0f mins", comment: "") , duration)
         } else {
-            return String(format: "%.0f mins", duration)
+            return String(format: NSLocalizedString("%.0f mins", comment: "") , duration)
+//            return String(format: "%.0f mins", duration)
         }
     }
 
@@ -129,7 +130,7 @@ class ViewLocationShopController: UIViewController {
 
     func configShopInfo(_ shop: ShopResponse) {
         shopName.text = shop.name
-        distance.text = shop.getDistance(currlocation: AuthServices.instance.currentLocation) + " (From current location)"
+        distance.text = shop.getDistance(currlocation: AuthServices.instance.currentLocation) + NSLocalizedString(" (From current location)", comment: "") 
         
 
         // TODO: update more info if needed here

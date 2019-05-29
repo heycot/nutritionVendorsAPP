@@ -55,8 +55,8 @@ class EditInforUserController: UIViewController {
 
     @IBAction func doneBtnPressed(_ sender: Any) {
         guard let nameStr = nameTxt.text, (nameTxt.text?.isValidUserName())! else {
-            notification.text = Notification.username.title.rawValue
-            detailNotification.text = Notification.username.detail.rawValue
+            notification.text = NSLocalizedString(Notification.username.title.rawValue, comment: "")
+            detailNotification.text = NSLocalizedString(Notification.username.detail.rawValue, comment: "") 
             notification.isHidden = false
             detailNotification.isHidden = false
             return
@@ -75,11 +75,11 @@ class EditInforUserController: UIViewController {
             HUD.hide()
             if !data {
                 
-                self.notification.text = "Something went wrong. Please try again"
+                self.notification.text = NSLocalizedString("Something went wrong. Please try again", comment: "") 
                 self.notification.isHidden = false
                 
             } else {
-                self.notification.text = "Update successful"
+                self.notification.text = NSLocalizedString("Update successful", comment: "")
                 self.notification.isHidden = false
 //                self.viewInfor()
 //                self.reloadInputViews()
@@ -111,9 +111,9 @@ extension EditInforUserController {
         let toolbar = UIToolbar();
         toolbar.sizeToFit()
         
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donedatePicker));
+        let doneButton = UIBarButtonItem(title: NSLocalizedString("Done", comment: ""), style: .plain, target: self, action: #selector(donedatePicker));
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker));
+        let cancelButton = UIBarButtonItem(title: NSLocalizedString("Cancel", comment: ""), style: .plain, target: self, action: #selector(cancelDatePicker));
         toolbar.setItems([cancelButton, spaceButton, doneButton], animated: false)
         
         birthdayTxt.inputAccessoryView = toolbar

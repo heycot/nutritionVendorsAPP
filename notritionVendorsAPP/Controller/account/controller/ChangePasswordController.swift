@@ -80,8 +80,8 @@ class ChangePasswordController: UIViewController {
     
     func checkValidNewPass() -> Bool {
         guard let pass = newPass.text, newPass.text!.isValidPassword() else {
-            titleNotification.text = Notification.password.title.rawValue
-            notification.text = Notification.password.detail.rawValue
+            titleNotification.text = NSLocalizedString(Notification.password.title.rawValue, comment: "")
+            notification.text = NSLocalizedString(Notification.password.detail.rawValue, comment: "")
             notification.isHidden = false
             titleNotification.isHidden = false
             return false
@@ -93,8 +93,8 @@ class ChangePasswordController: UIViewController {
     
     func checkValidConfirmPass() -> Bool {
         guard  let _ = confirmPass.text, confirmPass.text!.isValidPassword(), confirmPass.text! == newPassword else {
-            titleNotification.text = Notification.confirmPass.title.rawValue
-            notification.text = Notification.confirmPass.detail.rawValue
+            titleNotification.text = NSLocalizedString(Notification.confirmPass.title.rawValue, comment: "")
+            notification.text = NSLocalizedString(Notification.confirmPass.detail.rawValue, comment: "")
             notification.isHidden = false
             titleNotification.isHidden = false
             return false
@@ -108,7 +108,7 @@ extension ChangePasswordController : UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         
         guard let password = currentPass.text, currentPass.text!.isValidPassword() else {
-            notification.text = Notification.password.detail.rawValue
+            notification.text = NSLocalizedString(Notification.password.detail.rawValue, comment: "") 
             disableInputText()
             return
         }
@@ -116,7 +116,7 @@ extension ChangePasswordController : UITextFieldDelegate {
         switch textField {
             case currentPass:
                 guard let password = currentPass.text else {
-                    notification.text = Notification.password.detail.rawValue
+                    notification.text = NSLocalizedString(Notification.password.detail.rawValue, comment: "")
                     disableInputText()
                     self.isCurrentCorrect = false
                     return

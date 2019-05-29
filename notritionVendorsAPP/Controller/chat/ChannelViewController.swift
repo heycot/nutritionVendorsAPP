@@ -50,7 +50,7 @@ class ChannelViewController: UIViewController {
             guard let data = data else { return }
             
             if data.count == 0 {
-                self.notification.text = "No data to show"
+                self.notification.text = NSLocalizedString("No data to show", comment: "")
                 self.notification.isHidden = false
             }
             
@@ -92,7 +92,7 @@ class ChannelViewController: UIViewController {
                 self.notification.isHidden = true
 
             } else {
-                self.notification.text = "Please login to use this task"
+                self.notification.text = NSLocalizedString("Please login to use this task", comment: "") 
             }
         }
     }

@@ -20,7 +20,7 @@
 "Invalid phone number" = "Invalid phone number";
 "Only 10 numbers" = "Only 10 numbers";
 "Invalid email address" = "Invalid email address";
-"Please enter a valid email address." = "Please enter a valid email address";
+"Please enter a valid email address" = "Please enter a valid email address";
 "Invalid new password" = "Invalid new password";
 "Only letters, underscores, and numbers" = "Only letters, underscores, and numbers";
 "Invalid confirm password" = "Invalid confirm password";
@@ -40,6 +40,7 @@
 "Can not Comment" = "Can not Comment";
 "No photo!" = "No photo!";
 "Photos" = "Photos";
+"photos" = "photos";
 "Done" = "Done";
 "Shop :" = "Shop :";
 "Food :" = "Food :";
@@ -74,3 +75,4 @@
 "Your email and password do not match any account" = "Your email and password do not match any account";
 "Categories" = "Categories";
 "Foods" = "Foods";
+"Error" = "Error";

@@ -21,8 +21,8 @@ class PhotoItemController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNotification()
-        self.title = "Photos" + " \(images.count )"
-        self.navigationItem.backBarButtonItem?.title = "Back"
+        self.title = NSLocalizedString("Photos", comment: "") + " \(images.count )"
+        self.navigationItem.backBarButtonItem?.title = NSLocalizedString("Back", comment: "")
         setupData()
         
         collectionView.delegate = self
@@ -35,7 +35,7 @@ class PhotoItemController: UIViewController {
     func setupNotification() {
         if images.count == 0 {
             photoNotification.textColor = APP_COLOR
-            photoNotification.text = "No photo!"
+            photoNotification.text = NSLocalizedString("no photos!", comment: "")
             photoNotification.isHidden = false
         }
     }
@@ -54,7 +54,7 @@ class PhotoItemController: UIViewController {
             let vc = segue.destination as? DetailPhotoController
 //            let arr = showImage()
             let backItem = UIBarButtonItem()
-            backItem.title = "Back"
+            backItem.title = NSLocalizedString("Back", comment: "")
             navigationItem.backBarButtonItem = backItem
             vc?.imgArr = imgArr
             vc?.indexWillShow = indexForShow
