@@ -184,10 +184,10 @@ extension HightRatingController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! HeaderCollectionCell
         if indexPath.section == 0 {
-            headerView.updateView(titleStr: "Categories")
+            headerView.updateView(titleStr: NSLocalizedString("Categories", comment: ""))
         } else {
             
-            headerView.updateView(titleStr: "Foods")
+            headerView.updateView(titleStr: NSLocalizedString("Foods", comment: "") )
         }
         
        return headerView

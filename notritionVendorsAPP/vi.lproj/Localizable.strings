@@ -5,8 +5,6 @@
   Created by Tu (Callie) T. NGUYEN on 5/29/19.
   Copyright © 2019 Tu (Callie) T. NGUYEN. All rights reserved.
 */
-
-
 "No data to show" = "Không có dữ liệu";
 "No food to show" = "Không có dữ liệu";
 "Please login to use this task" = "Đăng nhập để sử dụng tính năng này";
@@ -34,7 +32,7 @@
 " Search here" = "Tìm kiếm tại đây";
 "%.0f mins" = "%.0f phút";
 "Back" = "Trở về";
-"Can not love" = "Không thể yêu thích"
+"Can not love" = "Không thể yêu thích";
 "Please sign in!" = "Vui lòng đăng nhập";
 "Yes" = "Có";
 "No" = "Không";

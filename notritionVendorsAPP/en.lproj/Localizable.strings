@@ -32,7 +32,7 @@
 " Search here" = " Search here";
 "%.0f mins" = "%.0f mins";
 "Back" = "Back";
-"Can not love" = "Can not love"
+"Can not love" = "Can not love";
 "Please sign in!" = "Please sign in!";
 "Yes" = "Yes";
 "No" = "No";
@@ -67,13 +67,10 @@
 "Log in " = "Log in ";
 "newbee - Top 1000 - 10 Followers" = "newbee - Top 1000 - 10 Followers";
 "Log out " = "Log out ";
-"Something went wrong. Please try again" = "Something went wrong. Please try again.;
+"Something went wrong. Please try again" = "Something went wrong. Please try again";
 "Update successful" = "Update successful";
 "Signup failed" = "Signup failed";
 "Can not log in!" = "Can not log in!";
 "Your email and password do not match any account" = "Your email and password do not match any account";
 "Categories" = "Categories";
 "Foods" = "Foods";
-
-
-
