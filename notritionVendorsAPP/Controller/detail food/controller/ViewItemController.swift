@@ -192,6 +192,7 @@ class ViewItemController: UIViewController {
                     }
                     HUD.hide()
                     self.loveBtn.setImage(UIImage(named: loveIconName), for: .normal)
+                    ShopItemService.instance.updateFavorite(itemID: self.item.id ?? "", status: status)
                 })
             } else {
                 // user is not signed in
