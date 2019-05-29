@@ -7,137 +7,148 @@
 //
 
 import UIKit
-import Photos
+import YPImagePicker
+import PKHUD
 
 class SignupController: UIViewController {
 
     // Outlets
     @IBOutlet weak var avatarImage: UIImageView!
-    @IBOutlet weak var userNameTxt: UITextField!
-    @IBOutlet weak var phoneTxt: UITextField!
+    @IBOutlet weak var nameTxt: UITextField!
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var passTxt: UITextField!
-    @IBOutlet weak var confirmPassTxt: UITextField!
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    @IBOutlet weak var confirmPassTXT: UITextField!
     
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    @IBOutlet weak var notification : UILabel!
+    @IBOutlet weak var detailNotifi : UILabel!
     
     // variables
-    var user: User?
+    var user = UserResponse()
+    var image : UIImage?
+    var pass  = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        user = User()
+        user.avatar = "logo"
         setUpUI()
     }
     
     func setUpUI() {
         spinner.isHidden = true
         avatarImage.setRounded(color: .white)
-        userNameTxt.setBottomBorder(color: APP_COLOR)
-        phoneTxt.setBottomBorder(color: APP_COLOR)
+        nameTxt.setBottomBorder(color: APP_COLOR)
         emailTxt.setBottomBorder(color: APP_COLOR)
         passTxt.setBottomBorder(color: APP_COLOR)
-        confirmPassTxt.setBottomBorder(color: APP_COLOR)
+        confirmPassTXT.setBottomBorder(color: APP_COLOR)
+        
+        passTxt.delegate = self
+        confirmPassTXT.delegate = self
+        
     }
     
     @IBAction func donePressed(_ sender: Any) {
-        spinner.isHidden = false
-        spinner.startAnimating()
-        
         if checkInputData() {
-            AuthServices.instance.registerUser(user: self.user!) { (success) in
-                if success {
-                    AuthServices.instance.loginUser(email: self.user!.email, password: self.user!.password, completion: { (user) in
+            
+            notification.text = ""
+            detailNotifi.text = ""
+            
+            HUD.flash(.success, delay: 1.0)
+            
+            AuthServices.instance.signup(name: user.name ?? "", email: user.email ?? "", password: self.pass) { (data) in
+                guard let data = data else { return }
+                
+                if !data {
+                    self.notification.text = "Signup failed"
+                    self.detailNotifi.text = "Something went wrong. Please try again"
+                } else {
+                    AuthServices.instance.signin(email: self.user.email!, password: self.pass, completion: { (data) in
+                        guard let data = data else { return }
                         
-                        if user != nil {
-                            print("logined user " )
+                        if data {
+                            if self.image == nil {
+                                self.image = UIImage(named: self.user.avatar!)
+                            }
+                            let folder = "user_images/\(self.user.avatar!)"
+                            ImageServices.instance.uploadMedia(image: self.image!, reference: folder, completion: { (data) in
+                                if data == nil { return }
+                            })
+                            self.backTwoViewController()
                         }
                     })
                 }
             }
+            
         }
         
     }
     
+    func backTwoViewController() {
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+        self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
+    }
+    
     func checkInputData() -> Bool {
-        guard let username = userNameTxt.text, userNameTxt.text!.isValidUserName() else{
-            return false
-        }
-        
-        guard let phone = phoneTxt.text, phoneTxt.text!.isValidPhone() else {
+        guard let name = nameTxt.text, nameTxt.text!.isValidUserName() else{
+            notification.text = Notification.username.title.rawValue
+            detailNotifi.text = Notification.username.detail.rawValue
             return false
         }
         
         guard let email = emailTxt.text , emailTxt.text!.isValidEmail() else {
+            notification.text = Notification.email.title.rawValue
+            detailNotifi.text = Notification.email.detail.rawValue
             return false
         }
         
-        guard let password = passTxt.text, passTxt.text!.isValidPassword() else {
+        guard let password = passTxt.text , passTxt.text!.isValidPassword() else {
+            notification.text = Notification.password.title.rawValue
+            detailNotifi.text = Notification.password.detail.rawValue
             return false
         }
         
-        guard let _ = confirmPassTxt.text, confirmPassTxt.text!.isValidPassword(), confirmPassTxt.text == password else {
+        guard  let _ = confirmPassTXT.text, confirmPassTXT.text!.isValidPassword(), confirmPassTXT.text! == password else {
+            notification.text = Notification.confirmPass.title.rawValue
+            detailNotifi.text = Notification.confirmPass.detail.rawValue
             return false
         }
         
-        self.user = User(id: 0, user_name: username, email: email, phone: phone, password: password, birthday: Date(), avatar: "", address: "", create_date: Date(), status: 1)
+        self.user.name = name
+        self.user.email = email
+        self.pass = password
         return true
     }
     
     @IBAction func chooseAvatarpressed(_ sender: Any) {
-        let myPickerController = UIImagePickerController()
-        myPickerController.delegate = self;
-        myPickerController.sourceType =  UIImagePickerController.SourceType.photoLibrary
-        self.present(myPickerController, animated: true, completion: nil)
+        let picker = YPImagePicker()
+        picker.didFinishPicking { [unowned picker] items, _ in
+            if let photo = items.singlePhoto {
+                
+                self.user.avatar = String.generateNameForImage()
+                self.image = photo.image
+                self.avatarImage.image = photo.image
+                self.avatarImage.setRounded(color: .white)
+            }
+            picker.dismiss(animated: true, completion: nil)
+        }
+        present(picker, animated: true, completion: nil)
     }
-    
-    func generateNameForImage() -> String {
-        let date = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "IMG_hh.mm.ss.dd.MM.yyyy"
-        return formatter.string(from: date)
-    }
-    
+   
     @objc func dismisHandle() {
         dismiss(animated: true, completion: nil)
     }
+   
 }
 
-extension SignupController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
+extension SignupController : UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("begin edit text")
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
-            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
-        }
-        var fileName = ""
-        
-        if let url = info[UIImagePickerController.InfoKey.referenceURL] as? URL {
-            let assets = PHAsset.fetchAssets(withALAssetURLs: [url], options: nil)
-            if let firstAsset = assets.firstObject,
-                let firstResource = PHAssetResource.assetResources(for: firstAsset).first {
-                fileName = firstResource.originalFilename
-            } else {
-                fileName = generateNameForImage()
-            }
-        } else {
-            fileName = generateNameForImage()
-        }
-        
-        if (fileName != "") {
-            let fileManager = FileManager.default
-            let paths = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(fileName)
-            print(paths)
-            let imageData = selectedImage.jpegData(compressionQuality: 0.75)
-            fileManager.createFile(atPath: paths as String, contents: imageData, attributes: nil)
-            
-            user?.avatar = fileName
-            self.dismisHandle()
-            self.avatarImage.image = UIImage(named: fileName)
-        }
-        self.dismisHandle()
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        print("edit text")
+        return true
     }
+    
 }
+

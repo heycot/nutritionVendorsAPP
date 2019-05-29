@@ -8,19 +8,37 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import GoogleMaps
+import GooglePlaces
+import Firebase
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+	class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        
+        GMSServices.provideAPIKey(GOOGLE_API_KEY)
+        GMSPlacesClient.provideAPIKey(GOOGLE_API_KEY)
+        FirebaseApp.configure()
+        
         self.splahScreen()
         IQKeyboardManager.shared.enable = true
+        
         return true
     }
     
+    private func setupNavigationBar() {
+        UINavigationBar.appearance().barTintColor = APP_COLOR
+        UINavigationBar.appearance().tintColor = .white
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        
+//        UIApplication.shared.statusBarStyle = .lightContent
+    }
+
     private func splahScreen() {
         let lanuchScreenVC = UIStoryboard.init(name: "LaunchScreen", bundle: nil)
         

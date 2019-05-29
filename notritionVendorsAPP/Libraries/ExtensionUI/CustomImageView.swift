@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseUI
 
 let imageCache = NSCache<NSString, UIImage>()
 
@@ -35,7 +37,8 @@ class CustomImageView: UIImageView {
             }
             
             DispatchQueue.main.async {
-                guard let imageToCache = UIImage(data: data!) else { return }
+                guard let data = data else { return }
+                guard let imageToCache = UIImage(data: data) else { return }
                 
                 if self.imageUrlString == urlString {
                     self.image = imageToCache
@@ -47,5 +50,41 @@ class CustomImageView: UIImageView {
         }).resume()
     }
     
+    func loadImageFromFirebase(folder: String) {
+        
+        imageUrlString = folder
+        
+        
+        image = nil
+        
+        if let imageFromCache = imageCache.object(forKey: folder as NSString) {
+            self.image = imageFromCache
+            return
+        }
+        
+        ImageServices.instance.downloadImages(folderPath: folder, success: { (data) in
+            if data != nil {
+                self.image = data
+            }
+            
+            imageCache.setObject(data, forKey: folder as NSString)
+        }) { (err) in
+            print("something wrong with image folder")
+        }
+        
+    }
     
+    
+    func displayImage(folderPath: String) {
+        let storage = Storage.storage()
+        let storageRef = storage.reference(withPath: "images")
+
+        // Reference to an image file in Firebase Storage
+        let reference = storageRef.child(folderPath)
+        
+        
+        // Load the image using SDWebImage
+        self.sd_setImage(with: reference)
+        
+    }
 }

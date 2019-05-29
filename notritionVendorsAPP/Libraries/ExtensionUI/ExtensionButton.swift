@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseStorage
+import FirebaseUI
 
 extension UIButton {
     func setBorderRadous(color: UIColor) {
@@ -14,5 +16,10 @@ extension UIButton {
         self.layer.cornerRadius = 5
         self.layer.borderWidth = 1
         self.layer.borderColor = color.cgColor
+    }
+    
+    func boderRadiousWithoutCollor() {
+        self.layer.cornerRadius = 10
+        self.clipsToBounds = true
     }
 }

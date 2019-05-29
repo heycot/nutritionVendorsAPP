@@ -14,29 +14,16 @@ class CollectionItemCell: UICollectionViewCell {
 
     @IBOutlet weak var itemImage: CustomImageView!
     @IBOutlet weak var itemName: UILabel!
-//    @IBOutlet weak var itemPrice: UILabel!
     @IBOutlet weak var itemRating: CosmosView!
-    @IBOutlet weak var numberOfReview: UILabel!
     
-//    lazy var cosmosView: CosmosView = {
-//        var view = CosmosView()
-//        return view
-//    }()
     
     func updateView(shopItemRe: ShopItemResponse) {
         setUpUI()
         
-        let urlStr = BASE_URL_IMAGE + shopItemRe.avatar! 
-        setupItemImage(urlStr: urlStr)
+        setupItemImage(id: shopItemRe.id ?? "", avatar: shopItemRe.avatar ?? "")
         itemName.text = shopItemRe.name! + " - " + shopItemRe.shop_name!
-//        itemPrice.text = "VND " + String(shopItemRe.price!)
-        numberOfReview.text = "(" + String(shopItemRe.comment_number!)  + ")"
-        
-        if shopItemRe.comment_number! == 0 {
-            itemRating.rating = 0.0
-        } else {
-            itemRating.rating = shopItemRe.rating! 
-        }
+        itemRating.rating = shopItemRe.rating! 
+        itemRating.text = "(" + String(shopItemRe.comment_number!)  + ")"
         
     }
     
@@ -45,7 +32,8 @@ class CollectionItemCell: UICollectionViewCell {
         itemRating.settings.updateOnTouch = false
     }
     
-    func setupItemImage(urlStr: String) {
-        itemImage.loadImageUsingUrlString(urlString: urlStr)
+    func setupItemImage(id: String, avatar: String) {
+        let folder = ReferenceImage.shopItem.rawValue + "\(id)/\(avatar)"
+        itemImage.displayImage(folderPath: folder)
     }
 }

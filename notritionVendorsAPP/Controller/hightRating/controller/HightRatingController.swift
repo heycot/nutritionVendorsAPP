@@ -8,21 +8,30 @@
 
 import UIKit
 import CCBottomRefreshControl
+import GoogleMaps
+import Firebase
+import PKHUD
+import YPImagePicker
 
 class HightRatingController: UIViewController {
 
     // outlets
     @IBOutlet weak var itemCollection: UICollectionView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var resultSearchNotification: UILabel!
+    @IBOutlet weak var searchBar: UIButton!
     
+    // location manager
+    var locationManager = CLLocationManager()
+    var didUpdateLocation: Bool = false
     
     // variables
-    var listShop = [Shop]()
     var listItem = [ShopItemResponse] ()
-    var currentListItem = [ShopItemResponse]()
+    var listCategory = [CategoryResponse]()
     
-    let searchBar = UISearchBar()
+    let headerId = "HeaderID"
+    var categoryId = 0
+    private var lastContentOffset: CGFloat = 0
+    
     lazy var refresher: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.tintColor = APP_COLOR
@@ -33,43 +42,54 @@ class HightRatingController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        resultSearchNotification.isHidden = true
-        activityIndicator.color = APP_COLOR
-        activityIndicator.startAnimating()
         
-        navigationController?.navigationBar.barTintColor = APP_COLOR
-        createSearchBar()
-        loadDataFromAPI(offset: 0)
+        
+        setupCurrentLocation()
         setUpCollectionView()
+        registerHeader()
+
+        resultSearchNotification.isHidden = true
+
+        navigationController?.navigationBar.barTintColor = APP_COLOR
+        findAllCategory()
+        loadDataFromAPI(offset: 0)
     }
     
     
+    func registerHeader() {
+        itemCollection.register(UINib(nibName: CellClassName.category.rawValue, bundle: nil), forCellWithReuseIdentifier: CellIdentifier.category.rawValue)
+
+    }
+    
     func setUpCollectionView() {
-        
         itemCollection.delegate = self
         itemCollection.dataSource = self
         itemCollection.bottomRefreshControl = refresher
+        
+        searchBar.adjustsImageWhenHighlighted = false
     }
     
-    
-    func createSearchBar() {
-        searchBar.showsCancelButton = false
-        searchBar.placeholder = " Search here"
-        searchBar.delegate = self
-        
-        self.navigationItem.titleView = searchBar
+    func findAllCategory() {
+        HUD.show(.progress)
+        CategoryService.instance.findAll { (data) in
+            guard let data = data else { return }
+            
+            self.listCategory = data
+            self.itemCollection.reloadData()
+            HUD.hide()
+        }
     }
     
     func loadDataFromAPI(offset: Int) {
-        
-        ShopItemService.shared.getHighRatingItem(offset: offset) { data in
+        HUD.show(.progress)
+        ShopItemService.instance.getHighRatingItem(offset: offset) { data in
             guard let data = data else {return }
             
             for item in data {
                 self.listItem.append(item)
             }
-            self.currentListItem = self.listItem
-            self.activityIndicator.stopAnimating()
+            
+            HUD.hide()
             self.itemCollection.reloadData()
         }
     }
@@ -79,50 +99,77 @@ class HightRatingController: UIViewController {
         loadDataFromAPI(offset: listItem.count)
         refresher.endRefreshing()
     }
+    
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is ViewItemController {
             let vc = segue.destination as? ViewItemController
             let index = sender as! Int
-            vc?.item = currentListItem[index]
+            vc?.item = listItem[index]
+            
+        } else if segue.destination is SearchController {
+            _ = segue.destination as? SearchController
+            
+        } else if segue.destination is CategoryController {
+            let vc = segue.destination as? CategoryController
+            let index = sender as! Int
+            vc?.category = listCategory[index]
         }
     }
-
+    
+    
+    @IBAction func searchBtnPressed(_ sender: Any) {
+        performSegue(withIdentifier: SegueIdentifier.highRatingToSearch.rawValue, sender: nil)
+    }
 }
 
 extension HightRatingController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-//        return 2
-        return 1
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return section == 0 ? listShop.count : listItem.count
-        return currentListItem.count
+        return section == 0 ? listCategory.count : listItem.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath) as? CollectionItemCell {
-//            cell.updateView(shopItemRe: listItem[ listItem.count - 1 - indexPath.row])
-            cell.updateView(shopItemRe: currentListItem[indexPath.row])
-            //            cell.setBorderRadious()
+        
+        if indexPath.section == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.category.rawValue, for: indexPath) as! CategoryCell
+                cell.updateView(category: listCategory[indexPath.row])
+                return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.highRatingItem.rawValue, for: indexPath) as! CollectionItemCell
+            cell.updateView(shopItemRe: listItem[indexPath.row])
             return cell
         }
-        return CollectionItemCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
-        performSegue(withIdentifier: SegueIdentifier.detailItem.rawValue, sender: indexPath.row)
+        
+        collectionView.deselectItem(at: indexPath, animated: false)
+        
+        if indexPath.section == 0 {
+            performSegue(withIdentifier: SegueIdentifier.highRatingToCategory.rawValue, sender: indexPath.row)
+        } else {
+            performSegue(withIdentifier: SegueIdentifier.highRatingToDetail.rawValue, sender: indexPath.row)
+        }
     }
-    
 }
+
 
 
 extension HightRatingController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellWidth = (UIScreen.main.bounds.size.width - 30)/2
-        return CGSize(width: cellWidth, height: 175)
+        if indexPath.section == 0 {
+            let cellWidth = (UIScreen.main.bounds.size.width - 50)/3
+            return CGSize(width: cellWidth, height: 90)
+        } else {
+            let cellWidth = (UIScreen.main.bounds.size.width - 30)/2
+            return CGSize(width: cellWidth, height: 175)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -132,55 +179,95 @@ extension HightRatingController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return CGFloat(10.0)
     }
+    
+
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+       let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! HeaderCollectionCell
+        if indexPath.section == 0 {
+            headerView.updateView(titleStr: "Categories")
+        } else {
+            
+            headerView.updateView(titleStr: "Foods")
+        }
+        
+       return headerView
+  }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: view.frame.width, height: 50)
+    }
+    
 }
 
-
-
-// handle UISearchBar
-extension HightRatingController: UISearchBarDelegate {
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        searchBar.endEditing(true)
-    }
+// extention for handle user's location
+extension HightRatingController {
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    // MARK - Map, Location
+    func setupCurrentLocation() {
         
-        activityIndicator.startAnimating()
-        ShopItemService.shared.searchItem(searchText: searchBar.text!.lowercased()) { data in
-            guard let data = data else {return }
-            
-            if data.count == 0 {
-                self.resultSearchNotification.textColor = APP_COLOR
-                self.resultSearchNotification.text = "There is no suitable food"
-                self.resultSearchNotification.isHidden = false
-                self.activityIndicator.stopAnimating()
-            } else {
-                self.currentListItem = data
-                self.activityIndicator.stopAnimating()
-                self.itemCollection.reloadData()
-            }
-            
-        }
-        searchBar.endEditing(true)
+        // User Location
+        locationManager.delegate = self
+        
+        // Start Location
+        accessLocationServices()
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        resultSearchNotification.isHidden = true
-        guard !(searchBar.text!.isEmpty) else {
-            currentListItem = listItem
-            itemCollection.reloadData()
+    func startUpdateLocation() {
+        didUpdateLocation = false
+        locationManager.startUpdatingLocation()
+    }
+    
+    func stopUpdateLocation() {
+        didUpdateLocation = true
+        locationManager.stopUpdatingLocation()
+    }
+}
+
+extension HightRatingController: CLLocationManagerDelegate {
+    
+    func handleDidUpdateLocation(location: CLLocation) {
+        guard !didUpdateLocation else {
+            stopUpdateLocation()
             return
         }
         
-        
-        currentListItem = listItem.filter({ (item) -> Bool in
-            item.name!.folding(options: .diacriticInsensitive, locale: .current).lowercased().contains(searchText.folding(options: .diacriticInsensitive, locale: .current).lowercased())
-        })
-        itemCollection.reloadData()
+        stopUpdateLocation()
+        AuthServices.instance.currentLocation = location
     }
     
-    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        
+    // Handle incoming location events.
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location: CLLocation = locations.last!
+        print("Location: \(location)")
+        handleDidUpdateLocation(location: location)
     }
+    
+    // Handle authorization for the location manager.
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .restricted:
+            print("Location access was restricted.")
+        case .denied:
+            print("User denied access to location.")
+        case .notDetermined:
+            print("Location status not determined.")
+        case .authorizedAlways: fallthrough
+        case .authorizedWhenInUse:
+            print("Location status is OK.")
+        }
+    }
+    
+    // Handle location manager errors.
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        locationManager.stopUpdatingLocation()
+        print("Error: \(error)")
+    }
+    
 }
 
+extension HightRatingController : LocationServicesProtocol {
+    func authorizedLocationServices() {
+        startUpdateLocation()
+    }
+}
 
