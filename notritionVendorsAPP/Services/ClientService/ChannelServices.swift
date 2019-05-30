@@ -13,11 +13,15 @@ class ChannelServices {
     
     static let instance = ChannelServices()
     
-    func checkChannel(channel: Channel, userID: String, completion: @escaping (String?) -> Void) {
+    func checkChannel(channel: Channel, userID: String, authID: String, completion: @escaping (String?) -> Void) {
         let db = Firestore.firestore()
-        var exists = false 
+        var exists = false
         
-        let docRef = db.collection("channels").whereField("is_with_shop", isEqualTo: channel.is_with_shop).whereField("users", arrayContains: userID)
+        var users = [String]()
+        users.append(userID)
+        users.append(authID)
+        
+        let docRef = db.collection("channels").whereField("is_with_shop", isEqualTo: channel.is_with_shop).whereField("users", isEqualTo: users)
         
         
         docRef.getDocuments { (document, error) in
