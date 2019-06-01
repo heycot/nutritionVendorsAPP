@@ -366,7 +366,7 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
 
 
                     cell.viewMore.addTarget(self, action: #selector(viewMorePressed), for: UIControl.Event.touchDown)
-                    cell.delivery.addTarget(self, action: #selector(deliveryPressed), for: UIControl.Event.touchDown)
+//                    cell.delivery.addTarget(self, action: #selector(deliveryPressed), for: UIControl.Event.touchDown)
                     cell.chatBtn.addTarget(self, action: #selector(chatBtnPressed), for: UIControl.Event.touchDown)
 
                     cell.selectionStyle = UITableViewCell.SelectionStyle.none;

@@ -329,22 +329,6 @@
             </objects>
             <point key="canvasLocation" x="1261" y="2334"/>
         </scene>
-        <!--AccountDetailStoryboardID-->
-        <scene sceneID="kZW-uL-rBr">
-            <objects>
-                <viewControllerPlaceholder storyboardName="AccountDetail" referencedIdentifier="AccountDetailStoryboardID" id="8ap-Zq-13Y" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7kK-fE-kxM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5770.289855072464" y="2625.6696428571427"/>
-        </scene>
-        <!--LoginLogoutStoryboardID-->
-        <scene sceneID="Uqc-JC-CBG">
-            <objects>
-                <viewControllerPlaceholder storyboardName="LogInAndLogOut" referencedIdentifier="LoginLogoutStoryboardID" id="kNg-Ir-EQw" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1zT-0o-lCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4071.0144927536235" y="2885.4910714285711"/>
-        </scene>
         <!--Category Controller-->
         <scene sceneID="8I9-Vg-tx7">
             <objects>
@@ -887,86 +871,6 @@
             </objects>
             <point key="canvasLocation" x="-1026" y="2235"/>
         </scene>
-        <!--Account Controller-->
-        <scene sceneID="Pvf-3K-9Vz">
-            <objects>
-                <viewController id="zI9-rC-n82" customClass="AccountController" customModule="notritionVendorsAPP" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="QvA-b6-VT9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uwE-vq-2hk">
-                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="sectionIndexBackgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="AccountCell" rowHeight="50" id="1i4-LY-N92" customClass="AccountCell" customModule="notritionVendorsAPP" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1i4-LY-N92" id="vhn-8f-nf0">
-                                            <rect key="frame" x="0.0" y="0.0" width="376" height="49.666666666666664"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="MdE-9K-Syw">
-                                                    <rect key="frame" x="20" y="9.6666666666666643" width="356" height="30"/>
-                                                    <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pSr-R8-eaj" customClass="CustomImageView" customModule="notritionVendorsAPP" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <color key="tintColor" red="0.15770708589999999" green="0.59793636610000001" blue="0.62121031149999995" alpha="0.9472121147" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="30" id="iEe-W7-TTY"/>
-                                                            </constraints>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ws3-Fh-E0O">
-                                                            <rect key="frame" x="45" y="0.0" width="311" height="30"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="QpP-9U-E4Y"/>
-                                                        <constraint firstItem="ws3-Fh-E0O" firstAttribute="height" secondItem="pSr-R8-eaj" secondAttribute="height" id="R9w-Ct-Gci"/>
-                                                    </constraints>
-                                                </stackView>
-                                            </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstItem="MdE-9K-Syw" firstAttribute="leading" secondItem="vhn-8f-nf0" secondAttribute="leading" constant="20" id="fnH-K1-6X8"/>
-                                                <constraint firstAttribute="bottom" secondItem="MdE-9K-Syw" secondAttribute="bottom" constant="10" id="nkH-dc-b0D"/>
-                                                <constraint firstAttribute="trailing" secondItem="MdE-9K-Syw" secondAttribute="trailing" id="znB-QV-Frp"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="icon" destination="pSr-R8-eaj" id="LwQ-OK-mSP"/>
-                                            <outlet property="propertyName" destination="ws3-Fh-E0O" id="5Ub-CY-TBM"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="uwE-vq-2hk" secondAttribute="bottom" id="El1-Ik-SPu"/>
-                            <constraint firstItem="uwE-vq-2hk" firstAttribute="trailing" secondItem="ry4-cE-Fov" secondAttribute="trailing" id="Oer-VV-2oo"/>
-                            <constraint firstItem="uwE-vq-2hk" firstAttribute="centerX" secondItem="QvA-b6-VT9" secondAttribute="centerX" id="P2z-2e-ukQ"/>
-                            <constraint firstItem="uwE-vq-2hk" firstAttribute="top" secondItem="ry4-cE-Fov" secondAttribute="top" id="diV-tq-fhe"/>
-                            <constraint firstItem="uwE-vq-2hk" firstAttribute="leading" secondItem="ry4-cE-Fov" secondAttribute="leading" id="ohk-hi-5kR"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="ry4-cE-Fov"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="nbs-qC-T3Z"/>
-                    <connections>
-                        <outlet property="tableView" destination="uwE-vq-2hk" id="Ba5-qM-sub"/>
-                        <segue destination="8ap-Zq-13Y" kind="show" identifier="AccountToDetail" id="Cet-ep-kkc"/>
-                        <segue destination="kNg-Ir-EQw" kind="show" identifier="AccountToLogin" id="VVi-v8-sfC"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oXM-62-nyg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="7408.6956521739139" y="2844.6428571428569"/>
-        </scene>
         <!--Shop-->
         <scene sceneID="Y4g-FC-RLh">
             <objects>
@@ -1025,7 +929,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" text="Callie Nguyen" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A6y-8Q-9c9">
+                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="top" text="Callie Nguyen" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A6y-8Q-9c9">
                                 <rect key="frame" x="160.66666666666666" y="258" width="93" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="0XI-AF-Fl1"/>

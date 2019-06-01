@@ -15,7 +15,7 @@ class ShopItemService {
     
     func getHighRatingItem(offset: Int, completion: @escaping ([ShopItemResponse]?) -> Void) {
         let db = Firestore.firestore()
-        let docRef = db.collection("shop_item")
+        let docRef = db.collection("shop_item").whereField("status", isEqualTo: 1)
         docRef.order(by: "comment_number", descending: true)
               .order(by: "rating", descending: true)
         docRef.limit(to: 20)
@@ -50,7 +50,7 @@ class ShopItemService {
     func findAllByCategory(categoryID: String, offset: Int,  completion: @escaping ([ShopItemResponse]?) -> Void) {
         let db = Firestore.firestore()
         
-        let cateRef = db.collection("item").whereField("category_id", isEqualTo: categoryID).limit(to: 20)
+        let cateRef = db.collection("item").whereField("category_id", isEqualTo: categoryID).whereField("status", isEqualTo: 1)
         
         
         cateRef.getDocuments { (document, err) in
@@ -110,7 +110,7 @@ class ShopItemService {
                         newCommentNumber += 1
                     }
                     
-                    let newRating = ((shopItem.rating ?? 0 * Double(newCommentNumber) ) + (cmt.rating ?? 3.0)) / Double(newCommentNumber)
+                    let newRating = ((shopItem.rating ?? 0 * Double(shopItem.comment_number ?? 0) ) + (cmt.rating ?? 3.0)) / Double(newCommentNumber)
                     
                     let values = ["comment_number": newCommentNumber as Any,
                                   "rating": newRating as Any] as [String : Any]
@@ -223,7 +223,7 @@ class ShopItemService {
     
     func findAllByShop(shopId: String, offset: Int, completion: @escaping ([ShopItemResponse]?) -> Void) {
         let db = Firestore.firestore()
-        let docRef = db.collection("shop_item").whereField("shop_id", isEqualTo: shopId)
+        let docRef = db.collection("shop_item").whereField("shop_id", isEqualTo: shopId).whereField("status", isEqualTo: 1)
         docRef.order(by: "comment_number", descending: true)
             .order(by: "rating", descending: true)
             .limit(to: 20)

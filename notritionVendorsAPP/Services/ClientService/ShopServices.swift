@@ -18,7 +18,7 @@ class ShopService {
         let userID = Auth.auth().currentUser!.uid
         
         let db = Firestore.firestore()
-        let docRef = db.collection("shop").whereField("user_id", isEqualTo: userID)
+        let docRef = db.collection("shop").whereField("user_id", isEqualTo: userID).whereField("status", isEqualTo: 1)
         
         docRef.getDocuments(completion: { (document, error) in
             if let document = document {
@@ -61,7 +61,7 @@ class ShopService {
         let greaterLon = longitude + (lon * distance)
 
         let db = Firestore.firestore()
-        let shopRef = db.collection("shop")
+        let shopRef = db.collection("shop").whereField("status", isEqualTo: 1)
         shopRef.whereField("latitude", isGreaterThan: "\(lowerLat)").whereField("latitude", isLessThan: "\(greaterLat)")
         shopRef.whereField("longitude", isGreaterThan: "\(lowerLon)").whereField("longitude", isLessThan: "\(greaterLon)")
         
