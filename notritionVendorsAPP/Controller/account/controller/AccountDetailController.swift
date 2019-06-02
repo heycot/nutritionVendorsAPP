@@ -260,7 +260,6 @@ extension AccountDetailController: UITableViewDelegate, UITableViewDataSource {
         tableView.rowHeight = UITableView.automaticDimension
         
         getUser()
-        isActivity = true
         super.viewWillAppear(true)
         tableView.reloadData()
     }
