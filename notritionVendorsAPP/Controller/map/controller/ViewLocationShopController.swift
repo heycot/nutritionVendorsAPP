@@ -63,6 +63,7 @@ class ViewLocationShopController: UIViewController {
     
     var isFromShop = false
     var zoomLevelListShop: Float = 20.0
+    var distanceDuration = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -169,7 +170,7 @@ class ViewLocationShopController: UIViewController {
     }
 
     @IBAction func getDirectionPressed(_ sender: Any) {
-        let locationCoordinate2D = CLLocationCoordinate2D(latitude: self.currentShop?.longitude ?? 0, longitude: self.currentShop?.longitude ?? 0)
+        let locationCoordinate2D = CLLocationCoordinate2D(latitude: self.currentShop?.latitude ?? 0, longitude: self.currentShop?.longitude ?? 0)
         createRoute(locationCoordinate2D)
     }
     // MARK: - APIs call
@@ -193,7 +194,7 @@ class ViewLocationShopController: UIViewController {
 
         Mapmanager.getDirections(origin, destination: destinationString, success: { (response) in
             if let routes = response?.routes, let selectedRoute = routes.first {
-                _ = self.handleGetDirectionsSuccessfully(selectedRoute: selectedRoute)
+                self.distanceDuration = self.handleGetDirectionsSuccessfully(selectedRoute: selectedRoute).distance
                 success()
             } else {
                 failed(nil)
@@ -255,11 +256,18 @@ class ViewLocationShopController: UIViewController {
         routePolyline.strokeColor = UIColor.blue
         routePolyline.map = mapView
         
-        if isFromShop {
+        
+        if self.distanceDuration <= 7 {
             configCamera(location: AuthServices.instance.currentLocation ?? CLLocation(latitude: 0.0, longitude: 0.0), zoomLevel: zoomLevel)
         } else {
             configCamera(location: AuthServices.instance.currentLocation ?? CLLocation(latitude: 0.0, longitude: 0.0), zoomLevel: 12)
         }
+        
+//        if isFromShop {
+//            configCamera(location: AuthServices.instance.currentLocation ?? CLLocation(latitude: 0.0, longitude: 0.0), zoomLevel: zoomLevel)
+//        } else {
+//            configCamera(location: AuthServices.instance.currentLocation ?? CLLocation(latitude: 0.0, longitude: 0.0), zoomLevel: 12)
+//        }
     }
 
     func clearRoute() {
