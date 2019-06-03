@@ -285,7 +285,7 @@ extension AccountDetailController: UITableViewDelegate, UITableViewDataSource {
                 
             } else if indexPath?.row ==  (index - 1) {
                 performSegue(withIdentifier: SegueIdentifier.accountToPassword.rawValue, sender: nil)
-            } else {
+            } else if indexPath?.row == ( index - 2){
                 performSegue(withIdentifier: SegueIdentifier.accountToEditInfor.rawValue, sender: nil)
             }
         }

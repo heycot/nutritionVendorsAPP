@@ -29,7 +29,7 @@ class ActivityCell: UITableViewCell {
     }
     
     func updateView(comment: CommentResponse) {
-        activityImage.displayImage(folderPath: ReferenceImage.shop.rawValue + "\(comment.shop_item_id ?? "")/\(comment.shop_item_avatar ?? "")")
+        activityImage.displayImage(folderPath: ReferenceImage.shopItem.rawValue + "\(comment.shop_item_id ?? "")/\(comment.shop_item_avatar ?? "")")
         activityTitle.text = comment.shop_item_name
         contentTitle.text = comment.title!
         contentRating.text = String(format: "%0.2f", comment.rating!)
