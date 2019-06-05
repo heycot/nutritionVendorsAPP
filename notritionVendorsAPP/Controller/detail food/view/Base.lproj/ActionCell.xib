@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="501" height="50.5"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2e-sq-fc2">
-                                <rect key="frame" x="0.0" y="0.0" width="250.5" height="50.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="167" height="50.5"/>
                                 <color key="backgroundColor" red="0.93205014556584054" green="0.59336709901643381" blue="0.14456778072336396" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="yEh-ti-kcS"/>
@@ -35,13 +35,25 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0bT-H8-bfr">
-                                <rect key="frame" x="250.5" y="0.0" width="250.5" height="50.5"/>
+                                <rect key="frame" x="167" y="0.0" width="167" height="50.5"/>
                                 <color key="backgroundColor" red="0.77647058820000003" green="0.0039215686269999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="kgU-7S-l6d"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Chat">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fm2-9a-BcK">
+                                <rect key="frame" x="334" y="0.0" width="167" height="50.5"/>
+                                <color key="backgroundColor" red="0.93205014559999999" green="0.59336709899999995" blue="0.14456778070000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="uOv-Xi-88q"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Call">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -58,6 +70,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="call" destination="fm2-9a-BcK" id="DqA-Ap-dCg"/>
                 <outlet property="chatBtn" destination="0bT-H8-bfr" id="8Ia-zE-5O0"/>
                 <outlet property="viewMore" destination="s2e-sq-fc2" id="zyh-JM-r8u"/>
             </connections>

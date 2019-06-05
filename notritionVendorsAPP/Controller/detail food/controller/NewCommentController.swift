@@ -29,7 +29,7 @@ class NewCommentController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Done", comment: ""), style: .done, target: self, action: #selector(donePressed))
         
-        shopItemName.text = NSLocalizedString("Food :", comment: "") + " \(shopItem.name ?? "")"
+        shopItemName.text = NSLocalizedString("Food :", comment: "") + " \(lastComment.shop_item_name ?? "")"
         
         address.text = NSLocalizedString("Shop :", comment: "") + " \( shopItem.shop_name ?? "")"
 

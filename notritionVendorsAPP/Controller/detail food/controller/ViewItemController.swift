@@ -214,8 +214,11 @@ class ViewItemController: UIViewController {
     }
     
     
-    @objc func deliveryPressed(btn: UIButton) {
-        performSegueFunc(identifier: SegueIdentifier.detailToDelivery.rawValue)
+    @objc func callPressed(btn: UIButton) {
+//        let phoneNumber = self.item.phone ?? "0336025122"
+        let phoneNumber = "0395793687"
+        guard let number = URL(string: "tel://" + phoneNumber) else { return }
+        UIApplication.shared.open(number)
     }
     
     @objc func chatBtnPressed(btn: UIButton) {
@@ -366,7 +369,7 @@ extension ViewItemController: UITableViewDelegate, UITableViewDataSource {
 
 
                     cell.viewMore.addTarget(self, action: #selector(viewMorePressed), for: UIControl.Event.touchDown)
-//                    cell.delivery.addTarget(self, action: #selector(deliveryPressed), for: UIControl.Event.touchDown)
+                    cell.call.addTarget(self, action: #selector(callPressed), for: UIControl.Event.touchDown)
                     cell.chatBtn.addTarget(self, action: #selector(chatBtnPressed), for: UIControl.Event.touchDown)
 
                     cell.selectionStyle = UITableViewCell.SelectionStyle.none;

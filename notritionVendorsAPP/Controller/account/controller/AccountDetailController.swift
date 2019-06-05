@@ -193,6 +193,7 @@ class AccountDetailController: UIViewController {
             
             vc?.lastComment =  listComment[index]
             vc?.isNew = false
+            
         } else if segue.destination is ChangePasswordController {
             
         } else if segue.destination is EditInforUserController {

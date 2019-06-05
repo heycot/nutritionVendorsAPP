@@ -46,6 +46,12 @@ class ItemInShopController: UIViewController {
         }
     }
     
+    @IBAction func mapBtnPressed(_ sender: Any) {
+        
+        self.performSegueFunc(identifier: "ItemInShopToMap", sender: nil)
+        
+    }
+    
     func getShop() {
         HUD.show(.progress)
         ShopService.instance.getOneById(shopId: shop.id ?? "") { (data) in
@@ -153,6 +159,11 @@ class ItemInShopController: UIViewController {
             
         } else if segue.destination is SearchController {
             _ = segue.destination as? SearchController
+        } else if segue.destination is ViewLocationShopController {
+            let vc = segue.destination as? ViewLocationShopController
+            
+            vc?.currentShop = self.shop
+            vc?.isFromShop = false
         }
     }
     

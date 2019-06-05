@@ -10,7 +10,7 @@ import UIKit
 
 class ActionCell: UITableViewCell {
     @IBOutlet weak var viewMore: UIButton!
-    @IBOutlet weak var delivery: UIButton!
+    @IBOutlet weak var call: UIButton!
     @IBOutlet weak var chatBtn: UIButton!
     
     override func awakeFromNib() {

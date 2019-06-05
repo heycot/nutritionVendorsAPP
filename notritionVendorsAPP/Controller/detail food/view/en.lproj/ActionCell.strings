@@ -2,8 +2,8 @@
 /* Class = "UIButton"; normalTitle = "Chat"; ObjectID = "0bT-H8-bfr"; */
 "0bT-H8-bfr.normalTitle" = "Chat";
 
-/* Class = "UIButton"; normalTitle = "Delivery"; ObjectID = "bEi-CX-Izn"; */
-"bEi-CX-Izn.normalTitle" = "Delivery";
+/* Class = "UIButton"; normalTitle = "Call"; ObjectID = "bEi-CX-Izn"; */
+"bEi-CX-Izn.normalTitle" = "Call";
 
 /* Class = "UIButton"; normalTitle = "View more"; ObjectID = "s2e-sq-fc2"; */
 "s2e-sq-fc2.normalTitle" = "View more";
