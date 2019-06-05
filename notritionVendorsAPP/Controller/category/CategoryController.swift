@@ -45,7 +45,7 @@ class CategoryController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
-        tableView.bottomRefreshControl = refresher
+//        tableView.bottomRefreshControl = refresher
         
         tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.rowHeight = 100

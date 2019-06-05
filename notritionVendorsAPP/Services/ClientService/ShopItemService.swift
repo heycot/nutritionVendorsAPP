@@ -52,6 +52,8 @@ class ShopItemService {
         
         let docRef = db.collection("shop_item").whereField("category_id", isEqualTo: categoryID)
         
+        docRef.order(by: "rating", descending: true)
+        
         docRef.getDocuments(completion: { (document, error) in
            if let document = document {
                var shopItemList = [ShopItemResponse]()
