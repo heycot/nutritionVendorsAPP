@@ -193,7 +193,7 @@ extension ItemInShopController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
-//        performSegueFunc(identifier: SegueIdentifier.favoriteToDetail.rawValue, sender: indexPath.row)
+        performSegueFunc(identifier: "ItemInShopToDetailItem", sender: indexPath.row)
     }
     
     
