@@ -83,7 +83,18 @@ class HightRatingController: UIViewController {
     func loadDataFromAPI(offset: Int) {
         HUD.show(.progress)
         ShopItemService.instance.getHighRatingItem(offset: offset) { data in
-            guard let data = data else {return }
+            guard var data = data else {return }
+            
+//             data.sort(by: {$0.rating! < $1.rating! })
+            
+            data.sort {
+                if $0.comment_number == $1.comment_number { // first, compare by last names
+                    return $0.rating! > $1.rating!
+                }
+                else {
+                    return $0.comment_number! > $1.comment_number!
+                }
+            }
             
             for item in data {
                 self.listItem.append(item)

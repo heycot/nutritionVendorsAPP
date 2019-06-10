@@ -103,7 +103,7 @@ class ViewItemController: UIViewController {
         appendItemValue(icon: Icon.shop_icon.rawValue, value: (item.shop_name ?? "" ))
         appendItemValue(icon: Icon.picture.rawValue, value: "\(item.images?.count ?? 0) " + NSLocalizedString("photos", comment: ""))
 //        appendItemValue(icon: Icon.address_icon.rawValue, value: (item.shop!.location!.address!  ))
-        appendItemValue(icon: Icon.phone_icon.rawValue, value: (item.phone ?? "" ))
+//        appendItemValue(icon: Icon.phone_icon.rawValue, value: (item.phone ?? "" ))
         
         setUPTableView()
         self.tabelView.reloadData()

@@ -16,9 +16,6 @@ class ShopItemService {
     func getHighRatingItem(offset: Int, completion: @escaping ([ShopItemResponse]?) -> Void) {
         let db = Firestore.firestore()
         let docRef = db.collection("shop_item").whereField("status", isEqualTo: 1)
-        docRef.order(by: "comment_number", descending: true)
-              .order(by: "rating", descending: true)
-        docRef.limit(to: 20)
         
         docRef.getDocuments(completion: { (document, error) in
             if let document = document {

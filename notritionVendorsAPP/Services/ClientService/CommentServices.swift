@@ -43,7 +43,7 @@ class CommentServices {
                 
             } else {
                 DispatchQueue.main.async {
-                    completion(nil)
+                    completion([])
                 }
                 print("User have no comment")
             }
@@ -78,7 +78,7 @@ class CommentServices {
                 
             } else {
                 DispatchQueue.main.async {
-                    completion(nil)
+                    completion([])
                 }
                 print("User have no comment")
             }
@@ -226,7 +226,7 @@ class CommentServices {
                 
             } else {
                 DispatchQueue.main.async {
-                    completion(nil)
+                    completion([])
                 }
                 print("User have no comment")
             }
