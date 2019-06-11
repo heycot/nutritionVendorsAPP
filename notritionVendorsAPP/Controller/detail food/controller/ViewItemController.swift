@@ -74,7 +74,9 @@ class ViewItemController: UIViewController {
         HUD.show(.progress)
         
         CommentServices.instance.getCommentsByShopItem(shopItemID: item.id ?? "") { (data) in
-            guard let data = data else {return }
+            guard var data = data else {return }
+            
+            data.sort(by: {$0.update_date! > $1.update_date! })
             
             HUD.hide()
             self.comments = data

@@ -93,7 +93,7 @@ class SearchController: UIViewController {
         HUD.show(.progress)
         
         SearchServices.instance.search(searchText: searchBar.text!.lowercased()) { (data) in
-            guard let data = data else { return }
+            guard let data = data else {return }
             self.listItem = data
             
             HUD.hide()

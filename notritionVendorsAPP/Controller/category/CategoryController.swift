@@ -56,12 +56,24 @@ class CategoryController: UIViewController {
         ShopItemService.instance.findAllByCategory(categoryID: category.id ?? "", offset: offset) { (data) in
             guard let data = data else {return }
             
-            for item in data {
-                self.currentListItem.append(item)
-            }
+            self.currentListItem = data
             HUD.hide()
-            self.tableView.reloadData()
+            self.showData()
         }
+    }
+    
+    func showData() {
+        
+        currentListItem.sort {
+            if $0.comment_number == $1.comment_number { // first, compare by last names
+                return $0.rating! > $1.rating!
+            }
+            else {
+                return $0.comment_number! > $1.comment_number!
+            }
+        }
+        
+        self.tableView.reloadData()
     }
     
     @objc

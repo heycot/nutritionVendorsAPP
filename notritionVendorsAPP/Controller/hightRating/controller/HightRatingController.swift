@@ -83,26 +83,27 @@ class HightRatingController: UIViewController {
     func loadDataFromAPI(offset: Int) {
         HUD.show(.progress)
         ShopItemService.instance.getHighRatingItem(offset: offset) { data in
-            guard var data = data else {return }
+            guard let data = data else {return }
             
-//             data.sort(by: {$0.rating! < $1.rating! })
-            
-            data.sort {
-                if $0.comment_number == $1.comment_number { // first, compare by last names
-                    return $0.rating! > $1.rating!
-                }
-                else {
-                    return $0.comment_number! > $1.comment_number!
-                }
-            }
-            
-            for item in data {
-                self.listItem.append(item)
-            }
-            
+            self.listItem = data
             HUD.hide()
-            self.itemCollection.reloadData()
+            self.showData()
         }
+    }
+    
+    func showData() {
+        
+        listItem.sort {
+            if $0.comment_number == $1.comment_number { // first, compare by last names
+                return $0.rating! > $1.rating!
+            }
+            else {
+                return $0.comment_number! > $1.comment_number!
+            }
+        }
+        
+        
+        self.itemCollection.reloadData()
     }
     
     @objc
@@ -156,6 +157,11 @@ extension HightRatingController: UICollectionViewDelegate, UICollectionViewDataS
             cell.updateView(shopItemRe: listItem[indexPath.row])
             return cell
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.showData()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
