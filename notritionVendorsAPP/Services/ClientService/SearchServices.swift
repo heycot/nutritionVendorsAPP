@@ -16,8 +16,9 @@ class SearchServices {
 
     func search(searchText: String, completion: @escaping ([SearchResponse]?) -> Void) {
         var results = [SearchResponse]()
+        let searchT = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        let searchConvert = String.convertVietNam(text: searchText)
+        let searchConvert = String.convertVietNam(text: searchT)
         
         let db = Firestore.firestore()
         
