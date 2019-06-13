@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct SearchResponse: Decodable, Hashable{
     var entity_id: String?
@@ -14,6 +15,16 @@ struct SearchResponse: Decodable, Hashable{
     var address: String?
     var is_shop: Int?
     var avatar: String?
+    var longitude: Double?
+    var latitude: Double?
+    
+    var distance: Double? {
+        if (AuthServices.instance.currentLocation != nil) {
+            let coordinate₀ = CLLocation(latitude: self.latitude ?? 0.0, longitude: self.longitude ?? 0.0)
+            return coordinate₀.distance(from: AuthServices.instance.currentLocation!)
+        }
+        return nil
+    }
     
     
     init( entity_id: String, entity_name: String, address: String, is_shop: Int, avatar: String) {
@@ -27,4 +38,23 @@ struct SearchResponse: Decodable, Hashable{
     init() {
         self.init(entity_id: "", entity_name: "", address: "", is_shop: 0, avatar: "")
     }
+    
+    func getDistance(currlocation: CLLocation?) -> String {
+        var distance =  ""
+        if self.latitude == 0.0, self.longitude == 0.0 { return "Unknown" }
+        guard let userLocation = currlocation else {  return "Unknown"  }
+        
+        let coordinate₀ = CLLocation(latitude: self.latitude ?? 0.0, longitude: self.longitude ?? 0.0)
+        
+        let distanceInMeters = coordinate₀.distance(from: userLocation)
+        if distanceInMeters < 1000 {
+            distance = String(format: " %.2f ", distanceInMeters) + " M"
+        } else {
+            distance = String(format: " %.2f ", distanceInMeters.inKilometers()) + " KM"
+        }
+        
+        return distance
+    }
+    
 }
+

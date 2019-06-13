@@ -93,7 +93,8 @@ class SearchController: UIViewController {
         HUD.show(.progress)
         
         SearchServices.instance.search(searchText: searchBar.text!.lowercased()) { (data) in
-            guard let data = data else {return }
+            guard var data = data else {return }
+            data.sort(by: {$0.distance! < $1.distance! })
             self.listItem = data
             
             HUD.hide()

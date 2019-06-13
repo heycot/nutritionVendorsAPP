@@ -703,21 +703,28 @@
                                                             <rect key="frame" x="75" y="0.0" width="329" height="79.666666666666671"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfh-mu-5DP">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="329" height="40"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="329" height="26.666666666666668"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mmc-dN-ULd">
-                                                                    <rect key="frame" x="0.0" y="40" width="329" height="39.666666666666657"/>
+                                                                    <rect key="frame" x="0.0" y="26.666666666666664" width="329" height="26.333333333333336"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RO8-m1-646">
+                                                                    <rect key="frame" x="0.0" y="52.999999999999993" width="329" height="26.666666666666664"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                    <color key="textColor" red="0.050980392159999999" green="0.61176470589999998" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="mmc-dN-ULd" firstAttribute="width" secondItem="w0E-oa-az9" secondAttribute="width" id="8YW-tf-hFO"/>
                                                                 <constraint firstItem="yfh-mu-5DP" firstAttribute="width" secondItem="w0E-oa-az9" secondAttribute="width" id="Mwa-BG-gQQ"/>
+                                                                <constraint firstItem="RO8-m1-646" firstAttribute="width" secondItem="w0E-oa-az9" secondAttribute="width" id="QLl-pb-lxn"/>
                                                             </constraints>
                                                         </stackView>
                                                     </subviews>
@@ -732,6 +739,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="address" destination="mmc-dN-ULd" id="4AX-Ov-tsz"/>
+                                            <outlet property="distance" destination="RO8-m1-646" id="5KI-1U-dl4"/>
                                             <outlet property="itemImage" destination="RRt-Jl-ASr" id="Huc-WS-bOt"/>
                                             <outlet property="name" destination="yfh-mu-5DP" id="tCh-oX-cQ4"/>
                                         </connections>

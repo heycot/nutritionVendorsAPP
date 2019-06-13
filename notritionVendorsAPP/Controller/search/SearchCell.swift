@@ -13,6 +13,7 @@ class SearchCell: UITableViewCell {
     @IBOutlet weak var itemImage: CustomImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var address: UILabel!
+    @IBOutlet weak var distance: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,6 +36,7 @@ class SearchCell: UITableViewCell {
         itemImage.displayImage(folderPath: folder)
         name.text = item.entity_name ?? ""
         address.text = item.address ?? ""
+        distance.text = NSLocalizedString("Distance: ", comment: "")  + item.getDistance(currlocation: AuthServices.instance.currentLocation)
     }
     
 

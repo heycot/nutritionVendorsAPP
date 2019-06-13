@@ -24,6 +24,9 @@ class RecentResponse : Decodable {
     var shop_name:  String?
     var address:    String?
     
+    var longitude: Double?
+    var latitude: Double?
+    
     
     func convertToSearchResponse() -> SearchResponse {
         var search = SearchResponse()
@@ -33,6 +36,8 @@ class RecentResponse : Decodable {
         search.address = self.address
         search.entity_name = "\(self.name ?? "") - \(self.shop_name ?? "")"
         search.avatar = self.avatar
+        search.longitude = self.longitude
+        search.latitude = self.latitude
         
         return search
     }

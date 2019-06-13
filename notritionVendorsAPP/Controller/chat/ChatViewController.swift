@@ -136,24 +136,30 @@ final class ChatViewController: MessagesViewController {
     
     
     @objc private func cameraButtonPressed() {
-        var config = YPImagePickerConfiguration()
-        config.library.maxNumberOfItems = 10
-        let picker = YPImagePicker(configuration: config)
-        self.present(picker, animated: true, completion: nil)
         
-        picker.didFinishPicking { [unowned picker] items, cancelled in
-            
-            for item in items {
-                switch item {
-                case .photo(let photo):
-                    print("pick image")
-                    self.sendPhoto(photo.image)
-                case .video(let video):
-                    print(video)
-                }
-            }
-            picker.dismiss(animated: true, completion: nil)
-        }
+        let myPickerController = UIImagePickerController()
+        myPickerController.delegate = self;
+        myPickerController.sourceType =  UIImagePickerController.SourceType.photoLibrary
+        self.present(myPickerController, animated: true, completion: nil)
+        
+//        var config = YPImagePickerConfiguration()
+//        config.library.maxNumberOfItems = 10
+//        let picker = YPImagePicker(configuration: config)
+//        self.present(picker, animated: true, completion: nil)
+//
+//        picker.didFinishPicking { [unowned picker] items, cancelled in
+//
+//            for item in items {
+//                switch item {
+//                case .photo(let photo):
+//                    print("pick image")
+//                    self.sendPhoto(photo.image)
+//                case .video(let video):
+//                    print(video)
+//                }
+//            }
+//            picker.dismiss(animated: true, completion: nil)
+//        }
     }
     
     
@@ -401,3 +407,22 @@ extension ChatViewController: MessageInputBarDelegate {
 //    }
 //
 //}
+
+
+
+extension ChatViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        }
+        
+        self.sendPhoto(selectedImage)
+        dismiss(animated: true, completion: nil)
+        
+    }
+}

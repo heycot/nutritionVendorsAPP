@@ -120,7 +120,9 @@ class RecentService {
                     "avatar": item.avatar as Any,
                     "shop_id": item.shop_id as Any,
                     "shop_name": item.shop_name as Any,
-                    "address": item.address as Any] as [String : Any]
+                    "address": item.address as Any,
+                    "longitude": item.longitude as Any,
+                    "latitude": item.latitude as Any] as [String : Any]
         
         let db = Firestore.firestore()
         var ref: DocumentReference? = nil

@@ -215,17 +215,23 @@ class AccountDetailController: UIViewController {
     }
     
     @IBAction func avatarBtnPressed(_ sender: Any) {
-        let picker = YPImagePicker()
-        picker.didFinishPicking { [unowned picker] items, _ in
-            if let photo = items.singlePhoto {
-                
-                self.userAvatar.image = photo.image
-                self.userAvatar.setRounded(color: .white)
-                self.updateAvatar(image: photo.image)
-            }
-            picker.dismiss(animated: true, completion: nil)
-        }
-        present(picker, animated: true, completion: nil)
+        
+        let myPickerController = UIImagePickerController()
+        myPickerController.delegate = self;
+        myPickerController.sourceType =  UIImagePickerController.SourceType.photoLibrary
+        self.present(myPickerController, animated: true, completion: nil)
+        
+//        let picker = YPImagePicker()
+//        picker.didFinishPicking { [unowned picker] items, _ in
+//            if let photo = items.singlePhoto {
+//
+//                self.userAvatar.image = photo.image
+//                self.userAvatar.setRounded(color: .white)
+//                self.updateAvatar(image: photo.image)
+//            }
+//            picker.dismiss(animated: true, completion: nil)
+//        }
+//        present(picker, animated: true, completion: nil)
     }
 }
 
@@ -314,4 +320,25 @@ extension AccountDetailController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+}
+
+
+
+extension AccountDetailController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        }
+        
+        self.userAvatar.image = selectedImage
+        self.userAvatar.setRounded(color: .white)
+        self.updateAvatar(image: selectedImage)
+        dismiss(animated: true, completion: nil)
+        
+    }
 }
